@@ -22,6 +22,8 @@ Alexander Toshchev).
 
 ## Third-party code
 
-`memristor_hw/MemriBoard/` is a copy of the upstream MemriBoard simulator
-(https://github.com/neurocomputer/MemriBoard, GPLv3) that our experiment code
-depends on directly. See `THIRD_PARTY_NOTICE.md` for details.
+`memristor_hw/MemriBoard/` is a **git submodule** pointing to the upstream MemriBoard
+simulator (https://github.com/neurocomputer/MemriBoard, GPLv3) that our experiment code
+depends on directly. Clone with `--recurse-submodules`, or run
+`git submodule update --init --recursive` after a plain clone. See
+`THIRD_PARTY_NOTICE.md` for details.
