@@ -1,0 +1,43 @@
+{
+  "prepared_utc": "2026-10-14T19:45:03.078350+00:00",
+  "status": "ready_for_human_code_review",
+  "source": "simulator",
+  "hardware_io_performed": false,
+  "all_four_phases_completed": true,
+  "integrity_and_independent_arithmetic_passed": true,
+  "scientific_criteria_all_passed": false,
+  "source_and_results_commit": "5fd957e",
+  "pre_cleanup_restore_commit": "067c4b7",
+  "raw_records": 2681040,
+  "raw_sha256": "75b83485c4aff7dbe85f7091c2e07db3803205cdd583a79fb445d88c70be5910",
+  "archive_parts": 28,
+  "raw_bytes": 1840585982,
+  "stored_gzip_bytes": 114018578,
+  "report_sha256": {
+    "results/simulator/20261014T184351Z_211cd2c9/audit.json": "645922d4fd567ed4c18bd3610855b5ee9dd4e20caed3d88c8c00325f17edf4d7",
+    "results/simulator/20261014T184351Z_211cd2c9/audit_packed.json": "e95942d6e143648f0f3b92b78242264fd2dc286b9a5ae568a0afc4a8de86318b",
+    "results/simulator/20261014T184351Z_211cd2c9/phase1_independent_audit.json": "74d8d1ee5f12cfde8efd981151c725775ba85f1e62df19bf9239301ee5322651",
+    "results/simulator/20261014T184351Z_211cd2c9/phase2_independent_audit.json": "2f4effa559f2d547f1043bcc290af79d1fafb224d691b1bbc16f318975b1db03",
+    "results/simulator/20261014T184351Z_211cd2c9/phase3_independent_audit.json": "0763d87dedd163ff4f121c23f9847e08e1291dadbddf1e4d7b702d3564f0f444",
+    "results/simulator/20261014T184351Z_211cd2c9/phase4_independent_audit.json": "ea5e97f98fcaa10d346b7a0c9f6a477b703929874e6c3cc91544fa294ed8f878",
+    "results/simulator/20261014T184351Z_211cd2c9/raw_independent_audit.json": "b4cfc688d6566906a9330d6e53a6fa8def6730d303714b5fd4f728f8bef508c4",
+    "results/simulator/20261014T184351Z_211cd2c9/scientific_outcomes.json": "fffda027260cbc5bed03cd7bfba1bff9ffd610db20821b9ef2f74c439576c8c7",
+    "results/simulator/20261014T184351Z_211cd2c9/protocol_notes.json": "70a095b4d3c6ff693c8b93fac907b54626b4b6c3a7c972e8b9fe9c2d812e975d",
+    "results/simulator/20261014T184351Z_211cd2c9/trace_storage.json": "0ba63ced70b246f75c62d8f567ae19fabf9ec0f11b209485b4423ce94f742b2e",
+    "coordination/call_remarks_validation.json": "66a59fdc8fdb07ab741a86eb563e85121fbb0526f50d45b80eb2a0cb81eea7fd",
+    "references/2026-10-14_call_transcript.md": "942f05d9040264e08db420e80d587e2e2aa7f26b3806345c670b5c6112f6ec86",
+    "results/connector_checks/5ae6716b-032d-4662-9493-31d46bff7044/report.json": "6b63af81dfbe9afdd4354ef5d72212877c4137fcf65fe2a45ad8d58e9267bde0",
+    "results/validation/trace_storage_tests.txt": "6b4f8b249e477c0194c4b53f081e4aadd05dacb232d09e4dc56d13947a0f0a2a"
+  },
+  "checker_sha256": {
+    "checks/audit_phase1.py": "a003177fb13bf8a67b446f0a6739c6db94c01dc172231569f73f7d80954816ab",
+    "checks/audit_raw.py": "4463a6c919601e68ddea87c49e123d2329474eb3e8e190a3b2f4c86c300f5a98",
+    "checks/audit_results.py": "9937f3871bc00352839e80e6ac9ca924744b56621ca5679283ade72350762bea",
+    "checks/test_trace_storage.py": "be4d65bf6890a6a5d9f048f25648baf6c4da7f6842ab8cc96d5257e5acfb36a7",
+    "experiments/unn_rev3_20261014/verify_run.py": "1afb8a264683a5612969cfed1096aff22b3a0a0e417f1f42f09e6191af3b8262",
+    "experiments/unn_rev3_20261014/trace_storage.py": "be2a2b0653d0544b1f5d9b9553b3d5831d1e99e3dd168c13ec47bcd42b30950a",
+    "experiments/unn_rev3_20261014/check_connector.py": "2f3a3128f7d17b587c19688a4008b1c22f318b08746afed6f7c99585bc7a6420"
+  },
+  "review_entry": "experiment.py",
+  "interpretation": "Execution and recorded arithmetic are verified. Historical accuracy criteria fail for some filters; see scientific_outcomes.json. Hardware and classifier accuracy were not tested."
+}
