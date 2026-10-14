@@ -48,7 +48,8 @@ including failures. Earlier phase-2 observations are not substituted for this ru
 
 ## Phase 4 — mean-of-K
 
-Preselected difficult filter 41: three independent reprogramming attempts.
+Preselected difficult filter 41: three separate reprogramming attempts.
+Successful RESET is recorded; statistical independence is not established.
 Evaluate prefix means K=1,2,3 of reconstructed weights and measured MVM outputs.
 Report actual RMSE/Pearson and failed resets; do not assume variance reduction or
 recovery. This small demonstration does not estimate a population-level K law.

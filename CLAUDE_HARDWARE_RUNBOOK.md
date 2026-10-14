@@ -9,11 +9,22 @@ This supersedes the earlier no-launch instruction only for simulator work.
 3. Install the pinned runtime dependencies inside `.deps/` if absent (Python 3.12):
    `python -m pip install --target .deps -r requirements.txt`.
 4. Run `python -m unittest experiments.unn_rev3_20261014.test_suite -v`.
-5. Run `python experiment.py --run-simulator`. It creates a new session in
+5. Check the native SI/DAC interface with
+   `python -m experiments.unn_rev3_20261014.check_connector --run-simulator`.
+6. Run `python experiment.py --run-simulator`. It creates a new session in
    `results/simulator/`, new A/B arrays, then baseline and phases 1,2,3,4 in order.
-6. Review `manifest.json` for execution status, `summary.json` and phase JSON/CSV
+7. Review `manifest.json` for execution status, `summary.json` and phase JSON/CSV
    for scientific outcomes, and `raw_tasks.jsonl` for every attempted measurement.
-7. Report programming failures and unsuccessful accuracy comparisons as results.
+8. Audit the completed session with
+   `python -m experiments.unn_rev3_20261014.verify_run results/simulator/SESSION`.
+   `audit.json` checks completeness and integrity; `metrics.json` summarizes
+   scientific outcomes separately. Do not audit a session that is still running.
+9. For Git storage, losslessly pack a passing audited trace with
+   `python -m experiments.unn_rev3_20261014.trace_storage results/simulator/SESSION`.
+   The packer verifies reconstructed bytes before writing `trace_storage.json`.
+   The verifier can also read the ordered gzip parts when the original JSONL
+   is absent. Keep the original until the compressed copy is verified and saved.
+10. Report programming failures and unsuccessful accuracy comparisons as results.
    Never relabel a completed execution as successful scientific validation.
 
 Native backend selection is cb_type=simulator; board_type is only the driver name.

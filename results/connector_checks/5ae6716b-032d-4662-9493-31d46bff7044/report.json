@@ -1,0 +1,169 @@
+{
+  "session_id": "5ae6716b-032d-4662-9493-31d46bff7044",
+  "source": "simulator",
+  "passed": true,
+  "hardware_qualification": false,
+  "output_dir": "results/connector_checks/5ae6716b-032d-4662-9493-31d46bff7044",
+  "started_utc": "2026-10-14T19:03:04.658259+00:00",
+  "cases": [
+    {
+      "case": "mode7_zero_read",
+      "passed": true,
+      "si_adc": 2562,
+      "dac_adc": 2562,
+      "si_returned_id": 1,
+      "dac_returned_id": 2,
+      "id_contract": "echo requested ID"
+    },
+    {
+      "case": "mode9_0.0V",
+      "passed": true,
+      "si_adc": 0,
+      "dac_adc": 0,
+      "si_returned_id": 0,
+      "dac_returned_id": 0,
+      "id_contract": "native mode9 always returns 0"
+    },
+    {
+      "case": "mode9_0.1V",
+      "passed": true,
+      "si_adc": 851,
+      "dac_adc": 851,
+      "si_returned_id": 0,
+      "dac_returned_id": 0,
+      "id_contract": "native mode9 always returns 0"
+    },
+    {
+      "case": "mode9_0.2V",
+      "passed": true,
+      "si_adc": 1706,
+      "dac_adc": 1706,
+      "si_returned_id": 0,
+      "dac_returned_id": 0,
+      "id_contract": "native mode9 always returns 0"
+    },
+    {
+      "case": "mode9_0.3V",
+      "passed": true,
+      "si_adc": 2562,
+      "dac_adc": 2562,
+      "si_returned_id": 0,
+      "dac_returned_id": 0,
+      "id_contract": "native mode9 always returns 0"
+    },
+    {
+      "case": "mode10_zero",
+      "passed": true,
+      "si_adc": 0,
+      "dac_adc": 0,
+      "si_returned_id": 11,
+      "dac_returned_id": 12,
+      "id_contract": "echo requested ID"
+    },
+    {
+      "case": "mode10_onehot_0.1V",
+      "passed": true,
+      "si_adc": 11,
+      "dac_adc": 11,
+      "si_returned_id": 13,
+      "dac_returned_id": 14,
+      "id_contract": "echo requested ID"
+    }
+  ],
+  "errors": [],
+  "scope": "7 cases, 14 native impacts on fresh copies in memory of one fresh persisted array",
+  "protocol_sha256": "26ffd5620408259d435700a73385780011cfc67f612cb2dade7d860e99c8bfc3",
+  "board_comparison": {
+    "dac_bit": {
+      "protocol": 12,
+      "ini": 12.0,
+      "equal": true
+    },
+    "vol_ref_dac": {
+      "protocol": 5.0,
+      "ini": 5.0,
+      "equal": true
+    },
+    "res_load": {
+      "protocol": 3000,
+      "ini": 3000.0,
+      "equal": true
+    },
+    "vol_read": {
+      "protocol": 0.3,
+      "ini": 0.3,
+      "equal": true
+    },
+    "adc_bit": {
+      "protocol": 14,
+      "ini": 14.0,
+      "equal": true
+    },
+    "vol_ref_adc": {
+      "protocol": 5.0,
+      "ini": 5.0,
+      "equal": true
+    },
+    "res_switches": {
+      "protocol": 10.0,
+      "ini": 10.0,
+      "equal": true
+    },
+    "gain": {
+      "protocol": 11.0,
+      "ini": 11.0,
+      "equal": true
+    },
+    "sum_gain": {
+      "protocol": 330,
+      "ini": 330.0,
+      "equal": true
+    },
+    "read_time": {
+      "protocol": 1200,
+      "ini": 1200.0,
+      "equal": true
+    },
+    "blank_time": {
+      "protocol": 5,
+      "ini": 5.0,
+      "equal": true
+    },
+    "blank_time_between": {
+      "protocol": 55000,
+      "ini": 55000.0,
+      "equal": true
+    },
+    "soft_cc": {
+      "protocol": 0.002,
+      "ini": 0.002,
+      "equal": true
+    }
+  },
+  "source_sha256": {
+    "experiments/unn_rev3_20261014/check_connector.py": "2f3a3128f7d17b587c19688a4008b1c22f318b08746afed6f7c99585bc7a6420",
+    "vendor/MemriBoard/manager/board.py": "5e7076651001532e409287f1cd7d17a95ba26d3d382c44e1865de56e45477df0",
+    "vendor/MemriBoard/manager/service/drivers.py": "e4e47cd172196f6e1b6d2f22e9481a8d69cf2fcbcedb78760c43daebc8f0cdc9",
+    "vendor/MemriBoard/manager/service/converters.py": "28c6495c56afa225501dd6b0dea999215f08b73f30e016ff7ea34d6c5412701c",
+    "vendor/MemriBoard/simulator/src.py": "d41edc5c0464e15d44a23a1bb628e8025194e518d914635c1a14dd46ea2d4cc2",
+    "vendor/MemriBoard/simulator/memristor.py": "bb9c43d0f254c512c21902a64b5414e05f63f1deecf10016e5b97bd086050aca",
+    "vendor/MemriBoard/simulator/simulator_settings.ini": "9ef3229595cbbba0ccc7d7450981d7a63266092792f4573d405beb2f364d3ddb"
+  },
+  "seed": 20261014,
+  "numpy": "2.0.2",
+  "array_file": "results/connector_checks/5ae6716b-032d-4662-9493-31d46bff7044/fresh_array.cb",
+  "array_sha256_before": "2334f41dd57291d67866e85006f6def9282b0d9b74242987e42b8cd997d880ae",
+  "voltage_contract": {
+    "nominal_v": 0.3,
+    "native_dac_code": 246,
+    "native_decoded_v": 0.3,
+    "ideal_dac_ratio_v": 0.30036630036630035,
+    "expected_code_and_rounded_decode": true,
+    "hardware_ceiling_validated": false,
+    "note": "0.3 V nominal -> DAC246 -> native rounded decode0.300 V. Ideal 5V DAC ratio is about0.300366 V; no physical voltage or hardware ceiling was measured."
+  },
+  "array_sha256_after": "2334f41dd57291d67866e85006f6def9282b0d9b74242987e42b8cd997d880ae",
+  "array_unchanged": true,
+  "interpretation": "Raw ADC equality checks native SI/DAC conversion only. Native R is logged without physical interpretation for mode9/MVM. This is not hardware qualification.",
+  "finished_utc": "2026-10-14T19:03:05.302037+00:00"
+}

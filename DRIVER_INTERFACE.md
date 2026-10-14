@@ -14,8 +14,9 @@ in the experiment. The current backend is **simulator**.
 
 The compatible local installation is
 `vendor/MemriBoard`.
-The submodule in this hardware repository is older; its Connector return format
-and simulator API differ. Fail clearly on the wrong version, never guess.
+The obsolete submodule was removed from the working tree and remains in Git
+history. Its Connector return format and simulator API differ; the experiment
+uses only the vendored version.
 
 ## Modern Connector contract
 
@@ -31,8 +32,10 @@ Preserve raw ADC and verify ID before analysis. Some stale docstrings say
 `task_format='adc'`; source accepts **`'dac'` or `'si'`**.
 
 For MVM, do not apply the single-cell `a2r` formula to a sum-current ADC code.
-Use the raw ADC and the independently verified MVM transfer function. REV3's
-suite separately validates MVM and single-cell writes.
+The simulator suite converts raw ADC to output voltage using the configured
+ADC scale, then compares differential tile outputs with ideal and readback
+weights. This checks the simulator contract; physical MVM transfer and timing
+still require separate validation.
 
 ## Simulator settings
 
@@ -59,3 +62,17 @@ HardCore construction scans the whole matrix; it cannot be used unchanged with
 the WL=1 exclusion. Replacing only a `BoardSimulator()` constructor in the old
 experiment is insufficient: those scripts also access `board.crossbar`, noise
 flags, model resistance, pickle arrays and absolute WSL paths.
+
+## Checked simulator contract
+
+Run `python -m experiments.unn_rev3_20261014.check_connector --run-simulator`
+for seven cases on a fresh array: mode 7 read, mode 9 at 0/.1/.2/.3 V,
+and mode 10 zero/one-hot input. Each SI command is compared with a native DAC
+command from the same saved starting state. All board parameters must match
+the vendored INI. This check does not touch an existing experiment session.
+
+Mode 9 returns ID=0 in the native simulator; modes 7 and 10 echo the requested
+ID. Zero ADC is valid for zero-input mode 9/10. Returned resistance from mode 9
+or MVM is not interpreted as single-cell resistance. Native DAC conversion
+rounds voltages to three decimal places; SI/DAC equality is not physical
+voltage calibration. See `results/connector_checks/` for recorded commands.
