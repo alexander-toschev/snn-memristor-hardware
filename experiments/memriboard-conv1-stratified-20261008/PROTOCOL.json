@@ -1,0 +1,57 @@
+{
+  "label": "POST-EXTENSION STRATIFIED SAMPLE + VARIANCE-AWARE GATE — FINAL (approved by Alex 2026-10-08)",
+  "frozen_at": "2026-10-08T17:20+03:00 (approved; final version frozen before any sample MVM)",
+  "approval": "Alex approved the gate revision INCLUDING the scale-aware absolute floor (point 3).",
+  "parent_protocol": "0b334dc40b02df233762fcc351c50a0ccd09d3ff861a0d57c7d9b5c30fb22f24",
+  "offline_scan_sha256": "c58fe9e8f7d9f15df2dd68cb2b830ddc5cc967f5f3a4ff090ada8a44644aa2b9",
+  "checkpoint_run_id": "twd1_sigma0p0_seed0",
+  "checkpoint_sha256": "ee4fc4f58a3d010218116e9ad4c7ba808787959f9ed7687cd58cbb32d90f62fb",
+  "split_digest": "f3a5acaf7d61d1221b28a6ba66e468f905a44463630a8bdc5cf38cbb956f0492",
+  "scope": "Remote BoardSimulator only (192.168.88.245, CUDA_VISIBLE_DEVICES=3,4,5); no physical board; no official test set; no 16-checkpoint hybrid; single Conv1 layer of the frozen wide-BNTT checkpoint. Do NOT touch GPU0-2 (3090, user diliara's job).",
+  "objective": "Validate the Conv1 differential mapping across the full per-filter signal-variance range via a stratified 14-filter sample, under a variance-aware gate.",
+  "ideal_sd_quartiles_val": {
+    "min": 0.1060, "q25": 0.1647, "q50": 0.2051, "q75": 0.2404, "max": 0.4133
+  },
+  "stratified_filters": {
+    "selection_rule": "3 filters per ideal_sd_val quartile, spanning within-quartile min/mid/max; plus continuity anchors 0 and 1",
+    "q1_weakest_sd_0p106_0p164": [63, 41, 32],
+    "q2_sd_0p165_0p205": [30, 38, 43],
+    "q3_sd_0p205_0p240": [60, 47, 2],
+    "q4_strongest_sd_0p241_0p413": [9, 46, 12],
+    "anchors": [0, 1],
+    "total_filters": 14,
+    "notes": "filter 0 = prior full-pipeline pass (sd 0.2084); filter 1 = prior stage-32 failure (full sd 0.1358, tile0 sd 0.0816)"
+  },
+  "gate_revision": {
+    "stage32_gates_ABSOLUTE_ONLY": {
+      "median_abs_mapped_cell_error_over_maxabs_max": 0.35,
+      "zero_noise_max_abs_mvm_minus_programmed_readback_per_active_tap_over_maxabs_max": 0.05,
+      "sign_agreement": "DESCRIPTIVE ONLY"
+    },
+    "full75_gate_PER_REPLICATE": {
+      "val_pearson_min": 0.8,
+      "val_rmse_bound": "max(0.6 * SD(ideal_full_75), 0.05 * maxabs_w(filter))",
+      "scale_aware_floor": "0.05 * maxabs_w(filter); maxabs_w = max |Conv1 weight| of that filter",
+      "all_three_fresh_arrays_must_pass": true
+    },
+    "rationale": "The stage-32 gate previously applied Pearson/RMSE to the 32-tap partial output, whose variance can be much lower than the full filter (filter 1: tile0 sd 0.0816 vs full 0.1358), so a relative RMSE threshold on a low-variance partial output is ill-posed. The functional gate now applies only to the full 75-tap aggregated output; the scale-aware floor guards genuinely low-variance filters (full SD floor 0.106 => 0.6*SD ~= 0.0636 sits near measured write-noise RMSE ~0.06)."
+  },
+  "mapping": "G+ = 0.03 + 0.02*w/maxabs75, G- = 0.03 - 0.02*w/maxabs75 on 32x8 BoardSimulator, 2 differential columns per tile, 3 tiles (0-32, 32-64, 64-75); reconstruction (col0-col1)*maxabs75/(0.04*0.3).",
+  "safety": "Before every MVM: requested and decoded voltage <=0.3V (no clipping), observed+actual resistances finite positive, predicted sum(decoded_V/R) STRICT <15mA; ADC saturation abort. Programming pulses (up to ~3V) separate from inference limit. Simulator-only BoardSimulator connector.",
+  "seeds": {
+    "scheme": "seed(filter_rank, replicate, tile) = 90000 + 1000*rank(filter) + 100*replicate + 101*tile",
+    "rank": "rank in the 14-filter execution order [63,41,32,30,38,43,60,47,2,9,46,12,0,1] (0-based 0..13)",
+    "distinct": true,
+    "disjoint_from_v2_27001_27003": true,
+    "disjoint_from_extension_50000_series": true,
+    "replicates_per_filter": 3,
+    "tiles_per_filter": 3
+  },
+  "resources": {
+    "host": "alex@192.168.88.245",
+    "cuda_visible_devices": "3,4,5",
+    "note": "BoardSimulator is CPU-bound; pin GPUs 3-5 (3070) explicitly if any tensor path uses GPU; never touch 0-2 (3090, diliara)."
+  },
+  "advancement": "If >=13/14 filters pass (all 3 replicates each), and anchor filter 1 passes at full-75 level, report and await Alex's next decision (full 64 vs 16-checkpoint hybrid). Any failure requires parent review; no in-place retry, no post-hoc threshold change.",
+  "do_not_touch": ["frozen v1/v2/repair artifacts", "official test set", "16-checkpoint hybrid", "GPU0-2 (3090)"]
+}

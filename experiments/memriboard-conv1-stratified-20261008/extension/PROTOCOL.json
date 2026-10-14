@@ -1,0 +1,39 @@
+{
+  "label": "STRATIFIED 14-FILTER SAMPLE runner operational config (derived from frozen stratified protocol 2eae1ff8 + parent postv2 protocol 0b334dc4)",
+  "scope": "BoardSimulator only; no physical board, no official test set, no 16-checkpoint hybrid; single Conv1 layer of frozen wide-BNTT checkpoint; filters [63,41,32,30,38,43,60,47,2,9,46,12,0,1]; CUDA_VISIBLE_DEVICES=3,4,5",
+  "checkpoint_run_id": "twd1_sigma0p0_seed0",
+  "checkpoint_sha256": "ee4fc4f58a3d010218116e9ad4c7ba808787959f9ed7687cd58cbb32d90f62fb",
+  "conv1_weights_npy_sha256": "8be312b9eafb9de23f8340b17f848e7e0e2e7884293c826a6d9f6cbb5125d440",
+  "weights_loading": "np.load(conv1_weights.npy) only; never torch.load/weights_only",
+  "canonical_split_digest": "f3a5acaf7d61d1221b28a6ba66e468f905a44463630a8bdc5cf38cbb956f0492",
+  "train_split_positions": [0, 1, 2, 3, 4, 5, 6, 7],
+  "val_split_positions": [0, 1, 2, 3, 4, 5, 6, 7],
+  "spatial_top_left": [[0, 0], [7, 7], [14, 14], [21, 21]],
+  "spike_times": [0, 3, 6, 9],
+  "T": 12,
+  "x_min": 0.1,
+  "tile_ranges": [[0, 32], [32, 64], [64, 75]],
+  "gates": {
+    "median_cell_error_over_maxabs_max": 0.35,
+    "zero_noise_error_per_active_tap_over_maxabs_max": 0.05,
+    "pearson_min": 0.8,
+    "rmse_over_ideal_sd_max": 0.6,
+    "rmse_scale_floor": 0.05
+  },
+  "budgets_per_filter": {
+    "max_mvm_calls": 14500,
+    "max_seconds": 1800,
+    "first_write_projection_seconds_64": 900,
+    "cell_alarm_seconds": 20,
+    "stage32_seconds_per_array": 900
+  },
+  "mapping": "Target G+=.03+.02*w/maxabs75, G-=.03-.02*w/maxabs75 on 32x8 BoardSimulator, 2 columns per tile; reconstruction (col0-col1)*maxabs75/(.04*.3)",
+  "safety": "Before every MVM: requested+decoded <=.3V no clipping; observed+actual resistance finite positive; predicted sum(decoded_V/R) BOTH views STRICT <.015A before HardCore.dot_product and BoardSimulator.mode_mvm; ADC saturation abort; programming pulses separate",
+  "inputs_sha256": {
+    "cifar_train": "735e79b04f092ca3d2e6d07f368c0a7d70d48c48d28865950cc24454cf45129b",
+    "core": "22973863b5688090d2ab87ea28c611c4275d44cdc17115e8ce9655987c42b716",
+    "simulator": "5b751d5925b7af05db8ed751dde73ac3f9a31262a0514c5a6c9948e96c8a96d4",
+    "converter": "28c6495c56afa225501dd6b0dea999215f08b73f30e016ff7ea34d6c5412701c",
+    "simulator_config": "9ef3229595cbbba0ccc7d7450981d7a63266092792f4573d405beb2f364d3ddb"
+  }
+}

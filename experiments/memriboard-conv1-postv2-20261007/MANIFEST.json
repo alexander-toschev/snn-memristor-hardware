@@ -1,0 +1,43 @@
+{
+  "repair_type": "read-only postprocessing; never reran frozen runner, simulator or MVM",
+  "v2_files": {
+    "PROTOCOL.json": "8a9fedebead3b1d58dff1b840e5e02fd520d86815681ce6959935c2e04874937",
+    "README.md": "65b1820f75baa78cda618759b7bcbc4fdde6b01debb795d97be492e4516696c2",
+    "abort.jsonl": "846ed963d69691be8e11f4a9d0a1046555f01ecbc21e5736b46e5f54163b8817",
+    "analysis.log": "80fa9962563224a7aac3f9c00a8398808525e8c2c26572761e03fe705e203c3e",
+    "analyze_saved.py": "7578b020969e4ab7928e843d3ead6c276b48d25fe346c23a1371037269721fc9",
+    "array_r0_tile0.cb": "c8320173040933fb5034713e2d95cde1db88b78e457b1b5232eef6c297b750c0",
+    "array_r0_tile1.cb": "eb2a1d2a780d5a8fe8dd8916e30ebbc7ff0399f285df4bbe2a1e8037692e31d7",
+    "array_r0_tile2.cb": "19f6b7cc34e5e2c35f02749bdad29ecd786f7cb386ab0b6d7755c51163d3279b",
+    "array_r1_tile0.cb": "a1470b1f372655bc7e092a6bebead797fc960d86c2692986413eeebc42145e43",
+    "array_r1_tile1.cb": "f4284df40707184451dd132ca9ea7cc98d41af86a951bfa635e46e71d1b43214",
+    "array_r1_tile2.cb": "4006ec50a48f5a272796bf0f2158af1ee970463c161bcc0cb68f6b8f544da3c5",
+    "array_r2_tile0.cb": "0b08d18f4526345f7b0203a2e07e6b9b5328f8f286ca380feee533fa5ade3140",
+    "array_r2_tile1.cb": "9a42e1bc598c8f3c1b40073064da76648a52b0957966743a5fb9cc105c8ea663",
+    "array_r2_tile2.cb": "ab0224691ac7b134da6846ea52adae46f2a6f76de8d4a9788cbe30e909d93e29",
+    "arrays.jsonl": "d837efb3222615d0c06a43dd41aaa203d50c8312f95df1d8137b60442dbdcaf5",
+    "dry_preflight.json": "f650c8c318c389712976f3acab95b5fafd5c66ecd188796e32c362e9d3db4912",
+    "full75_patches_offline.json": "5437af4836a815decf008b825ba314f0d6c5fc212d1ee6dbf20b89048741a4ae",
+    "full75_summary_offline.json": "e04f78ed16891e28547b9473dec396d238f4f2108d13d5da58e1ef028e2d825a",
+    "gates.jsonl": "046407609b115f52e7976959b6b16bd513b5969ea883f78ffe63249a46431521",
+    "metrics.jsonl": "a71ae70a6fd2a0e8a00a92cfedc84f4d51e022c77d788c22b2734fe7d07c5197",
+    "mvm_safety.jsonl": "51592826869e92b97e0c8fcb737fead2647d6be613a29c9fcd65876aa7418bbd",
+    "patches.jsonl": "2d3f6dff38c13eb7b513155a2cd9c5607c57fbc0cbf0f41e51afa42a533330f1",
+    "pilot.py": "2d4365b92efedf8f5e8c341a0a6bc8d9686a67a9f70c002c409fb22125bdac98",
+    "predrive_safety.jsonl": "b804962e85124e421d99677216df8252daf8c90dbdb1f2f08b23c9e824800d1d",
+    "preflight.json": "019704bffa34adc131411219f039d3f961fce7d3f1908d50e2ff465f4011c250",
+    "programming.jsonl": "0735bbf15e5edf03ec560f199f68ba3126e15d78e87672de3cef82c168619884",
+    "readback.jsonl": "8da37bc400e95c0228033d8c80395515ca13150aeb4fd26f4a49b867c4458b4e",
+    "run.log": "ed8c8c586528f2fcf9842986b73ba40b43fbbc95199a09635f61a5ab028897dd"
+  },
+  "repair_files": {
+    "full75_patches_repaired.json": "b8276a920075d2b8721dd8482cd60faa1c3c7b65bce9b6dfb67ec946c1c991be",
+    "full75_summary_repaired.json": "956c0b17aaf437a6e36bf8fa8288f00da989f958c92d2164bfbf6c362fbfe3bc",
+    "repair.log": "956c0b17aaf437a6e36bf8fa8288f00da989f958c92d2164bfbf6c362fbfe3bc",
+    "repair_aggregate.py": "dc97944a65dce9f3c948e27c2496dd2f5ef0cd33e82642a374cb0ec894c93ca2",
+    "test_repair_aggregate.py": "049aa99cd9d2210c51f956d04fdf96fee3e188d138c208bb965119bdbae8a991"
+  },
+  "source_runner_failure": "run.log KeyError(array) after 9 measured tiles; original run exit nonzero",
+  "test_command": "python3 -m unittest discover -s .tmp/openclaw-spikes/memriboard-conv1-postv2-20261007 -p 'test_*.py' -v",
+  "repair_command": "python3 .tmp/openclaw-spikes/memriboard-conv1-postv2-20261007/repair_aggregate.py"
+}

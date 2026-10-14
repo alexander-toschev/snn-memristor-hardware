@@ -1,0 +1,41 @@
+{
+  "label": "POST-EXTENSION STRATIFIED SAMPLE + VARIANCE-AWARE GATE (PROPOSAL, awaiting Alex approval before any real MVM)",
+  "frozen_at": "2026-10-08 (proposal; not yet executed)",
+  "parent_protocol": "0b334dc40b02df233762fcc351c50a0ccd09d3ff861a0d57c7d9b5c30fb22f24",
+  "offline_scan_sha256": "TODO_idealsd_scan_json",
+  "checkpoint_run_id": "twd1_sigma0p0_seed0",
+  "checkpoint_sha256": "ee4fc4f58a3d010218116e9ad4c7ba808787959f9ed7687cd58cbb32d90f62fb",
+  "split_digest": "f3a5acaf7d61d1221b28a6ba66e468f905a44463630a8bdc5cf38cbb956f0492",
+  "scope": "Local/remote BoardSimulator only; no physical board; no official test set; no 16-checkpoint hybrid; single Conv1 layer of the frozen wide-BNTT checkpoint.",
+  "objective": "Test the Conv1 differential mapping across the full range of per-filter signal variance, instead of sequential filter order, and validate a variance-aware gate.",
+  "ideal_sd_quartiles_val": {
+    "min": 0.1060, "q25": 0.1647, "q50": 0.2051, "q75": 0.2404, "max": 0.4133
+  },
+  "stratified_filters": {
+    "selection_rule": "3 filters per ideal_sd_val quartile, spanning within-quartile min/mid/max; plus continuity anchors 0 and 1",
+    "q1_weakest_sd_0p106_0p164": [63, 41, 32],
+    "q2_sd_0p165_0p205": [30, 38, 43],
+    "q3_sd_0p205_0p240": [60, 47, 2],
+    "q4_strongest_sd_0p241_0p413": [9, 46, 12],
+    "anchors": [0, 1],
+    "total_filters": 14,
+    "notes": "filter 0 = prior full-pipeline pass (sd 0.2084); filter 1 = prior stage-32 failure (full sd 0.1358, tile0 sd 0.0816)"
+  },
+  "gate_revision": {
+    "root_cause": "The stage-32 gate applied the Pearson>=0.8 AND RMSE<=0.6*SD(ideal) test to the 32-tap PARTIAL output, whose variance can be much lower than the full 75-tap filter (filter 1: tile0 sd 0.0816 vs full sd 0.1358; filter 0: tile0 0.2159 vs full 0.2084). A relative RMSE gate on a low-variance partial output is ill-posed and rejected filter 1 rep 2 on an artifact, not a fidelity failure (rep 2 tile0 RMSE 0.063 would have been within 0.6*full_sd=0.0815).",
+    "change_stage32": "stage-32 gates become ABSOLUTE fidelity/sanity only: median_abs_mapped_cell_error_over_maxabs <= 0.35; zero_noise MVM-vs-programmed-readback per active tap <= 0.05; sign agreement descriptive. REMOVE the val Pearson/RMSE gate from stage-32.",
+    "change_full75": "the val Pearson>=0.8 AND RMSE<=0.6*SD(ideal_full_75_tap) gate is evaluated ONLY on the full 75-tap aggregated output (3 tiles summed per patch), per replicate, all 3 fresh arrays must pass.",
+    "optional_floor": "OPTIONAL prospective scale-aware absolute floor: RMSE <= max(0.6*SD(ideal_full), 0.05*maxabs_w(filter)); maxabs_w = max |Conv1 weight| of that filter. Rationale: full-75 SD floor is 0.106 (filter 63) so 0.6*SD ~= 0.0636, which sits near the measured write-noise RMSE (~0.06 for filter 0); the floor guards genuinely low-variance filters against another arbitrary stop. Value pinned from already-measured write-noise, not from new MVM.",
+    "keep_unchanged": "mapping G+=0.03+0.02*w/maxabs, G-=0.03-0.02*w/maxabs; <=0.3V input; predicted current from measured+actual resistance STRICT <15mA before EVERY MVM; ADC saturation abort; simulator-only BoardSimulator; train/val patches only; fresh arrays per filter/replicate."
+  },
+  "seeds": {
+    "scheme": "seed(filter, replicate, tile) = 90000 + 1000*rank(filter) + 100*replicate + 101*tile",
+    "distinct": true,
+    "disjoint_from_v2": true,
+    "disjoint_from_extension_50000_series": true,
+    "replicates_per_filter": 3,
+    "tiles_per_filter": 3
+  },
+  "advancement": "After 14-filter sample: if >=13/14 filters (all replicates) pass the revised gate, and the one optional re-check of filter 1 passes at full-75 level, proceed to either full 64-filter coverage or the 16-checkpoint hybrid per Alex's next decision. Any failure requires parent review, no in-place retry.",
+  "do_not_touch": ["frozen v1/v2/repair artifacts", "official test set", "16-checkpoint hybrid"]
+}

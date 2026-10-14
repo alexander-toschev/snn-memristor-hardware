@@ -1,0 +1,31 @@
+{
+  "arrays_reused_across_all_filters": true,
+  "board_object_ids": {
+    "array_A": 128275845220064,
+    "array_B": 128275845252432
+  },
+  "core_object_ids": {
+    "array_A": 128275845222416,
+    "array_B": 128275845258192
+  },
+  "create_crossbar_array_calls": 2,
+  "create_log": [
+    {
+      "cols": 8,
+      "rows": 32,
+      "serial": "/mnt/d/projects/snn-mnist/.tmp/seq_reprogram_dryrun_20261013/arrays/array_A",
+      "wall": 1.0121311120165046
+    },
+    {
+      "cols": 8,
+      "rows": 32,
+      "serial": "/mnt/d/projects/snn-mnist/.tmp/seq_reprogram_dryrun_20261013/arrays/array_B",
+      "wall": 1.0155198990250938
+    }
+  ],
+  "distinct_serials": [
+    "array_A",
+    "array_B"
+  ],
+  "note": "create_crossbar_array called exactly 2x total; each filter uses board/core object already connected to one of the 2 persistent arrays (no re-create, no re-connect). Each array reprogrammed 7x via write_weight write-verify (erase+program in place)."
+}

@@ -1,0 +1,14 @@
+PREFLIGHT_OK {'snn': '664e86109635b9976053a77f95a298930b62d804', 'MemriBoard': '6f31fffc9d443dd229122f9b50e03a7bc681c7bb', 'MemriNeurons': 'b1b95c5db35f67efdde829aab7f3e922cdcacefa'}
+simulator_settings.ini не найден в /mnt/d/projects/snn-mnist
+FIRST_WRITE 0.1576646639732644 PROJECTED_64 10.090538494288921
+ABORT RuntimeError('cell readback gate failed sign=0.875 median=0.10005845126711434')
+Traceback (most recent call last):
+  File "/mnt/d/projects/snn-mnist/.tmp/openclaw-spikes/memriboard-conv1-20261007/pilot.py", line 155, in <module>
+    try:main()
+  File "/mnt/d/projects/snn-mnist/.tmp/openclaw-spikes/memriboard-conv1-20261007/pilot.py", line 147, in main
+    for rep,seed in enumerate(P['seeds']['array_reprogram']):stage.append(run_tile(rep,0,seed,(0,32),w,scale,rows))
+  File "/mnt/d/projects/snn-mnist/.tmp/openclaw-spikes/memriboard-conv1-20261007/pilot.py", line 115, in run_tile
+    check(sign>=.9 and median<=.35,f'cell readback gate failed sign={sign} median={median}')
+  File "/mnt/d/projects/snn-mnist/.tmp/openclaw-spikes/memriboard-conv1-20261007/pilot.py", line 17, in check
+    if not c:raise RuntimeError(msg)
+RuntimeError: cell readback gate failed sign=0.875 median=0.10005845126711434

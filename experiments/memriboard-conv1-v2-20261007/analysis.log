@@ -1,0 +1,135 @@
+{
+  "label": "POST-V1-REVISED v2; NOT original preregistered pass",
+  "protocol_sha256": "8a9fedebead3b1d58dff1b840e5e02fd520d86815681ce6959935c2e04874937",
+  "runner_sha256": "2d4365b92efedf8f5e8c341a0a6bc8d9686a67a9f70c002c409fb22125bdac98",
+  "runner_exit": "1: offline KeyError(array) after all measurements; recovered from immutable raw records without another measurement",
+  "stage32_gate_passed": true,
+  "mvm_calls": 14022,
+  "arrays": 9,
+  "elapsed_until_runner_abort_s": 168.1977929790737,
+  "requested_voltage_max_v": 0.3,
+  "decoded_voltage_max_v": 0.3,
+  "peak_predicted_current_a": 0.0010793745706046,
+  "minimum_predicted_current_margin_a": 0.0139206254293954,
+  "min_predrive_margin_a": 0.0139206254293954,
+  "per_replicate": {
+    "0": {
+      "train_only_surrogate": {
+        "intercept": 0.0022043657801195642,
+        "slope": 0.8888118708838606,
+        "val": {
+          "n": 384,
+          "rmse": 0.05947835928754036,
+          "pearson_r": 0.9589581961847629,
+          "ideal_sd": 0.2084451182801764
+        }
+      },
+      "quantized_ideal": {
+        "n": 384,
+        "rmse": 4.18435323931254e-17,
+        "pearson_r": 1.0,
+        "ideal_sd": 0.2084451182801764
+      },
+      "programmed_readback": {
+        "n": 384,
+        "rmse": 0.06729229058698423,
+        "pearson_r": 0.95875822553004,
+        "ideal_sd": 0.2084451182801764
+      },
+      "quantized_programmed": {
+        "n": 384,
+        "rmse": 0.06729229058698424,
+        "pearson_r": 0.9587582255300398,
+        "ideal_sd": 0.2084451182801764
+      },
+      "sim_mvm": {
+        "n": 384,
+        "rmse": 0.06702328622938392,
+        "pearson_r": 0.9589581961847641,
+        "ideal_sd": 0.2084451182801764
+      },
+      "val_raw_gate_passed": true,
+      "val_surrogate_gate_passed": true
+    },
+    "1": {
+      "train_only_surrogate": {
+        "intercept": 0.02793603517520287,
+        "slope": 1.0919441253512276,
+        "val": {
+          "n": 384,
+          "rmse": 0.08051735335655553,
+          "pearson_r": 0.9406317742146414,
+          "ideal_sd": 0.2084451182801764
+        }
+      },
+      "quantized_ideal": {
+        "n": 384,
+        "rmse": 4.18435323931254e-17,
+        "pearson_r": 1.0,
+        "ideal_sd": 0.2084451182801764
+      },
+      "programmed_readback": {
+        "n": 384,
+        "rmse": 0.08030768266707189,
+        "pearson_r": 0.9408287881814947,
+        "ideal_sd": 0.2084451182801764
+      },
+      "quantized_programmed": {
+        "n": 384,
+        "rmse": 0.08030768266707188,
+        "pearson_r": 0.9408287881814948,
+        "ideal_sd": 0.2084451182801764
+      },
+      "sim_mvm": {
+        "n": 384,
+        "rmse": 0.08038117114856963,
+        "pearson_r": 0.9406317742146415,
+        "ideal_sd": 0.2084451182801764
+      },
+      "val_raw_gate_passed": true,
+      "val_surrogate_gate_passed": true
+    },
+    "2": {
+      "train_only_surrogate": {
+        "intercept": 0.003167226287621321,
+        "slope": 0.9093304253062396,
+        "val": {
+          "n": 384,
+          "rmse": 0.05130860714379271,
+          "pearson_r": 0.969773198049667,
+          "ideal_sd": 0.2084451182801764
+        }
+      },
+      "quantized_ideal": {
+        "n": 384,
+        "rmse": 4.18435323931254e-17,
+        "pearson_r": 1.0,
+        "ideal_sd": 0.2084451182801764
+      },
+      "programmed_readback": {
+        "n": 384,
+        "rmse": 0.05823802698585211,
+        "pearson_r": 0.9697231196286975,
+        "ideal_sd": 0.2084451182801764
+      },
+      "quantized_programmed": {
+        "n": 384,
+        "rmse": 0.058238026985852114,
+        "pearson_r": 0.9697231196286976,
+        "ideal_sd": 0.2084451182801764
+      },
+      "sim_mvm": {
+        "n": 384,
+        "rmse": 0.05821380381657405,
+        "pearson_r": 0.9697731980496657,
+        "ideal_sd": 0.2084451182801764
+      },
+      "val_raw_gate_passed": true,
+      "val_surrogate_gate_passed": true
+    }
+  },
+  "across_array_median_tap_sample_sd": 0.01923730939533656,
+  "mean_within_state_read_sd": 5.028124469115225e-19,
+  "all_full75_raw_gates_passed": true,
+  "verdict": "VALIDATED (post-v1 revised v2 only)"
+}

@@ -1,0 +1,91 @@
+{
+  "verdict": "PARTIAL",
+  "reason": "preregistered 32-tap sign gate failed in first reprogrammed array; stopped before any MVM or extension; failure not replicated",
+  "protocol_sha256": "9eb55bf0bec21674c4c4c6132d02dd226d468706216328b0d5ba86c2f82a12c8",
+  "checkpoint_sha256": "ee4fc4f58a3d010218116e9ad4c7ba808787959f9ed7687cd58cbb32d90f62fb",
+  "elapsed_s": 19.121340782032348,
+  "replicates_completed": 1,
+  "requested_replicates": 3,
+  "cells_programmed": 64,
+  "pulse_count": 6150,
+  "write_seconds_total": 16.858478420996107,
+  "write_seconds_mean": 0.2634137253280642,
+  "write_seconds_max": 0.6890252101002261,
+  "programming_pulse_extrema_v": [
+    -2.4700000000000015,
+    2.0700000000000016
+  ],
+  "sign_fraction": 0.875,
+  "significant_taps_count": 32,
+  "bad_sign_taps": [
+    15,
+    25,
+    27,
+    31
+  ],
+  "median_abs_cell_error_over_maxabs": 0.10005845126711434,
+  "residual_rmse_per_column": [
+    0.0032532434618306413,
+    0.005784544781833068
+  ],
+  "differential_residual_rmse": 0.007187736594035086,
+  "sign_negative_residual_mean": -0.000917739651404213,
+  "sign_positive_residual_mean": 0.0006995981531739237,
+  "row_residuals": [
+    0.0008026163737413147,
+    -0.0009915246246923574,
+    -0.012022777443839085,
+    0.0014957809359086721,
+    -0.0043387279578892685,
+    -0.000497559952027566,
+    0.0016361368842831847,
+    0.0036659481434798795,
+    0.0033545351192472567,
+    0.006658385720358914,
+    -0.00010150289748112745,
+    0.00576111258298298,
+    0.007168589312632916,
+    0.0018327584803930382,
+    0.0010114467632510935,
+    0.007331113384607943,
+    0.0031681445538448497,
+    0.010422263201869432,
+    0.007918961718038083,
+    -0.00047876408603984844,
+    -0.0018444453303228074,
+    -0.017199209473430795,
+    0.0005431745801474444,
+    0.009120271451175173,
+    -0.004493452503368137,
+    0.009845041195292566,
+    -0.009463439074363488,
+    -0.013110953822244767,
+    0.0021799972489256504,
+    -0.0016796280859880455,
+    0.007854149000766596,
+    -0.01610000293431923
+  ],
+  "within_fixed_state_repeat_read_std_mean_per_column": [
+    1.5934452603638887e-18,
+    3.9836131509097214e-19
+  ],
+  "column_hypothetical_all_rows_0p3v_current_a": [
+    0.00109902198072328,
+    0.0006524066580136958
+  ],
+  "column_hypothetical_all_rows_0p3v_margin_a": [
+    0.013900978019276719,
+    0.014347593341986304
+  ],
+  "current_check_scope": "post-stop hypothetical bound from resistance readback only; zero actual MVM calls; no per-call safety demonstrated",
+  "mvm_calls": 0,
+  "patches_evaluated": 0,
+  "surrogate_fit": false,
+  "array_initial_sha256": "a3f327976eb3bcbf6f310fc352c5db5ddb4fd67aaf87acb13ee14cd24de0400d",
+  "array_final_sha256": "51d4650f0d0185e96bec8037f2900019c8dedf4bda48d7c3fb0c10b6e89403cf",
+  "source_commits": {
+    "snn": "664e86109635b9976053a77f95a298930b62d804",
+    "MemriBoard": "6f31fffc9d443dd229122f9b50e03a7bc681c7bb",
+    "MemriNeurons": "b1b95c5db35f67efdde829aab7f3e922cdcacefa"
+  }
+}
