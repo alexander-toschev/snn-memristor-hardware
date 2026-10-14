@@ -1,3 +1,6 @@
 .deps/
 __pycache__/
 *.py[cod]
+
+# Commit the verified lossless trace/ parts instead of multi-GB duplicate JSONL.
+results/simulator/**/raw_tasks.jsonl

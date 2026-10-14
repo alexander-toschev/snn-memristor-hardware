@@ -1,0 +1,19 @@
+Packed part 1: 7836 records
+Packed part 2: 8081 records
+{"synthetic_bytes": 69206166, "records": 8081, "parts": 2, "sha256": "c8a4e8128ae00370ce8becc0cd19056b67aee5567f1540f11b0688a1d2aa224e", "compressed_bytes": 37969916}
+test_01_roundtrip_two_parts_exact_unicode_crlf_bom (__main__.TraceStorageTests.test_01_roundtrip_two_parts_exact_unicode_crlf_bom) ... ok
+test_02_audit_verifies_archive_with_and_without_raw (__main__.TraceStorageTests.test_02_audit_verifies_archive_with_and_without_raw) ... ok
+test_03_uncompressed_metadata_corruption (__main__.TraceStorageTests.test_03_uncompressed_metadata_corruption) ... ok
+test_04_compressed_corruption_detected_even_with_raw_retained (__main__.TraceStorageTests.test_04_compressed_corruption_detected_even_with_raw_retained) ... ok
+test_05_truncated_gzip_with_updated_compressed_hash_is_audit_failure (__main__.TraceStorageTests.test_05_truncated_gzip_with_updated_compressed_hash_is_audit_failure) ... ok
+test_06_duplicate_and_escaping_parts_rejected (__main__.TraceStorageTests.test_06_duplicate_and_escaping_parts_rejected) ... ok
+test_07_repacking_refused_without_touching_original (__main__.TraceStorageTests.test_07_repacking_refused_without_touching_original) ... ok
+test_08_partial_jsonl_never_gets_storage_manifest (__main__.TraceStorageTests.test_08_partial_jsonl_never_gets_storage_manifest) ... ok
+Packed part 1: 1 records
+test_09_same_count_source_change_invalidates_audit_binding (__main__.TraceStorageTests.test_09_same_count_source_change_invalidates_audit_binding) ... ok
+test_10_unpacked_audit_records_exact_byte_identity (__main__.TraceStorageTests.test_10_unpacked_audit_records_exact_byte_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 17.182s
+
+OK

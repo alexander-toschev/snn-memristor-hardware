@@ -12,11 +12,14 @@ from datetime import datetime, timezone
 import hashlib
 import json
 import math
+import zlib
 
 if __package__:
     from .paths import repo_path, relative_path
+    from .trace_storage import load_storage, raw_parts, raw_lines
 else:
     from paths import repo_path, relative_path
+    from trace_storage import load_storage, raw_parts, raw_lines
 
 
 PHASE2_FILTERS = [63, 41, 32, 30, 38, 43, 60, 47, 2, 9, 46, 12, 0, 1]
@@ -101,9 +104,15 @@ def audit_run(directory):
     filter_counts, program_attempts = Counter(), Counter()
     raw_count = 0
     raw_file = directory/"raw_tasks.jsonl"
+    storage = None
+    storage_verified = False
+    trace_identity = {}
     try:
-        initial_size = raw_file.stat().st_size
-        with raw_file.open(encoding="utf-8-sig") as stream:
+        storage = load_storage(directory) if (directory / "trace_storage.json").exists() else None
+        parts = raw_parts(directory, storage=storage)
+        initial_sizes = [p.stat().st_size for p in parts]
+        from contextlib import closing
+        with closing(raw_lines(parts, storage=storage, verification=trace_identity)) as stream:
             for line_number, line in enumerate(stream, 1):
                 raw_count += 1
                 where = f"raw_tasks.jsonl:{line_number}"
@@ -168,9 +177,10 @@ def audit_run(directory):
                     statuses[row["status"]] += 1
                 except (KeyError, TypeError, ValueError) as exc:
                     issue("raw_record", f"{where}: {type(exc).__name__}")
-        require(raw_file.stat().st_size == initial_size, "completion", "Raw file changed during audit")
-    except OSError:
-        issue("artifact", "Cannot read raw_tasks.jsonl")
+        require([p.stat().st_size for p in parts] == initial_sizes, "completion", "Raw files changed during audit")
+        storage_verified = storage is not None
+    except (OSError, ValueError, EOFError, zlib.error, KeyError, TypeError):
+        issue("artifact", "Cannot read or validate raw trace storage")
     require(raw_count == manifest.get("raw_task_count") and raw_count > 0, "raw_count", "Raw/manifest counts disagree")
     require(arrays_seen == {"A", "B"}, "arrays", "Raw log must include A and B")
     require(all(count <= 271 for count in pulse_budgets.values()), "pulse_budget", "A reset or SET exceeds 271 pulses")
@@ -244,6 +254,9 @@ def audit_run(directory):
              "raw_records": raw_count, "mode_counts": dict(modes), "phase_counts": dict(phases),
              "stage_counts": dict(stages), "status_counts": dict(statuses), "arrays": sorted(arrays_seen),
              "verified_hash_count": checked_hashes, "issue_counts": dict(problem_counts), "issues": problems,
+             "trace_storage_verified": storage_verified,
+             "trace_uncompressed_sha256": trace_identity.get("sha256"),
+             "trace_uncompressed_bytes": trace_identity.get("bytes"),
              "interpretation": "passed checks artifact integrity and coverage only, not scientific target quality."}
     return audit, metrics
 
