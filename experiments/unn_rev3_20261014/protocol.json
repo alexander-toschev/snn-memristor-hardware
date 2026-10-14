@@ -196,12 +196,12 @@
       0,
       1
     ],
-    "weights_file_relative_to_repo": "experiments/memriboard-conv1-stratified-20261008/extension/conv1_weights.npy",
+    "weights_file_relative_to_repo": "weights/conv1_weights.npy",
     "weights_sha256": "8be312b9eafb9de23f8340b17f848e7e0e2e7884293c826a6d9f6cbb5125d440",
     "legacy_gates_reporting_only": {
-      "pearson_min": 0.8,
+      "pearson_min": 0.9,
       "rmse_over_ideal_sd_max": 0.6,
-      "rmse_scale_floor": 0.05
+      "rmse_scale_floor": 0.0
     },
     "hardware_acceptance_gates": null
   },

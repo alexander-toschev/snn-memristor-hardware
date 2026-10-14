@@ -10,6 +10,7 @@ One local source patch in `simulator/src.py` resolves simulator_settings.ini nex
 to the source module instead of relative to the working directory. The numerical
 model, converters and native Connector are unchanged.
 
-`memristor_hw/MemriBoard/` remains the older archived Git submodule. The current
-entry point does not import it and needs no submodule initialization or neighbouring
-repository. Local Python package versions are pinned in requirements.txt.
+The older `memristor_hw/MemriBoard/` submodule was removed from the working tree;
+its gitlink remains recoverable from commit 067c4b7 and its local Git objects are
+retained. No submodule initialization or neighbouring repository is needed.
+Local Python package versions are pinned in requirements.txt.
