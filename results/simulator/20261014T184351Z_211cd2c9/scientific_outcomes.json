@@ -1,0 +1,406 @@
+{
+  "source": "simulator",
+  "execution_complete": true,
+  "scientific_validation_all_passed": false,
+  "phase1": {
+    "attempts": 75,
+    "target_crossings": 75,
+    "reset_failures": 0,
+    "group_count": 15,
+    "cycles_per_group": 5,
+    "bias_uS_range": [
+      2.3397470713590183,
+      28.908464396503565
+    ],
+    "sample_sd_uS_range": [
+      2.1816783817343355,
+      21.80381816228805
+    ],
+    "rmse_uS_range": [
+      3.115824587239017,
+      31.784527751211797
+    ],
+    "all_bias_positive": true,
+    "interpretation": "First crossing is not tolerance-based accuracy; five repeat reads are not five independent programming trials."
+  },
+  "phase2": {
+    "filter_count": 14,
+    "repetitions": 1,
+    "programmed_cells": 2100,
+    "reset_failures": 0,
+    "target_misses": 2,
+    "comparisons": {
+      "weights": {
+        "passed": 10,
+        "total": 14,
+        "failed": [
+          {
+            "filter": 30,
+            "repetition": 0,
+            "rmse": 0.023845402715893315,
+            "pearson": 0.8995899364638594,
+            "rmse_over_expected_sd": 0.4391095065945465
+          },
+          {
+            "filter": 60,
+            "repetition": 0,
+            "rmse": 0.019834334375766236,
+            "pearson": 0.8848885774057008,
+            "rmse_over_expected_sd": 0.4880644822252338
+          },
+          {
+            "filter": 46,
+            "repetition": 0,
+            "rmse": 0.02300463549091119,
+            "pearson": 0.8560584300135662,
+            "rmse_over_expected_sd": 0.5766780016150699
+          },
+          {
+            "filter": 12,
+            "repetition": 0,
+            "rmse": 0.0419733665039931,
+            "pearson": 0.8661807926464032,
+            "rmse_over_expected_sd": 0.5427094534201701
+          }
+        ]
+      },
+      "mvm_vs_ideal": {
+        "passed": 11,
+        "total": 14,
+        "failed": [
+          {
+            "filter": 41,
+            "repetition": 0,
+            "rmse": 0.038521673859846804,
+            "pearson": 0.8790201097953828,
+            "rmse_over_expected_sd": 0.5064806487700527
+          },
+          {
+            "filter": 30,
+            "repetition": 0,
+            "rmse": 0.03732470243634436,
+            "pearson": 0.8449294308317842,
+            "rmse_over_expected_sd": 0.5372073428072053
+          },
+          {
+            "filter": 12,
+            "repetition": 0,
+            "rmse": 0.06544362721576205,
+            "pearson": 0.8774822189381206,
+            "rmse_over_expected_sd": 0.4984327737704936
+          }
+        ]
+      },
+      "mvm_vs_programmed": {
+        "passed": 14,
+        "total": 14,
+        "failed": []
+      }
+    }
+  },
+  "phase3": {
+    "filter_count": 64,
+    "repetitions": 1,
+    "programmed_cells": 9600,
+    "reset_failures": 0,
+    "target_misses": 8,
+    "comparisons": {
+      "weights": {
+        "passed": 47,
+        "total": 64,
+        "failed": [
+          {
+            "filter": 6,
+            "repetition": 0,
+            "rmse": 0.024821885927645115,
+            "pearson": 0.8355547098647697,
+            "rmse_over_expected_sd": 0.6172987223257866
+          },
+          {
+            "filter": 12,
+            "repetition": 0,
+            "rmse": 0.03986496866377599,
+            "pearson": 0.8864415754239547,
+            "rmse_over_expected_sd": 0.5154481795514744
+          },
+          {
+            "filter": 14,
+            "repetition": 0,
+            "rmse": 0.020985594034068064,
+            "pearson": 0.8734180822892467,
+            "rmse_over_expected_sd": 0.6046034651693745
+          },
+          {
+            "filter": 15,
+            "repetition": 0,
+            "rmse": 0.016650263754727463,
+            "pearson": 0.8856821488229868,
+            "rmse_over_expected_sd": 0.48306387679018287
+          },
+          {
+            "filter": 16,
+            "repetition": 0,
+            "rmse": 0.031158166858335404,
+            "pearson": 0.8899521222544736,
+            "rmse_over_expected_sd": 0.4824784013861773
+          },
+          {
+            "filter": 19,
+            "repetition": 0,
+            "rmse": 0.029222654214158077,
+            "pearson": 0.8790419149172796,
+            "rmse_over_expected_sd": 0.5291364141014768
+          },
+          {
+            "filter": 21,
+            "repetition": 0,
+            "rmse": 0.032066722169892245,
+            "pearson": 0.8827511973034669,
+            "rmse_over_expected_sd": 0.5203118629929018
+          },
+          {
+            "filter": 31,
+            "repetition": 0,
+            "rmse": 0.016400208305745314,
+            "pearson": 0.8958985644831261,
+            "rmse_over_expected_sd": 0.4633827852593333
+          },
+          {
+            "filter": 33,
+            "repetition": 0,
+            "rmse": 0.025427290621332067,
+            "pearson": 0.8917883940278436,
+            "rmse_over_expected_sd": 0.5113608893361029
+          },
+          {
+            "filter": 41,
+            "repetition": 0,
+            "rmse": 0.033193447797264845,
+            "pearson": 0.8284850993114679,
+            "rmse_over_expected_sd": 0.607623755912347
+          },
+          {
+            "filter": 45,
+            "repetition": 0,
+            "rmse": 0.014660663663618529,
+            "pearson": 0.8822226115844858,
+            "rmse_over_expected_sd": 0.5003923475176848
+          },
+          {
+            "filter": 48,
+            "repetition": 0,
+            "rmse": 0.037784696758816363,
+            "pearson": 0.8264532166400629,
+            "rmse_over_expected_sd": 0.6035331876699281
+          },
+          {
+            "filter": 49,
+            "repetition": 0,
+            "rmse": 0.025449309156910578,
+            "pearson": 0.8886708973053694,
+            "rmse_over_expected_sd": 0.5302419656153796
+          },
+          {
+            "filter": 52,
+            "repetition": 0,
+            "rmse": 0.024478524855810858,
+            "pearson": 0.8939039853657641,
+            "rmse_over_expected_sd": 0.4530517357384012
+          },
+          {
+            "filter": 55,
+            "repetition": 0,
+            "rmse": 0.029015402078785058,
+            "pearson": 0.8953678049649805,
+            "rmse_over_expected_sd": 0.506102456113093
+          },
+          {
+            "filter": 57,
+            "repetition": 0,
+            "rmse": 0.02601698615476243,
+            "pearson": 0.8817142875927838,
+            "rmse_over_expected_sd": 0.5233479928412014
+          },
+          {
+            "filter": 60,
+            "repetition": 0,
+            "rmse": 0.0215967869010326,
+            "pearson": 0.8634581804039764,
+            "rmse_over_expected_sd": 0.5314332418162625
+          }
+        ]
+      },
+      "mvm_vs_ideal": {
+        "passed": 54,
+        "total": 64,
+        "failed": [
+          {
+            "filter": 6,
+            "repetition": 0,
+            "rmse": 0.0436203358214791,
+            "pearson": 0.8932015074322519,
+            "rmse_over_expected_sd": 0.4667871859895229
+          },
+          {
+            "filter": 14,
+            "repetition": 0,
+            "rmse": 0.039480749941574286,
+            "pearson": 0.8898267787925216,
+            "rmse_over_expected_sd": 0.4942410338131092
+          },
+          {
+            "filter": 16,
+            "repetition": 0,
+            "rmse": 0.04839173787007953,
+            "pearson": 0.8809703651373705,
+            "rmse_over_expected_sd": 0.5175872750150343
+          },
+          {
+            "filter": 21,
+            "repetition": 0,
+            "rmse": 0.04787353695687694,
+            "pearson": 0.8923959016216388,
+            "rmse_over_expected_sd": 0.5239552490246349
+          },
+          {
+            "filter": 25,
+            "repetition": 0,
+            "rmse": 0.03574787427530184,
+            "pearson": 0.8992562872819049,
+            "rmse_over_expected_sd": 0.4434383533183066
+          },
+          {
+            "filter": 33,
+            "repetition": 0,
+            "rmse": 0.041392790950025724,
+            "pearson": 0.8530105175602521,
+            "rmse_over_expected_sd": 0.6213944594767944
+          },
+          {
+            "filter": 41,
+            "repetition": 0,
+            "rmse": 0.048858402715507024,
+            "pearson": 0.8653364265879246,
+            "rmse_over_expected_sd": 0.5130830275444155
+          },
+          {
+            "filter": 52,
+            "repetition": 0,
+            "rmse": 0.033967997033457056,
+            "pearson": 0.8988562384328346,
+            "rmse_over_expected_sd": 0.44480515934926723
+          },
+          {
+            "filter": 55,
+            "repetition": 0,
+            "rmse": 0.043006907018331715,
+            "pearson": 0.8781863380660143,
+            "rmse_over_expected_sd": 0.6244838834990408
+          },
+          {
+            "filter": 58,
+            "repetition": 0,
+            "rmse": 0.04092025793710755,
+            "pearson": 0.8877819790068598,
+            "rmse_over_expected_sd": 0.4746417863585939
+          }
+        ]
+      },
+      "mvm_vs_programmed": {
+        "passed": 64,
+        "total": 64,
+        "failed": []
+      }
+    }
+  },
+  "phase4": {
+    "filter_count": 1,
+    "repetitions": 3,
+    "programmed_cells": 450,
+    "reset_failures": 0,
+    "target_misses": 0,
+    "comparisons": {
+      "weights": {
+        "passed": 1,
+        "total": 3,
+        "failed": [
+          {
+            "filter": 41,
+            "repetition": 1,
+            "rmse": 0.027612974624113162,
+            "pearson": 0.8974549622896344,
+            "rmse_over_expected_sd": 0.5054702197702556
+          },
+          {
+            "filter": 41,
+            "repetition": 2,
+            "rmse": 0.028481050863352262,
+            "pearson": 0.8918661452694293,
+            "rmse_over_expected_sd": 0.5213608180632172
+          }
+        ]
+      },
+      "mvm_vs_ideal": {
+        "passed": 2,
+        "total": 3,
+        "failed": [
+          {
+            "filter": 41,
+            "repetition": 2,
+            "rmse": 0.047066693584040975,
+            "pearson": 0.8704322015866433,
+            "rmse_over_expected_sd": 0.5839646063248058
+          }
+        ]
+      },
+      "mvm_vs_programmed": {
+        "passed": 3,
+        "total": 3,
+        "failed": []
+      }
+    },
+    "prefix_means": [
+      {
+        "K": 1,
+        "weight_rmse": 0.02603909030472639,
+        "weight_pearson": 0.9018185708901717,
+        "mvm_rmse": 0.03459771114724009,
+        "mvm_pearson": 0.9227000759549916,
+        "mvm_rmse_over_expected_sd": 0.42925978502743123,
+        "mvm_rmse_change_from_K1_percent": 0.0,
+        "weight_rmse_change_from_K1_percent": 0.0,
+        "historical_mvm_gate": true
+      },
+      {
+        "K": 2,
+        "weight_rmse": 0.020222676555226377,
+        "weight_pearson": 0.9393305204489794,
+        "mvm_rmse": 0.02788036563324048,
+        "mvm_pearson": 0.9503576601033448,
+        "mvm_rmse_over_expected_sd": 0.3459165176354647,
+        "mvm_rmse_change_from_K1_percent": -19.41557776874919,
+        "weight_rmse_change_from_K1_percent": -22.337238672444204,
+        "historical_mvm_gate": true
+      },
+      {
+        "K": 3,
+        "weight_rmse": 0.017239546565242497,
+        "weight_pearson": 0.9550193350850351,
+        "mvm_rmse": 0.027145681566527143,
+        "mvm_pearson": 0.9520637960546353,
+        "mvm_rmse_over_expected_sd": 0.3368011653742038,
+        "mvm_rmse_change_from_K1_percent": -21.539082597108184,
+        "weight_rmse_change_from_K1_percent": -33.79359123727404,
+        "historical_mvm_gate": true
+      }
+    ]
+  },
+  "limitations": [
+    "Native simulator only; no physical calibration or CIFAR/classifier evaluation.",
+    "Baseline read SD is zero for quantized simulator outputs; this does not establish physical read noise.",
+    "Phase4 uses one preselected filter and three sequential reprogramming attempts on the same cells; RESET threshold success does not prove statistical independence.",
+    "K=1/2/3 prefix means are nested, not three independent samples. Their observed improvement does not establish a population-level 1/sqrt(K) law.",
+    "Phase2/3/4 sparse probe sets differ because one RNG is consumed sequentially; zero and 75 basis vectors are the common subset.",
+    "Historical Pearson >=0.9 and RMSE <=0.6 SD are a comparator, not newly qualified acceptance thresholds."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "session": "results/simulator/20261014T184351Z_211cd2c9",
+  "original_protocol_preserved": true,
+  "actual_comparator": {
+    "source": "experiments/unn_rev3_20261014/suite.py comparison()",
+    "pearson_min": 0.9,
+    "rmse_over_expected_population_sd_max": 0.6,
+    "rmse_scale_floor": 0.0,
+    "role": "reporting_only"
+  },
+  "stale_fields": [
+    "mapping.legacy_gates_reporting_only.pearson_min",
+    "mapping.legacy_gates_reporting_only.rmse_scale_floor",
+    "mapping.weights_file_relative_to_repo"
+  ],
+  "actual_weights_file": "weights/conv1_weights.npy",
+  "explanation": "The suite settings and source hash identify the actual inputs. Older descriptive fields were not consumed by acquisition/comparison. The contradiction is recorded, not retroactively overwritten. Current template corrected in cleanup commit."
+}

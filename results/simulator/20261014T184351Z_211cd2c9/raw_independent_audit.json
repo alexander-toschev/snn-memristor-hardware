@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "source": "simulator",
+  "hardware_qualification": false,
+  "method": "Streaming raw ADC conversion without project imports; raw readback means and native MVM tile aggregation rebuilt into CSV.",
+  "raw_sha256": "75b83485c4aff7dbe85f7091c2e07db3803205cdd583a79fb445d88c70be5910",
+  "raw_tasks": 2681040,
+  "mode_counts": {
+    "7": 2636328,
+    "10": 44712
+  },
+  "raw_bytes": 1840585982,
+  "trace_storage_verified": false,
+  "compressed_parts_verified": false,
+  "comparisons": 7973467,
+  "mismatch_count": 0,
+  "first_errors": [],
+  "max_absolute_difference": 1.5152185993940876e-20,
+  "mapping_readback_groups": 12150,
+  "characterization_groups": 75,
+  "baseline_cells": 3,
+  "phase_counts": {
+    "phase2": {
+      "programming_rows": 2100,
+      "mvm_outputs": 1288
+    },
+    "phase3": {
+      "programming_rows": 9600,
+      "mvm_outputs": 5888
+    },
+    "phase4": {
+      "programming_rows": 450,
+      "mvm_outputs": 276
+    }
+  },
+  "mvm_input": {
+    "nominal_voltage": 0.1,
+    "dac_code": 82,
+    "native_decoded_voltage": 0.1
+  },
+  "limits": "Confirms recorded ADC arithmetic and aggregation. Does not establish physical calibration or independent model correctness."
+}
