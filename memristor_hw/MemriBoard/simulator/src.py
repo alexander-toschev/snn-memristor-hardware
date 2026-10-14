@@ -1,0 +1,219 @@
+"""
+Вспомогательные функции симулятора
+"""
+
+# pylint: disable=W0212, C0301
+
+import os
+import pickle
+import random
+from typing import Union
+from configparser import ConfigParser
+import numpy as np
+from simulator.memristor import MemristorModel
+from manager.service import d2v
+
+def create_crossbar_array(serial: str, row_num: int, col_num: int) -> None:
+    """
+    Создание модели кроссбара для симулятора
+    """
+    crossbar = []
+    for _ in range(row_num):
+        crossbar_row = []
+        for _ in range(col_num):
+            memristor = MemristorModel()
+            # заполняем переменные состояния случайным образом
+            memristor.state_variable = random.randint(0,11) / 10
+            memristor.fi_ion += np.random.normal(loc=0, scale=0.1)
+            crossbar_row.append(memristor)
+        crossbar.append(crossbar_row)
+    save_crossbar_array(serial, crossbar)
+
+def load_crossbar_array(serial: str) -> Union[int, list]:
+    """
+    Загрузка модели кроссбара для симулятора
+    """
+    status = 0
+    crossbar = []
+    try:
+        with open(serial+'.cb', 'rb') as file:
+            crossbar = pickle.load(file)
+            status = 1
+    except FileNotFoundError:
+        print('файл не найден!')
+    return status, crossbar
+
+def save_crossbar_array(serial: str, crossbar: list) -> None:
+    """
+    Сохранение модели кроссбара для симулятора
+    """
+    with open(serial+'.cb', 'wb') as file:
+        pickle.dump(crossbar, file)
+
+def send_mode_7_to_crossbar(serial: str, crossbar: list, **kwargs) -> int:
+    """
+    Послать задачу в режиме 7 в модель кроссбара в симуляторе
+    """
+    # запись
+    if kwargs['vol'] != 0:
+        if kwargs['vol'] > 0: # reset
+            for _ in range(int(kwargs['duration'])):
+                res_mem = crossbar[kwargs['bl']][kwargs['wl']].last_resistance
+                cur = kwargs['vol'] / (res_mem + 100) # 100 Ohm - load resistor in reset branch
+                vol_res = cur * 100
+                vol = kwargs['vol'] - vol_res
+                crossbar[kwargs['bl']][kwargs['wl']].apply_voltage(vol)
+        else: # set
+            for _ in range(int(kwargs['duration'])):
+                res_mem = crossbar[kwargs['bl']][kwargs['wl']].last_resistance
+                cur = kwargs['vol'] / res_mem
+                if cur >= kwargs['soft_cc']: # ограничитель тока
+                    # Vm = Icc * Rm
+                    vol = kwargs['soft_cc'] * res_mem
+                else:
+                    vol = kwargs['vol']
+                crossbar[kwargs['bl']][kwargs['wl']].apply_voltage(vol)
+        save_crossbar_array(serial, crossbar)
+    # чтение
+    res_mem = crossbar[kwargs['bl']][kwargs['wl']].last_resistance
+    cur = kwargs['vol_read'] / (res_mem + kwargs['res_load'])
+    vol_res = cur * kwargs['res_load']
+    vol_read = kwargs['vol_read'] - vol_res
+    current = crossbar[kwargs['bl']][kwargs['wl']].apply_voltage(vol_read)
+    # переводим ток так, как если бы работала плата
+    model_resistance = vol_read / current
+    v_out = kwargs['vol_read'] * kwargs['res_load'] / (model_resistance + kwargs['res_switches'] + kwargs['res_load'])
+    v_out = v_out * kwargs['gain']
+    res = int(2**kwargs['adc_bit'] * v_out / kwargs['vol_ref_adc'])
+    return res
+
+def send_mode_9_to_crossbar(crossbar: list, **kwargs) -> int:
+    """
+    Послать задачу в режиме 9 в модель кроссбара в симуляторе
+    """
+    # запись
+    if kwargs['vol'] != 0:
+        res_mem = crossbar[kwargs['bl']][kwargs['wl']].last_resistance
+        cur = kwargs['vol'] / (res_mem + kwargs['res_load'])
+        vol_res = cur * kwargs['res_load']
+        vol = kwargs['vol'] - vol_res
+        current = crossbar[kwargs['bl']][kwargs['wl']].apply_voltage(vol)
+        # переводим ток так, как если бы работала плата
+        model_resistance = vol / current
+        v_out = kwargs['vol'] * kwargs['res_load'] / (model_resistance + kwargs['res_switches'] + kwargs['res_load'])
+        v_out = v_out * kwargs['gain']
+        res = int(2**kwargs['adc_bit'] * v_out / kwargs['vol_ref_adc'])
+    else:
+        res = 0
+    return res
+
+def send_mode_mvm_to_crossbar(crossbar: list, **kwargs) -> int:
+    """
+    Послать задачу в режиме 10 в модель кроссбара в симуляторе
+    """
+    sum_current = 0
+    if kwargs['vol']:
+        for i, item in enumerate(kwargs['vol']):
+            try:
+                # print('Напряжение', item)
+                # print(i, item, kwargs['wl'])
+                current = crossbar[i][kwargs['wl']].apply_voltage(item)
+                sum_current += current
+            except IndexError:
+                break
+        v_out = sum_current * kwargs['sum_gain']
+        # wl = kwargs['wl']
+        # print(f'wl={wl}, v_out={v_out}')
+        res = int(2**kwargs['adc_bit'] * v_out / kwargs['vol_ref_adc'])
+    else:
+        res = 0
+    # print('Результат', res)
+    return res
+
+class BoardSimulator:
+    """
+    Симулятор платы с кроссбаром
+    """
+    serial: str
+    crossbar: list
+
+    def __init__(self):
+        """
+        Создание симулятора
+        """
+        if os.path.exists(os.path.join('simulator','simulator_settings.ini')):
+            self.config = ConfigParser()
+            self.config.read(os.path.join('simulator','simulator_settings.ini'), encoding="utf-8")  # читаем конфиг
+        else:
+            print("simulator_settings.ini не найден в", os.getcwd())
+
+    def connect(self, crossbar_serial):
+        """
+        Подключить симулятор
+        """
+        self.serial = crossbar_serial
+        status, self.crossbar = load_crossbar_array(crossbar_serial)
+        return status
+
+    def mode_7(self, v_dac, tms, tus, rev, task_id, wl, bl):
+        """
+        Запрос к плате в режиме 7
+        """
+        vol = d2v(int(self.config['board']['dac_bit']),
+                  float(self.config['board']['vol_ref_dac']),
+                  v_dac,
+                  sign=rev)
+        res = send_mode_7_to_crossbar(self.serial,
+                                      self.crossbar,
+                                      wl=wl,
+                                      bl=bl,
+                                      task_id=task_id,
+                                      vol_read=float(self.config['board']['vol_read']),
+                                      vol=vol,
+                                      res_load=float(self.config['board']['res_load']),
+                                      res_switches=float(self.config['board']['res_switches']),
+                                      gain=float(self.config['board']['gain']),
+                                      adc_bit=int(self.config['board']['adc_bit']),
+                                      vol_ref_adc=float(self.config['board']['vol_ref_adc']),
+                                      duration=tms*1000+tus,
+                                      soft_cc=float(self.config['board']['soft_cc']))
+        return (res, task_id)
+
+    def mode_9(self, v_dac, task_id, wl, bl):
+        """
+        Запрос к плате в режиме 9
+        """
+        v_dac = int(abs(v_dac))
+        vol = d2v(int(self.config['board']['dac_bit']),
+                  float(self.config['board']['vol_ref_dac']),
+                  v_dac)
+        vol = min(0.3, vol)
+        res = send_mode_9_to_crossbar(self.crossbar,
+                                      vol = vol,
+                                      wl=wl,
+                                      bl=bl,
+                                      task_id=task_id,
+                                      res_load=float(self.config['board']['res_load']),
+                                      res_switches=float(self.config['board']['res_switches']),
+                                      gain=float(self.config['board']['gain']),
+                                      adc_bit=int(self.config['board']['adc_bit']),
+                                      vol_ref_adc=float(self.config['board']['vol_ref_adc']))
+        return (res, task_id)
+
+    def mode_mvm(self, vols, tms, tus, rtms, rums, wl, task_id):
+        """
+        vDAC_mas, tms, tus, rtms, rums, wl, id
+        """
+        vol = []
+        for item in vols:
+            vol.append(d2v(int(self.config['board']['dac_bit']),
+                        float(self.config['board']['vol_ref_dac']),
+                        item))
+        res = send_mode_mvm_to_crossbar(self.crossbar,
+                                        vol = vol,
+                                        wl = wl,
+                                        gain = float(self.config['board']['gain']),
+                                        sum_gain = float(self.config['board']['sum_gain']),
+                                        adc_bit = int(self.config['board']['adc_bit']),
+                                        vol_ref_adc = float(self.config['board']['vol_ref_adc']))
+        return (res, task_id)

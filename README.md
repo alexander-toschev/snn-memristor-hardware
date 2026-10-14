@@ -19,3 +19,9 @@ hardware.
 
 Extracted from the `snn-mnist` dissertation project (CSNN/CIFAR-100:20,
 Alexander Toshchev).
+
+## Third-party code
+
+`memristor_hw/MemriBoard/` is a copy of the upstream MemriBoard simulator
+(https://github.com/neurocomputer/MemriBoard, GPLv3) that our experiment code
+depends on directly. See `THIRD_PARTY_NOTICE.md` for details.
