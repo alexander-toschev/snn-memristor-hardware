@@ -1,0 +1,322 @@
+{
+  "schema_version": 3,
+  "protocol_id": "unn-characterization-rev3-20261014",
+  "status": "prepared_not_run",
+  "execution": {
+    "approved": false,
+    "simulator_enabled": false,
+    "hardware_enabled": false,
+    "approval_scope": null,
+    "note": "Every simulator or hardware run requires explicit user permission. This file is a specification, not an execution interlock. Legacy scripts do not load it."
+  },
+  "board": {
+    "dac_bit": 12,
+    "vol_ref_dac": 5.0,
+    "res_load": 3000,
+    "vol_read": 0.3,
+    "adc_bit": 14,
+    "vol_ref_adc": 5.0,
+    "res_switches": 10.0,
+    "gain": 11.0,
+    "sum_gain": 330,
+    "read_time": 1200,
+    "blank_time": 5,
+    "blank_time_between": 55000,
+    "soft_cc": 0.002
+  },
+  "board_provenance": {
+    "source": "MemriBoard simulator_settings.ini; same values observed in Pi settings.ini before the user stopped remote commands",
+    "calibration_verified": false,
+    "timing_units_and_driver_use_verified": false,
+    "hardware_current_compliance_verified": false,
+    "driver_type_observed": "rp5_fpga_python",
+    "driver_class_observed": "MemriCORE.rp5_fpga_python.rpi_FPGAed.RPI_modes_FPGAed",
+    "driver_full_source_review_complete": false
+  },
+  "geometry": {
+    "bl_count": 32,
+    "wl_count": 8,
+    "address_order": "wl is column; bl is row; arrays indexed [bl][wl]",
+    "excluded_wl": [
+      1
+    ],
+    "initial_cells": [
+      {
+        "wl": 0,
+        "bl": 2
+      },
+      {
+        "wl": 2,
+        "bl": 6
+      },
+      {
+        "wl": 2,
+        "bl": 4
+      }
+    ],
+    "physical_array_count_verified": null,
+    "physical_array_selection_verified": false,
+    "candidate_filter_wl_pairs": [
+      [
+        0,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ]
+    ],
+    "candidate_filter_wl_pairs_approved": false,
+    "full_array_scan_allowed": false
+  },
+  "read_baseline": {
+    "enabled": false,
+    "first_check_reads_per_cell": 1,
+    "repeatability_reads_per_cell_after_first_check": 20,
+    "call": "mode_7(0, 0, 0, 0, task_id, wl, bl)",
+    "write_dac_code": 0,
+    "write_duration_us": 0,
+    "read_voltage_nominal_v": 0.3,
+    "read_dac_code_observed_in_driver": 246,
+    "read_voltage_exact_v_if_5v_reference": 0.30036630036630035,
+    "interpretation": "Zero write amplitude still invokes the measurement pulse. Confirm the entire driver and other board users before any call. Do not substitute mode_9."
+  },
+  "measurement": {
+    "primary_quantity": "conductance_siemens",
+    "resistance_formula": "gain*res_load*vol_read*2**adc_bit/(raw_adc*vol_ref_adc)-res_switches-res_load",
+    "conductance_formula": "G_S = 1/R_ohm",
+    "mvm_gain_formula": "q = sum_gain/R_ohm",
+    "wr_divider_formula_for_reference_only": "res_load/(res_load+R_ohm)",
+    "adc_min_inclusive": 1,
+    "adc_max_inclusive": 16382,
+    "invalid_adc_policy": "retain raw record with error; no clamping, replacement, silent retry, or fabricated resistance",
+    "nonpositive_resistance_policy": "retain raw record as invalid; stop session for review",
+    "operator_reported_good_resistance_ohm": [
+      400,
+      2000
+    ],
+    "operator_reported_good_conductance_siemens": [
+      0.0005,
+      0.0025
+    ],
+    "operator_reported_good_mvm_gain": [
+      0.165,
+      0.825
+    ],
+    "good_range_is_verified_programming_window": false,
+    "review_resistance_below_ohm": 200,
+    "review_resistance_above_ohm": 200000
+  },
+  "write_characterization": {
+    "enabled": false,
+    "set_rev": null,
+    "reset_rev": null,
+    "pulse_duration_us": null,
+    "pulse_start_v": null,
+    "pulse_step_v": null,
+    "pulse_stop_v": null,
+    "minimum_inter_command_interval_s": null,
+    "hardware_absolute_ceiling_v": 3.3,
+    "proposed_operational_ceiling_v": 3.0,
+    "driver_write_dac_cap_observed": 2457,
+    "initial_stage": "one approved cell, one approved pulse, readback, review",
+    "precondition": "verified polarity, pulse timing, compliance, reset endpoint and single-owner access",
+    "reset_policy": "bounded read-verify to an approved endpoint; never unconditional two 3 V pulses",
+    "candidate_target_resistance_ohm": [
+      2000,
+      1000,
+      500
+    ],
+    "candidate_target_conductance_siemens": [
+      0.0005,
+      0.001,
+      0.002
+    ],
+    "targets_approved": false,
+    "pilot_cycles_per_cell_target": 5,
+    "held_out_cycles_per_cell_target": 5,
+    "post_write_reads_per_cycle": 5,
+    "proposed_max_program_pulses_per_cycle": 100,
+    "max_reset_pulses_per_cycle": null,
+    "session_pulse_budget": null,
+    "budgets_approved": false,
+    "target_order": "balanced rotation across cells and cycles; save actual order before acquisition",
+    "stop_condition": "first invalid read, compliance violation, pulse budget exhaustion or failure to reach endpoint; retain all failures"
+  },
+  "statistics": {
+    "read_repeatability": "sample SD of individual conductance readings for each unchanged cell/state, ddof=1",
+    "write_error": "mean(post_write_G_S)-target_G_S per independent programming cycle",
+    "write_bias": "mean(signed write errors), grouped by cell and target",
+    "write_error_sd": "sample SD of signed cycle errors within cell and target, ddof=1",
+    "write_rmse": "sqrt(mean(signed cycle error squared))",
+    "variance_interpretation": "cycle SD includes measurement noise; report repeat-read noise separately; do not claim a deconvolved write sigma without a model",
+    "absolute_error_sd_is_write_sigma": false,
+    "pool_different_targets_before_estimating_sigma": false,
+    "fit_split": "pilot cycles only",
+    "validation_split": "new held-out programming cycles; do not fit on them",
+    "repeat_read_count_is_independent_write_count": false
+  },
+  "mapping": {
+    "enabled": false,
+    "conductance_min_siemens": null,
+    "conductance_max_siemens": null,
+    "freeze_after": "pilot reachability, bias, repeatability and current checks; before held-out validation",
+    "pair_formula": "G_plus/minus = (G_hi+G_lo)/2 +/- (G_hi-G_lo)*w/(2*maxabs_w)",
+    "reconstruction_formula": "w_hat = (G_plus-G_minus)*maxabs_w/(G_hi-G_lo)",
+    "legacy_mvm_gain_window": [
+      0.01,
+      0.05
+    ],
+    "legacy_equivalent_resistance_ohm": [
+      6600,
+      33000
+    ],
+    "legacy_equivalent_conductance_siemens": [
+      3.0303030303030302E-05,
+      0.00015151515151515152
+    ],
+    "legacy_window_transferred_to_hardware": false,
+    "filters_after_qualification": [
+      63,
+      41,
+      32,
+      30,
+      38,
+      43,
+      60,
+      47,
+      2,
+      9,
+      46,
+      12,
+      0,
+      1
+    ],
+    "weights_file_relative_to_repo": "experiments/memriboard-conv1-stratified-20261008/extension/conv1_weights.npy",
+    "weights_sha256": "8be312b9eafb9de23f8340b17f848e7e0e2e7884293c826a6d9f6cbb5125d440",
+    "legacy_gates_reporting_only": {
+      "pearson_min": 0.8,
+      "rmse_over_ideal_sd_max": 0.6,
+      "rmse_scale_floor": 0.05
+    },
+    "hardware_acceptance_gates": null
+  },
+  "mvm": {
+    "enabled": false,
+    "hardware_column_current_limit_a": null,
+    "legacy_simulator_column_current_limit_a": 0.015,
+    "proposed_conservative_column_current_limit_a": 0.005,
+    "input_dac_ceiling_code": 245,
+    "input_dac_ceiling_v_exact": 0.29914529914529914,
+    "active_rows_per_subread_proposed_max": 8,
+    "predrive_rule": "sum(decoded_V/R_lower_bound) < min(confirmed_hardware_limit, proposed_limit, ADC_headroom_limit); reject unknown R or missing limits",
+    "adc_headroom_fraction": 0.8,
+    "partial_sum_policy": "partition active rows and add measured partial sums digitally; report extra reads and latency",
+    "qualification_required": "all used cells and lines, array selection, current limit, ADC saturation, offsets and MVM gain"
+  },
+  "logging": {
+    "new_session_directory_required": true,
+    "overwrite_allowed": false,
+    "save_every_raw_read": true,
+    "save_every_write_pulse": true,
+    "record_fields": [
+      "timestamp_utc",
+      "monotonic_time_s",
+      "session_id",
+      "array_id",
+      "source",
+      "wl",
+      "bl",
+      "task_id",
+      "raw_adc",
+      "status",
+      "latency_s",
+      "phase",
+      "cycle",
+      "target_conductance_siemens",
+      "write_dac_code",
+      "rev",
+      "duration_us"
+    ],
+    "manifest": [
+      "protocol_sha256",
+      "driver_sha256",
+      "settings_sha256",
+      "source_hashes",
+      "operator_approval_scope",
+      "actual_cell_order",
+      "actual_pulse_budget"
+    ],
+    "simulation_and_hardware_results_separate": true
+  },
+  "simulator_reference": {
+    "status": "historical_baseline_not_fitted_to_UNN",
+    "settings_file": "simulator_settings.ini",
+    "source_root_reviewed": "D:/projects/memristor-aware-twd-snn/memristor_hw/MemriBoard",
+    "source_sha256": {
+      "simulator/simulator_settings.ini": "9ef3229595cbbba0ccc7d7450981d7a63266092792f4573d405beb2f364d3ddb",
+      "simulator/memristor.py": "bb9c43d0f254c512c21902a64b5414e05f63f1deecf10016e5b97bd086050aca",
+      "simulator/src.py": "5b751d5925b7af05db8ed751dde73ac3f9a31262a0514c5a6c9948e96c8a96d4",
+      "MemriNeurons/cores.py": "22973863b5688090d2ab87ea28c611c4275d44cdc17115e8ce9655987c42b716",
+      "manager/service/converters.py": "28c6495c56afa225501dd6b0dea999215f08b73f30e016ff7ea34d6c5412701c",
+      "manager/board.py": "5e7076651001532e409287f1cd7d17a95ba26d3d382c44e1865de56e45477df0",
+      "manager/service/drivers.py": "e4e47cd172196f6e1b6d2f22e9481a8d69cf2fcbcedb78760c43daebc8f0cdc9"
+    },
+    "noise_rate_state_relative": 0.03,
+    "noise_flag": 1,
+    "noise_active_state_interval": [
+      0.01,
+      0.7
+    ],
+    "step_s": 1E-06,
+    "resistance_clamp_ohm": [
+      100,
+      100000
+    ],
+    "area_filament": 1.7E-12,
+    "temperature_k": 300,
+    "set_threshold_v": -0.4,
+    "reset_threshold_v": 0.4,
+    "effective_write_sigma_siemens": null,
+    "calibration_before_hardware_prediction_required": true,
+    "known_source_issues": [
+      "Negative SET current compared to positive soft_cc without abs(): compliance not enforced in reviewed source.",
+      "HardCore.apply_voltage passes res_load as res_switches to ADC conversion.",
+      "HardCore construction and set_mvm scan every cell, including excluded WL=1.",
+      "create_crossbar_array changes state and barrier after last_resistance initialization; stale initial resistance requires attention before replay.",
+      "Local hardware repo submodule is not the source used by the historical rehearsal; it lacks BoardSimulator, MemriNeurons/cores.py and simulator_settings.ini."
+    ]
+  },
+  "connection": {
+    "task_format": "SI",
+    "memriboard_root": "D:/projects/memristor-aware-twd-snn/memristor_hw/MemriBoard",
+    "board_type": "rp5_fpga_python",
+    "crossbar_serial": null,
+    "cb_type": "simulator"
+  },
+  "simulator_characterization": {
+    "write_pulse_us": 125,
+    "set_rev": 1,
+    "write_start_v": 0.3,
+    "write_step_v": 0.01,
+    "write_stop_v": 3.0,
+    "weight_definition": "q = sum_gain/R_ohm",
+    "enabled": false,
+    "target_mvm_gains": [
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05
+    ],
+    "cycles_per_cell_target": 5,
+    "seed": 20261014,
+    "note": "Historical simulator staircase only; write acquisition runner is not implemented in REV3. No transfer of these pulse parameters to hardware.",
+    "readbacks_per_cycle": 5,
+    "reset_rev": 0
+  }
+}

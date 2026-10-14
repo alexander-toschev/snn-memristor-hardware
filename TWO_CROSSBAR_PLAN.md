@@ -1,86 +1,66 @@
-# Two-crossbar real-hardware experiment plan (512 cells = 256 differential weights at K=1)
+# Two-crossbar plan — four simulator phases
 
-Author: snn-experimenter · 2026-10-13 · Status: PROPOSAL (hardware not yet arrived) · REV 2 — sequential-reprogram strategy added per Alex's idea
+Entry point: `experiment.py`. The user explicitly approved all four phases using
+MemriBoard's simulator backend. This is a software rehearsal of the original
+four-phase plan, not a real-hardware experiment. Only local files are required.
 
-## Context and constraint
-NNGU will provide **2 physical crossbars of 32×8 = 256 cells each** (512 cells total).
-Differential encoding costs 2 cells/weight → **256 weights max at K=1** per *simultaneous* mapping.
-One Conv1 filter = 75 taps → 3 tiles (32+32+11) × 2 columns (G+/G−) = 6 columns = 150 cells,
-so the 2 chips hold **~3 filters simultaneously** (3 × 150 = 450 cells).
+## Preparation and initial readback
 
-**Key realization (REV 2):** the crossbars are re-programmable, so we are NOT limited to a
-permanent 2–3 filters. We can **sequentially reprogram** the same 2 chips through many
-filters, saving each cycle's readback to file before the next erase/reprogram. This turns a
-2-filter demo into a full "N of M filters validated on real hardware" result.
+Verify hashes of `weights/conv1_weights.npy` and `weights/best_fs.pt`. Freeze settings,
+source hashes and seed 20261014 before measurements. Create two new 32-BL x 8-WL
+arrays A/B inside the session directory and connect native `manager.board.Connector`
+with `cb_type=simulator`, `board_type=rp5_fpga_python`, `task_format=SI`.
+Read (WL,BL)=(0,2),(2,6),(2,4) once, then 20 times. WL=1 is excluded throughout.
 
-## The one scientific question this experiment answers
-**Does our MemriBoard simulator accurately predict real memristor write-noise and
-differential-mapping fidelity?** Everything we concluded in simulation (write-variance
-forcing mean-of-K, the structural "concentrated-signal" hard filters, the −7.2 pp full-Conv1
-hybrid) rests on that simulator being faithful. Sequential multi-filter validation turns this
-from a 2-point check into a sweep over the whole difficulty range.
+## Phase 1 — write precision
 
-## Endurance analysis — is sequential reprogramming feasible? (Alex's Q1)
-- The MemriBoard code has **no numeric write-cycle limit**. `endurance` exists only as a
-  *measurement ticket* (`docs/README.md`: "standard endurance test for RRAM cells") — i.e. it
-  measures cycles-to-failure, it does not impose one. The `write_weight` loop is bounded by
-  `WRITE_ATTEMPTS=10` verify sweeps (voltage 0.3→3.0 V, step 0.01 V, pulse 125 µs), which is a
-  *time* bound, not an endurance bound.
-- Real 1T1R ZrO₂ / HfOx / TaOx ReRAM endurance is typically **10⁵–10⁷ cycles**. Our sequential
-  plan costs ~1 program cycle per cell per filter. 64 filters → ≤64 cycles/cell; 14 filters →
-  ≤14 cycles/cell. **Endurance is not a constraint** — the actual limit is wall-clock time.
+Three initial cells x q targets [.01,.02,.03,.04,.05] x 5 programming cycles.
+Each attempt: read, bounded RESET staircase until q<=.005, bounded SET until the
+first crossing of target q, then five readbacks. Both staircases: .3 through 3.0 V,
+.01 V step, 125 us, at most 271 pulses each. No unbounded retries.
+q=330/R is an MVM gain; G=1/R is siemens. Report signed bias, sample SD (ddof=1)
+and RMSE per cell/target across cycles. Repeat reads are not independent writes.
+Count failed reset/programming attempts explicitly. Exclude failed resets from
+independent-cycle error SD; retain their raw measurements and attempt records.
 
-## Time estimate (Alex's Q3)
-- Per filter (K=1, one programming cycle + readback + save): ~5–10 min (write-verify dominates;
-  worst case 10 sweeps × ~270 pulses, but breaks early; serial round-trip overhead on the COM
-  port). **14-filter stratified sample ≈ 1–3 h; full 64-filter Conv1 ≈ 5–11 h.**
-- Add Phase 1 characterization (~30–60 min) + bring-up.
+## Phase 2 — 14 stratified filters, K=1
 
-## Expanded scope (Alex's Q2)
-Ordered by value, each a progressive superset of the previous:
-1. **Phase 1 — write-precision characterization** (the fundamental unknown): a conductance
-   sweep on a few cells → real σ_write, cycle-to-cycle variance, read reproducibility. Decide
-   K=1 vs K>1. Reconcile the writable range (docstring 0.07–0.33 vs our 0.01–0.05 mapping).
-2. **Phase 2 — differential mapping, sequential, stratified sample (14 filters):** cycle the 2
-   chips through our already-characterized 14-filter stratified sample (easy → hard:
-   filter_63 … filter_41 … filter_12), one filter at a time, K=1. Save each cycle's
-   programming history + readback + RMSE/Pearson vs ideal before erasing. This validates the
-   simulator across the FULL difficulty range, not just 2 points.
-3. **Phase 3 — full Conv1 (64 filters, optional):** if endurance/time permit, extend to all 64
-   filters. ~5–11 h, feasible as an overnight run.
-4. **Phase 4 — mean-of-K on real hardware (optional):** on the hard filters that fail K=1
-   (e.g. 41), re-program with K=2/K=3 and show the variance reduction recovers fidelity —
-   validating the mean-of-K method physically.
+Frozen order: 63,41,32,30,38,43,60,47,2,9,46,12,0,1. Each filter has 75 taps.
+Use tiles [0:32], [32:64], [64:75] on arrays A,B,A respectively, WL pair (0,2).
+Reuse the same arrays; preserve each tile's readback/MVM before overwriting it.
+Differential mapping q+/-=.03 +/- .02*w/maxabs(w); inverse w_hat=(q+-q-)*maxabs/.04.
+Use the same bounded reset/programming procedure, then three reads per cell.
+This historical simulator window is not a qualified physical conductance window.
 
-## Per-cycle protocol (same frozen-protocol discipline as simulation)
-For each filter: erase (RESET) → program differential G+/G− (the same 0.03±0.02·w/maxabs
-mapping, window re-derived from the real writable range) → read back → compute RMSE/Pearson vs
-the ideal weight → append to a results file → proceed to the next filter. Record all
-programming/readback histories + hashes. Honest scope: real-hardware result, K=1 first.
+For every filter, compare readback weights and native MVM outputs with the ideal
+weights. Inputs: zero, all 75 basis vectors and 16 fixed-seed sparse vectors with
+8 active taps. MVM input amplitude .1 V, unused rows zero; account for actual DAC
+rounding. Sum the three tile outputs digitally. Compare MVM both against ideal
+weights and against readback reconstruction. Raw ADC is the MVM measurement;
+Connector's single-cell resistance return is inapplicable to summed current.
+Historical comparator: Pearson >=.9 and RMSE<=.6*SD(expected), not a newly proven
+acceptance threshold. Record failures and continue this simulator survey.
 
-## Deliverables (much stronger than a 2-filter demo)
-1. Real σ_write vs the simulator's ~0.0074 (Phase 1).
-2. Real-vs-predicted fidelity across the 14-filter stratified difficulty range (Phase 2), or
-   all 64 (Phase 3) — "N of M filters, spanning easy→hard, validated on real hardware."
-3. Physical validation of the mean-of-K variance-reduction (Phase 4, optional).
+## Phase 3 — all 64 Conv1 filters
 
+Apply the same procedure independently to filters 0..63, K=1. Save every filter,
+including failures. Earlier phase-2 observations are not substituted for this run.
 
-## Update 2026-10-14 — driver confirmed
+## Phase 4 — mean-of-K
 
-Alex confirmed (relayed from Grigory Zharkov, NNGU hardware contact): the real-hardware
-driver will be **`rp5_fpga_python`** — a Raspberry Pi 5 + FPGA Python driver — not a direct
-serial/COM link to `HardCore` as previously assumed in this plan and in the `.tmp/` dry-run
-scripts (`seq_reprogram_dryrun.py`, `rev2_common.py`, `fresh_control.py`).
+Preselected difficult filter 41: three independent reprogramming attempts.
+Evaluate prefix means K=1,2,3 of reconstructed weights and measured MVM outputs.
+Report actual RMSE/Pearson and failed resets; do not assume variance reduction or
+recovery. This small demonstration does not estimate a population-level K law.
 
-Alex is waiting on SSH access to the hardware host; `rp5_fpga_python` docs/repo not yet in
-hand. Open items once driver access arrives:
-1. Confirm whether `rp5_fpga_python` exposes a `BoardSimulator`-compatible interface (same
-   `connect()`/`HardCore` surface) or needs a new adapter layer.
-2. Confirm timing/batching behavior vs. the assumed serial write-verify staircase (R4/R5 in
-   `MEMRISTOR_HARDWARE_REQUIREMENTS.md`) — FPGA-mediated access may batch commands differently
-   than a direct COM link.
-3. Re-validate Phase 1 (write-precision characterization) is unaffected by the driver swap
-   before committing to Phase 2's 14-filter stratified run.
+## Deliverables and limits
 
-Scope remains **inference-only**: programming already-trained CSNN/CIFAR-100:20 Conv1 weights
-onto the two crossbars, not on-chip training.
+Every session saves protocol, source/weight hashes, raw tasks/results including
+pulse amplitudes, widths, IDs, timestamps and latency, per-attempt/filter CSV/JSON,
+both arrays, summary and manifest. Invalid ADC or transport errors stop the run;
+scientific target misses remain results. No existing results or weights are overwritten.
+
+The unmodified model has known issues (signed SET compliance and stale initial
+last_resistance); see HARDWARE_REQUIREMENTS.md. The only vendored source patch
+makes INI loading relative to its module. Synthetic MVM results do not establish
+CIFAR accuracy or agreement with physical hardware. No training or hardware I/O.

@@ -1,29 +1,46 @@
-# SNN Memristor Hardware Experiment (Two-Crossbar, CIFAR)
+# SNN Memristor Experiment
 
-Code for the real-hardware validation experiment: two physical memristor
-crossbars (32x8 = 256 cells each, 512 cells total) used to validate the
-MemriBoard simulator's write-noise and differential-mapping predictions,
-originally developed for CSNN/CIFAR-100(20) Conv1 filter deployment.
+**Главный файл: [experiment.py](experiment.py).** Настройки сверху, четыре фазы в `main()`.
+Все рабочие пути относительны корню репозитория; запуск не зависит от текущей папки.
 
-See `TWO_CROSSBAR_PLAN.md` for the experiment plan (phases, endurance/time
-analysis, per-cycle protocol), `HARDWARE_REQUIREMENTS.md` for the detailed
-simulator-to-silicon requirements analysis (write precision, conductance
-window, linearity, ADC/DAC resolution, technology comparison), and
-`DRIVER_INTERFACE.md` for the exact driver interface contract the real-hardware
-driver (`rp5_fpga_python`) needs to implement to be a drop-in replacement for
-the software `BoardSimulator`.
+- `vendor/MemriBoard/` — локальный совместимый Connector и симулятор.
+- `weights/conv1_weights.npy` — замороженные Conv1-веса float32 [64,3,5,5].
+- `weights/best_fs.pt` — полный исходный checkpoint, сохранён заранее.
+- `weights/manifest.json` — SHA-256 весов и сопутствующих метаданных.
+- `experiments/unn_rev3_20261014/` — протокол и вспомогательные функции.
+- `results/simulator/` — отдельная папка каждого нового прогона, оба массива и все записи.
 
-`experiments/` contains the pilot and dry-run scripts used to develop and
-rehearse the sequential-reprogram protocol prior to running on physical
-hardware.
+Python 3.12 и локальные зависимости:
 
-Extracted from the `snn-mnist` dissertation project (CSNN/CIFAR-100:20,
-Alexander Toshchev).
+```sh
+python -m pip install --target .deps -r requirements.txt
+python experiment.py --run-simulator
+```
 
-## Third-party code
+Без `--run-simulator` программа только показывает справку. Пользователь разрешил
+прогон четырёх фаз на симуляторе; реальное оборудование не разрешено и не включается.
+Для переноса достаточно папки проекта. На другой ОС зависимости следует установить
+заново из `requirements.txt`; исходники и веса из соседних проектов не нужны.
 
-`memristor_hw/MemriBoard/` is a **git submodule** pointing to the upstream MemriBoard
-simulator (https://github.com/neurocomputer/MemriBoard, GPLv3) that our experiment code
-depends on directly. Clone with `--recurse-submodules`, or run
-`git submodule update --init --recursive` after a plain clone. See
-`THIRD_PARTY_NOTICE.md` for details.
+Порядок: входные чтения трёх ячеек, затем 1) характеристика записи, 2) 14 фильтров,
+3) все 64 фильтра, 4) три записи трудного фильтра 41 со средними K=1/2/3.
+Подробности и ограничения: [TWO_CROSSBAR_PLAN.md](TWO_CROSSBAR_PLAN.md) и
+[CLAUDE_HARDWARE_RUNBOOK.md](CLAUDE_HARDWARE_RUNBOOK.md).
+
+Backend задаёт `cb_type=simulator`. `board_type=rp5_fpga_python` — имя семейства
+драйвера, не разрешение обратиться к Raspberry Pi. Измерения проходят через
+штатный `manager.board.Connector.impact()`. HardCore и полный scan не используются.
+
+Сырые записи, pulse history, CSV/JSON и хеши исходников сохраняются до завершения.
+Успешное выполнение фазы не означает прохождения критериев точности: ошибки
+программирования и результаты сравнения сохраняются отдельно.
+
+MVM проверяется на нулевом входе, 75 базисных и 16 разреженных векторах.
+Это проверка отображения весов и MVM, не точность классификации CIFAR и не
+подтверждение свойств физической платы. Известные дефекты исходной модели
+перечислены в `HARDWARE_REQUIREMENTS.md` и протоколе.
+
+Старые эксперименты и журналы — архивные результаты; их исторические пути
+не являются зависимостями текущего запуска. Старый submodule сохранён для архива,
+текущий сценарий использует только `vendor/MemriBoard/`.
+Сторонний код и локальная правка описаны в [THIRD_PARTY_NOTICE.md](THIRD_PARTY_NOTICE.md).

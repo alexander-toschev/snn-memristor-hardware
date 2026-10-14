@@ -1,0 +1,30 @@
+{
+  "checkpoint_run_id": "twd1_sigma0p0_seed0",
+  "tensor": "conv_layers.0.weight",
+  "shape": [
+    64,
+    3,
+    5,
+    5
+  ],
+  "dtype": "float32",
+  "extraction": "Previously extracted tensor, copied byte-for-byte; checkpoint not executed",
+  "files": {
+    "conv1_weights.npy": {
+      "bytes": 19328,
+      "sha256": "8be312b9eafb9de23f8340b17f848e7e0e2e7884293c826a6d9f6cbb5125d440"
+    },
+    "split_manifest.json": {
+      "bytes": 49124,
+      "sha256": "0967934d6f3fe1c6a8dbbaf42e32d3eb1416428ba47579a64734d37d25cc0690"
+    },
+    "cfg.json": {
+      "bytes": 1575,
+      "sha256": "94ea7d5f57c5fdf6e5f4e319c38b4921783cdc04f5f082fdca59c2e86a14c645"
+    },
+    "best_fs.pt": {
+      "bytes": 27466500,
+      "sha256": "ee4fc4f58a3d010218116e9ad4c7ba808787959f9ed7687cd58cbb32d90f62fb"
+    }
+  }
+}

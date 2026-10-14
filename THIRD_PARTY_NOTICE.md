@@ -1,29 +1,15 @@
-# Third-party code: MemriBoard
+# Third-party code
 
-`memristor_hw/MemriBoard/` in this repository is a **git submodule** pointing to the
-upstream MemriBoard memristor-crossbar simulator and hardware-control stack:
+The current experiment uses a local source snapshot in `vendor/MemriBoard/`.
+Upstream: https://github.com/neurocomputer/MemriBoard (GNU GPLv3).
+The full upstream LICENSE is retained. Source commit and per-file hashes are
+recorded in `vendor/manifest.json`. The compatible MemriNeurons source snapshot
+is retained alongside it for provenance; the current experiment does not import it.
 
-- Upstream: https://github.com/neurocomputer/MemriBoard
-- License: **GNU GPLv3** (see the LICENSE file inside the submodule)
+One local source patch in `simulator/src.py` resolves simulator_settings.ini next
+to the source module instead of relative to the working directory. The numerical
+model, converters and native Connector are unchanged.
 
-It is referenced as a submodule (not copied in) because our test/protocol code
-(`experiments/`) imports it directly (`from simulator.src import BoardSimulator,
-create_crossbar_array`, `from MemriNeurons.cores import HardCore`) and the rest of this
-repository is meaningless without it — see `DRIVER_INTERFACE.md` for how our code uses it.
-
-## Fetching the submodule
-
-A plain `git clone` of this repo leaves `memristor_hw/MemriBoard/` as an empty directory.
-To fetch it:
-
-```bash
-git clone --recurse-submodules https://github.com/alexander-toschev/snn-memristor-hardware.git
-# or, if already cloned without --recurse-submodules:
-git submodule update --init --recursive
-```
-
-This repository as a whole inherits GPLv3 terms with respect to the MemriBoard-derived
-portions pulled in via the submodule; our own experiment/plan code is otherwise under no
-additional restriction beyond that inherited scope. If you only need the interface contract
-(not the simulator implementation), see `DRIVER_INTERFACE.md`, which documents the relevant
-surface without requiring you to fetch the submodule.
+`memristor_hw/MemriBoard/` remains the older archived Git submodule. The current
+entry point does not import it and needs no submodule initialization or neighbouring
+repository. Local Python package versions are pinned in requirements.txt.
