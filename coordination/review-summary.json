@@ -1,0 +1,34 @@
+{
+  "backend": "simulator",
+  "hardware_io_authorized": false,
+  "coordination_status": "Both requested OpenClaw agents replied; no repeat runs requested",
+  "agents": [
+    {
+      "agent": "lab",
+      "run_id": "7255e6ac-81d6-48b2-994f-054458fdc281",
+      "status": "completed"
+    },
+    {
+      "agent": "main",
+      "run_id": "e94f66a4-801b-4f07-b256-bc784e4f7a30",
+      "status": "completed"
+    }
+  ],
+  "findings": [
+    "Target crossing is not accurate programming; all phase-1 groups show positive bias.",
+    "Repeat-read SD=0 is a property of these quantized simulator readings, not physical noise validation.",
+    "The frozen run snapshot contains old reporting-only gate metadata: Pearson .8 and a floor; executed comparison and pre-run plan use Pearson .9 and RMSE<=.6*population SD with no floor.",
+    "Mode7, mode9 and MVM semantics must remain distinct. Additional native mode9 SI/DAC contract check is being prepared.",
+    "Synthetic basis/sparse MVM is not classifier accuracy; model is not physically calibrated.",
+    "Repeated programming on reused arrays does not establish statistical independence or a population-level mean-of-K law."
+  ],
+  "applied_actions": [
+    "Kept live run source and original result protocol unchanged.",
+    "Corrected current template gate metadata and local weights path after review.",
+    "Retained failed target attempts and all raw records; criteria not tuned to observed results."
+  ],
+  "known_review_limitations": [
+    "lab initially saw an incomplete directory snapshot during writes; phase2 final summary contains all14 filters.",
+    "Zero baseline variance does not by itself isolate all sources of write/readout error."
+  ]
+}
