@@ -180,8 +180,14 @@ def main(argv=None):
     diagnostic.add_argument("--check-mvm", action="store_true", help="Mode9/10 diagnostic on existing conductances; no writes")
     diagnostic.add_argument("--check-mvm-gui", action="store_true", help="GUI MatMul order: all 8 rows, ID0, no writes")
     diagnostic.add_argument("--map-cells", action="store_true", help="Read-only per-cell screening map, no programming")
+    diagnostic.add_argument("--calibrate-cells", action="store_true", help="Bounded SET/RESET conductance discovery, all 256 cells")
     args = parser.parse_args(argv)
     hardware_options = args.phase is not None or args.all or args.phase1_session is not None or args.max_pulses is not None
+    if args.calibrate_cells:
+        if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
+            parser.error("--calibrate-cells requires an explicit run mode and cannot combine with phase options")
+        from cell_calibration import main as calibrate_cells
+        return calibrate_cells(["--run-simulator" if args.run_simulator else "--run-hardware" if args.run_hardware else "--dry-run"])
     if (args.check_mvm or args.check_mvm_gui or args.map_cells) and (hardware_options or not (args.run_hardware or args.dry_run)):
         parser.error("--check-mvm requires --run-hardware or --dry-run and cannot combine with phase options")
     if hardware_options and not (args.run_hardware or args.dry_run):
