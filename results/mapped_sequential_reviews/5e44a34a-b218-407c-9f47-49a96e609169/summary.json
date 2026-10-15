@@ -1,0 +1,47 @@
+{
+  "auditor_sha256": "13e315583bf009e1cfdc51de278042f12ef8dbcd16a7e4d9d15ec861371dec2e",
+  "sessions": [
+    {
+      "session_id": "41194aa3-bf13-42e8-bed0-1a1324e03686",
+      "source": "simulator",
+      "passed": true,
+      "impacts": 10706,
+      "complete_blocks": 1440,
+      "singleton_supported": 192,
+      "mapped_contrasts_supported": 10,
+      "step_statuses": {
+        "inconclusive": 139,
+        "pass": 5
+      },
+      "lif_statuses": {
+        "inconclusive": 24
+      },
+      "hardware_io": false,
+      "cifar_qualified": false,
+      "trained_weights_programmed": false,
+      "limitation": "Fixed routing and three synthetic patterns only; no arbitrary weights or CIFAR accuracy claim."
+    },
+    {
+      "session_id": "07c6d866-de36-4d02-a9ef-93347d744409",
+      "source": "hardware",
+      "passed": true,
+      "impacts": 10706,
+      "complete_blocks": 1440,
+      "singleton_supported": 101,
+      "mapped_contrasts_supported": 38,
+      "step_statuses": {
+        "inconclusive": 110,
+        "pass": 30,
+        "fail": 4
+      },
+      "lif_statuses": {
+        "inconclusive": 24
+      },
+      "hardware_io": false,
+      "cifar_qualified": false,
+      "trained_weights_programmed": false,
+      "limitation": "Fixed routing and three synthetic patterns only; no arbitrary weights or CIFAR accuracy claim."
+    }
+  ],
+  "independent_math": true
+}
