@@ -1,0 +1,168 @@
+{
+  "plan_id": "cifar-conv1-physical-four-phase",
+  "backend": "real",
+  "board_type": "rp5_fpga_python",
+  "ini": "configs/raspberry_board.ini",
+  "weights": "weights/conv1_weights.npy",
+  "weights_sha256": "8be312b9eafb9de23f8340b17f848e7e0e2e7884293c826a6d9f6cbb5125d440",
+  "weights_shape": [
+    64,
+    3,
+    5,
+    5
+  ],
+  "dataset_scope": "CIFAR Conv1 weights; not complete SNN test-set inference",
+  "execution": {
+    "user_requested_hardware_plan": true,
+    "protocol_choices_resolved": true,
+    "runner_implemented": true,
+    "reason": "User selected native unknown pulse duration and one physical 32x8 array reused sequentially; four phases with programming and MVM authorized"
+  },
+  "geometry": {
+    "wl_count": 8,
+    "bl_count": 32,
+    "programming_excluded_wl": [
+      1
+    ],
+    "cells": [
+      [
+        0,
+        2
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "differential_wl_pair": [
+      0,
+      2
+    ],
+    "tiles": [
+      [
+        0,
+        32
+      ],
+      [
+        32,
+        64
+      ],
+      [
+        64,
+        75
+      ]
+    ],
+    "logical_tile_arrays": [
+      "single_board",
+      "single_board",
+      "single_board"
+    ],
+    "physical_array_policy": "single_array_sequential_tiles",
+    "native_array_selector_verified": false
+  },
+  "programming": {
+    "timing_mode": "native_unknown",
+    "installed_driver_uses_tms_tus": false,
+    "installed_driver_timing": "DAC set then immediate DAC zero; unknown physical pulse width; 1ms sleep occurs afterward",
+    "start_v": 0.3,
+    "step_v": 0.01,
+    "stop_v": 3.0,
+    "max_pulses_per_reset_or_set": 271,
+    "reset_sign": 0,
+    "set_sign": 1,
+    "polarity_physically_verified": false,
+    "current_compliance_physically_verified": false,
+    "reset_endpoint_q": 0.005,
+    "target_q": [
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05
+    ],
+    "mapping_q_window": [
+      0.01,
+      0.05
+    ],
+    "window_qualified_on_hardware": false,
+    "historical_reference_pulse_width_s": 0.000125,
+    "submitted_pulse_width_s": 0.0,
+    "physical_pulse_width_s": null,
+    "whole_session_pulse_budget": 6625950
+  },
+  "readback": {
+    "mode": 7,
+    "write_voltage_v": 0,
+    "native_read_dac": 246,
+    "native_adc_average_count": 10,
+    "initial_reads_per_cell": 21,
+    "mapping_immediate_reads_per_cell": 3,
+    "pre_mvm_tile_reads_per_cell": 3
+  },
+  "mvm": {
+    "mode": 10,
+    "input_voltage_v": 0.1,
+    "input_count": 92,
+    "inputs": "zero + 75 basis + 16 seeded sparse with 8 active taps across 75",
+    "output_converter": "convert_adc_to_volt(1, adc_bit, vol_ref_adc, raw_adc)",
+    "adc_zero_valid": true,
+    "native_R_is_not_mvm_resistance": true,
+    "predicted_current_limit_a": 0.005,
+    "adc_headroom_fraction": 0.8,
+    "zero_offset_correction": false
+  },
+  "phases": {
+    "phase1": {
+      "cell_count": 3,
+      "target_count": 5,
+      "cycles": 5,
+      "post_reads": 5
+    },
+    "phase2": {
+      "filters": [
+        63,
+        41,
+        32,
+        30,
+        38,
+        43,
+        60,
+        47,
+        2,
+        9,
+        46,
+        12,
+        0,
+        1
+      ],
+      "repetitions": 1
+    },
+    "phase3": {
+      "filters": "all_64",
+      "repetitions": 1
+    },
+    "phase4": {
+      "filters": [
+        41
+      ],
+      "repetitions": 3,
+      "report_prefix_mean_K": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  "native_fingerprints": {
+    "manager/board.py": "5e7076651001532e409287f1cd7d17a95ba26d3d382c44e1865de56e45477df0",
+    "manager/service/drivers.py": "e4e47cd172196f6e1b6d2f22e9481a8d69cf2fcbcedb78760c43daebc8f0cdc9",
+    "manager/service/converters.py": "28c6495c56afa225501dd6b0dea999215f08b73f30e016ff7ea34d6c5412701c",
+    "manager/service/__init__.py": "116c5e49243fbeed84f1807f938901bcb24f84415ed8ac84568126ca187b1098",
+    "MemriCORE/rp5_fpga_python/rpi_FPGAed.py": "bc717659fa5d4d36d2037eef978bf1cd8dcf0fe92f9bbfad51f1eb1d0d27df9c",
+    "MemriCORE/rp5_fpga_python/FPGA_SIM.py": "5bcb02c04bc185e332b2ec96acabc2d4303d21724c9c052de540ef92d603b634"
+  }
+}
