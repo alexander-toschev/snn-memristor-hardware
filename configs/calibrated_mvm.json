@@ -1,0 +1,183 @@
+{
+  "protocol_id": "all256-preparation-mvm-lif-v2",
+  "nominal_v": 0.1,
+  "repeats": 5,
+  "read_repeats": 3,
+  "seed": 20261016,
+  "densities": [
+    2,
+    4,
+    8,
+    16,
+    24
+  ],
+  "mixed_counts": {
+    "fit": 80,
+    "selection": 40,
+    "test": 81
+  },
+  "synthetic_groups": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    [
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+  ],
+  "synthetic_patterns": {
+    "dispersed": [
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        3
+      ],
+      [
+        4
+      ],
+      [
+        5
+      ],
+      [
+        6
+      ],
+      [
+        7
+      ],
+      [],
+      [],
+      [],
+      []
+    ],
+    "coincident": [
+      [
+        0,
+        1
+      ],
+      [],
+      [
+        2,
+        3
+      ],
+      [],
+      [
+        4,
+        5
+      ],
+      [],
+      [
+        6,
+        7
+      ],
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
+  },
+  "timesteps": 12,
+  "path_probe_anchors": [
+    8,
+    31
+  ],
+  "path_probe_columns": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "sparse_split_coverage": "balanced density4 partitions cover all32 BL in fit/selection/test",
+  "lif_scale": "1.25/maxabs(no-reset tau.5 reference over both group patterns); basis only",
+  "maximum_impacts": 18576,
+  "maximum_programming_pulses": 0,
+  "modes": [
+    9,
+    10
+  ],
+  "guard": {
+    "max_active": 4,
+    "basis_factor": 2.0,
+    "basis_sd_multiplier": 3.0,
+    "current_model_a": 0.005,
+    "gui_model_v": 3.3,
+    "headroom_fraction": 0.8,
+    "heuristic_not_physical_bound": true
+  },
+  "calibration": {
+    "candidates": [
+      "identity",
+      "diagonal",
+      "full"
+    ],
+    "ridge": [
+      0.0,
+      0.0001,
+      0.01,
+      1.0
+    ],
+    "maximum_gain": 10.0,
+    "maximum_condition": 1000000.0,
+    "minimum_snr": 5.0,
+    "maximum_cv": 0.05,
+    "relative_error": 0.05,
+    "absolute_error_adc": 2.0,
+    "maximum_membrane_error": 0.05,
+    "selection_required_sparse_masks": 16,
+    "test_required_sparse_masks": 32
+  },
+  "source_states_matched": false,
+  "trained_weights_programmed": false,
+  "trained_bn_applied": false
+}

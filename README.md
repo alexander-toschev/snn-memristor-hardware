@@ -1,6 +1,6 @@
 # CIFAR Conv1 — MemriBoard
 
-Текущий диагностический запуск: [бинарный MVM и цифровой LIF](BINARY_MVM.md), `python experiment.py --test-binary-mvm --run-simulator`.
+Подготовлены [операции калибровки MVM, CIFAR Conv1 и цифрового LIF](CALIBRATED_MVM_OPERATIONS.md): фиксированный план, независимая проверка матрицы коррекции и настоящий программный Conv1/BNTT/LIF-эталон. Новый протокол ещё не запускался; текущая работа ограничена подготовкой операций. Предыдущая диагностика описана в [BINARY_MVM.md](BINARY_MVM.md).
 
 Свежая карта дала **7 кандидатов из 256** по прежнему критерию двух амплитуд — [разбор интервалов и проблем](results/cell_ranges/20261015_interval_review/REPORT.md) и [цветная карта](results/cell_maps/9923f9bc-1ffc-4977-b26f-fd68c6c84e90/detailed/index.html). Отдельная [offline-гипотеза фиксированной амплитуды](BINARY_SPIKE_NOTES.md) даёт **81 кандидат при 0.05 V и 103 при 0.1 V**, без проверки линейности между амплитудами; старые критерии и результаты не изменены. Совместное суммирование этих кандидатов и размещение четырёх CIFAR-фильтров пока не подтверждены.
 
@@ -48,8 +48,9 @@ Offline тесты, без аппаратных обращений:
 python -m unittest test_launch test_hardware_suite test_native_conversions -v
 ```
 
-VS Code: первый профиль F5 — прежний симулятор; отдельный профиль
-«Аппаратный preflight: без I/O» запускает только --dry-run.
+VS Code: первый профиль F5 — «Подготовка MVM: preflight без I/O»; он запускает
+`--test-calibrated-mvm --dry-run`. Второй профиль — подготовительный штатный
+simulator. Прежние четыре фазы доступны отдельным профилем и не выбраны по умолчанию.
 
 Локальное окружение симулятора (Python 3.12; Linux/Raspberry activation: . .venv/bin/activate):
 

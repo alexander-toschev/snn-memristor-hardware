@@ -110,7 +110,9 @@ native R, рассчитанного Connector с INI0.3 V. До/после ср
 
 ```sh
 git fetch origin
-git switch --detach fda15bf1cbf5f2445110784ab3de07900b4f20b6
+git switch main
+git pull --ff-only origin main
+git rev-parse HEAD
 .venv/bin/python experiment.py --test-binary-mvm --dry-run
 .venv/bin/python experiment.py --test-binary-mvm --run-simulator
 ```

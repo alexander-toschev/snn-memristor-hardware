@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-15",
+  "scope": "Offline preparation validation; not native simulator or physical qualification",
+  "offline_tests": {
+    "command": "python -m unittest test_calibrated_mvm test_launch -v",
+    "tests": 25,
+    "elapsed_seconds": 28.673,
+    "exit_code": 0,
+    "result": "OK",
+    "connector": "FakeConnector only"
+  },
+  "source_sha256": {
+    "all256_mvm.py": "c8391bb9125bc9f0d280f91d1ca56b4cf98293d702531805bac13e2836c168f0",
+    "mvm_calibration.py": "5ee05de87d4c3ae10c85c202ca2f5b7e369fd338fa5369c4708400a1b30863ed",
+    "configs/calibrated_mvm.json": "cf410f1409ae72eb7851675881a97db880701002e5f35bf853e750af519f6562",
+    "test_calibrated_mvm.py": "3fa0cf97782b6a7d98bd193ff64e5630226a7be307202cefd82d6bf7ac990cad",
+    "experiment.py": "38329cd2ff6c40be325923943fe6c42680eeb20350b8b2e35e4648c6395a3544",
+    "weights/cifar100_conv1_fixture.json": "8cb9ec0fe30242328527073bb076f8019295d73a748343f58fc2a8671bf7c154",
+    "weights/prepared_cifar100_conv1.json": "86113ff1d2fdbe155056d2e1377cf380e7395120fd93ccf2e1efc7a0a933167c"
+  },
+  "golden_validation": "weights/cifar100_fixture_validation.json",
+  "cifar_hardware_run": false,
+  "hardware_qualification": false
+}
