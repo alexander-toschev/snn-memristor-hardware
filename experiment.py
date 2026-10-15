@@ -183,8 +183,14 @@ def main(argv=None):
     diagnostic.add_argument("--calibrate-cells", action="store_true", help="Bounded SET/RESET conductance discovery, all 256 cells")
     diagnostic.add_argument("--test-cell-ranges", action="store_true", help="Three cells, three bounded native-R interval cycles")
     diagnostic.add_argument("--test-cell-ranges-refined", action="store_true", help="Three cells, refined stop bands; unchanged outer qualification")
+    diagnostic.add_argument("--test-binary-mvm", action="store_true", help="Read-only binary MVM / digital LIF, same simulator/hardware protocol")
     args = parser.parse_args(argv)
     hardware_options = args.phase is not None or args.all or args.phase1_session is not None or args.max_pulses is not None
+    if args.test_binary_mvm:
+        if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
+            parser.error("--test-binary-mvm requires explicit mode and no phase options")
+        from binary_mvm import main as test_binary
+        return test_binary(["--run-simulator" if args.run_simulator else "--run-hardware" if args.run_hardware else "--dry-run"])
     if args.test_cell_ranges_refined:
         if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
             parser.error("--test-cell-ranges-refined requires explicit mode and no phase options")
