@@ -1,8 +1,8 @@
 # Воспроизведение на Raspberry
 
 Все команды выполняются из корня репозитория. Получение кода и dry-run не
-запускают эксперимент. Сейчас пользователь запретил физические запуски;
-аппаратные команды ниже справочные до нового явного разрешения.
+запускают эксперимент. Сейчас пользователь разрешил только диагностический --check-mvm;
+четырёхфазные программирующие команды ниже остаются справочными.
 
 ## Получение проверенной версии
 
@@ -56,7 +56,7 @@ SHA256 обоих файлов до копирования, копирует т�
 
 Dry-run проверяет exact fingerprints Connector/converters/драйвера, INI, веса
 по сохранённым файлам. Импортируемость программных и аппаратных зависимостей dry-run не проверяет. Это не проверка проводки и не физическая калибровка.
-На текущем этапе workflow заканчивается успешным --dry-run.
+После обновления checkout разрешён диагностический MVM, описанный ниже.
 
 ## Команды эксперимента после разрешения
 
@@ -101,3 +101,34 @@ Offline проверки, без аппаратуры:
 ```sh
 python -m unittest test_launch test_hardware_suite test_native_conversions -v
 ```
+
+## Текущая разрешённая проверка MVM без записи весов
+
+```sh
+python experiment.py --dry-run --check-mvm
+python experiment.py --run-hardware --check-mvm
+```
+
+Проверяются существующие проводимости: WL0/2, BL2/3, по три mode9 чтения
+nominal 0.1 В до и после (24 impact). Mode10: zero, BL2, BL3, BL2+BL3,
+nominal 0.1 В, пять повторов каждой четвёрки на каждой WL (40 impact).
+Векторы чередуются внутри повтора. RESET/SET/mode7 и запись весов отсутствуют.
+Это аналоговая диагностика, не CIFAR inference. Всего 64 impact.
+
+Native mode9 возвращает ID=0. Его native R использует INI vol_read=.3 и
+сохраняется отдельно; оценки R/G рассчитывает native a2r с read_voltage=.1.
+Mode10 преобразуется native a2v с gain=1; ADC=0 допустим. Код DAC .1 В — 82;
+native d2v округляет до .1 В. Это номинальная модель, не калибровка напряжения.
+Перед MVM проверяется модель тока <=5 мА и выхода <=80% ADC reference;
+наблюдаемый выход также ограничен 80%. ADC/transport errors останавливают run.
+
+Результаты: results/mvm_checks/<uuid>/{raw.jsonl,summary.json,manifest.json}.
+Сохраняются SI/DAC, native tuples, ADC, все request/result и ошибки; общий lock
+с read_all/four-phase. close_port не гарантирует сброс после исключения.
+Для каждой WL публикуются mean/sample SD ADC и V по четырём векторам,
+epsilon=mean(AB)-mean(A)-mean(B)+mean(zero) в ADC и V. Это отдельная описательная
+метрика суперпозиции с поправкой на zero; исходные данные не корректируются,
+порог приемлемости не задаётся. Pre/post G differences не доказывают запись
+или физический drift. No pass/fail noise threshold, no fitted scale.
+
+Offline тест: python -m unittest test_mvm_check -v.

@@ -176,13 +176,19 @@ def main(argv=None):
     phase.add_argument("--all", action="store_true")
     parser.add_argument("--phase1-session")
     parser.add_argument("--max-pulses", type=int)
+    parser.add_argument("--check-mvm", action="store_true", help="Mode9/10 diagnostic on existing conductances; no writes")
     args = parser.parse_args(argv)
     hardware_options = args.phase is not None or args.all or args.phase1_session is not None or args.max_pulses is not None
+    if args.check_mvm and (hardware_options or not (args.run_hardware or args.dry_run)):
+        parser.error("--check-mvm requires --run-hardware or --dry-run and cannot combine with phase options")
     if hardware_options and not (args.run_hardware or args.dry_run):
         parser.error("--phase/--all/--phase1-session/--max-pulses require --run-hardware or --dry-run")
     if args.run_simulator:
         return run_simulator()
     if args.run_hardware or args.dry_run:
+        if args.check_mvm:
+            from mvm_check import main as check_mvm
+            return check_mvm(["--run-hardware" if args.run_hardware else "--dry-run"])
         from experiment_hardware import main as run_hardware
         forwarded = ["--run-hardware" if args.run_hardware else "--dry-run"]
         if args.phase is not None:
