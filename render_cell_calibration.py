@@ -70,6 +70,10 @@ def build(summary,checkpoints):
             terminal=screens.get(cell.get('terminal_checkpoint_id'))
             row.update(reset_reached=cell.get('reset_reached'),reset_confirmed_before_mvm=cell.get('reset_confirmed'),
                 reset_pulses=cell['reset_pulses'],set_pulses=cell['set_pulses'],set_skipped_reason=cell.get('set_skipped_reason'),
+                reset_decisions=cell.get('reset_decisions'),set_decisions=cell.get('set_decisions'),
+                reset_skipped_current=cell.get('reset_skipped_current'),set_skipped_current=cell.get('set_skipped_current'),
+                current_limited=bool(cell.get('reset_skipped_current',0)+cell.get('set_skipped_current',0)),
+                current_limit_reason='predicted_write_current_exceeds_limit' if cell.get('reset_skipped_current',0)+cell.get('set_skipped_current',0) else None,
                 crossed_targets=cell['crossed_targets'],unreached_targets=cell.get('unreached_targets'),
                 tested_window_upper_reached=cell.get('tested_window_upper_reached'),
                 measured_state_count=sum(s['measured'] for s in states),passing_state_count=len(passing),
@@ -129,6 +133,9 @@ def render(root,session,output):
     cells,states=build(summary,checkpoints)
     output.mkdir(parents=True,exist_ok=False)
     report=dict(session=session.relative_to(root).as_posix(),source=summary['source'],status=summary['status'],
+        protocol_id=summary.get('protocol_id','cell-conductance-discovery-v1'),
+        programming_decisions=summary.get('programming_decisions'),programming_skipped_current=summary.get('programming_skipped_current'),
+        programming_pulse_attempts=summary.get('programming_pulse_attempts'),impact_attempts=summary.get('impact_attempts'),
         provisional_criteria=CRITERIA,verified_result_sha256=hashes,generator_sha256=sha(Path(__file__)),
         cells=cells,states=states,automatic_mask_exported=False,full_mvm_or_cifar_qualified=False)
     (output/'calibration.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -145,6 +152,15 @@ def render(root,session,output):
         '<p class="warn">Один ограниченный цикл SET/RESET, не проверка повторяемости. Best observed state — историческое состояние, которое могло быть перезаписано. Терминальная MVM-кривая не измерялась заново после программирования остальных ячеек; поздний G не доказывает её сохранность. Это не калибровка абсолютного напряжения/усиления, не готовая маска, не квалификация 4 фильтров или CIFAR.</p>',
         '<p>Симулятор: 125 модельных шагов, один simulated ADC. Плата: длительность native-импульса неизвестна, mode7 возвращает среднее десяти ADC; пять таких ответов не являются 50 независимыми отсчётами. Mode7 G измерен при nominal .3 В, MVM при ≤.1 В: различие трактов не доказывает ошибку усиления.</p>',
         '<p><a href="cells.csv">Ячейки CSV</a> · <a href="states.csv">Все состояния CSV</a> · <a href="calibration.json">JSON / provenance</a> · <a href="../raw.jsonl">Исходный журнал</a> · <a href="../protocol.json">Протокол</a></p>']
+    if 'programming_skipped_current' in summary:
+        lines.append(f'<p>Протокол {esc(report["protocol_id"])}. Решений о записи: {summary["programming_decisions"]}; '
+            f'реальных попыток импульса: {summary["programming_pulse_attempts"]}; пропущено по прогнозу тока: {summary["programming_skipped_current"]}. '
+            f'Ячеек с такими пропусками: {sum(c.get("current_limited",False) for c in cells)}. '
+            'Пропуск не является ответом платы, новым q или доказательством неисправности ячейки. '
+            'V/последний валидный native R mode7: sign0≤40 мА, sign1≤soft_cc (2 мА в данном INI); '
+            'MVM не обновляет это сопротивление. Это программный прогноз, не измеренный ток импульса.</p>')
+    else:
+        lines.append('<p>Исторический протокол v1: проверки тока перед каждым программирующим импульсом не было; счётчики таких пропусков отсутствуют.</p>')
     for key,(color,symbol,label) in colors.items():
         lines.append(f'<p><span style="background:{color};padding:4px">{symbol}</span> {esc(label)}: {sum(c["status"]==key for c in cells)}</p>')
     lines.append('<div class="scroll"><table class="grid"><tr><th>WL/BL</th>'+''.join(f'<th>{bl}</th>' for bl in range(32))+'</tr>')
@@ -156,7 +172,7 @@ def render(root,session,output):
         lines.append('</tr>')
     lines.append('</table></div><h2>Все ячейки и состояния</h2>')
     for cell in cells:
-        lines.append(f'<details id="cell-{cell["wl"]}-{cell["bl"]}"><summary>WL{cell["wl"]}/BL{cell["bl"]}: {esc(colors[cell["status"]][2])}; RESET={esc(cell.get("reset_confirmed_before_mvm"))}; q terminal={esc(cell.get("terminal_q"))}</summary><pre>{esc(json.dumps(cell,ensure_ascii=False,indent=2))}</pre>')
+        lines.append(f'<details id="cell-{cell["wl"]}-{cell["bl"]}"><summary>WL{cell["wl"]}/BL{cell["bl"]}: {esc(colors[cell["status"]][2])}; RESET={esc(cell.get("reset_confirmed_before_mvm"))}; q terminal={esc(cell.get("terminal_q"))}; current skips RESET/SET={esc(cell.get("reset_skipped_current"))}/{esc(cell.get("set_skipped_current"))}</summary><pre>{esc(json.dumps(cell,ensure_ascii=False,indent=2))}</pre>')
         for state in states:
             if state['wl']==cell['wl'] and state['bl']==cell['bl']:
                 lines.append(f'<pre>{esc(json.dumps(state,ensure_ascii=False,indent=2))}</pre>')

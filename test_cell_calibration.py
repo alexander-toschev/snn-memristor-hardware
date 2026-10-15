@@ -183,5 +183,103 @@ class DiscoveryTests(unittest.TestCase):
         cells,states=report.build(result,[])
         self.assertTrue(all(c['status']=='unmeasured' for c in cells)); self.assertEqual(states,[])
 
+    def test_gui_current_boundary_equality_allowed_above_skipped_both_signs(self):
+        for sign,resistance,limit in ((0,25.0,.04),(1,500.0,.002)):
+            folder=self.output/str(sign); folder.mkdir()
+            fake=FakeConnector(); worker=calibration.Discovery(fake,converters,folder,'boundary',self.plan,'hardware')
+            try:
+                # Exact numeric fixtures isolate the <= comparison from ADC quantization.
+                worker.last_mode7[0,0]=(resistance,99)
+                accepted=worker.impact(0,0,7,1.0,'set' if sign else 'reset',sign=sign,step=0)
+                self.assertEqual(accepted['predicted_current_a'],limit)
+                worker.last_mode7[0,0]=(resistance,99)
+                previous_write=worker.last_write
+                skipped=worker.impact(0,0,7,1.0001,'set' if sign else 'reset',sign=sign,step=1)
+                self.assertIsNone(skipped)
+                self.assertEqual(len(fake.commands),1)
+                self.assertEqual((worker.sequence,worker.pulses,worker.decisions,worker.skipped),(1,1,2,1))
+                self.assertEqual(worker.last_write,previous_write)
+                self.assertEqual(worker.last_mode7[0,0],(resistance,99))
+            finally: worker.log.close()
+            records=[json.loads(line) for line in (folder/'raw.jsonl').read_text().splitlines()]
+            self.assertEqual([r['event'] for r in records],['request','result','skipped'])
+            self.assertEqual(records[-1]['programming_decision_id'],2)
+            self.assertGreater(records[-1]['predicted_current_a'],limit)
+            self.assertTrue(all(k not in records[-1] for k in ('task_id','q','raw_adc','native_result','returned_id')))
+            self.assertNotIn('id',records[-1]['planned_command_si'])
+
+    def test_latest_native_mode7_read_and_write_update_guard_mvm_never_does(self):
+        fake=FakeConnector(); worker=calibration.Discovery(fake,converters,self.output,'last-r',self.plan,'hardware')
+        try:
+            first=worker.impact(0,0,7,0,'checkpoint_read')
+            fake.q[0,0]=.004
+            latest=worker.impact(0,0,7,0,'checkpoint_read')
+            self.assertNotEqual(first['native_r'],latest['native_r'])
+            worker.impact(0,0,10,[.1]+[0]*31,'checkpoint_mvm')
+            self.assertEqual(worker.last_mode7[0,0],(latest['native_r'],latest['task_id']))
+            write=worker.impact(0,0,7,.3,'set',sign=1,step=0)
+            self.assertEqual(write['previous_native_r_ohm'],latest['native_r'])
+            self.assertEqual(write['resistance_source_task_id'],latest['task_id'])
+            self.assertEqual(worker.last_mode7[0,0],(write['native_r'],write['task_id']))
+        finally: worker.log.close()
+
+    def test_reset_current_skips_are_bounded_and_continue_next_cell_without_fake_crossing(self):
+        plan=copy.deepcopy(self.plan)
+        # Deliberately small test-only limit exercises the state machine with consistent ADC/R.
+        plan['programming_guard']['sign0_limit_a']=1e-9
+        fake=FakeConnector(); result,raw=self.run_fake(fake,((0,0),(0,1)),plan=plan)
+        self.assertEqual(result['status'],'completed')
+        self.assertEqual(result['programming_decisions'],542)
+        self.assertEqual(result['programming_skipped_current'],542)
+        self.assertEqual(result['programming_pulse_attempts'],0)
+        for cell in result['cells']:
+            self.assertEqual((cell['reset_decisions'],cell['reset_skipped_current'],cell['set_pulses']),(271,271,0))
+            self.assertEqual(cell['crossed_targets'],[])
+            self.assertFalse(cell['reset_reached'])
+            self.assertEqual(len(cell['checkpoints']),1)
+        skips=[r for r in raw if r['event']=='skipped']
+        self.assertEqual([r['programming_decision_id'] for r in skips],list(range(1,543)))
+        self.assertEqual([r['step'] for r in skips],list(range(271))*2)
+        self.assertFalse(any(t['mode_flag']==7 and t['vol'] for t in fake.commands))
+        requests=[r for r in raw if r['event']=='request']
+        self.assertEqual([r['task_id'] for r in requests],list(range(1,len(fake.commands)+1)))
+
+    def test_set_current_skips_keep_reset_terminal_without_fake_q_or_pulses(self):
+        with patch.dict(calibration.EXPECTED_BOARD,soft_cc=1e-9):
+            result,raw=self.run_fake(FakeConnector())
+        cell=result['cells'][0]
+        self.assertEqual(result['status'],'completed'); self.assertTrue(cell['reset_confirmed'])
+        self.assertEqual((cell['set_decisions'],cell['set_skipped_current'],cell['set_pulses']),(271,271,0))
+        self.assertEqual(result['programming_decisions'],272)
+        self.assertEqual(result['programming_pulse_attempts'],1)
+        self.assertEqual(cell['crossed_targets'],[])
+        self.assertEqual(cell['terminal_checkpoint_id'],cell['checkpoints'][1]['checkpoint_id'])
+        self.assertEqual(result['checkpoint_count'],2)
+        self.assertTrue(all(r['planned_command_si']['sign']==1 for r in raw if r['event']=='skipped'))
+        checkpoints=[json.loads(line) for line in (self.output/'checkpoints.jsonl').read_text().splitlines()]
+        cells,_=report.build(result,checkpoints)
+        rendered=next(c for c in cells if (c['wl'],c['bl'])==(1,0))
+        self.assertTrue(rendered['current_limited'])
+        self.assertEqual(rendered['set_skipped_current'],271)
+        self.assertNotEqual(rendered['status'],'incomplete')
+        self.assertEqual(rendered['current_limit_reason'],'predicted_write_current_exceeds_limit')
+
+    def test_invalid_native_resistance_stops_without_gui_epsilon_coercion(self):
+        class InvalidR(FakeConnector):
+            def impact(self,task):
+                native=super().impact(task)
+                return (0,native[1],native[2])
+        fake=InvalidR(); result,raw=self.run_fake(fake)
+        self.assertEqual(result['status'],'failed'); self.assertEqual(len(fake.commands),1)
+        self.assertEqual(result['programming_decisions'],0); self.assertEqual(raw[-1]['status'],'error')
+        self.assertIn('native mode7 resistance',raw[-1]['error'])
+
+    def test_protocol_version_and_guard_cannot_be_silently_removed(self):
+        calibration.validate_plan(self.plan)
+        plan=copy.deepcopy(self.plan); plan['protocol_id']='cell-conductance-discovery-v1'
+        with self.assertRaises(ValueError): calibration.validate_plan(plan)
+        plan=copy.deepcopy(self.plan); plan['programming_guard']['sign0_limit_a']=.05
+        with self.assertRaises(ValueError): calibration.validate_plan(plan)
+
 
 if __name__=='__main__': unittest.main()

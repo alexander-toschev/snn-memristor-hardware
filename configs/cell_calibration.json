@@ -1,5 +1,13 @@
 {
-  "protocol_id": "cell-conductance-discovery-v1",
+  "protocol_id": "cell-conductance-discovery-v2-gui-write-guard",
+  "programming_guard": {
+    "prediction": "requested_voltage_over_last_valid_mode7_native_resistance",
+    "sign0_limit_a": 0.04,
+    "sign1_limit_source": "board.soft_cc",
+    "invalid_resistance": "global_stop",
+    "skip_policy": "advance_ramp_without_impact_or_state_update"
+  },
+  "maximum_programming_decisions": 138752,
   "geometry": {"wl_count": 8, "bl_count": 32, "excluded_wl": []},
   "cycles": 1,
   "ramp": {"start_v": 0.3, "step_v": 0.01, "stop_v": 3.0, "maximum_steps": 271},

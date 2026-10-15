@@ -17,6 +17,10 @@ CONFIG='configs/cell_calibration.json'
 SIM_INI='vendor/MemriBoard/simulator/simulator_settings.ini'
 CELLS=tuple((wl,bl) for wl in range(8) for bl in range(32))
 LOCK='results/read_all/.hardware.lock'
+PROTOCOL_ID='cell-conductance-discovery-v2-gui-write-guard'
+WRITE_GUARD=dict(prediction='requested_voltage_over_last_valid_mode7_native_resistance',
+    sign0_limit_a=.04,sign1_limit_source='board.soft_cc',invalid_resistance='global_stop',
+    skip_policy='advance_ramp_without_impact_or_state_update')
 
 
 def stats(values):
@@ -25,7 +29,8 @@ def stats(values):
 
 
 def validate_plan(plan):
-    expected={'geometry':dict(wl_count=8,bl_count=32,excluded_wl=[]),'cycles':1,
+    expected={'protocol_id':PROTOCOL_ID,'programming_guard':WRITE_GUARD,'maximum_programming_decisions':138752,
+        'geometry':dict(wl_count=8,bl_count=32,excluded_wl=[]),'cycles':1,
         'ramp':dict(start_v=.3,step_v=.01,stop_v=3.0,maximum_steps=271),'reset_endpoint_q':.005,
         'set_crossing_q':[.01,.02,.03,.04,.05],'tested_window_upper_q':.05,'read_voltage_v':.3,
         'checkpoint_reads':5,'mvm_levels_v':[.025,.05,.075,.1],'mvm_repeats':5,'initial_array_reads':3,'final_array_reads':3,
@@ -44,9 +49,11 @@ class Discovery:
         self.session_id,self.plan,self.source=session_id,plan,source
         self.log=(output/'raw.jsonl').open('x',encoding='utf-8',newline='\n')
         self.sequence=self.pulses=0
+        self.decisions=self.skipped=0
+        self.last_mode7={}
         self.last_write=None
         self.summary=dict(status='failed',source=source,cells=[],initial_array=[],final_array=[],checkpoint_count=0,
-            programming_repeatability_qualified=False,baseline_scope=plan['baseline_scope'])
+            programming_repeatability_qualified=False,baseline_scope=plan['baseline_scope'],protocol_id=plan['protocol_id'])
 
     def emit(self,row):
         self.log.write(json.dumps(row,ensure_ascii=False,allow_nan=False)+'\n'); self.log.flush()
@@ -57,12 +64,34 @@ class Discovery:
 
     def impact(self,wl,bl,mode,vol,phase,sign=0,**metadata):
         if (wl,bl) not in CELLS or mode not in (7,10): raise ValueError('Unsupported address/mode')
-        if self.sequence>=self.plan['maximum_impacts']: raise ValueError('Whole-session impact budget exhausted')
+        guard={}
         if mode==7:
             if type(vol) not in (float,int) or not math.isfinite(vol) or not 0<=vol<=3 or sign not in (0,1):
                 raise ValueError('Invalid mode7 voltage/polarity')
             if vol:
-                if self.pulses>=self.plan['maximum_programming_pulses']: raise ValueError('Whole-session pulse budget exhausted')
+                if self.decisions>=self.plan['maximum_programming_decisions']: raise ValueError('Whole-session programming decision budget exhausted')
+                previous=self.last_mode7.get((wl,bl))
+                if previous is None or not math.isfinite(previous[0]) or previous[0]<=0:
+                    raise ValueError('No valid previous native mode7 resistance for write guard')
+                limit=self.plan['programming_guard']['sign0_limit_a'] if sign==0 else EXPECTED_BOARD['soft_cc']
+                predicted=vol/previous[0]
+                if not math.isfinite(predicted): raise ValueError('Non-finite predicted programming current')
+                # Counts admitted attempts and skipped decisions, never invents an impact ID.
+                if predicted<=limit and self.pulses>=self.plan['maximum_programming_pulses']:
+                    raise ValueError('Whole-session pulse budget exhausted')
+                if predicted<=limit and self.sequence>=self.plan['maximum_impacts']:
+                    raise ValueError('Whole-session impact budget exhausted')
+                self.decisions+=1
+                guard=dict(programming_decision_id=self.decisions,previous_native_r_ohm=previous[0],
+                    resistance_source_task_id=previous[1],predicted_current_a=predicted,current_limit_a=limit)
+                if predicted>limit:
+                    self.skipped+=1
+                    width=self.plan['simulator_pulse_width_s'] if self.source=='simulator' else 0.0
+                    self.emit(dict(event='skipped',session_id=self.session_id,source=self.source,phase=phase,wl=wl,bl=bl,
+                        timestamp_utc=now(),monotonic_time_s=time.monotonic(),reason='predicted_write_current_exceeds_limit',
+                        planned_command_si=dict(mode_flag=7,vol=vol,pulse_width=width,sign=sign,wl=wl,bl=bl),
+                        native_voltage_conversion=voltage(vol,EXPECTED_BOARD,self.converters),**guard,**metadata))
+                    return None
                 self.pulses+=1
             codes=voltage(vol,EXPECTED_BOARD,self.converters)
         else:
@@ -70,6 +99,7 @@ class Discovery:
                 any(type(v) not in (float,int) or not math.isfinite(v) or not 0<=v<=.1 for v in vol) or
                 sum(v!=0 for v in vol)>1): raise ValueError('Expected single-BL MVM at 0..0.1 V')
             codes=[voltage(v,EXPECTED_BOARD,self.converters) for v in vol]
+        if self.sequence>=self.plan['maximum_impacts']: raise ValueError('Whole-session impact budget exhausted')
         self.sequence+=1
         width=self.plan['simulator_pulse_width_s'] if self.source=='simulator' and mode==7 and vol else 0.0
         task={'mode_flag':7,'vol':vol,'pulse_width':width,'sign':sign,'wl':wl,'bl':bl,'id':self.sequence} if mode==7 else {
@@ -78,7 +108,7 @@ class Discovery:
         row=dict(session_id=self.session_id,source=self.source,task_id=self.sequence,phase=phase,wl=wl,bl=bl,
             timestamp_utc=now(),monotonic_time_s=time.monotonic(),command_si=task,native_voltage_conversion=codes,
             native_adc_samples=10 if mode==7 and self.source=='hardware' else 1,
-            physical_pulse_width_s=None,simulator_duration_steps=125 if width else None,**metadata)
+            physical_pulse_width_s=None,simulator_duration_steps=125 if width else None,**guard,**metadata)
         self.emit({**row,'event':'request'}); started=time.monotonic()
         try:
             submitted={**task,'vol':list(vol) if mode==10 else vol}
@@ -87,7 +117,11 @@ class Discovery:
             native_r,echoed,adc=result
             row.update(native_r=json_value(native_r),returned_id=json_value(echoed),raw_adc=json_value(adc))
             if type(echoed) is not int or echoed!=task['id']: raise ValueError('Native response ID mismatch')
-            if mode==7: row.update(readback(adc,EXPECTED_BOARD,self.converters,read_voltage=.3))
+            if mode==7:
+                row.update(readback(adc,EXPECTED_BOARD,self.converters,read_voltage=.3))
+                if type(native_r) not in (int,float) or not math.isfinite(native_r) or native_r<=0:
+                    raise ValueError('Invalid native mode7 resistance for write guard')
+                self.last_mode7[wl,bl]=(native_r,self.sequence)
             else:
                 row['output_voltage_v']=mvm_output(adc,EXPECTED_BOARD,self.converters)
                 if row['output_voltage_v']>self.plan['adc_headroom_fraction']*EXPECTED_BOARD['vol_ref_adc']:
@@ -138,15 +172,21 @@ class Discovery:
         finally: self.append('checkpoints.jsonl',state)
 
     def discover_cell(self,wl,bl):
-        cell=dict(wl=wl,bl=bl,status='failed',reset_pulses=0,set_pulses=0,checkpoints=[],crossed_targets=[],reset_reached=False)
+        cell=dict(wl=wl,bl=bl,status='failed',reset_pulses=0,set_pulses=0,
+            reset_decisions=0,set_decisions=0,reset_skipped_current=0,set_skipped_current=0,
+            checkpoints=[],crossed_targets=[],reset_reached=False)
         self.summary['cells'].append(cell); self.last_write=None
         try:
             baseline=self.checkpoint(cell,'local_pre_reset'); q=baseline['last_read_q']
             for step in range(271):
                 if q<=.005: break
-                before=self.pulses
-                try: q=self.impact(wl,bl,7,round(.3+.01*step,2),'reset',sign=0,step=step)['q']
-                finally: cell['reset_pulses']+=self.pulses-before
+                before=(self.pulses,self.decisions,self.skipped)
+                try: response=self.impact(wl,bl,7,round(.3+.01*step,2),'reset',sign=0,step=step)
+                finally:
+                    cell['reset_pulses']+=self.pulses-before[0]
+                    cell['reset_decisions']+=self.decisions-before[1]
+                    cell['reset_skipped_current']+=self.skipped-before[2]
+                if response is not None: q=response['q']
             cell.update(reset_reached=q<=.005,reset_decision_q=q)
             reset=self.checkpoint(cell,'post_reset',reuse=True)
             cell['reset_confirmed']=cell['reset_reached'] and reset['q']['mean']<=.005 and reset['last_read_q']<=.005
@@ -156,9 +196,13 @@ class Discovery:
                 q=reset['last_read_q']
                 for step in range(271):
                     if cell['crossed_targets'] and cell['crossed_targets'][-1]>=.05: break
-                    before=self.pulses
+                    before=(self.pulses,self.decisions,self.skipped)
                     try: response=self.impact(wl,bl,7,round(.3+.01*step,2),'set',sign=1,step=step)
-                    finally: cell['set_pulses']+=self.pulses-before
+                    finally:
+                        cell['set_pulses']+=self.pulses-before[0]
+                        cell['set_decisions']+=self.decisions-before[1]
+                        cell['set_skipped_current']+=self.skipped-before[2]
+                    if response is None: continue
                     q=response['q']
                     crossed=[target for target in self.plan['set_crossing_q'] if target not in cell['crossed_targets'] and q>=target]
                     if crossed:
@@ -204,7 +248,8 @@ class Discovery:
                 if not self.connector.close_port(): raise ConnectionError('Connector.close_port returned false')
             except Exception as exc: self.summary.update(status='failed',close_error=f'{type(exc).__name__}: {exc}')
             self.log.close()
-            self.summary.update(impact_attempts=self.sequence,programming_pulse_attempts=self.pulses,finished_utc=now())
+            self.summary.update(impact_attempts=self.sequence,programming_pulse_attempts=self.pulses,
+                programming_decisions=self.decisions,programming_skipped_current=self.skipped,finished_utc=now())
             save_json(self.output/'summary.json',self.summary)
         return self.summary
 
@@ -244,7 +289,8 @@ def main(argv=None):
     config,snapshot,hashes=check_sources(source)
     for name in ('experiment.py','cell_calibration.py','native_conversions.py','read_all.py','experiment_hardware.py',CONFIG):
         hashes[name]=sha256(local_path(name))
-    description=dict(source=source,cells=256,cycles=1,maximum_checkpoints_per_cell=7,
+    description=dict(source=source,protocol_id=plan['protocol_id'],programming_guard=plan['programming_guard'],
+        maximum_programming_decisions=plan['maximum_programming_decisions'],cells=256,cycles=1,maximum_checkpoints_per_cell=7,
         maximum_programming_pulses=138752,maximum_impacts=203008,
         initial_array_read_impacts=768,final_array_read_impacts=768,
         baseline_scope=plan['baseline_scope'],tested_window_upper_q=.05,cell_maximum_q_inferred=False,
@@ -283,7 +329,8 @@ def main(argv=None):
             discovery=Discovery(connector,converters,output,session_id,plan,source)
             result=discovery.run()
             manifest.update(status=result['status'],impact_attempts=result['impact_attempts'],
-                programming_pulse_attempts=result['programming_pulse_attempts'],error=result.get('error'))
+                programming_pulse_attempts=result['programming_pulse_attempts'],programming_decisions=result['programming_decisions'],
+                programming_skipped_current=result['programming_skipped_current'],error=result.get('error'))
         except (Exception,KeyboardInterrupt) as exc: manifest['error']=f'{type(exc).__name__}: {exc}'
         finally:
             manifest['finished_utc']=now()
