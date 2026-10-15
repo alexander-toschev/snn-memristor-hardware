@@ -185,8 +185,14 @@ def main(argv=None):
     diagnostic.add_argument("--test-cell-ranges-refined", action="store_true", help="Three cells, refined stop bands; unchanged outer qualification")
     diagnostic.add_argument("--test-binary-mvm", action="store_true", help="Read-only binary MVM / digital LIF, same simulator/hardware protocol")
     diagnostic.add_argument("--test-calibrated-mvm", action="store_true", help="Read-only all256 affine MVM calibration and heldout inputs")
+    diagnostic.add_argument("--test-mapped-sequential-mvm", action="store_true", help="Fresh one-hot partial sums and digital LIF on a fixed per-WL map")
     args = parser.parse_args(argv)
     hardware_options = args.phase is not None or args.all or args.phase1_session is not None or args.max_pulses is not None
+    if args.test_mapped_sequential_mvm:
+        if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
+            parser.error("--test-mapped-sequential-mvm requires explicit mode and no phase options")
+        from mapped_sequential_mvm import main as mapped_sequential
+        return mapped_sequential(["--run-simulator" if args.run_simulator else "--run-hardware" if args.run_hardware else "--dry-run"])
     if args.test_calibrated_mvm:
         if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
             parser.error("--test-calibrated-mvm requires explicit mode and no phase options")
