@@ -1,0 +1,88 @@
+{
+  "audit_status": "passed",
+  "checks": 17629650,
+  "errors": [],
+  "max_numeric_difference": 0.0,
+  "session_id": "f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb",
+  "source": "hardware",
+  "acquisition_status": "completed",
+  "coverage": "complete",
+  "full_replay_performed": true,
+  "auditor_sha256": "939d660ffe6bd131db11f557cc14f52214dcd0862e76fb9d1a0b77b634fea5f9",
+  "raw_sha256": "acb6c5ec0bc91e5c7fc4145f9b3d43f791de3175f0ab97ed2517e2382a0ed5fd",
+  "manifest_sha256": "63090051af745ae0123ffe177fc862b20cd0fe3a8df0476d4c0e18c8edd288b0",
+  "recorded_invocation": {
+    "git": {
+      "commit": "f3f57fe49a0c79bd7c72d6e3406b19e666970f90",
+      "dirty_tracked": false,
+      "untracked": [
+        ".tmp/",
+        "results/cell_maps/",
+        "results/hardware_four_phase/",
+        "results/mvm_checks/",
+        "results/read_all/"
+      ],
+      "status_porcelain": "?? .tmp/\n?? results/cell_maps/\n?? results/hardware_four_phase/\n?? results/mvm_checks/\n?? results/read_all/"
+    },
+    "process_argv": [
+      "experiment.py",
+      "--run-hardware",
+      "--calibrate-cells"
+    ],
+    "hardware_argv": [
+      "--run-hardware"
+    ]
+  },
+  "source_blob_commit": "f3f57fe49a0c79bd7c72d6e3406b19e666970f90",
+  "verified_source_count": 66,
+  "provenance_note": "Recorded invocation is preserved; source blob comparison is separate from the clean/dirty state at launch.",
+  "impact_pairs": 114090,
+  "programming_pulse_attempts": 78709,
+  "mode_counts": {
+    "7": 85080,
+    "10": 29010
+  },
+  "phase_counts": {
+    "initial_array_read": 768,
+    "checkpoint_read": 4835,
+    "checkpoint_mvm": 29010,
+    "reset": 19428,
+    "set": 59281,
+    "final_array_read": 768
+  },
+  "checkpoints": 967,
+  "checkpoint_reuses": 137,
+  "scientific_outcomes": {
+    "reset_reached": 232,
+    "reset_confirmed": 223,
+    "set_attempted_cells": 223,
+    "upper_q_reached": 13,
+    "target_reached_counts": {
+      "0.01": 187,
+      "0.02": 97,
+      "0.03": 38,
+      "0.04": 21,
+      "0.05": 13
+    },
+    "set_skipped_reasons": {
+      "reset_endpoint_not_reached": 24,
+      "reset_unconfirmed_after_readback": 9
+    },
+    "checkpoint_counts": {
+      "5": 32,
+      "2": 65,
+      "4": 90,
+      "7": 14,
+      "3": 37,
+      "6": 18
+    }
+  },
+  "limitations": [
+    "Source is hardware; completed acquisition is not stable programmable-window qualification.",
+    "One-cycle tested q window capped at .05 is not a stable or maximal physical programming range.",
+    "125 simulator model steps do not establish the physical native pulse duration.",
+    "Checkpoint G precedes MVM; per-state post-MVM G stability is unmeasured.",
+    "Earlier observed checkpoints need not be current terminal states or coexist on the array.",
+    "Partial runs receive structural/prefix/ledger/conversion checks, not complete protocol replay."
+  ]
+}
