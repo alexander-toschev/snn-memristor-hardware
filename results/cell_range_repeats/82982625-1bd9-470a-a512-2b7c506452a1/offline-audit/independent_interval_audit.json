@@ -1,0 +1,391 @@
+{
+  "audit_status": "passed",
+  "checks": 216298,
+  "errors": [],
+  "max_numeric_difference": 0.0,
+  "session_id": "82982625-1bd9-470a-a512-2b7c506452a1",
+  "source": "simulator",
+  "acquisition_status": "completed",
+  "full_protocol_replay": true,
+  "auditor_sha256": "e249cdfc3a6ed0c06287a74b7a0409d0703df2c280f2ff784bc9b014d052a9e8",
+  "audit_core_sha256": "9a7109c49440d1e3d783cfd6324ec6bfba089127aae5f35407727d9a41dbc5e9",
+  "manifest_sha256": "c83cf51f7f282d68fbcdc0383b9911a1ce4089cebb322d6c53340be434088156",
+  "raw_sha256": "bef5847f1ffb38be1b106ddf7eefa788325446f4b01f3f1a76ab0afe6ca7f9cc",
+  "source_commit": "63cae01d965b8c8b717bfcbcf5547f420871668b",
+  "private_local_unavailable": [],
+  "impact_pairs": 2011,
+  "programming_decisions": 1801,
+  "programming_pulse_attempts": 1801,
+  "programming_skipped_current": 0,
+  "mode_counts": {
+    "7": 1921,
+    "10": 90
+  },
+  "outcomes": {
+    "cycles": 9,
+    "cycle_statuses": {
+      "completed": 9
+    },
+    "reset_crossed": 9,
+    "reset_confirmed": 9,
+    "target_statuses": {
+      "overshoot": 24,
+      "hit": 3
+    },
+    "hit_origins": {
+      "programming_response": 3
+    },
+    "target_observed_pass": 3,
+    "per_cell": [
+      {
+        "wl": 0,
+        "bl": 8,
+        "targets": [
+          {
+            "cycle_id": 1,
+            "target_q": 0.04,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.04083799567117246
+          },
+          {
+            "cycle_id": 1,
+            "target_q": 0.045,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.044912013283068174
+          },
+          {
+            "cycle_id": 1,
+            "target_q": 0.05,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.05405396551357
+          },
+          {
+            "cycle_id": 2,
+            "target_q": 0.04,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.04174404072194421
+          },
+          {
+            "cycle_id": 2,
+            "target_q": 0.045,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.047480784670325085
+          },
+          {
+            "cycle_id": 2,
+            "target_q": 0.05,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.0507217863905762
+          },
+          {
+            "cycle_id": 3,
+            "target_q": 0.04,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.04155035714420618
+          },
+          {
+            "cycle_id": 3,
+            "target_q": 0.045,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.045683972124470826
+          },
+          {
+            "cycle_id": 3,
+            "target_q": 0.05,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.050917911069553866
+          }
+        ]
+      },
+      {
+        "wl": 3,
+        "bl": 8,
+        "targets": [
+          {
+            "cycle_id": 4,
+            "target_q": 0.04,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.04051296783270354
+          },
+          {
+            "cycle_id": 4,
+            "target_q": 0.045,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04511438547371472
+          },
+          {
+            "cycle_id": 4,
+            "target_q": 0.05,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.05050443214653019
+          },
+          {
+            "cycle_id": 5,
+            "target_q": 0.04,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.04250419245898346
+          },
+          {
+            "cycle_id": 5,
+            "target_q": 0.045,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.04550042191300319
+          },
+          {
+            "cycle_id": 5,
+            "target_q": 0.05,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.052281948627440414
+          },
+          {
+            "cycle_id": 6,
+            "target_q": 0.04,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.04074224971295233
+          },
+          {
+            "cycle_id": 6,
+            "target_q": 0.045,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.048067889338979125
+          },
+          {
+            "cycle_id": 6,
+            "target_q": 0.05,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.05217110858862923
+          }
+        ]
+      },
+      {
+        "wl": 5,
+        "bl": 8,
+        "targets": [
+          {
+            "cycle_id": 7,
+            "target_q": 0.03,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.04343048161771963
+          },
+          {
+            "cycle_id": 7,
+            "target_q": 0.035,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.04343048161771963
+          },
+          {
+            "cycle_id": 7,
+            "target_q": 0.04,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.04343048161771963
+          },
+          {
+            "cycle_id": 8,
+            "target_q": 0.03,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.030854818727939975
+          },
+          {
+            "cycle_id": 8,
+            "target_q": 0.035,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.040933888049537445
+          },
+          {
+            "cycle_id": 8,
+            "target_q": 0.04,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.040933888049537445
+          },
+          {
+            "cycle_id": 9,
+            "target_q": 0.03,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.0403604555594693
+          },
+          {
+            "cycle_id": 9,
+            "target_q": 0.035,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.0403604555594693
+          },
+          {
+            "cycle_id": 9,
+            "target_q": 0.04,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.0403604555594693
+          }
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "Completed acquisition and audit consistency are not scientific qualification.",
+    "Only three specified addresses have new interval repeats; no all256 range qualification.",
+    "Passing sampled target bands does not establish a continuous range, precision bits or CIFAR accuracy.",
+    "Native pulse duration and physical current compliance remain unmeasured.",
+    "Partial sessions receive prefix/ledger/evidence checks, not full nine-cycle replay."
+  ]
+}
