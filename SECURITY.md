@@ -33,3 +33,6 @@ Automated detection cannot prove the absence of every kind of secret. If a real
 credential is exposed, revoke or rotate it first, then remove it from affected
 files and history. Deleting only the latest copy does not remove historical copies.
 Do not paste the credential into a public issue or audit report.
+
+Publication audit: [secret-audit.json](.github/secret-audit.json). No detected
+credentials required history rewriting. This is a scan result, not a guarantee.
