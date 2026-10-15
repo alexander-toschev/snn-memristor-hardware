@@ -1,0 +1,20 @@
+{
+  "protocol_id": "three-cell-native-R-interval-v1",
+  "cells": [{"wl":0,"bl":8,"targets_q":[0.04,0.045,0.05]}, {"wl":3,"bl":8,"targets_q":[0.04,0.045,0.05]}, {"wl":5,"bl":8,"targets_q":[0.03,0.035,0.04]}],
+  "cycles_per_cell": 3,
+  "q_relative_tolerance": 0.01,
+  "reset_endpoint_q": 0.005,
+  "ramp": {"start_v":0.3,"step_v":0.01,"stop_v":3.0,"maximum_steps":271},
+  "initial_reads": 1,
+  "reset_confirmation_reads": 5,
+  "pre_reads": 5,
+  "post_reads": 5,
+  "delayed_reads": 3,
+  "delay_s": 1.0,
+  "final_reads": 3,
+  "maximum_programming_decisions": 4878,
+  "maximum_programming_pulses": 4878,
+  "maximum_impacts": 6120,
+  "baseline_scope": "per_cell_cycle_before_reset",
+  "qualification": "each pre/post/delayed sample inside inclusive native R band; transfer screen separately; no continuous range claim"
+}
