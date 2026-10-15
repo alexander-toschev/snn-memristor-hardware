@@ -1,15 +1,17 @@
 # CIFAR Conv1: четыре физические фазы
 
 Пользователь согласовал native-импульс неизвестной длительности и один массив
-32×8 с последовательной перезаписью плиток. Точка входа — `experiment_hardware.py`.
-Старые simulator scripts, результаты и `read_all.py` не меняются. Аппаратного
-прогона новой реализации при подготовке ещё не было.
+32×8 с последовательной перезаписью плиток. Точка входа — `experiment.py`.
+Старые simulator scripts, результаты и `read_all.py` не меняются. Окно
+q=.01–.05 не квалифицировано для физического mapping. Сейчас физические
+запуски запрещены пользователем; команды ниже справочные. Обновление кода
+допускает только --dry-run, без подключения.
 
 ```text
-python experiment_hardware.py --dry-run
-python experiment_hardware.py --run-hardware --phase phase1
-python experiment_hardware.py --run-hardware --phase phase2 --phase1-session results/hardware_four_phase/<uuid>
-python experiment_hardware.py --run-hardware --all
+python experiment.py --dry-run
+python experiment.py --run-hardware --phase phase1
+python experiment.py --run-hardware --phase phase2 --phase1-session results/hardware_four_phase/<uuid>
+python experiment.py --run-hardware --all
 ```
 
 Без флага подключения нет. По умолчанию phase1. Для phase2/3/4 нужна завершённая

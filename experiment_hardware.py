@@ -10,6 +10,7 @@ import hashlib
 import json
 from pathlib import Path
 import socket
+import subprocess
 import sys
 import uuid
 
@@ -19,6 +20,24 @@ from hardware_suite import HardwareSuite, ScientificGateError, FILTERS
 CONFIG = "configs/hardware_four_phase.json"
 LOCK_FILE = "results/read_all/.hardware.lock"
 READ_ALL_SHA256 = "b30ae2f4dd3cd166dbc5cefb07b558127de2bbdba1f6674c40b1b45f4dd74d5f"
+
+
+def launch_provenance(argv):
+    """Read-only Git identity before creating session files; no network or checkout."""
+    git = {"commit": None, "dirty_tracked": None, "untracked": None, "status_porcelain": None}
+    try:
+        def read_git(*arguments):
+            return subprocess.run(["git", "-C", str(ROOT), *arguments], check=True,
+                                  capture_output=True, text=True, timeout=10).stdout.rstrip("\r\n")
+        git["commit"] = read_git("rev-parse", "--verify", "HEAD")
+        git["status_porcelain"] = read_git("status", "--porcelain=v1", "--untracked-files=normal")
+        lines = git["status_porcelain"].splitlines()
+        git["dirty_tracked"] = any(not line.startswith("?? ") for line in lines)
+        git["untracked"] = [line[3:] for line in lines if line.startswith("?? ")]
+    except (OSError, subprocess.SubprocessError) as exc:
+        git["error"] = f"{type(exc).__name__}: {exc}"
+    return {"git": git, "process_argv": list(sys.argv),
+            "hardware_argv": list(sys.argv[1:] if argv is None else argv)}
 
 
 def validate_plan(plan):
@@ -110,7 +129,7 @@ def main(argv=None):
     if sha256(local_path("read_all.py")) != READ_ALL_SHA256:
         raise ValueError("Unreviewed read_all helper source")
     ini, snapshot, hashes = preflight(plan["ini"])
-    for filename in ("experiment_hardware.py", "hardware_suite.py", "native_conversions.py"):
+    for filename in ("experiment.py", "experiment_hardware.py", "hardware_suite.py", "native_conversions.py"):
         hashes[filename] = sha256(local_path(filename))
     plan_hash = hashlib.sha256(plan_bytes).hexdigest()
     if sha256(local_path(plan["weights"])) != plan["weights_sha256"]:
@@ -128,6 +147,7 @@ def main(argv=None):
                           "pulse_timing": "native_unknown", "max_pulses": args.max_pulses,
                           "phase1_dependency": dependency, "source_sha256": hashes}))
         return 0
+    invocation = launch_provenance(argv)
     # Factory import only; hardware initialization occurs in open_port below.
     connector = native_connector(ini)
     from manager.service import converters
@@ -150,7 +170,8 @@ def main(argv=None):
                     "pulse_timing": "native_unknown", "physical_pulse_width_s": None,
                     "phases_requested": phases, "phases_completed": [], "phase1_dependency": dependency,
                     "source_sha256": hashes, "plan_sha256": plan_hash, "weights_sha256": plan["weights_sha256"],
-                    "max_pulses": args.max_pulses, "python": sys.version, "numpy": np.__version__, "status": "failed"}
+                    "max_pulses": args.max_pulses, "python": sys.version, "numpy": np.__version__,
+                    "invocation": invocation, "status": "failed"}
         save_json(output / "start_manifest.json", manifest)
         suite = None
         try:

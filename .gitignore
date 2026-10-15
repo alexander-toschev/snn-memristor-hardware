@@ -26,3 +26,7 @@ id_ed25519
 
 # Recreate the local interpreter environment on each computer.
 .venv/
+
+# Private operator-provided drivers: never publish or force-add.
+/vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py
+/vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py

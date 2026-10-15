@@ -1,7 +1,7 @@
 """Четыре фазы TWO_CROSSBAR_PLAN: настройки и порядок запуска в одном файле.
 
-Разрешённый прогон: python experiment.py --run-simulator
-Без этого аргумента подключения и измерений нет. Все пути внутри репозитория.
+Одна точка входа: --run-simulator, --run-hardware или --dry-run.
+Без флагов только справка. --dry-run не подключает плату.
 """
 
 import argparse
@@ -40,13 +40,7 @@ def save_json(path, data):
         stream.write("\n")
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--run-simulator", action="store_true",
-                        help="Выполнить разрешённые пользователем четыре фазы")
-    if not parser.parse_args().run_simulator:
-        parser.print_help()
-        return
+def run_simulator():
     if CB_TYPE != "simulator":
         raise ValueError("Этот сценарий разрешает только simulator")
 
@@ -171,5 +165,38 @@ def main():
         print(f"Результаты: {relative_path(output_dir)}; status={manifest['status']}", flush=True)
 
 
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--run-simulator", action="store_true", help="Существующие четыре фазы симулятора")
+    mode.add_argument("--run-hardware", action="store_true", help="Физический запуск; требуется разрешение оператора")
+    mode.add_argument("--dry-run", action="store_true", help="Аппаратный preflight без подключения")
+    phase = parser.add_mutually_exclusive_group()
+    phase.add_argument("--phase", choices=("phase1", "phase2", "phase3", "phase4"))
+    phase.add_argument("--all", action="store_true")
+    parser.add_argument("--phase1-session")
+    parser.add_argument("--max-pulses", type=int)
+    args = parser.parse_args(argv)
+    hardware_options = args.phase is not None or args.all or args.phase1_session is not None or args.max_pulses is not None
+    if hardware_options and not (args.run_hardware or args.dry_run):
+        parser.error("--phase/--all/--phase1-session/--max-pulses require --run-hardware or --dry-run")
+    if args.run_simulator:
+        return run_simulator()
+    if args.run_hardware or args.dry_run:
+        from experiment_hardware import main as run_hardware
+        forwarded = ["--run-hardware" if args.run_hardware else "--dry-run"]
+        if args.phase is not None:
+            forwarded += ["--phase", args.phase]
+        if args.all:
+            forwarded.append("--all")
+        if args.phase1_session is not None:
+            forwarded += ["--phase1-session", args.phase1_session]
+        if args.max_pulses is not None:
+            forwarded += ["--max-pulses", str(args.max_pulses)]
+        return run_hardware(forwarded)
+    parser.print_help()
+    return 0
+
+
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
