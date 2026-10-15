@@ -1,0 +1,391 @@
+{
+  "audit_status": "passed",
+  "checks": 602480,
+  "errors": [],
+  "max_numeric_difference": 1.734723475976807e-18,
+  "session_id": "0ab02a19-b10c-4d4f-b7a5-6152a28f290a",
+  "source": "hardware",
+  "acquisition_status": "completed",
+  "full_protocol_replay": true,
+  "auditor_sha256": "e249cdfc3a6ed0c06287a74b7a0409d0703df2c280f2ff784bc9b014d052a9e8",
+  "audit_core_sha256": "9a7109c49440d1e3d783cfd6324ec6bfba089127aae5f35407727d9a41dbc5e9",
+  "manifest_sha256": "6a0490a21d59ef57c81570b85b1ddd43ce55a72bd8b641eb2aa957c78ad1f557",
+  "raw_sha256": "883fb1e1bbb3267fc8a140545cab31e5373627a1f705a4ee4d6e3f0c76455a6c",
+  "source_commit": "63cae01d965b8c8b717bfcbcf5547f420871668b",
+  "private_local_unavailable": [],
+  "impact_pairs": 4026,
+  "programming_decisions": 2999,
+  "programming_pulse_attempts": 2999,
+  "programming_skipped_current": 0,
+  "mode_counts": {
+    "7": 3366,
+    "10": 660
+  },
+  "outcomes": {
+    "cycles": 9,
+    "cycle_statuses": {
+      "completed": 9
+    },
+    "reset_crossed": 9,
+    "reset_confirmed": 9,
+    "target_statuses": {
+      "hit": 22,
+      "set_ramp_exhausted": 5
+    },
+    "hit_origins": {
+      "programming_response": 22
+    },
+    "target_observed_pass": 16,
+    "per_cell": [
+      {
+        "wl": 0,
+        "bl": 8,
+        "targets": [
+          {
+            "cycle_id": 1,
+            "target_q": 0.04,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": false,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": false,
+            "evidence_q": 0.03960267714097473
+          },
+          {
+            "cycle_id": 1,
+            "target_q": 0.045,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04477065215916645
+          },
+          {
+            "cycle_id": 1,
+            "target_q": 0.05,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04953370768808174
+          },
+          {
+            "cycle_id": 2,
+            "target_q": 0.04,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.039659266808318355
+          },
+          {
+            "cycle_id": 2,
+            "target_q": 0.045,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04468995329222761
+          },
+          {
+            "cycle_id": 2,
+            "target_q": 0.05,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.049555130082216466
+          },
+          {
+            "cycle_id": 3,
+            "target_q": 0.04,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.039753623904215454
+          },
+          {
+            "cycle_id": 3,
+            "target_q": 0.045,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04483116988975608
+          },
+          {
+            "cycle_id": 3,
+            "target_q": 0.05,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04953370768808174
+          }
+        ]
+      },
+      {
+        "wl": 3,
+        "bl": 8,
+        "targets": [
+          {
+            "cycle_id": 4,
+            "target_q": 0.04,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.039848142352054715
+          },
+          {
+            "cycle_id": 4,
+            "target_q": 0.045,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.0450333656299895
+          },
+          {
+            "cycle_id": 4,
+            "target_q": 0.05,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04992058089403222
+          },
+          {
+            "cycle_id": 5,
+            "target_q": 0.04,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.03999956364112391
+          },
+          {
+            "cycle_id": 5,
+            "target_q": 0.045,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04489179037982535
+          },
+          {
+            "cycle_id": 5,
+            "target_q": 0.05,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04979140419303977
+          },
+          {
+            "cycle_id": 6,
+            "target_q": 0.04,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": false,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": false,
+            "evidence_q": 0.03962155412544425
+          },
+          {
+            "cycle_id": 6,
+            "target_q": 0.045,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04485139915978379
+          },
+          {
+            "cycle_id": 6,
+            "target_q": 0.05,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.0498344890907773
+          }
+        ]
+      },
+      {
+        "wl": 5,
+        "bl": 8,
+        "targets": [
+          {
+            "cycle_id": 7,
+            "target_q": 0.03,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": false,
+            "interval_and_mvm_pass": false,
+            "evidence_q": 0.029892631104097917
+          },
+          {
+            "cycle_id": 7,
+            "target_q": 0.035,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": false,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": false,
+            "evidence_q": 0.0346812790455712
+          },
+          {
+            "cycle_id": 7,
+            "target_q": 0.04,
+            "status": "set_ramp_exhausted",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.022615271064583047
+          },
+          {
+            "cycle_id": 8,
+            "target_q": 0.03,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": false,
+            "interval_and_mvm_pass": false,
+            "evidence_q": 0.02987614977909756
+          },
+          {
+            "cycle_id": 8,
+            "target_q": 0.035,
+            "status": "set_ramp_exhausted",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.02344942456533294
+          },
+          {
+            "cycle_id": 8,
+            "target_q": 0.04,
+            "status": "set_ramp_exhausted",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.02344942456533294
+          },
+          {
+            "cycle_id": 9,
+            "target_q": 0.03,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": false,
+            "interval_and_mvm_pass": false,
+            "evidence_q": 0.029760938497667824
+          },
+          {
+            "cycle_id": 9,
+            "target_q": 0.035,
+            "status": "set_ramp_exhausted",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.023524413351031295
+          },
+          {
+            "cycle_id": 9,
+            "target_q": 0.04,
+            "status": "set_ramp_exhausted",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.023524413351031295
+          }
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "Completed acquisition and audit consistency are not scientific qualification.",
+    "Only three specified addresses have new interval repeats; no all256 range qualification.",
+    "Passing sampled target bands does not establish a continuous range, precision bits or CIFAR accuracy.",
+    "Native pulse duration and physical current compliance remain unmeasured.",
+    "Partial sessions receive prefix/ledger/evidence checks, not full nine-cycle replay."
+  ]
+}
