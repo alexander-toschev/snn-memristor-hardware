@@ -1,0 +1,295 @@
+{
+  "audit_status": "passed",
+  "checks": 1953,
+  "errors": [],
+  "session_id": "35613bed-ce7c-4edd-8aed-8b369ef5f991",
+  "manifest_sha256": "1430725296b93beedad606fbfd09e43b5da8a7bb6ab897a64f75906a3cfe93a3",
+  "raw_sha256": "6eaf4071161bb1b906c8bb6dac955101f95e636824ea7314ed39afb8001b4033",
+  "auditor_sha256": "5bd28d90d3be7729f6f3e0adae0ca6d3c681229cbf50cdfe27a11e3ebc954b72",
+  "max_numeric_difference": 8.673617379884035e-19,
+  "git_commit": "7714c87bc384021a5e60137d5a3fddc4f7ee34dd",
+  "manifest_tracked_clean": true,
+  "verified_local_source_count": 63,
+  "verified_git_blob_count": 63,
+  "unavailable_private_sources_pins_only": {
+    "vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py": "bc717659fa5d4d36d2037eef978bf1cd8dcf0fe92f9bbfad51f1eb1d0d27df9c",
+    "vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py": "5bcb02c04bc185e332b2ec96acabc2d4303d21724c9c052de540ef92d603b634"
+  },
+  "native_converter_sha256": "28c6495c56afa225501dd6b0dea999215f08b73f30e016ff7ea34d6c5412701c",
+  "request_result_pairs": 64,
+  "mode9_count": 24,
+  "mode10_count": 40,
+  "mode7_count": 0,
+  "row_results": [
+    {
+      "wl": 0,
+      "vectors": {
+        "zero": {
+          "adc": {
+            "count": 5,
+            "mean": 0,
+            "sample_std": 0.0
+          },
+          "adc_values": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "output_mV": {
+            "count": 5,
+            "mean": 0.0,
+            "sample_std": 0.0
+          },
+          "predicted_model_mV": 0.0,
+          "predicted_model_adc_codes": 0.0,
+          "observed_to_model_ratio": null
+        },
+        "A": {
+          "adc": {
+            "count": 5,
+            "mean": 258.6,
+            "sample_std": 0.5477225575051661
+          },
+          "adc_values": [
+            258,
+            259,
+            258,
+            259,
+            259
+          ],
+          "output_mV": {
+            "count": 5,
+            "mean": 78.926,
+            "sample_std": 0.16979399282659496
+          },
+          "predicted_model_mV": 3.2067926494772188,
+          "predicted_model_adc_codes": 10.507376795277056,
+          "observed_to_model_ratio": 24.61213075714975
+        },
+        "B": {
+          "adc": {
+            "count": 5,
+            "mean": 73.2,
+            "sample_std": 1.7888543819998317
+          },
+          "adc_values": [
+            73,
+            75,
+            75,
+            72,
+            71
+          ],
+          "output_mV": {
+            "count": 5,
+            "mean": 22.34,
+            "sample_std": 0.546443043692571
+          },
+          "predicted_model_mV": 1.9776364114085956,
+          "predicted_model_adc_codes": 6.479923465621404,
+          "observed_to_model_ratio": 11.296313048811667
+        },
+        "AB": {
+          "adc": {
+            "count": 5,
+            "mean": 478,
+            "sample_std": 1.224744871391589
+          },
+          "adc_values": [
+            478,
+            478,
+            479,
+            476,
+            479
+          ],
+          "output_mV": {
+            "count": 5,
+            "mean": 145.882,
+            "sample_std": 0.3755928646819534
+          },
+          "predicted_model_mV": 5.184429060885814,
+          "predicted_model_adc_codes": 16.98730026089846,
+          "observed_to_model_ratio": 28.13848898051554
+        }
+      },
+      "epsilon_codes": 146.2,
+      "epsilon_mV": 44.616000000000014,
+      "paired_epsilon_codes": {
+        "count": 5,
+        "mean": 146.2,
+        "sample_std": 1.9235384061671346
+      },
+      "paired_epsilon_values": [
+        147,
+        144,
+        146,
+        145,
+        149
+      ],
+      "epsilon_fraction_of_single_sum": 0.4406268836648583
+    },
+    {
+      "wl": 2,
+      "vectors": {
+        "zero": {
+          "adc": {
+            "count": 5,
+            "mean": 0,
+            "sample_std": 0.0
+          },
+          "adc_values": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "output_mV": {
+            "count": 5,
+            "mean": 0.0,
+            "sample_std": 0.0
+          },
+          "predicted_model_mV": 0.0,
+          "predicted_model_adc_codes": 0.0,
+          "observed_to_model_ratio": null
+        },
+        "A": {
+          "adc": {
+            "count": 5,
+            "mean": 0,
+            "sample_std": 0.0
+          },
+          "adc_values": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "output_mV": {
+            "count": 5,
+            "mean": 0.0,
+            "sample_std": 0.0
+          },
+          "predicted_model_mV": 0.2210439687334987,
+          "predicted_model_adc_codes": 0.7242726679521819,
+          "observed_to_model_ratio": 0.0
+        },
+        "B": {
+          "adc": {
+            "count": 5,
+            "mean": 0,
+            "sample_std": 0.0
+          },
+          "adc_values": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "output_mV": {
+            "count": 5,
+            "mean": 0.0,
+            "sample_std": 0.0
+          },
+          "predicted_model_mV": 0.22104336890992865,
+          "predicted_model_adc_codes": 0.7242707025702723,
+          "observed_to_model_ratio": 0.0
+        },
+        "AB": {
+          "adc": {
+            "count": 5,
+            "mean": 0,
+            "sample_std": 0.0
+          },
+          "adc_values": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "output_mV": {
+            "count": 5,
+            "mean": 0.0,
+            "sample_std": 0.0
+          },
+          "predicted_model_mV": 0.4420873376434274,
+          "predicted_model_adc_codes": 1.4485433705224542,
+          "observed_to_model_ratio": 0.0
+        }
+      },
+      "epsilon_codes": 0,
+      "epsilon_mV": 0.0,
+      "paired_epsilon_codes": {
+        "count": 5,
+        "mean": 0,
+        "sample_std": 0.0
+      },
+      "paired_epsilon_values": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "epsilon_fraction_of_single_sum": null
+    }
+  ],
+  "readback_cells": [
+    {
+      "wl": 0,
+      "bl": 2,
+      "before_uS": 97.175534832643,
+      "after_uS": 97.22701209610975,
+      "before_sd_uS": 0.15448853671914692,
+      "after_sd_uS": 0.08922675675308599,
+      "delta_percent": 0.05297348098510784
+    },
+    {
+      "wl": 0,
+      "bl": 3,
+      "before_uS": 59.92837610329077,
+      "after_uS": 59.58514735011895,
+      "before_sd_uS": 0.22323329157067753,
+      "after_sd_uS": 0.297170086001635,
+      "delta_percent": -0.5727316097807184
+    },
+    {
+      "wl": 2,
+      "bl": 2,
+      "before_uS": 6.698302082833295,
+      "after_uS": 6.570049382499691,
+      "before_sd_uS": 0.09624397268733793,
+      "after_sd_uS": 0.1468843874146475,
+      "delta_percent": -1.9147046333173847
+    },
+    {
+      "wl": 2,
+      "bl": 3,
+      "before_uS": 6.698283906361475,
+      "after_uS": 6.570049382499691,
+      "before_sd_uS": 0.0,
+      "after_sd_uS": 0.1468843874146475,
+      "delta_percent": -1.9144384689337723
+    }
+  ],
+  "conclusions": [
+    "Acquisition and numerical record integrity pass; completed is not MVM mathematical validation.",
+    "WL0 violates zero-offset superposition for this A/B pair by a large amount versus repeated-sample variation.",
+    "Zero ADC does not prove zero physical offset: clipping at zero remains possible; intrinsic cell nonlinearity is not identified.",
+    "WL0 measured/model ratios differ for A, B and AB; a single gain correction cannot fix these observations.",
+    "WL2 is nonresponsive in this low-amplitude test; its model expectations are near ADC quantization floor, so zero output alone does not establish a dead row.",
+    "Small before/after readback differences do not by themselves prove drift, read disturb, or invariant physical states.",
+    "Physical transfer/gain, routing, settling, offset/clipping and effective current summation require diagnosis before CIFAR mapping.",
+    "Programming reachability window remains separately unqualified after previous phase1 target miss."
+  ],
+  "limitations": [
+    "Model R/G and expected MVM voltage are uncalibrated native software estimates.",
+    "Five sequential repeats and three pre/post reads do not establish independent samples.",
+    "Private source bytes unavailable locally; checked saved hashes against reviewed pins only.",
+    "No hardware calls were made by this auditor."
+  ]
+}
