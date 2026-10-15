@@ -1,0 +1,101 @@
+{
+  "audit_status": "passed",
+  "checks": 21714230,
+  "errors": [],
+  "max_numeric_difference": 0.0,
+  "session_id": "3380d497-ded0-4881-9df2-85ef1c7e32d9",
+  "source": "hardware",
+  "acquisition_status": "completed",
+  "coverage": "complete",
+  "full_replay_performed": true,
+  "auditor_sha256": "77568c6a268c80f03c6b89fde6fb9509e37af2fa687ebd094a468cd0cf1154de",
+  "raw_sha256": "ec169f1cfaea180cbf9599211250ef7b0bb3da4144733ee36ae867153507e6f0",
+  "manifest_sha256": "d5f9737d9a4e4f915202edfea1a0055031365cd78ee003bdccdad2b1fe0fdf12",
+  "recorded_invocation": {
+    "git": {
+      "commit": "34b8819bf3d501f337b4a0ad401204cb8c5397cd",
+      "dirty_tracked": false,
+      "untracked": [
+        ".tmp/",
+        "results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/cell_results.jsonl",
+        "results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/checkpoint_roles.jsonl",
+        "results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/checkpoints.jsonl",
+        "results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/final_array.jsonl",
+        "results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/initial_array.jsonl",
+        "results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/raw.jsonl",
+        "results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/summary.json",
+        "results/cell_maps/564161d7-9fd2-411c-8b9c-da9d689c44ea/",
+        "results/hardware_four_phase/",
+        "results/mvm_checks/",
+        "results/read_all/"
+      ],
+      "status_porcelain": "?? .tmp/\n?? results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/cell_results.jsonl\n?? results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/checkpoint_roles.jsonl\n?? results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/checkpoints.jsonl\n?? results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/final_array.jsonl\n?? results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/initial_array.jsonl\n?? results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/raw.jsonl\n?? results/cell_calibrations/f32eab10-9abd-4d8c-a4c5-3ed49a3cb8fb/summary.json\n?? results/cell_maps/564161d7-9fd2-411c-8b9c-da9d689c44ea/\n?? results/hardware_four_phase/\n?? results/mvm_checks/\n?? results/read_all/"
+    },
+    "process_argv": [
+      "experiment.py",
+      "--run-hardware",
+      "--calibrate-cells"
+    ],
+    "hardware_argv": [
+      "--run-hardware"
+    ]
+  },
+  "source_blob_commit": "34b8819bf3d501f337b4a0ad401204cb8c5397cd",
+  "local_source_differences": [],
+  "private_local_unavailable": [],
+  "verified_source_count": 66,
+  "provenance_note": "Recorded invocation is preserved; source blob comparison is separate from the clean/dirty state at launch.",
+  "impact_pairs": 120296,
+  "programming_pulse_attempts": 82745,
+  "mode_counts": {
+    "7": 89426,
+    "10": 30870
+  },
+  "phase_counts": {
+    "initial_array_read": 768,
+    "checkpoint_read": 5145,
+    "checkpoint_mvm": 30870,
+    "reset": 26134,
+    "set": 56611,
+    "final_array_read": 768
+  },
+  "protocol_id": "cell-conductance-discovery-v2-gui-write-guard",
+  "programming_guard_verified": true,
+  "programming_decisions": 82745,
+  "programming_skipped_current": 0,
+  "checkpoints": 1029,
+  "checkpoint_reuses": 90,
+  "scientific_outcomes": {
+    "reset_reached": 222,
+    "reset_confirmed": 214,
+    "set_attempted_cells": 214,
+    "upper_q_reached": 15,
+    "target_reached_counts": {
+      "0.01": 180,
+      "0.02": 104,
+      "0.03": 38,
+      "0.04": 25,
+      "0.05": 15
+    },
+    "set_skipped_reasons": {
+      "reset_endpoint_not_reached": 34,
+      "reset_unconfirmed_after_readback": 8
+    },
+    "checkpoint_counts": {
+      "5": 66,
+      "2": 72,
+      "7": 18,
+      "4": 75,
+      "6": 18,
+      "3": 7
+    }
+  },
+  "limitations": [
+    "Source is hardware; completed acquisition is not stable programmable-window qualification.",
+    "One-cycle tested q window capped at .05 is not a stable or maximal physical programming range.",
+    "125 simulator model steps do not establish the physical native pulse duration.",
+    "Checkpoint G precedes MVM; per-state post-MVM G stability is unmeasured.",
+    "Earlier observed checkpoints need not be current terminal states or coexist on the array.",
+    "Partial runs receive structural/prefix/ledger/conversion checks, not complete protocol replay."
+  ]
+}

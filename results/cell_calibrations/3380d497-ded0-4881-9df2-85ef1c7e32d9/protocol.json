@@ -1,0 +1,33 @@
+{
+  "protocol_id": "cell-conductance-discovery-v2-gui-write-guard",
+  "programming_guard": {
+    "prediction": "requested_voltage_over_last_valid_mode7_native_resistance",
+    "sign0_limit_a": 0.04,
+    "sign1_limit_source": "board.soft_cc",
+    "invalid_resistance": "global_stop",
+    "skip_policy": "advance_ramp_without_impact_or_state_update"
+  },
+  "maximum_programming_decisions": 138752,
+  "geometry": {"wl_count": 8, "bl_count": 32, "excluded_wl": []},
+  "cycles": 1,
+  "ramp": {"start_v": 0.3, "step_v": 0.01, "stop_v": 3.0, "maximum_steps": 271},
+  "reset_endpoint_q": 0.005,
+  "set_crossing_q": [0.01, 0.02, 0.03, 0.04, 0.05],
+  "tested_window_upper_q": 0.05,
+  "read_voltage_v": 0.3,
+  "checkpoint_reads": 5,
+  "mvm_levels_v": [0.025, 0.05, 0.075, 0.1],
+  "mvm_repeats": 5,
+  "final_array_reads": 3,
+  "initial_array_reads": 3,
+  "hardware_pulse_width_s": null,
+  "hardware_submitted_pulse_width_s": 0,
+  "simulator_pulse_width_s": 0.000125,
+  "simulator_seed": 20261015,
+  "current_model_limit_a": 0.005,
+  "adc_headroom_fraction": 0.8,
+  "maximum_programming_pulses": 138752,
+  "maximum_impacts": 203008,
+  "baseline_scope": "per_cell_before_own_programming_after_possible_earlier_cell_writes",
+  "interpretation": "One-cycle discovery; no repeatability/programmability qualification, no CIFAR inference"
+}
