@@ -1,0 +1,143 @@
+{
+  "protocol_id": "binary-mvm-digital-lif-v1",
+  "pairs": [
+    {
+      "wl": [
+        0,
+        1
+      ],
+      "data_bl": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "wl": [
+        2,
+        3
+      ],
+      "data_bl": [
+        5,
+        9,
+        11
+      ]
+    },
+    {
+      "wl": [
+        4,
+        5
+      ],
+      "data_bl": [
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "wl": [
+        6,
+        7
+      ],
+      "data_bl": [
+        0,
+        3,
+        4
+      ]
+    }
+  ],
+  "pedestal_bl": 31,
+  "nominal_v": 0.1,
+  "repeats": 5,
+  "readbacks_per_cell": 3,
+  "calibration_bits": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "validation_bits": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "sequences": {
+    "dispersed": [
+      0,
+      1,
+      2,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "coincident": [
+      0,
+      7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "maximum_impacts": 3072,
+  "phase_counts": {
+    "pre": 96,
+    "calibration": 320,
+    "validation": 640,
+    "sequence": 1920,
+    "post": 96
+  },
+  "modes": [
+    9,
+    10
+  ],
+  "maximum_programming_pulses": 0,
+  "current_model_limit_a": 0.005,
+  "gui_prediction_limit_v": 3.3,
+  "adc_headroom_fraction": 0.8,
+  "simulator_seed": 20261015,
+  "thresholds": {
+    "minimum_snr": 5,
+    "maximum_cv": 0.05,
+    "additivity_fraction": 0.05,
+    "error_se_multiplier": 3,
+    "error_floor_adc": 2,
+    "drift_fraction": 0.05,
+    "drift_se_multiplier": 3,
+    "pedestal_floor_adc": 5,
+    "validation_repeatability_cv": 0.05,
+    "near_zero_signal_adc": 5,
+    "near_zero_sd_floor_adc": 2,
+    "near_zero_policy": "abs(expected)<=max(5,5*calibration_repeat_noise); combined validation SD<=max(2,calibration_repeat_noise)"
+  },
+  "lif": {
+    "tau": 0.5,
+    "threshold": 1.0,
+    "threshold_inclusive": true,
+    "reset": 0.0,
+    "identity_bn": true,
+    "normalization": "2/sum(abs(calibration_signed_basis))",
+    "maximum_membrane_error": 0.05,
+    "exact_spike_agreement": true,
+    "expected_spike_and_silent_required": true
+  },
+  "address_selection_map": "results/cell_maps/9923f9bc-1ffc-4977-b26f-fd68c6c84e90",
+  "address_selection_is_current_state_qualification": false
+}
