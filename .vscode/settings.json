@@ -1,0 +1,14 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.extraPaths": [
+    "./.deps",
+    "./vendor/MemriBoard"
+  ],
+  "search.exclude": {
+    ".venv": true,
+    ".deps": true,
+    ".tools": true,
+    "results/**/trace": true
+  }
+}
