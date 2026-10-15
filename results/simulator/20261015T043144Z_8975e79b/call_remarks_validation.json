@@ -1,0 +1,114 @@
+{
+  "source": "simulator",
+  "hardware_qualification": false,
+  "meeting": "2026-10-14 Alexander / Влад",
+  "transcript_path": "references/2026-10-14_call_transcript.md",
+  "transcript_sha256": "942f05d9040264e08db420e80d587e2e2aa7f26b3806345c670b5c6112f6ec86",
+  "full_run": "results/simulator/20261015T043144Z_8975e79b",
+  "connector_check": "results/connector_checks/5903a5e4-efb6-40a3-895e-2bf4e8e919eb/report.json",
+  "status_definitions": {
+    "confirmed_simulator": "Supported by saved native simulator execution evidence, within the specified scope",
+    "implemented": "Present in source/protocol but not an independent physical validation",
+    "not_established": "No supporting validation; not inferred from simulator execution"
+  },
+  "remarks": [
+    {
+      "meeting_time": "04:31–05:47",
+      "remark": "Use manager/board.py Connector, with open_port, close_port and impact; avoid a parallel driver implementation.",
+      "status": "confirmed_simulator",
+      "evidence": [
+        "experiment.py",
+        "vendor/MemriBoard/manager/board.py",
+        "connector_check cases: seven passed"
+      ],
+      "scope": "Native simulator backend. Real MemriCORE driver execution remains disabled."
+    },
+    {
+      "meeting_time": "04:31 and 08:10",
+      "remark": "The recently changed API is unstable; the simulator is substituted at the driver layer.",
+      "status": "confirmed_simulator",
+      "evidence": [
+        "cb_type=simulator; board_type=rp5_fpga_python; task_format=SI",
+        "source hashes and protocol snapshot",
+        "SI/DAC equality in seven native cases"
+      ],
+      "scope": "The configured board_type name does not establish a physical board connection."
+    },
+    {
+      "meeting_time": "08:10–10:57",
+      "remark": "Mode 7 is write/read and mode 9 supports scaled read voltage; distinguish them.",
+      "status": "confirmed_simulator",
+      "evidence": [
+        "four-phase suite uses mode 7 for write/read",
+        "separate connector check mode 9 at nominal 0, 0.1, 0.2, 0.3 V"
+      ],
+      "scope": "Mode 9 returns native ID zero rather than the requested ID. Its native resistance field is not interpreted as cell resistance. Physical semantics unverified."
+    },
+    {
+      "meeting_time": "11:12",
+      "remark": "MVM takes one WL and probably 32 DAC inputs; exact hardware behavior needs clarification.",
+      "status": "confirmed_simulator",
+      "evidence": [
+        "suite mode_flag 10 delegates to native mode_mvm with 32 voltages",
+        "mode10 zero and onehot SI/DAC cases passed",
+        "full suite zero + 75 basis + 16 sparse inputs per filter"
+      ],
+      "scope": "Only the current simulator implementation is confirmed. Hardware MVM timing, polarity, current limits and units remain not established."
+    },
+    {
+      "meeting_time": "11:56–13:41",
+      "remark": "Use DAC/ADC conversion parameters from settings.ini and native converters; retain ADC counts and distinguish cell versus summed output.",
+      "status": "confirmed_simulator",
+      "evidence": [
+        "13 protocol board fields equal vendored simulator_settings.ini",
+        "native SI/DAC ADC equality, seven cases and 14 impacts",
+        "single-cell raw ADC converted to R and G; MVM raw ADC converted to output voltage"
+      ],
+      "scope": "This establishes internal conversion consistency, not calibration against the installed physical board."
+    },
+    {
+      "meeting_time": "08:10 and 11:56",
+      "remark": "Inference voltage scales within the nominal 0–0.3 V read range.",
+      "status": "implemented",
+      "evidence": [
+        "full suite uses 0.1 V MVM inputs",
+        "mode9 nominal 0.3 V gives DAC code 246 and native rounded decode 0.300 V"
+      ],
+      "scope": "The ideal 12-bit 5 V ratio of code 246 is 0.30036630036630035 V. No physical 0.3 V ceiling was measured or verified."
+    },
+    {
+      "meeting_time": "02:16",
+      "remark": "The physical array is 32 by 8 and not all memristors necessarily switch.",
+      "status": "implemented",
+      "evidence": [
+        "two fresh simulated 32-BL by 8-WL arrays A/B",
+        "bounded programming, explicit target misses and RESET failures"
+      ],
+      "scope": "The real cell-goodness map and availability of two physical arrays are not established. The call establishes only one physical 32 by 8 array."
+    },
+    {
+      "meeting_time": "02:47 and 13:41–14:10",
+      "remark": "Study and rewrite the interaction layer, then explain the intended run for review.",
+      "status": "implemented",
+      "evidence": [
+        "root experiment.py settings and four explicit phases",
+        "TWO_CROSSBAR_PLAN.md",
+        "CLAUDE_HARDWARE_RUNBOOK.md",
+        "simulator run and independent audit reports"
+      ],
+      "scope": "Human code review remains the next step. Simulator completion does not itself approve a hardware run."
+    }
+  ],
+  "not_established": [
+    "Physical board configuration equivalence, calibration, timing and safe state",
+    "Physical mode9/MVM behavior, current limits and voltage ceiling",
+    "Availability of two physical crossbars and a physical cell-goodness map",
+    "CIFAR or other classifier accuracy; the suite evaluates synthetic Conv1 probes only",
+    "Population-level variance reduction with K; one preselected filter and three sequential programming attempts are insufficient",
+    "Unbiased precise programming: target_reached means first crossing, not a tolerance bound",
+    "Independent programming trials solely from RESET threshold crossing"
+  ],
+  "interpretation": "Separate execution completion, internal simulator consistency, historical accuracy comparisons, and physical validation. Never summarize these collectively as everything confirmed.",
+  "source_commit": "b629e59",
+  "configuration_note": "experiment.py passes the native simulator INI as Connector config; BoardSimulator reads the same file itself. Raspberry driver INI files remain native-driver configuration and require verification on that installation."
+}

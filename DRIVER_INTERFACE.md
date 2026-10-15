@@ -83,3 +83,21 @@ The root experiment uses ordinary `from manager.board import Connector` and
 the saved array, as Manager.add_chip does; it does not choose or construct
 the board interface. `Connector.open_port()` performs that selection.
 Only the local package search paths are configured once in `paths.py`.
+
+## Raspberry Pi configuration files
+
+The Raspberry Pi board will have its own INI files. `SETTINGS_FILE` in the root
+experiment identifies the local INI passed to `Connector` as a `ConfigParser`;
+use the board's supplied file for that deployment. Keep its path relative to
+the repository. `CB_TYPE` and `BOARD_TYPE` remain the native selection parameters.
+The simulator run uses `vendor/MemriBoard/simulator/simulator_settings.ini`.
+Driver-specific INI files remain managed by the native driver; changing the
+Connector INI does not automatically replace files read by that driver itself.
+The current run is simulator-only and does not provision or connect the Pi.
+
+For the simulator, changing only `SETTINGS_FILE` to a different INI would not
+change the model's own INI. Keep Connector and the native simulator settings
+consistent. This run reads the same vendored INI on both sides. For Raspberry,
+verify the installed driver's INI locations against that driver's source; the
+hardware driver source is not bundled here. The current entry point explicitly
+allows only simulator runs and requires a separate reviewed hardware launch.
