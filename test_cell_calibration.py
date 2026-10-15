@@ -83,6 +83,32 @@ class DiscoveryTests(unittest.TestCase):
         self.assertEqual(first['set_skipped_reason'],'reset_endpoint_not_reached')
         self.assertEqual(second['set_pulses'],1)
         self.assertFalse(any(t['mode_flag']==7 and t['vol'] and t['sign']==1 and t['bl']==0 for t in fake.commands))
+    def test_five_separate_crossings_use_at_most_seven_checkpoints(self):
+        class Progressive(FakeConnector):
+            def impact(self,task):
+                result=super().impact(task)
+                if task['mode_flag']==7 and task['vol'] and task['sign']==1:
+                    count=sum(t['mode_flag']==7 and t['vol']!=0 and t['sign']==1 for t in self.commands)
+                    self.q[task['wl'],task['bl']]=.001+count*.01
+                    adc=converters.convert_res_to_adc(11,3000,.3,14,5,10,330/self.q[task['wl'],task['bl']])
+                    result=(converters.convert_adc_to_res(11,3000,.3,14,5,10,adc),task['id'],adc)
+                return result
+        result,raw=self.run_fake(Progressive())
+        self.assertEqual(result['status'],'completed'); self.assertEqual(result['checkpoint_count'],7)
+        self.assertEqual(result['cells'][0]['set_pulses'],5)
+        self.assertEqual([s['crossed_targets'] for s in result['cells'][0]['checkpoints'][2:]],[[.01],[.02],[.03],[.04],[.05]])
+        self.assertEqual(result['impact_attempts'],257)  # 7*35 +6write +6initial/final.
+    def test_native_id_mismatch_stops_both_modes_and_keeps_response(self):
+        for wrong_mode in (7,10):
+            class WrongID(FakeConnector):
+                def impact(self,task):
+                    result=super().impact(task)
+                    return (result[0],999,result[2]) if task['mode_flag']==wrong_mode else result
+            self.output=self.output/str(wrong_mode); self.output.mkdir()
+            fake=WrongID(); result,raw=self.run_fake(fake)
+            self.assertEqual(result['status'],'failed'); self.assertEqual(fake.closed,1)
+            self.assertEqual(raw[-1]['returned_id'],999); self.assertEqual(raw[-1]['status'],'error')
+            self.assertIn('ID mismatch',raw[-1]['error'])
     def test_single_reset_crossing_unconfirmed_by_five_reads_no_retry_or_set(self):
         fake=FakeConnector(unconfirmed=True); result,raw=self.run_fake(fake)
         cell=result['cells'][0]
