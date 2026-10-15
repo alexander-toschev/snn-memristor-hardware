@@ -1,0 +1,188 @@
+{
+  "protocol_id": "mapped-sequential-mvm-lif-v1",
+  "nominal_v": 0.1,
+  "repeats": 5,
+  "read_repeats": 3,
+  "seed": 20261017,
+  "pairs": [
+    {
+      "wl": [
+        0,
+        1
+      ],
+      "positive_bl": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        31
+      ],
+      "negative_bl": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        7,
+        15,
+        5,
+        8,
+        9,
+        12,
+        14,
+        31,
+        10
+      ]
+    },
+    {
+      "wl": [
+        2,
+        3
+      ],
+      "positive_bl": [
+        0,
+        5,
+        6,
+        9,
+        11,
+        12,
+        14,
+        15,
+        31
+      ],
+      "negative_bl": [
+        2,
+        3,
+        5,
+        7,
+        8,
+        10,
+        11,
+        15,
+        9
+      ]
+    },
+    {
+      "wl": [
+        4,
+        5
+      ],
+      "positive_bl": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        10,
+        11,
+        13,
+        14,
+        15,
+        31
+      ],
+      "negative_bl": [
+        0,
+        9,
+        7,
+        5,
+        10,
+        1,
+        12,
+        4,
+        8,
+        31,
+        14
+      ]
+    },
+    {
+      "wl": [
+        6,
+        7
+      ],
+      "positive_bl": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        31
+      ],
+      "negative_bl": [
+        0,
+        1,
+        5,
+        7,
+        3,
+        8,
+        2,
+        11,
+        10,
+        6,
+        31,
+        4,
+        9
+      ]
+    }
+  ],
+  "patterns": [
+    "dispersed",
+    "grouped",
+    "dense_all"
+  ],
+  "timesteps": 12,
+  "maximum_impacts": 10706,
+  "phase_counts": {
+    "pre": 768,
+    "basis": 1320,
+    "selection": 1320,
+    "evaluation": 5210,
+    "final": 1320,
+    "post": 768
+  },
+  "modes": [
+    9,
+    10
+  ],
+  "maximum_programming_pulses": 0,
+  "physical_active_inputs_maximum": 1,
+  "minimum_snr": 5.0,
+  "maximum_cv": 0.05,
+  "relative_error": 0.05,
+  "absolute_error_adc": 2.0,
+  "maximum_membrane_error": 0.05,
+  "tau": 0.5,
+  "threshold": 1.0,
+  "threshold_inclusive": true,
+  "reset": 0.0,
+  "negative_membrane_preserved": true,
+  "scale": "basis only:1.25/maxabs(no-reset reference over all three patterns), common per pair",
+  "guard": {
+    "current_model_a": 0.005,
+    "gui_model_v": 3.3,
+    "headroom_v": 4.0,
+    "basis_factor": 2.0,
+    "basis_sd_multiplier": 3.0,
+    "heuristic_only": true
+  },
+  "mapping_is_posthoc_proposal": true,
+  "mapping_changes_during_run": false,
+  "source_states_matched": false,
+  "trained_weights_programmed": false,
+  "cifar_replay": false
+}
