@@ -15,6 +15,7 @@ for name in ('.deps','vendor/MemriBoard'):
 from manager.service import converters
 import cell_calibration as calibration
 import experiment
+import render_cell_calibration as report
 
 
 class FakeConnector:
@@ -162,6 +163,25 @@ class DiscoveryTests(unittest.TestCase):
              patch.object(calibration,'native_connector') as factory,contextlib.redirect_stdout(io.StringIO()) as output:
             calibration.main(['--dry-run']); factory.assert_not_called()
             self.assertEqual(json.loads(output.getvalue())['maximum_impacts'],203008)
+    def test_offline_report_distinguishes_historical_terminal_and_retains_holdout(self):
+        result,raw=self.run_fake(FakeConnector())
+        manifest={'result_sha256':{p.name:report.sha(p) for p in self.output.iterdir() if p.is_file()}}
+        (self.output/'manifest.json').write_text(json.dumps(manifest))
+        report.render(self.output.parent,self.output,self.output/'report')
+        rendered=json.loads((self.output/'report/calibration.json').read_text())
+        self.assertEqual(len(rendered['cells']),256)
+        measured=next(c for c in rendered['cells'] if (c['wl'],c['bl'])==(1,0))
+        self.assertEqual(measured['status'],'terminal_screen_and_g_pass')
+        self.assertFalse(measured['mvm_remeasured_after_other_cells'])
+        self.assertFalse(rendered['automatic_mask_exported'])
+        state=rendered['states'][0]
+        self.assertEqual(state['descriptive_fit']['input'],'dac')
+        self.assertEqual(state['descriptive_fit']['heldout_repeat'],4)
+        self.assertAlmostEqual(state['descriptive_fit']['slope'],1)
+    def test_offline_report_initial_failure_is_all_unmeasured(self):
+        result,raw=self.run_fake(FakeConnector(invalid=True))
+        cells,states=report.build(result,[])
+        self.assertTrue(all(c['status']=='unmeasured' for c in cells)); self.assertEqual(states,[])
 
 
 if __name__=='__main__': unittest.main()
