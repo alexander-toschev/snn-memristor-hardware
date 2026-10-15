@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "description": "Provisional screening of existing conductances; not validated hardware qualification",
+  "criteria": {
+    "noise_floor_adc": 1,
+    "minimum_snr": 5,
+    "maximum_cv_high": 0.05,
+    "linearity_fraction": 0.05,
+    "linearity_se_multiplier": 3,
+    "linearity_floor_adc": 2,
+    "drift_fraction": 0.05,
+    "drift_se_multiplier": 3
+  }
+}

@@ -165,3 +165,51 @@ Manifest сохраняет GUI source SHA и различия guard/cache; raw 
 actual ADC, native conversion, пять векторов по каждой WL и pre/post G по
 всем ячейкам. Проверка суперпозиции A/B не охватывает все возможные комбинации;
 ALL32 даёт отдельный dense-отклик, а не точность CIFAR inference.
+
+## Карта кандидатов перед экспериментом, без программирования
+
+```sh
+python experiment.py --dry-run --map-cells
+python experiment.py --run-hardware --map-cells
+```
+
+Текущий запрос пользователя разрешает эту карту. Все 256 ячеек читаются
+mode9 nominal .1 В по три раза до и после (1536 impact). Пять повторов
+mode10: zero, затем BL0..31 с .05/.1 В; каждый вход проходит WL0..7.
+Максимум 2600 mode10, всего 4136 impact. Только один BL активен; веса не пишутся.
+SI/DAC native преобразования: .05 В→41, .1 В→82. Локальные task_id уникальны;
+mode10 native id=0. Прежние MVM проверки и четырёхфазный план не изменяются.
+
+Предварительные критерии в configs/cell_map.json редактируются отдельно и
+сохраняются вместе с SHA в сессии. Для каждого уровня signal=mean(input)-mean(zero),
+noise=max(1 ADC code,sqrt(SDinput²+SDzero²)); положительный signal/noise>=5.
+CV(.1)=sqrt(SDhigh²+SDzero²)/signalHigh <=5%. Linearity epsilon=meanHigh−2meanLow+meanZero,
+|epsilon|<=max(5%|signalHigh|,3*SEepsilon,2 ADC codes), где
+SEepsilon=sqrt(SDhigh²/5+4*SDlow²/5+SDzero²/5).
+Pre/post conductance: |meanPost−meanPre|/meanPre <= max(5%,3*SEdelta/meanPre),
+SEdelta=sqrt(SDpre²/3+SDpost²/3). Это screening defaults, не валидированная гарантия.
+Общий zero используется для WL; его шум учтён, а зависимость оценок разных
+ячеек через общий zero не доказывает их статистическую независимость.
+
+Невалидная модель R/G не заменяется числом: ячейка помечается reject,
+её MVM явно записывается как skipped без fabricated ADC, остальные продолжаются.
+Для single-cell модели проверяются 5 мА, 80% ADC reference и GUI prediction<3.3 В;
+непрошедшая ячейка исключается. Это защитные модельные bounds, не калибровка.
+Ошибка транспорта/формата ADC, saturation или фактический выход >4 В прекращают
+весь run с partial map. ADC=0 MVM допустим, но нулевой signal не станет candidate.
+
+Результаты в results/cell_maps/<uuid>: raw.jsonl, criteria.json, manifest.json,
+summary.json, cells.json, cell_map.csv, map.html. Зелёный candidate, красный reject,
+серый unmeasured; HTML tooltip содержит метрики. candidate_cells.csv содержит
+строго заголовок wl,bl и координаты кандидатов, совместимые с маской GUI.
+При отсутствии кандидатов сохраняется один заголовок. Это маска текущего
+состояния при .05–.1 В, НЕ разрешение программировать ячейки. После записи
+весов карта недействительна. Pair additivity/полный выбранный MVM нужно
+проверить отдельно. Автовыбор или запись весов здесь не выполняются.
+
+Offline: python -m unittest test_cell_map -v.
+
+При общей остановке HTML явно показывает failed, summary.mask_usable=false,
+а candidate_cells.csv остаётся пустым (только wl,bl), даже если несколько
+первых ячеек успели завершить все измерения. Их provisional метрики сохраняются
+в cells.json/cell_map.csv, но частичная карта не выдаётся как готовая GUI-маска.
