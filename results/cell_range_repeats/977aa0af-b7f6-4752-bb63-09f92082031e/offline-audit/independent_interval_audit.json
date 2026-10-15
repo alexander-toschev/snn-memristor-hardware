@@ -1,0 +1,357 @@
+{
+  "audit_status": "passed",
+  "checks": 578703,
+  "errors": [],
+  "max_numeric_difference": 1.6940658945086007e-21,
+  "session_id": "977aa0af-b7f6-4752-bb63-09f92082031e",
+  "source": "hardware",
+  "acquisition_status": "completed",
+  "full_protocol_replay": true,
+  "auditor_sha256": "07f626a761c226a0a3212f80f922860e0f68ea699c7eaa9ee750b893f5b004c7",
+  "audit_core_sha256": "ca66ff016058d0791a2daf435004e7e12d71646375eb2e31d9a53cb3181cfc58",
+  "manifest_sha256": "f2322bb93f693591271fbb8a52d0118b45ffbb5514c721ebcdaa5f7e37481814",
+  "raw_sha256": "e85f55ef2c5122d8c5ea656b3c33ce51ec484c6b961f3ca164746f82d9dc33fa",
+  "source_commit": "cb394c0ec55f966bea26750125e26948ad0944f1",
+  "protocol_id": "three-cell-native-R-interval-v2-refined",
+  "local_source_differences": [],
+  "private_local_unavailable": [],
+  "impact_pairs": 3647,
+  "programming_decisions": 2577,
+  "programming_pulse_attempts": 2577,
+  "programming_skipped_current": 0,
+  "mode_counts": {
+    "7": 2957,
+    "10": 690
+  },
+  "outcomes": {
+    "cycles": 9,
+    "cycle_statuses": {
+      "completed": 9
+    },
+    "reset_crossed": 9,
+    "reset_confirmed": 9,
+    "target_statuses": {
+      "hit": 23,
+      "overshoot": 1
+    },
+    "hit_origins": {
+      "programming_response": 23
+    },
+    "target_observed_pass": 16,
+    "per_cell": [
+      {
+        "wl": 0,
+        "bl": 8,
+        "targets": [
+          {
+            "cycle_id": 1,
+            "target_q": 0.04,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.039904857146657605
+          },
+          {
+            "cycle_id": 1,
+            "target_q": 0.045,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04477065215916645
+          },
+          {
+            "cycle_id": 1,
+            "target_q": 0.05,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04964100527548502
+          },
+          {
+            "cycle_id": 2,
+            "target_q": 0.04,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.03982919310882543
+          },
+          {
+            "cycle_id": 2,
+            "target_q": 0.045,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04468995329222761
+          },
+          {
+            "cycle_id": 2,
+            "target_q": 0.05,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04953370768808174
+          },
+          {
+            "cycle_id": 3,
+            "target_q": 0.04,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.03996168522059456
+          },
+          {
+            "cycle_id": 3,
+            "target_q": 0.045,
+            "status": "overshoot",
+            "hit_origin": null,
+            "pre_inside": null,
+            "post_inside": null,
+            "delayed_inside": null,
+            "mvm_pass": null,
+            "interval_and_mvm_pass": null,
+            "evidence_q": 0.04570440881347199
+          },
+          {
+            "cycle_id": 3,
+            "target_q": 0.05,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04961950858643042
+          }
+        ]
+      },
+      {
+        "wl": 3,
+        "bl": 8,
+        "targets": [
+          {
+            "cycle_id": 4,
+            "target_q": 0.04,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04018930379947243
+          },
+          {
+            "cycle_id": 4,
+            "target_q": 0.045,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04515494302951355
+          },
+          {
+            "cycle_id": 4,
+            "target_q": 0.05,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.05007154161172706
+          },
+          {
+            "cycle_id": 5,
+            "target_q": 0.04,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.039904857146657605
+          },
+          {
+            "cycle_id": 5,
+            "target_q": 0.045,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.045013156117901736
+          },
+          {
+            "cycle_id": 5,
+            "target_q": 0.05,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.05007154161172706
+          },
+          {
+            "cycle_id": 6,
+            "target_q": 0.04,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.0402843341548896
+          },
+          {
+            "cycle_id": 6,
+            "target_q": 0.045,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": true,
+            "evidence_q": 0.04471011586694269
+          },
+          {
+            "cycle_id": 6,
+            "target_q": 0.05,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": false,
+            "delayed_inside": true,
+            "mvm_pass": true,
+            "interval_and_mvm_pass": false,
+            "evidence_q": 0.049576645493933626
+          }
+        ]
+      },
+      {
+        "wl": 5,
+        "bl": 8,
+        "targets": [
+          {
+            "cycle_id": 7,
+            "target_q": 0.031,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": false,
+            "interval_and_mvm_pass": false,
+            "evidence_q": 0.030955134753329786
+          },
+          {
+            "cycle_id": 7,
+            "target_q": 0.032,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": false,
+            "interval_and_mvm_pass": false,
+            "evidence_q": 0.03176268462060436
+          },
+          {
+            "cycle_id": 8,
+            "target_q": 0.031,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": false,
+            "interval_and_mvm_pass": false,
+            "evidence_q": 0.030921662311085042
+          },
+          {
+            "cycle_id": 8,
+            "target_q": 0.032,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": false,
+            "interval_and_mvm_pass": false,
+            "evidence_q": 0.03176268462060436
+          },
+          {
+            "cycle_id": 9,
+            "target_q": 0.031,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": false,
+            "interval_and_mvm_pass": false,
+            "evidence_q": 0.030821418831326518
+          },
+          {
+            "cycle_id": 9,
+            "target_q": 0.032,
+            "status": "hit",
+            "hit_origin": "programming_response",
+            "pre_inside": true,
+            "post_inside": true,
+            "delayed_inside": true,
+            "mvm_pass": false,
+            "interval_and_mvm_pass": false,
+            "evidence_q": 0.03176268462060436
+          }
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "Completed acquisition and audit consistency are not scientific qualification.",
+    "Only three specified addresses have new interval repeats; no all256 range qualification.",
+    "Passing sampled target bands does not establish a continuous range, precision bits or CIFAR accuracy.",
+    "Native pulse duration and physical current compliance remain unmeasured.",
+    "Partial sessions receive prefix/ledger/evidence checks, not full nine-cycle replay."
+  ]
+}
