@@ -1,0 +1,97 @@
+{
+  "protocol_id": "three-cell-native-R-interval-v2-refined",
+  "programming_guard": {
+    "prediction": "requested_voltage_over_last_valid_mode7_native_resistance",
+    "sign0_limit_a": 0.04,
+    "sign1_limit_source": "board.soft_cc",
+    "invalid_resistance": "global_stop",
+    "skip_policy": "advance_ramp_without_impact_or_state_update"
+  },
+  "maximum_programming_decisions": 4878,
+  "geometry": {
+    "wl_count": 8,
+    "bl_count": 32,
+    "excluded_wl": []
+  },
+  "cycles": 1,
+  "ramp": {
+    "start_v": 0.3,
+    "step_v": 0.01,
+    "stop_v": 3.0,
+    "maximum_steps": 271
+  },
+  "reset_endpoint_q": 0.005,
+  "set_crossing_q": [
+    0.01,
+    0.02,
+    0.03,
+    0.04,
+    0.05
+  ],
+  "tested_window_upper_q": 0.05,
+  "read_voltage_v": 0.3,
+  "checkpoint_reads": 5,
+  "mvm_levels_v": [
+    0.025,
+    0.05,
+    0.075,
+    0.1
+  ],
+  "mvm_repeats": 5,
+  "final_array_reads": 3,
+  "initial_array_reads": 3,
+  "hardware_pulse_width_s": null,
+  "hardware_submitted_pulse_width_s": 0,
+  "simulator_pulse_width_s": 0.000125,
+  "simulator_seed": 20261015,
+  "current_model_limit_a": 0.005,
+  "adc_headroom_fraction": 0.8,
+  "maximum_programming_pulses": 4878,
+  "maximum_impacts": 5991,
+  "baseline_scope": "per_cell_cycle_before_reset",
+  "interpretation": "One-cycle discovery; no repeatability/programmability qualification, no CIFAR inference",
+  "cells": [
+    {
+      "wl": 0,
+      "bl": 8,
+      "targets_q": [
+        0.04,
+        0.045,
+        0.05
+      ]
+    },
+    {
+      "wl": 3,
+      "bl": 8,
+      "targets_q": [
+        0.04,
+        0.045,
+        0.05
+      ]
+    },
+    {
+      "wl": 5,
+      "bl": 8,
+      "targets_q": [
+        0.031,
+        0.032
+      ]
+    }
+  ],
+  "cycles_per_cell": 3,
+  "q_relative_tolerance": 0.01,
+  "initial_reads": 1,
+  "reset_confirmation_reads": 5,
+  "pre_reads": 5,
+  "post_reads": 5,
+  "delayed_reads": 3,
+  "delay_s": 1.0,
+  "final_reads": 3,
+  "qualification": "Stop at inner band; every pre/post/delayed native R sample must remain in outer q +/-1%; unchanged MVM screen; no continuous range claim",
+  "stop_q_relative_tolerance": 0.0075,
+  "control_targets_q": [
+    0.045,
+    0.05
+  ],
+  "control_stop_q_relative_tolerance": 0.01
+}

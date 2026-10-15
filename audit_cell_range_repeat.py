@@ -9,9 +9,10 @@ import math
 from pathlib import Path
 import subprocess
 import sys
-from interval_audit_core import CELLS,TARGETS,MAX_DECISIONS,MAX_IMPACTS,expected_band,inside,summarize,screen_adc
+from interval_audit_core import CELLS,TARGETS,MAX_DECISIONS,MAX_IMPACTS,expected_band,inside,summarize,screen_adc,protocol_profile,stop_band
 
 RUNTIME_SHA='f03860a42755337fcf1a5f71a0edc291bbc8308684a358d7dbbcc386de5b7161'
+REFINED_SHA='bd95f0a5e43e0b2088413353b15106676de58135912206a84d2916d3aedad8b8'
 BASE_SHA='eff0b2f72586f6a6659a13fba410c6ad0d564bd95d3b83e24b13cf739121c2e8'
 CONVERTER_SHA='28c6495c56afa225501dd6b0dea999215f08b73f30e016ff7ea34d6c5412701c'
 EQUALIN_SHA='00b385405bf19b6adff5e3d8dfa02e6c80dd10b3f4693476730d3bdcc2c3b779'
@@ -31,6 +32,19 @@ def sha(path):
 
 def load(path):return json.loads(path.read_text(encoding='utf-8-sig'))
 def jsonl(path):return [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines()] if path.is_file() else []
+
+
+def verify_public_source(repo,name,digest,blob,ck):
+    """Acquisition code is checked against Git; every vendor Python import remains byte-pinned locally."""
+    path=(repo/name).resolve()
+    if Path(name).is_absolute() or '..' in Path(name).parts or not path.is_relative_to(repo.resolve()):
+        raise ValueError('Source path escapes repository')
+    ck.check(hashlib.sha256(blob).hexdigest()==digest,'source/Git_blob/'+name)
+    local_digest=sha(path) if path.is_file() else None
+    importable=name.startswith('vendor/MemriBoard/') and name.endswith('.py')
+    if importable:ck.check(local_digest==digest,'source/imported_local/'+name)
+    return None if local_digest==digest else dict(path=name,recorded_sha256=digest,local_sha256=local_digest,
+        verification='recorded Git blob; local runtime differs',imported_by_audit=importable)
 
 
 class Checks:
@@ -54,9 +68,10 @@ class Checks:
         else:self.check(a==b,label)
 
 
-def audit_raw(path,manifest,board,c,ck):
+def audit_raw(path,manifest,board,c,ck,profile=None):
     """Retain original events for independent protocol replay; at most 6120 pairs."""
     check,compare=ck.check,ck.compare
+    profile=profile or protocol_profile()
     source=manifest['source'];records=[];actions=[];delays=[];latest={};decisions=skips=pulses=0
     lastmono=-math.inf;lasttime=None;fault=False;modes=Counter()
     def conversion(v):
@@ -146,12 +161,14 @@ def audit_raw(path,manifest,board,c,ck):
             if result['status']=='error':check(bool(result.get('error')),label+'/error_preserved');fault=True
             pulses+=int(write);modes[mode]+=1
             records.append(result);actions.append(result)
-    check(len(records)<=MAX_IMPACTS and decisions<=MAX_DECISIONS and pulses+skips==decisions,'raw/global_bounds')
+    check(len(records)<=profile['maximum_impacts'] and decisions<=MAX_DECISIONS and pulses+skips==decisions,'raw/global_bounds')
     return dict(records=records,actions=actions,decisions=decisions,skips=skips,pulses=pulses,modes=dict(modes),delays=delays,fault=fault)
 
 
-def replay_completed(raw,cycles,targets,board,ck):
+def replay_completed(raw,cycles,targets,board,ck,profile=None):
     check,compare=ck.check,ck.compare
+    profile=profile or protocol_profile()
+    target_plan=profile['targets']
     actions=raw['actions'];cursor=0;latest={};cid=0;target_index=0
     def take(phase,wl,bl,**meta):
         nonlocal cursor
@@ -235,12 +252,16 @@ def replay_completed(raw,cycles,targets,board,ck):
             compare(record['reset_confirmation'],read_summary(confirmation),'replay/reset_confirmation')
             confirmed=crossed and sum(r['q'] for r in confirmation)/5<=.005 and confirmation[-1]['q']<=.005
             compare(record['reset_confirmed'],confirmed,'replay/reset_confirmed')
-            check(len(record['targets'])==3,'replay/target_count')
+            check(len(record['targets'])==len(target_plan[wl,bl]),'replay/target_count')
             step=0
-            for q,target in zip(TARGETS[wl,bl],record['targets']):
+            for q,target in zip(target_plan[wl,bl],record['targets']):
                 compare(target['target_q'],q,'replay/target_q')
                 band=expected_band(q,board['sum_gain'])
                 compare(target['native_r_interval_ohm'],[band['r_min'],band['r_max']],'replay/Rband')
+                stop,tolerance=stop_band(q,profile,board['sum_gain'])
+                if profile['refined']:
+                    compare(target.get('stop_native_r_interval_ohm'),[stop['r_min'],stop['r_max']],'replay/stop_Rband')
+                    compare(target.get('stop_q_relative_tolerance'),tolerance,'replay/stop_tolerance')
                 flat=dict(cycle_id=cid,wl=wl,bl=bl,**target)
                 compare(targets[target_index],flat,'replay/target_jsonl');target_index+=1
                 if not confirmed:
@@ -248,7 +269,7 @@ def replay_completed(raw,cycles,targets,board,ck):
                     continue
                 while True:
                     current=latest[wl,bl]
-                    if inside(current['native_r'],band):
+                    if inside(current['native_r'],stop):
                         check(target['status']=='hit' and target['immediate_hit'] is True,'replay/real_hit')
                         compare(target['evidence_task_id'],current['task_id'],'replay/hit_evidence_task')
                         compare(target['evidence_native_r_ohm'],current['native_r'],'replay/hit_R')
@@ -256,8 +277,8 @@ def replay_completed(raw,cycles,targets,board,ck):
                         origin='programming_response' if current['command_si']['vol'] else 'readback_without_new_write'
                         compare(target['hit_origin'],origin,'replay/hit_origin')
                         checkpoint(wl,bl,target,band);break
-                    if current['native_r']<band['r_min'] or step>=271:
-                        expected='overshoot' if current['native_r']<band['r_min'] else 'set_ramp_exhausted'
+                    if current['native_r']<stop['r_min'] or step>=271:
+                        expected='overshoot' if current['native_r']<stop['r_min'] else 'set_ramp_exhausted'
                         check(target['status']==expected and target['immediate_hit'] is False,'replay/scientific_miss')
                         compare(target['evidence_task_id'],current['task_id'],'replay/miss_evidence_task')
                         compare(target['evidence_q'],current['q'],'replay/miss_q')
@@ -272,13 +293,15 @@ def replay_completed(raw,cycles,targets,board,ck):
             ns=sum(r['event']=='skipped' for r in group)
             compare({k:record[k] for k in ('impact_attempts','programming_pulse_attempts','programming_skipped_current','programming_decisions')},
                 dict(impact_attempts=nr,programming_pulse_attempts=nw,programming_skipped_current=ns,programming_decisions=nw+ns),'replay/cycle_ledger')
-            check(nr<=680 and nw+ns<=542 and record['status']=='completed','replay/cycle_bounds_status')
-    check(cursor==len(actions) and cid==len(cycles)==9 and target_index==len(targets)==27,'replay/consumed_all')
+            check(nr<=551+43*len(target_plan[wl,bl]) and nw+ns<=542 and record['status']=='completed','replay/cycle_bounds_status')
+    check(cursor==len(actions) and cid==len(cycles)==9 and target_index==len(targets)==profile['target_count'],'replay/consumed_all')
 
 
-def audit_partial(raw,cycles,targets,summary,ck):
+def audit_partial(raw,cycles,targets,summary,ck,profile=None):
     """Conservative partial consistency checks; never labels this a complete replay."""
     check,compare=ck.check,ck.compare
+    profile=profile or protocol_profile()
+    target_plan=profile['targets']
     check(bool(summary.get('error') or summary.get('close_error')),'partial/error_preserved')
     byid={r['task_id']:r for r in raw['records']}
     for cycle in cycles:
@@ -289,25 +312,29 @@ def audit_partial(raw,cycles,targets,summary,ck):
         w=sum(r['event']=='result' and r['command_si']['mode_flag']==7 and bool(r['command_si']['vol']) for r in group)
         s=sum(r['event']=='skipped' for r in group)
         compare([cycle[k] for k in ('impact_attempts','programming_pulse_attempts','programming_skipped_current','programming_decisions')],[n,w,s,w+s],'partial/cycle_ledger')
-        check(n<=680 and w+s<=542,'partial/cycle_budget')
+        check(n<=551+43*len(target_plan[key]) and w+s<=542,'partial/cycle_budget')
         for phase in ('interval_reset','interval_set'):
             steps=[r['step'] for r in group if r.get('phase')==phase]
             check(steps==list(range(len(steps))) and len(steps)<=271,'partial/shared_ramp_prefix')
         if any(r.get('phase')=='interval_set' for r in group):check(cycle.get('reset_confirmed') is True,'partial/set_after_reset_confirmation')
-        check([t['target_q'] for t in cycle['targets']]==list(TARGETS[key])[:len(cycle['targets'])],'partial/target_prefix')
+        check([t['target_q'] for t in cycle['targets']]==list(target_plan[key])[:len(cycle['targets'])],'partial/target_prefix')
     for target in targets:
         band=expected_band(target['target_q']);key=(target['wl'],target['bl'])
         compare(target['native_r_interval_ohm'],[band['r_min'],band['r_max']],'partial/target_band')
+        stop,tolerance=stop_band(target['target_q'],profile)
+        if profile['refined']:
+            compare(target.get('stop_native_r_interval_ohm'),[stop['r_min'],stop['r_max']],'partial/stop_band')
+            compare(target.get('stop_q_relative_tolerance'),tolerance,'partial/stop_tolerance')
         if 'evidence_task_id' in target:
             check(target['evidence_task_id'] in byid,'partial/evidence_exists')
             row=byid[target['evidence_task_id']]
             check(row['status']=='ok' and row['command_si']['mode_flag']==7 and (row['wl'],row['bl'])==key and row['cycle_id']==target['cycle_id'],'partial/evidence_identity')
             compare(target['evidence_q'],row['q'],'partial/evidence_q')
             if target['immediate_hit']:
-                check(inside(row['native_r'],band),'partial/real_hit')
+                check(inside(row['native_r'],stop),'partial/real_hit')
                 compare(target['evidence_native_r_ohm'],row['native_r'],'partial/evidence_R')
                 compare(target['hit_origin'],'programming_response' if row['command_si']['vol'] else 'readback_without_new_write','partial/hit_origin')
-            if target['status']=='overshoot':check(row['native_r']<band['r_min'],'partial/overshoot')
+            if target['status']=='overshoot':check(row['native_r']<stop['r_min'],'partial/overshoot')
         for field,n in (('pre',5),('post',5),('delayed',3)):
             if field not in target:continue
             saved=target[field];rows=[byid[i] for i in saved['task_ids']]
@@ -346,6 +373,7 @@ def main():
     session,out=local(args.session),local(args.output_dir)
     if out.exists() or out==session:raise ValueError('Use a new audit output folder')
     manifest,summary,plan=(load(session/name) for name in ('manifest.json','summary.json','protocol.json'))
+    profile=protocol_profile(plan['protocol_id'])
     start=load(session/'start_manifest.json');source=manifest['source'];commit=manifest['invocation']['git']['commit']
     check(source in ('hardware','simulator') and source==summary['source'],'source')
     check(manifest['status']==summary['status'] and summary['status'] in ('completed','failed'),'status')
@@ -353,12 +381,13 @@ def main():
     check(summary['continuous_range_qualified'] is False,'no_continuous_range_claim')
     compare(manifest['invocation'],start['invocation'],'invocation/start_final')
     argv=manifest['invocation']['process_argv']
-    check(len(argv)==3 and argv[0]=='experiment.py' and sorted(argv[1:])==sorted(['--test-cell-ranges','--run-'+source]),'invocation/explicit_scope')
+    check(len(argv)==3 and argv[0]=='experiment.py' and sorted(argv[1:])==sorted([profile['flag'],'--run-'+source]),'invocation/explicit_scope')
     if source=='hardware':check(manifest['invocation']['git']['dirty_tracked'] is False,'hardware/clean_tracked')
     pins={'cell_range_repeat.py':RUNTIME_SHA,'cell_calibration.py':BASE_SHA,
         'vendor/MemriBoard/manager/service/converters.py':CONVERTER_SHA,
         'vendor/MemriBoard/manager/terminate.py':EQUALIN_SHA}
-    missing_private=[]
+    if profile['refined']:pins['cell_range_refined.py']=REFINED_SHA
+    missing_private=[];local_differences=[];source_blobs={}
     for name,pin in pins.items():check(manifest['source_sha256'].get(name)==pin,'source/reviewed_pin/'+name)
     for name,digest in manifest['source_sha256'].items():
         path=local(name)
@@ -367,9 +396,10 @@ def main():
             if path.is_file():check(sha(path)==digest,'source/private_local/'+name)
             else:missing_private.append(name)
         else:
-            check(path.is_file() and sha(path)==digest,'source/local/'+name)
             blob=subprocess.run(['git','-C',str(repo),'show',commit+':'+name],capture_output=True,check=True).stdout
-            check(hashlib.sha256(blob).hexdigest()==digest,'source/Git_blob/'+name)
+            source_blobs[name]=blob
+            difference=verify_public_source(repo,name,digest,blob,ck)
+            if difference:local_differences.append(difference)
     for path in (repo/'vendor/MemriBoard').rglob('*.py'):
         check(path.relative_to(repo).as_posix() in manifest['source_sha256'],'source/all_importable_files_recorded')
     if source=='hardware':
@@ -379,14 +409,15 @@ def main():
         p=(session/name).resolve()
         if not p.is_relative_to(session):raise ValueError('Result path escapes session')
         check(sha(p)==digest,'result/SHA/'+name)
-    base=load(repo/'configs/cell_calibration.json');spec=load(repo/'configs/cell_range_repeat.json')
+    base=json.loads(source_blobs['configs/cell_calibration.json']);spec=json.loads(source_blobs[profile['config']])
     compare(plan,{**base,**spec},'protocol/exact_source_merge')
-    expected_spec=dict(protocol_id='three-cell-native-R-interval-v1',
-        cells=[dict(wl=wl,bl=bl,targets_q=list(TARGETS[wl,bl])) for wl,bl in CELLS],cycles_per_cell=3,
+    expected_spec=dict(protocol_id=plan['protocol_id'],
+        cells=[dict(wl=wl,bl=bl,targets_q=list(profile['targets'][wl,bl])) for wl,bl in CELLS],cycles_per_cell=3,
         q_relative_tolerance=.01,reset_endpoint_q=.005,ramp=dict(start_v=.3,step_v=.01,stop_v=3.,maximum_steps=271),
         initial_reads=1,reset_confirmation_reads=5,pre_reads=5,post_reads=5,delayed_reads=3,delay_s=1.,final_reads=3,
-        maximum_programming_decisions=MAX_DECISIONS,maximum_programming_pulses=MAX_DECISIONS,maximum_impacts=MAX_IMPACTS,
+        maximum_programming_decisions=MAX_DECISIONS,maximum_programming_pulses=MAX_DECISIONS,maximum_impacts=profile['maximum_impacts'],
         baseline_scope='per_cell_cycle_before_reset')
+    if profile['refined']:expected_spec.update(stop_q_relative_tolerance=.0075,control_targets_q=[.045,.05],control_stop_q_relative_tolerance=.01)
     compare({k:v for k,v in spec.items() if k!='qualification'},expected_spec,'protocol/reviewed_spec')
     check(manifest['protocol_id']==summary['protocol_id']==plan['protocol_id'],'protocol/id_agreement')
     for k in ('maximum_impacts','maximum_programming_decisions','maximum_programming_pulses'):compare(manifest[k],plan[k],'manifest/'+k)
@@ -401,7 +432,7 @@ def main():
     for name in ('.deps','vendor/MemriBoard'):
         if (repo/name).is_dir():sys.path.insert(0,str(repo/name))
     from manager.service import converters
-    raw=audit_raw(session/'raw.jsonl',manifest,board,converters,ck)
+    raw=audit_raw(session/'raw.jsonl',manifest,board,converters,ck,profile)
     for name,value in dict(impact_attempts=len(raw['records']),programming_pulse_attempts=raw['pulses'],
         programming_decisions=raw['decisions'],programming_skipped_current=raw['skips']).items():
         compare(manifest[name],value,'manifest/'+name);compare(summary[name],value,'summary/'+name)
@@ -413,8 +444,8 @@ def main():
     for row in raw['actions']:
         check(type(row['cycle_id']) is int and 1<=row['cycle_id']<=len(cycles),'raw/cycle_present')
     completed=summary['status']=='completed'
-    if completed:replay_completed(raw,cycles,targets,board,ck)
-    else:audit_partial(raw,cycles,targets,summary,ck)
+    if completed:replay_completed(raw,cycles,targets,board,ck,profile)
+    else:audit_partial(raw,cycles,targets,summary,ck,profile)
     outcomes=dict(cycles=len(cycles),cycle_statuses=dict(Counter(c['status'] for c in cycles)),
         reset_crossed=sum(c.get('reset_crossed',False) for c in cycles),reset_confirmed=sum(c.get('reset_confirmed',False) for c in cycles),
         target_statuses=dict(Counter(t['status'] for t in targets)),hit_origins=dict(Counter(t['hit_origin'] for t in targets if 'hit_origin' in t)),
@@ -428,6 +459,7 @@ def main():
         session_id=manifest['session_id'],source=source,acquisition_status=summary['status'],full_protocol_replay=completed,
         auditor_sha256=sha(Path(__file__)),audit_core_sha256=sha(Path(__file__).with_name('interval_audit_core.py')),
         manifest_sha256=sha(session/'manifest.json'),raw_sha256=sha(session/'raw.jsonl'),source_commit=commit,
+        protocol_id=plan['protocol_id'],local_source_differences=local_differences,
         private_local_unavailable=missing_private,impact_pairs=len(raw['records']),programming_decisions=raw['decisions'],
         programming_pulse_attempts=raw['pulses'],programming_skipped_current=raw['skips'],mode_counts=raw['modes'],outcomes=outcomes,
         limitations=['Completed acquisition and audit consistency are not scientific qualification.',
@@ -441,6 +473,7 @@ def main():
         f"Actual impacts: {len(raw['records'])}; programming decisions: {raw['decisions']}; реальные попытки импульса: {raw['pulses']}; skipped: {raw['skips']}. Полный replay: {completed}.",'',
         f"Targets: {outcomes['target_statuses']}; наблюдённый interval+MVM pass: {outcomes['target_observed_pass']}. Источник hit: {outcomes['hit_origins']}.",'',
         'Проверены source/result SHA, native conversions, последний mode7 R перед current guard, отдельные skipped decisions, inclusive R bands и происхождение evidence. Для completed воспроизведены все 9 циклов, общий SET budget, все pre/post/delayed samples, MVM-screen, delay и итоги.', '',
+        f"Протокол: {plan['protocol_id']}. Остановка hit/overshoot проверена по stop band; подтверждение readbacks — по outer ±1%. Отличия текущих неимпортируемых файлов от сохранённого Git: {len(local_differences)}; детали в JSON. Все импортируемые vendor Python файлы проверены по локальным байтам.", '',
         'Аудитор не создаёт Connector и не вызывает аппаратуру. Passing отдельных точек не подтверждает непрерывный диапазон, все256 ячеек или CIFAR accuracy. Аппаратная длительность импульса неизвестна.', '',
         '```sh',f'python -B audit_cell_range_repeat.py --repo . --session {args.session} --output-dir {args.output_dir}-recheck','```']
     (out/'REPORT.md').write_text('\n'.join(text)+'\n',encoding='utf-8')

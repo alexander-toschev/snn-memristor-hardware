@@ -8,10 +8,26 @@ MAX_DECISIONS=9*(271+271)
 MAX_IMPACTS=9*(1+271+5+271+3*(5+30+5+3)+3)
 
 
-def expected_band(target,sum_gain=330.0):
+def expected_band(target,sum_gain=330.0,tolerance=.01):
     if not math.isfinite(target) or target<=0:raise ValueError('Expected positive finite target')
-    return dict(q_target=target,q_min=target*.99,q_max=target*1.01,
-        r_min=sum_gain/(target*1.01),r_max=sum_gain/(target*.99))
+    if not math.isfinite(tolerance) or not 0<tolerance<1:raise ValueError('Expected finite relative tolerance in (0,1)')
+    return dict(q_target=target,q_min=target*(1-tolerance),q_max=target*(1+tolerance),
+        r_min=sum_gain/(target*(1+tolerance)),r_max=sum_gain/(target*(1-tolerance)))
+
+
+def protocol_profile(protocol_id='three-cell-native-R-interval-v1'):
+    if protocol_id=='three-cell-native-R-interval-v1':
+        return dict(refined=False,targets=TARGETS,maximum_impacts=6120,target_count=27,
+                    config='configs/cell_range_repeat.json',flag='--test-cell-ranges')
+    if protocol_id=='three-cell-native-R-interval-v2-refined':
+        return dict(refined=True,targets={**TARGETS,(5,8):(.031,.032)},maximum_impacts=5991,target_count=24,
+                    config='configs/cell_range_refined.json',flag='--test-cell-ranges-refined')
+    raise ValueError('Unreviewed interval protocol: '+str(protocol_id))
+
+
+def stop_band(target,profile,sum_gain=330.0):
+    tolerance=.0075 if profile['refined'] and target not in (.045,.05) else .01
+    return expected_band(target,sum_gain,tolerance),tolerance
 
 
 def inside(r,band):
