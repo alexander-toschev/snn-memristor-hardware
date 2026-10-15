@@ -184,8 +184,14 @@ def main(argv=None):
     diagnostic.add_argument("--test-cell-ranges", action="store_true", help="Three cells, three bounded native-R interval cycles")
     diagnostic.add_argument("--test-cell-ranges-refined", action="store_true", help="Three cells, refined stop bands; unchanged outer qualification")
     diagnostic.add_argument("--test-binary-mvm", action="store_true", help="Read-only binary MVM / digital LIF, same simulator/hardware protocol")
+    diagnostic.add_argument("--test-calibrated-mvm", action="store_true", help="Read-only all256 affine MVM calibration and heldout inputs")
     args = parser.parse_args(argv)
     hardware_options = args.phase is not None or args.all or args.phase1_session is not None or args.max_pulses is not None
+    if args.test_calibrated_mvm:
+        if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
+            parser.error("--test-calibrated-mvm requires explicit mode and no phase options")
+        from all256_mvm import main as calibrated_mvm
+        return calibrated_mvm(["--run-simulator" if args.run_simulator else "--run-hardware" if args.run_hardware else "--dry-run"])
     if args.test_binary_mvm:
         if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
             parser.error("--test-binary-mvm requires explicit mode and no phase options")

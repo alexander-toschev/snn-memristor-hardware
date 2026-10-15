@@ -2,6 +2,30 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Подготовка MVM: preflight без I/O",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/experiment.py",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": {"python": "${workspaceFolder}/.venv/Scripts/python.exe"},
+      "args": ["--test-calibrated-mvm", "--dry-run"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Подготовка MVM: штатный simulator",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/experiment.py",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": {"python": "${workspaceFolder}/.venv/Scripts/python.exe"},
+      "args": ["--test-calibrated-mvm", "--run-simulator"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
       "name": "РЎРёРјСѓР»СЏС‚РѕСЂ: РІСЃРµ 4 С„Р°Р·С‹",
       "type": "debugpy",
       "request": "launch",

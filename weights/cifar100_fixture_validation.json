@@ -1,0 +1,65 @@
+{
+  "fixture_sha256": "8cb9ec0fe30242328527073bb076f8019295d73a748343f58fc2a8671bf7c154",
+  "torch_version": "2.14.1+cpu",
+  "checkpoint_loading": "torch.load(weights_only=True,map_location=cpu)",
+  "native_model_validation": {
+    "model": "temporal_snn.model.TemporalCSNN",
+    "strict_state_dict": "all247keys matched",
+    "cases": 10,
+    "timesteps": 12,
+    "filters": 64,
+    "max_abs_conv_difference": 0.0,
+    "max_abs_bntt_difference": 0.0,
+    "max_abs_lif_after_reset_difference": 0.0,
+    "spike_mismatches": 0
+  },
+  "actual_source_sha256": {
+    "temporal_snn/dataset.py": "1e399ee025d55fe5b3a8568b5bc7a55868cfe44b9ae6a63baaf1b1e3f92456d4",
+    "temporal_snn/model.py": "ca4b32f71a5d4d0628ce42d7ba88805163bef9f5a326b1e00efc2bf00ccaf5b8",
+    "temporal_snn/lif.py": "f94b3e3df7dc0e526c4a5f692587705b4ecf3b97383717da16b875ac2441a80c",
+    "temporal_snn/surrogate.py": "9f43bdf4613f2b5bebabe56c61f322ed3ceeb1a7f6f36e29f16dd6c782a08346"
+  },
+  "source_commit_not_resolved": "Source file bytes verified; local git metadata read was unavailable",
+  "tile_layout": [
+    [
+      0,
+      32
+    ],
+    [
+      32,
+      64
+    ],
+    [
+      64,
+      75
+    ]
+  ],
+  "last_tile_padding": 21,
+  "tile_vector_active_count_histogram": {
+    "0": 211,
+    "1": 29,
+    "2": 24,
+    "3": 17,
+    "4": 22,
+    "5": 11,
+    "6": 13,
+    "7": 9,
+    "8": 6,
+    "9": 2,
+    "10": 3,
+    "11": 3,
+    "12": 2,
+    "14": 2,
+    "18": 1,
+    "19": 1,
+    "26": 1,
+    "28": 1,
+    "32": 2
+  },
+  "tile_vectors": 360,
+  "nonzero_tile_vectors": 149,
+  "negative_lif_values_preserved": 3856,
+  "output_spikes": 311,
+  "hardware_io": false,
+  "classification_accuracy_measured": false
+}
