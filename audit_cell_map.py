@@ -36,6 +36,28 @@ def child(root, name):
     return path
 
 
+def verify_sources(repo, commit, sources, check):
+    """Private operator files are pinned bytes, never Git blobs."""
+    verified, missing = [], {}
+    for name, digest in sources.items():
+        path = child(repo, name)
+        if name in PRIVATE_PINS:
+            check(digest == PRIVATE_PINS[name], 'private_source/pin/' + name)
+            if path.is_file():
+                check(sha(path) == digest, 'local_source/' + name)
+            else:
+                missing[name] = digest
+            continue
+        if path.is_file():
+            check(sha(path) == digest, 'local_source/' + name)
+            blob = subprocess.run(['git', '-C', str(repo), 'show', commit + ':' + name], capture_output=True, check=True).stdout
+            check(hashlib.sha256(blob).hexdigest() == digest, 'git_source/' + name)
+            verified.append(name)
+        else:
+            check(False, 'local_source/missing/' + name)
+    return verified, missing
+
+
 def describe(values):
     return dict(n=len(values), mean=mean(values) if values else None,
                 sd=stdev(values) if len(values) > 1 else None)
@@ -139,17 +161,7 @@ def main():
 
     git = manifest['invocation']['git']
     commit = git['commit']
-    verified, missing = [], {}
-    for name, digest in manifest['source_sha256'].items():
-        path = child(repo, name)
-        if path.is_file():
-            check(sha(path) == digest, 'local_source/' + name)
-            blob = subprocess.run(['git', '-C', str(repo), 'show', commit + ':' + name], capture_output=True, check=True).stdout
-            check(hashlib.sha256(blob).hexdigest() == digest, 'git_source/' + name)
-            verified.append(name)
-        else:
-            missing[name] = digest
-            check(PRIVATE_PINS.get(name) == digest, 'private_source/pin/' + name)
+    verified, missing = verify_sources(repo, commit, manifest['source_sha256'], check)
     for name, digest in manifest['result_sha256'].items():
         check(sha(child(run, name)) == digest, 'result_sha/' + name)
     check(git['dirty_tracked'] is False, 'git/clean_tracked_claim')
@@ -333,13 +345,13 @@ def main():
                                'Zero ADC may indicate clipping; reject does not prove a physically defective cell.',
                                'Native readback/model conversions are not physical voltage/current calibration.',
                                'Sequential samples need not be independent; standard errors are descriptive.',
-                               'Private driver bytes unavailable locally: saved reviewed pins only.',
+                               'Private driver sources checked against reviewed pins and local bytes when available; never Git blobs.',
                                'Hardware cleanup cannot be independently proved from software close_port.'])
     out.mkdir(parents=True, exist_ok=True)
     (out/'independent_cell_map_audit.json').write_text(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False)+'\n', encoding='utf-8')
     text = ['# Независимый аудит карты ячеек', '',
             f"Сессия `{manifest['session_id']}`: сбор `{summary['status']}`, аудит **{report['audit_status']}** — {checks} проверок, {len(errors)} расхождений.", '',
-            f"Проверены {attempted} пар request/result: mode9 {mode_counts[9]}, mode10 {mode_counts[10]}, mode7 {mode_counts[7]}; явных пропусков MVM {skipped}. Пересчитаны native conversions, охват/порядок, DAC, ID, временные отметки, модельные guards, классификация всех 256 ячеек и CSV маска. Проверены result SHA и {len(verified)} исходников по локальным байтам и Git `{commit}`; приватные файлы — только согласованные SHA.", '',
+            f"Проверены {attempted} пар request/result: mode9 {mode_counts[9]}, mode10 {mode_counts[10]}, mode7 {mode_counts[7]}; явных пропусков MVM {skipped}. Пересчитаны native conversions, охват/порядок, DAC, ID, временные отметки, модельные guards, классификация всех 256 ячеек и CSV маска. Проверены result SHA и {len(verified)} исходников по локальным байтам и Git `{commit}`; приватные файлы — согласованные SHA и локальные байты при наличии, без Git.", '',
             f"Классификация: candidate {counts['candidate']}, reject {counts['reject']}, unmeasured {counts['unmeasured']}. Маска пригодна к рассмотрению: **{completed}**. Частичный failed-прогон не экспортирует рабочую маску.", '',
             '| Причина | Число ячеек |', '|---|---:|']
     text += [f'| {reason} | {number} |' for reason,number in sorted(reason_counts.items())]
