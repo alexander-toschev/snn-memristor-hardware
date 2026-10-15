@@ -18,10 +18,11 @@ import mvm_check
 
 
 class FakeConnector:
-    def __init__(self, fail=False, bad_id=False, high_read=False):
+    def __init__(self, fail=False, bad_id=False, high_read=False, gui=False):
         self.calls = []
         self.fail, self.bad_id, self.high_read = fail, bad_id, high_read
         self.opened = self.closed = 0
+        self.gui = gui
 
     def open_port(self):
         self.opened += 1
@@ -33,27 +34,29 @@ class FakeConnector:
 
     def impact(self, task):
         assert task['mode_flag'] in (9, 10)
-        assert task['wl'] in (0, 2)
+        assert task['wl'] in (range(8) if self.gui else (0, 2))
         self.calls.append(json.loads(json.dumps(task)))
         if self.fail and len(self.calls) == 14:
             raise TimeoutError('response missing')
         if task['mode_flag'] == 9:
-            assert task['bl'] in (2, 3) and task['vol'] == .1
+            assert task['bl'] in (range(32) if self.gui else (2, 3)) and task['vol'] == .1
             return (1000, 99 if self.bad_id else 0, self.high_read if self.high_read else 500)
         vector = task['vol']
         assert len(vector) == 32 and set(vector) <= {0.0, .1}
-        assert all(v == 0 or i in (2, 3) for i, v in enumerate(vector))
+        assert self.gui or all(v == 0 or i in (2, 3) for i, v in enumerate(vector))
+        if self.gui:
+            assert set(task) == {'mode_flag', 'vol', 'id', 'wl'} and task['id'] == 0
         adc = 100 * sum(v != 0 for v in vector)
         vector[:] = [82] * 32  # Native SI conversion is permitted to mutate its input.
         return (1e-9, task['id'], adc)
 
 
 class DiagnosticTests(unittest.TestCase):
-    def run_fake(self, fake):
+    def run_fake(self, fake, *, gui_ordered=False):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
         output = Path(temporary.name)
-        summary = mvm_check.collect(fake, converters, output, 'offline')
+        summary = mvm_check.collect(fake, converters, output, 'offline', gui_ordered=gui_ordered)
         raw = [json.loads(line) for line in (output/'raw.jsonl').read_text().splitlines()]
         return summary, raw
 
@@ -119,6 +122,65 @@ class DiagnosticTests(unittest.TestCase):
             check.assert_called_once_with(['--dry-run'])
             check.reset_mock()
             for args in (['--check-mvm'], ['--run-simulator','--check-mvm'], ['--run-hardware','--check-mvm','--all'], ['--run-hardware','--check-mvm','--max-pulses','1']):
+                with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+                    experiment.main(args)
+            check.assert_not_called()
+
+    def test_gui_all_cells_1736_impacts_order_id0_dense_dac(self):
+        fake = FakeConnector(gui=True)
+        summary, raw = self.run_fake(fake, gui_ordered=True)
+        self.assertEqual(summary['status'], 'completed')
+        self.assertEqual(len(fake.calls), 1736)
+        self.assertEqual(len(summary['readbacks']), 1536)
+        self.assertEqual(len(summary['mvm']), 200)
+        self.assertEqual(len(summary['conductance_comparison']), 256)
+        self.assertEqual(len(raw), 3472)
+        expected = [(repeat, label, wl) for repeat in range(5)
+                    for label in ('zero','A','B','AB','ALL32') for wl in range(8)]
+        self.assertEqual([(r['repeat'],r['vector'],r['command_si']['wl']) for r in summary['mvm']],expected)
+        self.assertTrue(all(r['command_si']['id']==0 and r['returned_id']==0 for r in summary['mvm']))
+        self.assertEqual([r['task_id'] for r in raw if r['event']=='request'],list(range(1,1737)))
+        dense = [r for r in summary['mvm'] if r['vector']=='ALL32']
+        self.assertEqual(len(dense),40)
+        self.assertTrue(all(r['command_si']['vol']==[.1]*32 and r['vol_dac']==[82]*32 for r in dense))
+
+    def test_gui_dense_model_guard_stops_before_any_mvm(self):
+        fake = FakeConnector(gui=True,high_read=3500)
+        summary, raw = self.run_fake(fake,gui_ordered=True)
+        self.assertEqual(summary['status'],'failed')
+        self.assertIn('no MVM sent',summary['error'])
+        self.assertEqual(len(fake.calls),768)
+        self.assertTrue(all(c['mode_flag']==9 for c in fake.calls))
+        self.assertEqual(len(summary['pre_mvm_guard_predictions']),40)
+
+    def test_gui_dense_observed_output_stops_and_preserves_raw(self):
+        class DenseOverrange(FakeConnector):
+            def impact(self, task):
+                dense = task['mode_flag']==10 and task['vol']==[.1]*32
+                result = super().impact(task)
+                return (result[0],result[1],14000) if dense else result
+        fake = DenseOverrange(gui=True)
+        summary, raw = self.run_fake(fake,gui_ordered=True)
+        self.assertEqual(summary['status'],'failed')
+        self.assertEqual(len(fake.calls),801)  # 768 pre-read +32 sparse/zero +first dense WL0.
+        self.assertEqual(summary['valid_responses'],800)
+        self.assertEqual(len(summary['mvm']),32)
+        self.assertTrue(all(r['stage']=='before' for r in summary['readbacks']))
+        self.assertEqual((fake.opened,fake.closed),(1,1))
+        self.assertEqual(raw[-2]['event'],'request')
+        self.assertEqual(raw[-2]['vector'],'ALL32')
+        self.assertEqual(raw[-1]['status'],'error')
+        self.assertEqual(raw[-1]['command_si']['wl'],0)
+        self.assertEqual(raw[-1]['raw_adc'],14000)
+        self.assertGreater(raw[-1]['output_voltage_v'],4)
+        self.assertIn('80%',raw[-1]['error'])
+
+    def test_gui_frontdoor_routing_and_mutual_exclusion(self):
+        with patch.object(mvm_check,'main',return_value=0) as check:
+            experiment.main(['--dry-run','--check-mvm-gui'])
+            check.assert_called_once_with(['--dry-run','--gui-ordered'])
+            check.reset_mock()
+            for args in (['--check-mvm-gui'],['--run-hardware','--check-mvm','--check-mvm-gui'],['--run-hardware','--check-mvm-gui','--all']):
                 with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
                     experiment.main(args)
             check.assert_not_called()

@@ -1,7 +1,7 @@
 # Воспроизведение на Raspberry
 
 Все команды выполняются из корня репозитория. Получение кода и dry-run не
-запускают эксперимент. Сейчас пользователь разрешил только диагностический --check-mvm;
+запускают эксперимент. Сейчас пользователь разрешил диагностические --check-mvm и --check-mvm-gui;
 четырёхфазные программирующие команды ниже остаются справочными.
 
 ## Получение проверенной версии
@@ -132,3 +132,36 @@ epsilon=mean(AB)-mean(A)-mean(B)+mean(zero) в ADC и V. Это отдельна
 или физический drift. No pass/fail noise threshold, no fitted scale.
 
 Offline тест: python -m unittest test_mvm_check -v.
+## Проверка в порядке GUI «Математика», весь массив 32×8
+
+```sh
+python experiment.py --dry-run --check-mvm-gui
+python experiment.py --run-hardware --check-mvm-gui
+```
+
+Этот режим разрешён текущим запросом проверить «как Математика». Прежний
+--check-mvm (64 обращения) сохраняется. Новый режим читает все 256 ячеек
+mode9 по три раза до и после: 1536 impact. Затем/между этими readback-блоками
+MatMul: пять повторов входов zero, A(BL2=.1), B(BL3=.1), AB и ALL32([.1]*32),
+для каждого входа все WL0..7 подряд. Всего 200 mode10, вместе 1736 impact.
+ALL32 идёт после четырёх меньших входов в каждом повторе и охватывает все BL.
+Mode10 task ровно как GUI: mode_flag, vol, id=0, wl; список vol всегда новый.
+Локальный task_id журнала остаётся уникальным. Маска all ones, без scaling,
+correction и дополнительной quantization; штатное округление SI/DAC и a2v
+сохраняется. Никаких mode7, RESET/SET и записи весов.
+
+GUI math.py MatMul использует input outer/WL inner, a2v(gain=1). Функция
+read_current_weights_matrix берёт round(sum_gain/R,4) из GUI all_resistances
+cache, сама не измеряет плату. GUI при predicted>=3.3 В пропускает impact и
+подставляет ADC0. Здесь cache недоступен: predicted строится по свежим mode9
+readback, включая отдельную оценку с округлением q как GUI. Перед ЛЮБЫМ MVM
+проверяются все 40 комбинаций WL/input: при модельном токе >5 мА, выходе
+>80% ADC reference либо GUI prediction>=3.3 В run останавливается. Нулевые
+ответы для пропущенных измерений не выдумываются. Наблюдаемый выход >80%
+reference тоже останавливает run. Модельный ток не является физическим
+измерением или аппаратным ограничителем. Это явное отличие от GUI skip.
+
+Manifest сохраняет GUI source SHA и различия guard/cache; raw и summary —
+actual ADC, native conversion, пять векторов по каждой WL и pre/post G по
+всем ячейкам. Проверка суперпозиции A/B не охватывает все возможные комбинации;
+ALL32 даёт отдельный dense-отклик, а не точность CIFAR inference.

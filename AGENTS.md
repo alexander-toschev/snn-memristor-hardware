@@ -8,7 +8,10 @@
   Подключаемый драйвер выбирает и вызывает сам штатный Connector.
 - Текущее явное разрешение пользователя: проверить MVM на существующих
   проводимостях с readback mode9 до/после. Разрешён --run-hardware --check-mvm:
-  WL0/2, BL2/3, nominal 0.1 В, всего 64 impact. RESET/SET, mode7 и запись
+  Прежний --check-mvm: WL0/2, BL2/3, 64 impact. Новый --check-mvm-gui:
+  все WL0..7/BL0..31, 1536 mode9 +200 mode10 =1736 impact, nominal 0.1 В.
+  Порядок GUI MatMul, native ID0, all-one mask, zero/A/B/AB/ALL32.
+  RESET/SET, mode7 и запись
   весов сейчас не разрешены; четырёхфазный программирующий запуск не запускать.
   Публикация кода/setup/dry-run сами по себе не запускают аппаратуру.
 - По умолчанию использовать simulator. Физические сценарии `read_all.py` и `experiment.py`

@@ -20,13 +20,16 @@ def stats(values):
             "sample_std": statistics.stdev(values) if len(values) > 1 else None}
 
 
-def collect(connector, converters, output, session_id):
+def collect(connector, converters, output, session_id, *, gui_ordered=False):
     """No driver/interface access. Preserve partial records even after an exception."""
     board = EXPECTED_BOARD
+    rows = tuple(range(8)) if gui_ordered else ROWS
+    cols = tuple(range(32)) if gui_ordered else COLS
+    vectors = {**VECTORS, "ALL32": tuple(range(32))} if gui_ordered else VECTORS
     summary = {"status": "failed", "impact_attempts": 0, "valid_responses": 0,
                "readbacks": [], "mvm": [], "row_statistics": [], "conductance_comparison": [],
                "calibration_verified": False, "acceptance_threshold": None,
-               "zero_offset_correction_applied": False}
+               "zero_offset_correction_applied": False, "gui_ordered": gui_ordered}
     decoded = voltage(.1, board, converters)
     try:
         with (output / "raw.jsonl").open("x", encoding="utf-8") as stream:
@@ -38,6 +41,9 @@ def collect(connector, converters, output, session_id):
                 task_id = summary["impact_attempts"] + 1
                 task = {"mode_flag": mode, "vol": value, "pulse_width": 0.0,
                         "sign": 0, "id": task_id, "wl": wl, "bl": bl}
+                if gui_ordered and mode == 10:
+                    # Exact public task fields used by GUI MatMul; log task_id stays unique.
+                    task = {"mode_flag": 10, "vol": value, "id": 0, "wl": wl}
                 dac = ([voltage(v, board, converters)["dac_code"] for v in value]
                        if mode == 10 else decoded["dac_code"])
                 row = {"session_id": session_id, "source": "hardware", "task_id": task_id,
@@ -54,7 +60,7 @@ def collect(connector, converters, output, session_id):
                         raise ValueError("Expected native (R, id, ADC)")
                     native_r, returned_id, adc = result
                     row.update(native_r=json_value(native_r), returned_id=json_value(returned_id), raw_adc=json_value(adc))
-                    expected_id = 0 if mode == 9 else task_id
+                    expected_id = 0 if mode == 9 or gui_ordered else task_id
                     if type(returned_id) is not int or returned_id != expected_id:
                         raise ValueError(f"Unexpected native ID; expected {expected_id}")
                     if mode == 9:
@@ -77,28 +83,45 @@ def collect(connector, converters, output, session_id):
             if not connector.open_port():
                 raise ConnectionError("Connector.open_port returned false")
             for stage in ("before", "after"):
-                for wl in ROWS:
-                    for bl in COLS:
+                for wl in rows:
+                    for bl in cols:
                         for repeat in range(3):
                             summary["readbacks"].append(impact(9, wl, bl, .1, stage=stage, repeat=repeat))
                 if stage == "after":
                     break
                 means = {(wl, bl): statistics.mean(r["conductance_siemens"] for r in summary["readbacks"]
                          if r["command_si"]["wl"] == wl and r["command_si"]["bl"] == bl)
-                         for wl in ROWS for bl in COLS}
-                for wl in ROWS:
-                    for repeat in range(5):
-                        for label, active in VECTORS.items():
-                            vector = [.1 if bl in active else 0.0 for bl in range(32)]
-                            current = sum(decoded["native_decoded_v"] * means[wl, bl] for bl in active)
-                            predicted_output = board["sum_gain"] * current
-                            if current > .005 or predicted_output > .8 * board["vol_ref_adc"]:
-                                raise ValueError("Pre-read model exceeds 5 mA / 80% ADC reference bound")
-                            summary["mvm"].append(impact(10, wl, 0, vector, stage="mvm", vector=label,
-                                repeat=repeat, predicted_current_a=current, predicted_output_v=predicted_output))
-            for wl in ROWS:
+                         for wl in rows for bl in cols}
+                predictions = {}
+                for wl in rows:
+                    for label, active in vectors.items():
+                        current = sum(decoded["native_decoded_v"] * means[wl, bl] for bl in active)
+                        predicted_output = board["sum_gain"] * current
+                        gui_prediction = sum(.1 * round(board["sum_gain"] * means[wl, bl], 4) for bl in active)
+                        predictions[wl, label] = (current, predicted_output, gui_prediction)
+                if gui_ordered:
+                    summary["pre_mvm_guard_predictions"] = [
+                        {"wl": wl, "vector": label, "current_a": values[0], "output_v": values[1],
+                         "gui_prediction_v": values[2]} for (wl, label), values in predictions.items()]
+                    if any(i > .005 or v > .8*board["vol_ref_adc"] or gui >= 3.3
+                           for i, v, gui in predictions.values()):
+                        raise ValueError("Pre-read model exceeds 5 mA / 80% ADC or GUI >=3.3 V skip condition; no MVM sent")
+                order = ((repeat, label, active, wl) for repeat in range(5)
+                         for label, active in vectors.items() for wl in rows) if gui_ordered else (
+                         (repeat, label, active, wl) for wl in rows for repeat in range(5)
+                         for label, active in vectors.items())
+                for repeat, label, active, wl in order:
+                    vector = [.1 if bl in active else 0.0 for bl in range(32)]
+                    current, predicted_output, gui_prediction = predictions[wl, label]
+                    if current > .005 or predicted_output > .8 * board["vol_ref_adc"]:
+                        raise ValueError("Pre-read model exceeds 5 mA / 80% ADC reference bound")
+                    summary["mvm"].append(impact(10, wl, 0, vector, stage="mvm", vector=label,
+                        repeat=repeat, predicted_current_a=current, predicted_output_v=predicted_output,
+                        gui_prediction_from_preread_v=gui_prediction,
+                        gui_skip_eligibility_from_preread=gui_prediction >= 3.3))
+            for wl in rows:
                 groups = {label: [r for r in summary["mvm"] if r["command_si"]["wl"] == wl and r["vector"] == label]
-                          for label in VECTORS}
+                          for label in vectors}
                 values = {label: {"adc": stats([r["raw_adc"] for r in rows]),
                                  "output_v": stats([r["output_voltage_v"] for r in rows])}
                           for label, rows in groups.items()}
@@ -107,7 +130,7 @@ def collect(connector, converters, output, session_id):
                 summary["row_statistics"].append({"wl": wl, "vectors": values,
                     "offset_adjusted_superposition_epsilon": epsilon,
                     "epsilon_definition": "mean(AB)-mean(A)-mean(B)+mean(zero); descriptive, no pass threshold"})
-                for bl in COLS:
+                for bl in cols:
                     stages = {stage: stats([r["conductance_siemens"] for r in summary["readbacks"]
                               if r["stage"] == stage and r["command_si"]["wl"] == wl and r["command_si"]["bl"] == bl])
                               for stage in ("before", "after")}
@@ -135,6 +158,7 @@ def main(argv=None):
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--run-hardware", action="store_true")
     mode.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--gui-ordered", action="store_true", help="GUI MatMul order: vectors outer, WL0..7 inner; native ID0")
     args = parser.parse_args(argv)
     if not (args.run_hardware or args.dry_run):
         parser.print_help()
@@ -144,9 +168,26 @@ def main(argv=None):
     config, snapshot, hashes = preflight(INI)
     for filename in ("experiment.py", "mvm_check.py", "native_conversions.py", "experiment_hardware.py"):
         hashes[filename] = sha256(local_path(filename))
-    description = {"modes": [9, 10], "wl": list(ROWS), "bl": list(COLS), "nominal_v": .1,
-                   "mode9_count": 24, "mode10_count": 40, "total_impacts": 64,
+    rows = tuple(range(8)) if args.gui_ordered else ROWS
+    cols = tuple(range(32)) if args.gui_ordered else COLS
+    read_count = len(rows)*len(cols)*6
+    mvm_count = len(rows)*5*(5 if args.gui_ordered else 4)
+    description = {"modes": [9, 10], "wl": list(rows), "bl": list(cols), "nominal_v": .1,
+                   "mode9_count": read_count, "mode10_count": mvm_count, "total_impacts": read_count+mvm_count,
+                   "gui_ordered": args.gui_ordered,
                    "weights_programmed": False, "source_sha256": hashes}
+    if args.gui_ordered:
+        gui_source = "vendor/MemriBoard/gui/windows/math.py"
+        hashes[gui_source] = sha256(local_path(gui_source))
+        description["gui_comparison"] = {
+            "source": gui_source, "native_mode10_id": 0, "mask": "all_ones_32x8",
+            "order": "repeat -> vector(zero,A,B,AB,ALL32) -> WL0..7",
+            "preprocessing": "none", "postprocessing": "none", "extra_quantization": False,
+            "gui_input_ceiling_v": .3, "diagnostic_max_input_v": .1,
+            "gui_skip_predicted_v": 3.3,
+            "gui_prediction_source": "GUI caches round(sum_gain/all_resistances,4); no fresh read in MatMul",
+            "diagnostic_prediction_source": "fresh mode9 pre-read; GUI cache is not available",
+            "guard_difference": "Before any MVM, stop if any fresh model exceeds 5mA/80% ADC or GUI prediction >=3.3V; observed 80% also stops. GUI uses cached prediction and substitutes ADC0 for skipped calls; no response is fabricated here."}
     if args.dry_run:
         print(json.dumps({"hardware_access": False, **description}))
         return 0
@@ -166,7 +207,7 @@ def main(argv=None):
         try:
             connector = native_connector(config)
             from manager.service import converters
-            result = collect(connector, converters, output, session_id)
+            result = collect(connector, converters, output, session_id, gui_ordered=args.gui_ordered)
             manifest.update(status=result["status"], impact_attempts=result["impact_attempts"],
                             valid_responses=result["valid_responses"], error=result.get("error"))
         except (Exception, KeyboardInterrupt) as exc:
