@@ -13,13 +13,10 @@ from configparser import ConfigParser
 import copy
 from datetime import datetime, timezone
 import hashlib
-import importlib
 import json
 import logging
 import math
-from pathlib import Path
 import random
-import sys
 import uuid
 
 from .config import parse_protocol
@@ -60,7 +57,6 @@ def run_check():
               "hardware_qualification": False, "output_dir": relative_path(output_dir),
               "started_utc": datetime.now(timezone.utc).isoformat(), "cases": [], "errors": [],
               "scope": "7 cases, 14 native impacts on fresh copies in memory of one fresh persisted array"}
-    path_inserted = False
     try:
         snapshot = repo_path("experiments/unn_rev3_20261014/protocol.json").read_bytes()
         protocol = parse_protocol(snapshot)
@@ -89,22 +85,16 @@ def run_check():
             root/"simulator/memristor.py", ini_path,
         )}
         use_local_dependencies()
-        sys.path.insert(0, str(root))
-        path_inserted = True
-        native = importlib.import_module("manager.board")
-        simulator = importlib.import_module("simulator.src")
-        converters = importlib.import_module("manager.service.converters")
-        for module, relative in ((native, "manager/board.py"), (simulator, "simulator/src.py"),
-                                 (converters, "manager/service/converters.py")):
-            if (root/relative).resolve() != Path(module.__file__).resolve():
-                raise RuntimeError("A different MemriBoard installation is already imported")
+        from manager.board import Connector
+        from manager.service import converters
+        from simulator.src import create_crossbar_array
         import numpy as np
         seed = 20261014
         random.seed(seed)
         np.random.seed(seed)
         report.update(seed=seed, numpy=np.__version__)
         serial = output_dir/"fresh_array"
-        simulator.create_crossbar_array(str(serial), 32, 8)
+        create_crossbar_array(str(serial), 32, 8)
         array_file = output_dir/"fresh_array.cb"
         report["array_file"] = relative_path(array_file)
         report["array_sha256_before"] = sha256(array_file)
@@ -134,13 +124,12 @@ def run_check():
                               "expected_returned_id": 0 if mode == 9 else task_id, "passed": False}
                     connector = None
                     try:
-                        connector = native.Connector(
-                            silent=True, logger=logging.getLogger(__name__), cb_type="simulator",
-                            board_type="rp5_fpga_python", task_format=task_format,
-                            config=protocol.board_config(), crossbar_serial=str(serial))
+                        connector = Connector(
+                            silent=True, logger=logging.getLogger(__name__), cb_type=protocol.connection["cb_type"],
+                            board_type=protocol.connection["board_type"], task_format=task_format,
+                            config=ini, crossbar_serial=str(serial))
                         if connector.cb_type != "simulator" or not connector.open_port():
                             raise RuntimeError("Native simulator connection failed")
-                        connector.interface.config = connector.config
                         result = connector.impact(copy.deepcopy(task))
                         record["native_result"] = json_value(result)
                         if not isinstance(result, (tuple, list)) or len(result) != 3:
@@ -188,8 +177,6 @@ def run_check():
     except Exception as exc:
         report["errors"].append(f"{type(exc).__name__}: {exc}")
     finally:
-        if path_inserted:
-            sys.path.pop(0)
         report["finished_utc"] = datetime.now(timezone.utc).isoformat()
         write_json(output_dir/"report.json", report)
     return report

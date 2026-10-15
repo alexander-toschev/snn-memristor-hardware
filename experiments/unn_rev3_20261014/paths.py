@@ -26,6 +26,8 @@ def relative_path(path):
 
 
 def use_local_dependencies():
-    dependencies = repo_path(".deps")
-    if dependencies.is_dir():
-        sys.path.insert(0, str(dependencies))
+    """Make the repository's packages available for ordinary Python imports."""
+    for relative in (".deps", "vendor/MemriBoard"):
+        directory = repo_path(relative)
+        if directory.is_dir() and str(directory) not in sys.path:
+            sys.path.insert(0, str(directory))

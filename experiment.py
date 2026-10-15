@@ -6,7 +6,7 @@
 
 import argparse
 from datetime import datetime, timezone
-import importlib
+from configparser import ConfigParser
 import json
 import logging
 import random
@@ -14,14 +14,13 @@ import sys
 import uuid
 
 from experiments.unn_rev3_20261014.config import parse_protocol
-from experiments.unn_rev3_20261014.connector_session import connect
 from experiments.unn_rev3_20261014.paths import repo_path, relative_path, use_local_dependencies
 from experiments.unn_rev3_20261014.readback import file_sha256, utc_now
 
 # ================= НАСТРОЙКИ ЭКСПЕРИМЕНТА =================
-BACKEND = "simulator"
-BOARD_DRIVER = "rp5_fpga_python"  # Имя драйвера; backend остаётся simulator.
-MEMRIBOARD_ROOT = "vendor/MemriBoard"
+CB_TYPE = "simulator"
+BOARD_TYPE = "rp5_fpga_python"  # Имя драйвера; backend остаётся simulator.
+SETTINGS_FILE = "vendor/MemriBoard/simulator/simulator_settings.ini"
 WEIGHTS_FILE = "weights/conv1_weights.npy"
 CHECKPOINT_FILE = "weights/best_fs.pt"
 PROTOCOL_FILE = "experiments/unn_rev3_20261014/protocol.json"
@@ -48,12 +47,14 @@ def main():
     if not parser.parse_args().run_simulator:
         parser.print_help()
         return
-    if BACKEND != "simulator":
+    if CB_TYPE != "simulator":
         raise ValueError("Этот сценарий разрешает только simulator")
 
     # 1. Проверить локальные веса и зафиксировать фактический протокол.
     use_local_dependencies()
     import numpy as np
+    from manager.board import Connector
+    from simulator.src import create_crossbar_array
     from experiments.unn_rev3_20261014.suite import SimulatorSuite
     for filename, expected in ((WEIGHTS_FILE, WEIGHTS_SHA256), (CHECKPOINT_FILE, CHECKPOINT_SHA256)):
         if file_sha256(repo_path(filename)) != expected:
@@ -62,9 +63,17 @@ def main():
     if weights.shape != (64, 3, 5, 5) or weights.dtype != np.float32 or not np.isfinite(weights).all():
         raise ValueError("Ожидаются конечные float32 веса Conv1 [64,3,5,5]")
     settings = json.loads(repo_path(PROTOCOL_FILE).read_text(encoding="utf-8-sig"))
+    board_config = ConfigParser()
+    with repo_path(SETTINGS_FILE).open(encoding="utf-8") as stream:
+        board_config.read_file(stream)
+    settings["board"] = {
+        key: (board_config.getint("board", key) if type(value) is int
+              else board_config.getfloat("board", key))
+        for key, value in settings["board"].items()
+    }
     settings["status"] = "approved_simulator_run"
-    settings["connection"].update(cb_type=BACKEND, board_type=BOARD_DRIVER,
-                                   task_format="SI", memriboard_root=MEMRIBOARD_ROOT)
+    settings["connection"].update(cb_type=CB_TYPE, board_type=BOARD_TYPE,
+                                   task_format="SI", memriboard_root="vendor/MemriBoard")
     settings["geometry"]["initial_cells"] = [{"wl": wl, "bl": bl} for wl, bl in CELLS]
     settings["execution"].update(approved=True, simulator_enabled=True, hardware_enabled=False,
                                   approval_scope="User approved all four phases with simulator backend")
@@ -92,7 +101,7 @@ def main():
     save_json(output_dir / "protocol.json", settings)
     protocol = parse_protocol((output_dir / "protocol.json").read_bytes())
     manifest = {
-        "session_id": session_id, "source": BACKEND, "started_utc": utc_now(),
+        "session_id": session_id, "source": CB_TYPE, "started_utc": utc_now(),
         "status": "failed", "completed_phases": [], "seed": SEED,
         "protocol_sha256": file_sha256(output_dir / "protocol.json"),
         "weights_sha256": WEIGHTS_SHA256, "checkpoint_sha256": CHECKPOINT_SHA256,
@@ -100,26 +109,27 @@ def main():
     }
     source_files = [repo_path("experiment.py"), repo_path("requirements.txt")]
     source_files += list(repo_path("experiments/unn_rev3_20261014").glob("*.py"))
-    source_files += list(repo_path(MEMRIBOARD_ROOT).rglob("*.py"))
-    source_files += list(repo_path(MEMRIBOARD_ROOT).rglob("*.ini"))
+    source_files += list(repo_path("vendor/MemriBoard").rglob("*.py"))
+    source_files += list(repo_path("vendor/MemriBoard").rglob("*.ini"))
     manifest["source_sha256"] = {relative_path(p): file_sha256(p) for p in source_files}
-    sessions, summary = {}, {}
+    connectors, summary = {}, {}
     suite = None
     try:
         # 2. ДВА новых массива и штатные Connector с backend=simulator.
         random.seed(SEED)
         np.random.seed(SEED)
-        sys.path.insert(0, str(repo_path(MEMRIBOARD_ROOT)))
-        simulator = importlib.import_module("simulator.src")
         for name in ("A", "B"):
             serial = relative_path(output_dir / "arrays" / f"array_{name}")
-            simulator.create_crossbar_array(str(repo_path(serial)), 32, 8)
-            array_settings = json.loads(json.dumps(settings))
-            array_settings["connection"]["crossbar_serial"] = serial
-            array_protocol = parse_protocol(json.dumps(array_settings).encode("utf-8"))
-            sessions[name] = connect(array_protocol, logger=logging.getLogger(__name__), approved=True)
-        suite = SimulatorSuite({name: session.connector for name, session in sessions.items()},
-                               protocol, output_dir, settings["suite"])
+            create_crossbar_array(str(repo_path(serial)), 32, 8)
+            connector = Connector(
+                silent=True, logger=logging.getLogger(__name__),
+                cb_type=CB_TYPE, board_type=BOARD_TYPE, task_format="SI",
+                config=board_config, crossbar_serial=str(repo_path(serial)),
+            )
+            connectors[name] = connector
+            if not connector.open_port():
+                raise ConnectionError(f"Не удалось подключить массив {name}")
+        suite = SimulatorSuite(connectors, protocol, output_dir, settings["suite"])
 
         # Входная проверка: один отсчёт, затем 20 чтений трёх ячеек.
         summary["baseline"] = suite.run_baseline()
@@ -149,9 +159,9 @@ def main():
         if suite is not None:
             manifest["raw_task_count"] = suite.summary["raw_task_count"]
             suite.close()
-        for name, session in sessions.items():
+        for name, connector in connectors.items():
             try:
-                session.close()
+                connector.close_port()
             except Exception as exc:
                 manifest.update(status="failed", close_error=f"{name}: {exc}")
         manifest["finished_utc"] = utc_now()

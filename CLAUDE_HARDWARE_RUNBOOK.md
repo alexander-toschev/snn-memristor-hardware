@@ -3,7 +3,7 @@
 The user approved all four phases of TWO_CROSSBAR_PLAN.md with the simulator.
 This supersedes the earlier no-launch instruction only for simulator work.
 
-1. Open `experiment.py`; check `BACKEND="simulator"` and the four phase calls.
+1. Open `experiment.py`; check `CB_TYPE="simulator"` and the four phase calls.
 2. Verify local weights against `weights/manifest.json`. The full checkpoint is
    stored for provenance; the experiment loads only `.npy` with allow_pickle=False.
 3. Install the pinned runtime dependencies inside `.deps/` if absent (Python 3.12):

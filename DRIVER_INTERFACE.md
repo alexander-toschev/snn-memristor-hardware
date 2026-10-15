@@ -41,13 +41,14 @@ still require separate validation.
 
 In the inspected source, `open_port()` creates `BoardSimulator()` without
 passing Connector's config. The vendored BoardSimulator resolves its INI next to its source module.
-The session layer explicitly assigns the same board configuration to
-the simulator interface before the first measurement. Do not change cwd globally
-or monkeypatch `manager` modules to resolve this.
+The experiment reads that same INI and passes it as Connector's `config`.
+The simulator loads its configuration normally; the experiment never assigns
+`connector.interface` or its configuration. The effective board values are copied
+into the saved protocol for analysis.
 
 Loading config does not connect. Importing experiment modules must not instantiate
-Connector, HardCore, Application or an FPGA class. The session may open only
-through an explicit approved function call. No automatic simulator-to-real fallback.
+Connector, HardCore, Application or an FPGA class. The experiment opens Connector only
+after the explicit simulator launch flag. No automatic simulator-to-real fallback.
 
 ## Hardware observations, not permission
 
@@ -76,3 +77,9 @@ ID. Zero ADC is valid for zero-input mode 9/10. Returned resistance from mode 9
 or MVM is not interpreted as single-cell resistance. Native DAC conversion
 rounds voltages to three decimal places; SI/DAC equality is not physical
 voltage calibration. See `results/connector_checks/` for recorded commands.
+
+The root experiment uses ordinary `from manager.board import Connector` and
+`from simulator.src import create_crossbar_array` imports. The latter creates
+the saved array, as Manager.add_chip does; it does not choose or construct
+the board interface. `Connector.open_port()` performs that selection.
+Only the local package search paths are configured once in `paths.py`.
