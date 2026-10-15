@@ -98,6 +98,9 @@ RMSE весов 0,026039 → 0,020223 → 0,017240. Все три средних
 Метаданные: [trace_storage.json](results/simulator/20261015T043144Z_8975e79b/trace_storage.json).
 Проверка исходного журнала: [audit.json](results/simulator/20261015T043144Z_8975e79b/audit.json).
 Независимый пересчёт: [raw_independent_audit.json](results/simulator/20261015T043144Z_8975e79b/raw_independent_audit.json).
+После удаления несжатого дубликата весь архив повторно проверен:
+[audit_packed.json](results/simulator/20261015T043144Z_8975e79b/audit_packed.json).
+Файлы для ревью и их хеши: [review_manifest.json](results/simulator/20261015T043144Z_8975e79b/review_manifest.json).
 
 Начните ревью с `experiment.py`, затем `experiments/unn_rev3_20261014/suite.py`
 и `vendor/MemriBoard/manager/board.py`. Независимые скрипты находятся в `checks/`.
