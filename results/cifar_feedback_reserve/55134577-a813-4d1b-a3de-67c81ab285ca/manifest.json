@@ -1,0 +1,1557 @@
+{
+  "session_id": "55134577-a813-4d1b-a3de-67c81ab285ca",
+  "status": "completed",
+  "started_utc": "2026-10-16T13:33:59.935357+00:00",
+  "invocation": {
+    "git": {
+      "commit": "43d2e7738754e85a6a20b8a802adad9f956603ec",
+      "dirty_tracked": false,
+      "untracked": [
+        ".tmp/",
+        "results/calibrated_mvm/ea567b92-2428-48d3-b072-914fa31961a9/exploratory_singletons/",
+        "results/calibrated_mvm/f4046fbf-ec5f-4aa7-b949-e2fc2900d51f/exploratory_singletons/",
+        "results/calibrated_mvm/f4046fbf-ec5f-4aa7-b949-e2fc2900d51f/mapped_singleton_proposal/",
+        "results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/array.cb",
+        "results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/cell_results.jsonl",
+        "results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/checkpoint_roles.jsonl",
+        "results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/checkpoints.jsonl",
+        "results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/final_array.jsonl",
+        "results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/initial_array.jsonl",
+        "results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/raw.jsonl",
+        "results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/summary.json",
+        "results/cell_calibrations/9fa4e745-cd50-44e9-97b0-b650292e4db8/",
+        "results/cifar_feedback_reserve/"
+      ],
+      "status_porcelain": "?? .tmp/\n?? results/calibrated_mvm/ea567b92-2428-48d3-b072-914fa31961a9/exploratory_singletons/\n?? results/calibrated_mvm/f4046fbf-ec5f-4aa7-b949-e2fc2900d51f/exploratory_singletons/\n?? results/calibrated_mvm/f4046fbf-ec5f-4aa7-b949-e2fc2900d51f/mapped_singleton_proposal/\n?? results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/array.cb\n?? results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/cell_results.jsonl\n?? results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/checkpoint_roles.jsonl\n?? results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/checkpoints.jsonl\n?? results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/final_array.jsonl\n?? results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/initial_array.jsonl\n?? results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/raw.jsonl\n?? results/cell_calibrations/8fb315b9-3750-41d0-a810-01a787b48efc/summary.json\n?? results/cell_calibrations/9fa4e745-cd50-44e9-97b0-b650292e4db8/\n?? results/cifar_feedback_reserve/"
+    },
+    "process_argv": [
+      "experiment.py",
+      "--cifar-feedback-reserve",
+      "--run-simulator"
+    ],
+    "hardware_argv": [
+      "--run-simulator"
+    ]
+  },
+  "protocol_id": "cifar-feedback-reserve-wl7-bl15-v1",
+  "source": "simulator",
+  "source_sha256": {
+    "vendor/MemriBoard/manager/service/converters.py": "28c6495c56afa225501dd6b0dea999215f08b73f30e016ff7ea34d6c5412701c",
+    "vendor/MemriBoard/manager/service/__init__.py": "116c5e49243fbeed84f1807f938901bcb24f84415ed8ac84568126ca187b1098",
+    "vendor/MemriBoard/manager/board.py": "5e7076651001532e409287f1cd7d17a95ba26d3d382c44e1865de56e45477df0",
+    "vendor/MemriBoard/manager/service/drivers.py": "e4e47cd172196f6e1b6d2f22e9481a8d69cf2fcbcedb78760c43daebc8f0cdc9",
+    "vendor/MemriBoard/simulator/src.py": "d41edc5c0464e15d44a23a1bb628e8025194e518d914635c1a14dd46ea2d4cc2",
+    "vendor/MemriBoard/simulator/memristor.py": "bb9c43d0f254c512c21902a64b5414e05f63f1deecf10016e5b97bd086050aca",
+    "vendor/MemriBoard/main.py": "8e078abe97a726d0fe4986333e945c851bf870007e8de63cdfc05be1bf048241",
+    "vendor/MemriBoard/make_build.py": "cab1ba086f8ebb8f7d15b26fe81be651ffa1decf38c87df5c64f03f5eed8aa27",
+    "vendor/MemriBoard/gui/src.py": "2ca0d23c9588ffd37c3e1ba3b23980173ce1d159621611dc478a3826bee462c8",
+    "vendor/MemriBoard/gui/themes.py": "64ac39cd45f992e8351e428e77406b3a0ad065235577dd778761b02a6708fc2d",
+    "vendor/MemriBoard/manager/app.py": "6ae6dea53331a2a4c7c9e2ab581ed7a39a7fa8b44b546ba5d7c15d9a75b694ae",
+    "vendor/MemriBoard/manager/blanks.py": "696c318c9569674a45d7517cea6ab811e6fbf2c81ce2c0efbdd7646e05b2dc46",
+    "vendor/MemriBoard/manager/comport.py": "1ba271576880bbf8c5190d1d4a7e08e3ba8d50729f31cf604bf82b26fd353989",
+    "vendor/MemriBoard/manager/main.py": "8101987a08b6ca70d2510d23ea2e9e5369b2b9df775e14b8733b8699fe8cd783",
+    "vendor/MemriBoard/manager/menu.py": "da0dd1c25596d29e7cc2fdfbd41689c313a1d5f8f30465bc9ad6f6bf7351a6f1",
+    "vendor/MemriBoard/manager/terminate.py": "00b385405bf19b6adff5e3d8dfa02e6c80dd10b3f4693476730d3bdcc2c3b779",
+    "vendor/MemriBoard/manager/__init__.py": "22cf0f37f6ebfe6342fbea00b0b5d8d6973bfb4271569e57a7cc145add413b8e",
+    "vendor/MemriBoard/gui/widgets/MplGraphicsView.py": "e0dcc48607fdeb6c0912323ad3ae1a7d3a341f8933a73a1a5bc355335f6fc2e7",
+    "vendor/MemriBoard/gui/widgets/QCodeEditor.py": "d3a8e27f7e492c09f774b56b253dd4c0902bdfc3c262215014a9de47341cc1b0",
+    "vendor/MemriBoard/gui/widgets/ScientificQLineEdit.py": "d47cd58b72510ae0ca4bab830e50bcaebb3a5a69dfd105c69706485adf992602",
+    "vendor/MemriBoard/gui/widgets/SignalParametersConfig.py": "33319ce0a1572c3dadc6dfff5aa45a7b465861d5f878b24d871667d678d36d66",
+    "vendor/MemriBoard/gui/widgets/syntax_highlighter.py": "8ba8ecb1c48045d62c896ff4fa36a8b728a6de9da7676e5fb741fb0388cba808",
+    "vendor/MemriBoard/gui/windows/algorithm_editor.py": "dfb8048d5209a4db074a19e601720aaeb540db2bfa3d2654156ac51c4f97d09c",
+    "vendor/MemriBoard/gui/windows/apply.py": "a0bc7de540eb42b5c41e0d1916ed26ad24900a56ca195323194092965300e079",
+    "vendor/MemriBoard/gui/windows/cb_info.py": "8defc49f1c3fb69284e3db4210f8570f053c095bfef74cf2306b2f231a77be6b",
+    "vendor/MemriBoard/gui/windows/cell_info.py": "f6d8582cf62499038e783a533b42f8dd593273087f1c8f7a6e46e6ad8d1aed97",
+    "vendor/MemriBoard/gui/windows/connect.py": "435563e327c011bd2752a9275b372e2c1e3470f942bba4928914a61f83d1e7e8",
+    "vendor/MemriBoard/gui/windows/crossbar.py": "89bd016228534fc731f0a4c84351063e3ce084d7b1f51ea7e0620499a162fdcf",
+    "vendor/MemriBoard/gui/windows/experiment.py": "4358a1a572fcf52e5a5f5da54c11b13121a5512a1d7bfeb1c2efb3cff8f6836d",
+    "vendor/MemriBoard/gui/windows/filter.py": "41a53114c430e81866a10035dd98304a31f3b50ce9637b1496808723c1046c2e",
+    "vendor/MemriBoard/gui/windows/help.py": "e06f8ef9cec5ba403afe76e83b53bc9030ddb18dcd42bc50d3c55d575d002f08",
+    "vendor/MemriBoard/gui/windows/history.py": "334c4b6adf99661d291766505346d0ea4ba3cf75106de6e38c209df6adbe48e4",
+    "vendor/MemriBoard/gui/windows/map.py": "48b758f74e8b2edd7394bd2aa60aa9543fc5970e74e7b8156688447b2b48d4c6",
+    "vendor/MemriBoard/gui/windows/math.py": "985eaaed9192ab83d3f62ce016a7d4d1999fc1bdf03951fe280438eb90102bdb",
+    "vendor/MemriBoard/gui/windows/new_ann.py": "77bf7b5f92251e85aca06751f4cb1c72a71184aa791d76ae609bd52e9c038b29",
+    "vendor/MemriBoard/gui/windows/requests.py": "8df669d07c2eece287a7f53a173f5346e19f56e9330316436830d96d3c30d0b0",
+    "vendor/MemriBoard/gui/windows/rram.py": "a7c5d7667db506f24b7fb781b92f260f7c86968f0b650abe9786010d10848a06",
+    "vendor/MemriBoard/gui/windows/settings.py": "34220f388c13cbf86d6941fef0fb2f2a8ac25c72b35741ef9669ed5e916ceb58",
+    "vendor/MemriBoard/gui/windows/signal.py": "046676fd8d308fcb4b4ba104bf972adea7ef09f9e453f451e39af487133dea3c",
+    "vendor/MemriBoard/gui/windows/snapshot.py": "2c52a94441947095a513f2ef84cda28feecff8bf8516a410fd69a3af380097f9",
+    "vendor/MemriBoard/gui/windows/terminal.py": "41d3effd3d7f83c0ac62473d3e8db8b0285e4754360aa3458a3349216b8cebbc",
+    "vendor/MemriBoard/gui/windows/testing.py": "68a22b994c72eb3d0b5809077389a9acb4bd88f91b8da1f9e10b3e8ac76afe88",
+    "vendor/MemriBoard/gui/windows/wait.py": "cd919267d4cddabb5feebf64fca0c3457c9d3faea00e2c1866c228510fd41644",
+    "vendor/MemriBoard/manager/algorithms/algorithm.py": "a6bcbad1531c96a6733f1a9417a12deaa5a0509995b23e65a19c5192b135635d",
+    "vendor/MemriBoard/manager/algorithms/alg_generator.py": "356053dda6c4834465b29de30536ed394afa89df55011a590074c4e6ff668f9e",
+    "vendor/MemriBoard/manager/algorithms/ticket_generator.py": "28cafe54fb79ae9a1cddf2bf54be831308b1e43b397aa91f4d6ff0b444662fd7",
+    "vendor/MemriBoard/manager/algorithms/__init__.py": "1c9fbccf5324a138b8e1b822206ebacf7f87e3c01417f4fb7c8482df4502f33e",
+    "vendor/MemriBoard/manager/model/db.py": "49e75e3a71351c9fff5b6efc95352d936f6458979c75cc2c271bdf77580e5ad0",
+    "vendor/MemriBoard/manager/model/src.py": "debaf249fb8df0db7ffe104dc07a70a1bb85859e34b39e11226d13da60613541",
+    "vendor/MemriBoard/manager/modes/std.py": "9269cbb8a7d6497c849fb16a33180f05babf0bdffd1a65d53024dfdcf7640efd",
+    "vendor/MemriBoard/manager/modes/tst.py": "76e073b2743602f3cf245702a35b152dbc9ded772e9820fe37d64b24d223894e",
+    "vendor/MemriBoard/manager/modes/__init__.py": "b94504619f9515f9f6b77303c66540da8887ffe9ebbf449ce20a7144084edd72",
+    "vendor/MemriBoard/manager/service/global_settings.py": "4c9f146317ac58f2fba48be0a00ac01c5bf4718a126fbe42af59dbe0e07d0610",
+    "vendor/MemriBoard/manager/service/plots.py": "4504de731d7d5fcfe9150512edd1670ddf71755c6663c653556d7d0d3c2bade7",
+    "vendor/MemriBoard/manager/service/prepare.py": "ef8bddf1b615a84508e84ab8266299e954a7ced50687347e8b6524fdeee31f7c",
+    "vendor/MemriBoard/manager/service/saves.py": "ae80e2726cd57ad1c581acc866e59d1f1762343d5ff20c0dcbf465d3a835b08b",
+    "vendor/MemriBoard/manager/service/templates.py": "2000ae85de118f4d46366eecc9486b9a9c7996ac8fa747c86417744d140d289e",
+    "configs/raspberry_board.ini": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c",
+    "vendor/MemriBoard/simulator/simulator_settings.ini": "9ef3229595cbbba0ccc7d7450981d7a63266092792f4573d405beb2f364d3ddb",
+    "cell_calibration.py": "eff0b2f72586f6a6659a13fba410c6ad0d564bd95d3b83e24b13cf739121c2e8",
+    "native_conversions.py": "2ad2e9c057bb14979b083a6e846e8c417c080a6c5273d848e31f893b7970253e",
+    "read_all.py": "b30ae2f4dd3cd166dbc5cefb07b558127de2bbdba1f6674c40b1b45f4dd74d5f",
+    "experiment_hardware.py": "059dc4f827943a9df631631f52e776b57182afc9d36db0c1ad5246427f73548c",
+    "weights/conv1_weights.npy": "8be312b9eafb9de23f8340b17f848e7e0e2e7884293c826a6d9f6cbb5125d440",
+    "weights/candidate_cifar75_routing.json": "bbe71222138fd28ef928dcca22b319abc1223ec87b6680edd56b03c63dac0245",
+    "weights/prepared_cifar100_conv1.json": "86113ff1d2fdbe155056d2e1377cf380e7395120fd93ccf2e1efc7a0a933167c",
+    "weights/best_fs.pt": "ee4fc4f58a3d010218116e9ad4c7ba808787959f9ed7687cd58cbb32d90f62fb",
+    "weights/cfg.json": "94ea7d5f57c5fdf6e5f4e319c38b4921783cdc04f5f082fdca59c2e86a14c645",
+    "cifar_memristor.py": "2410b67088f39b6d415ed560bff6d06aeae6b8712ab2906bfb69d7191773eefe",
+    "cifar_memristor_analysis.py": "8522b922d9d6cf7d98e4e6f6f3c578453cc3d50d688af1ca4e322c67217785de",
+    "configs/cifar_memristor.json": "be859fd8b07c8c7fac3caadcd6eb44fc0ae572ccf99ba96b28e7702d35bb966d",
+    "cifar_feedback.py": "0cd7b6dbbb789afa6a9b3fe71e1f50a9dd9c66715bfd1675112b69f9eb8cb5b4",
+    "configs/cifar_feedback.json": "c0978558dda13ebb28ca25e93c52237802907a7b6d2ce3c552374e2b71e5350c",
+    "cifar_feedback_diagnostic.py": "d4bcc3c00d9fc37552af3c2f3b205fa9bb795ce057cafedd93c864ee33069e62",
+    "configs/cifar_feedback_diagnostic.json": "c798a58227d25cc5ca7fe8a6f8b3472efb28fe90dde8759d86840e8b42e92246",
+    "cifar_feedback_adaptive.py": "a46eb7b94891d1adf48d10f126227e10ecfa696aba61a98f293199a8dcb9f2ba",
+    "configs/cifar_feedback_adaptive.json": "c788a91a1dc51e4a9f6070354c9597249a45b4770decb07847030f683ef09663",
+    "configs/cifar_feedback_reserve.json": "d042e27faf56a0334f7669689255ea45ad1d43cface8a3fc93ffdf42f4415b9c",
+    "cifar_feedback_reserve.py": "a4e3a822ede1460c905435000912dc91b851b26c8d0608006ceba12708d3f7c9",
+    "experiment.py": "718cb130a40c4e17b20041c503bb7f8557fd1d1f96abccdfe5546be0ee4e7a37"
+  },
+  "hardware_access": false,
+  "parent_import": {
+    "session": "results/cifar_feedback_adaptive/64036fb0-2d33-4350-b672-96ef8380acec",
+    "manifest_sha256": "1e474d60766db746016f9ee648f52abbe2c499018141c10659167e5113f5aec7",
+    "audit_path": "results/cifar_feedback_reviews/adaptive_simulator_full_20261016_v2/audit.json",
+    "audit_sha256": "fe3df5205076258e12fcd85e8a33b29cbe3328358d2c807a4b8656f9599299e2",
+    "result_sha256": {
+      "array.cb": "7d6ec80b8a94e780c3bbab41644c72ea488f8c05c2fd2f334ee938a617b58256",
+      "board.ini": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c",
+      "completed_microtiles.json": "abc1f4d91a14ed7ff58c4991f9f8d57c3c8f1932e9c3cd0012fd4add5073ebf5",
+      "protocol.json": "98c2f39c630940c50f8a109c4da6a70a00093d96e30430ff9de5436a1ee094df",
+      "start_manifest.json": "e1e0f58b35bcab891b61662fea098584ead24bb53ff5194759290bff58174f2f",
+      "summary.json": "ed64f07c765c6ef1d093458e582932abe08232a39f2aa5ff95b32e46b64f8a0d",
+      "tiles/f0_p3_m0/calibration_anchors.json": "cc836431d9a0da9b0ec2c5abd85504d87608ce5715ef6f3403e0b1a0753814c6",
+      "tiles/f0_p3_m0/frozen_calibration.json": "a1426eb6c2abd65390201d8e8f2a06be76c07fe0e09345cf69b7b6eb8619e167",
+      "tiles/f0_p3_m0/frozen_matrix.json": "31773ddad39b5553b4f8f0a87c0009cf9a11f043ea07b46ef437e3d1ad513681",
+      "tiles/f0_p3_m0/frozen_route.json": "112af0b8875884dca337266dc62e96b7f111afde911f546500317110f08ea899",
+      "tiles/f0_p3_m0/matrix_probes.jsonl": "6d62eb1c4a111bcbdba0e927652a8be632549fd36dc153f8d1a6f116cf89f949",
+      "tiles/f0_p3_m0/pair_programming.jsonl": "881415f685245daa0c97abe83cf6c0ec5b2df9bc9d6b0ba8f35b911af2483dc1",
+      "tiles/f0_p3_m0/partials.jsonl": "da9a6849b140af2a17dd57a8b1de05799e93e9d0d23cda4ea9a854c82b32609c",
+      "tiles/f0_p3_m0/raw.00001.jsonl": "c98b0b239bb27927855d0e414dc75a246aa1c273d2dd75b6c5aa1fd5b3d3cd8e",
+      "tiles/f0_p3_m0/raw.00002.jsonl": "04f62ec15f540f9fa3af8c821dc04e7b9e8a562b81876c1e8945aa2b2fa903f2",
+      "tiles/f0_p3_m0/raw.jsonl": "5771201c2e8b935242a4f7697ca587874edc2e6a06402018f102614080907021",
+      "tiles/f0_p3_m0/raw_parts.json": "772f7155d46c0f99df3222efbaaa1c4e1d4dacb10e82fb8f840ed74eaf411695",
+      "tiles/f0_p3_m0/reset_candidates.jsonl": "6872ad26f87d7411696d8653bff7086193d45afc3e14851ce77a0f2193cb40f7",
+      "tiles/f0_p3_m0/reset_feedback.jsonl": "dc9583ce1ea26319e06509713669dcb4509dc6058726427c7f4fe9bdf2779e6a",
+      "tiles/f0_p3_m0/set_feedback.jsonl": "856e92e7bf88bb57f08e8d0073fd936897f6c6a3c18a29476f60bcd8c27e4adc",
+      "tiles/f0_p3_m0/tile.json": "e3c34e1311e6d103c4d065340c8609e9435c53b5bca3e3647e7f585474b71901",
+      "tiles/f0_p4_m0/calibration_anchors.json": "510f4c22c9716513b1ba36b666c5cad344b216e660db57daf0a3eadd56b94cd8",
+      "tiles/f0_p4_m0/frozen_calibration.json": "4da087ef0e90f5e0f89db94fdc0b7c760e6c2efeeecbf5e13fa61038d5153ed2",
+      "tiles/f0_p4_m0/frozen_matrix.json": "314e357c4476560fe493b1ffe02c3dcea37d9a4599595c161371515285d8c241",
+      "tiles/f0_p4_m0/frozen_route.json": "e4e69a50237bd75ea337af4fb8593d8f018db3856505c49e8a16e6acc00cdbd3",
+      "tiles/f0_p4_m0/matrix_probes.jsonl": "539861496144a26cffd74c6853ce81255b5bca928de7348b6ae783b7bda9efa5",
+      "tiles/f0_p4_m0/pair_programming.jsonl": "fa012d7ba8198584181080befa0576c30f7c20c689f5f038ef5df865d2efa71f",
+      "tiles/f0_p4_m0/partials.jsonl": "65419eb51691e0af8c8ac711da2a9cfbd119f070594a01995b76a9d6cee7aed7",
+      "tiles/f0_p4_m0/raw.00001.jsonl": "47b6edb5c7833b7d97e4a9f0c0dc3a90d7e78c4922eb425b883841a222493c3d",
+      "tiles/f0_p4_m0/raw.jsonl": "47b175c725d7a4be033ef95e7003e6d93edfede4735df19c6b72f8cd85786953",
+      "tiles/f0_p4_m0/raw_parts.json": "03d979b5aff1124e6d3d6902b5f754fa64c34da85d1cd12d56c03867d6113fad",
+      "tiles/f0_p4_m0/reset_candidates.jsonl": "5eb8f8b48343b2f393695ac148f410f2271fa23d6e48f169bc985abb36d9eeb4",
+      "tiles/f0_p4_m0/reset_feedback.jsonl": "b1c5b15a01204260fe9f56932462bdc536ebf5553dfab8450c023b850a29f8c4",
+      "tiles/f0_p4_m0/set_feedback.jsonl": "bd8aeaccf4bdacceac28c8df0767e52dd7d7146f8877fbfb4b580cbad7df4fac",
+      "tiles/f0_p4_m0/tile.json": "e09056697b688e5f76e457e8e6aa363b9eec3757672aa424e773c6d7965c09ca",
+      "tiles/f0_p5_m0/calibration_anchors.json": "74fb4068845ffe51b1d123ce4c89ae12ed48f79b7b0534b762b2f9ecb97797dc",
+      "tiles/f0_p5_m0/frozen_calibration.json": "7c765673d8b0c3b34fe40d6e5337005d0d7d21b94955fa690a6a062020744481",
+      "tiles/f0_p5_m0/frozen_matrix.json": "18fe7de1586dc6edb718b9d2fedb4ed43a77b53e91847897ab41588502ad8879",
+      "tiles/f0_p5_m0/frozen_route.json": "86aa88e981e0c035f31ff840684f2555865fe9a2b86d68cd4d9f1230b08df8a9",
+      "tiles/f0_p5_m0/matrix_probes.jsonl": "7c990763ba6318fa6685522c78c82e53bda37ea0ebb63a7eb7a6375bf14e4c7d",
+      "tiles/f0_p5_m0/pair_programming.jsonl": "843cc941f432b4c4bec1fed0afa80164a919b3946806e5f83d89c206964d8071",
+      "tiles/f0_p5_m0/partials.jsonl": "3da3cda25fdc18ff9233b227d937b0fa76051cad9e393593a4aee785d3acbe3c",
+      "tiles/f0_p5_m0/raw.00001.jsonl": "abe504cba8fa5fc274eaf433466d50c215002f0edd8ddfce00e732a31705f7cb",
+      "tiles/f0_p5_m0/raw.jsonl": "09930ca19854bc9d105ee67b0972b2f6ae2546c4c11342ebc6dffc630dced789",
+      "tiles/f0_p5_m0/raw_parts.json": "0061d024f7d84fca2be75141d01c45c37d1c87bc4eb6efa02c49149384bb40df",
+      "tiles/f0_p5_m0/reset_candidates.jsonl": "bb6e46dcf6e12ee09f44d25b1bb45ff74820cf54fdb7901706493d36e38651c1",
+      "tiles/f0_p5_m0/reset_feedback.jsonl": "cb1d8664588cab2c2d4df42ca9ded57228978240ddc74ef7e6c291ea069a636f",
+      "tiles/f0_p5_m0/set_feedback.jsonl": "b50581c3d89bfc984c3a6d93f8253a560c0c3fafe7258ce0d75c2656bf68792d",
+      "tiles/f0_p5_m0/tile.json": "d631c07ab5aac36be235633d3f63f6181f1b8d5deed89c4cfeb34c03426b6a0f",
+      "tiles/f1_p0_m0/calibration_anchors.json": "af46f9661f0f6a7bfa47b564c4e13ad1db6297d8efcd743ffcbdaa92a8fd4e12",
+      "tiles/f1_p0_m0/frozen_calibration.json": "7f468c5d9150987e6674008b6451dc382492cd446667b65222269baf22668dc1",
+      "tiles/f1_p0_m0/frozen_matrix.json": "85aeb4890c95e2583959d5dedef7be071ec85b72da801f3714e96f829dbd7c1a",
+      "tiles/f1_p0_m0/frozen_route.json": "6c946206e48229502f7385a17d8b9fe582a213bd4639a29e21f25a8ebc418672",
+      "tiles/f1_p0_m0/matrix_probes.jsonl": "74eec9b1ae241a6acc99fe44232b47d1bb28ab725392c71f2ba7744d80b1f41c",
+      "tiles/f1_p0_m0/pair_programming.jsonl": "7136af42c10fc9a561ac5b365444281a001763994735bba88ca64ee416bc45a0",
+      "tiles/f1_p0_m0/partials.jsonl": "373975ff1ca9ebea2e64114afe03d39d83ab8f21d1383d399531f3ef72984e56",
+      "tiles/f1_p0_m0/raw.00001.jsonl": "90f098a4116d78a299356456b5389611b839cb299eb5a855f27b27a9114edb24",
+      "tiles/f1_p0_m0/raw.jsonl": "6ef73b9e1f585cc69f86771bc1ee1559fecdfa8e56cfa02dd746a895fc3fe221",
+      "tiles/f1_p0_m0/raw_parts.json": "06b602a1425d21fcad3f08fb1f251d9b31373130cef20c05a79342d5f92d7d89",
+      "tiles/f1_p0_m0/reset_candidates.jsonl": "e94b1cec426de5beb735e6a081fcab6dc1e541b04b9f49696cf50a61e9236003",
+      "tiles/f1_p0_m0/reset_feedback.jsonl": "766727bd2de779215b1e87b3a9e7661455ccd23e05e420c27357817214b0145b",
+      "tiles/f1_p0_m0/set_feedback.jsonl": "440435a90e0ad15e7a02476f35e53c799699868ded185fa8b7617f475265a60f",
+      "tiles/f1_p0_m0/tile.json": "e6ab7d0927bd5b2a06165c716921b59635c5432deb19e3da013de9018d2c66cb",
+      "tiles/f1_p1_m0/calibration_anchors.json": "f635249dbfdb2588b9ba7151e2430ee82b31c37081738084156ff5c4e86d1fd2",
+      "tiles/f1_p1_m0/frozen_calibration.json": "8081b643f9e37080f5b89b8f01981265e59c1ceffcc35bc5b6026debe2f4c8fc",
+      "tiles/f1_p1_m0/frozen_matrix.json": "ea939fe555cf94957f2994385503dfbf81d943a4926e7948f68f5d6af389ef74",
+      "tiles/f1_p1_m0/frozen_route.json": "7fee24dbecd86cf7926d26a2d74242d6b4b67898e76480d9ccce97eba2e934a6",
+      "tiles/f1_p1_m0/matrix_probes.jsonl": "0f57fcaaa3efbaa48c7d6098498565cea2414d1e9e2d1ba82577ae504630b712",
+      "tiles/f1_p1_m0/pair_programming.jsonl": "a887fda86a21b44c996fcc4b7f50ccc8cba57c259db1af3985c043fbb93971fb",
+      "tiles/f1_p1_m0/partials.jsonl": "cd77b781a6628a298d03a0c217cf2f4a24c0797e2afbfd6317f99963da9da584",
+      "tiles/f1_p1_m0/raw.00001.jsonl": "5ba0978c2cd7ea379deeb35cac654da257f9bf7dd4daf83b0ed3dc415e6267a4",
+      "tiles/f1_p1_m0/raw.jsonl": "a84d217a122698f778e327861d40f310b04fc7b6f7475e44c3a0488a4030e1ed",
+      "tiles/f1_p1_m0/raw_parts.json": "77e4bb7feb94d29bed3fec75de3f42ae5e607f151ff152a73c05808b5cf11d7c",
+      "tiles/f1_p1_m0/reset_candidates.jsonl": "eaef099ee886122b172347a96f708ac518fb363aae7abe324d4bf79965752f6e",
+      "tiles/f1_p1_m0/reset_feedback.jsonl": "4625af93182c9d6cbf239fa85e61dee318bd7cf2d8cc062cbae580e8ed382904",
+      "tiles/f1_p1_m0/set_feedback.jsonl": "e7c78c77d68485c4fe58a43ba4ea65918b210f8f0e34571c43723d9d549fdfd4",
+      "tiles/f1_p1_m0/tile.json": "6f337239f672832293e635b919260db3c0fd2f7d23f2c4bf88ea7b21fb73726e",
+      "tiles/f1_p2_m0/calibration_anchors.json": "760115a5d0421dde230b99c18251d6b1ffafe9c6fb6237ddc0524434e3934fb8",
+      "tiles/f1_p2_m0/frozen_calibration.json": "12365d06f2d76bdfa50ebb00b402b286ac4beb408e2f4c6fbfe4238198fc7262",
+      "tiles/f1_p2_m0/frozen_matrix.json": "0892a4a70525551b4be30b594ee62b3686007158b061e2c6c4c65fd8e795d353",
+      "tiles/f1_p2_m0/frozen_route.json": "ad082ac9ccef2d6a74b5489848614b34a08973d4ccc536317a5223343af57bdb",
+      "tiles/f1_p2_m0/matrix_probes.jsonl": "33c50630367104a566cd659ff98608fdec0aa86906d45df5110a58522e331b75",
+      "tiles/f1_p2_m0/pair_programming.jsonl": "07b05e95f985ad706eff3cc281b2e4280e6e88998a20008efc2630457f8e7067",
+      "tiles/f1_p2_m0/partials.jsonl": "60e5a6e93cd3cf7112603ef57f539041c15bbcf835a0ea7df6e81136974cbc0b",
+      "tiles/f1_p2_m0/raw.00001.jsonl": "a7cc2ab7b76b6f6ed6ab5b440cf9bd6c4026de5eb99f531125c3659481a13a0d",
+      "tiles/f1_p2_m0/raw.jsonl": "282291265d75539a58778847d02ef3f3b191f13c188f41b83fb74b2f661c0f29",
+      "tiles/f1_p2_m0/raw_parts.json": "d66c6913f784988a1c7fc37407602893ed6437b2740eddcc2e4d1dde1c4bf810",
+      "tiles/f1_p2_m0/reset_candidates.jsonl": "e88d6ef301cbb9e34e1d76136b1b3cead8bb82ebd29d3f9b795ce57624bf7ec2",
+      "tiles/f1_p2_m0/reset_feedback.jsonl": "85e166aee449a902a041c6bc795c3d505cef91ebc9e915cb8b4e32c28e6cbe12",
+      "tiles/f1_p2_m0/set_feedback.jsonl": "65d11e1f53277211fbab4c8dab1ee6b375eb9180adb5274603d2b63750457b61",
+      "tiles/f1_p2_m0/tile.json": "02878bd818fb00a23e411830e5c6ae19869f6527ba16be87a04b1708c51a7c95",
+      "tiles/f1_p3_m0/calibration_anchors.json": "6d929b3fe957bd3f19336aab42ea0f7fc50e5a777d2fffde58a39668d03118df",
+      "tiles/f1_p3_m0/frozen_calibration.json": "35e3c9eb9de373aafdb21d4a6c6bc87bc5b8187246a53797d8ed255b4f2bb582",
+      "tiles/f1_p3_m0/frozen_matrix.json": "7269b93235c0336f7756123135dc09a535c91990014b210f77a84b265dff2aa7",
+      "tiles/f1_p3_m0/frozen_route.json": "bc26bf1f8e5e639839d6334eff99aa1060435f247ff2c6b5fb8b5f3ff987fac4",
+      "tiles/f1_p3_m0/matrix_probes.jsonl": "a33c1690fccd0d6598aa9546c8d4bdda1e697b12b87c3dc46c83c9809c3260bf",
+      "tiles/f1_p3_m0/pair_programming.jsonl": "9ecde9886d9845a58072d23766d58439f52a88574bd0ee4a31ff001eee08fe48",
+      "tiles/f1_p3_m0/partials.jsonl": "f1892842fee8d10d69af59f029d3a69ecc2b1bf78db7ba8e26e785a323d8899f",
+      "tiles/f1_p3_m0/raw.00001.jsonl": "edd86efc57c9d4945d5d48f0042fb394efc1ffecd68c69456c8bf14b647e38f5",
+      "tiles/f1_p3_m0/raw.jsonl": "25653168188eec5b36413d9ca451b50ccffb80434b8b3276bf934cdb323ab297",
+      "tiles/f1_p3_m0/raw_parts.json": "853d84e743026b1478e13e5c588ada932303291f1cac0691d3ce24c5ec167e6c",
+      "tiles/f1_p3_m0/reset_candidates.jsonl": "37cec1e234d8011aae52681824458913dfd35c91421ca17c357585d14b31a992",
+      "tiles/f1_p3_m0/reset_feedback.jsonl": "a86591230a2dc3feb8c2ab6179529402cfd4bc5a4aef93251f2e756f3696798c",
+      "tiles/f1_p3_m0/set_feedback.jsonl": "a30b764f051662be595fed67306b81c771391ff43b3763e8bf1f25bebcd46285",
+      "tiles/f1_p3_m0/tile.json": "9bd1be362a0f7768dfa94b4fa621451f1dc7bd97982a3c1a931b9dcf399c71de",
+      "tiles/f1_p4_m0/calibration_anchors.json": "cc86b377032f2d6cd242455a7d16455beeb5d9ff2781572cd518c85b15c20178",
+      "tiles/f1_p4_m0/frozen_calibration.json": "71b0bb95b643b70d1905dfeb4a6bc8952f195f302be695b73c106bb34eb45afb",
+      "tiles/f1_p4_m0/frozen_matrix.json": "161b1ec69cdad9828e50c6df0e28771e5a1150e32284bf9bd40caafd92c5d340",
+      "tiles/f1_p4_m0/frozen_route.json": "af27b4fbbc71461c4b1dcbd1a460701502ebecb50cd33a02d2fef4c3fcc84aab",
+      "tiles/f1_p4_m0/matrix_probes.jsonl": "a13e938de569c77a545cfde8dc16f7bf4f8e82445e10bb815513f82fb9b2d2b4",
+      "tiles/f1_p4_m0/pair_programming.jsonl": "cf43f48e977a4b767da7c853b8cddbf06206429c71c3864c3c454c492dae244d",
+      "tiles/f1_p4_m0/partials.jsonl": "b707cade87031e5a07df357bb7df3c9c1586ce2b739122bf65713df46c394950",
+      "tiles/f1_p4_m0/raw.00001.jsonl": "6926260794962b45ca73c3258510cbded2895a63a5199130196d96251a6d7a08",
+      "tiles/f1_p4_m0/raw.jsonl": "de7c2a6df931d9e70d3b88e83f5b406b20f314250f94872a2791c0eb71c7866c",
+      "tiles/f1_p4_m0/raw_parts.json": "c4dad581fe627bab770291a6877987d22037521ba659f45fec64a836a6a71293",
+      "tiles/f1_p4_m0/reset_candidates.jsonl": "342a996e68614621b92dad57b756c6d698fd439a4f5aed4be59f0f0891feb1cf",
+      "tiles/f1_p4_m0/reset_feedback.jsonl": "7a408b797ae4d26870843cf232384453f4197fc7601d5779621ea7e97f923621",
+      "tiles/f1_p4_m0/set_feedback.jsonl": "33efc0a3164a9eaf9133947cdb1e2ffeb111a76b27786bb35724370b9b58eb05",
+      "tiles/f1_p4_m0/tile.json": "5fd20d3dc1de437678f86d5a6f1c408ae52320d70698d1fd685bca6733bb5864",
+      "tiles/f1_p5_m0/calibration_anchors.json": "6eb5bc4b4aa6c0ed8489928af8d2bcdb9e1a3cf978730ced56ebf90d8769db00",
+      "tiles/f1_p5_m0/frozen_calibration.json": "e7577b1161abbb9b69786782c1c2818423deada0af46200e5592767eecb33978",
+      "tiles/f1_p5_m0/frozen_matrix.json": "8ebe8b7ce9b2c36458ccf3cfb041754303f81c7ff07c10aa5955a4e18307c5ed",
+      "tiles/f1_p5_m0/frozen_route.json": "0e04e9b64abde45bb39bbd9a64c8c30008c65457b7000d2a7baaf88e031f59ed",
+      "tiles/f1_p5_m0/matrix_probes.jsonl": "f5c87dba65e950cf6cf9da97dd4f833f807d87a1cae321668ebaddea847a5dd1",
+      "tiles/f1_p5_m0/pair_programming.jsonl": "ffa90ae66231fde648d2fd9ddc7eb262d6ee5c4176fc0faad08fa32032fbc636",
+      "tiles/f1_p5_m0/partials.jsonl": "4bb4552846ef3ed5f03aef23f8f37a7dfb55653447c605f0b4bec96ce9f28c04",
+      "tiles/f1_p5_m0/raw.00001.jsonl": "28e43cd20a63630bd4d5154203725bd743c0505b58492ef878b2074806d934e4",
+      "tiles/f1_p5_m0/raw.jsonl": "cd7ba2db9c76ca105e5b8ba6484b6304bb02393d0b8c069258eb2e7977e35231",
+      "tiles/f1_p5_m0/raw_parts.json": "60f19fb1c61eebef1e59e1d69f770edf87c4fb15109533c1f02cc8ce7552cf83",
+      "tiles/f1_p5_m0/reset_candidates.jsonl": "4f15523f0b7d8afe4c18e52bf80d48db383a09e089dce7ea962c4cd3862396e5",
+      "tiles/f1_p5_m0/reset_feedback.jsonl": "06b4266db672d4518bd290a9d5577110ba20391ef93b0081045e14e3f50f773f",
+      "tiles/f1_p5_m0/set_feedback.jsonl": "999b6b4abfb3eb7c71c3cdf5ce1e3ee124dad187bb11ad62cb3bd464eb70ce66",
+      "tiles/f1_p5_m0/tile.json": "c49d24cd8701da92f46d53e36d808bbe44525d686e6435775922ee77466c4246",
+      "tiles/f1_p6_m0/calibration_anchors.json": "4b872b540b3652ee7e049e8c5ec9ad60a94575f7104dd5a6de605573a690117d",
+      "tiles/f1_p6_m0/frozen_calibration.json": "956502e79d51b80a0ada2de60d536a38ec753b18c30f00ef324e5806be3e70e8",
+      "tiles/f1_p6_m0/frozen_matrix.json": "f6f917a40d3f8ab514f567a6890d7e4c365e7e4eaa2039706cfe6ef4dd558aab",
+      "tiles/f1_p6_m0/frozen_route.json": "80b1c04e40a96d96a5ccfa3a7b3d31544a6ba6257ffa0cdfa754c2aed3b39954",
+      "tiles/f1_p6_m0/matrix_probes.jsonl": "7fd9eda0904e2836e94e5d84d11f15af1963c207ac1e57d907ec44528e5167a0",
+      "tiles/f1_p6_m0/pair_programming.jsonl": "c1d96e6bc7321a56b1b86e727543f7481997cadad2d67130631e06801e6567c1",
+      "tiles/f1_p6_m0/partials.jsonl": "161df32ccfaaa042f600bf7f744aba0dfb88920ab24b22cb3769b8ee1c92f842",
+      "tiles/f1_p6_m0/raw.00001.jsonl": "db299561220701e6ec6a1536c0a1f0d6e40366791012105c3a1214d9835bc6da",
+      "tiles/f1_p6_m0/raw.jsonl": "ea3f838e426749a74726b9b5f890fb186d554bce320f3d5cb63d4678259ad9d5",
+      "tiles/f1_p6_m0/raw_parts.json": "2d709041a03e5d8a6063792fc31b78ef5c5b43cd2399f282d9d6b239294ea62d",
+      "tiles/f1_p6_m0/reset_candidates.jsonl": "97b90d29c307615ef82d8e4d3d6c2be2c3bbfcd5f05bb8157b10a5ef05dc74d4",
+      "tiles/f1_p6_m0/reset_feedback.jsonl": "75d14e595ffafbc5d396aeec13acba8cfd9c01f3b91fa633ada484b7ba9c640b",
+      "tiles/f1_p6_m0/set_feedback.jsonl": "ce2c3f347c18db9fb4eb55b781096f1d6ac60adf8447b59f26f327249ea258e6",
+      "tiles/f1_p6_m0/tile.json": "e211e131f5f550a78e1f7b663e910b8d6caa45f0bfcf7c3a2a03e4ad29118ddd",
+      "tiles/f1_p7_m0/calibration_anchors.json": "e8df9e3233d04cb8608c90db9c5c0c43eb2ea87657ed1a1876da62e7cc82eb8c",
+      "tiles/f1_p7_m0/frozen_calibration.json": "2200e145dbad740730d1017b2432f8bbaa4348d52499d004f7d1d37d3840715c",
+      "tiles/f1_p7_m0/frozen_matrix.json": "8d380fe5eb6aca8d3925e884885eb85bcc2a2d9e18a73d53e698c5f589203e55",
+      "tiles/f1_p7_m0/frozen_route.json": "383898677b3910daf32d518a6c2be29be1b2b3022f754b9b811063af1034649f",
+      "tiles/f1_p7_m0/matrix_probes.jsonl": "737f276715359a7d2a7057d642b19888156cf463a5e4bb8672899eb2b3148637",
+      "tiles/f1_p7_m0/pair_programming.jsonl": "afd93211faa78d1b19ba629a8bd344ce57e1fa0a7925002745bdf1c924d9bd99",
+      "tiles/f1_p7_m0/partials.jsonl": "f63b1c1443ab2d08d6a0382831b3c2d3c5cf6a27279d4ce7c2e89db41121f45d",
+      "tiles/f1_p7_m0/raw.00001.jsonl": "46ea685eb585d1a98eb57c8040d8db2f3f751a142987b726be685bbe7cf7ab80",
+      "tiles/f1_p7_m0/raw.jsonl": "64698a24e371181d2b20efc894fa82927ea45a48651c6ac880580f16fb8e0676",
+      "tiles/f1_p7_m0/raw_parts.json": "579b0e4e75fb8581243087f72d868ed6b2f4167962927d140d474871870d93e0",
+      "tiles/f1_p7_m0/reset_candidates.jsonl": "636c6bf8863a5370d945da9b87c953734b4905e2c4c00611c406d3e66e2142d1",
+      "tiles/f1_p7_m0/reset_feedback.jsonl": "ffc021a7840ce135b2daae3b69bcdb509b7740f0e7628f3bdcd097b30db1e2d9",
+      "tiles/f1_p7_m0/set_feedback.jsonl": "d5fed3825bed70681bebb208561930faa3cf3fda67bdd100a7e5cec13ae5da04",
+      "tiles/f1_p7_m0/tile.json": "1f3048b82944fc8d591157ac404bc50ff04c0b2aff10a81680e9c9513a3befeb",
+      "tiles/f1_p8_m0/calibration_anchors.json": "b7235507b57d5020adae03996898e8e8d3f49aef3c4b4b9a3efb9d7cff468e64",
+      "tiles/f1_p8_m0/frozen_calibration.json": "afce05719cfe4bf26a8fe1aca84d1b85ff4624d4221fbca50a963abf51381959",
+      "tiles/f1_p8_m0/frozen_matrix.json": "349f9d97d80edd1e81701d6c68bea0d52175d80ac6127ae60ab439695dafcfe0",
+      "tiles/f1_p8_m0/frozen_route.json": "34ce66f556934c2a7d700aa17ecf7caa27a9834e4c9fa272a789007001e296fe",
+      "tiles/f1_p8_m0/matrix_probes.jsonl": "d813474981f63395ae480a1c9c5f38e8342e608264cbf72891f3f4cf4ea6525c",
+      "tiles/f1_p8_m0/pair_programming.jsonl": "85d72d408f73b5e965648066d9d6ede5d386c71fc3551c0dc88c3655d69d35a9",
+      "tiles/f1_p8_m0/partials.jsonl": "42884ce4f2907e47d45b98b1725d6ed0bf4ac627ecad78af088423e879e97c76",
+      "tiles/f1_p8_m0/raw.jsonl": "aba14eabd38d6913d775815391b39088b86b5f5d8e92a4369b4388d4d88a1dbc",
+      "tiles/f1_p8_m0/raw_parts.json": "c61bbecdd9dd8ffaf2d38c802c2622aaf53e4ba293b74899fb3f755a87f689f5",
+      "tiles/f1_p8_m0/reset_candidates.jsonl": "89cabbd230c6974771a8acc113356ad5d1c3deddf25cd573c328a267356b093d",
+      "tiles/f1_p8_m0/reset_feedback.jsonl": "3411993ad9e9bcd6831706aa1428bb0f941ab94ac73c7788ea331a6d875225f4",
+      "tiles/f1_p8_m0/set_feedback.jsonl": "53637bf2db59b6d150835803d7c94953b3a64e931f1c2a115127b1581b14661c",
+      "tiles/f1_p8_m0/tile.json": "ea5bb45748f70a46a5e278b37bc45bde40e9a6b43053f748949d6e5221779336",
+      "tiles/f2_p0_m0/calibration_anchors.json": "861dba6995dbe1f0a59aff272370725d366a3e78df3e693e288c0e1ba5b91a31",
+      "tiles/f2_p0_m0/frozen_calibration.json": "c85f2a80637aadb8ee396559b2ebbbbb7a1a6a7b89e27689712680f70a8683d3",
+      "tiles/f2_p0_m0/frozen_matrix.json": "60d065029e5ecfc7ea9277076bc9cce6bf55839f15ce18795058dadaee8755d0",
+      "tiles/f2_p0_m0/frozen_route.json": "a26704e8edc3e722b2ab01512171d41d953afc6cab8abf4f57bd86ed1d426292",
+      "tiles/f2_p0_m0/matrix_probes.jsonl": "00dcfbb7a6ca9e68bc3da1caeb74d18c7d90e3aee3a2f451b4b875b2b4bc779d",
+      "tiles/f2_p0_m0/pair_programming.jsonl": "6a865241c5aee437873f0d933a76062e3a0b8d399af80ae2d0d86dc38d2a48bc",
+      "tiles/f2_p0_m0/partials.jsonl": "9c1238687188b3b055c7e45d5e532e8ff13ff825f4133ea428bea78610922335",
+      "tiles/f2_p0_m0/raw.00001.jsonl": "cd0b8a2c15d3632fc874599d7dd9b4449a0cab3089095f826e78dc1067a623e1",
+      "tiles/f2_p0_m0/raw.00002.jsonl": "ff532cb0c933f943ccc858bf74d527fea05231e277058285c4d1d7a7eb3b0516",
+      "tiles/f2_p0_m0/raw.jsonl": "66659b388a55ed83074c4b494efb29bb2d523a813fbb602031e30b11c6b29c5b",
+      "tiles/f2_p0_m0/raw_parts.json": "6a78a23939897e2402dfcb48916046f9d73a54e27d26ce84948f538ee26e2da4",
+      "tiles/f2_p0_m0/reset_candidates.jsonl": "b01dc14e23dfda5e81b31ad292262dff033e845919d73583f7a807d3f1bbb885",
+      "tiles/f2_p0_m0/reset_feedback.jsonl": "d03f9c6c88cec82e14d0242725a4f79b3a83285df4f110f68f887029cf877d9e",
+      "tiles/f2_p0_m0/set_feedback.jsonl": "5e2367b4afc1a1b7314e66bd732fedea2d9928439a4d099ab3c27704f33e5066",
+      "tiles/f2_p0_m0/tile.json": "f92bd873c7ed3283ed15c89c31a1398f03c536eebd94c54d26e5a2f57360b425",
+      "tiles/f2_p1_m0/calibration_anchors.json": "83f871ce8d5e002da8c9a73668052579d0054994c9a9c1b0c70f6677eb146871",
+      "tiles/f2_p1_m0/frozen_calibration.json": "abb3e8ac1ca05f4a3f08dec04ce629743d93e00cb4dd440378c82c8bee05286f",
+      "tiles/f2_p1_m0/frozen_matrix.json": "94196afe3444702600bb3512c0af1adb644b15d27857e2169167609817cfb87a",
+      "tiles/f2_p1_m0/frozen_route.json": "1cc0fc5087c7ff59407f52398958b2e07aed03805d781dd76fe87c47ecc5a174",
+      "tiles/f2_p1_m0/matrix_probes.jsonl": "4ebd5d67ce325fec8b8fd934d4746def0f3c7bd798b025a74d096dcc827fef0a",
+      "tiles/f2_p1_m0/pair_programming.jsonl": "567ec539f250d46c370c9d2021fccec52ad30f520ae3775554ea573cf61b98ea",
+      "tiles/f2_p1_m0/partials.jsonl": "53d377cd052e6634c0eb1df803db70ede701e4239fee2f6e5341c3f5dfd57a23",
+      "tiles/f2_p1_m0/raw.00001.jsonl": "9d124016b13063a0e9815c216855227bd9c51443c373ed46c2dbe56e120a8561",
+      "tiles/f2_p1_m0/raw.jsonl": "1e052af353ca26ad2c59a536710d3d81a3329cc90b1f9d3a32cc05d0bd9cb485",
+      "tiles/f2_p1_m0/raw_parts.json": "2e042ed8573301dea25904c1420f7bbd1524b1efceadadb4ffdca14a8325831e",
+      "tiles/f2_p1_m0/reset_candidates.jsonl": "7dbf8e13637d8beac97beb3ab1ee109e0614f68435ce8bfee4e5265d84466dd8",
+      "tiles/f2_p1_m0/reset_feedback.jsonl": "45ca17fa353addd996660b4085887faa04b4875e178f67685ecff607636d440c",
+      "tiles/f2_p1_m0/set_feedback.jsonl": "f612df869ce5110b318ce05e20cac0e01de50056a6d49026f80a48e99e5da665",
+      "tiles/f2_p1_m0/tile.json": "f42dd571d2435e1fa648aeade9e73c2c45699c8590d3143c798bbd8217949886",
+      "tiles/f2_p2_m0/calibration_anchors.json": "83cff75215401cf95ae357bbc42cc8863d37b46bf29841de1d9b4161392fcf6d",
+      "tiles/f2_p2_m0/frozen_calibration.json": "a4923c18308d473703211f83a2377dca4fa3c023f6b39b2be5be98faa2d39e02",
+      "tiles/f2_p2_m0/frozen_matrix.json": "86a3e36d3ab0662a9fb04832d46138e3d3b405b6c7d3fcff0bb56b705eb78954",
+      "tiles/f2_p2_m0/frozen_route.json": "fb420a116cfe10c34b3f674e7420eeec68a6a4427d8baf84ec00dd66bf89b86f",
+      "tiles/f2_p2_m0/matrix_probes.jsonl": "4c50f5e83445163b88ba800f6886daa383a0e65736badd4cc21487e8025610ec",
+      "tiles/f2_p2_m0/pair_programming.jsonl": "9ceb7d023a4b8a3ad515f702e2f69d2ed78a374c9eb356718fa07f02bd722a92",
+      "tiles/f2_p2_m0/partials.jsonl": "0f760b94b6889e1450082848b8111be6c7a4826db9c2ba5f127745a209742133",
+      "tiles/f2_p2_m0/raw.00001.jsonl": "abc540815127e71648be66d0521ccace7288f047198bfb180cde5f242bb38726",
+      "tiles/f2_p2_m0/raw.jsonl": "ed22ad6564fcb4d9c0366bf3b6b6ace452e62de0d8dad4667cab28802d5b6fb9",
+      "tiles/f2_p2_m0/raw_parts.json": "de4cfff8289accc5a583e4585976853a41ea918ae5988dbe43cf78bcfd1a9cbd",
+      "tiles/f2_p2_m0/reset_candidates.jsonl": "6d8a49b77d4e22066eb12cb97dcfb45fa9abfa658bf78bd7c868e5e1628b546a",
+      "tiles/f2_p2_m0/reset_feedback.jsonl": "fc5b09adc9ce1582d5a294600fcfa1d79fbdde1663dfef467b6e2bc97faee98c",
+      "tiles/f2_p2_m0/set_feedback.jsonl": "3d0fe3d097d46f89f1ecf21f03039e3c0ae4eb1341e5417850f1ce5aedca175e",
+      "tiles/f2_p2_m0/tile.json": "17be4251a70b6c96f9bf57218606cfa559fad52208f8bf9c108fb6744542c4c0",
+      "tiles/f2_p3_m0/calibration_anchors.json": "6fa115e2f5cc42278a833df5ce661c61a545365cee779ef8da9135b6c532fb25",
+      "tiles/f2_p3_m0/frozen_calibration.json": "082dc22f6e18d808380cbedc56157db4ed44907427aa0ffd808910bbef4f8571",
+      "tiles/f2_p3_m0/frozen_matrix.json": "2b4bbe947b65253499153483a40fbf37164bb87342cee29506e12010edb002be",
+      "tiles/f2_p3_m0/frozen_route.json": "a8b944bb085e04900c559ffa2bfeac019def8f6f8400d0baad00fda8effab00a",
+      "tiles/f2_p3_m0/matrix_probes.jsonl": "5daa0f39585fd4abbd41e06ed8eceee6299f47e8f6c75ec0e5445fef1dd1bceb",
+      "tiles/f2_p3_m0/pair_programming.jsonl": "a35211d91c4a34e63a957952ce7db87d48b7531c03aa293966733c77969245b3",
+      "tiles/f2_p3_m0/partials.jsonl": "1efa6f5df3f93d7e2d7c546e372e0fb7ca577535a5724ad0d4919007c4b637b2",
+      "tiles/f2_p3_m0/raw.00001.jsonl": "05dad6ef965c89412f03a8e9981014133d27e8be3088a49f8488f7dcd2b000ff",
+      "tiles/f2_p3_m0/raw.jsonl": "9f99b85ea863defc999e40b68c5cdff5f37cb9656311446efaa402c604273a3b",
+      "tiles/f2_p3_m0/raw_parts.json": "96ae155d353c71e6136f3f094b2017b677473e1492030e8787714cb09ce0b4b3",
+      "tiles/f2_p3_m0/reset_candidates.jsonl": "5752bf2df9df6ab1d4e5b37f48046a6e6e362bf1d28a8575ea77811558738305",
+      "tiles/f2_p3_m0/reset_feedback.jsonl": "81e06ecc17857acb4c8ff4b6648a3d13d4476b7943a865f3ef2de3361c95f2cc",
+      "tiles/f2_p3_m0/set_feedback.jsonl": "09c2c5a8e5f11cd64f898e8ffa2bd5e7d609a8719e6351d3878d229036146dbe",
+      "tiles/f2_p3_m0/tile.json": "dd681662f0a8c0e6892a0e899b3b03b38f8c7bc92a7f9a1c51ce7a942054198a",
+      "tiles/f2_p4_m0/calibration_anchors.json": "81660047c80fbb9e8647ee0c87166216914a9663a5662d9708e8d9b7d4cdc20e",
+      "tiles/f2_p4_m0/frozen_calibration.json": "e1ecc57c9bedcceb9d799b0980904728107163c3734e6313fa68746a5758f23c",
+      "tiles/f2_p4_m0/frozen_matrix.json": "7055127c3af2a71cdd6cc66eb888f3579a042a7c135bdba520cc0f4e603f8e5c",
+      "tiles/f2_p4_m0/frozen_route.json": "2dee6015bed01f0ec9bec1099d6e6bd7ff5c4c7e990093f402a5b2c4cd273e01",
+      "tiles/f2_p4_m0/matrix_probes.jsonl": "f11111c2eb3bc110d9e7e06fe5c5339c49c0cca6e10e794c6eccd1feac64c026",
+      "tiles/f2_p4_m0/pair_programming.jsonl": "e9b5c81225d94405873ceea9b68e7505b222e8398c3e553a8cb53f2c0f92d4cb",
+      "tiles/f2_p4_m0/partials.jsonl": "fa6bc9b95fc0c3bc8f167fe4b58fad6abd96349420d0e3f5d670229fff771ad3",
+      "tiles/f2_p4_m0/raw.00001.jsonl": "2bf0b1c7bf56e789dd40dde127912f60efec9b2c77d2177426f0e7d48a812cdc",
+      "tiles/f2_p4_m0/raw.jsonl": "d5fdd4b3838096853711ca93f30d4fc8554071c7f0c61f2d4617d423b8a524bb",
+      "tiles/f2_p4_m0/raw_parts.json": "daa0d32143710dab1253ed951c955c51683c7d789b4aa37dd62c491388806ab7",
+      "tiles/f2_p4_m0/reset_candidates.jsonl": "c646065a2304b63c59901c9be4187e3a6b2685bd58b3d5b941c6886d9d7500e3",
+      "tiles/f2_p4_m0/reset_feedback.jsonl": "89b712d9b8b9988589d8c454642628d86ae2d34b667b47839d0d3f3cad3bbcbb",
+      "tiles/f2_p4_m0/set_feedback.jsonl": "4551edbfffec3fbdc6d483ceb2509e5ceff6eb33d320c49017419b208aba5a54",
+      "tiles/f2_p4_m0/tile.json": "de3eca2934aa443729287cfaf1d876791aaeaa739771ee31e88a36e4ca4944ec",
+      "tiles/f2_p5_m0/calibration_anchors.json": "667d0cd5aec73e0827110e495a52da596760779693f954832dfb675cd9767305",
+      "tiles/f2_p5_m0/frozen_calibration.json": "7c4509b24e23429a57d823604986cd2f9bf63eccba7aaaa8b80dbea1646841f7",
+      "tiles/f2_p5_m0/frozen_matrix.json": "aa70ded0a23c0d72fc3014389446f9e537192e6c9898ca785e15c4f7bbc92157",
+      "tiles/f2_p5_m0/frozen_route.json": "5e928cc9caf848814a6664d19783f9af8b0c4076650385c20aec1f511e1b767e",
+      "tiles/f2_p5_m0/matrix_probes.jsonl": "65b0ff86cbd6628c4b21eb8bafc0b398721a500c5d04cd03d52c6adcc44c13d6",
+      "tiles/f2_p5_m0/pair_programming.jsonl": "c70fef7403cc8468fedfc4b859492c3f4f6a2f117df8fd2be48041e658217f5c",
+      "tiles/f2_p5_m0/partials.jsonl": "9a2acf698ea94e3614d0ca298e3f2887d0551bc8f51d2fdeb1a5fee0e6aaad54",
+      "tiles/f2_p5_m0/raw.00001.jsonl": "b9e562f6075e86a2c9b67b8dc508f7593f1ae73372bff866686b4b2288d6474c",
+      "tiles/f2_p5_m0/raw.jsonl": "3a8b888a360af4fe0cd63a5c91166091a7f26a5972778ba0e76000a906bffea0",
+      "tiles/f2_p5_m0/raw_parts.json": "055bcca3417a06d36eb22ce4157254a4256be75ce998a2f9a925c6fe49e18353",
+      "tiles/f2_p5_m0/reset_candidates.jsonl": "25e69568999f96b58898ee222debd33a4c824fdfcd90b1176299bb01b6026e39",
+      "tiles/f2_p5_m0/reset_feedback.jsonl": "9ba95c6b811348208f39a1d7322bd50b72bab8830042a7c56090141e4d39efa4",
+      "tiles/f2_p5_m0/set_feedback.jsonl": "df498bbf9e473a7e7af41be2e84235490ef947491368a6ef41efd4bea2e92b84",
+      "tiles/f2_p5_m0/tile.json": "b0cb987264e6d2331dc5cac81e6cb92f625c1c3245e43720f6f36df8df17bed0",
+      "tiles/f2_p6_m0/calibration_anchors.json": "3c0bc0c0535423892c34ca8033f5bf0795d0a1d41f3603b1382558c533ee6cac",
+      "tiles/f2_p6_m0/frozen_calibration.json": "3a3be6d41ca0c49044cb00ed8116eccc3bb5fc835d09203282b7640fec4732a2",
+      "tiles/f2_p6_m0/frozen_matrix.json": "f3b420362647439bbe4ea0b8b114b455ddb7e9f66ac6343f11d6f2e43f3ee98f",
+      "tiles/f2_p6_m0/frozen_route.json": "6cdda22087fc0263dd5100b8aa524263c5326bf92e0447b330b4ae30c12a6d7e",
+      "tiles/f2_p6_m0/matrix_probes.jsonl": "992e297a4a7378a9e1ea47226c9bf0ce9c0a308e3825b1b97d7e415df7c0aab5",
+      "tiles/f2_p6_m0/pair_programming.jsonl": "097ced6c0034f61ea356dbb99b954fbab1e24685f007faef8df45983d07195f1",
+      "tiles/f2_p6_m0/partials.jsonl": "07583edd2ae5eeb6d4bf956322b600caddc7a33ba6aa53eb95f31db9b8e2175c",
+      "tiles/f2_p6_m0/raw.00001.jsonl": "100885bce48dd716c9a1275240cc776539506667ada25bceaffd16092349c596",
+      "tiles/f2_p6_m0/raw.jsonl": "1fe919cd6d1b6d94996be66c9eec6b5c25441b323465ca1d58f0b391b3beb766",
+      "tiles/f2_p6_m0/raw_parts.json": "999beaea3827ee14bd6f4f7ed55282bb0a247e45aad4a66215b25eab18fbc7b4",
+      "tiles/f2_p6_m0/reset_candidates.jsonl": "68f3e2495600d381cc09497469f58ecb826bcb0b4d9fbd7b5446b8b0a082672c",
+      "tiles/f2_p6_m0/reset_feedback.jsonl": "9fa74977e485efd99466f84c8bbf46d8ef6f4296f8bfd018edffd5bdf2eccbd6",
+      "tiles/f2_p6_m0/set_feedback.jsonl": "355214d0349528a6c7c4a90431a655238bb0d8d11616011658ea1f1ffabc214c",
+      "tiles/f2_p6_m0/tile.json": "7528645e2d638472b4b85b7cbdec8143d09dbb637402ff331f252f8f0dc273c5",
+      "tiles/f3_p0_m0/calibration_anchors.json": "3be54e5658dde8b07726b7286997780d15be23d1f48b41f79dc670640cbcdfbb",
+      "tiles/f3_p0_m0/frozen_calibration.json": "241c104ea8011af4699079c9de8b5a03674e1c6597bec0be6d27443d396fc200",
+      "tiles/f3_p0_m0/frozen_matrix.json": "04ab73fce3c77cea4f6e18732819791f0009da0c48c6526b2a01dc6d864e9436",
+      "tiles/f3_p0_m0/frozen_route.json": "d885cc1b18734b016dd3bb10c13d8be0fac0c2e0a9da585884cf4acbf6158c37",
+      "tiles/f3_p0_m0/matrix_probes.jsonl": "88a9f6f5df1d26f269c1b1d4702d0acc47602b60acde574335794c3e67ef14d7",
+      "tiles/f3_p0_m0/pair_programming.jsonl": "41c91e6525df5109d36d57643e07b453c37c250d7c3301ea279708cee23c7d05",
+      "tiles/f3_p0_m0/partials.jsonl": "3e413374b85bc4a7684a8439665b6cdd80fdaf6fcf03580fd75679a6abfefdab",
+      "tiles/f3_p0_m0/raw.00001.jsonl": "e194b4f95d811a9613d5e660390851a77449aa7833c0e07aeaa2e277f9ad9f19",
+      "tiles/f3_p0_m0/raw.00002.jsonl": "262c3540baf485459f9b67ce6eace27660017c985f0e324bc779f9b0390c4f44",
+      "tiles/f3_p0_m0/raw.jsonl": "ad5400a526fff8f904a15d06387965c71f0573e9314f69a91656fe567a5d3269",
+      "tiles/f3_p0_m0/raw_parts.json": "c7fb7f136ed65705d88b444548a36d4c3df720fb1cfc414da50d4aec263fbf92",
+      "tiles/f3_p0_m0/reset_candidates.jsonl": "18431e442cad1ea5ebcdf82cba4219e7af80877d2d1623153fac8c6562d8169a",
+      "tiles/f3_p0_m0/reset_feedback.jsonl": "a65563bea850eb061d9f0566506d2bd9602096e3cef611ed019faa3f39c542c3",
+      "tiles/f3_p0_m0/set_feedback.jsonl": "58f8ad461743f5bf42a2d601cf044ec463966255997f177b7b0fd2ca64f02db1",
+      "tiles/f3_p0_m0/tile.json": "52a5edfb718956513f3c7b30e794f724acfc351ab8172ecc03d53efe0c053f59",
+      "tiles/f3_p1_m0/calibration_anchors.json": "4a92da4e3e8eb43848067f73fc60849c255b52a8ed8096b8d90a5396c424d1bd",
+      "tiles/f3_p1_m0/frozen_calibration.json": "ff509a951f5fdedc800b226039553c36197c6bb4a0f72382e10e731cbed050a9",
+      "tiles/f3_p1_m0/frozen_matrix.json": "f6f36e07a1642d676a6e23a17fcdb898fae115a4f0c5fd73369d934a5e62ac37",
+      "tiles/f3_p1_m0/frozen_route.json": "7f64dc32e6e7f4b39a61e2050988c091626e96b175d5fbf818992fd7c7c222cf",
+      "tiles/f3_p1_m0/matrix_probes.jsonl": "bedd9b7d4b4999ae1f7b260c27706e36cccccf6b9082abcf967f2749d013dd64",
+      "tiles/f3_p1_m0/pair_programming.jsonl": "a0ad46f376f4d1cb068d453c68ac310bf6c566223e6c2bd4e385304780f2667e",
+      "tiles/f3_p1_m0/partials.jsonl": "444330063898c11663af82039cfbd509656df883fe25269a23b2453a396f0205",
+      "tiles/f3_p1_m0/raw.00001.jsonl": "d05dc48b2e74c4b0a3e0c16446d22ff05001e3b23d22eff577500d6fdbb29e2b",
+      "tiles/f3_p1_m0/raw.jsonl": "c3ff1cabbc4956218373fb02cc0b16e4008ae20e0cdc240551c66e2efc3f3b78",
+      "tiles/f3_p1_m0/raw_parts.json": "ab579b783be3008930834ce610d47a1b64c90cd3fbfb5b079f635289ba9cd6b2",
+      "tiles/f3_p1_m0/reset_candidates.jsonl": "5ce13f564f1b222ff0e24704d78ef9c3bea8839e72f4d88894dc4c4f1ff6094a",
+      "tiles/f3_p1_m0/reset_feedback.jsonl": "4692cf3bb6f89d3258f1efa70c436ea80fbebc1ca8736d984f34ec6093d3f01b",
+      "tiles/f3_p1_m0/set_feedback.jsonl": "139c4b89395ee744ae7c0d6f23f6370ecc6989237b199fef1a58418d04848236",
+      "tiles/f3_p1_m0/tile.json": "213c7fd617919f23230b3c3ee8d773f9b9f5fea253d39112242619975a24967e",
+      "tiles/f3_p2_m0/calibration_anchors.json": "81d9b80f109a2672470ef666be783ec25d5a32027480a5d944446f0672cbe428",
+      "tiles/f3_p2_m0/frozen_calibration.json": "edce261fc98f6003c1ffc2120f5a9c9c7d361f94eafa13c422d6bfa5221dd92b",
+      "tiles/f3_p2_m0/frozen_matrix.json": "0740f54aef4f6f72c8e5408554fbc225cd49b2e90ccc7101b0fa6468158672e2",
+      "tiles/f3_p2_m0/frozen_route.json": "002e932ac07f0751bfce4259142c6898409c0259731d97dc37e68d0107b19f4e",
+      "tiles/f3_p2_m0/matrix_probes.jsonl": "1efb3272f023aaa6ade952205bd6e9e9fc8799a9241e644afe2bcbbe3be7eb8b",
+      "tiles/f3_p2_m0/pair_programming.jsonl": "2b44a01be332eeaedc6424f3cd6ede3d431fd3305a5661156c76a005de6b5c48",
+      "tiles/f3_p2_m0/partials.jsonl": "4090aaf8e54ee92a763fe393d12ad7072c369132ab926dbb3855bd2e211dff82",
+      "tiles/f3_p2_m0/raw.00001.jsonl": "84f202bc093ae0977f0c872b35723235c84e74fd7052af1789deed3bc122ce65",
+      "tiles/f3_p2_m0/raw.jsonl": "86d8bc1d7fd71ccac35fbbfd19a7595cdc7deaa1d3a75d3912f8821ad4f87182",
+      "tiles/f3_p2_m0/raw_parts.json": "aacbaab7fec443cf09e673917eed2efdf05dd6ec1e5b5ecc94207712820ed206",
+      "tiles/f3_p2_m0/reset_candidates.jsonl": "b3b9c9feed3787a70914e6dcc319db5d0853d0174d2c9ac2cb545b2f4f8b044e",
+      "tiles/f3_p2_m0/reset_feedback.jsonl": "621160abe3122ab117cd6a2e871002c5253f58e405a95b09f7eb08ea8ae48104",
+      "tiles/f3_p2_m0/set_feedback.jsonl": "7e09da233c3b0f41c5aa3c93b9babcd14ca0d64382d3cdfab24b4adb5cd8419b",
+      "tiles/f3_p2_m0/tile.json": "6ee83a19aa9df6d7c44a9397910a381e735195d46d9995419bb15a6d9cdbd705",
+      "tiles/f3_p3_m0/calibration_anchors.json": "7bcecc2d06bc846dc096c41d21d064664bcbee3f2f6e6291a605fa7dd84ef9d4",
+      "tiles/f3_p3_m0/frozen_calibration.json": "cbfb38ef5c24b8989d66affc192148015ae67afbb98928f03cbef72fcb46ccd6",
+      "tiles/f3_p3_m0/frozen_matrix.json": "77b428401fb5b688c9cff8095cf9242a97a5611719189cbe647f2c9996f4e8c3",
+      "tiles/f3_p3_m0/frozen_route.json": "31080d45282dc63d58bcefdee261646ff705b4098d7521bcaf721473c6c9f723",
+      "tiles/f3_p3_m0/matrix_probes.jsonl": "57779b263cde9a0258ceae8fa6f8909045d0254d1fdecc21e1fcdb427944350e",
+      "tiles/f3_p3_m0/pair_programming.jsonl": "2a5d8ea0de5a54c6d6b341dd34ff767f37e76da463adb6ed962765dcbfe53ae2",
+      "tiles/f3_p3_m0/partials.jsonl": "dc104e266f0623fd9a909390665c66a360e532870b2659dcd203e80cdcf2557b",
+      "tiles/f3_p3_m0/raw.00001.jsonl": "acec0fbed5c488379aebfe19fc130dc18230c84f020fc6ae370452d6dfc97050",
+      "tiles/f3_p3_m0/raw.jsonl": "17504e9530ae90838ada31372eabb448993521b354223beceed78e0b66c5fcdd",
+      "tiles/f3_p3_m0/raw_parts.json": "cfda0b0091a7b8093cb74fb561418460c87a425822fe690cfe582448df48d16c",
+      "tiles/f3_p3_m0/reset_candidates.jsonl": "8a7e5a92bb6c9adae6cc0146932ac6f3a989fa8408ec5cc3c202ba010b2a13ac",
+      "tiles/f3_p3_m0/reset_feedback.jsonl": "4a0169a2a8dd26eb2209385a8605bf6d08387d9838412413b66a4e943fa5523d",
+      "tiles/f3_p3_m0/set_feedback.jsonl": "eb0a4fe882d5b0b9bf757dabe32712fa5b090aa6ccfc7ae908a44e492efefdca",
+      "tiles/f3_p3_m0/tile.json": "c591e704e394a7856583a4d0e0f3b3612316f6a353b6a716bd600412b37958b5",
+      "tiles/f3_p4_m0/calibration_anchors.json": "775ee2d68176d1a60a2184ae744a94fd599dc8bfdf30ef85074f69a1e980e5d8",
+      "tiles/f3_p4_m0/frozen_calibration.json": "28bbb38691af9dc2438f0191a4d52a4d7c5d6f093819a9df29a5f2dc92d20bbd",
+      "tiles/f3_p4_m0/frozen_matrix.json": "4bca2e114dd5136ccd2aed8dc1655388df4e7ac983fbf40c4d7b5ca779c04771",
+      "tiles/f3_p4_m0/frozen_route.json": "480fdfdab6d72a8bd5d0f6ef0677b6976c8246acaf278477acace07f87514fba",
+      "tiles/f3_p4_m0/matrix_probes.jsonl": "5ad59f5ef08c084168591c3729e9ec59b3c4935c375d40237f51facb22f011c7",
+      "tiles/f3_p4_m0/pair_programming.jsonl": "c90b0a4d5cfd7f20321983d3434831c8f625f9a4df7296b46a73f8d455c00283",
+      "tiles/f3_p4_m0/partials.jsonl": "3364b407f3e792e7422fad18839c03e7d5d74b1459c1004b78291850632d4d81",
+      "tiles/f3_p4_m0/raw.00001.jsonl": "095513bc6afeae47029dd6075716086df2d84b91699ccc89643fa139b6941af6",
+      "tiles/f3_p4_m0/raw.jsonl": "2b3168beb450bfe19f68eb8021ccd6f5fd6387f0979274f4b8ba7fed3b36992a",
+      "tiles/f3_p4_m0/raw_parts.json": "7c64a88387dde588eb050aa19fc5c913f739a58da929dfe48fef5b8c76d1e208",
+      "tiles/f3_p4_m0/reset_candidates.jsonl": "701b3fe9c05e82c02d9d47b04af107b1210ea2e04ee89656bcb85cef3837f36f",
+      "tiles/f3_p4_m0/reset_feedback.jsonl": "199b217d96e753e4c02a6170cb58b6427736a9d45623be4ef5bc6704ac97ec3b",
+      "tiles/f3_p4_m0/set_feedback.jsonl": "6a390d6f25d65dd2c951671f34c495b3013e6aa0da856e9a8e991a991df9900e",
+      "tiles/f3_p4_m0/tile.json": "c81aed92470e4e35eff9e4a3a8ddd1cb331f705d86430215eee56e1599c641da",
+      "tiles/f3_p5_m0/calibration_anchors.json": "5bdd436a40a0cb27d967a028ff9e141a0b8d9bed792c568eecd1f6481ae5cc04",
+      "tiles/f3_p5_m0/frozen_calibration.json": "8bb5b30e13817dd00127475956c6a89e5919d235ac5b482d6404c65d9e8a3d57",
+      "tiles/f3_p5_m0/frozen_matrix.json": "d95e63de45d144658c86465df98a0851e50c0c5f49ded06590f4b93670712b2d",
+      "tiles/f3_p5_m0/frozen_route.json": "f23cb616105e4076766d5de47445e56ccfb255578a3f26969e39b504e5e49fa6",
+      "tiles/f3_p5_m0/matrix_probes.jsonl": "6a0854b973a01e9205de0bf3289548994abecf5c891044fc23cc89c449e3f089",
+      "tiles/f3_p5_m0/pair_programming.jsonl": "15b40f2a7ffa0512e2e6b4ddadadf0582a9ffc61287b50b1d1559cb4915318d6",
+      "tiles/f3_p5_m0/partials.jsonl": "872be9986734fcaa85de7481c303dedcd92f0dea42b73748c973f75cd981f742",
+      "tiles/f3_p5_m0/raw.00001.jsonl": "47a6ace51230bddada06b2ca4ef4691f4387edffbca817e983d89b12d672952d",
+      "tiles/f3_p5_m0/raw.jsonl": "f0f50819dd7907421a7d68c96285afd0685fe006472df1375305438a5d21fd94",
+      "tiles/f3_p5_m0/raw_parts.json": "5090190e4ff7f6ca5e6bc966a324f6f5ab340a95ddcdf560b5ea21197652b81d",
+      "tiles/f3_p5_m0/reset_candidates.jsonl": "dd4cd8d85029bba42995301362dffd0913492c6a249ce6e7704b18c38e1843ce",
+      "tiles/f3_p5_m0/reset_feedback.jsonl": "892825c866562690a49a8f404c48b15818f50af73e15d5df0613f1dfee214a5c",
+      "tiles/f3_p5_m0/set_feedback.jsonl": "5410783c6621bfd56711ace4585674bce9a621e981560e7391df2f4238093ef2",
+      "tiles/f3_p5_m0/tile.json": "fa81a82bb2d05205d022879a739f9e6d9c984c96b94f1bfcdbb9daab077104a4"
+    },
+    "imported_trained_coefficients": 287,
+    "excluded_filter_id": 3,
+    "excluded_parent_tile_id": 4,
+    "excluded_taps": [
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64
+    ],
+    "parent_new_counters": {
+      "impact_attempts": 258031,
+      "programming_pulse_attempts": 16239,
+      "programming_decisions": 16239,
+      "programming_skipped_current": 0
+    },
+    "ancestry42": {
+      "session": "results/cifar_feedback_diagnostic/e1e1d0a7-00e2-403b-ac4e-defbf1fe80b8",
+      "manifest_sha256": "8125fd63eb2e2699019c4e3172a5cb512e2cf8faf579fd97b87ea6a956711b86",
+      "audit_path": "results/cifar_feedback_reviews/diagnostic_simulator_full_20261016/audit.json",
+      "audit_sha256": "59c86228b83b606ac13e1a53a90b661229655efd69c8f1cc6b1c248d14d3d585",
+      "result_sha256": {
+        "array.cb": "693fa5dc311f71221585aed31a999a7010f64dd1b333750c40b80ad178caf341",
+        "board.ini": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c",
+        "protocol.json": "71bd30381cc5433127693274e36d00ccda285dc3982029e102497f8c768dbae2",
+        "start_manifest.json": "d91dba7fd1083f91c7741d03fccede91ede3a96352b79ab75ddd8a37eb8ecd9f",
+        "summary.json": "490d2598574f3c39e2b86e3800471b83cad413df87010ab952f6e22b5e7436da",
+        "tiles/f0_t0/calibration_anchors.json": "1691d094b212f70dc32724ba80acc553bbc623939685022233f52e5b6ae9b3d3",
+        "tiles/f0_t0/frozen_calibration.json": "6bc143237727bbc30199a67ab1fed96524dd10a3c0c6b169be58e352b8ece44d",
+        "tiles/f0_t0/frozen_matrix.json": "cf80c0bf29a3066f930a296fc90fc98eb5ba83a039475ab696c59d81073098fe",
+        "tiles/f0_t0/frozen_route.json": "2a5ea32fd9d23e4c11188fb6ea5d9905b11e06cfdfa827f9d7c3876d2b7d22c6",
+        "tiles/f0_t0/matrix_probes.jsonl": "d138792d8e726a425d9182bec68d6be24283889af470b7754e3cb140a37dd329",
+        "tiles/f0_t0/pair_programming.jsonl": "13bc3edbe0f11fc5cca0877a0d9e4d538fc9064cd237c380139315610ded2893",
+        "tiles/f0_t0/partials.jsonl": "7a89b3c3f749f528d5915d921404812845c13bc278c5227e5bcec0fa4ef58b32",
+        "tiles/f0_t0/raw.00001.jsonl": "08fb98ba9d1f9364ce3576f6493ce87a4c97607ab428c14748e902dfdc7f273c",
+        "tiles/f0_t0/raw.00002.jsonl": "3ed19264b77739bc98c934db9de81c58d2546d4006e1d5025f391373dd8ae6ee",
+        "tiles/f0_t0/raw.jsonl": "8d4d622c85a41d388c921a80ccafecc62fcf8161eb90435552237bcf1fdc37e6",
+        "tiles/f0_t0/raw_parts.json": "1e143b591f7baa996163a66185aad1c1fc3e116890533337981bb9f8b2207e0b",
+        "tiles/f0_t0/reset_candidates.jsonl": "a9b1981e877593f8afcfbd6fb1ad3d2081a2412c60ffdabb65b1481afa21a9f7",
+        "tiles/f0_t0/reset_feedback.jsonl": "5901dc7873ceee232686a19d04994ddf7d75d685a38f2c6024549b34490e94cb",
+        "tiles/f0_t0/set_feedback.jsonl": "636f2dba0d7f0ba3f79c385387fd72a21315f017cc36d2ba271043899fe97bf0",
+        "tiles/f0_t0/tile.json": "0d49f0d002d5fe80be0ffbb0886c1f1abf68bc751c975a57caa7c23a1dcb7e0f",
+        "tiles/f0_t1/calibration_anchors.json": "1fc909ffe712009e9de4d70c285c61e75f903d5fcaf8c40e4b22d741d8f2afc1",
+        "tiles/f0_t1/frozen_calibration.json": "fdf1faf08031afafcef76a5e316151d62663fa21ac8827c0698fffac7954326f",
+        "tiles/f0_t1/frozen_matrix.json": "811edd503a5fd8f19d7776b8e65d5148ad62e8491eb7a74cfaa595a04697615c",
+        "tiles/f0_t1/frozen_route.json": "671a2dd491d13e474e85e0412dd069295257ac951741e47390f200ce5662bdc3",
+        "tiles/f0_t1/matrix_probes.jsonl": "b13f702ad9f1a681eca342e86cdd508f59ce2d656918adddec8dfb4ea04a24a5",
+        "tiles/f0_t1/pair_programming.jsonl": "2fda83334cca721d6e46c4302f89a99a63e34e77f397679082e898923f93f7d0",
+        "tiles/f0_t1/partials.jsonl": "0e02fdfb05c3296ba255868fabf4d138601206e694ebb8bfa187cfd020d5285f",
+        "tiles/f0_t1/raw.00001.jsonl": "ab436bcc2a3aed3a3b88afca8d92bc0c61305ab78a891320dc39acd6c89e2997",
+        "tiles/f0_t1/raw.00002.jsonl": "20c7b6d555fd333503149d273169c419df78fad92154d29cf7c57a5bc1b31aa4",
+        "tiles/f0_t1/raw.jsonl": "190b28adccdde69e060a11f0593d6353a50932129f2e656afcb9519a451d6fb6",
+        "tiles/f0_t1/raw_parts.json": "1b2a12aeca41d5392220498f953bbc35ff5b583b3dfad3e29ae2de1bdbd2a0fe",
+        "tiles/f0_t1/reset_candidates.jsonl": "6d0cdcccd78508d166be001b0aa0bb97174002ca54203059698095a2ff777e00",
+        "tiles/f0_t1/reset_feedback.jsonl": "1246cd95267789804bdaacd216e55d11ce4adf267a03457417f43490525631a2",
+        "tiles/f0_t1/set_feedback.jsonl": "c1a2efdeecb467a1d6dfa45cf0a952fba7264c173335f8e0552200ba11d222b2",
+        "tiles/f0_t1/tile.json": "7ab50846c914a273413d158fef01e08c6e8d9ef209db7e76634c410ab33dbb74",
+        "tiles/f0_t2/calibration_anchors.json": "caf7050590a67a77aa814cd836eac8f1c7fb0e7abee6bb7f19cc17d76c8ccfb5",
+        "tiles/f0_t2/frozen_calibration.json": "9303979564abd72a0e0ff92c0e86728dd7de27a24d0491e52b49c8dfe7e4fb96",
+        "tiles/f0_t2/frozen_matrix.json": "4d15b6c0c5155a5b88a779a7b045c0e43d3660d5fd1004d6cd7a7fc051d2e2a2",
+        "tiles/f0_t2/frozen_route.json": "c2f0769a06c022dd897c1231ba707edae8eed3b0ebeee22dddf7ba1071613296",
+        "tiles/f0_t2/matrix_probes.jsonl": "375fe6ab0fbe1aaadb5ec3e16a1bf7c1d0829621bff9e8dbc4ca14bdff8fe577",
+        "tiles/f0_t2/pair_programming.jsonl": "916e698360a014b981dcc6bf53d1efaf233ea22995be0f46b803e57652935678",
+        "tiles/f0_t2/partials.jsonl": "d14e3abacf07282c740dcdedf4f44d449aa93dc80f32b961c9ed3cb8c84c5fb8",
+        "tiles/f0_t2/raw.00001.jsonl": "22fb874a2bca81ae4d15a9b68f042baf2fbb28179c7f3a720214486593906981",
+        "tiles/f0_t2/raw.jsonl": "2b48da859e9e5c3a0ba99a3af25481e5ad8c30c3732147e3947e03fc4fbf0fbe",
+        "tiles/f0_t2/raw_parts.json": "83771396df48be3c06b8647fa9e40d4f06042fe5272f1af0c32978b22b9dbe96",
+        "tiles/f0_t2/reset_candidates.jsonl": "f3295117046d2990e87865871b77ac74b24ef5f9044dde38455495e48ccd4495",
+        "tiles/f0_t2/reset_feedback.jsonl": "ee60d73a76ec8073d1335ba8ba437d32575d7799eefc148cc59cd141b2d7ac04",
+        "tiles/f0_t2/set_feedback.jsonl": "59fb401182a6ff99d3cf1b2a520edfd6bd7a66cbe4cf90f18d26b529aa414933",
+        "tiles/f0_t2/tile.json": "b4e40cbd54c70f52ccb66ad963c00ad5ba55647f1c666b1f7d606eaa4a466dd7",
+        "tiles/f0_t3/calibration_anchors.json": "a42f9eabae1d564ec879bde0c9d459d8458b6a6488e7955618cafe61b1e12954",
+        "tiles/f0_t3/frozen_calibration.json": "93aa0d8a54087cf9ade9d97d700cf73edcb1038f89317e0c0c08841a2c78b79d",
+        "tiles/f0_t3/frozen_matrix.json": "4a52ebd7f641fa94e20121f808da1270b5e55dfcb2cd2a8c29f7d0c1abfc9930",
+        "tiles/f0_t3/frozen_route.json": "a750f993ff72dcb5a7e44ff20a6d0b5d9ccb0c4734f2b046b86ecde657d33a49",
+        "tiles/f0_t3/matrix_probes.jsonl": "7b121349acc64d7d36965880601ad5134334eb1787de779e74c93bf86e6de09a",
+        "tiles/f0_t3/pair_programming.jsonl": "19afd09f43d1e3fccfd67b12ed7c47baace8f7b5960f20d5aaa108b7c4d1c66d",
+        "tiles/f0_t3/partials.jsonl": "f791bf01942d6773a3c85a653f24da975952acf86c78792566ba025f449c34eb",
+        "tiles/f0_t3/raw.00001.jsonl": "66472755f4be3ec986cd8f1c35419ddd461f2812f3d490366c73e1a61100208d",
+        "tiles/f0_t3/raw.jsonl": "835426d0fd4d2628240bc6eca14965f6a1ce323c462ad8560dd0f12186f59ea2",
+        "tiles/f0_t3/raw_parts.json": "09a99257dec19360613f2e6cc6150a3681f51cc7c9c898760293c27092f839eb",
+        "tiles/f0_t3/reset_candidates.jsonl": "bca21ed91cee0cf5b99e67d2cb4647043eea21548b282e2de7f6983397893ac0",
+        "tiles/f0_t3/reset_feedback.jsonl": "934d0f4f4c38c721d7bbf14536cd461e02e16c41d06518f5964374eac69bdb17",
+        "tiles/f0_t3/set_feedback.jsonl": "8e4df94e0e5d32e6aa31c8917de19ee7117031d639fbe6db4ffdd668776539c4",
+        "tiles/f0_t3/tile.json": "e64dd490df6d213db7583f41ec561363acc69e9c8e1197c1470b92d7f4baed1f",
+        "tiles/f0_t4/calibration_anchors.json": "b40d36aa33cc328621d970b440b25d84193307433ee6cdef08fd9969e7181f1d",
+        "tiles/f0_t4/frozen_calibration.json": "2b82a267e5de6e157422400c65d22826aeda4780404936484ab859d77ed2bd87",
+        "tiles/f0_t4/frozen_matrix.json": "0a323b6403747f4c5cf05bd2d11f28bd3c852ae7d04eceec99e38ff724094d75",
+        "tiles/f0_t4/frozen_route.json": "91e117ad87711ac47adab183f844365b01a4d185e738e07aad7d991fdf02b74c",
+        "tiles/f0_t4/matrix_probes.jsonl": "9de21fb454d072fc5ba8606af1844f0c9f449739d731bbff296734d72a3b0bb0",
+        "tiles/f0_t4/pair_programming.jsonl": "5ec7a81ade80a2f292a42543fccbf822f89335bf886d726e45c856be07302913",
+        "tiles/f0_t4/partials.jsonl": "06475cf1721b1e17184c6f9596f0fd1753f557b296d8e24eff107996dba23dc6",
+        "tiles/f0_t4/raw.00001.jsonl": "a880942f85ca9da870280d302d2ca741a008ba5f993133b312a41219154bc0a7",
+        "tiles/f0_t4/raw.jsonl": "45368359b169c9a5598cc8798eba76dd983ba5810d89730724226f34f415ad5a",
+        "tiles/f0_t4/raw_parts.json": "82b78a44096b95c3678b7b8bb0cf926289f1c1e11cede93a361f76cdcb159820",
+        "tiles/f0_t4/reset_candidates.jsonl": "d5089e11ac9fded0086041ccf9e3cfc260ab5dd8b98cb9832461a0d1c0951d16",
+        "tiles/f0_t4/reset_feedback.jsonl": "f88d9bf8ff169e1bd5e43fe53d39caa3d6672d4e68b8f7c382062c484d4e28f0",
+        "tiles/f0_t4/set_feedback.jsonl": "b07306eee8a163d121854813421c346c51c33b9bceb061cc554b9b31b5d037b4",
+        "tiles/f0_t4/tile.json": "9199fa57b81c3972f4542fbd9514d34ef974284d3c963e4b19239c4e034f9fef",
+        "tiles/f0_t5/calibration_anchors.json": "c35d98c40e312bfc69f94224ffffe0f8100af6ca7eefdd34a58654581cb22fb9",
+        "tiles/f0_t5/frozen_calibration.json": "04bcedd1f000eca4b136db2afe86eba9eeeb41906f6a5a6e60961f5921e5f41a",
+        "tiles/f0_t5/frozen_matrix.json": "ccb97d7ed92b958744f4de2f1b56ad2ab77074394bb6252a64a4bcb07d2bda4d",
+        "tiles/f0_t5/frozen_route.json": "ec20903183abe719a3001e8b5e9ec7e135729ff67ed470df1c9546868edf497f",
+        "tiles/f0_t5/matrix_probes.jsonl": "62c6220be0dcfdfe2396793347e72f694bfa2cf22cbc845b40a802c5a5fbe596",
+        "tiles/f0_t5/pair_programming.jsonl": "76a85c4fbefc479270e946d6e84f014bc2b9db980327a263ed073ca9dce9b528",
+        "tiles/f0_t5/partials.jsonl": "23c42fde7d202f5c102c0990d76af20145ae2bef13c7dfb4f038888c12d8a900",
+        "tiles/f0_t5/raw.00001.jsonl": "ad5640583ba0a974654d7a655ce35aff02e1f8b926dd2c514c9c1f3024c51b2a",
+        "tiles/f0_t5/raw.jsonl": "d7dad7952b0cc7885464444b252315537511bb85cc04902bbf8a6edd59d2cc82",
+        "tiles/f0_t5/raw_parts.json": "f4871ea1cc3859ff51b41f09afd5383beec85208bf4017112a19a30fd7c8753b",
+        "tiles/f0_t5/reset_candidates.jsonl": "0a953e4076280670602207cb94f1b1f466a85a2afc90be332860bda1215b82d4",
+        "tiles/f0_t5/reset_feedback.jsonl": "d1db38ff140c8fb79b1af86617f76207e4f7742d77440b5b6adc8eb11e8ad4fb",
+        "tiles/f0_t5/set_feedback.jsonl": "2c3f6d3e4e2fc90171355f1ed64496219d7e117c8046bd9eeddad8e79c57a4fb",
+        "tiles/f0_t5/tile.json": "24d0ee9e542b498fe315bfec998f3734de75851ddee8a7e8b0948eab44c979d6",
+        "tiles/f1_t0/calibration_anchors.json": "38c3989485183068ad1ce9f1c1eb0a4eabb7e99b3d07270c2d3aa070583c56e7",
+        "tiles/f1_t0/frozen_calibration.json": "8f2f6dbfd428fab39ea6c014b722afd42a043c369b6bf88c09d62fffa4949e9b",
+        "tiles/f1_t0/frozen_matrix.json": "d552f6521f7edca216ef173b1e0e226929930033fb3c26356f7e0b5829a99fc9",
+        "tiles/f1_t0/frozen_route.json": "022054b75467ab71a94ada2d6fed6dd81ba813e27935ec6f43b7dd420154b774",
+        "tiles/f1_t0/matrix_probes.jsonl": "56b7c8601b2cfecc24eb06d5c117845a23ed0dc7cfa4b85b8a5b940eea1eb9ba",
+        "tiles/f1_t0/pair_programming.jsonl": "2d133adb526ef87a5d2fc7bd3a572ac2050ae0ab23ca33cf6fb8fe9b918a2a4c",
+        "tiles/f1_t0/partials.jsonl": "b5369c7f9f6fc35cf7aedab743f420b001b11443690a51a90f8ae19a4f9c44b1",
+        "tiles/f1_t0/raw.00001.jsonl": "e64c224471cf91f0a5cd6c13125661818abbb86e0fbd65b63fa9c9856a2dcc8e",
+        "tiles/f1_t0/raw.jsonl": "a1e34da649edcc55f24f15fdf794bea8bceeb3b5837b9a48988d508406bb4476",
+        "tiles/f1_t0/raw_parts.json": "177ef3ab07607906b53f373cf2b1df62dec8d7e55885f7a81a40fe7e36afcf9d",
+        "tiles/f1_t0/reset_candidates.jsonl": "6977a71428b506402b651f5175ca9cf86963d26a43bc0b3eb7f5165e1c95c942",
+        "tiles/f1_t0/reset_feedback.jsonl": "1bce74cb4d18eb09b66a9d7b67f1208f0fc4709379fc7b5cfe6b54daf0c90797",
+        "tiles/f1_t0/set_feedback.jsonl": "0c18e1d82377817bec6fccb1b77c652470e0d6d843bd8777069e257b6d7e5ee2",
+        "tiles/f1_t0/tile.json": "eca4cd76a054e77ad69bfa8f59d10f93e4fd1896af826ddd5eb4ab9ee1d294a1",
+        "tiles/f1_t1/calibration_anchors.json": "73ba95d1a8e4d32301f2800c5702b1d1dbb43b592325f2c7bfbf112e926ac034",
+        "tiles/f1_t1/frozen_calibration.json": "2ed75bf53368e40b67977f06fb624a629d58ab5ecabc3901b58a9bcd072870fe",
+        "tiles/f1_t1/frozen_matrix.json": "8a6e1746c03d6a56a47fa774e27d46dbe72fed0fe93225212e61d3925f56b2fe",
+        "tiles/f1_t1/frozen_route.json": "296ae6feacd7b019b6332505fef8b9354138e92fc88eddcaf881c025ff29d487",
+        "tiles/f1_t1/matrix_probes.jsonl": "857803460ef8cc9476861984d5abe23f646410c006710d76b99d2f45bb3285ee",
+        "tiles/f1_t1/pair_programming.jsonl": "aebd26d4527e9c7b7a3bfa4b01e6afcfd2f94805ef4392c67c78b473b60121c8",
+        "tiles/f1_t1/partials.jsonl": "28fe4843ed3e08cfa25b29540d73b13569d6aa85588e2c75fc8601f19f43599e",
+        "tiles/f1_t1/raw.00001.jsonl": "e069d1ff1ce7ec1d1b76a1c1239d2baf6a47ad7d046132a0890daf10b0625bb8",
+        "tiles/f1_t1/raw.jsonl": "faf8f77de25ab6a04bff3773849ddeb88ef9fe1381f636d7840572a022329cb8",
+        "tiles/f1_t1/raw_parts.json": "bd58de3df59a5b90313d6775302bc2baba22d82a64f067b3b2f226875acec9b4",
+        "tiles/f1_t1/reset_candidates.jsonl": "38591988de2cd3d33961f50b98eeca046a294429ccbbb19e1fca0f7bfb389a66",
+        "tiles/f1_t1/reset_feedback.jsonl": "f4c17c92c8f0efb552dfb96fb4051e827788c2dd618965e982b3d288f88a4b53",
+        "tiles/f1_t1/set_feedback.jsonl": "57737a4622b97efc593387a30db9d352f02667e5ed6268aee970a01f7b1d292e",
+        "tiles/f1_t1/tile.json": "5bfa0892b07cc07bfeaa80e783c35297a039f0b4d88ba8e2845958386d14c1b5",
+        "tiles/f1_t2/calibration_anchors.json": "e3aba8bc04a98d4f21c646896534df769ac7f5789146c0ca1167845fc40ea85c",
+        "tiles/f1_t2/frozen_calibration.json": "a04751387d57f7165d650df140a590adff963eb4a889075dea7189dbedb0a079",
+        "tiles/f1_t2/frozen_matrix.json": "887631e991e142f19e467603645330e4ff4337cbb6dd3a1299a01c2be6fbdeff",
+        "tiles/f1_t2/frozen_route.json": "22df0f23321e279221c07a03d512d0a9c1539494ddb8082820f2c834a3a59a72",
+        "tiles/f1_t2/matrix_probes.jsonl": "0e9428e4c20c4e62e5a4c0054a6ed9f4fb4b9c3d2e7f3e426af6288663d91df6",
+        "tiles/f1_t2/pair_programming.jsonl": "6738cfd89a803e91b60fd3bc3ff8ef9e2f84bfb6b42d9a021ed9ae767e4b8c46",
+        "tiles/f1_t2/partials.jsonl": "9ce0457f14ee654d8bbb70b2098042d905004991b13f8943c644b3e47a05d90f",
+        "tiles/f1_t2/raw.00001.jsonl": "61be2bcab78be40ea3e1db345de873a06b39e39b4c7c6d5e9cfb8181dbabb91b",
+        "tiles/f1_t2/raw.jsonl": "b30ffcf0083981201ca5e05e9ba108e67ba05a3bfaa4661d966fb4ff821e4b46",
+        "tiles/f1_t2/raw_parts.json": "5b352412bb925d12f8255bc5b4b8217df41706407dcd079ec4c0e56d472c6030",
+        "tiles/f1_t2/reset_candidates.jsonl": "9047581fd520b33c9a931fe4faaa8b1ea0e3a0667b1326f547b3d6af6608b239",
+        "tiles/f1_t2/reset_feedback.jsonl": "d706b1ef7c5f7c51b68d76ae21a61dcdd053d1953616b8084881ffac38e1f6df",
+        "tiles/f1_t2/set_feedback.jsonl": "60b32c18b090a5f0be96d9724539b4d712a23209e750b9b8d1c98a77f3206bab",
+        "tiles/f1_t2/tile.json": "27e8d6959d3ed86b79f9a908688013c8b691e7fcfdb6b7481d2d61a1bdf92f15",
+        "tiles/f1_t3/calibration_anchors.json": "f9d42b5ad8b36b741f53229971e0a3ca436ba9588cecb1409988f82741d569b2",
+        "tiles/f1_t3/frozen_calibration.json": "29ef0722e7c2924c108707f7d149e36fc5c675f12ddd5dd3ae5721bb44009d23",
+        "tiles/f1_t3/frozen_matrix.json": "afdfad2629c8d614a231ab857f0b0cda5dac60b256bc00a3406676149d7265fe",
+        "tiles/f1_t3/frozen_route.json": "078cb9a82864d09d1004e27a62cc2d9611b00c581b3d4e22bcacfa13a024e014",
+        "tiles/f1_t3/matrix_probes.jsonl": "741934b2f2912a44cab6b58b0ca9281e708c70db78e925b179760031efe0da8b",
+        "tiles/f1_t3/pair_programming.jsonl": "be509397533e98a8994d526af3e2ab13fc900cec1154508310bb539b7cc962c8",
+        "tiles/f1_t3/partials.jsonl": "8064ef83955e36d5b2cd71276876c468f5e6da5b9bf43e962974e0c08af61703",
+        "tiles/f1_t3/raw.00001.jsonl": "377ae2f4afd0520056359f89a8f30b9a9891b8f7cffcb471affe6cebed4f16ef",
+        "tiles/f1_t3/raw.jsonl": "3051fcee72a728d1fe5598c6799fce60af4b7f3b824e299f50b02b27c0f618bc",
+        "tiles/f1_t3/raw_parts.json": "c7d3fb910c085940759de49116c2f2f03343c4396e7a9809096cb86352568cfd",
+        "tiles/f1_t3/reset_candidates.jsonl": "6705c032044e961002c04930a1ca98431f52bc5dbfccf538fe48e364a9a702d5",
+        "tiles/f1_t3/reset_feedback.jsonl": "5c96c4507714678b1f5b386848d5e88cad68cc619bed884dd318e23e80403a48",
+        "tiles/f1_t3/set_feedback.jsonl": "9b1fe81cef85f10e572b58327f5e0d49dbb21a37936a8b7ec3367397eb9509c0",
+        "tiles/f1_t3/tile.json": "9e3617b41cc2b4883fcf054b7a70a2d6b8f6d15ad6bc036946a431d32c000c4c",
+        "tiles/f1_t4/calibration_anchors.json": "61b63c4811d5035d6738a4a3c315283410b71a19286634481ace285a329a5f00",
+        "tiles/f1_t4/frozen_calibration.json": "93a925496e0f4d632da9984a11fee8e7c833589847f2759a020c5b8f4cf75e2e",
+        "tiles/f1_t4/frozen_matrix.json": "35f3dfe4dcb3c47c524c4266581ea3cb1d07d9d04d1031dc043573b110c8f60a",
+        "tiles/f1_t4/frozen_route.json": "3594519f216cd258d385da97c924f93c29140dd0ff9230ab186ba47a9b4fec58",
+        "tiles/f1_t4/matrix_probes.jsonl": "3e34531e326f39a5b9253df399d3666931cdcf1ae3b3c30e967173cfcb29bda2",
+        "tiles/f1_t4/pair_programming.jsonl": "36e3453e3e8ec857340844c342a44bc6f56dbd7510cc211332b9b744ba0b8b80",
+        "tiles/f1_t4/partials.jsonl": "dcc51aa9ac785bc70b8d1adb7d05767df7c507060c017de7e1eed2c25f84e19e",
+        "tiles/f1_t4/raw.00001.jsonl": "f661b495b86aa50456e881b535027c38b80872b55aa1b09d8ecd698783736b5b",
+        "tiles/f1_t4/raw.jsonl": "71418ede79d0a0eaa50aa3d2db35b062f669a0c43c078df259b76f701598ff1e",
+        "tiles/f1_t4/raw_parts.json": "7145e114378c577bd8f4f9611530616772f29099a78b709dd9d6e2b81e8d611f",
+        "tiles/f1_t4/reset_candidates.jsonl": "aa1814bb50205821152da2498e6f6d3aff9c396376491fdc6a768502be68000a",
+        "tiles/f1_t4/reset_feedback.jsonl": "39ed50dec25f5798415eb70d486c3f10b2f6ddc9f782fa1f8e195aceaea89a0d",
+        "tiles/f1_t4/set_feedback.jsonl": "f4a1aae9e42bb9372e45d0d29d77c58b6cf6b35bf03e6d29c4ce6ffebf63dbc5",
+        "tiles/f1_t4/tile.json": "676a3dd22d827749968266194ce3bbd5ca7678be3534b7e008686983ae1f97fa",
+        "tiles/f1_t5/calibration_anchors.json": "a0a5bd5bd88ee90b888b175bff5336396f6a62438fef1e7023b54d04d5583950",
+        "tiles/f1_t5/frozen_calibration.json": "40ac2e318916ca31ed5a5936e98025c2fdf89255616fc06148ba2681820a36e3",
+        "tiles/f1_t5/frozen_matrix.json": "a63b59344554bd5701f179ba486502a5c3f69a5f418673b4bbcda9d582fee7c9",
+        "tiles/f1_t5/frozen_route.json": "0842e728171b1602fdf2b7f00a981b984a9b29dece2c34c9d0fe81d52be79376",
+        "tiles/f1_t5/matrix_probes.jsonl": "e8f25e3bf30697f3b7a7f3b036948613159e028e4ce7b531c4bc3dcd6ed863fc",
+        "tiles/f1_t5/pair_programming.jsonl": "03022de64aec0f1fa5878d5654b2c0f9370f5a27281ec5b21d8636a595e4ae33",
+        "tiles/f1_t5/partials.jsonl": "cb681713e1e122730176c96d37f644c594f6d3f0946737f5c60b7e399fa425dd",
+        "tiles/f1_t5/raw.00001.jsonl": "30cf9618cd5ffe047aa8c9fc0b101498ed27cd36259e7c55836cdb6c2888c5c8",
+        "tiles/f1_t5/raw.jsonl": "a2b546ad7f45dc44f9c037c2dab57d5c909fbf21da57aef85446dabc5abbf1b8",
+        "tiles/f1_t5/raw_parts.json": "b6669e80f0784266b6e439e9ff4c0461e9265fcc423fbe5bb38996453b9bbb51",
+        "tiles/f1_t5/reset_candidates.jsonl": "e19af64793c61485c758bbb881b2483a8ee3f0c37958706e679ea5cc116fb69e",
+        "tiles/f1_t5/reset_feedback.jsonl": "652c97a026ac8bbb3ad90bf8be62edfbab47401f485c8056d5e6cbd2671bd5fb",
+        "tiles/f1_t5/set_feedback.jsonl": "7475f9416c8fac98309af49aba9ddce41f900948fb5d61fe0d2e22cdc9326e8c",
+        "tiles/f1_t5/tile.json": "32df611e331b021e80acf232eba59bbca36d771437583bf5d3239ea85a2faac1",
+        "tiles/f1_t6/calibration_anchors.json": "f023b67706f95d148517de280fccad7fedc91b5209acc6b068c5985e73979baf",
+        "tiles/f1_t6/frozen_calibration.json": "aa4987dec120bb00dbf40fcc4aa2b3a7df389959af4224228763d8b7c279bc0b",
+        "tiles/f1_t6/frozen_matrix.json": "a58ccf92b3655c292daf955d6b85274c2c0726e5a4b3b8a19a9548a61bea5f28",
+        "tiles/f1_t6/frozen_route.json": "530c7b2e00c843c11000ece79a58b29284c196e85e3cb023db18871861018fbf",
+        "tiles/f1_t6/matrix_probes.jsonl": "e22b50689649544b6de300d2d7725d08ac88baeee06b45a9e27b1d7b312a9075",
+        "tiles/f1_t6/pair_programming.jsonl": "0fc3ac1251d7836eaaa666c5bc8f337ace42e0e3d912cba8f1a1b060a27ddb3a",
+        "tiles/f1_t6/partials.jsonl": "dfe4af37fbab5a981a1ee92dcd3d6a96baef59bacd9c947b9ca4a7efc5e4736d",
+        "tiles/f1_t6/raw.00001.jsonl": "fc8568aad92ccec0f088365331ba19afc9f97521490cfeafcd87e873ca7fc88c",
+        "tiles/f1_t6/raw.jsonl": "d115eb3079c5db2ae22abc60bdd3c833cb0d16bf4232a4371b544e2c4f3b3047",
+        "tiles/f1_t6/raw_parts.json": "0f171652684b1e3cec8c5dc52af8929aa643fe110343a5c42719a4302201f899",
+        "tiles/f1_t6/reset_candidates.jsonl": "6c897543e6f400c59d13f44fa88b7b3fa3d1921fbf186a910dd3660a638b44ca",
+        "tiles/f1_t6/reset_feedback.jsonl": "fd8dc9985474aafb75d8d2196a421691a325f3e96552b9c8c44a0260b74ba7be",
+        "tiles/f1_t6/set_feedback.jsonl": "b814ee433c17943d1fbe15cb52500c546de14de63a8034f65b50b47a35df646f",
+        "tiles/f1_t6/tile.json": "587b748b21684fc33b5ec65b94c42f02c5772cc846c2eb26716e1305491d17bc",
+        "tiles/f1_t7/calibration_anchors.json": "493664e9465a5cee4d7a1a13d23a917276d4431e22892dd3b76cc9ea302cbc10",
+        "tiles/f1_t7/frozen_calibration.json": "b0b0d2a3d44c05584476ae9112ef2f7708e3db7e5c4e067554222bdb98173a5b",
+        "tiles/f1_t7/frozen_matrix.json": "8d75854d5735ce8c8ab8e4d3742d32aafd74c01ee186989aac752da837b5b003",
+        "tiles/f1_t7/frozen_route.json": "4bea6180af797cf85dbcd869558a6d6eb38137b3fb0ee8636d01f6bf5be9e752",
+        "tiles/f1_t7/matrix_probes.jsonl": "f0c45ab17d906d4069ccc4f76b1414df4cd9b7c09d6dba6139f33b001fe0d5af",
+        "tiles/f1_t7/pair_programming.jsonl": "b89e46d62f0b6bdd93a995dd90ca5fd5d161d9481001cb68ff9ffe561509fbc4",
+        "tiles/f1_t7/partials.jsonl": "50e7a8fb8dc1d314d03f2941978f03290b17682146df030140067e10111e3ae0",
+        "tiles/f1_t7/raw.00001.jsonl": "08bff7b8fbce1c89dadfff9487481e7bca85a41fbe916548e3bcb190d84a93e0",
+        "tiles/f1_t7/raw.jsonl": "910e1059d94f8206bfc2917a09496cd49da69267b1620222aa2141a96370082a",
+        "tiles/f1_t7/raw_parts.json": "43e69df25d851a357e2bc9404d41ce8282ad55ebab64ddcd6eee2a7ad68abfa7",
+        "tiles/f1_t7/reset_candidates.jsonl": "9c8b7f2bc7023bc327ac953aa5a681d2f1e2d3d6576cd666cfc4fb21cf854e66",
+        "tiles/f1_t7/reset_feedback.jsonl": "abcaea1f75c7fba34a5f12b6ef3d27c6da1aefabed3182871efd3094162c2eb4",
+        "tiles/f1_t7/set_feedback.jsonl": "2345559d590e450c389d8dcdfb8f367b7d12328a76f9e1b0c2b9376fb590bb5a",
+        "tiles/f1_t7/tile.json": "75f6e4133fe660f1446e4b45ebad0e2494d851c29a2087ecb96d676491cfbec4",
+        "tiles/f1_t8/calibration_anchors.json": "98f809dc6181b41cb1639073ab7e2abdd8b7146e461f16c35660f310b07d764f",
+        "tiles/f1_t8/frozen_calibration.json": "bb7b51a2dbbfbb5a3f0a73c7c2e41ff3cfd71ef6c4ce3feef7726461e3e2a750",
+        "tiles/f1_t8/frozen_matrix.json": "d885a7412121b04ae94b4554c34c347ac8f3662001bd01b4334c1088357649a1",
+        "tiles/f1_t8/frozen_route.json": "f8697da026a3e0e2dd946474e0a6bac2fc974dc2b6297335be19533b1f292d24",
+        "tiles/f1_t8/matrix_probes.jsonl": "5da4ea3b182e0aed0f95e4268c6aa3b621a11e62f702bfd8d3ee7abd0c4630bc",
+        "tiles/f1_t8/pair_programming.jsonl": "fb9b9bf0d94ac996cce484b09fdf033005b67d765ef37ff92ed9913907af4955",
+        "tiles/f1_t8/partials.jsonl": "e7bb7b708f13a7a0668dca4cdcbf71f11fc610c4b5e56b815151421732c53470",
+        "tiles/f1_t8/raw.jsonl": "9bd4ffd28fa9900e07ca470132fe4f116e35e0a5375c1fcea6f103f2b7829bdf",
+        "tiles/f1_t8/raw_parts.json": "ca6a69007614a438dd64841388b60f55be660e5d214fb37d8ef7262dd65d0813",
+        "tiles/f1_t8/reset_candidates.jsonl": "65525203bfcdc037ac5aeb48278473763517bea167cd1d622662e3a7d6d603e5",
+        "tiles/f1_t8/reset_feedback.jsonl": "420c3fe2280d681c2af3feffb4b747585f1ad7fdd2b8ae08a964b59f11757772",
+        "tiles/f1_t8/set_feedback.jsonl": "a70fcf09940d3d1f0629278284504862f642836df82ba0a04a74cb55a56d6b7f",
+        "tiles/f1_t8/tile.json": "1e961c30470d5d3edf910ae484e7392f383f7692998c21cd0998f291a771fb4c",
+        "tiles/f2_t0/calibration_anchors.json": "1046924dff87e72daa8b2d79d3b5fa6f40f60fafb00df31f7f44d437346af73c",
+        "tiles/f2_t0/frozen_calibration.json": "dbb33bd7b6dfa0539ad89a4482ee2c4a18afef475f95c9c81b701dc3d029824d",
+        "tiles/f2_t0/frozen_matrix.json": "ce1e0ae11c72ed02ae4a02fa53cdb83c0c999227c08677c861ef18f6927dcf04",
+        "tiles/f2_t0/frozen_route.json": "92ec9d8641d42a2dce89896f3ecaab143f11d2adb15e2c33e87684761ddc7885",
+        "tiles/f2_t0/matrix_probes.jsonl": "f7f29562489b5111c063d8af07d063278b6cc2e444bae820076c64dcf255bd19",
+        "tiles/f2_t0/pair_programming.jsonl": "bcb9ed2b199026e32ee670344d71e4b9aecc97426c84e9ab2713089bc10509bd",
+        "tiles/f2_t0/partials.jsonl": "b81222348447921e61a46bafca20775d5e986a6be4e5f8e1b61e6c1985ff0e76",
+        "tiles/f2_t0/raw.00001.jsonl": "3c7a97038fc1a41bfd67b08a1bf2d425f9a52be165ab1ed10ba4a8ff7db2a5b2",
+        "tiles/f2_t0/raw.00002.jsonl": "2e64cc065c36fedab1f02ba5b71c447d9d031644810069abc3ce20fb9066f148",
+        "tiles/f2_t0/raw.jsonl": "84f4bd685d49a3320a5c578cf86c515f353a674e18ba348d1f8b06e040a654dc",
+        "tiles/f2_t0/raw_parts.json": "fb8324018010213d2ce9c47415c618478529f9bf15a6b2a5e45e6fcd0e48209f",
+        "tiles/f2_t0/reset_candidates.jsonl": "74292dd50d5855ba36566245037787776631633f708fe067700e3d629cf1172e",
+        "tiles/f2_t0/reset_feedback.jsonl": "3dc199f83c881160dfe769596f18e83687c113fc8411d5d48d205db7c4d77347",
+        "tiles/f2_t0/set_feedback.jsonl": "9cc164ce85ee395dbbbcbb1a8125b1ba5a081b1bb60c9b1833b8b75e972bef8a",
+        "tiles/f2_t0/tile.json": "223e7f063cd8cb873f78dac841297ff2e718b6a07b693d9dfe419b22e32b0716",
+        "tiles/f2_t1/calibration_anchors.json": "3926dd1dfd66e46013d47f75666102718fe3a3b673800ecaa6883f2bc09a4ec8",
+        "tiles/f2_t1/frozen_calibration.json": "ee78335e3193ea1e82305680c11cc01233f6e3249272ec48d9aa29f71981efa1",
+        "tiles/f2_t1/frozen_matrix.json": "82ea24998e1e3c128ca733d8fd9d1b33f33c806e044e8a18902e97bd082d4ef0",
+        "tiles/f2_t1/frozen_route.json": "97c16701af8e9e583ca8f1946028f9fce0d5dc90cfaef7468f9b4cf80d214249",
+        "tiles/f2_t1/matrix_probes.jsonl": "834cd7b3ab83394166307f59d945d0a59581c645a53d91b17d89cf716d64d91c",
+        "tiles/f2_t1/pair_programming.jsonl": "9d6a893c7f994ecf50434b9928b3271caa42b6e7f863bf41178205483cae7583",
+        "tiles/f2_t1/partials.jsonl": "25f5061c399db220dd3a40caa3c97a2ae84c9ab4dd07c4ae403674b1ffbc6605",
+        "tiles/f2_t1/raw.00001.jsonl": "a29238b37544d9fc9d00f7e30b8c7fb980e82f0e9d208beaf7c9ddde96901e63",
+        "tiles/f2_t1/raw.jsonl": "eb5742eb6ee83495f70d3254873c171592e20aa0cc850b84571ffa9a90ee92bd",
+        "tiles/f2_t1/raw_parts.json": "902c672492ed2a8df96421e6d5982fc17a1ee326adabad2a3f1410c14008f7de",
+        "tiles/f2_t1/reset_candidates.jsonl": "5289c347357f5c665ad2e50d861e93ba21946654c21a131cd69dfd4d775afafe",
+        "tiles/f2_t1/reset_feedback.jsonl": "81f2d62206c6bc0259d8d586283777baa5703814cc3b6092758717b86d43af0e",
+        "tiles/f2_t1/set_feedback.jsonl": "839ebda420f9771eca8adc60a3921f31f21910728ecfb2f7b9206c94c363f2eb",
+        "tiles/f2_t1/tile.json": "7fb431ba9774ac92350de2bca3d3058cc62e06976f04846e58cfba2b20556f18",
+        "tiles/f2_t2/calibration_anchors.json": "01ed0a50be0ead6ea2a0a2eeb546b454da61a771241bdad1d7fc098ea5267475",
+        "tiles/f2_t2/frozen_calibration.json": "2d40140fd157c5cafc28a01131e8f2658cfcc34baffee7c2520236f6e230f796",
+        "tiles/f2_t2/frozen_matrix.json": "dfe977f8328b0cfb0358886fe20a1892d5504ece59ab40b54afc8f19bc65257e",
+        "tiles/f2_t2/frozen_route.json": "d4fc9a76ca5d32dc7cacd2af91ceed2d493a6bd4520848b17757f05c0e630c5a",
+        "tiles/f2_t2/matrix_probes.jsonl": "9d6d6cba0c4e56915309818007b900bdddda1537cf1ab91e94d2d34f6ea031ac",
+        "tiles/f2_t2/pair_programming.jsonl": "535ceb46c7215aeddc9121cf3729534577a499101aa43d9328ca6fbbcf9f1dce",
+        "tiles/f2_t2/partials.jsonl": "5618baaed69ce0370d6129dcb6e9d9adfcbc1d8937763681a1d336f04cf6304b",
+        "tiles/f2_t2/raw.00001.jsonl": "765b3584e721d08757277322ebc8492e6bd7d9027741e7fcc58fae90f5bbedf4",
+        "tiles/f2_t2/raw.jsonl": "643ca2eb03d42caa5c25bac909c0425a5e4ce935c6f7021517d733e622d8b12e",
+        "tiles/f2_t2/raw_parts.json": "c023aae7916142c085343e9748aeeae8021e5c9529907118bcb1c2ded8fca122",
+        "tiles/f2_t2/reset_candidates.jsonl": "7a95ec36f075ed6f620bd5ddb5812abff57bd9ddd7b854ce7c402ee71d161c60",
+        "tiles/f2_t2/reset_feedback.jsonl": "71fade518be8843cd7818ec768101e550fa5394aca174a69d2afebaa3291c425",
+        "tiles/f2_t2/set_feedback.jsonl": "8e6ef1f15d224bc42e2b920c287b7cbeb2107968fd6df5b141e3d5c95205a722",
+        "tiles/f2_t2/tile.json": "8f0558d85959fe2efae2b175df07d48820d06bef2ef55269e91c022cae4ec200",
+        "tiles/f2_t3/calibration_anchors.json": "ddd08bbea90e13456202fb440231e8b351f63ec1bd0aa345568e956fc11e6ccd",
+        "tiles/f2_t3/frozen_calibration.json": "5487edb51e454b1d6695e8e8e7fe2835acc8c87442a0a504db205eff2add4e29",
+        "tiles/f2_t3/frozen_matrix.json": "3db014bfe0b1c904087fcc62019b83d31d57af2c9be44112ef0e389f9b52e79f",
+        "tiles/f2_t3/frozen_route.json": "1ca042a0b73ca0497a889349cd8638d08664551be364d5feafcdd1ce6d0bb90b",
+        "tiles/f2_t3/matrix_probes.jsonl": "74afaace82e5247461bca33090de9966df3938b58e48e8a4f7661400d436f479",
+        "tiles/f2_t3/pair_programming.jsonl": "69f103c5b69cbd0abecac76e4eec4aa9319e4c8d444912637f3ab95eaf73416b",
+        "tiles/f2_t3/partials.jsonl": "7ad7feb78b16d46b0131325069e511df927873674608fe2ae027387849c754cb",
+        "tiles/f2_t3/raw.00001.jsonl": "ba241b4a49b359542850415bcff06312922a8e5152785dfd8d5b9e5c5524b6dd",
+        "tiles/f2_t3/raw.jsonl": "59df6174a7c9007c1dee8ed93f30b1f568cbd11e15ce03c6634cb7ae52ea90b3",
+        "tiles/f2_t3/raw_parts.json": "e2018cb189a995f1a923aa56ad6967779385143d83acfb8150aee55fd9419299",
+        "tiles/f2_t3/reset_candidates.jsonl": "2d81dd0faedabf516497528097390f276086e23422fd822f2285c56e4efaf94d",
+        "tiles/f2_t3/reset_feedback.jsonl": "26db1f2c48880d9a9186a8f9df9a0b9cedb05b3095e7d3f5baa5804343823b89",
+        "tiles/f2_t3/set_feedback.jsonl": "b15406cd69dd6ca9f91b31c100caa8cffb988bf4e2641268a6cb9077870899a4",
+        "tiles/f2_t3/tile.json": "c58c9e49dada068785c5a99038736dbba3deb8ade11f756274ea24b4472d2889",
+        "tiles/f2_t4/calibration_anchors.json": "ec71535e40f9056517a7913c0b43eea72daddfc2424f43c62ff04a0211ce78ba",
+        "tiles/f2_t4/frozen_calibration.json": "45fdadca482d52e843c02b7f002c6b5ccea2ccf5e2fff8146e398e0e71ba6da6",
+        "tiles/f2_t4/frozen_matrix.json": "8842b96e0dea72ecefb26f67f29355f7cb69c4c8b420b2a71531336c2da03d0a",
+        "tiles/f2_t4/frozen_route.json": "b89da9cd4b614cfcf6c1bba6692581a2a5305441c696449b183ca0a55b9a35a2",
+        "tiles/f2_t4/matrix_probes.jsonl": "aa64c73afffe3bae675af8cd7b659aee9fd5dfd0eac3231e52ce78e6deb95777",
+        "tiles/f2_t4/pair_programming.jsonl": "55e9761a26861762fb2ec8fb09c50bd99297c900de2f629922b746c7726397cd",
+        "tiles/f2_t4/partials.jsonl": "5386f4d9e56072f10ad0c6c29c3624ef17c724a115b8460c5527e4e693b1ebfc",
+        "tiles/f2_t4/raw.00001.jsonl": "a21a6d9be327a864e2e6dc4c7327b183a19f5c2bc163ecba58f6c44d6a2281a3",
+        "tiles/f2_t4/raw.jsonl": "0d9a3d15e46da2d6546bd2931b69638d21ba4e6af8f8d07296f9b1c34979db9a",
+        "tiles/f2_t4/raw_parts.json": "36e231b605dde57d601836ec43ee40523db8402ce047ff57f4c7635f6c8ad195",
+        "tiles/f2_t4/reset_candidates.jsonl": "0e228c6494380edade944ad19b2c6efc77797790d82597125533890945184bb4",
+        "tiles/f2_t4/reset_feedback.jsonl": "07e5018d876ffdb82c03f19c0d66cd98cdac29bd7a5b696b91f5720071536c88",
+        "tiles/f2_t4/set_feedback.jsonl": "ea4c413009f6c7801248ae83a6d16cd813d65d969b5e59f487020ad3c760b4b3",
+        "tiles/f2_t4/tile.json": "249826b3cf6b774e6229c5ade892c689f1b79c160c9d83a2080b972948cfcaf2",
+        "tiles/f2_t5/calibration_anchors.json": "6ae72d5fa004aae130f6f54b4ffccedcf0924b86a21f90513322c50796f8e50a",
+        "tiles/f2_t5/frozen_calibration.json": "852f41f333f74993a16327a8e214f8996de71bcb86d6ac35b51c0025eea07a78",
+        "tiles/f2_t5/frozen_matrix.json": "c18b05b199138491ac67a661532a92ae11c85c008c87829c377e2570a3b483e3",
+        "tiles/f2_t5/frozen_route.json": "5908cc54e6af75ad3e6edd6c0dd3a6593a0a4a6a6f656a8bad2c7c39fb7981f0",
+        "tiles/f2_t5/matrix_probes.jsonl": "2520387df099f9c53cbc3b22db17e4197c055f97c1cfb95eb65cf31cbc4c27ac",
+        "tiles/f2_t5/pair_programming.jsonl": "ccdab7d9747f9d872f82c5e5f49541f5eb7aeed6257768fd6aedabb3f428f1c6",
+        "tiles/f2_t5/partials.jsonl": "bbd3541b38cf8cd96b528cc900e0828f71e3fb123eb7bd53eb51cebe6e42d71b",
+        "tiles/f2_t5/raw.00001.jsonl": "f0be6802c904497d4a0087d13a1c839cebcae62ec70a6d0829e6cc8e845642c3",
+        "tiles/f2_t5/raw.jsonl": "06abe11f4afbe4bd04c445b765400ac97341ddd719fa3553ff17f6a540650002",
+        "tiles/f2_t5/raw_parts.json": "78020d66f36e45581c1d80449cd579a7142947207b1a08ac4a2e2929fa69798c",
+        "tiles/f2_t5/reset_candidates.jsonl": "861a0cd2967719dd939daa884a6cec81aad299a797e41339e4f3ca96e23d71eb",
+        "tiles/f2_t5/reset_feedback.jsonl": "c1062ebe1da0543a963588027242a2097c8d1347a28339d4fd89e09b6f3edecd",
+        "tiles/f2_t5/set_feedback.jsonl": "d309e9d384de7faea6fa0be04f1770af9b4e00eed2231326632f32d13b4313b4",
+        "tiles/f2_t5/tile.json": "2ff1a0da5350e1640fb85506a6dbb3b8d9b39a8b541447d0249ce17b074b1e18",
+        "tiles/f2_t6/calibration_anchors.json": "01c610573170358c6a2e081ddf33172c124d02727b739da0eb4010f5292bf277",
+        "tiles/f2_t6/frozen_calibration.json": "4d6673cb5c719af2f87ef1d6853fea8606589594177808966c53053f3af3a0d4",
+        "tiles/f2_t6/frozen_matrix.json": "ea088ed333a9febe4670d5c0143111f3f29d58b92303f9ba33b0cce1adae9340",
+        "tiles/f2_t6/frozen_route.json": "27a2d4a51ad6e2793e2c43849559a9ae376ae5026fa08cb9854276c44caba72c",
+        "tiles/f2_t6/matrix_probes.jsonl": "6ce4e91ec8f70f2d70cae9b230956973acda20152808f8c2db33359be34ed88a",
+        "tiles/f2_t6/pair_programming.jsonl": "a3682983f4277e7fc4632f4d9e7310ae0f153c4f761038b1b6e98f5289ec0864",
+        "tiles/f2_t6/partials.jsonl": "23d6f6cc186c5ca804304b880ec63388e0b4521c17b0d263450b8db9f2b17c81",
+        "tiles/f2_t6/raw.00001.jsonl": "6a2b019284bc629628a890c1ff14bfae50fdc3a542aa77b0b6d727201966291b",
+        "tiles/f2_t6/raw.jsonl": "1a4ca1ee3363763aaf7fe9215858fd808a4e7c7b1a36dadf81a1c8987bd918ee",
+        "tiles/f2_t6/raw_parts.json": "2bb4ce762ef9a69f7ea6a97dd8fcecb8bd2dec3e12d0248035eb5af89dc05ac0",
+        "tiles/f2_t6/reset_candidates.jsonl": "6cbc3ec56e6b2e207571177e6d0b4793cdb957aff2b986138d66de687214e499",
+        "tiles/f2_t6/reset_feedback.jsonl": "bce248c6f2d748483d6202d415bac37670eed81f9c6f5c5cb40225bd2fc335de",
+        "tiles/f2_t6/set_feedback.jsonl": "c7ae6fe82d808eebe7cb3ae81f0c92af95fba37d31110afe023afd2eb2eb9cc5",
+        "tiles/f2_t6/tile.json": "98e9d78032897f0cfba30dd183704b218bf5d0c849bcd43f163fa63488a32aee",
+        "tiles/f3_t0/calibration_anchors.json": "825796684a5dd5f1449d14d0a928479a289f1046afc134e4f914043e3ce53782",
+        "tiles/f3_t0/frozen_calibration.json": "4989b19425ef69896c78d202b6e3957611d66eed5b70d1336bf3e14c3d525833",
+        "tiles/f3_t0/frozen_matrix.json": "b2389ffbe07a3c0c4255b80ca47bd056f092aa50969e6f5409c42b2de86989c2",
+        "tiles/f3_t0/frozen_route.json": "150d9c77499367fcca749871627ec7fe1116a17dd9f17aac7ba1fdc806464740",
+        "tiles/f3_t0/matrix_probes.jsonl": "482392740fc5fc7f316f4ff9806e7015dbdfd872a09e4be486764bfd148d5409",
+        "tiles/f3_t0/pair_programming.jsonl": "4f7d5ef36e45474d5efeaa19e0481fd3fc5cb6566b633be76a7e204abf126209",
+        "tiles/f3_t0/partials.jsonl": "fa431f123a32db7ba8b9c99dbed85de338efb87c8150b1aa6679e1b3cff5d326",
+        "tiles/f3_t0/raw.00001.jsonl": "e90f7c578f3624c0a247d04e96355464919aa8e9b9ad93fc68a2249bb0bd2ea2",
+        "tiles/f3_t0/raw.00002.jsonl": "e3f20ca1a09810de245216cefbae8f4026fce8df1ee8224df1ab3db217ebae8f",
+        "tiles/f3_t0/raw.jsonl": "ec9c2d7c331ab81c1008442bc4fba89348c2544584a0d04033a6c787b5347375",
+        "tiles/f3_t0/raw_parts.json": "9b7aee3696dea9da2281a4cf2e1a3af7f083039b1697d130da0e7c03858763e0",
+        "tiles/f3_t0/reset_candidates.jsonl": "377b84494d98a311cd0ed93c1e9b939becd07f76062b51ff01e483c7c820e081",
+        "tiles/f3_t0/reset_feedback.jsonl": "ceac1276142c0b8f0eb9b304a37cb0c9e419eb24ba00125d103c60d991407109",
+        "tiles/f3_t0/set_feedback.jsonl": "25d170e96c24bb518de5dea4483bd7a22f3a39367cb9e5faa938c96d5116338a",
+        "tiles/f3_t0/tile.json": "79be2b440f9d33916446105f3d564b6329b40b28c1f24c9c745921d3ae372d13",
+        "tiles/f3_t1/calibration_anchors.json": "bca5cdb36ac5df61830896202c9eea2e64d2a733741f750be9165b07dd03a3bc",
+        "tiles/f3_t1/frozen_calibration.json": "2c5adf35fceba3875e17b7357599a60f5b14b2a438e42eecf20d23aeaad0a0ae",
+        "tiles/f3_t1/frozen_matrix.json": "b9077f86ae0fed5184cfa7ca60a25d2837635e7173e631abd8864eb40e302be4",
+        "tiles/f3_t1/frozen_route.json": "9ec0d75a46819ecfd83d743b1bdcb17e64226960038e8def76d857a6cf1e47b1",
+        "tiles/f3_t1/matrix_probes.jsonl": "c84502a379e6a8837f9210efa72ae71735f2391c52ed6eb24887703a7c9717f4",
+        "tiles/f3_t1/pair_programming.jsonl": "febdbde02cd4ca73372cd5658deb1b14a9708c80e5f01fee7a2b140a1f96fd1f",
+        "tiles/f3_t1/partials.jsonl": "9c6c9c97a52146cd25306c51409eacb4747f02369bf6e73775551e3f5fd9092f",
+        "tiles/f3_t1/raw.00001.jsonl": "9d2b042a7ed2594b87dc292e626de2c0e358a7321649a0489452bd58ba5f39a9",
+        "tiles/f3_t1/raw.jsonl": "5e9d5d98dec47f1c90a98c18e63c35b08d4177a80eebc7005b3bf599c9c1cdc1",
+        "tiles/f3_t1/raw_parts.json": "6578907620157bb29caac72bae15b0f4de0d9f8618661dab3ac2e6a8b0b186b5",
+        "tiles/f3_t1/reset_candidates.jsonl": "eac9f235ee98d08617722d5a15dce8c2d763979ec9b6a45aac854e7e0eb7a8ab",
+        "tiles/f3_t1/reset_feedback.jsonl": "dbadda22dd697090ff208bdad379417bd73d5d56368d1cc3411b654054be9b7d",
+        "tiles/f3_t1/set_feedback.jsonl": "cf8d54949472ea8a72724557b789654e2b38e01e92f956a1f3fad480a6fb43a4",
+        "tiles/f3_t1/tile.json": "e3620d04df7928f424bba384f6c47de4a534f49cb777828ca2e8805823b23e40",
+        "tiles/f3_t2/calibration_anchors.json": "07c0d270f3c0b6b30634c5bcece6109068db5fedc523ae00a23082f774361d7e",
+        "tiles/f3_t2/frozen_calibration.json": "b99180604761227a6418b5ed41d9857e3c3f485bbf7edc53e1c852eb39aae287",
+        "tiles/f3_t2/frozen_matrix.json": "496b906a3e543eec3c3a87f07d3580d15a17603ff2081f63028894c9d2c6b510",
+        "tiles/f3_t2/frozen_route.json": "b74dca49608b999450a7043c62d2d55b19efec76d575e4fcab1e7d3ae23146b6",
+        "tiles/f3_t2/matrix_probes.jsonl": "be2e9d46ff850b9d7f32d8fcbc89d96726a03743e4b0b5c769d7e1626c7071bb",
+        "tiles/f3_t2/pair_programming.jsonl": "8318a9bfb886919103c76a24588d45870c117973e09ade3742f7dc7b78eddf65",
+        "tiles/f3_t2/partials.jsonl": "9d7d8781e9b527ab71b465b2449be13e01e22a59eca9dc6a20c00325a96b1232",
+        "tiles/f3_t2/raw.00001.jsonl": "14c39a012d60707c3199eb053af99b587fc7a49d6bda8c146d08f66fa911df03",
+        "tiles/f3_t2/raw.jsonl": "bb108021b40bbd0047ebcad2f960e968ce89b30d4fecb11c3620e0eb642f711f",
+        "tiles/f3_t2/raw_parts.json": "034f14ac4c57e3fe50da2588adc5753dd622efcdd901dd469e047963775208c7",
+        "tiles/f3_t2/reset_candidates.jsonl": "3263b9c8fcaee63d827b74a0ab7196c22654e00c8f497118c113a0d70be93313",
+        "tiles/f3_t2/reset_feedback.jsonl": "3bd2b4b78e9f591a44a16d9464b3324b6b8270311ddc4fb13815d80b48b8d5e3",
+        "tiles/f3_t2/set_feedback.jsonl": "cbf3d89f10b9b21e9060dff10d316a0d545d89db7764bd42314b7f458da5e0a0",
+        "tiles/f3_t2/tile.json": "4bc980dd0336d4b6103e140446850fe48a00b17867f3525f689de6da6a3309fa",
+        "tiles/f3_t3/calibration_anchors.json": "ae8e5d64027abe2bb81733eba97b1d50e107d0c07c5e78e62646f9dc6eccb954",
+        "tiles/f3_t3/frozen_calibration.json": "c32ba89797830fc6b3879f265482483a2ff474332c460879836dac320302ad3e",
+        "tiles/f3_t3/frozen_matrix.json": "9f89d2f25828710856d7e671c4ec298195a9eab574223355f49be270fc60259c",
+        "tiles/f3_t3/frozen_route.json": "bbb0587f07f607ece0b042c42dac7413f6537a9dcdc6b567edec6086bb6d8dac",
+        "tiles/f3_t3/matrix_probes.jsonl": "e223e7bdf11c5e11627439c950349a60385ac5d7b0f9194377749c42eb0d7a57",
+        "tiles/f3_t3/pair_programming.jsonl": "5ba833af102d70babe828aae8b8d39718c5ded9c050da70a2cf6ddd28b4f7de0",
+        "tiles/f3_t3/partials.jsonl": "4993ac00fb241bb1da0e4f57831111b4b10cd9c51802916fab52fccf981c1c1c",
+        "tiles/f3_t3/raw.00001.jsonl": "c81bea1d745b08b03c99c328059369ee98472ec92dd6ae4a4fdb9021f92cd3f2",
+        "tiles/f3_t3/raw.jsonl": "6f086cc89fa237fe6f0d424a5a5760bf5446921d2dd433afd9f71fe2f8d286e7",
+        "tiles/f3_t3/raw_parts.json": "3dcb277ee393082a57fbd363a3a014bcb6aff0dd5d43b701be51cb8a3883cfcb",
+        "tiles/f3_t3/reset_candidates.jsonl": "36a656e448dec72927ae342725f7649dc44780d046e9acd11395599ed92aa0ad",
+        "tiles/f3_t3/reset_feedback.jsonl": "a40ab75b841ab0e579fe81088f0132a2f6db3748c899c0dbe2dd56f301e161ed",
+        "tiles/f3_t3/set_feedback.jsonl": "193cb9665a14dbe8d7035f9dac1efe5d7ffdf676c436040bce3924aa764787f7",
+        "tiles/f3_t3/tile.json": "32f788b3d8893c0cf1553dfc639d7519d7114ee2c5b0b73054e2b61f074b0f03",
+        "tiles/f3_t4/calibration_anchors.json": "626ff6fd537dcadf9d9ebca1db8e95c0dd2bbf5f4cea66dded6d8699a6572ec3",
+        "tiles/f3_t4/frozen_calibration.json": "07184c62f8ea23beac97c0f98f068b1062a1ed018d65f9c3afe7ade978da29b6",
+        "tiles/f3_t4/frozen_matrix.json": "639a7229ec11605f748b2a072baff70d51aeb21fc32243f7565cef6f3ab3d3d0",
+        "tiles/f3_t4/frozen_route.json": "f9f6027ea7b87b87f0ad967f5bdc6b7743c14e9f9ba2bc9bffce2f43416c5ef6",
+        "tiles/f3_t4/matrix_probes.jsonl": "6e5303365650de8ed99ab8845cc5c2c502ad9656e4ee5a8cf39c006fa3daed3c",
+        "tiles/f3_t4/pair_programming.jsonl": "ceebc9a00443eb8d2d1297b4ed9d7c3cdbf22b94bef464923f4e98e138b44ad3",
+        "tiles/f3_t4/partials.jsonl": "82ca05bd8a723ea6a102e2cf6d50c57ac5892606695f6847658816953dd9552f",
+        "tiles/f3_t4/raw.00001.jsonl": "4e45bf3098e3403ed57d92c1aecfc3aebea81de41608f2f8288f164cde5e96c8",
+        "tiles/f3_t4/raw.jsonl": "46e84c2bf5d96ccce120a564ace13761543910bcc7f9cb5741f036bab87dd549",
+        "tiles/f3_t4/raw_parts.json": "9c6f9ebefbec19019472008dcc517ded67139f7eaa5a209dad90629401795d15",
+        "tiles/f3_t4/reset_candidates.jsonl": "5964d663734b1e86f03d21975072973b3b50a1955f6fda16ab3dd310107ef6ad",
+        "tiles/f3_t4/reset_feedback.jsonl": "b919c60baeca2fa716de01c1102fa022ec5184669c6a028265272923b6808c54",
+        "tiles/f3_t4/set_feedback.jsonl": "6bb766c54631b5c1f6e6875bb0b3c43c55e631b05d37bde27a49b83d54307497",
+        "tiles/f3_t4/tile.json": "cfe2cf5b62d577ac09c02ed095aacd9a81cdba6199cb1909e95d6a821be51d19",
+        "tiles/f3_t5/calibration_anchors.json": "5b14c7c4958f13ffed93ab3007411bf276b160dc4f188a10b539c50374e9020e",
+        "tiles/f3_t5/frozen_calibration.json": "5759f3ff4fd3cdfb845b87d790df9a2d83ceb26a69fb1669777fe9f0a68f2db0",
+        "tiles/f3_t5/frozen_matrix.json": "44a6618403bb912d98c5d126904633163297485248ba5b0c400d4c686c826fdc",
+        "tiles/f3_t5/frozen_route.json": "da1c7aa84410d1fc5c5def81fce792b772106cdb095cf66bfe1f4062a210b630",
+        "tiles/f3_t5/matrix_probes.jsonl": "1b0da95d38285e7094ad9199e8d5ffcf12cc88242e27f350d791c0947813f3a7",
+        "tiles/f3_t5/pair_programming.jsonl": "1dbcec5bc9b024c3ecce03afc2b10f9035c3ce5c739784c884e12dae2bfdd2cc",
+        "tiles/f3_t5/partials.jsonl": "88cc180d5745032b710e6d7c334bf5e43ef2bda100b36b905d69a707ea4e49c1",
+        "tiles/f3_t5/raw.00001.jsonl": "0db714804a2f0be3334461f29dd944186b3802788df148106808f7d9ee26c329",
+        "tiles/f3_t5/raw.jsonl": "947a55ea53228d537ecfa85f2559989d1c220e6befb2ee64507b1b5a81a08a82",
+        "tiles/f3_t5/raw_parts.json": "19aa1ea5d1070b739952f40b4715574833578fab6e44755380be5b1041183bb1",
+        "tiles/f3_t5/reset_candidates.jsonl": "d5a8ab1f153c334f4a31f0f3baa37c996402c7f43da356329d090db324d04cae",
+        "tiles/f3_t5/reset_feedback.jsonl": "a573ae7c9531a34fc101173ae4da7b5653ad57d68ede714a5cedb4a632f693fc",
+        "tiles/f3_t5/set_feedback.jsonl": "27712e7837e5e6bf96e5b5e979c6fbf7f0c04ca58816a55c91cbded9747c0dcc",
+        "tiles/f3_t5/tile.json": "d39b6b07aff101a6fd099193b6a45b7496ea2b0c34effef44cc650162580aea3"
+      },
+      "parent_total_impacts": 300519,
+      "parent_total_pulses": 19409,
+      "imported_prefix": [
+        "f0_t0",
+        "f0_t1",
+        "f0_t2"
+      ],
+      "imported_trained_coefficients": 42,
+      "failed_parent_tile_contributes": false,
+      "other_parent_tiles_ignored": true
+    },
+    "parent_cumulative_impacts": 558550,
+    "parent_cumulative_pulses": 35648
+  },
+  "maximum_impacts": 24323,
+  "maximum_programming_pulses": 3232,
+  "maximum_programming_decisions": 3232,
+  "imported_trained_coefficients": 287,
+  "new_trained_coefficients": 13,
+  "reset_candidate_count": 33,
+  "fixed_decoder_gain_v_per_weight": 0.03,
+  "physical_pulse_width_s": null,
+  "simulator_state_policy": "fresh native array; imported287 are historical; no continuous-state equivalence",
+  "array_initial_sha256": "5b2c0ad5c0e9dbc198c7d46d86c75f39a7bb38a77db4d3227322e9ccb3478302",
+  "acquisition_complete": true,
+  "finished_utc": "2026-10-16T13:34:19.115477+00:00",
+  "new_counters": {
+    "impact_attempts": 13852,
+    "programming_pulse_attempts": 1245,
+    "programming_decisions": 1245,
+    "programming_skipped_current": 0
+  },
+  "new_attempt_address_coverage": {
+    "reset_probed": {
+      "count": 33,
+      "addresses": [
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          6,
+          11
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          6,
+          13
+        ],
+        [
+          6,
+          14
+        ],
+        [
+          6,
+          31
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          7,
+          13
+        ],
+        [
+          7,
+          14
+        ],
+        [
+          7,
+          15
+        ],
+        [
+          7,
+          31
+        ]
+      ]
+    },
+    "reset_eligible": {
+      "count": 33,
+      "addresses": [
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          6,
+          11
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          6,
+          13
+        ],
+        [
+          6,
+          14
+        ],
+        [
+          6,
+          31
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          7,
+          13
+        ],
+        [
+          7,
+          14
+        ],
+        [
+          7,
+          15
+        ],
+        [
+          7,
+          31
+        ]
+      ]
+    },
+    "selected": {
+      "count": 26,
+      "addresses": [
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          6,
+          11
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          6,
+          13
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          7,
+          15
+        ],
+        [
+          7,
+          31
+        ]
+      ]
+    },
+    "set_attempted": {
+      "count": 13,
+      "addresses": [
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          6,
+          11
+        ],
+        [
+          6,
+          13
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          7,
+          31
+        ]
+      ]
+    },
+    "represented": {
+      "count": 26,
+      "addresses": [
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          6,
+          11
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          6,
+          13
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          7,
+          15
+        ],
+        [
+          7,
+          31
+        ]
+      ]
+    },
+    "probed_but_not_selected": [
+      [
+        6,
+        1
+      ],
+      [
+        6,
+        14
+      ],
+      [
+        6,
+        31
+      ],
+      [
+        7,
+        9
+      ],
+      [
+        7,
+        12
+      ],
+      [
+        7,
+        13
+      ],
+      [
+        7,
+        14
+      ]
+    ],
+    "coverage_does_not_prove_programmability": true
+  },
+  "cumulative_impacts_including_all_ancestry": 572402,
+  "cumulative_pulses_including_all_ancestry": 36893,
+  "result_sha256": {
+    "array.cb": "9acb9f07c71389def65b71c01ddfb8314132a903ad80b86c4ed4445777d2e828",
+    "board.ini": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c",
+    "completed_microtiles.json": "69ff9cac655f8f367c3b96a64fe2d7d471066b1807247d693db221c6cbc69f1a",
+    "imported_microtiles.json": "575e5f5e89f90030ef3e39de2ebd7c9ac6c13146edaa39e154a374a1cd27d1d8",
+    "protocol.json": "49f636607aca6cdf03ccf535758fa18be138b54c611ae7cfdf63da6506ace474",
+    "start_manifest.json": "d0eb764a2e3f2d52f6389661d4df5f36e30dfec33a4550cedfe3966c19d6bdf8",
+    "summary.json": "552c1ee13ae47ed118515c3e67a31da2801e0a276fb5772b60cd75ea3138a739",
+    "tiles/f3_p4_reserve/calibration_anchors.json": "4bacfcf62d14965cf5d0e9115b54c23f2fb1d5cf64e2f3b2b926d6d2cf245205",
+    "tiles/f3_p4_reserve/frozen_calibration.json": "b2a2fc70d583234d836998de2db355b7ea85c647af5f93bd26c9c2e9ed0f0371",
+    "tiles/f3_p4_reserve/frozen_matrix.json": "5cc8864b308e1dea3858abd45467fef72d5ab48b75fc1341cb4fa7e1d64d5b4f",
+    "tiles/f3_p4_reserve/frozen_route.json": "242550461d35840ac6a5a1a9283749c165d926e8c6498b34acfa08a14ef16b45",
+    "tiles/f3_p4_reserve/matrix_probes.jsonl": "7e5fa494118d76257b1435137c22888397d888d4b48bc30039fbe5f2e80dd345",
+    "tiles/f3_p4_reserve/pair_programming.jsonl": "2d9f139ae443bb1f46e6b1ff5312aa0ee269ed3dd9073db0be6caa4fc14bef4b",
+    "tiles/f3_p4_reserve/partials.jsonl": "b782b39f63f82e13266188d34d64339ef236dd482b8a65dd5e3ddda18c2bb8d5",
+    "tiles/f3_p4_reserve/raw.00001.jsonl": "b40c349f6017327ec6b73b77ccff85233b30929047c46fc2f1ab025b66c5541a",
+    "tiles/f3_p4_reserve/raw.00002.jsonl": "15731ef1552609d3dec8511e132b93b6a6f9c980c18878a5f029d5dcf3b5833b",
+    "tiles/f3_p4_reserve/raw.jsonl": "e4b37ffa8dda16e227c41285ddeb040796b8fdfb267d414d734838e6602288c1",
+    "tiles/f3_p4_reserve/raw_parts.json": "a51bdeae805cea21582cb21c9a40bd0622a2a8788e9bc866f9fdaf51490aefbf",
+    "tiles/f3_p4_reserve/reset_candidates.jsonl": "3661cc18f1b04b8eff71d1eaac41740b1dfd5f40687ec7ae574e4f1ee0af19d0",
+    "tiles/f3_p4_reserve/reset_feedback.jsonl": "832670c3a195582997034906822b20de14c673c483381bd1a8c1168cf38a519e",
+    "tiles/f3_p4_reserve/set_feedback.jsonl": "5c37ea2d092effa834cb1559d80a6e350ffb9f7815f145526fcf5ea2f77bc50b",
+    "tiles/f3_p4_reserve/tile.json": "b092b75b3152f0c5fdc5991cbcf731b2dce5d4120be0e9844e0f85db3a10d1ee"
+  }
+}
