@@ -2,6 +2,34 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "CIFAR: preflight платы без I/O",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/experiment.py",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": {"python": "${workspaceFolder}/.venv/Scripts/python.exe"},
+      "pythonArgs": ["-B"],
+      "args": ["--cifar-feedback-diagnostic", "--dry-run"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {"PYTHONIOENCODING": "utf-8", "PYTHONUNBUFFERED": "1"}
+    },
+    {
+      "name": "CIFAR: полный диагностический simulator",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/experiment.py",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": {"python": "${workspaceFolder}/.venv/Scripts/python.exe"},
+      "pythonArgs": ["-B"],
+      "args": ["--cifar-feedback-diagnostic", "--run-simulator"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {"PYTHONIOENCODING": "utf-8", "PYTHONUNBUFFERED": "1"}
+    },
+    {
       "name": "Подготовка MVM: preflight без I/O",
       "type": "debugpy",
       "request": "launch",
@@ -26,7 +54,7 @@
       "justMyCode": true
     },
     {
-      "name": "РЎРёРјСѓР»СЏС‚РѕСЂ: РІСЃРµ 4 С„Р°Р·С‹",
+      "name": "Симулятор: все 4 фазы",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/experiment.py",
@@ -49,7 +77,7 @@
       }
     },
     {
-      "name": "РђРїРїР°СЂР°С‚РЅС‹Р№ preflight: Р±РµР· I/O",
+      "name": "Аппаратный preflight: без I/O",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/experiment.py",
