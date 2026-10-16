@@ -1,13 +1,16 @@
 # Воспроизведение на Raspberry
 
 Все команды выполняются из корня репозитория. Получение кода и dry-run не
-запускают эксперимент. Сейчас пользователь разрешил диагностические --check-mvm и --check-mvm-gui;
-четырёхфазные программирующие команды ниже остаются справочными.
+запускают эксперимент. Актуальный путь четырёх Conv1-фильтров, с ограниченной
+записью и измеренными вкладами, описан в [CIFAR_FEEDBACK_ADAPTIVE.md](CIFAR_FEEDBACK_ADAPTIVE.md):
+`experiment.py --cifar-feedback-adaptive`. Рабочая ветка — `codex/full-cifar-diagnostic`.
+Ниже сохранены окружение и исторические сценарии; их прежние формулировки
+разрешений не заменяют актуальное задание и не запускают опыт автоматически.
 
 ## Получение проверенной версии
 
 ```sh
- git clone https://github.com/alexander-toschev/snn-memristor-hardware.git
+ git clone --branch codex/full-cifar-diagnostic https://github.com/alexander-toschev/snn-memristor-hardware.git
  cd snn-memristor-hardware
 ```
 
@@ -16,19 +19,20 @@
 ```sh
  git status --short
  git fetch origin
- git switch main
- git pull --ff-only origin main
+ git switch codex/full-cifar-diagnostic
+ git pull --ff-only origin codex/full-cifar-diagnostic
  git log -5 --oneline
  git rev-parse HEAD
  git status --short
 ```
 
 Выведенный `git rev-parse HEAD` должен совпасть с полным SHA проверенного
-опубликованного коммита. Оставайтесь на ветке main; выполняйте команды по одной.
+опубликованного коммита. Используйте ветку `codex/full-cifar-diagnostic`;
+выполняйте команды по одной.
 Последний коммит не становится проверенным автоматически. При расхождении
 веток или локальных изменениях остановитесь и разберите различия; не удаляйте
-данные через reset/clean. Публичная ветка содержит код без прежних
-неопубликованных результатов. На Raspberry выполняется код именно этого checkout.
+данные через reset/clean. Ветка содержит код и опубликованные результаты; приватные файлы драйвера
+остаются локальными. На Raspberry выполняется код именно этого checkout.
 
 ## Окружение и локальный драйвер
 
@@ -44,7 +48,7 @@ python3 -m venv --system-site-packages .venv
 python -m pip install SQLAlchemy==2.0.51 greenlet==3.5.6
 python setup_driver.py --source ../MemriBoard
 git check-ignore vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py
-python experiment.py --dry-run
+python experiment.py --cifar-feedback-adaptive --dry-run
 ```
 
 ../MemriBoard — установленная оператором соседняя директория. Helper проверяет
@@ -56,12 +60,12 @@ SHA256 обоих файлов до копирования, копирует т�
 
 Dry-run проверяет exact fingerprints Connector/converters/драйвера, INI, веса
 по сохранённым файлам. Импортируемость программных и аппаратных зависимостей dry-run не проверяет. Это не проверка проводки и не физическая калибровка.
-После обновления checkout разрешён диагностический MVM, описанный ниже.
+Актуальные команды запуска и аудита приведены в [CIFAR_FEEDBACK_ADAPTIVE.md](CIFAR_FEEDBACK_ADAPTIVE.md).
 
-## Команды эксперимента после разрешения
+## Исторический четырёхфазный эксперимент
 
 Без флагов — справка. Отдельный simulator: python experiment.py --run-simulator.
-Физическая первая фаза, только после нового явного разрешения:
+Историческая команда первой фазы (не текущий адаптивный CIFAR-сценарий):
 
 ```sh
 python experiment.py --run-hardware --phase phase1
@@ -102,7 +106,7 @@ Offline проверки, без аппаратуры:
 python -m unittest test_launch test_hardware_suite test_native_conversions -v
 ```
 
-## Текущая разрешённая проверка MVM без записи весов
+## Историческая проверка MVM без записи весов
 
 ```sh
 python experiment.py --dry-run --check-mvm
@@ -139,7 +143,7 @@ python experiment.py --dry-run --check-mvm-gui
 python experiment.py --run-hardware --check-mvm-gui
 ```
 
-Этот режим разрешён текущим запросом проверить «как Математика». Прежний
+Этот режим был создан для проверки «как Математика». Прежний
 --check-mvm (64 обращения) сохраняется. Новый режим читает все 256 ячеек
 mode9 по три раза до и после: 1536 impact. Затем/между этими readback-блоками
 MatMul: пять повторов входов zero, A(BL2=.1), B(BL3=.1), AB и ALL32([.1]*32),
@@ -173,7 +177,7 @@ python experiment.py --dry-run --map-cells
 python experiment.py --run-hardware --map-cells
 ```
 
-Текущий запрос пользователя разрешает эту карту. Все 256 ячеек читаются
+Исторический сценарий карты. Все 256 ячеек читаются
 mode9 nominal .1 В по три раза до и после (1536 impact). Пять повторов
 mode10: zero, затем BL0..31 с .05/.1 В; каждый вход проходит WL0..7.
 Максимум 2600 mode10, всего 4136 impact. Только один BL активен; веса не пишутся.

@@ -1,0 +1,30 @@
+filter_id,parent_tile_id,microtile_id,origin,positive_WL,negative_WL,pending_before,quiet_positive,quiet_negative,k_expected,k_used,pending_after,unused_quiet_positive,unused_quiet_negative,limiting_factors,WL3_conditional_gain_if_three_unmeasured_alternatives_were_quiet
+0,0,0,imported,0,1,14,15,16,14,14,0,1,2,"[""pending_taps""]",
+0,1,0,imported,0,1,14,16,16,14,14,0,2,2,"[""pending_taps""]",
+0,2,0,imported,0,1,14,16,16,14,14,0,2,2,"[""pending_taps""]",
+0,3,0,new,0,1,14,14,15,14,14,0,0,1,"[""pending_taps"", ""positive_quiet""]",
+0,4,0,new,0,1,14,14,14,14,14,0,0,0,"[""pending_taps"", ""positive_quiet"", ""negative_quiet""]",
+0,5,0,new,0,1,5,6,8,5,5,0,1,3,"[""pending_taps""]",
+1,0,0,new,2,3,9,11,10,9,9,0,2,1,"[""pending_taps""]",0
+1,1,0,new,2,3,9,11,10,9,9,0,2,1,"[""pending_taps""]",0
+1,2,0,new,2,3,9,11,10,9,9,0,2,1,"[""pending_taps""]",0
+1,3,0,new,2,3,9,10,10,9,9,0,1,1,"[""pending_taps""]",0
+1,4,0,new,2,3,9,10,10,9,9,0,1,1,"[""pending_taps""]",0
+1,5,0,new,2,3,9,10,10,9,9,0,1,1,"[""pending_taps""]",0
+1,6,0,new,2,3,9,11,9,9,9,0,2,0,"[""pending_taps"", ""negative_quiet""]",0
+1,7,0,new,2,3,9,10,10,9,9,0,1,1,"[""pending_taps""]",0
+1,8,0,new,2,3,3,6,6,3,3,0,3,3,"[""pending_taps""]",0
+2,0,0,new,4,5,11,13,14,11,11,0,2,3,"[""pending_taps""]",
+2,1,0,new,4,5,11,12,12,11,11,0,1,1,"[""pending_taps""]",
+2,2,0,new,4,5,11,13,14,11,11,0,2,3,"[""pending_taps""]",
+2,3,0,new,4,5,11,12,14,11,11,0,1,3,"[""pending_taps""]",
+2,4,0,new,4,5,11,12,14,11,11,0,1,3,"[""pending_taps""]",
+2,5,0,new,4,5,11,14,14,11,11,0,3,3,"[""pending_taps""]",
+2,6,0,new,4,5,9,11,11,9,9,0,2,2,"[""pending_taps""]",
+3,0,0,new,6,7,13,16,13,13,13,0,3,0,"[""pending_taps"", ""negative_quiet""]",
+3,1,0,new,6,7,13,16,13,13,13,0,3,0,"[""pending_taps"", ""negative_quiet""]",
+3,2,0,new,6,7,13,16,13,13,13,0,3,0,"[""pending_taps"", ""negative_quiet""]",
+3,3,0,new,6,7,13,15,13,13,13,0,2,0,"[""pending_taps"", ""negative_quiet""]",
+3,4,0,new,6,7,13,16,12,12,12,1,4,0,"[""negative_quiet""]",
+3,4,1,new,6,7,1,15,12,1,1,0,14,11,"[""pending_taps""]",
+3,5,0,new,6,7,10,12,10,10,10,0,2,0,"[""pending_taps"", ""negative_quiet""]",

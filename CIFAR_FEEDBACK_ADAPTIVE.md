@@ -1,5 +1,27 @@
 # CIFAR: ограниченные микротайлы
 
+Единая точка запуска — `experiment.py` из опубликованного Git checkout на
+Raspberry. Этот опыт измеряет **четыре настоящих Conv1-фильтра на десяти
+фиксированных фрагментах CIFAR100, T=12**, с пятью повторами. Физическая операция —
+последовательные one-hot MVM-чтения и сложение измеренных вкладов; BN и LIF
+вычисляются цифровым способом. Это не точность классификатора CIFAR100 и не
+одновременное аналоговое умножение полного 75-элементного вектора.
+
+Отчёты текущей серии:
+
+- [Штатный SIM: независимый аудит v2](results/cifar_feedback_reviews/adaptive_simulator_full_20261016_v2/REPORT.md)
+  — согласованность данных подтверждена; ограничения provenance приведены в отчёте.
+- [Аппаратный аудит](results/cifar_feedback_reviews/adaptive_hardware_full_20261016/REPORT.md)
+  — сбор `5caa3d62-acc5-41a2-9c69-bc1a74bbf427` завершён; независимый аудит
+  на Raspberry: PASS, 9 499 290 проверок, 0 ошибок. Raw и отчёт опубликованы в репозитории.
+- [Сравнение платы и SIM](results/cifar_feedback_reviews/adaptive_hardware_vs_simulator_20261016/REPORT.md)
+  — готово: в обоих источниках проверены все 300 коэффициентов и 2400 выходов.
+- [Охват ячеек и ограничения разбиения](results/cifar_feedback_reviews/adaptive_hardware_capacity_20261016/REPORT.md)
+  — показывает проверенные, тихие и назначенные адреса; не утверждает максимальную ёмкость платы.
+
+Завершение сбора, согласованность raw и качество физических весов — разные
+результаты. Даже PASS-аудит не означает точные веса или совпадение спайков.
+
 Этот новый сценарий сохраняет все 300 обученных коэффициентов четырёх фильтров.
 Он не ослабляет критерий тихого mode10-отклика после RESET и не меняет старые
 протоколы. Если исходному тайлу не хватает пар, за один проход используются
@@ -54,9 +76,26 @@ Imported origin помечен как повторное использован�
 Команды выполняются по одной, из checkout. Они не запускаются автоматически.
 Зависимости и приватные неизменённые файлы MemriBoard — по [REPRODUCE.md](REPRODUCE.md).
 
+Для нового рабочего каталога:
+
+```bash
+git clone --branch codex/full-cifar-diagnostic https://github.com/alexander-toschev/snn-memristor-hardware.git
+```
+
+```bash
+cd snn-memristor-hardware
+```
+
+Для уже существующего checkout этой ветки:
+
 ```bash
 git pull --ff-only origin codex/full-cifar-diagnostic
 ```
+
+Перед запуском проверьте `git status --short` и `git rev-parse HEAD` относительно
+проверенного коммита. Не удаляйте локальные результаты для получения чистого
+checkout. Dry-run требует локальных приватных файлов драйвера на Pi и проверяет
+их SHA; он не проверяет физическую проводку и не импортирует все зависимости.
 
 Штатный симулятор с закреплёнными первыми 42 коэффициентами:
 
@@ -86,3 +125,38 @@ git pull --ff-only origin codex/full-cifar-diagnostic
 с упорядоченным SHA-индексом. `completed_microtiles.json` хранит происхождение
 вкладов. Manifest разделяет новые попытки, исторические попытки и завершённые
 микротайлы; отдельное покрытие новых попыток включает неудачный проход.
+
+## Аудит и сравнение сохранённых данных — без платы
+
+UUID нового запуска берите из последней строки команды и соответствующего
+manifest, а не выбирайте автоматически старую папку. Для повторной проверки
+ниже используются **новые** каталоги `.tmp`; при их существовании выберите другое
+имя. Аудитор не перезаписывает acquired session.
+
+Проверка сохранённого полного SIM:
+
+```bash
+.venv/bin/python -B audit_cifar_feedback_adaptive.py --repo . --session results/cifar_feedback_adaptive/64036fb0-2d33-4350-b672-96ef8380acec --output .tmp/adaptive_sim_recheck
+```
+
+Проверка сохранённого аппаратного сбора:
+
+```bash
+.venv/bin/python -B audit_cifar_feedback_adaptive.py --repo . --session results/cifar_feedback_adaptive/5caa3d62-acc5-41a2-9c69-bc1a74bbf427 --output .tmp/adaptive_hw_recheck
+```
+
+После PASS обоих повторных аудитов:
+
+```bash
+.venv/bin/python -B compare_cifar_adaptive.py --repo . --sim-session results/cifar_feedback_adaptive/64036fb0-2d33-4350-b672-96ef8380acec --hardware-session results/cifar_feedback_adaptive/5caa3d62-acc5-41a2-9c69-bc1a74bbf427 --sim-audit .tmp/adaptive_sim_recheck/audit.json --hardware-audit .tmp/adaptive_hw_recheck/audit.json --output .tmp/adaptive_comparison_recheck
+```
+
+Для этих команд нужны все опубликованные части raw, manifests и закреплённые
+родительские сессии. Индекс `raw_parts.json` задаёт порядок и SHA каждой части;
+аудитор читает непрерывный журнал, даже если request/result разделены границей
+файлов. Не объединяйте части вручную и не заменяйте пропущенный ответ нулём.
+Сравнение сохраняет Conv, BN, мембранные состояния, спайки и разброс повторов
+отдельно относительно обученных весов, измеренных `W_eff` и другого backend.
+Разные фиксированные gains, начальные состояния, время и разбиение микротайлов
+не делают HW и SIM физически одинаковыми. Исторические первые 42 коэффициента
+сохраняют своё происхождение и не считаются новыми измерениями этой серии.
