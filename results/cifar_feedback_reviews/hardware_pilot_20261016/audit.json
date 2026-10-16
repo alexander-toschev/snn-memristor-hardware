@@ -1,0 +1,689 @@
+{
+  "session_id": "4570b8e0-76bd-408a-b633-aab9403b3706",
+  "source": "hardware",
+  "stage": "pilot",
+  "acquisition_status": "completed",
+  "acquisition_complete": false,
+  "provenance": {
+    "recorded_dirty_tracked": false,
+    "recorded_tracked_changes": [],
+    "known_nonexecuted_journal_edit": false,
+    "warning": null,
+    "additional_known_offline_audit_untracked": []
+  },
+  "counters": {
+    "impact_attempts": 17917,
+    "programming_pulse_attempts": 1680,
+    "programming_decisions": 1680,
+    "programming_skipped_current": 0
+  },
+  "tiles": [
+    {
+      "filter_id": 0,
+      "tile_id": 0,
+      "technical_completed": true,
+      "continuation_eligible": false,
+      "calibration": {
+        "alpha_v_per_weight": 0.5757376223849903,
+        "alpha_repeat_values": [
+          0.5772028165447949,
+          0.5770392461833121,
+          0.5750701532961556,
+          0.5751234980592165,
+          0.5742523978414723
+        ],
+        "alpha_sd": 0.0013104936145407605,
+        "alpha_se": 0.0005860705612385095,
+        "heuristic_resolution_5se": true,
+        "difference_rms_v": 0.05809845067518705,
+        "five_adc_quality_reference_v": 0.00153,
+        "rms_at_least_five_adc": true,
+        "quantization_uncertainty_not_in_sample_sd": true,
+        "decode_usable": true,
+        "alpha_cv": 0.0022761993720543175,
+        "alpha_cv_within_5pct": true,
+        "measured_difference_mean_v": [
+          -0.04041,
+          -0.026062000000000002,
+          -0.04529,
+          -0.047369999999999995,
+          -0.041812,
+          0.074772,
+          0.017704,
+          -0.06317600000000001,
+          0.07233200000000001,
+          0.06927799999999999,
+          0.11103199999999999,
+          0.065008,
+          0.043946,
+          0.022096
+        ],
+        "effective_weights": [
+          -0.07018822190671122,
+          -0.04526714771919593,
+          -0.0786643051263289,
+          -0.08227706190846101,
+          -0.0726233589300522,
+          0.12987165870845363,
+          0.030750118303301543,
+          -0.10973053964806702,
+          0.1256336170986448,
+          0.1203291174771873,
+          0.19285173607389158,
+          0.11291254466002183,
+          0.07632990843633583,
+          0.03837859320095746
+        ],
+        "weight_residuals": [
+          -0.028553114657689685,
+          -0.01931822463803634,
+          -0.033680981462855766,
+          -0.032024125128008285,
+          -0.028549516464174668,
+          0.0448282060283427,
+          -0.07029382128715256,
+          -0.18356647881699706,
+          0.05018017178328377,
+          0.04863630801464,
+          0.10077364635984129,
+          0.019247496179987958,
+          -0.03690558754821846,
+          -0.04223351491042407
+        ],
+        "weight_rmse": 0.06727659848190438,
+        "sign_mismatch_count": 1,
+        "zero_difference_count": 0,
+        "calibration_uses_cifar": false,
+        "alpha_is_supervised_common_units_fit_to_trained_weights": true,
+        "confidence_claim": false,
+        "frozen_before_task_id": 13084,
+        "trained_weights": [
+          -0.04163510724902153,
+          -0.02594892308115959,
+          -0.04498332366347313,
+          -0.05025293678045273,
+          -0.04407384246587753,
+          0.08504345268011093,
+          0.1010439395904541,
+          0.07383593916893005,
+          0.07545344531536102,
+          0.0716928094625473,
+          0.09207808971405029,
+          0.09366504848003387,
+          0.11323549598455429,
+          0.08061210811138153
+        ],
+        "wmax_per_filter": 0.11323549598455429
+      },
+      "effective_route": [
+        {
+          "slot": 0,
+          "tap_index": 0,
+          "tap_chw": [
+            0,
+            0,
+            0
+          ],
+          "trained_weight": -0.04163510724902153,
+          "float32_le_hex": "93892abd",
+          "positive_cell": [
+            0,
+            0
+          ],
+          "negative_cell": [
+            1,
+            0
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        },
+        {
+          "slot": 1,
+          "tap_index": 1,
+          "tap_chw": [
+            0,
+            0,
+            1
+          ],
+          "trained_weight": -0.02594892308115959,
+          "float32_le_hex": "d692d4bc",
+          "positive_cell": [
+            0,
+            2
+          ],
+          "negative_cell": [
+            1,
+            2
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        },
+        {
+          "slot": 2,
+          "tap_index": 2,
+          "tap_chw": [
+            0,
+            0,
+            2
+          ],
+          "trained_weight": -0.04498332366347313,
+          "float32_le_hex": "6f4038bd",
+          "positive_cell": [
+            0,
+            3
+          ],
+          "negative_cell": [
+            1,
+            3
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        },
+        {
+          "slot": 3,
+          "tap_index": 3,
+          "tap_chw": [
+            0,
+            0,
+            3
+          ],
+          "trained_weight": -0.05025293678045273,
+          "float32_le_hex": "06d64dbd",
+          "positive_cell": [
+            0,
+            4
+          ],
+          "negative_cell": [
+            1,
+            4
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        },
+        {
+          "slot": 4,
+          "tap_index": 4,
+          "tap_chw": [
+            0,
+            0,
+            4
+          ],
+          "trained_weight": -0.04407384246587753,
+          "float32_le_hex": "c68634bd",
+          "positive_cell": [
+            0,
+            5
+          ],
+          "negative_cell": [
+            1,
+            6
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        },
+        {
+          "slot": 5,
+          "tap_index": 5,
+          "tap_chw": [
+            0,
+            1,
+            0
+          ],
+          "trained_weight": 0.08504345268011093,
+          "float32_le_hex": "432bae3d",
+          "positive_cell": [
+            0,
+            6
+          ],
+          "negative_cell": [
+            1,
+            7
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        },
+        {
+          "slot": 6,
+          "tap_index": 6,
+          "tap_chw": [
+            0,
+            1,
+            1
+          ],
+          "trained_weight": 0.1010439395904541,
+          "float32_le_hex": "20f0ce3d",
+          "positive_cell": [
+            0,
+            7
+          ],
+          "negative_cell": [
+            1,
+            5
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        },
+        {
+          "slot": 7,
+          "tap_index": 7,
+          "tap_chw": [
+            0,
+            1,
+            2
+          ],
+          "trained_weight": 0.07383593916893005,
+          "float32_le_hex": "4c37973d",
+          "positive_cell": [
+            0,
+            8
+          ],
+          "negative_cell": [
+            1,
+            8
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        },
+        {
+          "slot": 8,
+          "tap_index": 8,
+          "tap_chw": [
+            0,
+            1,
+            3
+          ],
+          "trained_weight": 0.07545344531536102,
+          "float32_le_hex": "56879a3d",
+          "positive_cell": [
+            0,
+            9
+          ],
+          "negative_cell": [
+            1,
+            9
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        },
+        {
+          "slot": 9,
+          "tap_index": 9,
+          "tap_chw": [
+            0,
+            1,
+            4
+          ],
+          "trained_weight": 0.0716928094625473,
+          "float32_le_hex": "aed3923d",
+          "positive_cell": [
+            0,
+            10
+          ],
+          "negative_cell": [
+            1,
+            12
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        },
+        {
+          "slot": 10,
+          "tap_index": 10,
+          "tap_chw": [
+            0,
+            2,
+            0
+          ],
+          "trained_weight": 0.09207808971405029,
+          "float32_le_hex": "7093bc3d",
+          "positive_cell": [
+            0,
+            11
+          ],
+          "negative_cell": [
+            1,
+            14
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        },
+        {
+          "slot": 11,
+          "tap_index": 11,
+          "tap_chw": [
+            0,
+            2,
+            1
+          ],
+          "trained_weight": 0.09366504848003387,
+          "float32_le_hex": "76d3bf3d",
+          "positive_cell": [
+            0,
+            13
+          ],
+          "negative_cell": [
+            1,
+            31
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        },
+        {
+          "slot": 12,
+          "tap_index": 12,
+          "tap_chw": [
+            0,
+            2,
+            2
+          ],
+          "trained_weight": 0.11323549598455429,
+          "float32_le_hex": "03e8e73d",
+          "positive_cell": [
+            0,
+            31
+          ],
+          "negative_cell": [
+            1,
+            10
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        },
+        {
+          "slot": 13,
+          "tap_index": 13,
+          "tap_chw": [
+            0,
+            2,
+            3
+          ],
+          "trained_weight": 0.08061210811138153,
+          "float32_le_hex": "f617a53d",
+          "positive_cell": [
+            0,
+            12
+          ],
+          "negative_cell": [
+            1,
+            1
+          ],
+          "padding": false,
+          "padding_input": null,
+          "physical_target": null,
+          "representation_qualified": false
+        }
+      ],
+      "physical_fidelity": {
+        "target_gain_v_per_weight": 1.0,
+        "raw_measured_weight": [
+          -0.04041,
+          -0.026062000000000002,
+          -0.04529,
+          -0.047369999999999995,
+          -0.041812,
+          0.074772,
+          0.017704,
+          -0.06317600000000001,
+          0.07233200000000001,
+          0.06927799999999999,
+          0.11103199999999999,
+          0.065008,
+          0.043946,
+          0.022096
+        ],
+        "raw_target_errors": [
+          0.0012251072490215287,
+          -0.00011307691884041016,
+          -0.00030667633652686765,
+          0.002882936780452733,
+          0.002261842465877531,
+          -0.010271452680110926,
+          -0.0833399395904541,
+          -0.13701193916893006,
+          -0.0031214453153610155,
+          -0.00241480946254731,
+          0.0189539102859497,
+          -0.028657048480033878,
+          -0.06928949598455429,
+          -0.058516108111381526
+        ],
+        "raw_target_rmse": 0.05018506875050194,
+        "raw_target_nrmse": 0.667241592504184,
+        "one_adc_weight_resolution": 0.00031,
+        "quantization_floor_not_reduced_by_averaging": true,
+        "observed_weight_sd": [
+          0.0004615733961137708,
+          0.0005103626161857868,
+          0.0003486402156952069,
+          0.00033548472394432424,
+          0.00021568495543268637,
+          0.0002156849554326863,
+          0.0006087528234020775,
+          0.0005692802473299051,
+          0.0002156849554326863,
+          0.0002156849554326863,
+          0.00039537324138084746,
+          0.0003715104305399815,
+          0.00043310506808394797,
+          0.0005106662315054728
+        ],
+        "resolved_sign_error_slots": [
+          7
+        ],
+        "target_significant_slots": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "measured_sign_unresolved_significant_slots": [],
+        "unresolved_quantization_slots": [],
+        "engineering_weight_uncertainty": [
+          0.0005560125897855191,
+          0.0005971348256466045,
+          0.0004665297418171755,
+          0.0004567822238222493,
+          0.0003776506321985969,
+          0.00037765063219859685,
+          0.0006831398099949972,
+          0.0006482129279796863,
+          0.00037765063219859685,
+          0.00037765063219859685,
+          0.0005024141717746404,
+          0.00048385948373469174,
+          0.0005326161845081327,
+          0.0005973943421225223
+        ],
+        "uncertainty_nrms": 0.006813331055272611,
+        "uncertainty_is_worstcase_bound": false,
+        "physical_fidelity_pass": false,
+        "uses_fitted_alpha_or_matrix": false
+      },
+      "final_physical_fidelity": {
+        "target_gain_v_per_weight": 1.0,
+        "raw_measured_weight": [
+          -0.040164,
+          -0.026064,
+          -0.045776,
+          -0.047672,
+          -0.041507999999999996,
+          0.07471,
+          0.018008,
+          -0.06445400000000001,
+          0.071662,
+          0.069644,
+          0.110482,
+          0.06519,
+          0.043886,
+          0.021914
+        ],
+        "raw_target_errors": [
+          0.0014711072490215318,
+          -0.00011507691884040869,
+          -0.000792676336526868,
+          0.002580936780452729,
+          0.0025658424658775367,
+          -0.010333452680110933,
+          -0.0830359395904541,
+          -0.13828993916893006,
+          -0.0037914453153610195,
+          -0.0020488094625473047,
+          0.018403910285949704,
+          -0.028475048480033877,
+          -0.06934949598455428,
+          -0.05869810811138153
+        ],
+        "raw_target_rmse": 0.05040183582771577,
+        "raw_target_nrmse": 0.6701236451426231,
+        "one_adc_weight_resolution": 0.00031,
+        "quantization_floor_not_reduced_by_averaging": true,
+        "observed_weight_sd": [
+          0.0008251848277810262,
+          0.0006307772982598535,
+          0.00030500819661117624,
+          0.00013863621460498597,
+          0.0004822551192055918,
+          0.000874785688040216,
+          0.0003755928646819588,
+          0.00039614391324365757,
+          0.000254597721906541,
+          0.0003961439132436618,
+          0.0003755928646819602,
+          0.0006317436188834868,
+          0.0003999749992187031,
+          0.0003341107600781529
+        ],
+        "resolved_sign_error_slots": [
+          7
+        ],
+        "target_significant_slots": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "measured_sign_unresolved_significant_slots": [],
+        "unresolved_quantization_slots": [],
+        "engineering_weight_uncertainty": [
+          0.0008814930515891784,
+          0.000702837107728384,
+          0.00043489079088893334,
+          0.0003395879856532026,
+          0.0005732974794990813,
+          0.0009280894353455351,
+          0.00048700102669296314,
+          0.0005030208743183512,
+          0.00040114835161072316,
+          0.0005030208743183546,
+          0.0004870010266929642,
+          0.0007037044834303703,
+          0.0005060434763930877,
+          0.0004557740668357526
+        ],
+        "uncertainty_nrms": 0.007838304706391139,
+        "uncertainty_is_worstcase_bound": false,
+        "physical_fidelity_pass": false,
+        "uses_fitted_alpha_or_matrix": false
+      },
+      "counters": {
+        "impact_attempts": 17917,
+        "programming_pulse_attempts": 1680,
+        "programming_decisions": 1680,
+        "programming_skipped_current": 0
+      },
+      "candidate_eligible_counts": {
+        "positive_cell": 16,
+        "negative_cell": 16
+      },
+      "pair_stop_counts": {
+        "feedback_hit": 7,
+        "set_ramp_exhausted": 6,
+        "feedback_overshoot": 1
+      },
+      "matrix": {
+        "matrix": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "selected_model": "identity",
+        "selection_pass": true,
+        "training_design_rank": 2,
+        "training_design_condition": 5.5645139320565775
+      }
+    }
+  ],
+  "partial_points": 600,
+  "full_time_outputs": 0,
+  "quality": [],
+  "continuation_eligible": false,
+  "manifest_sha256": "52d20e36fa3f2e79b20aa5de72c58457af3b450abe6ce8f0edba5fedb0ab78b3",
+  "limitations": [
+    "Consistency PASS is not physical-fidelity PASS.",
+    "Quiet reset is a mode10 screening result, not a proven conductance state.",
+    "Source-specific fixed gain is provisional; HW and SIM target voltages differ.",
+    "Sample SD and one-ADC floor are engineering uncertainty, not a confidence interval."
+  ],
+  "golden_validation": {
+    "maximum_float64_vs_float32_difference": 1.14245456650508e-06,
+    "golden_absolute_tolerance": 1e-05,
+    "spike_mismatches": 0
+  },
+  "audit_status": "passed",
+  "checks": 457086,
+  "errors": [],
+  "auditor_sha256": "cde63401e787770523e002bc9f4a970dea1d528c3367d41ef7d0d05b2c13a5ee",
+  "independent_helper_sha256": "4d9ff520d22a5142ef040c2c50f3c0d61f1558579cbf0411803f606865110a94",
+  "hardware_io": false
+}
