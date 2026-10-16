@@ -1,4 +1,4 @@
-"""Pure draft routing API: no Connector imports, acquisition or executable entrypoint."""
+"""Pure bounded routing API: no Connector imports, acquisition or executable entrypoint."""
 import copy
 
 BLOCKS=(
@@ -16,11 +16,11 @@ BLOCKS=(
          maximum_impacts=18957,maximum_writes=2466),
 )
 
-PLAN=dict(protocol_id='cifar-feedback-remaining-reserves-draft-v1',draft=True,
-    native_execution_enabled=False,maximum_impacts=40378,maximum_writes=5260,
+PLAN=dict(protocol_id='cifar-feedback-remaining-reserves-v1',draft=False,
+    native_execution_enabled=True,maximum_impacts=40378,maximum_writes=5260,
     fresh_coefficients=20,imported_coefficients=280,new_partial_records=1200,
-    blocks=BLOCKS,parent_bindings={'hardware':None,'simulator':None},
-    parent_policy='freeze actual completed-A parent; otherwise audited baseline plus separately bound failed-A evidence',
+    blocks=BLOCKS,parent_bindings={'hardware': {'source': 'hardware', 'choice': 'completed_A', 'session': 'results/cifar_feedback_reserve/e17464e9-a601-4b7e-adf5-8a1d56de41d2', 'manifest_sha256': '83afba83e474cbd453fb82c5785123f9751eca32605cb33cb9a725af8f8cf9fe', 'audit_path': 'results/cifar_feedback_reviews/reserve_hardware_20261016/audit.json', 'audit_sha256': 'eeeb47b7a4f5cd98fec4fc99fc749b7d9af13ffe529f09e0aa1213d921d095a9'}, 'simulator': {'source': 'simulator', 'choice': 'completed_A', 'session': 'results/cifar_feedback_reserve/55134577-a813-4d1b-a3de-67c81ab285ca', 'manifest_sha256': '8d728c0b8a94c1282f5f4120ffb7abf90b755c7bdcd652fd48eec334343debbc', 'audit_path': 'results/cifar_feedback_reviews/reserve_simulator_20261016/audit.json', 'audit_sha256': '6691aa35788b1d06f281b44ec0c5c70d84c42bfb9a1265e30f76d9d5f2e30fe8'}},
+    parent_policy='fixed audited completed-A parent per backend; no automatic substitution',
     automatic_parent_fallback=False,maximum_sweeps_per_block=1,automatic_retry=False)
 
 

@@ -107,8 +107,20 @@ class RemainingAuditTests(unittest.TestCase):
         with self.assertRaises(ValueError):audit.historical_totals('base',parent,('failedA',failed))
 
     def test_actual_session_cannot_pass_without_final_pins(self):
-        with self.assertRaisesRegex(ValueError,'not frozen'):
-            audit.verify_manifest(PUBLIC,PUBLIC,audit.CompactChecks())
+        with patch.object(audit,'FINAL_PINS',{}):
+            with self.assertRaisesRegex(ValueError,'not frozen'):
+                audit.verify_manifest(PUBLIC,PUBLIC,audit.CompactChecks())
+
+    def test_final_source_bytes_and_actual_parent_bindings(self):
+        for name,digest in audit.FINAL_PINS.items():
+            self.assertEqual(audit.sha(PUBLIC/name),digest)
+        plan=audit.load(PUBLIC/'configs/cifar_feedback_remaining_reserves.json')
+        self.assertEqual(plan['protocol_id'],audit.FINAL_PROTOCOL)
+        self.assertFalse(plan['draft']);self.assertTrue(plan['native_execution_enabled'])
+        for source,binding in plan['parent_bindings'].items():
+            self.assertEqual(binding['source'],source);self.assertEqual(binding['choice'],'completed_A')
+            self.assertEqual(audit.sha(PUBLIC/binding['session']/'manifest.json'),binding['manifest_sha256'])
+            self.assertEqual(audit.sha(PUBLIC/binding['audit_path']),binding['audit_sha256'])
 
     @unittest.skipUnless(HAS_A_PARENT,'Audited historical A session is not present')
     def test_exact280_import_excludes_all_old_BC(self):

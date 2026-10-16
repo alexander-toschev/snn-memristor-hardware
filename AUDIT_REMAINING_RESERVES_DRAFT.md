@@ -1,44 +1,41 @@
-# Independent B/C auditor draft
+# Independent B/C audit  final source freeze
 
-The implementation is `audit_cifar_feedback_remaining_reserves.py`; tests are `test_audit_remaining_reserves.py`. Only SHA-pinned independent A/adaptive audit helpers are imported. No collector, driver, converter package or backend is imported/executed.
+Protocol: `cifar-feedback-remaining-reserves-v1`. The filename retains its historical DRAFT suffix; the auditor now accepts only the reviewed final source/config pins and actual completed-A bindings. It never starts an acquisition or imports a collector/driver.
 
-## Verified saved synthetic journals
+## Final validation
 
-- `replay_success_v2/audit.json`: PASS323048 checks,0 errors;12938 calls,20 writes,1200 fresh partials.
-- `replay_capacity_v2/audit.json`: PASS196954 checks,0 errors;7789 calls,229 writes; complete B screening fails capacity before SET, then C completes600 partials. No full300 summary.
--13 offline tests PASS, including route/preference and partial-contribution mutation, forbidden partials after failed B, unknown/duplicate/reordered candidates, ancestor file tampering, cross-source parent, exact280+20 mathematical coverage, missing block, failed-A new-only accounting and actual-session fail-closed gate.
+-17 offline tests PASS. Eleven original self-contained routing/accounting/provenance checks plus final-source/parent checks and evidence-dependent mutation tests cover the frozen contract. Five optional evidence-dependent tests explicitly skip on a checkout lacking saved synthetic journals or the historical A session; skips are never counted as passes. All17 ran here.
+- Saved synthetic B+C journals:323048 checks,0 errors,12938 calls/20 writes/1200 partials.
+- Saved synthetic B capacity miss followed by the single planned C:196954 checks,0 errors,7789 calls/229 writes/600 C partials, no full300 result.
+- Real completed-A parent branches: HW1131 checks/0 errors, SIM1440/0. Exact280 retained,20 excluded, A13 retained and recursive42 preserved. Parent cumulative totals are HW394315/32213 and SIM572402/36893. This verifies audit/result commitments and ancestry, not a repeat numerical raw replay.
 
-These are explicitly FakeConnector synthetic fixtures, not native SIM or hardware runs. No parent provenance is asserted for synthetic fixtures. The in-memory280+20 composition in a unit test is a mathematical coverage test only and is never saved as acquired data.
+The historical synthetic checks used the explicitly marked89764591 draft fixtures. Those are FakeConnector journals, not native SIM or hardware. Final runtime changes enable fixed real-parent metadata/CLI; the acquisition mathematics is unchanged. Actual native B/C acquisition and its final session audit remain to be performed by the root agent after clean source commit.
 
-## Independent coverage
+## Independent checks
 
-Raw chunks and complete request/result ledgers are replayed for both new blocks. This includes native ADC conversion, latest-mode7 native-R current guards, RESET confirmations, exact candidate pools, simultaneous preferred reservation before ordinary fill, deterministic route, pair feedback, all writes/skips, fixed-gain fidelity, fresh C fit/selection/freeze,600 actual partials per block, final anchors and readback. B precedes C in recorded monotonic time. The bounds are independently derived from immutable real CIFAR fixture and routing: B21421/2794,C18957/2466,total40378/5260.
+The auditor verifies chunk SHA/order, native ADC conversions and task/result pairs, latest valid mode7 native-R guards, RESET confirmations, exact pools, preferred reservation before ordinary fill, bounded residual-selected SET, fresh C fitting/selection/freeze, fixed gain and every new CIFAR contribution. B/C budgets are independently derived from the immutable real fixture:21421/2794 and18957/2466, total40378 impacts/5260 decisions. C follows B once. Only complete scientific capacity failure permits continuation; no repeated screening or historical fallback.
 
-The session path implements parent manifest/audit/hash binding, recursive verified42 ancestry through the pinned A auditor, exact exclusion B11+C9, retained280 origins, separate ancestor accounting and full300/2400 sum75Р Р†РІР‚В РІР‚в„ўtrainedBNР Р†РІР‚В РІР‚в„ўLIF only when both new blocks complete. Completed-A and baseline-plus-failed-A are distinct fixed choices; a failed A contributes only its new attempts once. Any scientific capacity failure prevents a full summary and preserves the completed other block without historical fallback.
+A completed manifest must bind completed_microtiles.json and summary.json; any present partial checkpoint, summary or capacity_failures.json must also be hash-bound. Declared limits independently equal40378/5260/5260 and20 new/280 imported coefficients. Mutation tests cover absent commitments and every declaration.
 
-## Remaining freeze requirements / honest limitations
+Each completed block produces600 fresh partials. Complete composition requires all300 unique coefficients and2400 time outputs, summing75 taps before trained BN and one digital LIF update. Fitted alpha is diagnostic only; fixed gains are hardware1 and simulator0.03. Parent choice cannot switch at runtime. Only20 coefficients are newly measured;280 retain historical acquisition states and are not claimed to coexist physically.
 
-`FINAL_PINS` and `FINAL_PROTOCOL` are intentionally empty. Real-session auditing fails before reading acquisition data until the final B/C runtime/config/dispatcher and actual source-specific parent bindings are reviewed. No hardware parent UUID/hash was invented. Source snapshot for synthetic fixtures is89764591Р Р†Р вЂљР’В¦; actual final runtime may change only through an explicit reviewed freeze.
+## Limitations
 
-Interrupted/transport-error raw is currently unsupported by the inherited complete-ledger replayer and produces audit failure with an explicit error. It is never reported as a consistency PASS or a complete acquisition. The auditor never modifies input journals. Scientific route-capacity failures with complete screening are fully supported and independently replayed. Parent historical raw is verified through pinned completed audit and all file hashes, rather than expensively replayed again.
+Consistency PASS does not establish weight fidelity or full CIFAR classification accuracy. Transport/interrupted raw currently fails closed under the inherited complete-ledger replayer; it is never labeled complete or consistency-PASS. Complete scientific route-capacity failures are supported. The baseline-plus-failed-A accounting branch has synthetic tests but no real failed-A end-to-end exercise, and the frozen current config selects completed-A for both backends. No unknown hardware binding was invented.
 
-Actual session-level ancestry/composition code remains unexercised end-to-end until real frozen B/C evidence exists. Synthetic block replay and independent unit tests do not substitute for that future check. Quality failure remains separate from technical completeness.
+## Reproduction
 
-## Reproduce after promotion
-
-From public repository root, run the unit-test command below. Eleven self-contained tests use only tracked code/weight artifacts and temporary local files. Five additional tests explicitly skip if the optional saved synthetic journals or historical A session are absent. Skips are not passes; the current16/16 result used all original evidence. The synthetic replay command is run from the enclosing workspace root, because the saved fixture directory remains outside the public checkout. No source/raw files were copied into the public repository by this promotion.
+From repository root:
 
 ```text
 python -m unittest test_audit_remaining_reserves -v
+python audit_cifar_feedback_remaining_reserves.py --session results/cifar_feedback_remaining_reserves/UUID --output results/cifar_feedback_reviews/remaining_UUID
+```
+
+Output must be a new directory outside the immutable session. For the saved synthetic draft fixtures, run from the enclosing workspace root:
+
+```text
 python .tmp/hardware-public/audit_cifar_feedback_remaining_reserves.py --repo . --session .tmp/reserve_remaining_draft/synthetic_fixtures/success --synthetic-fixture --synthetic-plan .tmp/reserve_remaining_draft/configs/cifar_feedback_remaining_reserves.json --output .tmp/reserve_remaining_audit_draft/replay_success_NEW
 ```
 
-For the failure fixture replace `success` with `capacity_failure` and choose a new output folder. Outputs may never be inside the source session. Existing reports are not overwritten.
-
-## Deliberately disabled real-session CLI
-
-`FINAL_PINS={}` and `FINAL_PROTOCOL=None` remain unchanged. Calling the ordinary session audit cannot produce PASS until reviewed final pins are supplied. This tool has no backend-start operation. Its synthetic pins describe the saved89764591РІР‚В¦ draft fixtures, not the later runtime snapshot. The separate A runtime/config/dispatcher/auditor are untouched.
-
-## Manifest commitment hardening
-
-The manifest must bind both completed_microtiles.json and summary.json for a completed acquisition. Whenever a partial checkpoint, summary or capacity_failures.json exists, its root artifact must also be present in result_sha256; all listed bytes are hash-checked. Manifest declarations independently equal40378 impacts,5260 pulses,5260 decisions,20 new coefficients and280 imported coefficients. Three additional mutation tests remove these commitments or change each declaration. The current suite has16 tests; the earlier13-test and synthetic replay results above remain historical evidence, not an assertion of a new backend run.
+Both completed-A parent source/result chains are preserved. A runtime/config/auditor were not changed. Only the programmer's separate approved dispatcher change adds the B/C launch option.

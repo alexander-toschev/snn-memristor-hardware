@@ -1,0 +1,68 @@
+{
+  "offline": true,
+  "new_backend_calls": 0,
+  "collector_imported": false,
+  "results": {
+    "hardware": {
+      "status": "passed",
+      "checks": 1131,
+      "errors": [],
+      "parent_binding": {
+        "source": "hardware",
+        "choice": "completed_A",
+        "session": "results/cifar_feedback_reserve/e17464e9-a601-4b7e-adf5-8a1d56de41d2",
+        "manifest_sha256": "83afba83e474cbd453fb82c5785123f9751eca32605cb33cb9a725af8f8cf9fe",
+        "audit_path": "results/cifar_feedback_reviews/reserve_hardware_20261016/audit.json",
+        "audit_sha256": "eeeb47b7a4f5cd98fec4fc99fc749b7d9af13ffe529f09e0aa1213d921d095a9"
+      },
+      "parent_audit_checks": 406552,
+      "retained_coefficients": 280,
+      "retained_wrappers": 26,
+      "retained_A13": 13,
+      "ancestral42": 42,
+      "excluded20": 20,
+      "parent_cumulative_impacts": 394315,
+      "parent_cumulative_pulses": 32213,
+      "historical_attempt_ledger": [
+        {
+          "session": "results/cifar_feedback_reserve/e17464e9-a601-4b7e-adf5-8a1d56de41d2",
+          "impact_attempts": 394315,
+          "programming_pulse_attempts": 32213,
+          "accounting_scope": "parent_with_all_ancestry_already_included"
+        }
+      ]
+    },
+    "simulator": {
+      "status": "passed",
+      "checks": 1440,
+      "errors": [],
+      "parent_binding": {
+        "source": "simulator",
+        "choice": "completed_A",
+        "session": "results/cifar_feedback_reserve/55134577-a813-4d1b-a3de-67c81ab285ca",
+        "manifest_sha256": "8d728c0b8a94c1282f5f4120ffb7abf90b755c7bdcd652fd48eec334343debbc",
+        "audit_path": "results/cifar_feedback_reviews/reserve_simulator_20261016/audit.json",
+        "audit_sha256": "6691aa35788b1d06f281b44ec0c5c70d84c42bfb9a1265e30f76d9d5f2e30fe8"
+      },
+      "parent_audit_checks": 355033,
+      "retained_coefficients": 280,
+      "retained_wrappers": 26,
+      "retained_A13": 13,
+      "ancestral42": 42,
+      "excluded20": 20,
+      "parent_cumulative_impacts": 572402,
+      "parent_cumulative_pulses": 36893,
+      "historical_attempt_ledger": [
+        {
+          "session": "results/cifar_feedback_reserve/55134577-a813-4d1b-a3de-67c81ab285ca",
+          "impact_attempts": 572402,
+          "programming_pulse_attempts": 36893,
+          "accounting_scope": "parent_with_all_ancestry_already_included"
+        }
+      ]
+    }
+  },
+  "auditor_file_sha256_read_at_report_end": "0b1093add45acf1d007f0dea0ef055c61c6d2e62404825bc1b1ed9046e452448",
+  "loaded_auditor_snapshot_sha256": "0b1093add45acf1d007f0dea0ef055c61c6d2e62404825bc1b1ed9046e452448",
+  "snapshot_note": "Parent exercise imported the prior reviewed snapshot before FINAL_PINS activation. Parent verifier code was unchanged; file-at-end SHA is separately labeled and is not claimed as the imported snapshot."
+}

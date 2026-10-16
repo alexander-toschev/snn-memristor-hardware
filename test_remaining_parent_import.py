@@ -94,7 +94,7 @@ def verify(repo,output):
         (output/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         (output/'REPORT.md').write_text('# Offline A to B/C import verification\n\n'+
             f"{report['status']}: {len(report['checks'])} checks, {len(report['errors'])} errors.\n\n"+
-            'Actual simulator A parent, temporary in-memory binding only. Public configuration remains disabled.\n'+
+            'Actual simulator A parent, temporary in-memory binding only. Public configuration unchanged by this offline check.\n'+
             'Retained280, excluded20 and ancestral42 checks, exact origins, cumulative counters and rejection cases are in report.json.\n'+
             'No acquisition, no new raw numerical audit, no hardware parent binding.\n',encoding='utf-8')
     print(json.dumps({k:report[k] for k in ('status','errors','runtime_sha256')}))

@@ -1,4 +1,4 @@
-"""Draft acquisition tests use FakeConnector only; production entrypoint stays blocked."""
+"""Offline tests: FakeConnector acquisition and immutable actual-parent imports."""
 import contextlib
 import copy
 import io
@@ -30,7 +30,7 @@ def synthetic_parent(routing):
 
 class CollectorTests(unittest.TestCase):
     @classmethod
-    def setUpClass(cls):cls.original_plan,cls.routing,cls.fixture=r.adaptive.load_inputs()
+    def setUpClass(cls):cls.original_plan,cls.routing,cls.fixture=r.load_inputs()
 
     def test_combined20_actual_fake_partials_and_exact280_composition(self):
         old=synthetic_parent(self.routing);chunks=r.import_other280(old,'synthetic_parent','test_only_digest')
@@ -154,13 +154,61 @@ class CollectorTests(unittest.TestCase):
             self.assertFalse((root/r.LOCK).exists())
 
     def test_draft_cannot_open_native_backend_and_missing_import_rejected(self):
-        with patch.object(r,'native_connector',side_effect=AssertionError('no backend')),contextlib.redirect_stdout(io.StringIO()):
+        disabled=copy.deepcopy(r.SPEC);disabled['draft']=True
+        with patch.object(r,'SPEC',disabled),patch.object(r,'native_connector',side_effect=AssertionError('no backend')),contextlib.redirect_stdout(io.StringIO()):
             self.assertEqual(r.main([]),0)
             with self.assertRaisesRegex(ValueError,'Draft'):r.main(['--run-simulator'])
             with self.assertRaisesRegex(ValueError,'Draft'):r.main(['--run-hardware'])
             with self.assertRaisesRegex(ValueError,'Draft'):r.main(['--dry-run'])
         old=synthetic_parent(self.routing)
         with self.assertRaises(ValueError):r.import_other280(old[:-1],'synthetic','digest')
+
+    def test_actual_both_A_parents_retained280_A13_origins_and_mutations(self):
+        for source in ('hardware','simulator'):
+            with self.subTest(source=source):
+                binding=r.SPEC['parent_bindings'][source]
+                if not r.local_path(binding['session']).exists():self.skipTest('Actual parent unavailable: '+source)
+                with patch.object(r,'native_connector',side_effect=AssertionError('No backend')):
+                    chunks,meta=r.verify_parent(source,self.routing,self.fixture,r.SPEC)
+                expected={(f,t) for f in range(4) for t in range(75)}-{(2,t) for t in range(11)}-{(1,t) for t in range(9)}
+                actual=[(c['filter_id'],s['tap_index']) for c in chunks for s in c['result']['effective_route']]
+                self.assertEqual(len(actual),280);self.assertEqual(set(actual),expected)
+                self.assertEqual(sum(len(c['result']['effective_route']) for c in chunks if (c['filter_id'],c['parent_tile_id'])==(3,4)),13)
+                original=json.loads((r.local_path(binding['session'])/'completed_microtiles.json').read_text(encoding='utf-8'))
+                for c in chunks:
+                    old=original[c['origin']['wrapper_index']]
+                    self.assertEqual(c['result'],old['result'])
+                    self.assertEqual(c['origin']['ancestry_original_origin'],old['origin'])
+                self.assertEqual((meta['parent_cumulative_impacts'],meta['parent_cumulative_pulses']),
+                                 (394315,32213) if source=='hardware' else (572402,36893))
+                self.assertEqual(len(meta['historical_attempt_ledger']),1)
+                for field in ('manifest_sha256','audit_sha256'):
+                    wrong=copy.deepcopy(r.SPEC);pin=wrong['parent_bindings'][source][field]
+                    wrong['parent_bindings'][source][field]=pin[:-1]+('0' if pin[-1]!='0' else '1')
+                    with self.assertRaisesRegex(ValueError,'SHA mismatch'):r.verify_parent(source,self.routing,self.fixture,wrong)
+                wrong=copy.deepcopy(r.SPEC);other='simulator' if source=='hardware' else 'hardware'
+                wrong['parent_bindings'][source]={**r.SPEC['parent_bindings'][other],'source':source}
+                with self.assertRaisesRegex(ValueError,'identity/status'):r.verify_parent(source,self.routing,self.fixture,wrong)
+                manifest=json.loads((r.local_path(binding['session'])/'manifest.json').read_text(encoding='utf-8'))
+                victim=next(n for n in manifest['result_sha256'] if n.endswith('raw.jsonl'))
+                victim=(r.local_path(binding['session'])/victim).resolve();original_sha=r.sha256
+                with patch.object(r,'sha256',side_effect=lambda p:'0'*64 if Path(p).resolve()==victim else original_sha(p)):
+                    with self.assertRaisesRegex(ValueError,'ancestor bytes changed'):r.verify_parent(source,self.routing,self.fixture,r.SPEC)
+
+    def test_dispatch_modes_invalid_options_and_preflight_no_connector(self):
+        import experiment
+        with contextlib.redirect_stdout(io.StringIO()),contextlib.redirect_stderr(io.StringIO()):
+            with patch.object(r,'main',return_value=19) as called:
+                for mode in ('--run-simulator','--run-hardware','--dry-run'):
+                    self.assertEqual(experiment.main(['--cifar-feedback-remaining-reserves',mode]),19)
+                    called.assert_called_with([mode])
+                for extra in ([],['--run-simulator','--run-hardware'],['--dry-run','--phase','phase1'],
+                              ['--dry-run','--cifar-resume-session','unknown'],['--dry-run','--cifar-feedback-reserve']):
+                    with self.assertRaises(SystemExit):experiment.main(['--cifar-feedback-remaining-reserves']+extra)
+            with patch.object(r,'native_connector',side_effect=AssertionError('No Connector during preflight')), \
+                 patch.object(r,'verify_parent',return_value=([],{'test_only':True})), \
+                 patch.object(r,'check_sources',return_value=(None,b'',{})):
+                self.assertEqual(experiment.main(['--cifar-feedback-remaining-reserves','--dry-run']),0)
 
 
 if __name__=='__main__':unittest.main()

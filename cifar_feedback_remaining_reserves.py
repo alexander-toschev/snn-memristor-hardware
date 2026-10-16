@@ -1,4 +1,4 @@
-"""DRAFT B/C acquisition: blocked at entrypoint until actual parent hashes are frozen."""
+"""Bounded B/C acquisition with immutable audited A parents and fixed reserves."""
 import argparse
 import copy
 import json
@@ -212,13 +212,13 @@ def verify_parent(source,routing,fixture,plan):
 
 
 def load_inputs():
-    require_parent_bindings(SPEC) # fail explicitly before any filesystem/backend work while draft
+    require_parent_bindings(SPEC) # reject disabled or unbound plans before any backend work
     for name,pin in PINS.items():
         if sha256(local_path(name))!=pin:raise ValueError('Frozen B/C dependency changed: '+name)
     _,routing,fixture=adaptive.load_inputs()
     plan=json.loads(local_path(CONFIG).read_text(encoding='utf-8'))
     if plan!=json.loads(json.dumps(SPEC)):raise ValueError('B/C protocol differs from reviewed snapshot')
-    require_parent_bindings(plan) # draft/unknown real parent cannot reach backend selection
+    require_parent_bindings(plan) # unknown parent cannot reach backend selection
     for block in BLOCKS:
         parent=routing['filters'][block['filter_id']]['tiles'][block['parent_tile_id']]
         active=slots(parent);count=sum(map(len,candidate_pools(block).values()))

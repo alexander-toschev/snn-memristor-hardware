@@ -44,8 +44,10 @@ class RemainingPlanTests(unittest.TestCase):
         self.assertTrue(quiet);self.assertTrue(all(d['status']=='quiet_but_route_capacity_abort' for d in quiet))
 
     def test_no_unbound_parent_or_automatic_fallback(self):
-        with self.assertRaises(ValueError):require_parent_bindings(PLAN)
-        plan=copy.deepcopy(PLAN);plan.update(draft=False,native_execution_enabled=True)
+        self.assertEqual(set(require_parent_bindings(PLAN)),{'hardware','simulator'})
+        plan=copy.deepcopy(PLAN);plan['draft']=True
+        with self.assertRaises(ValueError):require_parent_bindings(plan)
+        plan=copy.deepcopy(PLAN);plan['parent_bindings']['hardware']=None
         with self.assertRaises(ValueError):require_parent_bindings(plan)
         self.assertFalse(plan['automatic_parent_fallback']);self.assertFalse(plan['automatic_retry'])
 

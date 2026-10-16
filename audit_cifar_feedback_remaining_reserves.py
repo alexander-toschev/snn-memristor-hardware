@@ -1,4 +1,4 @@
-"""Independent B/C raw auditor draft. No collectors, drivers or backends imported.
+"""Independent B/C raw auditor for the frozen finite reserve protocol. No collectors, drivers or backends imported.
 Synthetic component replay does not establish native acquisition/parent provenance.
 """
 import argparse
@@ -14,9 +14,13 @@ from configparser import ConfigParser
 A_SHA='372f48a05abc652cda0f2c9d5891660a9c23429f53d18ea84749c587f5e10459'
 DRAFT_RUNTIME_SHA='89764591d65e3ffb082fe7094f353cd2b2ccd5fff362022d78fc31e5e1f95401'
 DRAFT_PLAN_SHA='87d2656587a5f1484243019d82434b8b89e25b81ebfd92818883a0188d59461b'
-# Filled only after final runtime/config/parent review. Actual-session audit fails closed meanwhile.
-FINAL_PINS={}
-FINAL_PROTOCOL=None
+# Frozen after review of the finite B/C protocol and both actual completed-A parents.
+FINAL_PINS={
+    'cifar_feedback_remaining_reserves.py':'4403648b91c9708724ad282f12a5d4c1cc0e37b9f75fc7c49568cdb2656e7724',
+    'reserve_remaining_plan.py':'e7ed4f737268b2555d7d02bb4d97f84ff52484e77f323896eae5dafff4ab456a',
+    'configs/cifar_feedback_remaining_reserves.json':'ebab6a06cdad535d9d12c74917b474f517e8f394feb6f01c78dd81665dc93437',
+    'experiment.py':'632c534f825750948aa089914aaae107e6b138b73a64181284caf7cf9a59e54a'}
+FINAL_PROTOCOL='cifar-feedback-remaining-reserves-v1'
 COUNTERS=('impact_attempts','programming_pulse_attempts','programming_decisions','programming_skipped_current')
 SPECS={
  'B':dict(fid=2,n=11,extra=[[5,15]],positive={0:[4,7]},negative={0:[5,6],1:[5,15]},calls=21421,writes=2794),
@@ -461,7 +465,7 @@ def main(argv=None):
         auditor_sha256=sha(Path(__file__)),independent_A_helper_sha256=A_SHA,hardware_io=False,
         limitations=['Consistency PASS is not accuracy or programmability qualification.',
             'New20 and retained280 are separated; no claim all weights coexist.',
-            'Actual-session validation is disabled until final source/config/parent pins are reviewed.',
+            'Actual-session validation accepts only the frozen reviewed B/C source/config/parent bindings.',
             'Scientific route-capacity failures are replayed fully. Transport/interrupted raw currently fails audit closed; it is never accepted as completed.'])
     output.mkdir(parents=True,exist_ok=False)
     (output/'audit.json').write_text(json.dumps(report,indent=2,ensure_ascii=False,allow_nan=False)+'\n',encoding='utf-8')
