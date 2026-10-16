@@ -1,0 +1,331 @@
+{
+  "technical_completed": true,
+  "cifar_acquisition": false,
+  "unique_trained_taps": 9,
+  "physical_cells": 18,
+  "cycles": 2,
+  "counters": {
+    "impact_attempts": 16589,
+    "programming_pulse_attempts": 1295,
+    "programming_decisions": 1295,
+    "programming_skipped_current": 0
+  },
+  "quiet_gate_failures": 3,
+  "programmed_pair_decisions": 15,
+  "cycle_final_physical_fidelity": [
+    {
+      "target_gain_v_per_weight": 1.0,
+      "raw_measured_weight": [
+        0.0,
+        0.023132,
+        -0.022768,
+        -0.032658,
+        0.049686,
+        0.047614,
+        0.074224,
+        0.000918,
+        0.048223999999999996
+      ],
+      "raw_target_errors": [
+        -0.02245257794857025,
+        0.0005433297462463377,
+        -0.00018889629173278813,
+        0.0006284299416542058,
+        -0.0024603416516780843,
+        -0.0029072955176830326,
+        -0.03104452309703827,
+        -0.0413713650829792,
+        -0.0020131788024902383
+      ],
+      "raw_target_rmse": 0.018852511975457713,
+      "raw_target_nrmse": 0.3705411147244916,
+      "one_adc_weight_resolution": 0.00031,
+      "quantization_floor_not_reduced_by_averaging": true,
+      "observed_weight_sd": [
+        0.0,
+        0.0006633023443347687,
+        0.0002728002932549741,
+        0.00021568495543268886,
+        0.0005014778160596935,
+        0.00030500819661117277,
+        0.0005014778160596926,
+        0.00021568495543268658,
+        0.0005282802286665662
+      ],
+      "resolved_sign_error_slots": [],
+      "target_significant_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "measured_sign_unresolved_significant_slots": [
+        0,
+        7
+      ],
+      "unresolved_quantization_slots": [],
+      "engineering_weight_uncertainty": [
+        0.00031,
+        0.000732168013505097,
+        0.0004129406737050734,
+        0.0003776506321985983,
+        0.0005895591573370732,
+        0.0004348907908889309,
+        0.0005895591573370724,
+        0.000377650632198597,
+        0.0006125193874482663
+      ],
+      "uncertainty_nrms": 0.010037821622547719,
+      "uncertainty_is_worstcase_bound": false,
+      "physical_fidelity_pass": false,
+      "uses_fitted_alpha_or_matrix": false
+    },
+    {
+      "target_gain_v_per_weight": 1.0,
+      "raw_measured_weight": [
+        0.0,
+        0.022278,
+        -0.000858,
+        -0.030456,
+        0.049626,
+        0.048708,
+        0.073062,
+        0.0008579999999999999,
+        0.047369999999999995
+      ],
+      "raw_target_errors": [
+        -0.02245257794857025,
+        -0.0003106702537536629,
+        0.02172110370826721,
+        0.002830429941654205,
+        -0.002520341651678082,
+        -0.0018132955176830279,
+        -0.03220652309703827,
+        -0.041431365082979205,
+        -0.002867178802490239
+      ],
+      "raw_target_rmse": 0.020427953266985665,
+      "raw_target_nrmse": 0.40150599479488797,
+      "one_adc_weight_resolution": 0.00031,
+      "quantization_floor_not_reduced_by_averaging": true,
+      "observed_weight_sd": [
+        0.0,
+        0.0003755928646819588,
+        0.000138636214604987,
+        0.0003961439132436597,
+        0.0006331903347335619,
+        0.0005103626161857857,
+        0.0002728002932549741,
+        0.0005447660048130756,
+        0.00033548472394432424
+      ],
+      "resolved_sign_error_slots": [],
+      "target_significant_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "measured_sign_unresolved_significant_slots": [
+        0,
+        2,
+        7
+      ],
+      "unresolved_quantization_slots": [],
+      "engineering_weight_uncertainty": [
+        0.00031,
+        0.00048700102669296314,
+        0.000339587985653203,
+        0.0005030208743183529,
+        0.0007050035460903726,
+        0.0005971348256466035,
+        0.0004129406737050734,
+        0.000626793426895975,
+        0.0004567822238222493
+      ],
+      "uncertainty_nrms": 0.009994668086785995,
+      "uncertainty_is_worstcase_bound": false,
+      "physical_fidelity_pass": false,
+      "uses_fitted_alpha_or_matrix": false
+    }
+  ],
+  "final_state_fidelity_pass": false,
+  "programming_fidelity_pass": false,
+  "programming_repeatability_qualified": false,
+  "decisions": [
+    {
+      "cycle": 0,
+      "pair_index": 0,
+      "pair_tap": 0,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 1223,
+      "programming_pulse_attempts": 109
+    },
+    {
+      "cycle": 0,
+      "pair_index": 1,
+      "pair_tap": 1,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 794,
+      "programming_pulse_attempts": 52
+    },
+    {
+      "cycle": 0,
+      "pair_index": 2,
+      "pair_tap": 2,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 800,
+      "programming_pulse_attempts": 52
+    },
+    {
+      "cycle": 0,
+      "pair_index": 3,
+      "pair_tap": 3,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 802,
+      "programming_pulse_attempts": 54
+    },
+    {
+      "cycle": 0,
+      "pair_index": 4,
+      "pair_tap": 4,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 967,
+      "programming_pulse_attempts": 78
+    },
+    {
+      "cycle": 0,
+      "pair_index": 5,
+      "pair_tap": 5,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 1137,
+      "programming_pulse_attempts": 113
+    },
+    {
+      "cycle": 0,
+      "pair_index": 6,
+      "pair_tap": 6,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 1271,
+      "programming_pulse_attempts": 121
+    },
+    {
+      "cycle": 0,
+      "pair_index": 7,
+      "pair_tap": 7,
+      "outcome": "fresh_quiet_gate_failed_no_SET",
+      "impact_attempts": 496,
+      "programming_pulse_attempts": 14
+    },
+    {
+      "cycle": 0,
+      "pair_index": 8,
+      "pair_tap": 8,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 995,
+      "programming_pulse_attempts": 82
+    },
+    {
+      "cycle": 1,
+      "pair_index": 0,
+      "pair_tap": 0,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 1223,
+      "programming_pulse_attempts": 109
+    },
+    {
+      "cycle": 1,
+      "pair_index": 1,
+      "pair_tap": 1,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 795,
+      "programming_pulse_attempts": 53
+    },
+    {
+      "cycle": 1,
+      "pair_index": 2,
+      "pair_tap": 2,
+      "outcome": "fresh_quiet_gate_failed_no_SET",
+      "impact_attempts": 476,
+      "programming_pulse_attempts": 9
+    },
+    {
+      "cycle": 1,
+      "pair_index": 3,
+      "pair_tap": 3,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 799,
+      "programming_pulse_attempts": 54
+    },
+    {
+      "cycle": 1,
+      "pair_index": 4,
+      "pair_tap": 4,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 956,
+      "programming_pulse_attempts": 76
+    },
+    {
+      "cycle": 1,
+      "pair_index": 5,
+      "pair_tap": 5,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 1152,
+      "programming_pulse_attempts": 116
+    },
+    {
+      "cycle": 1,
+      "pair_index": 6,
+      "pair_tap": 6,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 1271,
+      "programming_pulse_attempts": 121
+    },
+    {
+      "cycle": 1,
+      "pair_index": 7,
+      "pair_tap": 7,
+      "outcome": "fresh_quiet_gate_failed_no_SET",
+      "impact_attempts": 444,
+      "programming_pulse_attempts": 1
+    },
+    {
+      "cycle": 1,
+      "pair_index": 8,
+      "pair_tap": 8,
+      "outcome": "programmed_diagnostic",
+      "impact_attempts": 988,
+      "programming_pulse_attempts": 81
+    }
+  ],
+  "session_id": "ceedcbde-8443-4518-ae4e-8d901f2b3ddd",
+  "source": "hardware",
+  "manifest_sha256": "361f0f8759941e481281f2847eb9823fc4bb5db3c4fbcbc402007897c2e227aa",
+  "provenance": {
+    "recorded_dirty_tracked": false,
+    "recorded_tracked_changes": [],
+    "known_nonexecuted_journal_edit": false,
+    "warning": null
+  },
+  "audit_status": "passed",
+  "checks": 419753,
+  "errors": [],
+  "auditor_sha256": "266faf7a06f2dac6dcaa2d2418426d3b6de2ba3de7ea23cdee22f3cb8399fac4",
+  "helper_sha256": "e7367990b6fc2a00f65e3bb0c4e4e5bf097b9f6b21a00700355edb84e0cbc70f",
+  "hardware_io": false,
+  "limitations": [
+    "PASS validates capture/protocol, not physical programming accuracy or all114 cells.",
+    "Interrupted/current-stop/transport sessions fail closed; this auditor does not certify partial acquisition.",
+    "Two fixed-order cycles are not randomized causal controls."
+  ]
+}
