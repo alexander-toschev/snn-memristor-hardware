@@ -1,0 +1,5253 @@
+{
+  "filter_id": 0,
+  "tile_id": 3,
+  "status": "failed",
+  "programming": [],
+  "partials": [],
+  "reset_candidates": [
+    {
+      "side": "positive_cell",
+      "candidate_index": 0,
+      "cell": [
+        0,
+        0
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 2,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 3,
+          "raw_adc": 129,
+          "voltage_v": 0.03937
+        },
+        "zero_after": {
+          "task_id": 4,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.03937
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 61,
+          "q": 0.01605941789963253
+        },
+        {
+          "task_id": 62,
+          "q": 0.016126305131194823
+        },
+        {
+          "task_id": 63,
+          "q": 0.016166477486220528
+        },
+        {
+          "task_id": 64,
+          "q": 0.016179873120376786
+        },
+        {
+          "task_id": 65,
+          "q": 0.016153080294514708
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 66,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 67,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 68,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 69,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 70,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 71,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 72,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 73,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 74,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 75,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 76,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 77,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 78,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 79,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 80,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 80,
+      "programming_pulse_attempts": 14,
+      "programming_decisions": 14,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 1,
+      "cell": [
+        0,
+        1
+      ],
+      "status": "completed",
+      "eligible": false,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 82,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 83,
+          "raw_adc": 2301,
+          "voltage_v": 0.70225
+        },
+        "zero_after": {
+          "task_id": 84,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.70225
+      },
+      "reset_stop": "reset_ramp_exhausted",
+      "reset_crossed": false,
+      "q_confirmation": [
+        {
+          "task_id": 305,
+          "q": 0.17782088587132233
+        },
+        {
+          "task_id": 306,
+          "q": 0.17789086126130013
+        },
+        {
+          "task_id": 307,
+          "q": 0.17782088587132233
+        },
+        {
+          "task_id": 308,
+          "q": 0.17789086126130013
+        },
+        {
+          "task_id": 309,
+          "q": 0.17782088587132233
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 310,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 311,
+            "raw_adc": 2298,
+            "voltage_v": 0.70134
+          },
+          "zero_after": {
+            "task_id": 312,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.70134
+        },
+        {
+          "zero_before": {
+            "task_id": 313,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 314,
+            "raw_adc": 2301,
+            "voltage_v": 0.70225
+          },
+          "zero_after": {
+            "task_id": 315,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.70225
+        },
+        {
+          "zero_before": {
+            "task_id": 316,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 317,
+            "raw_adc": 2300,
+            "voltage_v": 0.70195
+          },
+          "zero_after": {
+            "task_id": 318,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.70195
+        },
+        {
+          "zero_before": {
+            "task_id": 319,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 320,
+            "raw_adc": 2294,
+            "voltage_v": 0.70012
+          },
+          "zero_after": {
+            "task_id": 321,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.70012
+        },
+        {
+          "zero_before": {
+            "task_id": 322,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 323,
+            "raw_adc": 2305,
+            "voltage_v": 0.70347
+          },
+          "zero_after": {
+            "task_id": 324,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.70347
+        }
+      ],
+      "baseline_mvm_mean_v": 0.701826,
+      "baseline_mvm_sd_v": 0.0012292802772354554,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 244,
+      "programming_pulse_attempts": 55,
+      "programming_decisions": 55,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 2,
+      "cell": [
+        0,
+        2
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 326,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 327,
+          "raw_adc": 45,
+          "voltage_v": 0.01373
+        },
+        "zero_after": {
+          "task_id": 328,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.01373
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 361,
+          "q": 0.014775678337960061
+        },
+        {
+          "task_id": 362,
+          "q": 0.014775678337960061
+        },
+        {
+          "task_id": 363,
+          "q": 0.014801883517250475
+        },
+        {
+          "task_id": 364,
+          "q": 0.014775678337960061
+        },
+        {
+          "task_id": 365,
+          "q": 0.014788775946459252
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 366,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 367,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 368,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 369,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 370,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 371,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 372,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 373,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 374,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 375,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 376,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 377,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 378,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 379,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 380,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 56,
+      "programming_pulse_attempts": 8,
+      "programming_decisions": 8,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 3,
+      "cell": [
+        0,
+        3
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 382,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 383,
+          "raw_adc": 74,
+          "voltage_v": 0.02258
+        },
+        "zero_after": {
+          "task_id": 384,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.02258
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 437,
+          "q": 0.01219729907444677
+        },
+        {
+          "task_id": 438,
+          "q": 0.01219729907444677
+        },
+        {
+          "task_id": 439,
+          "q": 0.01220986312743434
+        },
+        {
+          "task_id": 440,
+          "q": 0.012222425929321044
+        },
+        {
+          "task_id": 441,
+          "q": 0.01220986312743434
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 442,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 443,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 444,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 445,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 446,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 447,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 448,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 449,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 450,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 451,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 452,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 453,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 454,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 455,
+            "raw_adc": 1,
+            "voltage_v": 0.00031
+          },
+          "zero_after": {
+            "task_id": 456,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00031
+        }
+      ],
+      "baseline_mvm_mean_v": 6.2e-05,
+      "baseline_mvm_sd_v": 0.00013863621460498697,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 76,
+      "programming_pulse_attempts": 13,
+      "programming_decisions": 13,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 4,
+      "cell": [
+        0,
+        4
+      ],
+      "status": "completed",
+      "eligible": false,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 458,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 459,
+          "raw_adc": 47,
+          "voltage_v": 0.01434
+        },
+        "zero_after": {
+          "task_id": 460,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.01434
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 493,
+          "q": 0.014292885478038548
+        },
+        {
+          "task_id": 494,
+          "q": 0.014279891057412952
+        },
+        {
+          "task_id": 495,
+          "q": 0.014292885478038548
+        },
+        {
+          "task_id": 496,
+          "q": 0.014292885478038548
+        },
+        {
+          "task_id": 497,
+          "q": 0.014292885478038548
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 498,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 499,
+            "raw_adc": 3,
+            "voltage_v": 0.00092
+          },
+          "zero_after": {
+            "task_id": 500,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00092
+        },
+        {
+          "zero_before": {
+            "task_id": 501,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 502,
+            "raw_adc": 2,
+            "voltage_v": 0.00061
+          },
+          "zero_after": {
+            "task_id": 503,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00061
+        },
+        {
+          "zero_before": {
+            "task_id": 504,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 505,
+            "raw_adc": 2,
+            "voltage_v": 0.00061
+          },
+          "zero_after": {
+            "task_id": 506,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00061
+        },
+        {
+          "zero_before": {
+            "task_id": 507,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 508,
+            "raw_adc": 3,
+            "voltage_v": 0.00092
+          },
+          "zero_after": {
+            "task_id": 509,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00092
+        },
+        {
+          "zero_before": {
+            "task_id": 510,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 511,
+            "raw_adc": 1,
+            "voltage_v": 0.00031
+          },
+          "zero_after": {
+            "task_id": 512,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00031
+        }
+      ],
+      "baseline_mvm_mean_v": 0.000674,
+      "baseline_mvm_sd_v": 0.00025579288496750647,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 56,
+      "programming_pulse_attempts": 8,
+      "programming_decisions": 8,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 5,
+      "cell": [
+        0,
+        5
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 514,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 515,
+          "raw_adc": 154,
+          "voltage_v": 0.047
+        },
+        "zero_after": {
+          "task_id": 516,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.047
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 565,
+          "q": 0.011671975057343
+        },
+        {
+          "task_id": 566,
+          "q": 0.011622177791849613
+        },
+        {
+          "task_id": 567,
+          "q": 0.01160973557244088
+        },
+        {
+          "task_id": 568,
+          "q": 0.011647072525967679
+        },
+        {
+          "task_id": 569,
+          "q": 0.01165952079369538
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 570,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 571,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 572,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 573,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 574,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 575,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 576,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 577,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 578,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 579,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 580,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 581,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 582,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 583,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 584,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 72,
+      "programming_pulse_attempts": 12,
+      "programming_decisions": 12,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 6,
+      "cell": [
+        0,
+        6
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 586,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 587,
+          "raw_adc": 156,
+          "voltage_v": 0.04761
+        },
+        "zero_after": {
+          "task_id": 588,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.04761
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 641,
+          "q": 0.012701853623838839
+        },
+        {
+          "task_id": 642,
+          "q": 0.012714523877683199
+        },
+        {
+          "task_id": 643,
+          "q": 0.012701853623838839
+        },
+        {
+          "task_id": 644,
+          "q": 0.012701853623838839
+        },
+        {
+          "task_id": 645,
+          "q": 0.012701853623838839
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 646,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 647,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 648,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 649,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 650,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 651,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 652,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 653,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 654,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 655,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 656,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 657,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 658,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 659,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 660,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 76,
+      "programming_pulse_attempts": 13,
+      "programming_decisions": 13,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 7,
+      "cell": [
+        0,
+        7
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 662,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 663,
+          "raw_adc": 47,
+          "voltage_v": 0.01434
+        },
+        "zero_after": {
+          "task_id": 664,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.01434
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 729,
+          "q": 0.007965475216630753
+        },
+        {
+          "task_id": 730,
+          "q": 0.007965475216630753
+        },
+        {
+          "task_id": 731,
+          "q": 0.007942070059647354
+        },
+        {
+          "task_id": 732,
+          "q": 0.007965475216630753
+        },
+        {
+          "task_id": 733,
+          "q": 0.007977180429317346
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 734,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 735,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 736,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 737,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 738,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 739,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 740,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 741,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 742,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 743,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 744,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 745,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 746,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 747,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 748,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 88,
+      "programming_pulse_attempts": 16,
+      "programming_decisions": 16,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 8,
+      "cell": [
+        0,
+        8
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 750,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 751,
+          "raw_adc": 602,
+          "voltage_v": 0.18373
+        },
+        "zero_after": {
+          "task_id": 752,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.18373
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 881,
+          "q": 0.0019990966506286613
+        },
+        {
+          "task_id": 882,
+          "q": 0.0019990966506286613
+        },
+        {
+          "task_id": 883,
+          "q": 0.002009644588873609
+        },
+        {
+          "task_id": 884,
+          "q": 0.002030746236473384
+        },
+        {
+          "task_id": 885,
+          "q": 0.0019990966506286613
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 886,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 887,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 888,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 889,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 890,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 891,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 892,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 893,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 894,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 895,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 896,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 897,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 898,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 899,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 900,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": true,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 152,
+      "programming_pulse_attempts": 32,
+      "programming_decisions": 32,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 9,
+      "cell": [
+        0,
+        9
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 902,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 903,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 904,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 905,
+          "q": 0.009892658658009892
+        },
+        {
+          "task_id": 906,
+          "q": 0.009904749327302441
+        },
+        {
+          "task_id": 907,
+          "q": 0.009916845745868506
+        },
+        {
+          "task_id": 908,
+          "q": 0.009904749327302441
+        },
+        {
+          "task_id": 909,
+          "q": 0.00992894187266463
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 910,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 911,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 912,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 913,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 914,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 915,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 916,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 917,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 918,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 919,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 920,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 921,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 922,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 923,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 924,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 10,
+      "cell": [
+        0,
+        10
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 926,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 927,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 928,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 929,
+          "q": 0.014396957268522014
+        },
+        {
+          "task_id": 930,
+          "q": 0.014423001277965326
+        },
+        {
+          "task_id": 931,
+          "q": 0.014423001277965326
+        },
+        {
+          "task_id": 932,
+          "q": 0.014383936020252583
+        },
+        {
+          "task_id": 933,
+          "q": 0.014396957268522014
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 934,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 935,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 936,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 937,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 938,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 939,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 940,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 941,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 942,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 943,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 944,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 945,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 946,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 947,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 948,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 11,
+      "cell": [
+        0,
+        11
+      ],
+      "status": "completed",
+      "eligible": false,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 950,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 951,
+          "raw_adc": 19,
+          "voltage_v": 0.0058
+        },
+        "zero_after": {
+          "task_id": 952,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0058
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 989,
+          "q": 0.016046049243866396
+        },
+        {
+          "task_id": 990,
+          "q": 0.01605941789963253
+        },
+        {
+          "task_id": 991,
+          "q": 0.016072785364998347
+        },
+        {
+          "task_id": 992,
+          "q": 0.016072785364998347
+        },
+        {
+          "task_id": 993,
+          "q": 0.016086159419689362
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 994,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 995,
+            "raw_adc": 1,
+            "voltage_v": 0.00031
+          },
+          "zero_after": {
+            "task_id": 996,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00031
+        },
+        {
+          "zero_before": {
+            "task_id": 997,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 998,
+            "raw_adc": 1,
+            "voltage_v": 0.00031
+          },
+          "zero_after": {
+            "task_id": 999,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00031
+        },
+        {
+          "zero_before": {
+            "task_id": 1000,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1001,
+            "raw_adc": 1,
+            "voltage_v": 0.00031
+          },
+          "zero_after": {
+            "task_id": 1002,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00031
+        },
+        {
+          "zero_before": {
+            "task_id": 1003,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1004,
+            "raw_adc": 3,
+            "voltage_v": 0.00092
+          },
+          "zero_after": {
+            "task_id": 1005,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00092
+        },
+        {
+          "zero_before": {
+            "task_id": 1006,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1007,
+            "raw_adc": 6,
+            "voltage_v": 0.00183
+          },
+          "zero_after": {
+            "task_id": 1008,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00183
+        }
+      ],
+      "baseline_mvm_mean_v": 0.000736,
+      "baseline_mvm_sd_v": 0.0006661681469418963,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 60,
+      "programming_pulse_attempts": 9,
+      "programming_decisions": 9,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 12,
+      "cell": [
+        0,
+        13
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1010,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1011,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 1012,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1013,
+          "q": 0.014449057439819675
+        },
+        {
+          "task_id": 1014,
+          "q": 0.01440997694403689
+        },
+        {
+          "task_id": 1015,
+          "q": 0.014436030231672036
+        },
+        {
+          "task_id": 1016,
+          "q": 0.014423001277965326
+        },
+        {
+          "task_id": 1017,
+          "q": 0.014475125374324549
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1018,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1019,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1020,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1021,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1022,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1023,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1024,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1025,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1026,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1027,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1028,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1029,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1030,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1031,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1032,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 13,
+      "cell": [
+        0,
+        31
+      ],
+      "status": "completed",
+      "eligible": false,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1034,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1035,
+          "raw_adc": 26,
+          "voltage_v": 0.00794
+        },
+        "zero_after": {
+          "task_id": 1036,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.00794
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1077,
+          "q": 0.01732898393340629
+        },
+        {
+          "task_id": 1078,
+          "q": 0.017369920351019773
+        },
+        {
+          "task_id": 1079,
+          "q": 0.017383572208198306
+        },
+        {
+          "task_id": 1080,
+          "q": 0.017369920351019773
+        },
+        {
+          "task_id": 1081,
+          "q": 0.017369920351019773
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1082,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1083,
+            "raw_adc": 1,
+            "voltage_v": 0.00031
+          },
+          "zero_after": {
+            "task_id": 1084,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00031
+        },
+        {
+          "zero_before": {
+            "task_id": 1085,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1086,
+            "raw_adc": 2,
+            "voltage_v": 0.00061
+          },
+          "zero_after": {
+            "task_id": 1087,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00061
+        },
+        {
+          "zero_before": {
+            "task_id": 1088,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1089,
+            "raw_adc": 3,
+            "voltage_v": 0.00092
+          },
+          "zero_after": {
+            "task_id": 1090,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00092
+        },
+        {
+          "zero_before": {
+            "task_id": 1091,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1092,
+            "raw_adc": 3,
+            "voltage_v": 0.00092
+          },
+          "zero_after": {
+            "task_id": 1093,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00092
+        },
+        {
+          "zero_before": {
+            "task_id": 1094,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1095,
+            "raw_adc": 3,
+            "voltage_v": 0.00092
+          },
+          "zero_after": {
+            "task_id": 1096,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00092
+        }
+      ],
+      "baseline_mvm_mean_v": 0.000736,
+      "baseline_mvm_sd_v": 0.000273367883995176,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 64,
+      "programming_pulse_attempts": 10,
+      "programming_decisions": 10,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 14,
+      "cell": [
+        0,
+        12
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1098,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1099,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 1100,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1101,
+          "q": 0.013749375549193808
+        },
+        {
+          "task_id": 1102,
+          "q": 0.013736492449091727
+        },
+        {
+          "task_id": 1103,
+          "q": 0.013749375549193808
+        },
+        {
+          "task_id": 1104,
+          "q": 0.013697862510818198
+        },
+        {
+          "task_id": 1105,
+          "q": 0.013697862510818198
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1106,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1107,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1108,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1109,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1110,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1111,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1112,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1113,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1114,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1115,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1116,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1117,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1118,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1119,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1120,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 15,
+      "cell": [
+        0,
+        14
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1122,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1123,
+          "raw_adc": 1,
+          "voltage_v": 0.00031
+        },
+        "zero_after": {
+          "task_id": 1124,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.00031
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1125,
+          "q": 0.016179873120376786
+        },
+        {
+          "task_id": 1126,
+          "q": 0.016166477486220528
+        },
+        {
+          "task_id": 1127,
+          "q": 0.016179873120376786
+        },
+        {
+          "task_id": 1128,
+          "q": 0.016153080294514708
+        },
+        {
+          "task_id": 1129,
+          "q": 0.016126305131194823
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1130,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1131,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1132,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1133,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1134,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1135,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1136,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1137,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1138,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1139,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1140,
+            "raw_adc": 2,
+            "voltage_v": 0.00061
+          },
+          "zero_after": {
+            "task_id": 1141,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00061
+        },
+        {
+          "zero_before": {
+            "task_id": 1142,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1143,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1144,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.000122,
+      "baseline_mvm_sd_v": 0.00027280029325497436,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "positive_cell",
+      "candidate_index": 16,
+      "cell": [
+        0,
+        15
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1146,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1147,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 1148,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1149,
+          "q": 0.004445710199510002
+        },
+        {
+          "task_id": 1150,
+          "q": 0.004467742896288794
+        },
+        {
+          "task_id": 1151,
+          "q": 0.004456725800215246
+        },
+        {
+          "task_id": 1152,
+          "q": 0.0044787629276777504
+        },
+        {
+          "task_id": 1153,
+          "q": 0.0044787629276777504
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1154,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1155,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1156,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1157,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1158,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1159,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1160,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1161,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1162,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1163,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1164,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1165,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1166,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1167,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1168,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": true,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 0,
+      "cell": [
+        1,
+        0
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1170,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1171,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 1172,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1173,
+          "q": 0.010904721810633228
+        },
+        {
+          "task_id": 1174,
+          "q": 0.010929320086997388
+        },
+        {
+          "task_id": 1175,
+          "q": 0.010941622795180116
+        },
+        {
+          "task_id": 1176,
+          "q": 0.010929320086997388
+        },
+        {
+          "task_id": 1177,
+          "q": 0.010917019733009396
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1178,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1179,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1180,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1181,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1182,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1183,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1184,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1185,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1186,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1187,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1188,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1189,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1190,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1191,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1192,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 1,
+      "cell": [
+        1,
+        2
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1194,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1195,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 1196,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1197,
+          "q": 0.010341712104911341
+        },
+        {
+          "task_id": 1198,
+          "q": 0.010329530813929465
+        },
+        {
+          "task_id": 1199,
+          "q": 0.010341712104911341
+        },
+        {
+          "task_id": 1200,
+          "q": 0.010341712104911341
+        },
+        {
+          "task_id": 1201,
+          "q": 0.010329530813929465
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1202,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1203,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1204,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1205,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1206,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1207,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1208,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1209,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1210,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1211,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1212,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1213,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1214,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1215,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1216,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 2,
+      "cell": [
+        1,
+        3
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1218,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1219,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 1220,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1221,
+          "q": 0.007673590570691907
+        },
+        {
+          "task_id": 1222,
+          "q": 0.007696888148121714
+        },
+        {
+          "task_id": 1223,
+          "q": 0.0077085405490256165
+        },
+        {
+          "task_id": 1224,
+          "q": 0.007696888148121714
+        },
+        {
+          "task_id": 1225,
+          "q": 0.007696888148121714
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1226,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1227,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1228,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1229,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1230,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1231,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1232,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1233,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1234,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1235,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1236,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1237,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1238,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1239,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1240,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 3,
+      "cell": [
+        1,
+        4
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1242,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1243,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 1244,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1245,
+          "q": 0.009315087053722648
+        },
+        {
+          "task_id": 1246,
+          "q": 0.009315087053722648
+        },
+        {
+          "task_id": 1247,
+          "q": 0.00930311493660209
+        },
+        {
+          "task_id": 1248,
+          "q": 0.009315087053722648
+        },
+        {
+          "task_id": 1249,
+          "q": 0.00930311493660209
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1250,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1251,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1252,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1253,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1254,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1255,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1256,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1257,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1258,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1259,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1260,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1261,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1262,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1263,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1264,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 4,
+      "cell": [
+        1,
+        6
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1266,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1267,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 1268,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1269,
+          "q": 0.009123802535477078
+        },
+        {
+          "task_id": 1270,
+          "q": 0.009135739650245127
+        },
+        {
+          "task_id": 1271,
+          "q": 0.009123802535477078
+        },
+        {
+          "task_id": 1272,
+          "q": 0.009135739650245127
+        },
+        {
+          "task_id": 1273,
+          "q": 0.009123802535477078
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1274,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1275,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1276,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1277,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1278,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1279,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1280,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1281,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1282,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1283,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1284,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1285,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1286,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1287,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1288,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 5,
+      "cell": [
+        1,
+        7
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1290,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1291,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 1292,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1293,
+          "q": 0.009639283409829322
+        },
+        {
+          "task_id": 1294,
+          "q": 0.00962724475256814
+        },
+        {
+          "task_id": 1295,
+          "q": 0.009639283409829322
+        },
+        {
+          "task_id": 1296,
+          "q": 0.009639283409829322
+        },
+        {
+          "task_id": 1297,
+          "q": 0.00962724475256814
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1298,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1299,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1300,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1301,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1302,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1303,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1304,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1305,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1306,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1307,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1308,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1309,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1310,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1311,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1312,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 6,
+      "cell": [
+        1,
+        15
+      ],
+      "status": "completed",
+      "eligible": false,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1314,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1315,
+          "raw_adc": 1501,
+          "voltage_v": 0.4581
+        },
+        "zero_after": {
+          "task_id": 1316,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.4581
+      },
+      "reset_stop": "reset_ramp_exhausted",
+      "reset_crossed": false,
+      "q_confirmation": [
+        {
+          "task_id": 1537,
+          "q": 0.08335606680609862
+        },
+        {
+          "task_id": 1538,
+          "q": 0.08335606680609862
+        },
+        {
+          "task_id": 1539,
+          "q": 0.08338766165835317
+        },
+        {
+          "task_id": 1540,
+          "q": 0.08338766165835317
+        },
+        {
+          "task_id": 1541,
+          "q": 0.08335606680609862
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1542,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1543,
+            "raw_adc": 1506,
+            "voltage_v": 0.45962
+          },
+          "zero_after": {
+            "task_id": 1544,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.45962
+        },
+        {
+          "zero_before": {
+            "task_id": 1545,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1546,
+            "raw_adc": 1504,
+            "voltage_v": 0.45901
+          },
+          "zero_after": {
+            "task_id": 1547,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.45901
+        },
+        {
+          "zero_before": {
+            "task_id": 1548,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1549,
+            "raw_adc": 1502,
+            "voltage_v": 0.4584
+          },
+          "zero_after": {
+            "task_id": 1550,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.4584
+        },
+        {
+          "zero_before": {
+            "task_id": 1551,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1552,
+            "raw_adc": 1501,
+            "voltage_v": 0.4581
+          },
+          "zero_after": {
+            "task_id": 1553,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.4581
+        },
+        {
+          "zero_before": {
+            "task_id": 1554,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1555,
+            "raw_adc": 1499,
+            "voltage_v": 0.45749
+          },
+          "zero_after": {
+            "task_id": 1556,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.45749
+        }
+      ],
+      "baseline_mvm_mean_v": 0.458524,
+      "baseline_mvm_sd_v": 0.0008218454842608645,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 244,
+      "programming_pulse_attempts": 55,
+      "programming_decisions": 55,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 7,
+      "cell": [
+        1,
+        5
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1558,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1559,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 1560,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1561,
+          "q": 0.009195461231796122
+        },
+        {
+          "task_id": 1562,
+          "q": 0.009195461231796122
+        },
+        {
+          "task_id": 1563,
+          "q": 0.009207414591464224
+        },
+        {
+          "task_id": 1564,
+          "q": 0.009195461231796122
+        },
+        {
+          "task_id": 1565,
+          "q": 0.009195461231796122
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1566,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1567,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1568,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1569,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1570,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1571,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1572,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1573,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1574,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1575,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1576,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1577,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1578,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1579,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1580,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 8,
+      "cell": [
+        1,
+        8
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1582,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1583,
+          "raw_adc": 125,
+          "voltage_v": 0.03815
+        },
+        "zero_after": {
+          "task_id": 1584,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.03815
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1721,
+          "q": 0.0021363747714078993
+        },
+        {
+          "task_id": 1722,
+          "q": 0.002094099436979156
+        },
+        {
+          "task_id": 1723,
+          "q": 0.0020729736996173164
+        },
+        {
+          "task_id": 1724,
+          "q": 0.0019990966506286613
+        },
+        {
+          "task_id": 1725,
+          "q": 0.0020201943524915914
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1726,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1727,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1728,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1729,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1730,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1731,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1732,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1733,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1734,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1735,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1736,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1737,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1738,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1739,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1740,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": true,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 160,
+      "programming_pulse_attempts": 34,
+      "programming_decisions": 34,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 9,
+      "cell": [
+        1,
+        9
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1742,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1743,
+          "raw_adc": 117,
+          "voltage_v": 0.03571
+        },
+        "zero_after": {
+          "task_id": 1744,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.03571
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1789,
+          "q": 0.008861786740296477
+        },
+        {
+          "task_id": 1790,
+          "q": 0.00887367278089611
+        },
+        {
+          "task_id": 1791,
+          "q": 0.008861786740296477
+        },
+        {
+          "task_id": 1792,
+          "q": 0.00884990639212648
+        },
+        {
+          "task_id": 1793,
+          "q": 0.00884990639212648
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1794,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1795,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1796,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1797,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1798,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1799,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1800,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1801,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1802,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1803,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1804,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1805,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1806,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1807,
+            "raw_adc": 2,
+            "voltage_v": 0.00061
+          },
+          "zero_after": {
+            "task_id": 1808,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00061
+        }
+      ],
+      "baseline_mvm_mean_v": 0.000122,
+      "baseline_mvm_sd_v": 0.00027280029325497436,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 68,
+      "programming_pulse_attempts": 11,
+      "programming_decisions": 11,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 10,
+      "cell": [
+        1,
+        12
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1810,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1811,
+          "raw_adc": 167,
+          "voltage_v": 0.05097
+        },
+        "zero_after": {
+          "task_id": 1812,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.05097
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1873,
+          "q": 0.003854025851170368
+        },
+        {
+          "task_id": 1874,
+          "q": 0.003854025851170368
+        },
+        {
+          "task_id": 1875,
+          "q": 0.003832229186814902
+        },
+        {
+          "task_id": 1876,
+          "q": 0.0038431263763196335
+        },
+        {
+          "task_id": 1877,
+          "q": 0.003854025851170368
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1878,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1879,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1880,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1881,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1882,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1883,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1884,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1885,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1886,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1887,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1888,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1889,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1890,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1891,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1892,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": true,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 84,
+      "programming_pulse_attempts": 15,
+      "programming_decisions": 15,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 11,
+      "cell": [
+        1,
+        14
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1894,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1895,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 1896,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1897,
+          "q": 0.007278946661422883
+        },
+        {
+          "task_id": 1898,
+          "q": 0.007290515326762001
+        },
+        {
+          "task_id": 1899,
+          "q": 0.007278946661422883
+        },
+        {
+          "task_id": 1900,
+          "q": 0.007278946661422883
+        },
+        {
+          "task_id": 1901,
+          "q": 0.007278946661422883
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1902,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1903,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1904,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1905,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1906,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1907,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1908,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1909,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1910,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1911,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1912,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1913,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1914,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1915,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1916,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 12,
+      "cell": [
+        1,
+        31
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1918,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1919,
+          "raw_adc": 9,
+          "voltage_v": 0.00275
+        },
+        "zero_after": {
+          "task_id": 1920,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.00275
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1945,
+          "q": 0.008529981722575528
+        },
+        {
+          "task_id": 1946,
+          "q": 0.008518166797579704
+        },
+        {
+          "task_id": 1947,
+          "q": 0.008506351667012935
+        },
+        {
+          "task_id": 1948,
+          "q": 0.008494540841752366
+        },
+        {
+          "task_id": 1949,
+          "q": 0.008494540841752366
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1950,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1951,
+            "raw_adc": 1,
+            "voltage_v": 0.00031
+          },
+          "zero_after": {
+            "task_id": 1952,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00031
+        },
+        {
+          "zero_before": {
+            "task_id": 1953,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1954,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1955,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1956,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1957,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1958,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1959,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1960,
+            "raw_adc": 1,
+            "voltage_v": 0.00031
+          },
+          "zero_after": {
+            "task_id": 1961,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.00031
+        },
+        {
+          "zero_before": {
+            "task_id": 1962,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1963,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1964,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.000124,
+      "baseline_mvm_sd_v": 0.00016979399282660148,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 48,
+      "programming_pulse_attempts": 6,
+      "programming_decisions": 6,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 13,
+      "cell": [
+        1,
+        10
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1966,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1967,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 1968,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1969,
+          "q": 0.0068065698662426516
+        },
+        {
+          "task_id": 1970,
+          "q": 0.0068295239076797375
+        },
+        {
+          "task_id": 1971,
+          "q": 0.006852486725902608
+        },
+        {
+          "task_id": 1972,
+          "q": 0.006852486725902608
+        },
+        {
+          "task_id": 1973,
+          "q": 0.006841004483345575
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1974,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1975,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1976,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1977,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1978,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1979,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1980,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1981,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1982,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1983,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1984,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1985,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 1986,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1987,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 1988,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 14,
+      "cell": [
+        1,
+        1
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 1990,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 1991,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 1992,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 1993,
+          "q": 0.0014637848970755175
+        },
+        {
+          "task_id": 1994,
+          "q": 0.001453339927092542
+        },
+        {
+          "task_id": 1995,
+          "q": 0.0014637848970755175
+        },
+        {
+          "task_id": 1996,
+          "q": 0.001453339927092542
+        },
+        {
+          "task_id": 1997,
+          "q": 0.0014637848970755175
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 1998,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 1999,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2000,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 2001,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2002,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2003,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 2004,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2005,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2006,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 2007,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2008,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2009,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 2010,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2011,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2012,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": true,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 15,
+      "cell": [
+        1,
+        11
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 2014,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 2015,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 2016,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 2017,
+          "q": 0.0014637848970755175
+        },
+        {
+          "task_id": 2018,
+          "q": 0.001453339927092542
+        },
+        {
+          "task_id": 2019,
+          "q": 0.0014637848970755175
+        },
+        {
+          "task_id": 2020,
+          "q": 0.001474231900609251
+        },
+        {
+          "task_id": 2021,
+          "q": 0.001453339927092542
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 2022,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2023,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2024,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 2025,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2026,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2027,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 2028,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2029,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2030,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 2031,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2032,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2033,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 2034,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2035,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2036,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": true,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    },
+    {
+      "side": "negative_cell",
+      "candidate_index": 16,
+      "cell": [
+        1,
+        13
+      ],
+      "status": "completed",
+      "eligible": true,
+      "eligibility_scope": "bounded_reset_policy_only",
+      "initial_mvm": {
+        "zero_before": {
+          "task_id": 2038,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "signal": {
+          "task_id": 2039,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "zero_after": {
+          "task_id": 2040,
+          "raw_adc": 0,
+          "voltage_v": 0.0
+        },
+        "voltage_v": 0.0
+      },
+      "reset_stop": "mode10_quiet_crossed",
+      "reset_crossed": true,
+      "q_confirmation": [
+        {
+          "task_id": 2041,
+          "q": 0.007627024628355891
+        },
+        {
+          "task_id": 2042,
+          "q": 0.007627024628355891
+        },
+        {
+          "task_id": 2043,
+          "q": 0.007638662558146426
+        },
+        {
+          "task_id": 2044,
+          "q": 0.007638662558146426
+        },
+        {
+          "task_id": 2045,
+          "q": 0.007627024628355891
+        }
+      ],
+      "mvm_confirmation": [
+        {
+          "zero_before": {
+            "task_id": 2046,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2047,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2048,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 2049,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2050,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2051,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 2052,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2053,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2054,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 2055,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2056,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2057,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        },
+        {
+          "zero_before": {
+            "task_id": 2058,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "signal": {
+            "task_id": 2059,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "zero_after": {
+            "task_id": 2060,
+            "raw_adc": 0,
+            "voltage_v": 0.0
+          },
+          "voltage_v": 0.0
+        }
+      ],
+      "baseline_mvm_mean_v": 0.0,
+      "baseline_mvm_sd_v": 0.0,
+      "mode10_quiet_limit_v": 0.00062,
+      "native_q_diagnostic_crossed": false,
+      "physical_failure_cause": "unknown; not inferred from this screening",
+      "impact_attempts": 24,
+      "programming_pulse_attempts": 0,
+      "programming_decisions": 0,
+      "programming_skipped_current": 0
+    }
+  ],
+  "pairs": [],
+  "stop_reason": "insufficient_quiet_reset_candidates_for_fixed_tile",
+  "technical_completed": false,
+  "error": "ValueError: insufficient_quiet_reset_candidates_for_fixed_tile",
+  "impact_attempts": 2060,
+  "programming_pulse_attempts": 311,
+  "programming_decisions": 311,
+  "programming_skipped_current": 0
+}
