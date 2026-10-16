@@ -20,12 +20,14 @@ class Tests(unittest.TestCase):
                         writer.writerow([f,case,case+100,repeat,t,1. if mismatch else 0.,0.,1. if mismatch else -.5,
                                          0. if mismatch else -.5,int(mismatch)])
         data=stream.getvalue().encode();(directory/'ACTUAL_TRACE.csv').write_bytes(data)
-        auditor=next(iter(c.AUDITORS));metadata=dict(schema='audited-fresh-actual-trace-v1',generator_sha256=c.EXPORTER_SHA,
+        auditor=next(iter(c.AUDITORS));metadata=dict(schema='audited-fresh-actual-trace-v2',generator_sha256=c.EXPORTER_SHA,
             analyzer_sha256=c.ANALYZER_SHA,auditor_sha256=auditor,protocol_id=c.AUDITORS[auditor],
             acquisition_complete=True,inventory_verified=True,actual_only=True,source=source,
             decoder_gain_v_per_weight=.25 if source=='hardware' else .03,units=c.UNITS,
             session_id=source,source_commit='a'*40,manifest_sha256='1'*64,audit_sha256='2'*64,
             fixture_sha256='3'*64,trained_weights_sha256='4'*64,planned_route_sha256='5'*64,summary_sha256='6'*64,
+            planned_route_canonical_sha256='7'*64,
+            route_canonicalization='parsed JSON; sort_keys=True; separators=(comma,colon); ensure_ascii=False; allow_nan=False; UTF-8; no trailing newline',
             csv=dict(path='ACTUAL_TRACE.csv',rows=2400,columns=c.FIELDS,bytes=len(data),sha256=hashlib.sha256(data).hexdigest()))
         (directory/'TRACE_PROVENANCE.json').write_text(json.dumps(metadata));return directory,metadata
     def test_exact_arithmetic_repeat_vs_unique_and_direction(self):
@@ -47,12 +49,20 @@ class Tests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=Path(__file__).parent) as name:
             root=Path(name).resolve();self.write(root,'hardware');self.write(root,'simulator')
             a,b=c.read_trace(root,'hardware'),c.read_trace(root,'simulator')
-            for key in ('planned_route_sha256','fixture_sha256','trained_weights_sha256'):
+            b['metadata']['planned_route_sha256']='8'*64
+            self.assertFalse(c.compare(a,b)['route_raw_bytes_equal'])
+            for key in ('planned_route_canonical_sha256','fixture_sha256','trained_weights_sha256'):
                 original=b['metadata'][key];b['metadata'][key]='bad'
                 with self.assertRaisesRegex(ValueError,'shared contract'):c.compare(a,b)
                 b['metadata'][key]=original
             path=root/'simulator'/'TRACE_PROVENANCE.json';m=json.loads(path.read_text());m['decoder_gain_v_per_weight']=.25;path.write_text(json.dumps(m))
             with self.assertRaisesRegex(ValueError,'gain'):c.read_trace(root,'simulator')
+    def test_v1_export_rejected(self):
+        with tempfile.TemporaryDirectory(dir=Path(__file__).parent) as name:
+            root=Path(name).resolve();directory,m=self.write(root,'hardware')
+            m['schema']='audited-fresh-actual-trace-v1'
+            (directory/'TRACE_PROVENANCE.json').write_text(json.dumps(m))
+            with self.assertRaisesRegex(ValueError,'v2 re-export'):c.read_trace(root,'hardware')
     def test_nan_and_missing_rows_rejected_after_hash_refresh(self):
         with tempfile.TemporaryDirectory(dir=Path(__file__).parent) as name:
             root=Path(name).resolve();directory,m=self.write(root,'hardware');path=directory/'ACTUAL_TRACE.csv';original=path.read_text()

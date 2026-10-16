@@ -19,6 +19,12 @@ def require(ok,message):
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def canonical_route_sha(path):
+    value=json.loads(path.read_text(encoding='utf-8'))
+    data=json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False).encode('utf-8')
+    return hashlib.sha256(data).hexdigest()
+
+
 def trace_rows(trajectories, fixture):
     require(len(trajectories)==200 and len(fixture['cases'])==10,'Expected 200 complete trajectories and 10 cases')
     rows=[];seen=set()
@@ -57,7 +63,7 @@ def export(repo,session,audit,output):
     fixture=analysis.load(repo/'weights/prepared_cifar100_conv1.json')
     manifest=analysis.load(directory/'manifest.json')
     rows=trace_rows(trajectories,fixture);data=csv_bytes(rows)
-    metadata=dict(schema='audited-fresh-actual-trace-v1',generator_sha256=sha(Path(__file__)),
+    metadata=dict(schema='audited-fresh-actual-trace-v2',generator_sha256=sha(Path(__file__)),
         analyzer_sha256=ANALYZER_SHA,session=session,session_id=report['session_id'],source=report['source'],
         source_commit=report['source_commit'],protocol_id=manifest['protocol_id'],
         manifest_sha256=report['manifest_sha256'],audit=audit,audit_sha256=report['audit_sha256'],
@@ -65,6 +71,8 @@ def export(repo,session,audit,output):
         fixture_sha256=report['fixture_sha256'],trained_weights_sha256=report['trained_weights_sha256'],
         summary_sha256=manifest['result_sha256']['summary.json'],
         planned_route_sha256=manifest['result_sha256']['planned_route.json'],
+        planned_route_canonical_sha256=canonical_route_sha(directory/'planned_route.json'),
+        route_canonicalization='parsed JSON; sort_keys=True; separators=(comma,colon); ensure_ascii=False; allow_nan=False; UTF-8; no trailing newline',
         decoder_gain_v_per_weight=report['decoder_gain'],acquisition_complete=True,
         csv=dict(path='ACTUAL_TRACE.csv',sha256=hashlib.sha256(data).hexdigest(),bytes=len(data),rows=len(rows),columns=list(FIELDS)),
         inventory_verified=True,raw_reaudit_performed=False,actual_only=True,

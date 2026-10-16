@@ -1,0 +1,58 @@
+{
+  "schema": "audited-fresh-actual-trace-v2",
+  "generator_sha256": "ecc2874fae1509f5e4d942024c11c29e831fa5b79e63159bcc345a993b17826e",
+  "analyzer_sha256": "0ced0d8d3b3f5b126374571659c38b5399be4af8cdfc0ebe39a99a0c9331d8c0",
+  "session": "results/cifar_fresh_conv1_no_bl8/28aa7248-72db-428a-b0eb-92b1712a25af",
+  "session_id": "28aa7248-72db-428a-b0eb-92b1712a25af",
+  "source": "simulator",
+  "source_commit": "41739f3d58fcf61ed3b99a8566154b8e79695078",
+  "protocol_id": "fresh300-jit-capacity-no-bl8-fixed-gain-v1",
+  "manifest_sha256": "5ec0bc4789a87b67ae8b357c3205402eec4a625a5b7407e1c702a1f321aeccaa",
+  "audit": "results/cifar_feedback_reviews/no_bl8_simulator_20261016_audit/audit.json",
+  "audit_sha256": "b3cf7ab0c78efd8d68c9ca971c0fd2a6aafe6bfb6f31ec5d750c9e0bd28a616f",
+  "auditor_sha256": "07d2dd0faecff90360df9c9c1771746b8d01045fb10119fa626263a3f201e9ca",
+  "audit_checks": 8526935,
+  "fixture_sha256": "86113ff1d2fdbe155056d2e1377cf380e7395120fd93ccf2e1efc7a0a933167c",
+  "trained_weights_sha256": "227e0ab03dc36f0a348aeda7fa0033a4136eadc56426c3af2b77486a0e3dcfd8",
+  "summary_sha256": "fca6b514d18812b23209b809ed0fb162540590a3b6e26f0256fcb345f4f657e5",
+  "planned_route_sha256": "e3f108ba658ea438cc6e888ed81835c4b4d975576c98ac7d41ba3866852b33fe",
+  "planned_route_canonical_sha256": "c8cfad2dd91bb954b6c80116496d165b357f2fb1ed7cb7b58599db29f7714556",
+  "route_canonicalization": "parsed JSON; sort_keys=True; separators=(comma,colon); ensure_ascii=False; allow_nan=False; UTF-8; no trailing newline",
+  "decoder_gain_v_per_weight": 0.03,
+  "acquisition_complete": true,
+  "csv": {
+    "path": "ACTUAL_TRACE.csv",
+    "sha256": "f1c3a6eb535dfebd3c27382149fedfe7dac6b42f08308f1582fdf9975fb800bf",
+    "bytes": 202697,
+    "rows": 2400,
+    "columns": [
+      "filter",
+      "case",
+      "original_test_index",
+      "repeat",
+      "t",
+      "conv",
+      "bn",
+      "v_before",
+      "v_after",
+      "spike"
+    ]
+  },
+  "inventory_verified": true,
+  "raw_reaudit_performed": false,
+  "actual_only": true,
+  "units": {
+    "conv": "checkpoint weight units after measured tile sums / fixed source gain",
+    "bn": "trained BNTT current",
+    "v_before": "digital LIF potential before reset",
+    "v_after": "digital LIF potential after reset",
+    "spike": "0 or 1"
+  },
+  "limits": [
+    "Independent acquisitions; same case keys do not imply equal physical programmed weights or noise.",
+    "HW and native SIM use distinct fixed gains; source scale is recorded, not claimed physically equivalent.",
+    "Each timestep accumulates all 75 measured taps before trained BN and one digital LIF step.",
+    "No fixture inputs, trained weights, raw journal or private files are exported.",
+    "Completion and valid audit do not qualify weight fidelity or classifier accuracy."
+  ]
+}

@@ -6,7 +6,7 @@ import json
 import math
 from pathlib import Path
 
-EXPORTER_SHA = '08428364fd54267afa6a6f664c3f8f7cd9449db333a2cf6d38a678f5aceac8e0'
+EXPORTER_SHA = 'ecc2874fae1509f5e4d942024c11c29e831fa5b79e63159bcc345a993b17826e'
 ANALYZER_SHA = '0ced0d8d3b3f5b126374571659c38b5399be4af8cdfc0ebe39a99a0c9331d8c0'
 FIELDS = ['filter','case','original_test_index','repeat','t','conv','bn','v_before','v_after','spike']
 NUMBERS = ('conv','bn','v_before','v_after')
@@ -32,7 +32,10 @@ def local(root,name):
 def read_trace(root,name):
     directory=local(root,name);metadata_path=local(root,str(Path(name)/'TRACE_PROVENANCE.json'))
     m=json.loads(metadata_path.read_text(encoding='utf-8'));csv_info=m['csv']
-    require(m['schema']=='audited-fresh-actual-trace-v1' and m['generator_sha256']==EXPORTER_SHA,'Unknown export contract')
+    require(m['schema']=='audited-fresh-actual-trace-v2' and m['generator_sha256']==EXPORTER_SHA,'Unknown export contract (v2 re-export required)')
+    require(m['route_canonicalization']=='parsed JSON; sort_keys=True; separators=(comma,colon); ensure_ascii=False; allow_nan=False; UTF-8; no trailing newline','Unknown route canonicalization')
+    for key in ('planned_route_sha256','planned_route_canonical_sha256'):
+        require(isinstance(m[key],str) and len(m[key])==64 and all(x in '0123456789abcdef' for x in m[key]),'Invalid route SHA')
     require(m['analyzer_sha256']==ANALYZER_SHA and AUDITORS.get(m['auditor_sha256'])==m['protocol_id'],'Unknown analyzer/auditor contract')
     require(m['acquisition_complete'] and m['inventory_verified'] and m['actual_only'],'Incomplete/unverified actual export')
     require(m['source'] in ('hardware','simulator'),'Unknown backend')
@@ -78,7 +81,7 @@ def metrics(first,second):
 def compare(first,second):
     a,b=first['metadata'],second['metadata']
     require({a['source'],b['source']}=={'hardware','simulator'},'Requires one HW and one native SIM export')
-    for key in ('fixture_sha256','trained_weights_sha256','planned_route_sha256','protocol_id','units'):
+    for key in ('fixture_sha256','trained_weights_sha256','planned_route_canonical_sha256','protocol_id','units'):
         require(a[key]==b[key],'Different shared contract: '+key)
     require(first['cases']==second['cases'],'Original case alignment mismatch')
     hardware,simulator=(first,second) if a['source']=='hardware' else (second,first)
@@ -89,12 +92,14 @@ def compare(first,second):
         m=value['metadata']
         return dict(export_directory=value['path'],trace_provenance_sha256=value['metadata_sha256'],
             **{k:m[k] for k in ('session_id','source','source_commit','manifest_sha256','audit_sha256','auditor_sha256',
-                'fixture_sha256','trained_weights_sha256','planned_route_sha256','summary_sha256','decoder_gain_v_per_weight')},
+                'fixture_sha256','trained_weights_sha256','planned_route_sha256','planned_route_canonical_sha256','summary_sha256','decoder_gain_v_per_weight')},
             csv_sha256=m['csv']['sha256'])
     return dict(schema='direct-fresh-hardware-simulator-comparison-v1',generator_sha256=sha(Path(__file__)),
         hardware=provenance(hardware),simulator=provenance(simulator),difference_direction='hardware minus simulator',
         total=metrics(h,s),per_filter=[dict(filter=f,**metrics([x for x in h if x['filter']==f],[x for x in s if x['filter']==f])) for f in range(4)],
         comparison_is_calibrated_actual_pipeline_not_raw_voltage=True,fit_or_rescale_performed=False,
+        route_raw_bytes_equal=a['planned_route_sha256']==b['planned_route_sha256'],
+        route_semantically_equal=True,
         trained_and_effective_reference_metrics_recomputed=False,
         limits=['Direct comparison of independent measured acquisitions; no shared physical state/noise assumption.',
             'Fixed source gains differ (.25 HW/.03 SIM); no further scaling is applied here. C matrices may differ.',

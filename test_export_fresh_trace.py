@@ -1,11 +1,22 @@
 import copy
 import csv
 import io
+import json
+from pathlib import Path
+import tempfile
 import unittest
 import export_fresh_trace as e
 
 
 class Tests(unittest.TestCase):
+    def test_canonical_route_formats_equal_but_changes_rejected(self):
+        with tempfile.TemporaryDirectory(dir=Path(__file__).parent) as name:
+            a,b=Path(name)/'a.json',Path(name)/'b.json';value={'z':[{'cell':[0,1]}],'a':3}
+            a.write_bytes(json.dumps(value,indent=2).replace('\n','\r\n').encode())
+            b.write_bytes(json.dumps(value,sort_keys=True,separators=(',',':')).encode())
+            self.assertNotEqual(e.sha(a),e.sha(b));self.assertEqual(e.canonical_route_sha(a),e.canonical_route_sha(b))
+            value['z'][0]['cell']=[0,2];b.write_text(json.dumps(value))
+            self.assertNotEqual(e.canonical_route_sha(a),e.canonical_route_sha(b))
     def fixture(self):
         fixture={'cases':[{'original_test_index':100+c} for c in range(10)]}
         trajectories=[dict(filter_id=f,case=c,repeat=r,original_test_index=100+c,
