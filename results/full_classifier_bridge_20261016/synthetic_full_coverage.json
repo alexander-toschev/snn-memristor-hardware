@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "source_kind": "synthetic_software_test",
+  "backend_calls": 0,
+  "hardware_calls": 0,
+  "measurement_claim": false,
+  "physical_partial_keys": 1806336,
+  "dense_values": 1806336,
+  "logical_coverage": "T12,F64,Y28,X28,three logical tiles,all4800 coefficient positions",
+  "records": 1806528,
+  "calibration_events": 192,
+  "maximum_float32_error": 3.7050247175818285e-09,
+  "runtime_seconds": 42.75,
+  "source_sha256": {
+    "full_cifar_plan.py": "ef74b4b475611d262250f5bc2cd8dbe642d4df934b829193ce4459a62ca119be",
+    "full_cifar_export.py": "aab1576f87c782021f0315ddef0b1ba084917fcd9dbbde8bf35bf5445f656e08",
+    "audit_full_cifar_export.py": "8f0aa6b3ef2d766ac3e2b5fc8ce2cc94fb2331dcc90abfc3c9f2eb4f85e7a39c",
+    "validate_full_cifar_bridge_synthetic.py": "e18574f4204d898fe9f8f55f282fad753fea346b5168e386871ec5c134e0710c"
+  },
+  "limitations": "In-memory synthetic data only; native raw normalization/export attestation is unimplemented"
+}
