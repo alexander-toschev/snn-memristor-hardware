@@ -21,7 +21,7 @@ python audit_cifar_jit_programming.py --repo . --session results/cifar_jit_progr
 для них PASS полноты не выдаётся. Нормальный полный сбор с quiet gate failure
 допускается как диагностический результат: это не успешная запись.
 
-`test_audit_cifar_jit_programming.py`:14 offline tests. Collector используется
+`test_audit_cifar_jit_programming.py`:16 offline tests. Collector используется
 только для генерации явно синтетических FakeConnector fixtures. Проверены
 успешный захват двух циклов, разрушение первой quiet-ячейки вторым RESET,
 подмена gate/target/current prediction/converter, удаление решения/sentinel,

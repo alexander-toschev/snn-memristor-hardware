@@ -109,5 +109,19 @@ class AuditTests(unittest.TestCase):
     def test_unknown_auxiliary_event_rejected(self):
         self.raw_mutation(lambda r:r.append(dict(event='convenient_ignored_command')))
 
+    def test_protocol_reserialization_allowed_but_values_and_original_bytes_pinned(self):
+        blob=(Path(__file__).parent/'configs/cifar_jit_programming.json').read_bytes()
+        plan=json.loads(json.dumps(json.loads(blob),ensure_ascii=False,sort_keys=True))
+        ck=a.CompactChecks();a.verify_protocol_copy(plan,blob,ck);self.assertEqual(ck.errors,[])
+        plan['cycles']=3;ck=a.CompactChecks();a.verify_protocol_copy(plan,blob,ck);self.assertTrue(ck.errors)
+        ck=a.CompactChecks();a.verify_protocol_copy(json.loads(blob),blob+b' ',ck);self.assertTrue(ck.errors)
+
+    def test_hardware_private_pins_required_but_SIM_hardware_only_omitted(self):
+        hw=a.private_requirements('hardware');sim=a.private_requirements('simulator')
+        self.assertEqual(set(hw)-set(sim),{
+            'vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py',
+            'vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py'})
+        self.assertEqual(hw,a.PRIVATE)
+
 
 if __name__=='__main__':unittest.main()

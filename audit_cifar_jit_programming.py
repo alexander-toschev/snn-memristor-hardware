@@ -32,6 +32,16 @@ def require(value,message):
     if not value:raise ValueError(message)
 
 
+def private_requirements(source):
+    # check_sources(simulator) deliberately omits the two hardware-only drivers.
+    return PRIVATE if source=='hardware' else {k:v for k,v in PRIVATE.items() if '/MemriCORE/' not in k}
+
+
+def verify_protocol_copy(plan,git_blob,ck):
+    ck.equal(hashlib.sha256(git_blob).hexdigest(),FINAL_PINS['configs/cifar_jit_programming.json'],'protocol/frozen_git_bytes')
+    ck.require(plan==json.loads(git_blob),'protocol/exact_JSON_copy')
+
+
 def validate_plan(plan,route,ck):
     ck.equal(plan,dict(protocol_id=PROTOCOL,cycles=2,pair_order=list(range(9)),sentinel_cell=[3,8],
         retention_delay_s=1.,cutoff_utc='2026-10-16T18:50:00+00:00',maximum_impacts=29934,
@@ -167,13 +177,14 @@ def verify_session(repo,directory,ck):
         else:
             proc=subprocess.run(['git','-C',str(repo),'show',m['invocation']['git']['commit']+':'+name],capture_output=True)
             ck.equal(proc.returncode,0,'source/git_exists/'+name);ck.equal(hashlib.sha256(proc.stdout).hexdigest(),digest,'source/blob/'+name)
-    reviewed={**PINS,**DIAGNOSTIC_PINS,**PRIVATE,
+    reviewed={**PINS,**DIAGNOSTIC_PINS,**private_requirements(m['source']),
         'experiments/unn_rev3_20261014/paths.py':'2c841b4a446a767595c68aad243abd966cee94ffd91f74c3c2823998fdc9ec1c',
         ROUTE:ROUTE_SHA,**FINAL_PINS}
     for name,digest in reviewed.items():ck.equal(m['source_sha256'].get(name),digest,'source/frozen/'+name)
     ck.equal(sha(local(repo,ROUTE)),ROUTE_SHA,'route/pinned_origin')
     ck.equal(route,load(local(repo,ROUTE))['effective_route'],'route/exact_original')
-    ck.equal(sha(directory/'protocol.json'),FINAL_PINS['configs/cifar_jit_programming.json'],'protocol/exact_bytes')
+    config_blob=subprocess.run(['git','-C',str(repo),'show',m['invocation']['git']['commit']+':configs/cifar_jit_programming.json'],capture_output=True,check=True).stdout
+    verify_protocol_copy(plan,config_blob,ck)
     board=ConfigParser();board.read(directory/'board.ini',encoding='utf-8')
     for k,v in BOARD.items():ck.equal(board.getfloat('board',k),v,'INI/'+k)
     start=load(directory/'start_manifest.json')

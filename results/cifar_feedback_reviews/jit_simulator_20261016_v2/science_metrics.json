@@ -1,0 +1,656 @@
+{
+  "session": "results/cifar_jit_programming/6ebac641-2151-42ba-8b1e-48de43f282e1",
+  "manifest_sha256": "3394ab8e3fb8ea4479b0f09964ee7f4740250f2cbd94be060a6d6803dbc70e54",
+  "scope": "compact independent scientific arithmetic, not another raw replay",
+  "counters": {
+    "impact_attempts": 15455,
+    "programming_pulse_attempts": 1208,
+    "programming_decisions": 1208,
+    "programming_skipped_current": 0
+  },
+  "quiet_failures": 0,
+  "max_gate_abs_mean_v": 0.00061,
+  "max_gate_sd_v": 0.0,
+  "max_impacts_decision": 1243,
+  "max_writes_decision": 135,
+  "retention_delays_s": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0160000000032596
+  ],
+  "sentinels": 54,
+  "maps": 18,
+  "cycles": [
+    {
+      "cycle": 0,
+      "stops": {
+        "feedback_hit": 5,
+        "feedback_overshoot": 4
+      },
+      "own_nrmse": 0.26549938036609505,
+      "retention_nrmse": 0.26549938036609505,
+      "final_nrmse": 0.26549938036609505,
+      "own_v": [
+        0.0006100000000000001,
+        0.0015300000000000001,
+        -0.0012200000000000002,
+        -0.0012200000000000002,
+        0.00152,
+        0.00152,
+        0.00305,
+        0.0012200000000000002,
+        0.00213
+      ],
+      "retention_v": [
+        0.0006100000000000001,
+        0.0015300000000000001,
+        -0.0012200000000000002,
+        -0.0012200000000000002,
+        0.00152,
+        0.00152,
+        0.00305,
+        0.0012200000000000002,
+        0.00213
+      ],
+      "final_v": [
+        0.0006100000000000001,
+        0.0015300000000000001,
+        -0.0012200000000000002,
+        -0.0012200000000000002,
+        0.00152,
+        0.00152,
+        0.00305,
+        0.0012200000000000002,
+        0.00213
+      ],
+      "max_retention_delta_v": 0.0,
+      "max_later_delta_v": 0.0,
+      "later_changes": [
+        {
+          "written_tap": 0,
+          "after_pair": 1,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 2,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 3,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 4,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 5,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 6,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 2,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 3,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 4,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 5,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 6,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 2,
+          "after_pair": 3,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 2,
+          "after_pair": 4,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 2,
+          "after_pair": 5,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 2,
+          "after_pair": 6,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 2,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 2,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 3,
+          "after_pair": 4,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 3,
+          "after_pair": 5,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 3,
+          "after_pair": 6,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 3,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 3,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 4,
+          "after_pair": 5,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 4,
+          "after_pair": 6,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 4,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 4,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 5,
+          "after_pair": 6,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 5,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 5,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 6,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 6,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 7,
+          "after_pair": 8,
+          "delta_v": 0.0
+        }
+      ],
+      "impacts": 8468,
+      "pulses": 749
+    },
+    {
+      "cycle": 1,
+      "stops": {
+        "feedback_hit": 5,
+        "feedback_overshoot": 4
+      },
+      "own_nrmse": 0.30133648503072463,
+      "retention_nrmse": 0.30133648503072463,
+      "final_nrmse": 0.30133648503072463,
+      "own_v": [
+        0.0006100000000000001,
+        0.0009199999999999999,
+        -0.00061,
+        -0.0009199999999999999,
+        0.00152,
+        0.00152,
+        0.00396,
+        0.00183,
+        0.00244
+      ],
+      "retention_v": [
+        0.0006100000000000001,
+        0.0009199999999999999,
+        -0.00061,
+        -0.0009199999999999999,
+        0.00152,
+        0.00152,
+        0.00396,
+        0.00183,
+        0.00244
+      ],
+      "final_v": [
+        0.0006100000000000001,
+        0.0009199999999999999,
+        -0.00061,
+        -0.0009199999999999999,
+        0.00152,
+        0.00152,
+        0.00396,
+        0.00183,
+        0.00244
+      ],
+      "max_retention_delta_v": 0.0,
+      "max_later_delta_v": 0.0,
+      "later_changes": [
+        {
+          "written_tap": 0,
+          "after_pair": 1,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 2,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 3,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 4,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 5,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 6,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 0,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 2,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 3,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 4,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 5,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 6,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 1,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 2,
+          "after_pair": 3,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 2,
+          "after_pair": 4,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 2,
+          "after_pair": 5,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 2,
+          "after_pair": 6,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 2,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 2,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 3,
+          "after_pair": 4,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 3,
+          "after_pair": 5,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 3,
+          "after_pair": 6,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 3,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 3,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 4,
+          "after_pair": 5,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 4,
+          "after_pair": 6,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 4,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 4,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 5,
+          "after_pair": 6,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 5,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 5,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 6,
+          "after_pair": 7,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 6,
+          "after_pair": 8,
+          "delta_v": 0.0
+        },
+        {
+          "written_tap": 7,
+          "after_pair": 8,
+          "delta_v": 0.0
+        }
+      ],
+      "impacts": 6987,
+      "pulses": 459
+    }
+  ],
+  "final_cycle_difference_v": [
+    0.0,
+    -0.0006100000000000002,
+    0.0006100000000000002,
+    0.00030000000000000024,
+    0.0,
+    0.0,
+    0.0009099999999999998,
+    0.0006099999999999999,
+    0.00030999999999999995
+  ],
+  "sentinel_min_v": 0.00031,
+  "sentinel_max_v": 0.00366,
+  "final_quality": [
+    {
+      "target_gain_v_per_weight": 0.03,
+      "raw_measured_weight": [
+        0.020333333333333335,
+        0.051000000000000004,
+        -0.04066666666666667,
+        -0.04066666666666667,
+        0.05066666666666667,
+        0.05066666666666667,
+        0.10166666666666668,
+        0.04066666666666667,
+        0.07100000000000001
+      ],
+      "raw_target_errors": [
+        -0.0021192446152369163,
+        0.02841132974624634,
+        -0.01808756295839946,
+        -0.007380236725012465,
+        -0.001479674985011413,
+        0.00014537114898364317,
+        -0.003601856430371586,
+        -0.0016226984163125319,
+        0.020762821197509773
+      ],
+      "raw_target_rmse": 0.013508164273619198,
+      "raw_target_nrmse": 0.26549938036609505,
+      "one_adc_weight_resolution": 0.010333333333333333,
+      "quantization_floor_not_reduced_by_averaging": true,
+      "observed_weight_sd": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "resolved_sign_error_slots": [],
+      "target_significant_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "measured_sign_unresolved_significant_slots": [
+        0
+      ],
+      "unresolved_quantization_slots": [],
+      "engineering_weight_uncertainty": [
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333
+      ],
+      "uncertainty_nrms": 0.2030989216258073,
+      "uncertainty_is_worstcase_bound": false,
+      "physical_fidelity_pass": false,
+      "uses_fitted_alpha_or_matrix": false
+    },
+    {
+      "target_gain_v_per_weight": 0.03,
+      "raw_measured_weight": [
+        0.020333333333333335,
+        0.030666666666666665,
+        -0.02033333333333333,
+        -0.030666666666666665,
+        0.05066666666666667,
+        0.05066666666666667,
+        0.132,
+        0.061000000000000006,
+        0.08133333333333333
+      ],
+      "raw_target_errors": [
+        -0.0021192446152369163,
+        0.008077996412913003,
+        0.00224577037493388,
+        0.0026197632749875403,
+        -0.001479674985011413,
+        0.00014537114898364317,
+        0.026731476902961737,
+        0.018710634917020803,
+        0.031096154530843093
+      ],
+      "raw_target_rmse": 0.015331496200922334,
+      "raw_target_nrmse": 0.30133648503072463,
+      "one_adc_weight_resolution": 0.010333333333333333,
+      "quantization_floor_not_reduced_by_averaging": true,
+      "observed_weight_sd": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "resolved_sign_error_slots": [],
+      "target_significant_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "measured_sign_unresolved_significant_slots": [
+        0,
+        2
+      ],
+      "unresolved_quantization_slots": [],
+      "engineering_weight_uncertainty": [
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333,
+        0.010333333333333333
+      ],
+      "uncertainty_nrms": 0.2030989216258073,
+      "uncertainty_is_worstcase_bound": false,
+      "physical_fidelity_pass": false,
+      "uses_fitted_alpha_or_matrix": false
+    }
+  ]
+}
