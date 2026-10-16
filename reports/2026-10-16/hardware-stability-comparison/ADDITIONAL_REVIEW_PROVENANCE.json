@@ -1,0 +1,36 @@
+{
+  "schema": "compact-hardware-independent-review-v1",
+  "original_provenance_sha256": "bbb817611307e6aae09398788131be5bab75c7c64643dd3509928747889a6dc7",
+  "original_payload_sha_rechecked": true,
+  "scope": "Independent compact CSV arithmetic and visual SVG-to-PNG QA; no local raw replay",
+  "hardware_io": false,
+  "hardware_diagnostics_pending": true,
+  "direct_hw_sim_trace_comparison_pending": true,
+  "rendering": {
+    "library": "sharp",
+    "density": 144,
+    "visual_inspection_performed": true,
+    "source_svg_sha256": {
+      "SESSION1_MAP.svg": "2093593f72a32ed5273704503a8a84c0fc2d080ef3f7d3ea0df45ba61d179ab1",
+      "SESSION2_MAP.svg": "f19a1fc57f9a31bcaff788c7cbaacf1cd8ae22e53667b6b58d979b46b1d900f1"
+    }
+  },
+  "additional_files": {
+    "VISUAL_REVIEW.md": {
+      "bytes": 6109,
+      "sha256": "0e0b04f55531552d2e2c773b269f6d52ba35c0b874067355a6dd4fbf553012c6"
+    },
+    "SESSION1_MAP.png": {
+      "bytes": 216869,
+      "sha256": "baf634a88314de94c98f21ea6f6479556d5f69dcaaa708b05a5f77f8e12ddf46"
+    },
+    "SESSION2_MAP.png": {
+      "bytes": 216740,
+      "sha256": "b00162bfd3d3103a16fa2f9295cf2196efbb687f227e795d41fb5c751d73c153"
+    },
+    "COMPACT_CSV_RECHECK.json": {
+      "bytes": 9208,
+      "sha256": "9f3dea34c3045f6490775b028902a9153388b238e2198dc15ad259f36b134b53"
+    }
+  }
+}
