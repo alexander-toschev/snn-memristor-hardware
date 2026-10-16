@@ -193,6 +193,7 @@ def main(argv=None):
     diagnostic.add_argument("--cifar-feedback-reserve", action="store_true", help="One bounded WL7/BL15 reserve experiment; immutable other287 coefficients")
     diagnostic.add_argument("--cifar-feedback-remaining-reserves", action="store_true", help="Bounded B/C reserves, immutable audited A parent and other280 coefficients")
     diagnostic.add_argument("--test-cifar-jit-programming", action="store_true", help="Bounded C9 JIT RESET/SET diagnostic; no CIFAR, fixed UTC cutoff")
+    diagnostic.add_argument("--test-cifar-fresh-conv1-no-bl8", action="store_true", help="Fresh all300 JIT Conv1 excluding physical BL8, fixed gain and UTC cutoff")
     diagnostic.add_argument("--test-cifar-fresh-conv1", action="store_true", help="Fresh all300 JIT capacity-routed Conv1, fixed gain, BN/LIF and UTC cutoff")
     parser.add_argument("--cifar-resume-session")
     parser.add_argument("--cifar-stage", choices=("pilot", "remaining"))
@@ -203,6 +204,11 @@ def main(argv=None):
         parser.error("CIFAR stage/session options require an explicit CIFAR scenario")
     if args.cifar_resume_session and not (args.cifar_feedback_adaptive or args.cifar_feedback_reserve):
         parser.error("--cifar-resume-session requires adaptive or reserve CIFAR scenario")
+    if args.test_cifar_fresh_conv1_no_bl8:
+        if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
+            parser.error("--test-cifar-fresh-conv1-no-bl8 requires explicit mode and no legacy phase options")
+        from fresh_conv1_no_bl8 import main as fresh_conv1_no_bl8
+        return fresh_conv1_no_bl8(["--run-simulator" if args.run_simulator else "--run-hardware" if args.run_hardware else "--dry-run"])
     if args.test_cifar_fresh_conv1:
         if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
             parser.error("--test-cifar-fresh-conv1 requires explicit mode and no legacy phase options")
