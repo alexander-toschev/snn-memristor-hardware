@@ -8,6 +8,7 @@ import math
 import statistics
 import argparse
 import subprocess
+import ast
 from configparser import ConfigParser
 
 DIAGNOSTIC_AUDITOR_SHA='e7367990b6fc2a00f65e3bb0c4e4e5bf097b9f6b21a00700355edb84e0cbc70f'
@@ -336,11 +337,64 @@ ADAPTIVE_PINS={
     'configs/cifar_feedback_adaptive.json':'c788a91a1dc51e4a9f6070354c9597249a45b4770decb07847030f683ef09663',
     'experiment.py':'83fd05070e09de9f296d143803be44c0ac07f0366fdffee2a6edd62f4b3f6e71'}
 
+VALIDATION_LATER_COMMIT='5ac2cced1c6eeb536c79e56f0992f0d96d7ca457'
+VALIDATION_START_COMMIT='353f9d7bf2c0f2c2398ee45d674485c8d3c99554'
+NONEXECUTED_VALIDATION_FILES={
+    'audit_cifar_feedback_adaptive.py':'5ba4ddb226fbdab0c7b1bb3d13b20ac03ddb2d04cc6d71eb2447eb72610a03d0',
+    'test_audit_cifar_feedback_adaptive.py':'91287aea3a88a5620597b0d0f94db04651f96d8c6163b21fec27b6cd6deb89cf'}
+
+
+def validation_provenance(git,sources,source_blobs,later_blobs,ck):
+    """Exact nonexecuted validation exception; launch file contents are unknown."""
+    excluded=sorted(set(git['untracked']) & set(NONEXECUTED_VALIDATION_FILES))
+    if not excluded:return audit_git_status(git,sources,ck)
+    require(git['commit']==VALIDATION_START_COMMIT,'Validation exception is restricted to reviewed start commit')
+    require(excluded==sorted(NONEXECUTED_VALIDATION_FILES),'Validation exception requires the exact reviewed pair')
+    lines=git['status_porcelain'].splitlines()
+    for name in excluded:
+        require(name not in sources,'Validation file belongs to acquisition source inventory')
+        require(lines.count('?? '+name)==1,'Validation status spelling/path differs')
+        require(hashlib.sha256(later_blobs[name]).hexdigest()==NONEXECUTED_VALIDATION_FILES[name],
+            'Later validator snapshot differs')
+    stems={Path(name).stem for name in excluded};scanned={}
+    for name,digest in sources.items():
+        if not name.endswith('.py') or name in PRIVATE:continue
+        data=source_blobs[name]
+        require(hashlib.sha256(data).hexdigest()==digest,'Acquisition source blob differs during import review')
+        tree=ast.parse(data,filename=name)
+        for node in ast.walk(tree):
+            if isinstance(node,(ast.Import,ast.ImportFrom)):
+                references=[a.name for a in node.names]
+                if isinstance(node,ast.ImportFrom):references.append(node.module or '')
+                require(not any(s in ref.split('.') for ref in references for s in stems),'Acquisition imports excluded validator')
+            if isinstance(node,ast.Constant) and isinstance(node.value,str):
+                require(not any(s in node.value for s in stems),'Acquisition references excluded validator dynamically')
+        scanned[name]=digest
+    filtered=copy.deepcopy(git)
+    filtered['untracked']=[name for name in git['untracked'] if name not in excluded]
+    filtered['status_porcelain']='\n'.join(line for line in lines if line not in {'?? '+name for name in excluded})
+    provenance=audit_git_status(filtered,sources,ck)
+    provenance.update(recorded_git_status=copy.deepcopy(git),ignored_nonexecuted_validation_files=excluded,
+        exception_reason='Two independent offline validation files were not acquisition inputs or imports; every recorded public Python source blob was checked for imports/literal references.',
+        untracked_validation_contents_at_launch='unknown; not hashed at launch',
+        later_validation_snapshot=dict(commit=VALIDATION_LATER_COMMIT,sha256=dict(NONEXECUTED_VALIDATION_FILES),
+            proves_launch_contents=False),acquisition_python_blobs_scanned=scanned,
+        warning='Recorded launch had these untracked validation files. Their launch bytes are unknown; the later committed hashes attest only the later validator snapshot. This does not relabel the original working tree as fully clean.')
+    return provenance
+
 
 def verify_adaptive_manifest(repo,directory,ck):
     require(bool(ADAPTIVE_PINS),'Adaptive source review not frozen')
     m=load(directory/'manifest.json');git=m['invocation']['git']
-    provenance=audit_git_status(git,m['source_sha256'],ck)
+    source_blobs={};later_blobs={}
+    if set(git['untracked']) & set(NONEXECUTED_VALIDATION_FILES):
+        for name in m['source_sha256']:
+            if name.endswith('.py') and name not in PRIVATE:
+                proc=subprocess.run(['git','-C',str(repo),'show',git['commit']+':'+name],capture_output=True,check=True)
+                source_blobs[name]=proc.stdout
+        for name in NONEXECUTED_VALIDATION_FILES:
+            later_blobs[name]=subprocess.run(['git','-C',str(repo),'show',VALIDATION_LATER_COMMIT+':'+name],capture_output=True,check=True).stdout
+    provenance=validation_provenance(git,m['source_sha256'],source_blobs,later_blobs,ck)
     ck.require(m['source'] in ('hardware','simulator'),'manifest/source')
     ck.equal(m['hardware_access'],m['source']=='hardware','manifest/hardware_access')
     for name,digest in m['result_sha256'].items():
@@ -486,7 +540,8 @@ def main(argv=None):
     (output/'REPORT.md').write_text('# Independent adaptive CIFAR audit\n\n'+
         f"{report['audit_status']}; {ck.count} checks; {len(ck.errors)} errors.\n\n"+
         f"Acquisition complete: {report.get('acquisition_complete')}; physical weight quality: {report.get('physical_weight_quality_pass')}.\n\n"+
-        'Raw replay verifies deterministic routing, independent calibration, fixed-gain actual contributions and all-75 summation before trained BN/LIF. Imported measurements remain historical. Consistency PASS is not an accuracy qualification.\n',encoding='utf-8')
+        'Raw replay verifies deterministic routing, independent calibration, fixed-gain actual contributions and all-75 summation before trained BN/LIF. Imported measurements remain historical. Consistency PASS is not an accuracy qualification.\n\n'+
+        ('Provenance warning: '+report['provenance']['warning']+'\n' if report.get('provenance',{}).get('warning') else ''),encoding='utf-8')
     print(json.dumps(dict(status=report['audit_status'],checks=ck.count,errors=ck.errors[:15],output=args.output)))
     return int(bool(ck.errors))
 

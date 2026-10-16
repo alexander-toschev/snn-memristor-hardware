@@ -3,6 +3,9 @@ import copy
 import json
 from pathlib import Path
 import unittest
+import hashlib
+from unittest.mock import patch
+import audit_cifar_feedback_adaptive as adaptive
 from audit_cifar_feedback_adaptive import audit_coefficient_coverage,reference_rank,adaptive_matrix_select,adaptive_budget
 
 
@@ -91,6 +94,54 @@ class AdaptiveCoverageTests(unittest.TestCase):
         session='results/cifar_feedback_diagnostic/e1e1d0a7-00e2-403b-ac4e-defbf1fe80b8'
         with self.assertRaisesRegex(ValueError,'manifest commitment'):
             verify_parent_prefix(root,session,'unused','0'*64,'0'*64,{},None,None,CompactChecks())
+
+
+class NonexecutedValidationProvenanceTests(unittest.TestCase):
+    def setUp(self):
+        self.files={name:b'# synthetic later validator snapshot\n' for name in adaptive.NONEXECUTED_VALIDATION_FILES}
+        self.pins={name:hashlib.sha256(data).hexdigest() for name,data in self.files.items()}
+        self.names=sorted(self.files)
+        self.git=dict(commit=adaptive.VALIDATION_START_COMMIT,dirty_tracked=False,
+            untracked=self.names[:],status_porcelain='\n'.join('?? '+name for name in self.names))
+        self.blobs={'collector.py':b'import math\n'}
+        self.sources={name:hashlib.sha256(data).hexdigest() for name,data in self.blobs.items()}
+
+    def run_check(self):
+        ck=adaptive.CompactChecks()
+        with patch.dict(adaptive.NONEXECUTED_VALIDATION_FILES,self.pins,clear=True):
+            result=adaptive.validation_provenance(self.git,self.sources,self.blobs,self.files,ck)
+        return ck,result
+
+    def test_exact_pair_preserves_original_status_and_unknown_launch_contents(self):
+        ck,result=self.run_check();self.assertEqual(ck.errors,[])
+        self.assertEqual(result['recorded_git_status'],self.git)
+        self.assertFalse(result['later_validation_snapshot']['proves_launch_contents'])
+        self.assertIn('unknown',result['untracked_validation_contents_at_launch'])
+
+    def test_additional_untracked_python_is_rejected(self):
+        self.git['untracked'].append('unknown.py');self.git['status_porcelain']+='\n?? unknown.py'
+        ck,_=self.run_check();self.assertTrue(any('unknown.py' in e for e in ck.errors))
+
+    def test_renamed_validator_is_rejected(self):
+        self.git['untracked'][0]='renamed.py';self.git['status_porcelain']=self.git['status_porcelain'].replace(self.names[0],'renamed.py')
+        with self.assertRaisesRegex(ValueError,'exact reviewed pair'):self.run_check()
+
+    def test_collector_import_makes_exception_invalid(self):
+        self.blobs['collector.py']=b'import audit_cifar_feedback_adaptive\n'
+        self.sources['collector.py']=hashlib.sha256(self.blobs['collector.py']).hexdigest()
+        with self.assertRaisesRegex(ValueError,'imports excluded'):self.run_check()
+
+    def test_source_inventory_cannot_include_validator(self):
+        self.sources[self.names[0]]=self.pins[self.names[0]]
+        with self.assertRaisesRegex(ValueError,'source inventory'):self.run_check()
+
+    def test_later_snapshot_does_not_allow_mutation(self):
+        self.files[self.names[0]]=b'tampered'
+        with self.assertRaisesRegex(ValueError,'Later validator'):self.run_check()
+
+    def test_tracked_runtime_dirty_still_rejected(self):
+        self.git['dirty_tracked']=True;self.git['status_porcelain']+='\n M collector.py'
+        ck,_=self.run_check();self.assertTrue(any('clean_or_exact' in e for e in ck.errors))
 
 
 if __name__=='__main__':unittest.main()
