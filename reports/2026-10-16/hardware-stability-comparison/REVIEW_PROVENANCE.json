@@ -1,0 +1,52 @@
+{
+  "schema": "independent-derived-diagnostic-review-v1",
+  "inputs": {
+    "reports\\2026-10-16\\hardware-stability-comparison\\actual-trace-v2\\TRACE_PROVENANCE.json": "2e5700f1041ad36f897a9ca4903fa63795bfb2daa4666379300d586a5d77e8b3",
+    "reports\\2026-10-16\\hardware-stability-comparison\\actual-trace-v2\\ACTUAL_TRACE.csv": "a81ef1831d41d97afb19eba02ffc79040a8815431349d70d04cd25429189a997",
+    "reports\\2026-10-16\\no-bl8-simulator\\actual-trace-v2\\TRACE_PROVENANCE.json": "ec9bb634212f2c84d0f78f200b887cb0c2441c20f66b6cd277814f40f3315f11",
+    "reports\\2026-10-16\\no-bl8-simulator\\actual-trace-v2\\ACTUAL_TRACE.csv": "f1c3a6eb535dfebd3c27382149fedfe7dac6b42f08308f1582fdf9975fb800bf",
+    "reports\\2026-10-16\\hardware-stability-comparison\\DIAGNOSTICS.json": "88f025d32d1f4fb76d4ca6168787230c3f4203c8a617c491cfcd4b87397de2d8",
+    "reports\\2026-10-16\\direct-hardware-simulator\\COMPARISON.json": "c4caf80861ec5495cc2b71a706011b1cf849f9c47b38cd53afec827a1a3af853"
+  },
+  "scope": "Independent derived-data arithmetic and SHA binding; raw remains on Raspberry; no native I/O",
+  "stage_rechecks": 88,
+  "quality_categories": {
+    "mean_only": 5,
+    "sign_only": 10,
+    "both": 7
+  },
+  "mismatch_counts": {
+    "trained": 23,
+    "effective": 5
+  },
+  "direct_comparison": {
+    "conv": {
+      "rmse": 0.08351199642865911,
+      "max_abs": 0.5927027077465002,
+      "mean_difference": 0.008490262731387716
+    },
+    "bn": {
+      "rmse": 0.271133223631172,
+      "max_abs": 2.8272332850249295,
+      "mean_difference": 0.04234148903786174
+    },
+    "v_before": {
+      "rmse": 0.35062025416193293,
+      "max_abs": 2.8272332850249295,
+      "mean_difference": 0.10498637752559195
+    },
+    "v_after": {
+      "rmse": 0.36311486127585685,
+      "max_abs": 2.8272332850249295,
+      "mean_difference": 0.12946807315450237
+    }
+  },
+  "spike_mismatches": 73,
+  "unique_logical_spike_mismatches": 15,
+  "old_pending_diagnostics_resolved": true,
+  "review": {
+    "path": "DIAGNOSTIC_REVIEW.md",
+    "bytes": 8255,
+    "sha256": "e6ddaf1bdf3c89da92371e40c5b64551799dd2d9afd1bdafc8c17c23feb3da3d"
+  }
+}
