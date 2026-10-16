@@ -1,2 +1,7 @@
 # Preserve source bytes across platforms for recorded SHA-256 hashes.
 * -text
+results/**/*.jsonl filter=lfs diff=lfs merge=lfs -text
+results/**/*.gz filter=lfs diff=lfs merge=lfs -text
+results/**/array.cb filter=lfs diff=lfs merge=lfs -text
+weights/*.pt filter=lfs diff=lfs merge=lfs -text
+weights/*.npy filter=lfs diff=lfs merge=lfs -text
