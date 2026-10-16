@@ -1,79 +1,50 @@
 # CIFAR Conv1 — MemriBoard
 
-Следующий подготовительный опыт — [последовательные измеренные MVM-вклады и
-цифровой LIF](MAPPED_SEQUENTIAL_MVM.md): фиксированные 94 ячейки, новые one-hot
-измерения для каждой суммы, без записи весов и CIFAR replay. Команда
-`experiment.py --test-mapped-sequential-mvm --dry-run` проверяет подготовку без I/O.
+Выполнен ограниченный аппаратный эксперимент: четыре Conv1-фильтра, 300 обученных коэффициентов, 10 фиксированных настоящих CIFAR-патчей, 12 шагов и 5 повторов. Сумма всех 75 коэффициентов фильтра поступает в обученный BN и цифровой LIF. Это **первый слой, не accuracy полного CIFAR-классификатора**.
 
-Подготовлены [операции калибровки MVM, CIFAR Conv1 и цифрового LIF](CALIBRATED_MVM_OPERATIONS.md): фиксированный план, независимая проверка матрицы коррекции и настоящий программный Conv1/BNTT/LIF-эталон. Новый протокол ещё не запускался; текущая работа ограничена подготовкой операций. Предыдущая диагностика описана в [BINARY_MVM.md](BINARY_MVM.md).
+[Итог HW/SIM](results/cifar_feedback_reviews/remaining_hardware_vs_simulator_20261016/REPORT.md) · [Карта участвовавших адресов](results/cifar_feedback_reviews/remaining_hardware_vs_simulator_20261016/hardware_contributing_map.svg) · [Независимый аппаратный review](results/cifar_feedback_reviews/remaining_hardware_20261016/INDEPENDENT_REVIEW.md).
 
-Свежая карта дала **7 кандидатов из 256** по прежнему критерию двух амплитуд — [разбор интервалов и проблем](results/cell_ranges/20261015_interval_review/REPORT.md) и [цветная карта](results/cell_maps/9923f9bc-1ffc-4977-b26f-fd68c6c84e90/detailed/index.html). Отдельная [offline-гипотеза фиксированной амплитуды](BINARY_SPIKE_NOTES.md) даёт **81 кандидат при 0.05 V и 103 при 0.1 V**, без проверки линейности между амплитудами; старые критерии и результаты не изменены. Совместное суммирование этих кандидатов и размещение четырёх CIFAR-фильтров пока не подтверждены.
+Аппаратный аудит: **669378 проверок, 0 ошибок**. Полнота сбора подтверждена, точность записи весов остаётся неудовлетворительной. Из десяти заранее выбранных резервных адресов девять измерены в CIFAR; WL3/BL31 не прошёл ограниченный RESET-screening. Карта показывает объединение участвовавших адресов во времени, а не конечные проводимости или одновременно размещённые 300 весов.
 
-Единая точка входа — **experiment.py**. Четыре фазы: характеристика записи,
-14 фильтров, все 64 фильтра, три записи фильтра 41 и средние K=1,2,3.
-Это эксперимент первого слоя, не accuracy полной SNN на CIFAR.
+## Единая точка входа
+
+Все команды выполняются из корня репозитория. Без флагов `experiment.py` показывает справку.
+
+| Сценарий | Флаг | Новые коэффициенты | Максимум вызовов / записей |
+|---|---|---:|---:|
+| [Резерв A](CIFAR_FEEDBACK_RESERVE.md) | `--cifar-feedback-reserve` | 13 | 24323 / 3232 |
+| [Резервы B/C](CIFAR_REMAINING_RESERVES.md) | `--cifar-feedback-remaining-reserves` | 20 | 40378 / 5260 |
+
+Preflight без подключения:
 
 ```sh
 python experiment.py --help
-python experiment.py --dry-run
-python experiment.py --run-simulator
+python experiment.py --cifar-feedback-reserve --dry-run
+python experiment.py --cifar-feedback-remaining-reserves --dry-run
 ```
 
-Без флагов показывается справка. Dry-run проверяет файлы исходников, INI и веса
-без импорта физического драйвера и подключения. Без локальных
-operator-provided файлов драйвера dry-run ожидаемо сообщает об их отсутствии.
-Несовместимые CLI режимы отвергаются до подключения.
+Dry-run проверяет исходники, INI, веса и привязанные результаты родителей без подключения к плате. Частные файлы драйвера должны находиться локально; отсутствие или несовпадение SHA вызывает явную ошибку. Это не проверка проводки.
 
-Физический сценарий: `--run-hardware --phase phase1`. Аппаратные запуски
-требуют явного разрешения оператора; команды в документации не разрешают запуск.
-Окно q=.01–.05 не квалифицировано для физического mapping. Алгоритм и
-научные пороги в обновлении launcher не изменены.
-
-- [Воспроизведение на Raspberry через GitHub](REPRODUCE.md).
-- [Физический протокол и условия остановки](HARDWARE_PLAN.md).
-- Физические настройки: configs/hardware_four_phase.json и configs/raspberry_board.ini.
-- Реализация: experiment_hardware.py, hardware_suite.py, native_conversions.py.
-- Настройки simulator находятся сверху experiment.py; он использует два
-  массива A/B. Физический протокол использует один массив 32×8 последовательно.
-- Веса: weights/conv1_weights.npy; штатный backend: vendor/MemriBoard.
-
-Все аппаратные I/O — только публичный MemriBoard Connector open_port/impact/
-close_port. Длительность native write неизвестна: не называть её 125 мкс.
-Native converters используются для SI/DAC/ADC; исходные команды, ADC и ошибки
-сохраняются без исправления невалидных значений.
-
-Сессии сохраняются в новых UUID-каталогах results/simulator или
-results/hardware_four_phase. Аппаратный manifest содержит hashes, Git commit,
-tracked dirty state, untracked paths и CLI args. Старые сессии не перезаписываются.
-Частные драйверы и неопубликованные результаты не входят в публичное обновление.
-
-Offline тесты, без аппаратных обращений:
+Новый прогон штатного simulator:
 
 ```sh
-python -m unittest test_launch test_hardware_suite test_native_conversions -v
+python experiment.py --cifar-feedback-reserve --run-simulator
+python experiment.py --cifar-feedback-remaining-reserves --run-simulator
 ```
 
-VS Code: первый профиль F5 — «Подготовка MVM: preflight без I/O»; он запускает
-`--test-calibrated-mvm --dry-run`. Второй профиль — подготовительный штатный
-simulator. Прежние четыре фазы доступны отдельным профилем и не выбраны по умолчанию.
+B/C использует фиксированную опубликованную A-сессию своего backend; только что запущенный A не подставляется автоматически. Итог содержит 20 новых B/C + 13 исторических A + 267 исходных коэффициентов. Старые результаты не перезаписываются.
 
-Локальное окружение симулятора (Python 3.12; Linux/Raspberry activation: . .venv/bin/activate):
+Аппаратный запуск выбирается отдельным `--run-hardware`, изменяет состояния платы и требует намеренного разрешения оператора. [Воспроизведение и окружение GitHub → Raspberry](REPRODUCE.md).
 
-```sh
-python3.12 -m venv .venv
-.venv/Scripts/python -m pip install -r requirements.txt
-.venv/Scripts/python experiment.py --help
-```
+## VS Code и файлы
 
-На Linux используйте .venv/bin/python вместо .venv/Scripts/python.
+Первые четыре профиля F5: A preflight, B/C preflight, A simulator, B/C simulator. Автоматического аппаратного запуска нет. Python берётся из `.venv` внутри репозитория; Windows/Linux пути заданы относительно workspace.
 
-Текущая работа — калибровка и проверка выбранных ячеек, не подтверждённый
-CIFAR mapping. Измеренная повторяемость отдельных состояний не доказывает
-правильный масштаб MVM, совместную работу пар или точность сети.
+- Настройки: `configs/cifar_feedback_reserve.json`, `configs/cifar_feedback_remaining_reserves.json`, `configs/raspberry_board.ini`.
+- Веса и патчи: `weights/conv1_weights.npy`, `weights/prepared_cifar100_conv1.json`.
+- Результаты: `results/cifar_feedback_reserve/`, `results/cifar_feedback_remaining_reserves/`.
+- Аудиторы: `audit_cifar_feedback_reserve.py`, `audit_cifar_feedback_remaining_reserves.py`.
 
-- [Базовый повтор трёх ячеек](CELL_RANGE_REPEAT.md).
-- [Refined v2: внутреннее условие остановки и прежняя квалификация](CELL_RANGE_REFINED.md).
-- [Калибровка с GUI-прогнозом тока и свежая read-only карта](CURRENT_GUARD_RESULTS.md).
-- [Воспроизведение и различия с GUI](MEMRIBOARD_DEVELOPER_REPRO.md).
+Аппаратные операции выполняются только через публичный MemriBoard Connector и штатные converters. Native-длительность записи неизвестна; 125 модельных шагов simulator не являются измеренными 125 мкс платы. Исходные ADC, ошибки, команды, хеши и родительские результаты сохраняются.
 
-В VS Code доступны refined dry-run и simulator; автоматического hardware-запуска нет.
+Исторические сценарии: [адаптивное размещение](CIFAR_FEEDBACK_ADAPTIVE.md), [четыре фазы](HARDWARE_PLAN.md), [подготовка MVM](CALIBRATED_MVM_OPERATIONS.md). Их старые карты и пороги не заменяют результат последнего A/B/C.

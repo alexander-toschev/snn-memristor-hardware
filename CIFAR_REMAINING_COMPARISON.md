@@ -13,11 +13,13 @@ auditor SHA `4f2f73eb96fd286aabde4e0513b7aac2ef96e57ef873ce36573a73a29a3b0525`,
 Из корня репозитория, когда опубликованы оба B/C audit PASS:
 
 ```text
-python compare_cifar_remaining.py --sim-session results/cifar_feedback_remaining_reserves/99631af1-c73e-42ed-abcd-20d4e580f691 --sim-audit results/cifar_feedback_reviews/remaining_simulator_20261016/audit.json --hardware-session results/cifar_feedback_remaining_reserves/HARDWARE_SESSION_ID --hardware-audit results/cifar_feedback_reviews/HARDWARE_AUDIT_FOLDER/audit.json --output results/cifar_feedback_reviews/remaining_hardware_vs_simulator
+python compare_cifar_remaining.py --sim-session results/cifar_feedback_remaining_reserves/99631af1-c73e-42ed-abcd-20d4e580f691 --sim-audit results/cifar_feedback_reviews/remaining_simulator_20261016/audit.json --hardware-session results/cifar_feedback_remaining_reserves/58ca618b-c37f-454e-be25-db21d1d25f60 --hardware-audit results/cifar_feedback_reviews/remaining_hardware_20261016/audit.json --output results/cifar_feedback_reviews/remaining_hardware_vs_simulator_recheck
 ```
 
-Аппаратные аргументы пока являются заполнителями. Эта инструкция не
-утверждает, что аппаратный B/C уже получен. Output — только новая папка;
+Аргументы указывают на завершённые SIM и аппаратный B/C; соответствующие
+аудиты PASS604836/0 и PASS669378/0. Сохранённый отчёт находится в
+`results/cifar_feedback_reviews/remaining_hardware_vs_simulator_20261016/`.
+Команда выше создаёт отдельную проверочную папку. Output — только новая папка;
 нельзя писать внутрь сессии или измеренной ancestry. Пути относительны репо.
 
 Файлы результата:

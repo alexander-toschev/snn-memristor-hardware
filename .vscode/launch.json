@@ -2,18 +2,124 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "CIFAR A: preflight без I/O",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/experiment.py",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": {
+        "python": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "pythonArgs": [
+        "-B"
+      ],
+      "args": [
+        "--cifar-feedback-reserve",
+        "--dry-run"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    {
+      "name": "CIFAR B/C: preflight без I/O",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/experiment.py",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": {
+        "python": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "pythonArgs": [
+        "-B"
+      ],
+      "args": [
+        "--cifar-feedback-remaining-reserves",
+        "--dry-run"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    {
+      "name": "CIFAR A: native simulator",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/experiment.py",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": {
+        "python": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "pythonArgs": [
+        "-B"
+      ],
+      "args": [
+        "--cifar-feedback-reserve",
+        "--run-simulator"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    {
+      "name": "CIFAR B/C: native simulator",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/experiment.py",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": {
+        "python": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "pythonArgs": [
+        "-B"
+      ],
+      "args": [
+        "--cifar-feedback-remaining-reserves",
+        "--run-simulator"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    {
       "name": "CIFAR v1: preflight платы без I/O",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/experiment.py",
       "python": "${workspaceFolder}/.venv/bin/python",
-      "windows": {"python": "${workspaceFolder}/.venv/Scripts/python.exe"},
-      "pythonArgs": ["-B"],
-      "args": ["--cifar-feedback-diagnostic", "--dry-run"],
+      "windows": {
+        "python": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "pythonArgs": [
+        "-B"
+      ],
+      "args": [
+        "--cifar-feedback-diagnostic",
+        "--dry-run"
+      ],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "justMyCode": true,
-      "env": {"PYTHONIOENCODING": "utf-8", "PYTHONUNBUFFERED": "1"}
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUNBUFFERED": "1"
+      }
     },
     {
       "name": "CIFAR v1: полный диагностический simulator",
@@ -21,13 +127,23 @@
       "request": "launch",
       "program": "${workspaceFolder}/experiment.py",
       "python": "${workspaceFolder}/.venv/bin/python",
-      "windows": {"python": "${workspaceFolder}/.venv/Scripts/python.exe"},
-      "pythonArgs": ["-B"],
-      "args": ["--cifar-feedback-diagnostic", "--run-simulator"],
+      "windows": {
+        "python": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "pythonArgs": [
+        "-B"
+      ],
+      "args": [
+        "--cifar-feedback-diagnostic",
+        "--run-simulator"
+      ],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "justMyCode": true,
-      "env": {"PYTHONIOENCODING": "utf-8", "PYTHONUNBUFFERED": "1"}
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUNBUFFERED": "1"
+      }
     },
     {
       "name": "CIFAR: адаптивный simulator, продолжение после 42 taps",
@@ -35,13 +151,25 @@
       "request": "launch",
       "program": "${workspaceFolder}/experiment.py",
       "python": "${workspaceFolder}/.venv/bin/python",
-      "windows": {"python": "${workspaceFolder}/.venv/Scripts/python.exe"},
-      "pythonArgs": ["-B"],
-      "args": ["--cifar-feedback-adaptive", "--run-simulator", "--cifar-resume-session", "results/cifar_feedback_diagnostic/e1e1d0a7-00e2-403b-ac4e-defbf1fe80b8"],
+      "windows": {
+        "python": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "pythonArgs": [
+        "-B"
+      ],
+      "args": [
+        "--cifar-feedback-adaptive",
+        "--run-simulator",
+        "--cifar-resume-session",
+        "results/cifar_feedback_diagnostic/e1e1d0a7-00e2-403b-ac4e-defbf1fe80b8"
+      ],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "justMyCode": true,
-      "env": {"PYTHONIOENCODING": "utf-8", "PYTHONUNBUFFERED": "1"}
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUNBUFFERED": "1"
+      }
     },
     {
       "name": "Подготовка MVM: preflight без I/O",
@@ -49,8 +177,13 @@
       "request": "launch",
       "program": "${workspaceFolder}/experiment.py",
       "python": "${workspaceFolder}/.venv/bin/python",
-      "windows": {"python": "${workspaceFolder}/.venv/Scripts/python.exe"},
-      "args": ["--test-calibrated-mvm", "--dry-run"],
+      "windows": {
+        "python": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "args": [
+        "--test-calibrated-mvm",
+        "--dry-run"
+      ],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "justMyCode": true
@@ -61,8 +194,13 @@
       "request": "launch",
       "program": "${workspaceFolder}/experiment.py",
       "python": "${workspaceFolder}/.venv/bin/python",
-      "windows": {"python": "${workspaceFolder}/.venv/Scripts/python.exe"},
-      "args": ["--test-calibrated-mvm", "--run-simulator"],
+      "windows": {
+        "python": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "args": [
+        "--test-calibrated-mvm",
+        "--run-simulator"
+      ],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "justMyCode": true

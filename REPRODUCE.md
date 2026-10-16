@@ -1,11 +1,43 @@
 # Воспроизведение на Raspberry
 
-Все команды выполняются из корня репозитория. Получение кода и dry-run не
-запускают эксперимент. Актуальный путь четырёх Conv1-фильтров, с ограниченной
-записью и измеренными вкладами, описан в [CIFAR_FEEDBACK_ADAPTIVE.md](CIFAR_FEEDBACK_ADAPTIVE.md):
-`experiment.py --cifar-feedback-adaptive`. Рабочая ветка — `codex/full-cifar-diagnostic`.
-Ниже сохранены окружение и исторические сценарии; их прежние формулировки
-разрешений не заменяют актуальное задание и не запускают опыт автоматически.
+Все команды выполняются из корня репозитория. Актуальный конечный пакет — [резерв A](CIFAR_FEEDBACK_RESERVE.md) и [резервы B/C](CIFAR_REMAINING_RESERVES.md), единая точка входа `experiment.py`. Рабочая ветка — `codex/full-cifar-diagnostic`.
+
+[Итог HW/SIM](results/cifar_feedback_reviews/remaining_hardware_vs_simulator_20261016/REPORT.md) · [Карта участвовавших ячеек](results/cifar_feedback_reviews/remaining_hardware_vs_simulator_20261016/hardware_contributing_map.svg) · [Аппаратный review](results/cifar_feedback_reviews/remaining_hardware_20261016/INDEPENDENT_REVIEW.md).
+
+Измерены четыре Conv1-фильтра на десяти фиксированных настоящих CIFAR-патчах, с обученным BN и цифровым LIF. Полный CIFAR-классификатор не запускался; завершение сбора и точность весов — разные результаты.
+
+## A и B/C: точные команды
+
+Preflight без подключения:
+
+```sh
+python experiment.py --cifar-feedback-reserve --dry-run
+python experiment.py --cifar-feedback-remaining-reserves --dry-run
+```
+
+Новый native SIM:
+
+```sh
+python experiment.py --cifar-feedback-reserve --run-simulator
+python experiment.py --cifar-feedback-remaining-reserves --run-simulator
+```
+
+Только для намеренно разрешённого оператором нового аппаратного опыта:
+
+```sh
+python experiment.py --cifar-feedback-reserve --run-hardware
+python experiment.py --cifar-feedback-remaining-reserves --run-hardware
+```
+
+A ограничен 24323 вызовами / 3232 решениями записи; B/C — 40378 / 5260. Запуски создают новые UUID. B/C не подхватывает последний A автоматически: оба backend привязаны к точным опубликованным completed-A manifest/audit SHA. Замена родителя требует отдельного review.
+
+Сохранённый аппаратный B/C получен из clean tracked commit `418c4ad4ca1551d7733ccc4718ae85aab55937fa`; source commit и поздний commit публикации данных различаются. Проверка полученного результата без аппаратуры:
+
+```sh
+python audit_cifar_feedback_remaining_reserves.py --session results/cifar_feedback_remaining_reserves/58ca618b-c37f-454e-be25-db21d1d25f60 --output results/cifar_feedback_reviews/remaining_hardware_REAUDIT
+```
+
+Выходной каталог должен быть новым. Повторный физический запуск для проверки опубликованных данных не нужен. Итог: 20 новых B/C + 13 ранее измеренных A + 267 исходных коэффициентов, а не одновременно записанные 300 весов. Ниже сохранены настройка окружения и исторические сценарии.
 
 ## Получение проверенной версии
 
@@ -48,7 +80,7 @@ python3 -m venv --system-site-packages .venv
 python -m pip install SQLAlchemy==2.0.51 greenlet==3.5.6
 python setup_driver.py --source ../MemriBoard
 git check-ignore vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py
-python experiment.py --cifar-feedback-adaptive --dry-run
+python experiment.py --cifar-feedback-remaining-reserves --dry-run
 ```
 
 ../MemriBoard — установленная оператором соседняя директория. Helper проверяет
@@ -60,12 +92,12 @@ SHA256 обоих файлов до копирования, копирует т�
 
 Dry-run проверяет exact fingerprints Connector/converters/драйвера, INI, веса
 по сохранённым файлам. Импортируемость программных и аппаратных зависимостей dry-run не проверяет. Это не проверка проводки и не физическая калибровка.
-Актуальные команды запуска и аудита приведены в [CIFAR_FEEDBACK_ADAPTIVE.md](CIFAR_FEEDBACK_ADAPTIVE.md).
+Актуальные команды A/B/C приведены выше; исторический адаптивный сценарий описан в [CIFAR_FEEDBACK_ADAPTIVE.md](CIFAR_FEEDBACK_ADAPTIVE.md).
 
 ## Исторический четырёхфазный эксперимент
 
 Без флагов — справка. Отдельный simulator: python experiment.py --run-simulator.
-Историческая команда первой фазы (не текущий адаптивный CIFAR-сценарий):
+Историческая команда первой фазы (не текущий пакет A/B/C):
 
 ```sh
 python experiment.py --run-hardware --phase phase1
