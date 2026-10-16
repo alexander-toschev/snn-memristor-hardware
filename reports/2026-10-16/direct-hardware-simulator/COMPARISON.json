@@ -1,0 +1,189 @@
+{
+  "schema": "direct-fresh-hardware-simulator-comparison-v1",
+  "generator_sha256": "1538619642c41510f0f519b8df91c4fcfcf4a1c301955700c1bd14e89b68c2f6",
+  "hardware": {
+    "export_directory": "reports/2026-10-16/hardware-stability-comparison/actual-trace-v2",
+    "trace_provenance_sha256": "2e5700f1041ad36f897a9ca4903fa63795bfb2daa4666379300d586a5d77e8b3",
+    "session_id": "8c59eb76-c4e1-4d6f-8238-2b6622e226f6",
+    "source": "hardware",
+    "source_commit": "7a303f0846a25dc277768f508fd2a78777a15628",
+    "manifest_sha256": "349c1cf3795ba5dd1ff9939ad89acfc377344a5a9c1ca256e05535649fbd4d9b",
+    "audit_sha256": "923588613122f7ffd1b54b9bece687623d1b100cd759cad45b32d667c781596c",
+    "auditor_sha256": "07d2dd0faecff90360df9c9c1771746b8d01045fb10119fa626263a3f201e9ca",
+    "fixture_sha256": "86113ff1d2fdbe155056d2e1377cf380e7395120fd93ccf2e1efc7a0a933167c",
+    "trained_weights_sha256": "227e0ab03dc36f0a348aeda7fa0033a4136eadc56426c3af2b77486a0e3dcfd8",
+    "planned_route_sha256": "5c80e32a13097f5fd0c998a4d416811ce7cb2edb00ddfbe5e298d688b5662abb",
+    "planned_route_canonical_sha256": "c8cfad2dd91bb954b6c80116496d165b357f2fb1ed7cb7b58599db29f7714556",
+    "summary_sha256": "5eb7a8b004708e583f09f3e104bdf126c5a8dd8852245f21c469489f6e5e7a69",
+    "decoder_gain_v_per_weight": 0.25,
+    "csv_sha256": "a81ef1831d41d97afb19eba02ffc79040a8815431349d70d04cd25429189a997"
+  },
+  "simulator": {
+    "export_directory": "reports/2026-10-16/no-bl8-simulator/actual-trace-v2",
+    "trace_provenance_sha256": "ec9bb634212f2c84d0f78f200b887cb0c2441c20f66b6cd277814f40f3315f11",
+    "session_id": "28aa7248-72db-428a-b0eb-92b1712a25af",
+    "source": "simulator",
+    "source_commit": "41739f3d58fcf61ed3b99a8566154b8e79695078",
+    "manifest_sha256": "5ec0bc4789a87b67ae8b357c3205402eec4a625a5b7407e1c702a1f321aeccaa",
+    "audit_sha256": "b3cf7ab0c78efd8d68c9ca971c0fd2a6aafe6bfb6f31ec5d750c9e0bd28a616f",
+    "auditor_sha256": "07d2dd0faecff90360df9c9c1771746b8d01045fb10119fa626263a3f201e9ca",
+    "fixture_sha256": "86113ff1d2fdbe155056d2e1377cf380e7395120fd93ccf2e1efc7a0a933167c",
+    "trained_weights_sha256": "227e0ab03dc36f0a348aeda7fa0033a4136eadc56426c3af2b77486a0e3dcfd8",
+    "planned_route_sha256": "e3f108ba658ea438cc6e888ed81835c4b4d975576c98ac7d41ba3866852b33fe",
+    "planned_route_canonical_sha256": "c8cfad2dd91bb954b6c80116496d165b357f2fb1ed7cb7b58599db29f7714556",
+    "summary_sha256": "fca6b514d18812b23209b809ed0fb162540590a3b6e26f0256fcb345f4f657e5",
+    "decoder_gain_v_per_weight": 0.03,
+    "csv_sha256": "f1c3a6eb535dfebd3c27382149fedfe7dac6b42f08308f1582fdf9975fb800bf"
+  },
+  "difference_direction": "hardware minus simulator",
+  "total": {
+    "conv": {
+      "rmse": 0.08351199642865911,
+      "max_abs": 0.5927027077465002,
+      "mean_difference": 0.008490262731387716
+    },
+    "bn": {
+      "rmse": 0.271133223631172,
+      "max_abs": 2.8272332850249295,
+      "mean_difference": 0.04234148903786174
+    },
+    "v_before": {
+      "rmse": 0.35062025416193293,
+      "max_abs": 2.8272332850249295,
+      "mean_difference": 0.10498637752559195
+    },
+    "v_after": {
+      "rmse": 0.36311486127585685,
+      "max_abs": 2.8272332850249295,
+      "mean_difference": 0.12946807315450237
+    },
+    "timepoints": 2400,
+    "spike_mismatches": 73,
+    "unique_logical_spike_mismatches": 15,
+    "logical_points": 480
+  },
+  "per_filter": [
+    {
+      "filter": 0,
+      "conv": {
+        "rmse": 0.08609988007419812,
+        "max_abs": 0.4394807325099601,
+        "mean_difference": -0.03420291167571609
+      },
+      "bn": {
+        "rmse": 0.15417299879598992,
+        "max_abs": 1.017427105983451,
+        "mean_difference": -0.06090008226905212
+      },
+      "v_before": {
+        "rmse": 0.2096748145295676,
+        "max_abs": 1.026042442277292,
+        "mean_difference": -0.025758829371447824
+      },
+      "v_after": {
+        "rmse": 0.2677748582619726,
+        "max_abs": 0.9968038712657966,
+        "mean_difference": 0.07198308647973176
+      },
+      "timepoints": 600,
+      "spike_mismatches": 39,
+      "unique_logical_spike_mismatches": 8,
+      "logical_points": 120
+    },
+    {
+      "filter": 1,
+      "conv": {
+        "rmse": 0.10606181597762332,
+        "max_abs": 0.5927027077465002,
+        "mean_difference": 0.047760133723274256
+      },
+      "bn": {
+        "rmse": 0.452201550835038,
+        "max_abs": 2.8272332850249295,
+        "mean_difference": 0.19311020994118036
+      },
+      "v_before": {
+        "rmse": 0.5875124016582667,
+        "max_abs": 2.8272332850249295,
+        "mean_difference": 0.34791971236097247
+      },
+      "v_after": {
+        "rmse": 0.5786089919371213,
+        "max_abs": 2.8272332850249295,
+        "mean_difference": 0.31989903925022434
+      },
+      "timepoints": 600,
+      "spike_mismatches": 10,
+      "unique_logical_spike_mismatches": 2,
+      "logical_points": 120
+    },
+    {
+      "filter": 2,
+      "conv": {
+        "rmse": 0.08718459028837675,
+        "max_abs": 0.4092115121454528,
+        "mean_difference": 0.032247529827590944
+      },
+      "bn": {
+        "rmse": 0.22608462562486872,
+        "max_abs": 1.6148919768424381,
+        "mean_difference": 0.07210945296623196
+      },
+      "v_before": {
+        "rmse": 0.28558368811896984,
+        "max_abs": 1.6223596446771014,
+        "mean_difference": 0.1296613989035181
+      },
+      "v_after": {
+        "rmse": 0.3049040821947512,
+        "max_abs": 1.6223596446771014,
+        "mean_difference": 0.11920205732342633
+      },
+      "timepoints": 600,
+      "spike_mismatches": 9,
+      "unique_logical_spike_mismatches": 2,
+      "logical_points": 120
+    },
+    {
+      "filter": 3,
+      "conv": {
+        "rmse": 0.040417363211704416,
+        "max_abs": 0.18683189569081537,
+        "mean_difference": -0.011843700949598242
+      },
+      "bn": {
+        "rmse": 0.12117378325044408,
+        "max_abs": 0.5607429092067815,
+        "mean_difference": -0.03495362448691327
+      },
+      "v_before": {
+        "rmse": 0.1450719050829887,
+        "max_abs": 0.5272055471147878,
+        "mean_difference": -0.03187677179067496
+      },
+      "v_after": {
+        "rmse": 0.16718663317025106,
+        "max_abs": 0.9497432552196735,
+        "mean_difference": 0.006788109564627035
+      },
+      "timepoints": 600,
+      "spike_mismatches": 15,
+      "unique_logical_spike_mismatches": 3,
+      "logical_points": 120
+    }
+  ],
+  "comparison_is_calibrated_actual_pipeline_not_raw_voltage": true,
+  "fit_or_rescale_performed": false,
+  "route_raw_bytes_equal": false,
+  "route_semantically_equal": true,
+  "trained_and_effective_reference_metrics_recomputed": false,
+  "limits": [
+    "Direct comparison of independent measured acquisitions; no shared physical state/noise assumption.",
+    "Fixed source gains differ (.25 HW/.03 SIM); no further scaling is applied here. C matrices may differ.",
+    "Shared route, fixture and trained weights are required; actual programmed weights may differ.",
+    "This does not replace separate comparisons against trained weights and W_eff.",
+    "Repeated 2400 points and unique 480 logical points are counted separately.",
+    "Bound export provenance and CSV are verified; full raw inventory/audit is not repeated here.",
+    "Four filters and ten prepared patches do not establish full-classifier accuracy."
+  ]
+}
