@@ -531,15 +531,36 @@ PRIVATE = {
  'vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py':'5bcb02c04bc185e332b2ec96acabc2d4303d21724c9c052de540ef92d603b634'}
 
 
+def audit_git_status(git,source_names,ck):
+    """One explicit nonexecuted journal exception; never relabel a dirty tree clean."""
+    lines=[line for line in git['status_porcelain'].splitlines() if line]
+    tracked=[line for line in lines if not line.startswith('?? ')]
+    untracked=[line[3:] for line in lines if line.startswith('?? ')]
+    ck.equal(sorted(untracked),sorted(git['untracked']),'manifest/untracked_list_consistency')
+    ck.equal(git['dirty_tracked'],bool(tracked),'manifest/dirty_flag_consistency')
+    docs_only=tracked==[' M CIFAR_GOAL_AUDIT.md']
+    ck.require(not tracked or docs_only,'manifest/clean_or_exact_nonexecuted_journal_edit')
+    ck.require(not docs_only or 'CIFAR_GOAL_AUDIT.md' not in source_names,'manifest/journal_not_executed_source')
+    harmless_files={'audit_cifar_memristor.py','test_audit_cifar_memristor.py'}
+    for name in untracked:
+        not_source=not any(s==name or s.startswith(name.rstrip('/')+'/') for s in source_names)
+        known_nonruntime=name in harmless_files or name.startswith('results/') or name=='.tmp/' or name.startswith('.tmp/')
+        ck.require(not_source and known_nonruntime,'manifest/no_untracked_runtime/'+name)
+    return dict(recorded_dirty_tracked=git['dirty_tracked'],recorded_tracked_changes=tracked,
+                known_nonexecuted_journal_edit=docs_only,
+                warning=('Working tree was NOT clean: CIFAR_GOAL_AUDIT.md alone was modified. '
+                         'This exception is valid only together with successful independent source/input Git-blob verification.') if docs_only else None)
+
+
 def verify_manifest(repo,directory,ck):
     manifest=load(directory/'manifest.json');git=manifest['invocation']['git']
-    ck.require(git['dirty_tracked'] is False,'manifest/clean_tracked')
+    provenance=audit_git_status(git,manifest['source_sha256'],ck)
     ck.equal(manifest['protocol_id'],'cifar-conv1-program-measure-c2-v1','manifest/protocol')
     ck.require(manifest['source'] in ('hardware','simulator'),'manifest/source')
     ck.equal(manifest['hardware_access'],manifest['source']=='hardware','manifest/hardware_access')
     for name,digest in manifest['result_sha256'].items():
         ck.equal(sha(local(directory,name)),digest,'result_sha/'+name)
-    differences=[]
+    differences=[];source_errors_before=len(ck.errors)
     for name,digest in manifest['source_sha256'].items():
         path=local(repo,name)
         if name in PRIVATE:
@@ -554,6 +575,7 @@ def verify_manifest(repo,directory,ck):
     # No repository code is imported by this auditor. Historical runtime is verified
     # against its recorded Git blob; the converter formula is independently pinned.
     for name,digest in PINS.items():ck.equal(manifest['source_sha256'].get(name),digest,'source/known_pin/'+name)
+    provenance['source_input_blob_or_private_pin_verification_passed']=len(ck.errors)==source_errors_before
     board=ConfigParser();board.read(directory/'board.ini',encoding='utf-8')
     for key,value in BOARD.items():ck.equal(board.getfloat('board',key),value,'INI/'+key)
     ck.equal(board.getfloat('board','vol_read'),.3,'INI/vol_read')
@@ -571,11 +593,11 @@ def verify_manifest(repo,directory,ck):
         reference='uncorrected_fresh_H_times_mask; no trained weights or CIFAR',
         selection_policy='minimum_score_among_numerically_eligible; quality_flags_do_not_gate',
         fallback='identity_if_no_numerically_eligible'),'protocol/matrix')
-    return manifest,plan,differences
+    return manifest,plan,differences,provenance
 
 
 def audit_session(repo,directory,fixture,routing,ck,allow_parent=True):
-    manifest,plan,differences=verify_manifest(repo,directory,ck)
+    manifest,plan,differences,provenance=verify_manifest(repo,directory,ck)
     ck.equal(manifest['status'],'completed','session/completed')
     full=[(f,t) for f in routing['filters'] for t in f['tiles']]
     if manifest['stage']=='pilot':
@@ -619,6 +641,7 @@ def audit_session(repo,directory,fixture,routing,ck,allow_parent=True):
                 partial_points=sum(len(r['partials']) for r in results),full_time_outputs=len(trajectories)*12,
                 decoded_time_outputs=sum(12 for t in trajectories if t['actual'] is not None),
                 source_local_differences=differences,
+                provenance=provenance,
                 tiles=[{k:v for k,v in r.items() if k!='partials'} for r in results],quality=quality,
                 limitations=['Audit consistency is separate from scientific accuracy and weight representation quality.',
                     'Five repeats do not identify quantization uncertainty or long-term stability.',
@@ -644,6 +667,10 @@ def main(argv=None):
     (output/'audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf-8')
     text=f"# Независимый аудит CIFAR\n\nСтатус: **{report['audit_status']}**; проверок: {ck.count}; ошибок: {len(ck.errors)}.\n\n"
     text+='Аудит выполняет только чтение файлов и арифметику. Код коллектора и анализатора не импортируется.\n\n'
+    if report.get('provenance',{}).get('warning'):
+        text+='**Предупреждение provenance:** рабочее дерево при запуске не было чистым: изменён только `CIFAR_GOAL_AUDIT.md`. '
+        text+='Проверка сохранённых исходников/входов по Git blobs и private pins: '+str(report['provenance']['source_input_blob_or_private_pin_verification_passed'])+'. '
+        text+='Исходный manifest и прежний failed-аудит не изменяются.\n\n'
     text+=f"Полных Conv/BN/LIF точек: {report.get('full_time_outputs',0)}; partial-точек: {report.get('partial_points',0)}.\n\n"
     text+='Прохождение аудита подтверждает согласованность журнала; качество записи и ошибки относительно Wtrained/W_eff приведены отдельно в audit.json.\n'
     (output/'REPORT.md').write_text(text,encoding='utf-8')

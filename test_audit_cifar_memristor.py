@@ -1,6 +1,6 @@
 import math
 import unittest
-from audit_cifar_memristor import Checks,Replay,aggregate_independent,calibration,dac,matrix_select,multiply,neural_trace,output_voltage,paired_difference,resistance,singular2
+from audit_cifar_memristor import Checks,Replay,aggregate_independent,audit_git_status,calibration,dac,matrix_select,multiply,neural_trace,output_voltage,paired_difference,resistance,singular2
 
 
 class IndependentMathTests(unittest.TestCase):
@@ -125,6 +125,35 @@ class IndependentMathTests(unittest.TestCase):
         ck=Checks();r=dict(filter_id=0,tile_id=0)
         aggregate_independent([r,r],{'filters':[]},{'cases':[]},ck)
         self.assertIn('aggregate/no_duplicate_tile',ck.errors)
+
+    def test_only_known_journal_dirty_is_warning_not_clean(self):
+        git=dict(dirty_tracked=True,status_porcelain=' M CIFAR_GOAL_AUDIT.md\n?? results/run/',untracked=['results/run/'])
+        ck=Checks();p=audit_git_status(git,{'cifar_memristor.py'},ck)
+        self.assertFalse(ck.errors);self.assertTrue(p['recorded_dirty_tracked'])
+        self.assertTrue(p['known_nonexecuted_journal_edit']);self.assertIn('NOT clean',p['warning'])
+
+    def test_dirty_runtime_config_extra_doc_or_rename_rejected(self):
+        for line in [' M cifar_memristor.py',' M configs/cifar_memristor.json',' M README.md',
+                     'R  CIFAR_GOAL_AUDIT.md -> other.md','M  CIFAR_GOAL_AUDIT.md',
+                     ' M CIFAR_GOAL_AUDIT.md\n M cifar_memristor.py']:
+            with self.subTest(line=line):
+                ck=Checks();audit_git_status(dict(dirty_tracked=True,status_porcelain=line,untracked=[]),{'cifar_memristor.py'},ck)
+                self.assertTrue(ck.errors)
+
+    def test_false_clean_relabel_rejected(self):
+        ck=Checks();audit_git_status(dict(dirty_tracked=False,status_porcelain=' M CIFAR_GOAL_AUDIT.md',untracked=[]),{},ck)
+        self.assertIn('manifest/dirty_flag_consistency',ck.errors)
+
+    def test_untracked_runtime_and_hidden_source_rejected(self):
+        for name,sources in [('manager.py',{}),('vendor/new.py',{}),('.tmp/runtime.py',{'.tmp/runtime.py'}),
+                             ('results/helper.py',{'results/helper.py'}),('audit_cifar_memristor.py',{'audit_cifar_memristor.py'})]:
+            ck=Checks();audit_git_status(dict(dirty_tracked=False,status_porcelain='?? '+name,untracked=[name]),sources,ck)
+            self.assertTrue(ck.errors)
+
+    def test_known_nonruntime_untracked_allowed(self):
+        names=['.tmp/','results/run/','audit_cifar_memristor.py','test_audit_cifar_memristor.py']
+        ck=Checks();audit_git_status(dict(dirty_tracked=False,status_porcelain='\n'.join('?? '+n for n in names),untracked=names),{},ck)
+        self.assertFalse(ck.errors)
 
 
 if __name__=='__main__':unittest.main()
