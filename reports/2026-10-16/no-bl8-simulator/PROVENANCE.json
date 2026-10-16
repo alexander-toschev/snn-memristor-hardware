@@ -1,0 +1,97 @@
+{
+  "schema": "compact-no-bl8-simulator-publication-v1",
+  "session_id": "28aa7248-72db-428a-b0eb-92b1712a25af",
+  "source": "simulator",
+  "source_commit": "41739f3d58fcf61ed3b99a8566154b8e79695078",
+  "manifest_sha256": "5ec0bc4789a87b67ae8b357c3205402eec4a625a5b7407e1c702a1f321aeccaa",
+  "summary_sha256": "fca6b514d18812b23209b809ed0fb162540590a3b6e26f0256fcb345f4f657e5",
+  "auditor_sha256": "07d2dd0faecff90360df9c9c1771746b8d01045fb10119fa626263a3f201e9ca",
+  "audit_sha256": "b3cf7ab0c78efd8d68c9ca971c0fd2a6aafe6bfb6f31ec5d750c9e0bd28a616f",
+  "audit_status": "passed",
+  "audit_checks": 8526935,
+  "audit_errors": 0,
+  "full_raw_local_repo_relative_path": "results/cifar_fresh_conv1_no_bl8/28aa7248-72db-428a-b0eb-92b1712a25af",
+  "full_audit_local_repo_relative_path": "results/cifar_feedback_reviews/no_bl8_simulator_20261016_audit/audit.json",
+  "full_science_local_repo_relative_path": "results/cifar_feedback_reviews/no_bl8_simulator_20261016_science/SCIENCE.json",
+  "full_science_sha256": "129ffa900f75a767056d59072a1eac514a99c0f7149455f61a797f762532bcd5",
+  "full_data_included": false,
+  "private_source_included": false,
+  "raw_reaudit_from_compact_package_possible": false,
+  "map_is_not_qualification": true,
+  "original_artifacts_unchanged": true,
+  "acquisition_source_sha256": {
+    "fresh_conv1_no_bl8.py": "df4843f0de95933d6be7bd7cb6d3e318815f0b7053dacf321594ffa347c682bb",
+    "configs/fresh_conv1_no_bl8.json": "8b458cbe1048f8e18155f1edc82b2240cae889df588bfcdbb2a4bc388e62087a",
+    "weights/fresh_conv1_no_bl8_route.json": "5c80e32a13097f5fd0c998a4d416811ce7cb2edb00ddfbe5e298d688b5662abb",
+    "experiment.py": "78ab85d62914b37dd090c480e27fd46a13ffd21f8d0ee043f1622eff3bb7a012"
+  },
+  "compact_files": {
+    "CELLS.csv": {
+      "bytes": 9586,
+      "sha256": "26916dab3934db5834143441f33bd20716236aaed774ee098431c6d436e7b1c4",
+      "repo_relative_source": "results/cifar_feedback_reviews/no_bl8_simulator_20261016_science/simulator_28aa7248-72db-428a-b0eb-92b1712a25af_CELLS.csv",
+      "source_sha256": "26916dab3934db5834143441f33bd20716236aaed774ee098431c6d436e7b1c4",
+      "transformation": "byte-for-byte copy"
+    },
+    "MAP.png": {
+      "bytes": 207311,
+      "sha256": "2b61f37973295948b790c8d6e12b2b430b2ec7d1be349fcdd39dffe2190862ed",
+      "repo_relative_source": "results/cifar_feedback_reviews/no_bl8_simulator_20261016_science/simulator_28aa7248-72db-428a-b0eb-92b1712a25af_MAP.png",
+      "source_sha256": "2b61f37973295948b790c8d6e12b2b430b2ec7d1be349fcdd39dffe2190862ed",
+      "transformation": "byte-for-byte copy"
+    },
+    "MAP.svg": {
+      "bytes": 60337,
+      "sha256": "b4a4ad9a42ea96fa4c31086c9ed47703a31f3ae997f31371e7c5d0f7db7552cb",
+      "repo_relative_source": "results/cifar_feedback_reviews/no_bl8_simulator_20261016_science/simulator_28aa7248-72db-428a-b0eb-92b1712a25af_MAP.svg",
+      "source_sha256": "b4a4ad9a42ea96fa4c31086c9ed47703a31f3ae997f31371e7c5d0f7db7552cb",
+      "transformation": "byte-for-byte copy"
+    },
+    "PLANNED_COVERAGE_NOTES.md": {
+      "bytes": 10706,
+      "sha256": "9606a7212a1b98b78119d6fc484b294d1a4c4543ae34b14d66dfa8a4c47825bb",
+      "workspace_relative_source": ".tmp/coverage-review-20261016.md",
+      "source_sha256": "18ef0c83b56dd609bc9155fb4e01b73b41630e8e35ad42c2eb6ca7a4972d1531",
+      "transformation": "Prose only; local report reference replaced by explicit local-data caveat; repository source links added"
+    },
+    "PLANNED_PARALLEL_NOTES.md": {
+      "bytes": 17333,
+      "sha256": "85fe979675609382c5e7065b56cbc50523f70fb91516154aae71ba04e42e15aa",
+      "workspace_relative_source": ".tmp/parallel-mvm-source-review/REPORT.md",
+      "source_sha256": "8562776b70678a5bde729533e0959fc66edb549f45e8990a3520234989ee95d5",
+      "transformation": "Prose only; omitted helper/data references labelled local; repository source links added; no private source copied"
+    },
+    "README.md": {
+      "bytes": 3476,
+      "sha256": "bfafcb2ee11417f2bebb03be60fd7dc1cd00b23134c081c477eaeeadadb925bf"
+    },
+    "REPORT.md": {
+      "bytes": 6556,
+      "sha256": "d02da479d93471b79d485c56ac6e1794bc76c04ac3c9e3c3e77c563da012be55",
+      "repo_relative_source": "results/cifar_feedback_reviews/no_bl8_simulator_20261016_science/REPORT.md",
+      "source_sha256": "a6af4c57472ef1450887c0dcf7202f268b52a9917f64d91189c7e337f9742dc0",
+      "transformation": "Local map link shortened; omitted SCIENCE explicitly labelled local"
+    },
+    "SCIENTIFIC_REVIEW.md": {
+      "bytes": 4569,
+      "sha256": "a7371d6ec7f4e2f4a479fc86cd7238bdd0c66b7c411e165b15fcd23d326fd089",
+      "repo_relative_source": "results/cifar_feedback_reviews/no_bl8_simulator_20261016_science/SCIENTIFIC_REVIEW.md",
+      "source_sha256": "a7371d6ec7f4e2f4a479fc86cd7238bdd0c66b7c411e165b15fcd23d326fd089",
+      "transformation": "byte-for-byte copy"
+    },
+    "SECONDARY_REVIEW.json": {
+      "bytes": 704,
+      "sha256": "4bfda04b83d6e0891368c0341ca779d7182559d308a123884ddce7d2500dca42",
+      "repo_relative_source": "results/cifar_feedback_reviews/no_bl8_simulator_20261016_science/SECONDARY_REVIEW.json",
+      "source_sha256": "4bfda04b83d6e0891368c0341ca779d7182559d308a123884ddce7d2500dca42",
+      "transformation": "byte-for-byte copy"
+    },
+    "WEIGHTS.csv": {
+      "bytes": 45304,
+      "sha256": "1945f9a4c445172e5a941220d554902248928ddccf634dc843616c4d26950ca9",
+      "repo_relative_source": "results/cifar_feedback_reviews/no_bl8_simulator_20261016_science/simulator_28aa7248-72db-428a-b0eb-92b1712a25af_WEIGHTS.csv",
+      "source_sha256": "1945f9a4c445172e5a941220d554902248928ddccf634dc843616c4d26950ca9",
+      "transformation": "byte-for-byte copy"
+    }
+  }
+}
