@@ -1,0 +1,1739 @@
+{
+  "selected_model": "identity",
+  "matrix": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0
+    ]
+  ],
+  "offset_v": [
+    0.0,
+    0.0
+  ],
+  "selection_pass": false,
+  "identity_fallback": false,
+  "candidates": [
+    {
+      "name": "identity",
+      "matrix": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "operator_gain": 1.0,
+      "eligible": true,
+      "singular_values": [
+        1.0,
+        1.0
+      ],
+      "matrix_condition": 1.0,
+      "selection_pass": false,
+      "selection_score": 0.1487926258825597,
+      "checks": [
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 9.933333333333322e-05,
+          "sd_v": 0.0006357148207595393,
+          "tolerance_v": 0.00062,
+          "passes": false
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.00038666666666666667,
+          "sd_v": 0.0004637168676394394,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -0.0003480000000000011,
+          "sd_v": 0.00017320508075688868,
+          "tolerance_v": 0.0013704000000000001,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": -0.0006499999999999995,
+          "sd_v": 0.00017320508075688767,
+          "tolerance_v": 0.0007445,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -0.000184,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.00014466666666666794,
+          "sd_v": 0.0006357148207595391,
+          "tolerance_v": 0.0012086,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0002873333333333339,
+          "sd_v": 0.0001789785834487847,
+          "tolerance_v": 0.0007842999999999999,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -6.2e-05,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.00014400000000000003,
+          "sd_v": 0.00046808118953873754,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -0.00012266666666666676,
+          "sd_v": 0.0005253887449625601,
+          "tolerance_v": 0.0023103000000000004,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 2.133333333333154e-05,
+          "sd_v": 0.0007043673284113427,
+          "tolerance_v": 0.0016726000000000002,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -1.7999999999990246e-05,
+          "sd_v": 0.0004680811895387398,
+          "tolerance_v": 0.0045534,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.00030266666666666636,
+          "sd_v": 0.00030501366089625095,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.00018000000000000004,
+          "sd_v": 0.0006100000000000001,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": -0.00014333333333333385,
+          "sd_v": 0.00035218366420567137,
+          "tolerance_v": 0.0007445,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -0.00012533333333333493,
+          "sd_v": 0.00030501366089625095,
+          "tolerance_v": 0.0013796000000000001,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0005320000000000047,
+          "sd_v": 0.0007649182962905257,
+          "tolerance_v": 0.0019929,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -6.2e-05,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -0.0003886666666666691,
+          "sd_v": 0.00017897858344878272,
+          "tolerance_v": 0.0026796000000000003,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.00022466666666666468,
+          "sd_v": 0.00035218366420567137,
+          "tolerance_v": 0.0016726000000000002,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -0.0002213333333333234,
+          "sd_v": 0.0008775724091682275,
+          "tolerance_v": 0.0045534,
+          "passes": true
+        }
+      ]
+    },
+    {
+      "name": "diagonal",
+      "matrix": [
+        [
+          1.0016520642757456,
+          0.0
+        ],
+        [
+          0.0,
+          1.0051876269895816
+        ]
+      ],
+      "operator_gain": 1.0051876269895816,
+      "eligible": true,
+      "singular_values": [
+        1.0051876269895816,
+        1.0016520642757456
+      ],
+      "matrix_condition": 1.0035297313707354,
+      "selection_pass": false,
+      "selection_score": 0.15109049872863736,
+      "checks": [
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0001095816387238751,
+          "sd_v": 0.0006367650625044782,
+          "tolerance_v": 0.00062,
+          "passes": false
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.000406725491026382,
+          "sd_v": 0.0004661224577775298,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -0.00020762281366192362,
+          "sd_v": 0.00017410360410855666,
+          "tolerance_v": 0.0013704000000000001,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": -0.0006264746047133819,
+          "sd_v": 0.0001734912266831838,
+          "tolerance_v": 0.0007445,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -0.000184,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.00018483936297188086,
+          "sd_v": 0.0006367650625044787,
+          "tolerance_v": 0.0012086,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.00031372230669790904,
+          "sd_v": 0.00017927426757262453,
+          "tolerance_v": 0.0007842999999999999,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -6.2e-05,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.00018306283123155007,
+          "sd_v": 0.00047050942015090406,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.00011639647710321582,
+          "sd_v": 0.0005281142657959481,
+          "tolerance_v": 0.0023103000000000004,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 7.663343152345542e-05,
+          "sd_v": 0.0007055309885116126,
+          "tolerance_v": 0.0016726000000000002,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.00045433343740140797,
+          "sd_v": 0.0004705094201509092,
+          "tolerance_v": 0.0045534,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.00031325089179327654,
+          "sd_v": 0.00030551756306903204,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.00019898671478186863,
+          "sd_v": 0.0006131644524636447,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": -0.00011897089214700507,
+          "sd_v": 0.0003527654942558063,
+          "tolerance_v": 0.0007445,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 1.7153487980509086e-05,
+          "sd_v": 0.0003065959579957065,
+          "tolerance_v": 0.0013796000000000001,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0005987268760973691,
+          "sd_v": 0.0007661819904816915,
+          "tolerance_v": 0.0019929,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -6.2e-05,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -0.00011266761873095915,
+          "sd_v": 0.00017990705757883873,
+          "tolerance_v": 0.0026796000000000003,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.00028030268459285773,
+          "sd_v": 0.0003527654942558083,
+          "tolerance_v": 0.0016726000000000002,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.00024994528658020543,
+          "sd_v": 0.0008821249274833334,
+          "tolerance_v": 0.0045534,
+          "passes": true
+        }
+      ]
+    },
+    {
+      "name": "full_ridge_0.01",
+      "matrix": [
+        [
+          0.8479629683255089,
+          0.0739813452512081
+        ],
+        [
+          0.07193569916526014,
+          0.964249231427954
+        ]
+      ],
+      "operator_gain": 0.9993996013831087,
+      "eligible": true,
+      "singular_values": [
+        0.9993996013831087,
+        0.8128137529444643
+      ],
+      "matrix_condition": 1.2295554765931636,
+      "selection_pass": false,
+      "selection_score": 4.857857683766124,
+      "checks": [
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": -0.0008438030531540928,
+          "sd_v": 0.0005390626264197778,
+          "tolerance_v": 0.00062,
+          "passes": false
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0004462411204884971,
+          "sd_v": 4.57305901010555e-05,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.00028606120163800463,
+          "sd_v": 3.4306397683642134e-05,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0002484303615214222,
+          "sd_v": 0.00044713863322150765,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.002001935202497691,
+          "sd_v": 1.2813944878738723e-05,
+          "tolerance_v": 0.00062,
+          "passes": false
+        },
+        {
+          "channel": 1,
+          "error_v": -0.0013154157975595673,
+          "sd_v": 0.00016701286599924483,
+          "tolerance_v": 0.0013704000000000001,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": -0.0028150073310447537,
+          "sd_v": 0.0001468714944076699,
+          "tolerance_v": 0.0007445,
+          "passes": false
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0008403643561133044,
+          "sd_v": 1.2459628583222105e-05,
+          "tolerance_v": 0.00062,
+          "passes": false
+        },
+        {
+          "channel": 0,
+          "error_v": -0.0035523671535513737,
+          "sd_v": 0.0005390626264197782,
+          "tolerance_v": 0.0012086,
+          "passes": false
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0017492364180352424,
+          "sd_v": 4.573059010105549e-05,
+          "tolerance_v": 0.00062,
+          "passes": false
+        },
+        {
+          "channel": 0,
+          "error_v": -0.002141204852613871,
+          "sd_v": 0.0001517672108879269,
+          "tolerance_v": 0.0007842999999999999,
+          "passes": false
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0010870529013330887,
+          "sd_v": 1.2874949535996137e-05,
+          "tolerance_v": 0.00062,
+          "passes": false
+        },
+        {
+          "channel": 0,
+          "error_v": 0.000557079529741597,
+          "sd_v": 3.462927608886148e-05,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -0.0001252032873475051,
+          "sd_v": 0.00045134692725861,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.00340930699365984,
+          "sd_v": 3.886896613217407e-05,
+          "tolerance_v": 0.00062,
+          "passes": false
+        },
+        {
+          "channel": 1,
+          "error_v": -0.0017701812516951188,
+          "sd_v": 0.0005066056935310471,
+          "tolerance_v": 0.0023103000000000004,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0016681485782050268,
+          "sd_v": 0.0006239541322991191,
+          "tolerance_v": 0.0016726000000000002,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -0.0008651798417596418,
+          "sd_v": 0.0004908943432597303,
+          "tolerance_v": 0.0045534,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0,
+          "sd_v": 0.0,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": -0.00040061219264181814,
+          "sd_v": 0.00028356941188699034,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": 0.0005100202330117457,
+          "sd_v": 0.0005992869853368064,
+          "tolerance_v": 0.00062,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": -0.00035335181085997987,
+          "sd_v": 0.00029927698209752414,
+          "tolerance_v": 0.0007445,
+          "passes": true
+        },
+        {
+          "channel": 1,
+          "error_v": -4.6475999755161285e-05,
+          "sd_v": 0.0002949593452549766,
+          "tolerance_v": 0.0013796000000000001,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": -0.005608775709332693,
+          "sd_v": 0.0006486223890490034,
+          "tolerance_v": 0.0019929,
+          "passes": false
+        },
+        {
+          "channel": 1,
+          "error_v": 0.002843482889284857,
+          "sd_v": 5.502493244795856e-05,
+          "tolerance_v": 0.00062,
+          "passes": false
+        },
+        {
+          "channel": 0,
+          "error_v": 0.003936054171848441,
+          "sd_v": 1.3241076374696622e-05,
+          "tolerance_v": 0.00062,
+          "passes": false
+        },
+        {
+          "channel": 1,
+          "error_v": -0.002290726723928084,
+          "sd_v": 0.00017257996153255344,
+          "tolerance_v": 0.0026796000000000003,
+          "passes": true
+        },
+        {
+          "channel": 0,
+          "error_v": 0.0018255248415634737,
+          "sd_v": 0.00023371471790998918,
+          "tolerance_v": 0.0016726000000000002,
+          "passes": false
+        },
+        {
+          "channel": 1,
+          "error_v": -0.00104661692665306,
+          "sd_v": 0.0008208639429436191,
+          "tolerance_v": 0.0045534,
+          "passes": true
+        }
+      ]
+    }
+  ],
+  "selection_score_definition": "mean_over_channels_and_probes(mean_over_repeats((corrected_sample-fixed_target)^2)/tolerance_squared)",
+  "training_design_rank": 2,
+  "training_design_condition": 6.764302627610391,
+  "inputs_only_measured_two_channel_voltage": true,
+  "uses_cifar_or_trained_targets": false,
+  "reference_design_rank": 2,
+  "full_matrix_identifiable_from_reference": true,
+  "reference_h_v": [
+    [
+      0.006104,
+      0.0,
+      0.0,
+      0.01489,
+      0.024172,
+      0.015686,
+      0.0,
+      0.0,
+      0.033452,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.00348,
+      0.027408000000000002,
+      0.000184,
+      0.0,
+      6.2e-05,
+      0.007385999999999999,
+      0.046206000000000004,
+      0.091068,
+      0.0,
+      0.0
+    ]
+  ],
+  "observations": {
+    "train": [
+      {
+        "probe_id": 0,
+        "mask_slots": [
+          0
+        ],
+        "measured_repeats_v": [
+          [
+            0.00641,
+            0.0
+          ],
+          [
+            0.00549,
+            0.0
+          ],
+          [
+            0.00641,
+            0.0
+          ]
+        ],
+        "measured_mean_v": [
+          0.006103333333333333,
+          0.0
+        ],
+        "reference_v": [
+          0.006104,
+          0.0
+        ]
+      },
+      {
+        "probe_id": 1,
+        "mask_slots": [
+          1
+        ],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.00397
+          ],
+          [
+            0.0,
+            0.00397
+          ],
+          [
+            0.0,
+            0.00305
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.003663333333333333
+        ],
+        "reference_v": [
+          0.0,
+          0.00348
+        ]
+      },
+      {
+        "probe_id": 2,
+        "mask_slots": [
+          2
+        ],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.02686
+          ],
+          [
+            0.0,
+            0.02716
+          ],
+          [
+            0.0,
+            0.02747
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.027163333333333334
+        ],
+        "reference_v": [
+          0.0,
+          0.027408000000000002
+        ]
+      },
+      {
+        "probe_id": 3,
+        "mask_slots": [
+          3
+        ],
+        "measured_repeats_v": [
+          [
+            0.01556,
+            0.0
+          ],
+          [
+            0.01526,
+            0.00031
+          ],
+          [
+            0.01556,
+            0.00061
+          ]
+        ],
+        "measured_mean_v": [
+          0.01546,
+          0.0003066666666666667
+        ],
+        "reference_v": [
+          0.01489,
+          0.000184
+        ]
+      },
+      {
+        "probe_id": 4,
+        "mask_slots": [
+          4
+        ],
+        "measured_repeats_v": [
+          [
+            0.02411,
+            0.0
+          ],
+          [
+            0.02381,
+            0.0
+          ],
+          [
+            0.02411,
+            0.0
+          ]
+        ],
+        "measured_mean_v": [
+          0.02401,
+          0.0
+        ],
+        "reference_v": [
+          0.024172,
+          0.0
+        ]
+      },
+      {
+        "probe_id": 5,
+        "mask_slots": [
+          5
+        ],
+        "measured_repeats_v": [
+          [
+            0.01526,
+            0.0
+          ],
+          [
+            0.01618,
+            0.0
+          ],
+          [
+            0.01556,
+            0.0
+          ]
+        ],
+        "measured_mean_v": [
+          0.015666666666666666,
+          0.0
+        ],
+        "reference_v": [
+          0.015686,
+          6.2e-05
+        ]
+      },
+      {
+        "probe_id": 6,
+        "mask_slots": [
+          6
+        ],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.00702
+          ],
+          [
+            0.0,
+            0.00763
+          ],
+          [
+            0.0,
+            0.00794
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.007529999999999999
+        ],
+        "reference_v": [
+          0.0,
+          0.007385999999999999
+        ]
+      },
+      {
+        "probe_id": 7,
+        "mask_slots": [
+          7
+        ],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.04547
+          ],
+          [
+            0.0,
+            0.04578
+          ],
+          [
+            0.0,
+            0.04608
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.04577666666666667
+        ],
+        "reference_v": [
+          0.0,
+          0.046206000000000004
+        ]
+      },
+      {
+        "probe_id": 8,
+        "mask_slots": [
+          8
+        ],
+        "measured_repeats_v": [
+          [
+            0.03449,
+            0.09034
+          ],
+          [
+            0.03357,
+            0.09064
+          ],
+          [
+            0.03296,
+            0.09064
+          ]
+        ],
+        "measured_mean_v": [
+          0.03367333333333333,
+          0.09054
+        ],
+        "reference_v": [
+          0.033452,
+          0.091068
+        ]
+      },
+      {
+        "probe_id": 9,
+        "mask_slots": [
+          9
+        ],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.0
+        ],
+        "reference_v": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "probe_id": 10,
+        "mask_slots": [
+          10
+        ],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.0
+        ],
+        "reference_v": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "probe_id": 11,
+        "mask_slots": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "measured_repeats_v": [
+          [
+            0.09736,
+            0.17487
+          ],
+          [
+            0.09248,
+            0.17335
+          ],
+          [
+            0.09309,
+            0.1758
+          ]
+        ],
+        "measured_mean_v": [
+          0.09431,
+          0.17467333333333335
+        ],
+        "reference_v": [
+          0.094304,
+          0.175794
+        ]
+      },
+      {
+        "probe_id": 12,
+        "mask_slots": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10
+        ],
+        "measured_repeats_v": [
+          [
+            0.06379,
+            0.12635
+          ],
+          [
+            0.06318,
+            0.12513
+          ],
+          [
+            0.06317,
+            0.12543
+          ]
+        ],
+        "measured_mean_v": [
+          0.06338,
+          0.12563666666666667
+        ],
+        "reference_v": [
+          0.063728,
+          0.125862
+        ]
+      },
+      {
+        "probe_id": 13,
+        "mask_slots": [
+          1,
+          3,
+          5,
+          7,
+          9
+        ],
+        "measured_repeats_v": [
+          [
+            0.028990000000000002,
+            0.04914
+          ],
+          [
+            0.031129999999999998,
+            0.05006
+          ],
+          [
+            0.0299,
+            0.049740000000000006
+          ]
+        ],
+        "measured_mean_v": [
+          0.030006666666666668,
+          0.04964666666666667
+        ],
+        "reference_v": [
+          0.030576,
+          0.049932000000000004
+        ]
+      }
+    ],
+    "selection": [
+      {
+        "probe_id": 0,
+        "mask_slots": [],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.0
+        ],
+        "reference_v": [
+          0,
+          0
+        ]
+      },
+      {
+        "probe_id": 1,
+        "mask_slots": [
+          0
+        ],
+        "measured_repeats_v": [
+          [
+            0.00671,
+            0.0
+          ],
+          [
+            0.00641,
+            0.0
+          ],
+          [
+            0.00549,
+            0.0
+          ]
+        ],
+        "measured_mean_v": [
+          0.006203333333333333,
+          0.0
+        ],
+        "reference_v": [
+          0.006104,
+          0.0
+        ]
+      },
+      {
+        "probe_id": 2,
+        "mask_slots": [
+          1
+        ],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.00397
+          ],
+          [
+            0.0,
+            0.00427
+          ],
+          [
+            0.0,
+            0.00336
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.0038666666666666667
+        ],
+        "reference_v": [
+          0.0,
+          0.00348
+        ]
+      },
+      {
+        "probe_id": 3,
+        "mask_slots": [
+          2
+        ],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.02716
+          ],
+          [
+            0.0,
+            0.02686
+          ],
+          [
+            0.0,
+            0.02716
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.02706
+        ],
+        "reference_v": [
+          0.0,
+          0.027408000000000002
+        ]
+      },
+      {
+        "probe_id": 4,
+        "mask_slots": [
+          3
+        ],
+        "measured_repeats_v": [
+          [
+            0.01404,
+            0.0
+          ],
+          [
+            0.01434,
+            0.0
+          ],
+          [
+            0.01434,
+            0.0
+          ]
+        ],
+        "measured_mean_v": [
+          0.014240000000000001,
+          0.0
+        ],
+        "reference_v": [
+          0.01489,
+          0.000184
+        ]
+      },
+      {
+        "probe_id": 5,
+        "mask_slots": [
+          4
+        ],
+        "measured_repeats_v": [
+          [
+            0.02411,
+            0.0
+          ],
+          [
+            0.02503,
+            0.0
+          ],
+          [
+            0.02381,
+            0.0
+          ]
+        ],
+        "measured_mean_v": [
+          0.024316666666666667,
+          0.0
+        ],
+        "reference_v": [
+          0.024172,
+          0.0
+        ]
+      },
+      {
+        "probe_id": 6,
+        "mask_slots": [
+          5
+        ],
+        "measured_repeats_v": [
+          [
+            0.01587,
+            0.0
+          ],
+          [
+            0.01618,
+            0.0
+          ],
+          [
+            0.01587,
+            0.0
+          ]
+        ],
+        "measured_mean_v": [
+          0.015973333333333332,
+          0.0
+        ],
+        "reference_v": [
+          0.015686,
+          6.2e-05
+        ]
+      },
+      {
+        "probe_id": 7,
+        "mask_slots": [
+          6
+        ],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.00763
+          ],
+          [
+            0.0,
+            0.00794
+          ],
+          [
+            0.0,
+            0.00702
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.007529999999999999
+        ],
+        "reference_v": [
+          0.0,
+          0.007385999999999999
+        ]
+      },
+      {
+        "probe_id": 8,
+        "mask_slots": [
+          7
+        ],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.04578
+          ],
+          [
+            0.0,
+            0.04578
+          ],
+          [
+            0.0,
+            0.04669
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.04608333333333334
+        ],
+        "reference_v": [
+          0.0,
+          0.046206000000000004
+        ]
+      },
+      {
+        "probe_id": 9,
+        "mask_slots": [
+          8
+        ],
+        "measured_repeats_v": [
+          [
+            0.03266,
+            0.09064
+          ],
+          [
+            0.03388,
+            0.09156
+          ],
+          [
+            0.03388,
+            0.09095
+          ]
+        ],
+        "measured_mean_v": [
+          0.033473333333333334,
+          0.09105
+        ],
+        "reference_v": [
+          0.033452,
+          0.091068
+        ]
+      },
+      {
+        "probe_id": 10,
+        "mask_slots": [
+          9
+        ],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.0
+        ],
+        "reference_v": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "probe_id": 11,
+        "mask_slots": [
+          10
+        ],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.0
+        ],
+        "reference_v": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "probe_id": 12,
+        "mask_slots": [
+          0,
+          1
+        ],
+        "measured_repeats_v": [
+          [
+            0.00671,
+            0.00427
+          ],
+          [
+            0.0061,
+            0.00366
+          ],
+          [
+            0.00641,
+            0.00305
+          ]
+        ],
+        "measured_mean_v": [
+          0.006406666666666666,
+          0.00366
+        ],
+        "reference_v": [
+          0.006104,
+          0.00348
+        ]
+      },
+      {
+        "probe_id": 13,
+        "mask_slots": [
+          2,
+          3
+        ],
+        "measured_repeats_v": [
+          [
+            0.01495,
+            0.02777
+          ],
+          [
+            0.01434,
+            0.02747
+          ],
+          [
+            0.01495,
+            0.02716
+          ]
+        ],
+        "measured_mean_v": [
+          0.014746666666666667,
+          0.027466666666666667
+        ],
+        "reference_v": [
+          0.01489,
+          0.027592000000000002
+        ]
+      },
+      {
+        "probe_id": 14,
+        "mask_slots": [
+          4,
+          5
+        ],
+        "measured_repeats_v": [
+          [
+            0.0412,
+            0.0
+          ],
+          [
+            0.04029,
+            0.0
+          ],
+          [
+            0.03968,
+            0.0
+          ]
+        ],
+        "measured_mean_v": [
+          0.04039,
+          0.0
+        ],
+        "reference_v": [
+          0.039858,
+          6.2e-05
+        ]
+      },
+      {
+        "probe_id": 15,
+        "mask_slots": [
+          6,
+          7
+        ],
+        "measured_repeats_v": [
+          [
+            0.0,
+            0.05341
+          ],
+          [
+            0.0,
+            0.0531
+          ],
+          [
+            0.0,
+            0.0531
+          ]
+        ],
+        "measured_mean_v": [
+          0.0,
+          0.05320333333333333
+        ],
+        "reference_v": [
+          0.0,
+          0.053592
+        ]
+      },
+      {
+        "probe_id": 16,
+        "mask_slots": [
+          8,
+          9
+        ],
+        "measured_repeats_v": [
+          [
+            0.03388,
+            0.09034
+          ],
+          [
+            0.03327,
+            0.09186
+          ],
+          [
+            0.03388,
+            0.09034
+          ]
+        ],
+        "measured_mean_v": [
+          0.03367666666666667,
+          0.09084666666666667
+        ],
+        "reference_v": [
+          0.033452,
+          0.091068
+        ]
+      }
+    ]
+  },
+  "max_singleton_change_v": 0.0
+}
