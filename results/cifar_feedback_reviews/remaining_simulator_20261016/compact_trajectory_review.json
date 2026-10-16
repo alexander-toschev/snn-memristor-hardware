@@ -1,0 +1,39 @@
+{
+  "offline_only": true,
+  "source": "simulator",
+  "session_id": "99631af1-c73e-42ed-abcd-20d4e580f691",
+  "manifest_sha256": "e5d7e2e6ce090100c400d928c440e4aac0ee51ae85e1b086e457bd218fa0c9ea",
+  "auditor_sha256": "4f2f73eb96fd286aabde4e0513b7aac2ef96e57ef873ce36573a73a29a3b0525",
+  "summary_sha256": "1101c13ae2ebff4289af90db169257c427840ecceba084fd8aee39a935b1fdbd",
+  "comparison": "actual saved trajectories versus CPU float32 fixture and saved effective reference; no collector imports",
+  "per_filter": {
+    "0": {
+      "n": 600,
+      "trained_cpu_float32_conv_rmse": 0.07065139813601168,
+      "effective_conv_rmse": 2.5250059556756602e-17,
+      "trained_spike_mismatches": 30,
+      "effective_spike_mismatches": 0
+    },
+    "1": {
+      "n": 600,
+      "trained_cpu_float32_conv_rmse": 0.028983961445311526,
+      "effective_conv_rmse": 3.4374965715802325e-17,
+      "trained_spike_mismatches": 5,
+      "effective_spike_mismatches": 0
+    },
+    "2": {
+      "n": 600,
+      "trained_cpu_float32_conv_rmse": 0.06262531488044924,
+      "effective_conv_rmse": 3.7802114956637296e-17,
+      "trained_spike_mismatches": 0,
+      "effective_spike_mismatches": 0
+    },
+    "3": {
+      "n": 600,
+      "trained_cpu_float32_conv_rmse": 0.030528441881725998,
+      "effective_conv_rmse": 3.3163025274032643e-17,
+      "trained_spike_mismatches": 15,
+      "effective_spike_mismatches": 0
+    }
+  }
+}
