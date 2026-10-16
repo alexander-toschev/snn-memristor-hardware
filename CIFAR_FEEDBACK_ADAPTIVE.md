@@ -55,7 +55,7 @@ Imported origin помечен как повторное использован�
 Зависимости и приватные неизменённые файлы MemriBoard — по [REPRODUCE.md](REPRODUCE.md).
 
 ```bash
-git pull --ff-only
+git pull --ff-only origin codex/full-cifar-diagnostic
 ```
 
 Штатный симулятор с закреплёнными первыми 42 коэффициентами:

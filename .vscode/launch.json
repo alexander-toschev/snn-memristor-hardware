@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "CIFAR: preflight платы без I/O",
+      "name": "CIFAR v1: preflight платы без I/O",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/experiment.py",
@@ -16,7 +16,7 @@
       "env": {"PYTHONIOENCODING": "utf-8", "PYTHONUNBUFFERED": "1"}
     },
     {
-      "name": "CIFAR: полный диагностический simulator",
+      "name": "CIFAR v1: полный диагностический simulator",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/experiment.py",
@@ -24,6 +24,20 @@
       "windows": {"python": "${workspaceFolder}/.venv/Scripts/python.exe"},
       "pythonArgs": ["-B"],
       "args": ["--cifar-feedback-diagnostic", "--run-simulator"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {"PYTHONIOENCODING": "utf-8", "PYTHONUNBUFFERED": "1"}
+    },
+    {
+      "name": "CIFAR: адаптивный simulator, продолжение после 42 taps",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/experiment.py",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": {"python": "${workspaceFolder}/.venv/Scripts/python.exe"},
+      "pythonArgs": ["-B"],
+      "args": ["--cifar-feedback-adaptive", "--run-simulator", "--cifar-resume-session", "results/cifar_feedback_diagnostic/e1e1d0a7-00e2-403b-ac4e-defbf1fe80b8"],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "justMyCode": true,
