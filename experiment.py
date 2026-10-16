@@ -186,8 +186,22 @@ def main(argv=None):
     diagnostic.add_argument("--test-binary-mvm", action="store_true", help="Read-only binary MVM / digital LIF, same simulator/hardware protocol")
     diagnostic.add_argument("--test-calibrated-mvm", action="store_true", help="Read-only all256 affine MVM calibration and heldout inputs")
     diagnostic.add_argument("--test-mapped-sequential-mvm", action="store_true", help="Fresh one-hot partial sums and digital LIF on a fixed per-WL map")
+    diagnostic.add_argument("--cifar-conv1", action="store_true", help="Program actual Conv1 weights and measure partial sums")
+    parser.add_argument("--cifar-stage", choices=("pilot", "remaining"))
+    parser.add_argument("--cifar-pilot-session")
     args = parser.parse_args(argv)
     hardware_options = args.phase is not None or args.all or args.phase1_session is not None or args.max_pulses is not None
+    if (args.cifar_stage or args.cifar_pilot_session) and not args.cifar_conv1:
+        parser.error("CIFAR stage/session options require --cifar-conv1")
+    if args.cifar_conv1:
+        if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
+            parser.error("--cifar-conv1 requires explicit mode and no legacy phase options")
+        from cifar_memristor import main as cifar_conv1
+        forwarded = ["--run-simulator" if args.run_simulator else "--run-hardware" if args.run_hardware else "--dry-run",
+                     "--stage", args.cifar_stage or "pilot"]
+        if args.cifar_pilot_session:
+            forwarded += ["--pilot-session", args.cifar_pilot_session]
+        return cifar_conv1(forwarded)
     if args.test_mapped_sequential_mvm:
         if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
             parser.error("--test-mapped-sequential-mvm requires explicit mode and no phase options")
