@@ -1,0 +1,369 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1740" viewBox="0 0 1440 1740">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#172033}.small{font-size:15px}</style>
+<text x="45.00" y="36.00" font-size="28" text-anchor="start">LIF: пять логических точек с расхождениями</text>
+<text x="45.00" y="65.00" font-size="17" text-anchor="start">Все 12 шагов • четыре Conv1-фильтра • десять patches • потенциал непосредственно перед сбросом</text>
+<line x1="45.000" y1="92.000" x2="75.000" y2="92.000" stroke="#1276b8" stroke-width="3"/>
+<text x="85.00" y="98.00" font-size="16" text-anchor="start">HW: среднее и диапазон 5 повторов</text>
+<line x1="535.000" y1="92.000" x2="565.000" y2="92.000" stroke="#dc5b27" stroke-width="3"/>
+<text x="575.00" y="98.00" font-size="16" text-anchor="start">native SIM: все повторы совпали</text>
+<line x1="1020.000" y1="92.000" x2="1050.000" y2="92.000" stroke="#703cb1" stroke-width="3"/>
+<text x="1060.00" y="98.00" font-size="16" text-anchor="start">trained: CPU-эталон</text>
+<line x1="45.000" y1="120.000" x2="75.000" y2="120.000" stroke="#333333" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="85.00" y="126.00" font-size="16" text-anchor="start">Порог = 1; spike при V ≥ 1</text>
+<text x="535.00" y="126.00" font-size="16" text-anchor="start">Светло-оранжевая полоса: выбранный диагностический шаг</text>
+<text x="45.00" y="154.00" font-size="19" text-anchor="start">F0 · case 8 (test index 49) · проблемный шаг t=1</text>
+<rect x="206.27" y="169" width="32" height="190" fill="#fff0db"/>
+<line x1="105.000" y1="359.000" x2="1395.000" y2="359.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="364.00" font-size="14" text-anchor="end">-0.53</text>
+<line x1="105.000" y1="311.500" x2="1395.000" y2="311.500" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="316.50" font-size="14" text-anchor="end">0.01</text>
+<line x1="105.000" y1="264.000" x2="1395.000" y2="264.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="269.00" font-size="14" text-anchor="end">0.55</text>
+<line x1="105.000" y1="216.500" x2="1395.000" y2="216.500" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="221.50" font-size="14" text-anchor="end">1.09</text>
+<line x1="105.000" y1="169.000" x2="1395.000" y2="169.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="174.00" font-size="14" text-anchor="end">1.63</text>
+<line x1="105.000" y1="224.328" x2="1395.000" y2="224.328" stroke="#333333" stroke-width="1.7" stroke-dasharray="7 5"/>
+<line x1="105.000" y1="359.000" x2="1395.000" y2="359.000" stroke="#66717c" stroke-width="1"/>
+<line x1="105.000" y1="169.000" x2="105.000" y2="359.000" stroke="#66717c" stroke-width="1"/>
+<polygon points="105.000,301.055 222.273,225.409 339.545,288.210 456.818,275.047 574.091,312.380 691.364,332.775 808.636,338.242 925.909,332.258 1043.182,342.766 1160.455,331.394 1277.727,311.410 1395.000,312.596 1395.000,312.324 1277.727,310.866 1160.455,330.308 1043.182,340.592 925.909,327.912 808.636,334.814 691.364,326.833 574.091,300.176 456.818,251.235 339.545,244.382 222.273,223.812 105.000,299.452" fill="#1276b8" fill-opacity="0.20"/>
+<polyline points="105.000,278.474 222.273,184.833 339.545,293.377 456.818,265.718 574.091,309.272 691.364,333.350 808.636,341.025 925.909,332.520 1043.182,342.896 1160.455,331.460 1277.727,311.442 1395.000,312.612" fill="none" stroke="#dc5b27" stroke-width="2.6" stroke-dasharray="7 4"/>
+<circle cx="105.000" cy="278.474" r="3.1" fill="#dc5b27"/>
+<circle cx="222.273" cy="184.833" r="3.1" fill="#dc5b27"/>
+<circle cx="339.545" cy="293.377" r="3.1" fill="#dc5b27"/>
+<circle cx="456.818" cy="265.718" r="3.1" fill="#dc5b27"/>
+<circle cx="574.091" cy="309.272" r="3.1" fill="#dc5b27"/>
+<circle cx="691.364" cy="333.350" r="3.1" fill="#dc5b27"/>
+<circle cx="808.636" cy="341.025" r="3.1" fill="#dc5b27"/>
+<circle cx="925.909" cy="332.520" r="3.1" fill="#dc5b27"/>
+<circle cx="1043.182" cy="342.896" r="3.1" fill="#dc5b27"/>
+<circle cx="1160.455" cy="331.460" r="3.1" fill="#dc5b27"/>
+<circle cx="1277.727" cy="311.442" r="3.1" fill="#dc5b27"/>
+<circle cx="1395.000" cy="312.612" r="3.1" fill="#dc5b27"/>
+<polyline points="105.000,296.376 222.273,221.153 339.545,295.940 456.818,280.102 574.091,313.884 691.364,338.064 808.636,342.274 925.909,333.060 1043.182,343.167 1160.455,331.595 1277.727,311.510 1395.000,312.646" fill="none" stroke="#703cb1" stroke-width="2.6" stroke-dasharray="3 4"/>
+<circle cx="105.000" cy="296.376" r="3.1" fill="#703cb1"/>
+<circle cx="222.273" cy="221.153" r="3.1" fill="#703cb1"/>
+<circle cx="339.545" cy="295.940" r="3.1" fill="#703cb1"/>
+<circle cx="456.818" cy="280.102" r="3.1" fill="#703cb1"/>
+<circle cx="574.091" cy="313.884" r="3.1" fill="#703cb1"/>
+<circle cx="691.364" cy="338.064" r="3.1" fill="#703cb1"/>
+<circle cx="808.636" cy="342.274" r="3.1" fill="#703cb1"/>
+<circle cx="925.909" cy="333.060" r="3.1" fill="#703cb1"/>
+<circle cx="1043.182" cy="343.167" r="3.1" fill="#703cb1"/>
+<circle cx="1160.455" cy="331.595" r="3.1" fill="#703cb1"/>
+<circle cx="1277.727" cy="311.510" r="3.1" fill="#703cb1"/>
+<circle cx="1395.000" cy="312.646" r="3.1" fill="#703cb1"/>
+<polyline points="105.000,300.217 222.273,224.755 339.545,254.083 456.818,257.202 574.091,302.938 691.364,328.595 808.636,335.870 925.909,329.954 1043.182,341.614 1160.455,330.818 1277.727,311.122 1395.000,312.452" fill="none" stroke="#1276b8" stroke-width="2.6"/>
+<circle cx="105.000" cy="300.217" r="3.1" fill="#1276b8"/>
+<circle cx="222.273" cy="224.755" r="3.1" fill="#1276b8"/>
+<circle cx="339.545" cy="254.083" r="3.1" fill="#1276b8"/>
+<circle cx="456.818" cy="257.202" r="3.1" fill="#1276b8"/>
+<circle cx="574.091" cy="302.938" r="3.1" fill="#1276b8"/>
+<circle cx="691.364" cy="328.595" r="3.1" fill="#1276b8"/>
+<circle cx="808.636" cy="335.870" r="3.1" fill="#1276b8"/>
+<circle cx="925.909" cy="329.954" r="3.1" fill="#1276b8"/>
+<circle cx="1043.182" cy="341.614" r="3.1" fill="#1276b8"/>
+<circle cx="1160.455" cy="330.818" r="3.1" fill="#1276b8"/>
+<circle cx="1277.727" cy="311.122" r="3.1" fill="#1276b8"/>
+<circle cx="1395.000" cy="312.452" r="3.1" fill="#1276b8"/>
+<text x="105.00" y="380.00" font-size="14" text-anchor="middle">0</text>
+<text x="222.27" y="380.00" font-size="14" text-anchor="middle">1</text>
+<text x="339.55" y="380.00" font-size="14" text-anchor="middle">2</text>
+<text x="456.82" y="380.00" font-size="14" text-anchor="middle">3</text>
+<text x="574.09" y="380.00" font-size="14" text-anchor="middle">4</text>
+<text x="691.36" y="380.00" font-size="14" text-anchor="middle">5</text>
+<text x="808.64" y="380.00" font-size="14" text-anchor="middle">6</text>
+<text x="925.91" y="380.00" font-size="14" text-anchor="middle">7</text>
+<text x="1043.18" y="380.00" font-size="14" text-anchor="middle">8</text>
+<text x="1160.45" y="380.00" font-size="14" text-anchor="middle">9</text>
+<text x="1277.73" y="380.00" font-size="14" text-anchor="middle">10</text>
+<text x="1395.00" y="380.00" font-size="14" text-anchor="middle">11</text>
+<text x="1395.00" y="401.00" font-size="14" text-anchor="end">логический шаг t</text>
+<text x="45.00" y="264.00" font-size="17" text-anchor="start">V</text>
+<text x="105.00" y="402.00" font-size="15" text-anchor="start">t=1: HW [0.987672, 1.005874] · SIM 1.450099 · trained 1.036183</text>
+<text x="45.00" y="439.00" font-size="19" text-anchor="start">F1 · case 1 (test index 132) · проблемный шаг t=7</text>
+<rect x="909.91" y="454" width="32" height="190" fill="#fff0db"/>
+<line x1="105.000" y1="644.000" x2="1395.000" y2="644.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="649.00" font-size="14" text-anchor="end">-3.38</text>
+<line x1="105.000" y1="596.500" x2="1395.000" y2="596.500" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="601.50" font-size="14" text-anchor="end">-2.00</text>
+<line x1="105.000" y1="549.000" x2="1395.000" y2="549.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="554.00" font-size="14" text-anchor="end">-0.63</text>
+<line x1="105.000" y1="501.500" x2="1395.000" y2="501.500" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="506.50" font-size="14" text-anchor="end">0.74</text>
+<line x1="105.000" y1="454.000" x2="1395.000" y2="454.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="459.00" font-size="14" text-anchor="end">2.12</text>
+<line x1="105.000" y1="492.673" x2="1395.000" y2="492.673" stroke="#333333" stroke-width="1.7" stroke-dasharray="7 5"/>
+<line x1="105.000" y1="644.000" x2="1395.000" y2="644.000" stroke="#66717c" stroke-width="1"/>
+<line x1="105.000" y1="454.000" x2="105.000" y2="644.000" stroke="#66717c" stroke-width="1"/>
+<polygon points="105.000,518.575 222.273,512.063 339.545,507.141 456.818,507.293 574.091,534.695 691.364,585.387 808.636,498.085 925.909,470.661 1043.182,537.797 1160.455,543.507 1277.727,537.640 1395.000,535.343 1395.000,535.032 1277.727,537.018 1160.455,542.262 1043.182,536.381 925.909,469.833 808.636,494.886 691.364,584.858 574.091,533.208 456.818,507.022 339.545,507.141 222.273,512.063 105.000,518.575" fill="#1276b8" fill-opacity="0.20"/>
+<polyline points="105.000,518.575 222.273,512.063 339.545,507.141 456.818,506.030 574.091,541.508 691.364,628.167 808.636,527.893 925.909,509.644 1043.182,524.913 1160.455,540.918 1277.727,536.346 1395.000,534.696" fill="none" stroke="#dc5b27" stroke-width="2.6" stroke-dasharray="7 4"/>
+<circle cx="105.000" cy="518.575" r="3.1" fill="#dc5b27"/>
+<circle cx="222.273" cy="512.063" r="3.1" fill="#dc5b27"/>
+<circle cx="339.545" cy="507.141" r="3.1" fill="#dc5b27"/>
+<circle cx="456.818" cy="506.030" r="3.1" fill="#dc5b27"/>
+<circle cx="574.091" cy="541.508" r="3.1" fill="#dc5b27"/>
+<circle cx="691.364" cy="628.167" r="3.1" fill="#dc5b27"/>
+<circle cx="808.636" cy="527.893" r="3.1" fill="#dc5b27"/>
+<circle cx="925.909" cy="509.644" r="3.1" fill="#dc5b27"/>
+<circle cx="1043.182" cy="524.913" r="3.1" fill="#dc5b27"/>
+<circle cx="1160.455" cy="540.918" r="3.1" fill="#dc5b27"/>
+<circle cx="1277.727" cy="536.346" r="3.1" fill="#dc5b27"/>
+<circle cx="1395.000" cy="534.696" r="3.1" fill="#dc5b27"/>
+<polyline points="105.000,518.575 222.273,512.063 339.545,507.141 456.818,506.706 574.091,533.051 691.364,595.867 808.636,517.830 925.909,499.255 1043.182,523.660 1160.455,536.130 1277.727,533.952 1395.000,533.499" fill="none" stroke="#703cb1" stroke-width="2.6" stroke-dasharray="3 4"/>
+<circle cx="105.000" cy="518.575" r="3.1" fill="#703cb1"/>
+<circle cx="222.273" cy="512.063" r="3.1" fill="#703cb1"/>
+<circle cx="339.545" cy="507.141" r="3.1" fill="#703cb1"/>
+<circle cx="456.818" cy="506.706" r="3.1" fill="#703cb1"/>
+<circle cx="574.091" cy="533.051" r="3.1" fill="#703cb1"/>
+<circle cx="691.364" cy="595.867" r="3.1" fill="#703cb1"/>
+<circle cx="808.636" cy="517.830" r="3.1" fill="#703cb1"/>
+<circle cx="925.909" cy="499.255" r="3.1" fill="#703cb1"/>
+<circle cx="1043.182" cy="523.660" r="3.1" fill="#703cb1"/>
+<circle cx="1160.455" cy="536.130" r="3.1" fill="#703cb1"/>
+<circle cx="1277.727" cy="533.952" r="3.1" fill="#703cb1"/>
+<circle cx="1395.000" cy="533.499" r="3.1" fill="#703cb1"/>
+<polyline points="105.000,518.575 222.273,512.063 339.545,507.141 456.818,507.134 574.091,533.758 691.364,585.249 808.636,496.704 925.909,470.352 1043.182,536.976 1160.455,542.687 1277.727,537.231 1395.000,535.138" fill="none" stroke="#1276b8" stroke-width="2.6"/>
+<circle cx="105.000" cy="518.575" r="3.1" fill="#1276b8"/>
+<circle cx="222.273" cy="512.063" r="3.1" fill="#1276b8"/>
+<circle cx="339.545" cy="507.141" r="3.1" fill="#1276b8"/>
+<circle cx="456.818" cy="507.134" r="3.1" fill="#1276b8"/>
+<circle cx="574.091" cy="533.758" r="3.1" fill="#1276b8"/>
+<circle cx="691.364" cy="585.249" r="3.1" fill="#1276b8"/>
+<circle cx="808.636" cy="496.704" r="3.1" fill="#1276b8"/>
+<circle cx="925.909" cy="470.352" r="3.1" fill="#1276b8"/>
+<circle cx="1043.182" cy="536.976" r="3.1" fill="#1276b8"/>
+<circle cx="1160.455" cy="542.687" r="3.1" fill="#1276b8"/>
+<circle cx="1277.727" cy="537.231" r="3.1" fill="#1276b8"/>
+<circle cx="1395.000" cy="535.138" r="3.1" fill="#1276b8"/>
+<text x="105.00" y="665.00" font-size="14" text-anchor="middle">0</text>
+<text x="222.27" y="665.00" font-size="14" text-anchor="middle">1</text>
+<text x="339.55" y="665.00" font-size="14" text-anchor="middle">2</text>
+<text x="456.82" y="665.00" font-size="14" text-anchor="middle">3</text>
+<text x="574.09" y="665.00" font-size="14" text-anchor="middle">4</text>
+<text x="691.36" y="665.00" font-size="14" text-anchor="middle">5</text>
+<text x="808.64" y="665.00" font-size="14" text-anchor="middle">6</text>
+<text x="925.91" y="665.00" font-size="14" text-anchor="middle">7</text>
+<text x="1043.18" y="665.00" font-size="14" text-anchor="middle">8</text>
+<text x="1160.45" y="665.00" font-size="14" text-anchor="middle">9</text>
+<text x="1277.73" y="665.00" font-size="14" text-anchor="middle">10</text>
+<text x="1395.00" y="665.00" font-size="14" text-anchor="middle">11</text>
+<text x="1395.00" y="686.00" font-size="14" text-anchor="end">логический шаг t</text>
+<text x="45.00" y="549.00" font-size="17" text-anchor="start">V</text>
+<text x="105.00" y="687.00" font-size="15" text-anchor="start">t=7: HW [1.636795, 1.660730] · SIM 0.509022 · trained 0.809571</text>
+<text x="45.00" y="724.00" font-size="19" text-anchor="start">F1 · case 3 (test index 396) · проблемный шаг t=5</text>
+<rect x="675.36" y="739" width="32" height="190" fill="#fff0db"/>
+<line x1="105.000" y1="929.000" x2="1395.000" y2="929.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="934.00" font-size="14" text-anchor="end">-1.79</text>
+<line x1="105.000" y1="881.500" x2="1395.000" y2="881.500" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="886.50" font-size="14" text-anchor="end">-1.00</text>
+<line x1="105.000" y1="834.000" x2="1395.000" y2="834.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="839.00" font-size="14" text-anchor="end">-0.21</text>
+<line x1="105.000" y1="786.500" x2="1395.000" y2="786.500" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="791.50" font-size="14" text-anchor="end">0.57</text>
+<line x1="105.000" y1="739.000" x2="1395.000" y2="739.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="744.00" font-size="14" text-anchor="end">1.36</text>
+<line x1="105.000" y1="760.842" x2="1395.000" y2="760.842" stroke="#333333" stroke-width="1.7" stroke-dasharray="7 5"/>
+<line x1="105.000" y1="929.000" x2="1395.000" y2="929.000" stroke="#66717c" stroke-width="1"/>
+<line x1="105.000" y1="739.000" x2="105.000" y2="929.000" stroke="#66717c" stroke-width="1"/>
+<polygon points="105.000,806.078 222.273,794.706 339.545,786.110 456.818,822.685 574.091,783.194 691.364,756.994 808.636,825.328 925.909,831.160 1043.182,850.381 1160.455,852.090 1277.727,840.609 1395.000,835.979 1395.000,835.447 1277.727,839.545 1160.455,849.962 1043.182,846.842 925.909,824.618 808.636,823.826 691.364,754.833 574.091,779.676 456.818,820.115 339.545,786.110 222.273,794.706 105.000,806.078" fill="#1276b8" fill-opacity="0.20"/>
+<polyline points="105.000,806.078 222.273,794.706 339.545,786.110 456.818,826.552 574.091,791.098 691.364,786.759 808.636,820.046 925.909,859.085 1043.182,876.485 1160.455,913.167 1277.727,871.148 1395.000,851.249" fill="none" stroke="#dc5b27" stroke-width="2.6" stroke-dasharray="7 4"/>
+<circle cx="105.000" cy="806.078" r="3.1" fill="#dc5b27"/>
+<circle cx="222.273" cy="794.706" r="3.1" fill="#dc5b27"/>
+<circle cx="339.545" cy="786.110" r="3.1" fill="#dc5b27"/>
+<circle cx="456.818" cy="826.552" r="3.1" fill="#dc5b27"/>
+<circle cx="574.091" cy="791.098" r="3.1" fill="#dc5b27"/>
+<circle cx="691.364" cy="786.759" r="3.1" fill="#dc5b27"/>
+<circle cx="808.636" cy="820.046" r="3.1" fill="#dc5b27"/>
+<circle cx="925.909" cy="859.085" r="3.1" fill="#dc5b27"/>
+<circle cx="1043.182" cy="876.485" r="3.1" fill="#dc5b27"/>
+<circle cx="1160.455" cy="913.167" r="3.1" fill="#dc5b27"/>
+<circle cx="1277.727" cy="871.148" r="3.1" fill="#dc5b27"/>
+<circle cx="1395.000" cy="851.249" r="3.1" fill="#dc5b27"/>
+<polyline points="105.000,806.078 222.273,794.706 339.545,786.110 456.818,821.338 574.091,797.244 691.364,778.696 808.636,807.345 925.909,834.117 1043.182,850.868 1160.455,882.277 1277.727,855.703 1395.000,843.526" fill="none" stroke="#703cb1" stroke-width="2.6" stroke-dasharray="3 4"/>
+<circle cx="105.000" cy="806.078" r="3.1" fill="#703cb1"/>
+<circle cx="222.273" cy="794.706" r="3.1" fill="#703cb1"/>
+<circle cx="339.545" cy="786.110" r="3.1" fill="#703cb1"/>
+<circle cx="456.818" cy="821.338" r="3.1" fill="#703cb1"/>
+<circle cx="574.091" cy="797.244" r="3.1" fill="#703cb1"/>
+<circle cx="691.364" cy="778.696" r="3.1" fill="#703cb1"/>
+<circle cx="808.636" cy="807.345" r="3.1" fill="#703cb1"/>
+<circle cx="925.909" cy="834.117" r="3.1" fill="#703cb1"/>
+<circle cx="1043.182" cy="850.868" r="3.1" fill="#703cb1"/>
+<circle cx="1160.455" cy="882.277" r="3.1" fill="#703cb1"/>
+<circle cx="1277.727" cy="855.703" r="3.1" fill="#703cb1"/>
+<circle cx="1395.000" cy="843.526" r="3.1" fill="#703cb1"/>
+<polyline points="105.000,806.078 222.273,794.706 339.545,786.110 456.818,821.097 574.091,780.910 691.364,755.906 808.636,824.827 925.909,828.216 1043.182,848.972 1160.455,851.091 1277.727,840.110 1395.000,835.730" fill="none" stroke="#1276b8" stroke-width="2.6"/>
+<circle cx="105.000" cy="806.078" r="3.1" fill="#1276b8"/>
+<circle cx="222.273" cy="794.706" r="3.1" fill="#1276b8"/>
+<circle cx="339.545" cy="786.110" r="3.1" fill="#1276b8"/>
+<circle cx="456.818" cy="821.097" r="3.1" fill="#1276b8"/>
+<circle cx="574.091" cy="780.910" r="3.1" fill="#1276b8"/>
+<circle cx="691.364" cy="755.906" r="3.1" fill="#1276b8"/>
+<circle cx="808.636" cy="824.827" r="3.1" fill="#1276b8"/>
+<circle cx="925.909" cy="828.216" r="3.1" fill="#1276b8"/>
+<circle cx="1043.182" cy="848.972" r="3.1" fill="#1276b8"/>
+<circle cx="1160.455" cy="851.091" r="3.1" fill="#1276b8"/>
+<circle cx="1277.727" cy="840.110" r="3.1" fill="#1276b8"/>
+<circle cx="1395.000" cy="835.730" r="3.1" fill="#1276b8"/>
+<text x="105.00" y="950.00" font-size="14" text-anchor="middle">0</text>
+<text x="222.27" y="950.00" font-size="14" text-anchor="middle">1</text>
+<text x="339.55" y="950.00" font-size="14" text-anchor="middle">2</text>
+<text x="456.82" y="950.00" font-size="14" text-anchor="middle">3</text>
+<text x="574.09" y="950.00" font-size="14" text-anchor="middle">4</text>
+<text x="691.36" y="950.00" font-size="14" text-anchor="middle">5</text>
+<text x="808.64" y="950.00" font-size="14" text-anchor="middle">6</text>
+<text x="925.91" y="950.00" font-size="14" text-anchor="middle">7</text>
+<text x="1043.18" y="950.00" font-size="14" text-anchor="middle">8</text>
+<text x="1160.45" y="950.00" font-size="14" text-anchor="middle">9</text>
+<text x="1277.73" y="950.00" font-size="14" text-anchor="middle">10</text>
+<text x="1395.00" y="950.00" font-size="14" text-anchor="middle">11</text>
+<text x="1395.00" y="971.00" font-size="14" text-anchor="end">логический шаг t</text>
+<text x="45.00" y="834.00" font-size="17" text-anchor="start">V</text>
+<text x="105.00" y="972.00" font-size="15" text-anchor="start">t=5: HW [1.063748, 1.099533] · SIM 0.570675 · trained 0.704239</text>
+<text x="45.00" y="1009.00" font-size="19" text-anchor="start">F2 · case 8 (test index 49) · проблемный шаг t=6</text>
+<rect x="792.64" y="1024" width="32" height="190" fill="#fff0db"/>
+<line x1="105.000" y1="1214.000" x2="1395.000" y2="1214.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="1219.00" font-size="14" text-anchor="end">-2.28</text>
+<line x1="105.000" y1="1166.500" x2="1395.000" y2="1166.500" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="1171.50" font-size="14" text-anchor="end">-1.32</text>
+<line x1="105.000" y1="1119.000" x2="1395.000" y2="1119.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="1124.00" font-size="14" text-anchor="end">-0.35</text>
+<line x1="105.000" y1="1071.500" x2="1395.000" y2="1071.500" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="1076.50" font-size="14" text-anchor="end">0.61</text>
+<line x1="105.000" y1="1024.000" x2="1395.000" y2="1024.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="1029.00" font-size="14" text-anchor="end">1.57</text>
+<line x1="105.000" y1="1052.275" x2="1395.000" y2="1052.275" stroke="#333333" stroke-width="1.7" stroke-dasharray="7 5"/>
+<line x1="105.000" y1="1214.000" x2="1395.000" y2="1214.000" stroke="#66717c" stroke-width="1"/>
+<line x1="105.000" y1="1024.000" x2="105.000" y2="1214.000" stroke="#66717c" stroke-width="1"/>
+<polygon points="105.000,1096.882 222.273,1174.374 339.545,1140.543 456.818,1128.975 574.091,1105.605 691.364,1062.311 808.636,1052.610 925.909,1088.537 1043.182,1075.548 1160.455,1046.154 1277.727,1071.561 1395.000,1063.367 1395.000,1063.367 1277.727,1071.561 1160.455,1039.833 1043.182,1062.907 925.909,1063.255 808.636,1051.419 691.364,1060.214 574.091,1103.404 456.818,1127.177 339.545,1138.474 222.273,1172.799 105.000,1096.753" fill="#1276b8" fill-opacity="0.20"/>
+<polyline points="105.000,1095.621 222.273,1198.167 339.545,1147.718 456.818,1137.764 574.091,1110.922 691.364,1062.394 808.636,1052.451 925.909,1064.011 1043.182,1063.285 1160.455,1040.022 1277.727,1071.561 1395.000,1063.367" fill="none" stroke="#dc5b27" stroke-width="2.6" stroke-dasharray="7 4"/>
+<circle cx="105.000" cy="1095.621" r="3.1" fill="#dc5b27"/>
+<circle cx="222.273" cy="1198.167" r="3.1" fill="#dc5b27"/>
+<circle cx="339.545" cy="1147.718" r="3.1" fill="#dc5b27"/>
+<circle cx="456.818" cy="1137.764" r="3.1" fill="#dc5b27"/>
+<circle cx="574.091" cy="1110.922" r="3.1" fill="#dc5b27"/>
+<circle cx="691.364" cy="1062.394" r="3.1" fill="#dc5b27"/>
+<circle cx="808.636" cy="1052.451" r="3.1" fill="#dc5b27"/>
+<circle cx="925.909" cy="1064.011" r="3.1" fill="#dc5b27"/>
+<circle cx="1043.182" cy="1063.285" r="3.1" fill="#dc5b27"/>
+<circle cx="1160.455" cy="1040.022" r="3.1" fill="#dc5b27"/>
+<circle cx="1277.727" cy="1071.561" r="3.1" fill="#dc5b27"/>
+<circle cx="1395.000" cy="1063.367" r="3.1" fill="#dc5b27"/>
+<polyline points="105.000,1096.662 222.273,1173.499 339.545,1138.718 456.818,1126.286 574.091,1102.419 691.364,1060.286 808.636,1052.420 925.909,1063.575 1043.182,1063.067 1160.455,1039.913 1277.727,1071.561 1395.000,1063.367" fill="none" stroke="#703cb1" stroke-width="2.6" stroke-dasharray="3 4"/>
+<circle cx="105.000" cy="1096.662" r="3.1" fill="#703cb1"/>
+<circle cx="222.273" cy="1173.499" r="3.1" fill="#703cb1"/>
+<circle cx="339.545" cy="1138.718" r="3.1" fill="#703cb1"/>
+<circle cx="456.818" cy="1126.286" r="3.1" fill="#703cb1"/>
+<circle cx="574.091" cy="1102.419" r="3.1" fill="#703cb1"/>
+<circle cx="691.364" cy="1060.286" r="3.1" fill="#703cb1"/>
+<circle cx="808.636" cy="1052.420" r="3.1" fill="#703cb1"/>
+<circle cx="925.909" cy="1063.575" r="3.1" fill="#703cb1"/>
+<circle cx="1043.182" cy="1063.067" r="3.1" fill="#703cb1"/>
+<circle cx="1160.455" cy="1039.913" r="3.1" fill="#703cb1"/>
+<circle cx="1277.727" cy="1071.561" r="3.1" fill="#703cb1"/>
+<circle cx="1395.000" cy="1063.367" r="3.1" fill="#703cb1"/>
+<polyline points="105.000,1096.817 222.273,1173.473 339.545,1139.524 456.818,1128.148 574.091,1104.539 691.364,1061.303 808.636,1051.923 925.909,1083.130 1043.182,1072.844 1160.455,1044.802 1277.727,1071.561 1395.000,1063.367" fill="none" stroke="#1276b8" stroke-width="2.6"/>
+<circle cx="105.000" cy="1096.817" r="3.1" fill="#1276b8"/>
+<circle cx="222.273" cy="1173.473" r="3.1" fill="#1276b8"/>
+<circle cx="339.545" cy="1139.524" r="3.1" fill="#1276b8"/>
+<circle cx="456.818" cy="1128.148" r="3.1" fill="#1276b8"/>
+<circle cx="574.091" cy="1104.539" r="3.1" fill="#1276b8"/>
+<circle cx="691.364" cy="1061.303" r="3.1" fill="#1276b8"/>
+<circle cx="808.636" cy="1051.923" r="3.1" fill="#1276b8"/>
+<circle cx="925.909" cy="1083.130" r="3.1" fill="#1276b8"/>
+<circle cx="1043.182" cy="1072.844" r="3.1" fill="#1276b8"/>
+<circle cx="1160.455" cy="1044.802" r="3.1" fill="#1276b8"/>
+<circle cx="1277.727" cy="1071.561" r="3.1" fill="#1276b8"/>
+<circle cx="1395.000" cy="1063.367" r="3.1" fill="#1276b8"/>
+<text x="105.00" y="1235.00" font-size="14" text-anchor="middle">0</text>
+<text x="222.27" y="1235.00" font-size="14" text-anchor="middle">1</text>
+<text x="339.55" y="1235.00" font-size="14" text-anchor="middle">2</text>
+<text x="456.82" y="1235.00" font-size="14" text-anchor="middle">3</text>
+<text x="574.09" y="1235.00" font-size="14" text-anchor="middle">4</text>
+<text x="691.36" y="1235.00" font-size="14" text-anchor="middle">5</text>
+<text x="808.64" y="1235.00" font-size="14" text-anchor="middle">6</text>
+<text x="925.91" y="1235.00" font-size="14" text-anchor="middle">7</text>
+<text x="1043.18" y="1235.00" font-size="14" text-anchor="middle">8</text>
+<text x="1160.45" y="1235.00" font-size="14" text-anchor="middle">9</text>
+<text x="1277.73" y="1235.00" font-size="14" text-anchor="middle">10</text>
+<text x="1395.00" y="1235.00" font-size="14" text-anchor="middle">11</text>
+<text x="1395.00" y="1256.00" font-size="14" text-anchor="end">логический шаг t</text>
+<text x="45.00" y="1119.00" font-size="17" text-anchor="start">V</text>
+<text x="105.00" y="1257.00" font-size="15" text-anchor="start">t=6: HW [0.993223, 1.017364] · SIM 0.996443 · trained 0.997067</text>
+<text x="45.00" y="1294.00" font-size="19" text-anchor="start">F3 · case 9 (test index 122) · проблемный шаг t=0</text>
+<rect x="89.00" y="1309" width="32" height="190" fill="#fff0db"/>
+<line x1="105.000" y1="1499.000" x2="1395.000" y2="1499.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="1504.00" font-size="14" text-anchor="end">-1.68</text>
+<line x1="105.000" y1="1451.500" x2="1395.000" y2="1451.500" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="1456.50" font-size="14" text-anchor="end">-0.70</text>
+<line x1="105.000" y1="1404.000" x2="1395.000" y2="1404.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="1409.00" font-size="14" text-anchor="end">0.27</text>
+<line x1="105.000" y1="1356.500" x2="1395.000" y2="1356.500" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="1361.50" font-size="14" text-anchor="end">1.25</text>
+<line x1="105.000" y1="1309.000" x2="1395.000" y2="1309.000" stroke="#e5e9ee" stroke-width="1"/>
+<text x="93.00" y="1314.00" font-size="14" text-anchor="end">2.22</text>
+<line x1="105.000" y1="1368.532" x2="1395.000" y2="1368.532" stroke="#333333" stroke-width="1.7" stroke-dasharray="7 5"/>
+<line x1="105.000" y1="1499.000" x2="1395.000" y2="1499.000" stroke="#66717c" stroke-width="1"/>
+<line x1="105.000" y1="1309.000" x2="105.000" y2="1499.000" stroke="#66717c" stroke-width="1"/>
+<polygon points="105.000,1365.720 222.273,1350.862 339.545,1388.723 456.818,1434.791 574.091,1433.991 691.364,1452.729 808.636,1466.351 925.909,1483.167 1043.182,1468.660 1160.455,1447.096 1277.727,1432.567 1395.000,1424.622 1395.000,1424.368 1277.727,1432.058 1160.455,1446.079 1043.182,1466.626 925.909,1480.851 808.636,1463.898 691.364,1450.242 574.091,1431.361 456.818,1432.432 339.545,1386.272 222.273,1347.896 105.000,1364.126" fill="#1276b8" fill-opacity="0.20"/>
+<polyline points="105.000,1355.817 222.273,1330.092 339.545,1382.195 456.818,1437.900 574.091,1433.573 691.364,1455.655 808.636,1463.453 925.909,1481.460 1043.182,1466.640 1160.455,1446.087 1277.727,1432.062 1395.000,1424.370" fill="none" stroke="#dc5b27" stroke-width="2.6" stroke-dasharray="7 4"/>
+<circle cx="105.000" cy="1355.817" r="3.1" fill="#dc5b27"/>
+<circle cx="222.273" cy="1330.092" r="3.1" fill="#dc5b27"/>
+<circle cx="339.545" cy="1382.195" r="3.1" fill="#dc5b27"/>
+<circle cx="456.818" cy="1437.900" r="3.1" fill="#dc5b27"/>
+<circle cx="574.091" cy="1433.573" r="3.1" fill="#dc5b27"/>
+<circle cx="691.364" cy="1455.655" r="3.1" fill="#dc5b27"/>
+<circle cx="808.636" cy="1463.453" r="3.1" fill="#dc5b27"/>
+<circle cx="925.909" cy="1481.460" r="3.1" fill="#dc5b27"/>
+<circle cx="1043.182" cy="1466.640" r="3.1" fill="#dc5b27"/>
+<circle cx="1160.455" cy="1446.087" r="3.1" fill="#dc5b27"/>
+<circle cx="1277.727" cy="1432.062" r="3.1" fill="#dc5b27"/>
+<circle cx="1395.000" cy="1424.370" r="3.1" fill="#dc5b27"/>
+<polyline points="105.000,1369.055 222.273,1324.833 339.545,1386.667 456.818,1434.757 574.091,1433.764 691.364,1458.098 808.636,1465.250 925.909,1481.524 1043.182,1467.829 1160.455,1446.681 1277.727,1432.359 1395.000,1424.519" fill="none" stroke="#703cb1" stroke-width="2.6" stroke-dasharray="3 4"/>
+<circle cx="105.000" cy="1369.055" r="3.1" fill="#703cb1"/>
+<circle cx="222.273" cy="1324.833" r="3.1" fill="#703cb1"/>
+<circle cx="339.545" cy="1386.667" r="3.1" fill="#703cb1"/>
+<circle cx="456.818" cy="1434.757" r="3.1" fill="#703cb1"/>
+<circle cx="574.091" cy="1433.764" r="3.1" fill="#703cb1"/>
+<circle cx="691.364" cy="1458.098" r="3.1" fill="#703cb1"/>
+<circle cx="808.636" cy="1465.250" r="3.1" fill="#703cb1"/>
+<circle cx="925.909" cy="1481.524" r="3.1" fill="#703cb1"/>
+<circle cx="1043.182" cy="1467.829" r="3.1" fill="#703cb1"/>
+<circle cx="1160.455" cy="1446.681" r="3.1" fill="#703cb1"/>
+<circle cx="1277.727" cy="1432.359" r="3.1" fill="#703cb1"/>
+<circle cx="1395.000" cy="1424.519" r="3.1" fill="#703cb1"/>
+<polyline points="105.000,1365.116 222.273,1349.586 339.545,1387.794 456.818,1433.625 574.091,1432.577 691.364,1451.297 808.636,1464.659 925.909,1481.850 1043.182,1467.477 1160.455,1446.505 1277.727,1432.271 1395.000,1424.474" fill="none" stroke="#1276b8" stroke-width="2.6"/>
+<circle cx="105.000" cy="1365.116" r="3.1" fill="#1276b8"/>
+<circle cx="222.273" cy="1349.586" r="3.1" fill="#1276b8"/>
+<circle cx="339.545" cy="1387.794" r="3.1" fill="#1276b8"/>
+<circle cx="456.818" cy="1433.625" r="3.1" fill="#1276b8"/>
+<circle cx="574.091" cy="1432.577" r="3.1" fill="#1276b8"/>
+<circle cx="691.364" cy="1451.297" r="3.1" fill="#1276b8"/>
+<circle cx="808.636" cy="1464.659" r="3.1" fill="#1276b8"/>
+<circle cx="925.909" cy="1481.850" r="3.1" fill="#1276b8"/>
+<circle cx="1043.182" cy="1467.477" r="3.1" fill="#1276b8"/>
+<circle cx="1160.455" cy="1446.505" r="3.1" fill="#1276b8"/>
+<circle cx="1277.727" cy="1432.271" r="3.1" fill="#1276b8"/>
+<circle cx="1395.000" cy="1424.474" r="3.1" fill="#1276b8"/>
+<text x="105.00" y="1520.00" font-size="14" text-anchor="middle">0</text>
+<text x="222.27" y="1520.00" font-size="14" text-anchor="middle">1</text>
+<text x="339.55" y="1520.00" font-size="14" text-anchor="middle">2</text>
+<text x="456.82" y="1520.00" font-size="14" text-anchor="middle">3</text>
+<text x="574.09" y="1520.00" font-size="14" text-anchor="middle">4</text>
+<text x="691.36" y="1520.00" font-size="14" text-anchor="middle">5</text>
+<text x="808.64" y="1520.00" font-size="14" text-anchor="middle">6</text>
+<text x="925.91" y="1520.00" font-size="14" text-anchor="middle">7</text>
+<text x="1043.18" y="1520.00" font-size="14" text-anchor="middle">8</text>
+<text x="1160.45" y="1520.00" font-size="14" text-anchor="middle">9</text>
+<text x="1277.73" y="1520.00" font-size="14" text-anchor="middle">10</text>
+<text x="1395.00" y="1520.00" font-size="14" text-anchor="middle">11</text>
+<text x="1395.00" y="1541.00" font-size="14" text-anchor="end">логический шаг t</text>
+<text x="45.00" y="1404.00" font-size="17" text-anchor="start">V</text>
+<text x="105.00" y="1542.00" font-size="15" text-anchor="start">t=0: HW [1.057776, 1.090516] · SIM 1.261240 · trained 0.989254</text>
+<text x="45.00" y="1624.00" font-size="16" text-anchor="start">Оси Y индивидуальны. Полоса HW — min–max наблюдений, не доверительный интервал.</text>
+<text x="45.00" y="1651.00" font-size="16" text-anchor="start">Отрицательные V сохранены. После spike V_after = 0: соединения точек не изображают непрерывную физическую динамику.</text>
+<text x="45.00" y="1678.00" font-size="16" text-anchor="start">HW и SIM — независимые состояния с разными gain и C. График не является оценкой точности полного классификатора.</text>
+<text x="45.00" y="1705.00" font-size="17" text-anchor="start">V — потенциал цифровой модели LIF в её условных единицах, не напряжение платы в вольтах.</text>
+</svg>
