@@ -1,0 +1,105 @@
+{
+  "schema": "bounded-fresh-report-package-v1",
+  "packager_sha256": "2c32181229135841b7199af5b465de5052acb25a3e9bd705fb1b0cd1d9f2bc57",
+  "full_science_local_repo_relative_path": "results/cifar_feedback_reviews/hardware_stability_comparison_20261016/SCIENCE.json",
+  "full_science_sha256": "c7c0d1caedb7424ebe7dc23a93051721a0dbf2a699e6062bdab98d707afda501",
+  "analyzer_sha256": "0ced0d8d3b3f5b126374571659c38b5399be4af8cdfc0ebe39a99a0c9331d8c0",
+  "sessions": [
+    {
+      "session_id": "db20dfa7-6a98-4582-ba70-d0ae408c8a65",
+      "source": "hardware",
+      "source_commit": "a3800da9afd98928d3741101e0d96da26ab513c2",
+      "manifest_sha256": "a578aee4e4bd0f5c1574dfe78ee774d616cbb9cbcdf0edabc122f43696449b37",
+      "audit_sha256": "7fa3b699474a3baee0093641449798b32c21cc7fd112f8cce0fdda713caf6b0c",
+      "auditor_sha256": "bfab9b2044388c11a6362e94471b7872fab134451e8c09187eda59c9e8caa5bb",
+      "audit_checks": 8893385,
+      "audit_errors": 0,
+      "acquisition_complete": true,
+      "acquisition_status": "completed",
+      "observed_weight_records": 300,
+      "full_time_outputs": 2400,
+      "full_raw_local_repo_relative_path": "results/cifar_fresh_conv1/db20dfa7-6a98-4582-ba70-d0ae408c8a65",
+      "full_audit_local_repo_relative_path": "results/cifar_feedback_reviews/fresh_hardware_20261016/audit.json",
+      "acquisition_source_sha256": {
+        "fresh_conv1.py": "031150dbb5cfe285e5c3f8edc18757978f145ecb0b8528126ca4957371d60cfb",
+        "configs/fresh_conv1.json": "5b47aff5d26245f8ab8aa742473c5b097d7722fe929d7c8eeaa558c935260922",
+        "experiment.py": "2e57a87e6d7197ff9c8ac13624b9e112c53c8a1a4345db5099ce76f5a927043a"
+      }
+    },
+    {
+      "session_id": "8c59eb76-c4e1-4d6f-8238-2b6622e226f6",
+      "source": "hardware",
+      "source_commit": "7a303f0846a25dc277768f508fd2a78777a15628",
+      "manifest_sha256": "349c1cf3795ba5dd1ff9939ad89acfc377344a5a9c1ca256e05535649fbd4d9b",
+      "audit_sha256": "923588613122f7ffd1b54b9bece687623d1b100cd759cad45b32d667c781596c",
+      "auditor_sha256": "07d2dd0faecff90360df9c9c1771746b8d01045fb10119fa626263a3f201e9ca",
+      "audit_checks": 8852822,
+      "audit_errors": 0,
+      "acquisition_complete": true,
+      "acquisition_status": "completed",
+      "observed_weight_records": 300,
+      "full_time_outputs": 2400,
+      "full_raw_local_repo_relative_path": "results/cifar_fresh_conv1_no_bl8/8c59eb76-c4e1-4d6f-8238-2b6622e226f6",
+      "full_audit_local_repo_relative_path": "results/cifar_feedback_reviews/no_bl8_hardware_20261016_audit/audit.json",
+      "acquisition_source_sha256": {
+        "fresh_conv1.py": "031150dbb5cfe285e5c3f8edc18757978f145ecb0b8528126ca4957371d60cfb",
+        "configs/fresh_conv1.json": "5b47aff5d26245f8ab8aa742473c5b097d7722fe929d7c8eeaa558c935260922",
+        "fresh_conv1_no_bl8.py": "df4843f0de95933d6be7bd7cb6d3e318815f0b7053dacf321594ffa347c682bb",
+        "configs/fresh_conv1_no_bl8.json": "8b458cbe1048f8e18155f1edc82b2240cae889df588bfcdbb2a4bc388e62087a",
+        "experiment.py": "78ab85d62914b37dd090c480e27fd46a13ffd21f8d0ee043f1622eff3bb7a012"
+      }
+    }
+  ],
+  "full_data_included": false,
+  "raw_reaudit_performed": false,
+  "map_is_not_qualification": true,
+  "private_or_input_files_included": false,
+  "compact_files": {
+    "SESSION1_MAP.svg": {
+      "bytes": 61412,
+      "sha256": "2093593f72a32ed5273704503a8a84c0fc2d080ef3f7d3ea0df45ba61d179ab1",
+      "repo_relative_source": "results/cifar_feedback_reviews/hardware_stability_comparison_20261016/hardware_db20dfa7-6a98-4582-ba70-d0ae408c8a65_MAP.svg",
+      "source_sha256": "2093593f72a32ed5273704503a8a84c0fc2d080ef3f7d3ea0df45ba61d179ab1"
+    },
+    "SESSION1_CELLS.csv": {
+      "bytes": 13619,
+      "sha256": "41d264ba595e90b70adbc19805c6081ba38adad35ebe50db024e233b871058bd",
+      "repo_relative_source": "results/cifar_feedback_reviews/hardware_stability_comparison_20261016/hardware_db20dfa7-6a98-4582-ba70-d0ae408c8a65_CELLS.csv",
+      "source_sha256": "41d264ba595e90b70adbc19805c6081ba38adad35ebe50db024e233b871058bd"
+    },
+    "SESSION1_WEIGHTS.csv": {
+      "bytes": 42886,
+      "sha256": "18869381dd0fc8499576ef01a7b771677a41dc45a52043d03d5c76bc1352fc0a",
+      "repo_relative_source": "results/cifar_feedback_reviews/hardware_stability_comparison_20261016/hardware_db20dfa7-6a98-4582-ba70-d0ae408c8a65_WEIGHTS.csv",
+      "source_sha256": "18869381dd0fc8499576ef01a7b771677a41dc45a52043d03d5c76bc1352fc0a"
+    },
+    "SESSION2_MAP.svg": {
+      "bytes": 61455,
+      "sha256": "f19a1fc57f9a31bcaff788c7cbaacf1cd8ae22e53667b6b58d979b46b1d900f1",
+      "repo_relative_source": "results/cifar_feedback_reviews/hardware_stability_comparison_20261016/hardware_8c59eb76-c4e1-4d6f-8238-2b6622e226f6_MAP.svg",
+      "source_sha256": "f19a1fc57f9a31bcaff788c7cbaacf1cd8ae22e53667b6b58d979b46b1d900f1"
+    },
+    "SESSION2_CELLS.csv": {
+      "bytes": 13631,
+      "sha256": "1cd849f4c2c11b9e0faad0f8d0661765bb42bada46f3990e90e13558394a423f",
+      "repo_relative_source": "results/cifar_feedback_reviews/hardware_stability_comparison_20261016/hardware_8c59eb76-c4e1-4d6f-8238-2b6622e226f6_CELLS.csv",
+      "source_sha256": "1cd849f4c2c11b9e0faad0f8d0661765bb42bada46f3990e90e13558394a423f"
+    },
+    "SESSION2_WEIGHTS.csv": {
+      "bytes": 43031,
+      "sha256": "39fb9039fef3db8fb700feba2ffb58f151ce3cada6673e248bb14b6b4d763f7c",
+      "repo_relative_source": "results/cifar_feedback_reviews/hardware_stability_comparison_20261016/hardware_8c59eb76-c4e1-4d6f-8238-2b6622e226f6_WEIGHTS.csv",
+      "source_sha256": "39fb9039fef3db8fb700feba2ffb58f151ce3cada6673e248bb14b6b4d763f7c"
+    },
+    "REPORT.md": {
+      "bytes": 11430,
+      "sha256": "6f8643513c7f6310ab359e0a55a244e5616d7f5ce1f7c0247b7e0428f2d0171b",
+      "repo_relative_source": "results/cifar_feedback_reviews/hardware_stability_comparison_20261016/REPORT.md",
+      "source_sha256": "9187ff03460c3fc0865ae2b39dd2091bbbda69bf56abdb1a3749b6451b5d1274"
+    },
+    "README.md": {
+      "bytes": 2444,
+      "sha256": "1698123a677ea518494195d757f4027a7afa0c52f0467cf4da41720e39f303e2"
+    }
+  }
+}
