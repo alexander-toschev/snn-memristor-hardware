@@ -1,0 +1,99 @@
+{
+  "decoder_gain_v_per_weight": 0.03,
+  "decoder_gain_is_fixed_before_acquisition": true,
+  "fitted_alpha_diagnostic": {
+    "alpha_v_per_weight": 0.03394558945825013,
+    "alpha_repeat_values": [
+      0.03394558945825013,
+      0.03394558945825013,
+      0.03394558945825013,
+      0.03394558945825013,
+      0.03394558945825013
+    ],
+    "alpha_sd": 0.0,
+    "alpha_se": 0.0,
+    "heuristic_resolution_5se": true,
+    "difference_rms_v": 0.0009916724689706204,
+    "five_adc_quality_reference_v": 0.00153,
+    "rms_at_least_five_adc": false,
+    "quantization_uncertainty_not_in_sample_sd": true,
+    "decode_usable": true,
+    "alpha_cv": 0.0,
+    "alpha_cv_within_5pct": true,
+    "measured_difference_mean_v": [
+      -0.0006100000000000001,
+      -0.0012200000000000002,
+      -0.00183,
+      0.0003,
+      0.0,
+      0.00031000000000000005,
+      -0.0012200000000000002
+    ],
+    "effective_weights": [
+      -0.017969933936490996,
+      -0.03593986787298199,
+      -0.05390980180947299,
+      0.008837672427782457,
+      0.0,
+      0.00913226150870854,
+      -0.03593986787298199
+    ],
+    "weight_residuals": [
+      0.00061719339142801,
+      0.00047645039460185445,
+      0.004717360319213916,
+      0.0031287423451632664,
+      0.004269592463970184,
+      0.0023942423328810365,
+      -0.012199712250618902
+    ],
+    "weight_rmse": 0.005417501333106856,
+    "sign_mismatch_count": 0,
+    "zero_difference_count": 1,
+    "calibration_uses_cifar": false,
+    "alpha_is_supervised_common_units_fit_to_trained_weights": true,
+    "confidence_claim": false
+  },
+  "decode_usable": true,
+  "decode_usable_means_finite_arithmetic_not_weight_quality": true,
+  "effective_weights": [
+    -0.020333333333333335,
+    -0.04066666666666667,
+    -0.061000000000000006,
+    0.01,
+    0.0,
+    0.010333333333333335,
+    -0.04066666666666667
+  ],
+  "weight_residuals": [
+    -0.0017462060054143289,
+    -0.004250348399082823,
+    -0.0023728378713131007,
+    0.00429106991738081,
+    0.004269592463970184,
+    0.003595314157505832,
+    -0.01692651104430358
+  ],
+  "weight_rmse": 0.0071994128466821425,
+  "measured_difference_mean_v": [
+    -0.0006100000000000001,
+    -0.0012200000000000002,
+    -0.00183,
+    0.0003,
+    0.0,
+    0.00031000000000000005,
+    -0.0012200000000000002
+  ],
+  "calibration_uses_cifar": false,
+  "frozen_before_task_id": 3106,
+  "trained_weights": [
+    -0.018587127327919006,
+    -0.03641631826758385,
+    -0.058627162128686905,
+    0.00570893008261919,
+    -0.004269592463970184,
+    0.006738019175827503,
+    -0.02374015562236309
+  ],
+  "wmax_per_filter": 0.11323549598455429
+}
