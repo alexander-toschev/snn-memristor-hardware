@@ -190,6 +190,7 @@ def main(argv=None):
     diagnostic.add_argument("--cifar-feedback", action="store_true", help="Bounded actual mode10 feedback programming and measured CIFAR")
     diagnostic.add_argument("--cifar-feedback-diagnostic", action="store_true", help="Fresh full diagnostic CIFAR; fixed gain, quality failures retained")
     diagnostic.add_argument("--cifar-feedback-adaptive", action="store_true", help="Bounded microtiles; optional audited 42-tap prefix")
+    diagnostic.add_argument("--cifar-feedback-reserve", action="store_true", help="One bounded WL7/BL15 reserve experiment; immutable other287 coefficients")
     parser.add_argument("--cifar-resume-session")
     parser.add_argument("--cifar-stage", choices=("pilot", "remaining"))
     parser.add_argument("--cifar-pilot-session")
@@ -197,8 +198,16 @@ def main(argv=None):
     hardware_options = args.phase is not None or args.all or args.phase1_session is not None or args.max_pulses is not None
     if (args.cifar_stage or args.cifar_pilot_session) and not (args.cifar_conv1 or args.cifar_feedback):
         parser.error("CIFAR stage/session options require an explicit CIFAR scenario")
-    if args.cifar_resume_session and not args.cifar_feedback_adaptive:
-        parser.error("--cifar-resume-session requires --cifar-feedback-adaptive")
+    if args.cifar_resume_session and not (args.cifar_feedback_adaptive or args.cifar_feedback_reserve):
+        parser.error("--cifar-resume-session requires adaptive or reserve CIFAR scenario")
+    if args.cifar_feedback_reserve:
+        if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
+            parser.error("--cifar-feedback-reserve requires explicit mode and no legacy phase options")
+        from cifar_feedback_reserve import main as reserve_cifar
+        forwarded = ["--run-simulator" if args.run_simulator else "--run-hardware" if args.run_hardware else "--dry-run"]
+        if args.cifar_resume_session:
+            forwarded += ["--resume-session", args.cifar_resume_session]
+        return reserve_cifar(forwarded)
     if args.cifar_feedback_adaptive:
         if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
             parser.error("--cifar-feedback-adaptive requires explicit mode and no legacy phase options")

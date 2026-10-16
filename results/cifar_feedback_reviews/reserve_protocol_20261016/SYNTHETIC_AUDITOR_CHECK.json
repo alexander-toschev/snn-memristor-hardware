@@ -1,0 +1,46 @@
+{
+  "auditor_sha256": "372f48a05abc652cda0f2c9d5891660a9c23429f53d18ea84749c587f5e10459",
+  "synthetic_only": true,
+  "hardware_io": false,
+  "native_backend_opened": false,
+  "checks": 208133,
+  "errors": [],
+  "cases": [
+    {
+      "fixture": "reserve_fake_success",
+      "explicitly_synthetic": true,
+      "technical_completed": true,
+      "counts": {
+        "impact_attempts": 7228,
+        "programming_pulse_attempts": 12,
+        "programming_decisions": 12,
+        "programming_skipped_current": 0
+      },
+      "new_partial_points": 600,
+      "checks": 179731,
+      "gate": {
+        "reserved_negative_quiet": true,
+        "original_negative_quiet": 16,
+        "positive_quiet": 16
+      }
+    },
+    {
+      "fixture": "reserve_fake_gate_fail",
+      "explicitly_synthetic": true,
+      "technical_completed": false,
+      "counts": {
+        "impact_attempts": 1012,
+        "programming_pulse_attempts": 55,
+        "programming_decisions": 55,
+        "programming_skipped_current": 0
+      },
+      "new_partial_points": 0,
+      "checks": 25787,
+      "gate": {
+        "reserved_negative_quiet": false,
+        "original_negative_quiet": 16,
+        "positive_quiet": 16
+      }
+    }
+  ]
+}
