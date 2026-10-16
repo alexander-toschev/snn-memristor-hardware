@@ -1,0 +1,29 @@
+{
+  "component_consistency": "failed",
+  "checks": 189668,
+  "errors": [
+    "component/frozen_runtime/experiment.py"
+  ],
+  "source": "simulator",
+  "hardware_io": false,
+  "session": ".tmp/native-adaptive-n1/49478a54-643e-4009-bcba-89aaf6629b60",
+  "manifest_sha256": "5e89065518ed31f9d2810bfe37b2783c11a76e7e4bab77bd5ea43e6015b9ddf5",
+  "auditor_helper_sha256": "09d8ac17e57e8a2df12c26d12fe187c52ceeb25f007ed93baeebe67262b4c92f",
+  "replay_script_sha256": "76975d1078f461a15c4269845aab18e1a6446418e67849d0844e6ee09ab116a9",
+  "counts": {
+    "impact_attempts": 7478,
+    "programming_pulse_attempts": 652,
+    "programming_decisions": 652,
+    "programming_skipped_current": 0
+  },
+  "partial_points": 600,
+  "active_taps": [
+    13
+  ],
+  "reset_candidates": 34,
+  "reference_design_rank": 1,
+  "selected_model": "identity",
+  "physical_weight_quality_pass": false,
+  "full300_coverage_claim": false,
+  "provenance_limitations": "Standalone component launched with staged/untracked non-runtime work. Recorded source bytes were checked locally against the manifest; this report does not assert a fully clean committed acquisition tree or successful adaptive 13+1 history. The pending singleton was explicitly supplied; native measurements are unchanged."
+}

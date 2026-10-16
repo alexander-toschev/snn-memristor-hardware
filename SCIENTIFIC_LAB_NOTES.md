@@ -1033,6 +1033,87 @@ CIFAR0.53380/0.62337/1.44837, все quality-fail. Это не причина м
 только на numerical rank. Адаптация меняет физическое расписание, но не
 логическое время SNN, fixed gain или обученные коэффициенты.
 
+## K14 — адаптивный SIM, импорт измеренного префикса и пределы валидации N=1
+
+- **Проблема:** нехватка quiet-кандидатов требует менять физическое разбиение,
+  сохраняя все75 taps и уже полученные42 измеренных коэффициента.
+- **Решение:** новая adaptive-версия допускает до двух микротайлов исходного
+  блока, импортирует только закреплённый завершённый префикс с проверкой SHA
+  и собирает остальные вклады заново. N=1 исключает full C2 по reference rank.
+- **Формула/алгоритм:** capacity по fresh quiet-screen; новые actual ADC
+  через frozen C/fixed gain; уникальный ledger всех300 taps; сумма до BN/LIF.
+- **Evidence:**
+  `results/cifar_feedback_adaptive/64036fb0-2d33-4350-b672-96ef8380acec`,
+  `results/cifar_feedback_reviews/adaptive_simulator_full_20261016_v2/FINDINGS.md`
+  и независимый audit в той же папке; отдельный N1 component ниже.
+- **Статус:** полный adaptive SIM завершён и независимо проверен; полный
+  аппаратный adaptive-результат здесь ещё не подтверждён.
+- **Ограничения/воспроизведение:** 42 импортированных вклада остаются
+  историческими. Остальные258 измерены на fresh native SIM array; непрерывность
+  единого скрытого состояния не заявляется. Счётчики parent/new/contributing
+  раздельны. Полный SIM не упражнял естественное разделение13+1.
+
+Source `353f9d7bf2c0f2c2398ee45d674485c8d3c99554`: tracked clean, но
+не полностью clean checkout. Первый audit сохранён с двумя provenance
+ошибками для untracked `audit_cifar_feedback_adaptive.py` и
+`test_audit_cifar_feedback_adaptive.py`. V2 сделал узкое исключение:
+recorded source/input blobs проверены, runtime imports/literal references
+этих offline-файлов не обнаружены. **Их байты при запуске неизвестны**;
+поздний validator commit не доказывает историческое содержимое.
+Это раскрытое ограничение, не переписывание исходного failed-audit.
+
+Независимый v2 audit: **PASS7532887/0**, SHA отчёта
+`fe3df5205076258e12fcd85e8a33b29cbe3328358d2c807a4b8656f9599299e2`.
+Все300 уникальных trained taps и2400 decoded точек присутствуют. Из28
+contributing microtiles три импортированы,25 новых; каждый содержит600
+partial-точек. Основные результаты, пересчитанные по compact-файлам:
+
+| Показатель | Adaptive SIM |
+|---|---:|
+| Weight RMSE / NRMSE | 0.01684275375 /0.31705807844 |
+| Quality-pass микротайлов | 2/28 |
+| SET hit / overshoot / exhausted | 165 /133 /2 |
+| Разрешённые ошибки / неразрешённые значимые знаки | 0 /23 |
+| C | identity во всех28 |
+| Conv RMSE trained / W_eff | 0.05354526341 /≈3.79×10⁻¹⁷ |
+| Spike mismatches trained / W_eff | 55/2400 /0 |
+| Max absolute error BN / LIF до reset | 1.21221055 /1.22800932 |
+
+Новые команды:258031 impacts/16239 записей. Участвующий импорт42:
+41337/3225; вся contributing история результата —299368/19464.
+Полный родитель имел300519/19409, включая25 неиспользованных здесь тайлов;
+`cumulative including all parent attempts` равен558550/35648.
+Последняя величина — затраты двух сессий, а не количество команд данной
+свёртки или уникальных весов. Покрытие contributing данных:118 RESET-probed/
+eligible,94 selected/assigned,93 SET-attempted; это по-прежнему не максимум256.
+
+Повторы одинаковы: max Conv range0 и0 filter/case/t с меняющимся спайком.
+55 mismatches включают5 одинаковых повторов, то есть11 уникальных ошибочных
+filter/case/t, а не55 независимых случаев. Это четыре Conv1-фильтра на10
+патчах, не классификационная accuracy. По сравнению с прежним fullSIM
+Conv RMSE уменьшилась0.05894→0.05355, а spike mismatches выросли45→55:
+меньшая общая ошибка не гарантирует совпадения пороговой динамики LIF.
+Из-за иной истории записи/fresh array/reuse это описательное сравнение,
+не изолированная причинная оценка пользы adaptive layout.
+
+**Предел branch coverage:** ни один новый исходный блок в этой сессии не
+потребовал microtile1; минимальный chunk содержал3 коэффициента. Поэтому
+полный SIM не доказывает native13+1/N1 своим completed-status. Отдельно
+сохранён native singleton component
+`results/cifar_feedback_component_tests/49478a54-643e-4009-bcba-89aaf6629b60`:
+явно задан pending=[tap13],micro=1;7478 impacts,652 записи,600 partials,
+reference rank1,C=I. Он не заявляет предшествующую историю13 коэффициентов.
+
+`results/cifar_feedback_reviews/adaptive_native_n1_20261016_v3/audit.json`
+даёт component PASS189668/0, SHA
+`dc1f1df415b53776433cee5417152ea09fe083dc6f28fee7fbf7b743e927481c`.
+Это компонентная проверка native singleton path/rank-policy; staged/untracked
+non-runtime provenance раскрыта, runtime bytes сверены с manifest. Она не
+доказывает целый naturally split13+1 проход, не дополняет300-weight результат
+дополнительным tap и не является аппаратным измерением. Старые raw и первые
+аудиты сохранены; научный валидатор просмотрел готовые аудит-артефакты,
+а не утверждает собственный полный raw replay.
+
 ## Следующая запись журнала
 
 После review новой feedback-версии — точный scale policy, бюджет, SIM и

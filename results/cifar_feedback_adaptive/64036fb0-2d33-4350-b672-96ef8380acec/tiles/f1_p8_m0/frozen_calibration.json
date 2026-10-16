@@ -1,0 +1,71 @@
+{
+  "decoder_gain_v_per_weight": 0.03,
+  "decoder_gain_is_fixed_before_acquisition": true,
+  "fitted_alpha_diagnostic": {
+    "alpha_v_per_weight": 0.040948004253254136,
+    "alpha_repeat_values": [
+      0.040948004253254136,
+      0.040948004253254136,
+      0.040948004253254136,
+      0.040948004253254136,
+      0.040948004253254136
+    ],
+    "alpha_sd": 0.0,
+    "alpha_se": 0.0,
+    "heuristic_resolution_5se": true,
+    "difference_rms_v": 0.0028726816739764256,
+    "five_adc_quality_reference_v": 0.00153,
+    "rms_at_least_five_adc": true,
+    "quantization_uncertainty_not_in_sample_sd": true,
+    "decode_usable": true,
+    "alpha_cv": 0.0,
+    "alpha_cv_within_5pct": true,
+    "measured_difference_mean_v": [
+      0.0027400000000000002,
+      0.00397,
+      0.0012200000000000002
+    ],
+    "effective_weights": [
+      0.06691412805014185,
+      0.09695222202885515,
+      0.029793881832544913
+    ],
+    "weight_residuals": [
+      -0.012238478377527673,
+      0.012586660424355328,
+      -0.002853891790921579
+    ],
+    "weight_rmse": 0.010268869979855535,
+    "sign_mismatch_count": 0,
+    "zero_difference_count": 0,
+    "calibration_uses_cifar": false,
+    "alpha_is_supervised_common_units_fit_to_trained_weights": true,
+    "confidence_claim": false
+  },
+  "decode_usable": true,
+  "decode_usable_means_finite_arithmetic_not_weight_quality": true,
+  "effective_weights": [
+    0.09133333333333335,
+    0.13233333333333333,
+    0.04066666666666667
+  ],
+  "weight_residuals": [
+    0.012180726905663825,
+    0.047967771728833514,
+    0.008018893043200179
+  ],
+  "weight_rmse": 0.0289458107401752,
+  "measured_difference_mean_v": [
+    0.0027400000000000002,
+    0.00397,
+    0.0012200000000000002
+  ],
+  "calibration_uses_cifar": false,
+  "frozen_before_task_id": 2160,
+  "trained_weights": [
+    0.07915260642766953,
+    0.08436556160449982,
+    0.03264777362346649
+  ],
+  "wmax_per_filter": 0.13831594586372375
+}
