@@ -188,12 +188,18 @@ def main(argv=None):
     diagnostic.add_argument("--test-mapped-sequential-mvm", action="store_true", help="Fresh one-hot partial sums and digital LIF on a fixed per-WL map")
     diagnostic.add_argument("--cifar-conv1", action="store_true", help="Program actual Conv1 weights and measure partial sums")
     diagnostic.add_argument("--cifar-feedback", action="store_true", help="Bounded actual mode10 feedback programming and measured CIFAR")
+    diagnostic.add_argument("--cifar-feedback-diagnostic", action="store_true", help="Fresh full diagnostic CIFAR; fixed gain, quality failures retained")
     parser.add_argument("--cifar-stage", choices=("pilot", "remaining"))
     parser.add_argument("--cifar-pilot-session")
     args = parser.parse_args(argv)
     hardware_options = args.phase is not None or args.all or args.phase1_session is not None or args.max_pulses is not None
     if (args.cifar_stage or args.cifar_pilot_session) and not (args.cifar_conv1 or args.cifar_feedback):
         parser.error("CIFAR stage/session options require an explicit CIFAR scenario")
+    if args.cifar_feedback_diagnostic:
+        if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
+            parser.error("--cifar-feedback-diagnostic requires explicit mode and no legacy phase options")
+        from cifar_feedback_diagnostic import main as diagnostic_cifar
+        return diagnostic_cifar(["--run-simulator" if args.run_simulator else "--run-hardware" if args.run_hardware else "--dry-run"])
     if args.cifar_feedback:
         if hardware_options or not (args.run_simulator or args.run_hardware or args.dry_run):
             parser.error("--cifar-feedback requires explicit mode and no legacy phase options")
