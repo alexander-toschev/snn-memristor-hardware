@@ -1,0 +1,79 @@
+{
+  "audit_status": "passed",
+  "checks": 24813305,
+  "errors": [],
+  "max_numeric_difference": 0.0,
+  "session_id": "9fa4e745-cd50-44e9-97b0-b650292e4db8",
+  "source": "simulator",
+  "auditor_sha256": "637171a5bf0080aeea046b3cb1b3f5f945dc4d0d403c1fd82a4a7acdfe27da7d",
+  "raw_sha256": "f8cb026e7d8a510cb11ce2b015888823176e18c708994f36fab00de829bbdaf0",
+  "manifest_sha256": "a0d6e72a4ad09f25b38d85cd362bff6e3702a6d2c6d5cac07323e289391bd591",
+  "recorded_invocation": {
+    "git": {
+      "commit": "7b73686c19febfcb638ea826c5246e582a451aa3",
+      "dirty_tracked": true,
+      "untracked": [
+        ".tmp/",
+        "cell_calibration.py",
+        "configs/cell_calibration.json",
+        "test_cell_calibration.py"
+      ],
+      "status_porcelain": " M AGENTS.md\n M experiment.py\n?? .tmp/\n?? cell_calibration.py\n?? configs/cell_calibration.json\n?? test_cell_calibration.py"
+    },
+    "process_argv": [
+      "experiment.py",
+      "--run-simulator",
+      "--calibrate-cells"
+    ],
+    "hardware_argv": [
+      "--run-simulator"
+    ]
+  },
+  "source_blob_commit": "8d37e45f59e5e2c313963bc62b254038817f016b",
+  "verified_source_count": 65,
+  "provenance_note": "Run started from recorded dirty working tree; later source-blob match does not turn it into a clean-commit run.",
+  "impact_pairs": 114071,
+  "programming_pulse_attempts": 55975,
+  "mode_counts": {
+    "7": 65591,
+    "10": 48480
+  },
+  "phase_counts": {
+    "initial_array_read": 768,
+    "checkpoint_read": 8080,
+    "checkpoint_mvm": 48480,
+    "reset": 18313,
+    "set": 37662,
+    "final_array_read": 768
+  },
+  "checkpoints": 1616,
+  "checkpoint_reuses": 289,
+  "scientific_outcomes": {
+    "reset_reached": 256,
+    "reset_confirmed": 256,
+    "set_attempted_cells": 256,
+    "upper_q_reached": 253,
+    "target_reached_counts": {
+      "0.01": 256,
+      "0.02": 254,
+      "0.03": 254,
+      "0.04": 254,
+      "0.05": 253
+    },
+    "set_skipped_reasons": {},
+    "checkpoint_counts": {
+      "6": 133,
+      "7": 103,
+      "5": 18,
+      "4": 1,
+      "3": 1
+    }
+  },
+  "limitations": [
+    "Simulator algorithm/serialization validation only; no hardware calibration evidence.",
+    "One-cycle tested q window capped at .05 is not a stable or maximal physical programming range.",
+    "125 simulator model steps do not establish the physical native pulse duration.",
+    "Checkpoint G precedes MVM; per-state post-MVM G stability is unmeasured.",
+    "Earlier observed checkpoints need not be current terminal states or coexist on the array."
+  ]
+}
