@@ -97,4 +97,3 @@ token after a 12MiB NUL prefix, followed by a clean binary control. It does not
 print the token or scanner output. Unit tests never stage/commit or contact a
 remote. Temporary dirs may be redirected with standard TEMP/TMP if a sandbox
 denies access to its default temp directory.
-

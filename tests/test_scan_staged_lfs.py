@@ -4,6 +4,7 @@ import io
 import os
 from pathlib import Path
 import subprocess
+import shutil
 import sys
 import tempfile
 import unittest
@@ -134,6 +135,43 @@ class PayloadTests(unittest.TestCase):
         hook = (Path(__file__).resolve().parents[1] / '.githooks' / 'pre-commit').read_text()
         self.assertLess(hook.index('"$scanner" git --staged'), hook.index('tools/security/scan_staged_lfs.py'))
         self.assertIn('set -eu', hook)
+        self.assertIn('sys.version_info >= (3, 8)', hook)
+        self.assertIn("else 1)' >/dev/null 2>&1; then", hook)
+        self.assertIn('if [ -z "$python" ]; then', hook)
+
+    def test_hook_skips_nonworking_python3_alias(self):
+        shell = shutil.which('sh')
+        if shell is None and Path('C:/Program Files/Git/bin/sh.exe').is_file():
+            shell = 'C:/Program Files/Git/bin/sh.exe'
+        if shell is None:
+            self.skipTest('POSIX shell unavailable')
+        hook = (Path(__file__).resolve().parents[1] / '.githooks' / 'pre-commit').read_text()
+        # Exercise the exact selection block using fake shell functions; no
+        # installation, PATH mutation, Store alias launch or actual scanner.
+        selection = hook[hook.index('python=\n'):hook.index('exec "$python"')]
+        fake = "set -eu\npython3() { echo SHIM-ERROR >&2; return 127; }\npython() { return 0; }\n"
+        with tempfile.TemporaryDirectory() as root:
+            result = subprocess.run([shell, '-c', fake + selection + 'printf "%s" "$python"'],
+                                    cwd=root, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        self.assertEqual(result.returncode, 0)
+        self.assertEqual(result.stdout, b'python')
+        self.assertEqual(result.stderr, b'')
+
+    def test_hook_no_working_python_blocks(self):
+        shell = shutil.which('sh')
+        if shell is None and Path('C:/Program Files/Git/bin/sh.exe').is_file():
+            shell = 'C:/Program Files/Git/bin/sh.exe'
+        if shell is None:
+            self.skipTest('POSIX shell unavailable')
+        hook = (Path(__file__).resolve().parents[1] / '.githooks' / 'pre-commit').read_text()
+        selection = hook[hook.index('python=\n'):hook.index('exec "$python"')]
+        fake = 'set -eu\npython3() { return 127; }\npython() { return 1; }\n'
+        with tempfile.TemporaryDirectory() as root:
+            result = subprocess.run([shell, '-c', fake + selection], cwd=root,
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        self.assertEqual(result.returncode, 1)
+        self.assertEqual(result.stdout, b'')
+        self.assertIn(b'working Python 3.8+', result.stderr)
 
     @unittest.skipUnless(os.environ.get('LFS_SCAN_TEST_GITLEAKS'), 'Optional installed Gitleaks integration')
     def test_real_scanner_detects_synthetic_token_after_large_binary_prefix(self):

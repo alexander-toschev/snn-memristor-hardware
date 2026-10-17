@@ -62,6 +62,8 @@ not publication artifacts.
 
 Raw JSONL, archived payloads, array snapshots and network weights use Git LFS.
 Install Git LFS and run `git lfs pull` after checkout to obtain their contents.
-Public history through `33e182a` is preserved; only unpublished data commits
-were rewritten to LFS pointers. No force push is required. Original source
-manifest pins and payload SHA256 values are unchanged.
+A later remote check confirmed that the earlier ordinary Git upload had
+completed through `fb5f02d`. That published history is preserved and merged
+with the prepared LFS branch; no force push is used. Earlier Git blobs remain
+in history, while the current checkout uses LFS. Original source manifest
+pins and payload SHA256 values are unchanged.
