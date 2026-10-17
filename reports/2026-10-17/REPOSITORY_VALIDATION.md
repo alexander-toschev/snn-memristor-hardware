@@ -26,3 +26,15 @@ infrastructure. They are not a new hardware measurement or CIFAR accuracy test.
 
 The publication record describes the separate dataset secret scans and remaining
 hardware transfer. A passing secret scan does not prove absence of every secret.
+
+## LFS publication verification
+
+The migration integrity check completed with `Git LFS fsck OK`. The two
+subsequently restored original calibration journals also passed complete
+size/SHA256 verification and the staged-payload secret scan.
+
+GitHub accepted all 1,872 outgoing LFS objects (approximately 12 GB), followed
+by a normal branch push. A fresh, separate LFS cache successfully downloaded
+`weights/conv1_weights.npy` from published commit `b8bb0b9`; its SHA256 matched
+`8be312b9eafb9de23f8340b17f848e7e0e2e7884293c826a6d9f6cbb5125d440`.
+This download check is a sample; the complete upload was confirmed by Git LFS.
