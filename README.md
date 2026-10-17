@@ -1,50 +1,83 @@
-# CIFAR Conv1 — MemriBoard
+# MemriBoard: CIFAR Conv1 и проверка мемристорного тракта
 
-Выполнен ограниченный аппаратный эксперимент: четыре Conv1-фильтра, 300 обученных коэффициентов, 10 фиксированных настоящих CIFAR-патчей, 12 шагов и 5 повторов. Сумма всех 75 коэффициентов фильтра поступает в обученный BN и цифровой LIF. Это **первый слой, не accuracy полного CIFAR-классификатора**.
+Рабочая точка входа — **`experiment.py`**. Аппаратные операции выполняются только через публичный MemriBoard Connector и штатные converters. BN и LIF в текущем тракте цифровые.
 
-[Итог HW/SIM](results/cifar_feedback_reviews/remaining_hardware_vs_simulator_20261016/REPORT.md) · [Карта участвовавших адресов](results/cifar_feedback_reviews/remaining_hardware_vs_simulator_20261016/hardware_contributing_map.svg) · [Независимый аппаратный review](results/cifar_feedback_reviews/remaining_hardware_20261016/INDEPENDENT_REVIEW.md).
+**Следующая работа:** [эксперименты на понедельник, 19 октября](docs/plans/EXPERIMENTS_20261019.md). Первый приоритет — оценить CIFAR с фактическими погрешностями измеренного тракта, начиная с offline-анализа. План не запускает оборудование автоматически.
 
-Аппаратный аудит: **669378 проверок, 0 ошибок**. Полнота сбора подтверждена, точность записи весов остаётся неудовлетворительной. Из десяти заранее выбранных резервных адресов девять измерены в CIFAR; WL3/BL31 не прошёл ограниченный RESET-screening. Карта показывает объединение участвовавших адресов во времени, а не конечные проводимости или одновременно размещённые 300 весов.
+[Отчёт разработчику: операции HW и SIM, измерения и ограничения](docs/developer-reports/2026-10-17/REPORT_RU.md) · [Команды воспроизведения](docs/developer-reports/2026-10-17/REPRODUCTION.md)
 
-## Единая точка входа
+## Последний подтверждённый результат
 
-Все команды выполняются из корня репозитория. Без флагов `experiment.py` показывает справку.
+Ограниченный no-BL8 опыт завершён на HW и native SIM: четыре Conv1-фильтра, 300 коэффициентов, 108 участвовавших физических адресов, 10 настоящих патчей CIFAR-100, T=12 и 5 повторов. HW прошёл прежние проверки качества в **22 из 44 микротайлов**, ошибка весов post-all NRMSE — **16,8571%**. Полнота сбора не означает точность всех ячеек, одновременное размещение всех весов или accuracy полного классификатора.
 
-| Сценарий | Флаг | Новые коэффициенты | Максимум вызовов / записей |
-|---|---|---:|---:|
-| [Резерв A](CIFAR_FEEDBACK_RESERVE.md) | `--cifar-feedback-reserve` | 13 | 24323 / 3232 |
-| [Резервы B/C](CIFAR_REMAINING_RESERVES.md) | `--cifar-feedback-remaining-reserves` | 20 | 40378 / 5260 |
+- [Карты и сравнение до/после исключения BL8](reports/2026-10-16/hardware-stability-comparison/REPORT.md).
+- [Причины оставшихся отказов](reports/2026-10-16/hardware-stability-comparison/DIAGNOSTIC_REVIEW.md).
+- [Прямое сравнение измеренных HW и SIM выходов](reports/2026-10-16/direct-hardware-simulator/REPORT.md).
+- [Границы готовности полного CIFAR](docs/plans/FULL_CIFAR_READINESS_20261016.md).
 
-Preflight без подключения:
+## Где что находится
+
+| Путь | Назначение |
+|---|---|
+| `experiment.py` | Явный выбор сценария и режима; без флагов — справка |
+| `configs/` | Зафиксированные протоколы, INI и параметры платы |
+| `weights/` | Checkpoint, исходные веса, fixture, карты и их происхождение |
+| `results/` | Полные журналы измерений, manifest, независимые аудиты; не переписывать |
+| `reports/` | Компактные опубликованные карты и сводки со ссылками/SHA на исходные данные |
+| [docs/](docs/README.md) | Инструкции, протоколы, планы и исторические review |
+| [tools/](tools/README.md) | Удобный вход в офлайн-анализ и запуск тестов |
+| [tests/](tests/README.md) | Unit-тесты, FakeConnector и проверки форматов без платы |
+| `experiments/`, `full_cifar_reference/` | Исторический эксперимент и CPU-эталон сети |
+| `vendor/MemriBoard/` | Зафиксированный публичный MemriBoard; private-драйверы только локально |
+| `.tmp/` | Игнорируемая локальная временная работа, не публикационный каталог |
+
+Некоторые `.py` и три старых теста намеренно остаются в корне: их пути и байты входят в source pins исторических протоколов. [Почему их не переносили](docs/REPOSITORY_LAYOUT.md). Все новые самостоятельные документы и утилиты размещаются в соответствующих папках.
+
+## Получить данные Git LFS
+
+После clone или обновления ветки загрузите настоящие файлы весов и результатов:
 
 ```sh
-python experiment.py --help
-python experiment.py --cifar-feedback-reserve --dry-run
-python experiment.py --cifar-feedback-remaining-reserves --dry-run
+git lfs install --local
+git lfs pull
 ```
 
-Dry-run проверяет исходники, INI, веса и привязанные результаты родителей без подключения к плате. Частные файлы драйвера должны находиться локально; отсутствие или несовпадение SHA вызывает явную ошибку. Это не проверка проводки.
+Git LFS должен быть установлен в окружении. До запуска проверок убедитесь, что
+веса и журналы загружены, а не остались текстовыми LFS-pointer файлами.
+`git lfs ls-files` показывает объекты LFS; штатные SHA-проверки протоколов
+проверяют содержимое загруженных файлов. После следующего `git pull` повторите
+`git lfs pull`, если автоматическая загрузка отключена или была прервана.
 
-Новый прогон штатного simulator:
+## Начать без подключения к плате
+
+Команды выполняются из корня репозитория:
 
 ```sh
-python experiment.py --cifar-feedback-reserve --run-simulator
-python experiment.py --cifar-feedback-remaining-reserves --run-simulator
+python -B experiment.py --help
+python -B tools/offline.py --help
+python -B tools/offline.py compare-traces --help
 ```
 
-B/C использует фиксированную опубликованную A-сессию своего backend; только что запущенный A не подставляется автоматически. Итог содержит 20 новых B/C + 13 исторических A + 267 исходных коэффициентов. Старые результаты не перезаписываются.
+Зависимости и перенос GitHub → Raspberry описаны в [REPRODUCE](docs/guides/REPRODUCE.md). Полный офлайн-набор тестов:
 
-Аппаратный запуск выбирается отдельным `--run-hardware`, изменяет состояния платы и требует намеренного разрешения оператора. [Воспроизведение и окружение GitHub → Raspberry](REPRODUCE.md).
+```sh
+python -B tools/run_tests.py
+```
 
-## VS Code и файлы
+Для выбранных тестов:
 
-Первые четыре профиля F5: A preflight, B/C preflight, A simulator, B/C simulator. Автоматического аппаратного запуска нет. Python берётся из `.venv` внутри репозитория; Windows/Linux пути заданы относительно workspace.
+```sh
+python -B tools/run_tests.py tests.test_compare_fresh_traces tests.test_export_fresh_trace -v
+```
 
-- Настройки: `configs/cifar_feedback_reserve.json`, `configs/cifar_feedback_remaining_reserves.json`, `configs/raspberry_board.ini`.
-- Веса и патчи: `weights/conv1_weights.npy`, `weights/prepared_cifar100_conv1.json`.
-- Результаты: `results/cifar_feedback_reserve/`, `results/cifar_feedback_remaining_reserves/`.
-- Аудиторы: `audit_cifar_feedback_reserve.py`, `audit_cifar_feedback_remaining_reserves.py`.
+Тесты используют сохранённые данные, CPU и FakeConnector. Native simulator и hardware здесь не запускаются. Для CPU-классификатора нужны дополнительные зависимости из `requirements-classifier.txt`.
 
-Аппаратные операции выполняются только через публичный MemriBoard Connector и штатные converters. Native-длительность записи неизвестна; 125 модельных шагов simulator не являются измеренными 125 мкс платы. Исходные ADC, ошибки, команды, хеши и родительские результаты сохраняются.
+## Запуски и воспроизводимость
 
-Исторические сценарии: [адаптивное размещение](CIFAR_FEEDBACK_ADAPTIVE.md), [четыре фазы](HARDWARE_PLAN.md), [подготовка MVM](CALIBRATED_MVM_OPERATIONS.md). Их старые карты и пороги не заменяют результат последнего A/B/C.
+Сценарии выбираются только явным флагом `experiment.py`; preflight — отдельный `--dry-run`, штатный simulator — `--run-simulator`, плата — `--run-hardware`. Пример и бюджет каждого сценария находятся в [протоколах](docs/README.md#протоколы-ограниченных-опытов). Наличие команды не отменяет проверку source pins, исходных данных, разрешения оператора и срока конкретного протокола. Замороженные сценарии 16 октября имеют исторический cutoff и не являются готовой командой нового опыта в понедельник.
+
+В VS Code первый профиль F5 показывает справку без I/O. Остальные профили сохранены для соответствующих сценариев; никакого автоматического аппаратного запуска нет. `.venv` задаётся относительно workspace для Windows/Linux.
+
+Полные raw и manifest сохраняются без изменения. Компактный отчёт не заменяет полный raw-аудит. Воспроизведение исторического состояния требует записанного в manifest Git commit; перенос документации не меняет acquisition source. Native-длительность аппаратного импульса неизвестна: 125 модельных шагов simulator нельзя называть измеренными 125 мкс платы.
+
+[Правила работы](AGENTS.md) · [Секреты и публикация](SECURITY.md) · [Сторонний код](THIRD_PARTY_NOTICE.md)

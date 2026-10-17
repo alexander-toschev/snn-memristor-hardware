@@ -2,6 +2,123 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Справка experiment.py — без I/O",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/experiment.py",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": {
+        "python": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "pythonArgs": [
+        "-B"
+      ],
+      "args": [
+        "--help"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Fresh300: preflight без I/O (16.10.2026)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/experiment.py",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": {
+        "python": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "pythonArgs": [
+        "-B"
+      ],
+      "args": [
+        "--test-cifar-fresh-conv1",
+        "--dry-run"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    {
+      "name": "Fresh300: native SIM (cutoff 16.10.2026 21:50 МСК)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/experiment.py",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": {
+        "python": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "pythonArgs": [
+        "-B"
+      ],
+      "args": [
+        "--test-cifar-fresh-conv1",
+        "--run-simulator"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    {
+      "name": "Полный CPU: --help: справка (без inference)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/full_cifar_classifier.py",
+      "python": "${workspaceFolder}/.venv-classifier/bin/python",
+      "windows": {
+        "python": "${workspaceFolder}/.venv-classifier/Scripts/python.exe"
+      },
+      "pythonArgs": [
+        "-B"
+      ],
+      "args": [
+        "--help"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    {
+      "name": "Полный CPU: reference, CIFAR100 subset FC10",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/full_cifar_classifier.py",
+      "python": "${workspaceFolder}/.venv-classifier/bin/python",
+      "windows": {
+        "python": "${workspaceFolder}/.venv-classifier/Scripts/python.exe"
+      },
+      "pythonArgs": [
+        "-B"
+      ],
+      "args": [
+        "--cpu-reference",
+        "--case-index",
+        "${input:fullCpuCase}",
+        "--output",
+        "${input:fullCpuOutput}"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    {
       "name": "CIFAR A: preflight без I/O",
       "type": "debugpy",
       "request": "launch",
@@ -298,6 +415,32 @@
         "PYTHONIOENCODING": "utf-8",
         "PYTHONUNBUFFERED": "1"
       }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "fullCpuCase",
+      "type": "pickString",
+      "description": "Индекс одного из 10 настоящих CIFAR100 fixture изображений",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "default": "0"
+    },
+    {
+      "id": "fullCpuOutput",
+      "type": "promptString",
+      "description": "Новый JSON относительно корня репозитория; существующий файл не перезаписывается",
+      "default": "results/full_classifier_cpu/vscode_case0.json"
     }
   ]
 }
