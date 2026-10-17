@@ -27,15 +27,14 @@ session `3ed62521-1a3a-495f-9cd3-f4bbcf807c90`.
 
 Additional previously untracked historical/exploratory outputs are described in
 [legacy-publication/README.md](legacy-publication/README.md) and its per-file
-inventory. Their two oversized JSONL journals use verified lossless gzip;
-the rest retain their original bytes. They are not relabelled as current
+inventory. All files retain their original names and bytes; JSONL journals
+are stored using Git LFS. They are not relabelled as current
 hardware qualification.
 
 All five corresponding historical/exploratory source directories also passed
 the same no-size-skip Gitleaks scan, including both uncompressed raw journals.
 Two additional audit files were recovered from the main local checkout and
-passed its staged secret scan. The 39 preserved files total 796,607,329 original bytes and 79,196,540 stored
-bytes; each copied stored file was SHA256-verified against its inventory.
+passed its staged secret scan. The 39 preserved files total 796,607,329 original and materialized stored bytes; each copied stored file was SHA256-verified against its inventory.
 
 The publication also includes the Monday experiment plan, repository navigation
 and the developer-facing HW/SIM discrepancy report. Documentation organization
@@ -58,3 +57,11 @@ measurement or board access is required to transfer those files.
 Secret scans are evidence of no detected credentials, not an absolute guarantee.
 Credentials, private operator-provided driver files and local `.tmp` work are
 not publication artifacts.
+
+## Git LFS storage
+
+Raw JSONL, archived payloads, array snapshots and network weights use Git LFS.
+Install Git LFS and run `git lfs pull` after checkout to obtain their contents.
+Public history through `33e182a` is preserved; only unpublished data commits
+were rewritten to LFS pointers. No force push is required. Original source
+manifest pins and payload SHA256 values are unchanged.

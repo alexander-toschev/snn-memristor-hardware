@@ -17,20 +17,14 @@ or replace the reviewed 16 October CIFAR comparison.
 
 `FILE_INVENTORY.json` records original paths, byte counts and SHA256, plus the
 stored file paths, byte counts and SHA256. Original files were not edited.
-The two large `raw.jsonl` files are stored as lossless `raw.jsonl.gz` so that
-individual repository files remain small. Both were decompressed in a stream
-and their SHA256 checked against the complete original before publication.
-The original uncompressed files remain in the local research checkout.
-
-Before an analyzer that expects `raw.jsonl`, decompress the corresponding
-`raw.jsonl.gz` to that exact original name in a separate analysis checkout and
-verify the original SHA256 from this inventory. For example, from repository root:
+The two large `raw.jsonl` files retain their original names and bytes through
+Git LFS. After installing Git LFS, run from repository root:
 
 ```sh
-python -c "import gzip,shutil; from pathlib import Path; p=Path('results/cell_calibrations/9fa4e745-cd50-44e9-97b0-b650292e4db8/raw.jsonl.gz'); src=gzip.open(p,'rb'); dst=p.with_suffix('').open('xb'); shutil.copyfileobj(src,dst); dst.close(); src.close()"
+git lfs install
+git lfs pull
 ```
 
-Exclusive creation (`xb`) refuses to overwrite an existing raw file. Merely
-restoring the bytes does not make incomplete or exploratory provenance complete.
-The publication scan covers the original uncompressed files; compression is not
-used to avoid secret scanning.
+No manual decompression is required. Verify payload SHA256 against this
+inventory before analysis. Preserving the bytes does not repair incomplete or
+exploratory provenance. The publication secret scan covered original payloads.
