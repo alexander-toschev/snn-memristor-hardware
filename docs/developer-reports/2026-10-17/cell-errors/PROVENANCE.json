@@ -1,0 +1,170 @@
+{
+  "schema": "descriptive-cell-errors-v1",
+  "generator_sha256": "427ebd035a09480f86c92c66ed78ccf9ade3284c8825cf3f18bad594db047ac5",
+  "inputs": {
+    "reports\\2026-10-16\\hardware-stability-comparison\\SESSION1_CELLS.csv": "41d264ba595e90b70adbc19805c6081ba38adad35ebe50db024e233b871058bd",
+    "reports\\2026-10-16\\hardware-stability-comparison\\SESSION1_WEIGHTS.csv": "18869381dd0fc8499576ef01a7b771677a41dc45a52043d03d5c76bc1352fc0a",
+    "reports\\2026-10-16\\hardware-stability-comparison\\SESSION2_CELLS.csv": "1cd849f4c2c11b9e0faad0f8d0661765bb42bada46f3990e90e13558394a423f",
+    "reports\\2026-10-16\\hardware-stability-comparison\\SESSION2_WEIGHTS.csv": "39fb9039fef3db8fb700feba2ffb58f151ce3cada6673e248bb14b6b4d763f7c"
+  },
+  "source_provenance_sha256": "bbb817611307e6aae09398788131be5bab75c7c64643dd3509928747889a6dc7",
+  "programming_source_sha256": "031150dbb5cfe285e5c3f8edc18757978f145ecb0b8528126ca4957371d60cfb",
+  "thresholds_v": [
+    0.00062,
+    0.005,
+    0.05,
+    0.1
+  ],
+  "sessions": [
+    {
+      "session": "db20dfa7-6a98-4582-ba70-d0ae408c8a65",
+      "cells": 256,
+      "assigned_cells": 114,
+      "actual_SET_cells": 71,
+      "counts": {
+        "active_assignments": 300,
+        "actual_SET_events": 299,
+        "no_SET_events": 1,
+        "hit": 146,
+        "overshoot": 146,
+        "exhausted": 8,
+        "unknown_stop": 0
+      },
+      "categories": {
+        "overshoot_present": 54,
+        "not_observed": 142,
+        "hit_only": 16,
+        "read_or_pair_only_no_SET": 43,
+        "exhausted_present": 1
+      }
+    },
+    {
+      "session": "8c59eb76-c4e1-4d6f-8238-2b6622e226f6",
+      "cells": 256,
+      "assigned_cells": 108,
+      "actual_SET_cells": 70,
+      "counts": {
+        "active_assignments": 300,
+        "actual_SET_events": 298,
+        "no_SET_events": 2,
+        "hit": 162,
+        "overshoot": 130,
+        "exhausted": 8,
+        "unknown_stop": 0
+      },
+      "categories": {
+        "hit_only": 19,
+        "not_observed": 140,
+        "overshoot_present": 50,
+        "excluded_BL8": 8,
+        "read_or_pair_only_no_SET": 38,
+        "exhausted_present": 1
+      }
+    }
+  ],
+  "wl3_bl15_no_bl8": {
+    "wl": 3,
+    "bl": 15,
+    "source_status": "SET_attempted",
+    "excluded_by_protocol": false,
+    "probes": 9,
+    "selected_observations": 9,
+    "active_assignments": 9,
+    "actual_SET_events": 9,
+    "paired_role_events": 0,
+    "hit": 1,
+    "overshoot": 0,
+    "exhausted": 8,
+    "unknown_stop": 0,
+    "initial_overshoot_no_SET": 0,
+    "no_SET_events": 0,
+    "max_abs_post_all_minus_own_v": 0.0004299999999999998,
+    "references": [
+      {
+        "filter": 1,
+        "block": 0,
+        "tap": 3,
+        "role": "planned_SET_leg",
+        "stop": "set_ramp_exhausted",
+        "SET_pulses": 109
+      },
+      {
+        "filter": 1,
+        "block": 2,
+        "tap": 14,
+        "role": "planned_SET_leg",
+        "stop": "set_ramp_exhausted",
+        "SET_pulses": 109
+      },
+      {
+        "filter": 1,
+        "block": 3,
+        "tap": 26,
+        "role": "planned_SET_leg",
+        "stop": "set_ramp_exhausted",
+        "SET_pulses": 109
+      },
+      {
+        "filter": 1,
+        "block": 4,
+        "tap": 28,
+        "role": "planned_SET_leg",
+        "stop": "set_ramp_exhausted",
+        "SET_pulses": 109
+      },
+      {
+        "filter": 1,
+        "block": 5,
+        "tap": 38,
+        "role": "planned_SET_leg",
+        "stop": "set_ramp_exhausted",
+        "SET_pulses": 109
+      },
+      {
+        "filter": 1,
+        "block": 6,
+        "tap": 41,
+        "role": "planned_SET_leg",
+        "stop": "set_ramp_exhausted",
+        "SET_pulses": 109
+      },
+      {
+        "filter": 1,
+        "block": 7,
+        "tap": 53,
+        "role": "planned_SET_leg",
+        "stop": "set_ramp_exhausted",
+        "SET_pulses": 109
+      },
+      {
+        "filter": 1,
+        "block": 8,
+        "tap": 61,
+        "role": "planned_SET_leg",
+        "stop": "feedback_hit",
+        "SET_pulses": 100
+      },
+      {
+        "filter": 1,
+        "block": 9,
+        "tap": 65,
+        "role": "planned_SET_leg",
+        "stop": "set_ramp_exhausted",
+        "SET_pulses": 109
+      }
+    ],
+    "observed": true,
+    "stop_map_category": "exhausted_present"
+  },
+  "raw_reaudit_performed": false,
+  "outputs": {
+    "BASELINE_SHIFT.csv": "f093346e72c814f124e7c1eb0e790c4758951eb77ba3c40b23560891eeb8354b",
+    "BASELINE_SHIFT.png": "53f09c5ba696679357c256457cc7822689d5ae6d351540bdf6e856da4ed99634",
+    "BASELINE_SHIFT.svg": "1a61b075df80de6f472601aa81ad02a39a3e06ed5198e3a10b7b7095681754f2",
+    "CELL_ERRORS.csv": "bff197384faa5d12f20310b828991c728e25cc9335dd5b58b2f12bb1d827a8f2",
+    "NO_BL8_STOPS.csv": "a4300f71b7a3e3dc18f308d895a706ade7572697c0db97c7299e4dcb2ee3e6f6",
+    "NO_BL8_STOPS.png": "c4f913946411d117f1eadf6f5e9dafb73967c1835d12f1ff95c166c22be0db6b",
+    "NO_BL8_STOPS.svg": "a31b13b8f30b12ad803f7d80f1a10829344bc31bb0afa727839a421640af3fcc",
+    "MAP_README.md": "3d44a77927b98028a1a36b3eca712af5696c190dab46915fe2f0cec057f8d368"
+  }
+}
