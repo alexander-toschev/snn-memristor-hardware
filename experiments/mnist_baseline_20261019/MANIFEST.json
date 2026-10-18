@@ -1,0 +1,87 @@
+{
+  "schema": "mnist-archive-selection-v1",
+  "prepared_on": "2026-10-18",
+  "source_repository": "snn-mnist",
+  "selected_run": "20260426T111422Z_138b06a7f9b4",
+  "training_run": "20260425T113337Z_5b89f013f42b",
+  "reported_accuracy": 0.6965,
+  "readout": "counts_zscore+Linear",
+  "train_counts": 30000,
+  "test_counts": 10000,
+  "dataset": "MNIST",
+  "dataset_attribution": "supported_by_historical_code_not_run_fingerprint",
+  "historical_reference_commit": "6a5218ee1f5370ef399c9f83ce382d8613ee804e",
+  "historical_source_attested_to_run": false,
+  "trained_readout_saved": false,
+  "normalization_statistics_saved": false,
+  "hardware_execution_ready": false,
+  "new_experiment_executed": false,
+  "files": [
+    {
+      "source_path": "runs_csnn/20260426T111422Z_138b06a7f9b4/model.pt",
+      "repository_path": "weights/mnist_baseline_20261019/model.pt",
+      "sha256": "43f7d6237b0ec8405956a4f9ef34c2ea0c8a3a592c4c76467e1acc00beee47de",
+      "bytes": 9813
+    },
+    {
+      "source_path": "runs_csnn/20260426T111422Z_138b06a7f9b4/label_map.pt",
+      "repository_path": "weights/mnist_baseline_20261019/label_map.pt",
+      "sha256": "f457dac8ce38e70fcd1f080547d90c62ac960c338fc43816e3c50d3c045da595",
+      "bytes": 296695
+    },
+    {
+      "source_path": "runs_csnn/20260425T113337Z_5b89f013f42b/model_after_train.pt",
+      "repository_path": "weights/mnist_baseline_20261019/parent_model_after_train.pt",
+      "sha256": "cd4131b893ad01683dce8046164319f9ad3e212817227548b6365adc8ab40e77",
+      "bytes": 9781
+    },
+    {
+      "source_path": "runs_csnn/20260426T111422Z_138b06a7f9b4/summary.json",
+      "repository_path": "experiments/mnist_baseline_20261019/evidence/evaluation/summary.json",
+      "sha256": "a463ee04b7da05c7645a53621576ac0d99c106e1a59f315e9b04e14bb85e73aa",
+      "bytes": 1542
+    },
+    {
+      "source_path": "runs_csnn/20260426T111422Z_138b06a7f9b4/live.log",
+      "repository_path": "experiments/mnist_baseline_20261019/evidence/evaluation/live.log",
+      "sha256": "db04634d6f6951cffa3e19fee56d27858b609d4750608d805cb708cb4f80fe39",
+      "bytes": 31212
+    },
+    {
+      "source_path": "runs_csnn/20260425T113337Z_5b89f013f42b/summary.json",
+      "repository_path": "experiments/mnist_baseline_20261019/evidence/training/summary.json",
+      "sha256": "182dc87cbcb9ab1a497b6c6290f9abea0602e657a30081faf79df62e79677e71",
+      "bytes": 1399
+    },
+    {
+      "source_path": "runs_csnn/20260425T113337Z_5b89f013f42b/live.log",
+      "repository_path": "experiments/mnist_baseline_20261019/evidence/training/live.log",
+      "sha256": "57dde68dfa50cb1c8fde95f7de56956028baa93bfae254ca93365f8982409568",
+      "bytes": 34926
+    },
+    {
+      "source_path": "data/MNIST/raw/train-images-idx3-ubyte.gz",
+      "repository_path": "experiments/mnist_baseline_20261019/data/MNIST/raw/train-images-idx3-ubyte.gz",
+      "sha256": "440fcabf73cc546fa21475e81ea370265605f56be210a4024d2ca8f203523609",
+      "bytes": 9912422
+    },
+    {
+      "source_path": "data/MNIST/raw/train-labels-idx1-ubyte.gz",
+      "repository_path": "experiments/mnist_baseline_20261019/data/MNIST/raw/train-labels-idx1-ubyte.gz",
+      "sha256": "3552534a0a558bbed6aed32b30c495cca23d567ec52cac8be1a0730e8010255c",
+      "bytes": 28881
+    },
+    {
+      "source_path": "data/MNIST/raw/t10k-images-idx3-ubyte.gz",
+      "repository_path": "experiments/mnist_baseline_20261019/data/MNIST/raw/t10k-images-idx3-ubyte.gz",
+      "sha256": "8d422c7b0a1c1c79245a5bcf07fe86e33eeafee792b84584aec276f5a2dbc4e6",
+      "bytes": 1648877
+    },
+    {
+      "source_path": "data/MNIST/raw/t10k-labels-idx1-ubyte.gz",
+      "repository_path": "experiments/mnist_baseline_20261019/data/MNIST/raw/t10k-labels-idx1-ubyte.gz",
+      "sha256": "f7ae60f92e00ec6debd23a6088c31dbd2371eca3ffa0defaefb259924204aec6",
+      "bytes": 4542
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "mnist-historical-reference-source-v1",
+  "source_repository": "snn-mnist",
+  "source_commit": "6a5218ee1f5370ef399c9f83ce382d8613ee804e",
+  "candidate_run_reference": "20260426T111422Z_138b06a7f9b4",
+  "source_attested_for_run": false,
+  "status": "historical_reference_NOT_attested_run_source",
+  "notes": [
+    "Exact Git blob bytes; UTF-8 decoding validated; no module imported or executed.",
+    "The candidate run does not pin source SHA; this snapshot is historical reference only.",
+    "Dependencies are not locked.",
+    "The learned linear readout and scaler were not saved; original evaluation discards them."
+  ],
+  "files": [
+    {
+      "path": "agent_mvp/experiment_runner.py",
+      "source_path": "agent_mvp/experiment_runner.py",
+      "sha256": "6ef3dcc16655890d70656cf843a2b3f385c2c8645af65abd7f2ce1490a90b468",
+      "bytes": 17615
+    },
+    {
+      "path": "agent_mvp/agent_common.py",
+      "source_path": "agent_mvp/agent_common.py",
+      "sha256": "cceab923e871a70ad2a21d23051fecacadef712afbe8600c3121ca7b496588c1",
+      "bytes": 3726
+    },
+    {
+      "path": "csnn_mnist_net.py",
+      "source_path": "csnn_mnist_net.py",
+      "sha256": "db75ddb5b9cd262b0122c6336152bdf640fb7cea382154b538768be318b26485",
+      "bytes": 13906
+    },
+    {
+      "path": "snn_mnist_net.py",
+      "source_path": "snn_mnist_net.py",
+      "sha256": "e71b3dab94d3cb8c6bde57729ea5a6d2a2bd120e9c1d4f79d5826ea24d405758",
+      "bytes": 25119
+    },
+    {
+      "path": "encoders.py",
+      "source_path": "encoders.py",
+      "sha256": "d02ab7431da183801c0fc1e0cb6c1bda63ec8fd3e97572db9b7d240919aff824",
+      "bytes": 6604
+    },
+    {
+      "path": "label_map.py",
+      "source_path": "label_map.py",
+      "sha256": "3bd4e7c6c9531e68d69947e5155b6f27ed7cbc3f3e724d32dcf643c74813f546",
+      "bytes": 3853
+    },
+    {
+      "path": "counts_readout.py",
+      "source_path": "counts_readout.py",
+      "sha256": "2991e9e3d14a42bef7d1e3621acefbb1cc61499192e2da65ca032d14264921c7",
+      "bytes": 31041
+    },
+    {
+      "path": "evaluation.py",
+      "source_path": "evaluation.py",
+      "sha256": "840e1c31d2600be502df639c8e31813cd362e1d5bfc93bc1e3e50f4724f86776",
+      "bytes": 13717
+    },
+    {
+      "path": "readout_models.py",
+      "source_path": "readout_models.py",
+      "sha256": "5b9a5c2c92d84f201b7bbcf79ef7a591af223a4c119b5ff2960c28b27926a885",
+      "bytes": 4091
+    }
+  ],
+  "absolute_path_literal_findings": []
+}
