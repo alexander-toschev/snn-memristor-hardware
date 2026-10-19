@@ -1,8 +1,9 @@
 # Independent review: full CIFAR case0 draft
 
-Status: **in progress; no launch approval**. Author is actively strengthening
-the collector and independent native auditor. No Connector, native simulator,
-or hardware launch was performed for this review. Historical runtime untouched.
+Status: **source review complete; registered for native SIM qualification**.
+The findings below were resolved in the frozen collector/auditor. No Connector,
+native simulator or hardware launch was performed by this reviewer. Historical
+runtime is untouched; native SIM and full replay remain execution requirements.
 
 ## Confirmed independently
 
@@ -25,7 +26,7 @@ or hardware launch was performed for this review. Historical runtime untouched.
   `[0.3,0.6,0.9,1.2,1.5,2.0,2.5,3.0]`. Final consistent files and tests are
   still required before their freeze.
 
-## Findings sent to author
+## Findings sent to author and resolved before freeze
 
 1. **Independent calibration replay:** counting192 fit /96 selection /96 heldout
    observations is insufficient. Verify exact deterministic masks, repeat/index
@@ -51,7 +52,7 @@ or hardware launch was performed for this review. Historical runtime untouched.
    gate or present the draft reconstruction's declared hashes as independent
    hardware attestation.
 
-## Remaining checks after author freeze
+## Execution checks after source freeze
 
 - Run focused offline collector/auditor/trace tests and mutation cases; check
   budget arithmetic including fresh R, zero brackets and feedback (not just
@@ -70,7 +71,8 @@ consumer. It preserves the historical classifier's closed import gate and source
 The new route requires a registered independent auditor hash, registered protocol,
 completed **full** acquisition, unchanged source and result hashes, successful
 stream replay and complete finite raw/calibrated tensors. Smoke data cannot be
-classified. The auditor registration remains empty pending final review.
+classified. The frozen auditor is registered after final review; registration
+itself does not claim successful native SIM or hardware qualification.
 
 The collector's pinned `conv1_weights.npy` was independently compared with the
 loaded checkpoint Conv1: exact equality. The complete three-tile axis is summed
@@ -98,3 +100,14 @@ python experiments/cifar_full_case0_20261019/classifier.py --session results/cif
 
 The second command deliberately rejects unregistered auditors and incomplete
 sessions. Repository-local `.deps-classifier` and `.deps` supply CPU dependencies.
+
+Final source freeze, after registration and six passing bridge tests:
+
+- Auditor SHA256: `d3cd8bf2cf11512f81aabff0300c5fde391dad240fd9008834150e698910e717`.
+- Classifier SHA256: `64ba6e85cda19367f93a0c8294f77b6c9b6f5f26cbf40d188685bc47430053e5`.
+- Protocol canonical SHA256: `2cb1d57689508725f7155bf7b1d0d17fec9d4f6b65782171e2b85481bc9aa558`.
+
+Registration affects the new route only. Successful full import emits
+`registered_classifier_import_verified=true`; the auditor's legacy standalone
+import flags do not grant import authority by themselves. Do not change frozen
+Python sources after acquisition and then claim their fingerprints still match.
