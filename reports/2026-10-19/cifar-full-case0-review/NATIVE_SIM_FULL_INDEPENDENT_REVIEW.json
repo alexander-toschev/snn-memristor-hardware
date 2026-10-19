@@ -1,0 +1,155 @@
+{
+  "status": "pass_report_and_source_review",
+  "reviewer_tool_sha256": "30705c07d0fdad305deffa066f082c8dcaccd0b15859602a895bb99b0ca24c89",
+  "classifier_report_sha256": "d219f9adc2baf8b866f9179c82e197350224aeb9b8644dae96ac3efab9537749",
+  "manifest_sha256": "cace70a074a619234ff5ddc3fe657cef57459a0fc5f9600db199db54714a7eb0",
+  "session": "results/cifar_full_case0_20261019/5ee64f20-d499-40df-a742-95a76d2dc386",
+  "runtime": {
+    "git": {
+      "commit": "662a420ed532644bd4b487a9bce02adb400e363d",
+      "dirty_tracked": false,
+      "untracked": [
+        "results/cifar_full_case0_20261019/5ee64f20-d499-40df-a742-95a76d2dc386/"
+      ],
+      "status_porcelain": "?? results/cifar_full_case0_20261019/5ee64f20-d499-40df-a742-95a76d2dc386/"
+    },
+    "process_argv": [
+      "experiments/cifar_full_case0_20261019/experiment.py",
+      "--run-simulator",
+      "--scope",
+      "full"
+    ],
+    "hardware_argv": [
+      "--run-simulator",
+      "--scope",
+      "full"
+    ]
+  },
+  "source_count": 73,
+  "result_inventory_count": 150,
+  "raw_index_sha256": "404d3d2181b6f798bdeba29d91a2b450d6a8ec48d45f23858b94d5cc6ad57061",
+  "raw_records": 27732482,
+  "raw_parts": 144,
+  "audit_scope": "Independently verified report/source/sidecars/coverage/decoder arithmetic. Full compressed/expanded stream replay was performed by the registered classifier run; reviewer did not duplicate the large stream or neural forward.",
+  "acquisition_seconds": 4761.87585,
+  "native_impacts": 13446146,
+  "programming_pulses": 31273,
+  "coefficients": 4800,
+  "tensor_elements": 1806336,
+  "physical_cells_union": 256,
+  "cpu_validation": {
+    "direct_forward_max_abs": 0.0,
+    "tiled_forward_max_abs": {
+      "membrane": 0.0,
+      "spikes": 0.0,
+      "twd": 0.0
+    },
+    "conv1_tiled_vs_direct_max_abs": 5.960464477539062e-07
+  },
+  "conv1_errors": {
+    "calibrated": {
+      "conv1_rmse": 0.1433921754360199,
+      "conv1_max_abs": 1.6297372579574585,
+      "relative_l2": 0.5978338718414307
+    },
+    "raw": {
+      "conv1_rmse": 0.14596104621887207,
+      "conv1_max_abs": 1.4627994298934937,
+      "relative_l2": 0.6085429191589355
+    }
+  },
+  "predictions": {
+    "cpu_reference": {
+      "predicted_subset_indices": {
+        "first_spike": 1,
+        "membrane": 1,
+        "twd": 1
+      },
+      "predicted_fine_labels": {
+        "first_spike": 1,
+        "membrane": 1,
+        "twd": 1
+      },
+      "total_output_spikes": 1.0,
+      "all_silent": false,
+      "first_spike_ties": 1,
+      "twd_score_ties": 1,
+      "spike_based_recognition_informative": true
+    },
+    "calibrated": {
+      "predicted_subset_indices": {
+        "first_spike": 0,
+        "membrane": 7,
+        "twd": 0
+      },
+      "predicted_fine_labels": {
+        "first_spike": 0,
+        "membrane": 14,
+        "twd": 0
+      },
+      "total_output_spikes": 0.0,
+      "all_silent": true,
+      "first_spike_ties": 10,
+      "twd_score_ties": 10,
+      "spike_based_recognition_informative": false
+    },
+    "raw": {
+      "predicted_subset_indices": {
+        "first_spike": 1,
+        "membrane": 1,
+        "twd": 1
+      },
+      "predicted_fine_labels": {
+        "first_spike": 1,
+        "membrane": 1,
+        "twd": 1
+      },
+      "total_output_spikes": 1.0,
+      "all_silent": false,
+      "first_spike_ties": 1,
+      "twd_score_ties": 1,
+      "spike_based_recognition_informative": true
+    }
+  },
+  "case": {
+    "original_test_index": 9,
+    "fine_label": 0,
+    "remapped_label": 0,
+    "image_chw_uint8_sha256": "877945525f9274b34e0f0052ed145993db5cb488ffca908a45b9d10123a9d774"
+  },
+  "dataset_accuracy": null,
+  "weight_relative_l2": {
+    "immediate_weight": 0.9149407391340789,
+    "post_all_raw_weight": 0.9149407391340789,
+    "post_all_calibrated_weight": 0.7952787015310373,
+    "final_raw_weight": 0.9149407391340789,
+    "final_calibrated_weight": 0.7952787015310373
+  },
+  "immediate_within_tolerance": 3682,
+  "programming_stop_counts": {
+    "bounded_set_attempts": 2001,
+    "initial_overshoot_or_within_tolerance": 2799
+  },
+  "heldout": {
+    "stages": 48,
+    "improved": 35,
+    "worsened": 4,
+    "unchanged": 9,
+    "mean_stage_raw_rmse_v": 0.0003750712134090054,
+    "mean_stage_calibrated_rmse_v": 0.00030010968828137575
+  },
+  "retention_max_abs_v": 0.0,
+  "maximum_shared_zero_shift_v": 0.0,
+  "maximum_position_bracket_duration_s": 7.063000000023749,
+  "hardware_full_go": true,
+  "hardware_conditions": [
+    "Same frozen7py/protocol and same preregistered case0",
+    "Fresh Raspberry strict native sources/INI/free space preflight, public Connector only",
+    "Exclusive hardware lock; no simultaneous STDP/calibration",
+    "Approximate weights retained as designed; invalid native R/ADC/transport/current guards remain binding",
+    "Hardware classifier/audit on Raspberry with native private files and qualified numeric environment",
+    "Report CPU/raw/calibrated branches and all-silent/ties without claiming successful recognition",
+    "Preserve source-specific gainHW.125 versusSIM.015; comparison not identical physical targets"
+  ],
+  "conclusion": "Full measurement-to-digital-SNN path is qualified for a bounded approximate hardware case. Calibrated first-spike/TWD class0 is an all-silent tie, not successful recognition; CPU/raw predict wrong class1. No dataset accuracy measured."
+}
