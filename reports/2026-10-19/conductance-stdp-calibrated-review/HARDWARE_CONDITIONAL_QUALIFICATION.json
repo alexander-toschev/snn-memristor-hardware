@@ -1,0 +1,21 @@
+{
+  "status": "conditional_go",
+  "qualifying_session": "results/conductance_stdp_calibrated_20261019/d27da87e-9928-4303-971e-215afbc63158",
+  "qualifying_manifest_sha256": "d34b2b03d88c7d01e49e4817ce1dbfeca425853d28674a05343aee43e073c51c",
+  "qualifying_audit_sha256": "19ebfdbb29e4196a7780521743684f309939917310ce2543d7be508353b5ae53",
+  "protocol_sha256": "6d86180c0a73311753bfa420b66e8f6727d779106025ad23ac9d8cc6a3b414c5",
+  "impacts": 6616,
+  "training_set": 16,
+  "training_reset": 16,
+  "hardware_launched_by_reviewer": false,
+  "conditions": [
+    "After CIFAR acquisition releases board",
+    "Separate reviewed hardware launcher pins unchanged Collector and preserves SIM sources",
+    "Fresh native hardware source/INI/free-space preflight",
+    "No gain reuse from SIM: own preregistered fit only",
+    "Public MemriBoard Connector and native converters exclusively",
+    "Strict on-Pi audit of native private source files and complete requests/results"
+  ],
+  "learning_improvement_demonstrated": false,
+  "classification_accuracy": null
+}

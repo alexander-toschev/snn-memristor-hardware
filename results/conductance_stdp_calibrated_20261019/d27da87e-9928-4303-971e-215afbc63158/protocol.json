@@ -1,0 +1,96 @@
+{
+  "schema": "conductance-stdp-fit-gain-v2",
+  "bl": [
+    6,
+    8,
+    9,
+    14
+  ],
+  "wl": [
+    5,
+    7
+  ],
+  "amplitude_v": 0.05,
+  "reset_v": 1.4,
+  "set_v": 1.7,
+  "maximum_impacts": 6712,
+  "maximum_pulses": 128,
+  "training_windows": 16,
+  "timesteps": 16,
+  "lif_leak": 0.5,
+  "lif_gain": null,
+  "lif_threshold": 1.0,
+  "trace_tau": 4.0,
+  "depression_factor": 1.05,
+  "eligibility_threshold": 0.25,
+  "retention_seconds": 60.0,
+  "simulator_pulse_width_s": 0.0001,
+  "hardware_submitted_width_s": 0.0,
+  "hardware_physical_width_s": null,
+  "seed": 20261019,
+  "gain_candidates": [
+    10.0,
+    20.0,
+    40.0,
+    80.0,
+    100.0,
+    200.0,
+    400.0,
+    800.0,
+    1600.0
+  ],
+  "gain_fit_wl": 5,
+  "gain_fit_windows": 2,
+  "pretest_windows": 2,
+  "posttest_windows": 4,
+  "retention_windows": 4,
+  "gain_eligibility": "1..3 post spikes per fit window; zero spikes at every zero-input step",
+  "gain_selection": "min(abs(total_fit_posts-4), gain) among eligible candidates",
+  "gain_shared_with_control": true,
+  "gain_freeze_before_pretest": true,
+  "fit_times": [
+    [
+      1,
+      5,
+      9,
+      13
+    ],
+    [
+      13,
+      9,
+      5,
+      1
+    ]
+  ],
+  "train_times": [
+    [
+      3,
+      10,
+      11,
+      2
+    ],
+    [
+      2,
+      11,
+      10,
+      3
+    ]
+  ],
+  "probe_times": [
+    [
+      1,
+      4,
+      9,
+      12
+    ],
+    [
+      9,
+      12,
+      1,
+      4
+    ]
+  ],
+  "fit_failure": "uninformative_calibration; stop before pretest or training",
+  "maximum_fit_failure_impacts": 1536,
+  "design_origin": "new preregistered variant motivated by all-silent v1 native SIM; no heldout tuning"
+}
