@@ -1,0 +1,44 @@
+{
+  "schema": "cifar-continuation-comparator-source-review-v1",
+  "status": "approved_for_completed_evidence_only",
+  "source_sha256": {
+    "tools/compare_cifar_continuation.py": "061eeead6bc2b6d4d8ce9a92e960aed92c954503ffcaaa1f138ce24f13fd502e",
+    "tests/test_compare_cifar_continuation.py": "30376dddad4e52c50b8b218f80b2c199c9673a203f7ef0abf48abcd908ffd5f9",
+    "docs/plans/CIFAR_CONTINUATION_COMPARISON_20261019.md": "29fa6ea3ecfa62ae1191d45d515df457c98fda9a8eeb81982f9c3639ddeadf75"
+  },
+  "independent_tests": "9/9 PASS,4.769s",
+  "actual_old_sim_sidecar_validation": {
+    "source_files": 73,
+    "manifest_sha256": "cace70a074a619234ff5ddc3fe657cef57459a0fc5f9600db199db54714a7eb0",
+    "calibrated_all_silent": true,
+    "first_spike_valid_correct": null
+  },
+  "actual_old_hardware_prefix_sidecar_validation": {
+    "stages": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "source_mode": "public_local_private_remote_operator_verified",
+    "raw_replayed": false
+  },
+  "full_hardware_comparison_executed": false,
+  "model_or_connector_executed": false,
+  "scope": "Report/payload/source consistency and descriptive same-case comparison, not new raw audit or model replay.",
+  "limits": [
+    "Complete48 hardware classification required before actual comparison.",
+    "Explicit remote private-source receipt is not local bytes or signed attestation.",
+    "Source-specific gains and continuous-vs-resumed contexts are confounds.",
+    "One case is not dataset accuracy; silent/tied decisions are not valid recognition."
+  ]
+}
