@@ -1,0 +1,45 @@
+{
+  "scope": "CPU saved-input qualification only; no runtime memory approval",
+  "network_executed": false,
+  "qualification": {
+    "status": "qualified_interrupted_prefix",
+    "snapshot_sha256": "321bceaf0e7fc390883c70ec43206526b066de15ce5cce6cf41bfb2b3e7f5fee",
+    "independent_review_sha256": "36b20afb4043ba7f9f26fb94f8eaef960c9120ef95d2de352cc52ada6c646641",
+    "inherited": {
+      "training_images": 30000,
+      "training_steps": 3000000,
+      "train_feature_rows": 30000,
+      "train_feature_batches": 235
+    },
+    "discarded_incomplete_readout": {
+      "completed_epochs": 5,
+      "updates": 295,
+      "optimizer_checkpoint_available": false
+    },
+    "trained_weight_sha256": "c8d84c1d06661a111619ff082c0fb6c85d90a8e4c7f9bda16100021deb018a81",
+    "frozen_state": {
+      "weights": {
+        "('Input', 'Conv1')": "c8d84c1d06661a111619ff082c0fb6c85d90a8e4c7f9bda16100021deb018a81"
+      },
+      "biases": {
+        "('Input', 'Conv1')": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "thresholds": {
+        "Conv1": "17432784d5daa5dd09ae91e9435e8fdd0aa5da1d2a48477349bb1c7e12c9b24c",
+        "Inhib1": "17432784d5daa5dd09ae91e9435e8fdd0aa5da1d2a48477349bb1c7e12c9b24c"
+      }
+    },
+    "training_seconds": 10634.715850299981,
+    "train_feature_seconds": 1230.843238499947,
+    "actual_test_examples_before_recovery": 0,
+    "source_session_is_incomplete": true,
+    "source_start_status_is_not_final_outcome": true,
+    "limitations": [
+      "Saved-array/event consistency, not independent SNN/STDP forward replay.",
+      "Source has no final manifest; this independent input snapshot qualifies only its completed prefix."
+    ]
+  },
+  "spec_sha256": "a54858f977c06f6adfeb7a1f77a76dec686ed6378df2a68e9e17a5734af62fda",
+  "entry_sha256": "87fb6215d7d1c8795954337cd2de85a10883ac28cb28369a55f353633a7eef56",
+  "qualification_source_sha256": "fd211da4f6f0140a34949bf70866cb61fd182bbf4d03da552e7ee5b21725ad71"
+}

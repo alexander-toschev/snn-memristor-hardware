@@ -1,0 +1,110 @@
+{
+  "schema": "mnist-interrupted-prefix-independent-audit-v1",
+  "status": "saved_prefix_consistent",
+  "session": "results/mnist_stdp_retraining_20261019/7a536bf8-0269-4edd-b454-a8ba2c33c219",
+  "source_sha256": {
+    "experiments/mnist_baseline_20261019/reference_source/PROVENANCE.json": "62308dc3c8bb4779006bf5a222ab04596f6e3ca2a605b577276208aa2dc9c954",
+    "experiments/mnist_baseline_20261019/reference_source/agent_mvp/experiment_runner.py": "6ef3dcc16655890d70656cf843a2b3f385c2c8645af65abd7f2ce1490a90b468",
+    "experiments/mnist_baseline_20261019/reference_source/agent_mvp/agent_common.py": "cceab923e871a70ad2a21d23051fecacadef712afbe8600c3121ca7b496588c1",
+    "experiments/mnist_baseline_20261019/reference_source/csnn_mnist_net.py": "db75ddb5b9cd262b0122c6336152bdf640fb7cea382154b538768be318b26485",
+    "experiments/mnist_baseline_20261019/reference_source/snn_mnist_net.py": "e71b3dab94d3cb8c6bde57729ea5a6d2a2bd120e9c1d4f79d5826ea24d405758",
+    "experiments/mnist_baseline_20261019/reference_source/encoders.py": "d02ab7431da183801c0fc1e0cb6c1bda63ec8fd3e97572db9b7d240919aff824",
+    "experiments/mnist_baseline_20261019/reference_source/label_map.py": "3bd4e7c6c9531e68d69947e5155b6f27ed7cbc3f3e724d32dcf643c74813f546",
+    "experiments/mnist_baseline_20261019/reference_source/counts_readout.py": "2991e9e3d14a42bef7d1e3621acefbb1cc61499192e2da65ca032d14264921c7",
+    "experiments/mnist_baseline_20261019/reference_source/evaluation.py": "840e1c31d2600be502df639c8e31813cd362e1d5bfc93bc1e3e50f4724f86776",
+    "experiments/mnist_baseline_20261019/reference_source/readout_models.py": "5b9a5c2c92d84f201b7bbcf79ef7a591af223a4c119b5ff2960c28b27926a885",
+    "weights/mnist_baseline_20261019/model.pt": "43f7d6237b0ec8405956a4f9ef34c2ea0c8a3a592c4c76467e1acc00beee47de",
+    "experiments/mnist_baseline_20261019/data/MNIST/raw/train-images-idx3-ubyte.gz": "440fcabf73cc546fa21475e81ea370265605f56be210a4024d2ca8f203523609",
+    "experiments/mnist_baseline_20261019/data/MNIST/raw/train-labels-idx1-ubyte.gz": "3552534a0a558bbed6aed32b30c495cca23d567ec52cac8be1a0730e8010255c",
+    "experiments/mnist_baseline_20261019/data/MNIST/raw/t10k-images-idx3-ubyte.gz": "8d422c7b0a1c1c79245a5bcf07fe86e33eeafee792b84584aec276f5a2dbc4e6",
+    "experiments/mnist_baseline_20261019/data/MNIST/raw/t10k-labels-idx1-ubyte.gz": "f7ae60f92e00ec6debd23a6088c31dbd2371eca3ffa0defaefb259924204aec6",
+    "experiments/mnist_feature_pilot_20261019/experiment.py": "51f89824e9e9f56e9c29a1e3506f9d398a8e0d536cd79a6876dfd75fe32cfa9e",
+    "experiments/mnist_stdp_retraining_20261019/experiment.py": "7f2a35d9fe5b832686d73b57d940acbc6fae99a3406de41258377d4d2fd9ee3f",
+    "experiments/mnist_baseline_20261019/evidence/training/summary.json": "182dc87cbcb9ab1a497b6c6290f9abea0602e657a30081faf79df62e79677e71",
+    "experiments/mnist_full_recovery_20261019/experiment.py": "06b370e89135981ce756442b715e04ed280498de150cc42f43dfd39b4d4ce394"
+  },
+  "artifact_sha256": {
+    "construction_rng_cpu.npy": "e5830f04d5b315ad6afea009a9be4a9e8acf916fd059cff19cadebf1d1606e18",
+    "construction_rng_cuda.npy": "6e853d38edf7a0a98afd5d5e4443372853c43d8c355bc178b39c0e397874b83f",
+    "epoch00_train_order.npy": "f5fe4fa75490db931402d5c725c55b86ba6d47336faeabbf898eff5d0b7478f3",
+    "epoch01_train_order.npy": "f7a4534ba89a49f8076585779f0ce7c5869ab73f376be0354af9289b28324183",
+    "epoch02_train_order.npy": "727f593526ef7a5170c5636183f72a70f1565256b9b10a07967537d2d5029b3c",
+    "epoch03_train_order.npy": "2a9127932fbe3a77ae23f14c65726ec35fa3ee88426ed0148a2315014d6aa10c",
+    "epoch04_train_order.npy": "4aced9b270ae83cdfaf456ce29079778dab74553952ada57a994b53d3ae80260",
+    "events.jsonl": "235d3f1e96486d9ebe858415e7f6b1e6f191edbe370f06b06f0ff2b4ddec7ae2",
+    "first_image_postupdate_weights.npy": "4576e07e88ea3a733bfebe36c14f76a7cc5c357b2d7ba21636fa50505f44f078",
+    "head_initial_bias.npy": "d0d890ab745bde44b748997135829d0292895d3df8a83f92a59a37c0cd775b5b",
+    "head_initial_weight.npy": "835886662fe0e9741d5987f4746bff3c4076ab049df659054e08ad1ce270a39e",
+    "initial_weights.npy": "504532bfc256bea598cdf6895ec65085dbc8b0c477bebe6227a2b1bc7f5d07c0",
+    "scaler_mean.npy": "d058442c1e57a349484c229abda49dd4698e3ab0965b03c75db22502f5283006",
+    "scaler_sd.npy": "79c85e5287c85f7820560829f512915aff93e4d3915b0b84abb24f1be8d27e73",
+    "shuffle_rng_before_epoch00.npy": "43ca09cc61d994c27af2ceffdd16c14f283b0571b60382b34ac63a1b20402468",
+    "shuffle_rng_before_epoch01.npy": "5d10bbf798654b45c265091e8a4bf1bda57b6db1d36cda5d2da0c3ce03ee8a3f",
+    "shuffle_rng_before_epoch02.npy": "c8eff13135348abda20f3d4f870b61a91480af9e35e9f861ffc5f0f5bc13f32a",
+    "shuffle_rng_before_epoch03.npy": "e852200be871bcb0609072bb6f7569f4c4a90a1ae45f9fe3fab890a026ad83bc",
+    "shuffle_rng_before_epoch04.npy": "074a2c7514cce1e55eedbf20aa417132ba0e480a44fcec725bbf0876d7957c90",
+    "shuffle_rng_before_epoch05.npy": "7ee2452414265008ac153e8f6276bc4f271be171ad5b76f6e51541b912128c79",
+    "start_manifest.json": "8dd1c116b8096547b68f4183c7c873b417c02441640df27ced3fc34268e30517",
+    "stdp_end_of_image_weights.npy": "ddc0b7a1394425e9ef92c220a0f1b9b4a927ab4884240c7ca9b1911c94f7b07a",
+    "stdp_train_ids.npy": "ad626b6cf9b5fcc76d93005e55309292ab67089f130b4bbe729772fa2fb055ea",
+    "trained_model.pt": "16dde8faaed532d5908905ebdaf67256f3ae8eb846952b0a729741cc2eac95da",
+    "trained_threshold.npy": "fa69ce41dd921ed8d7f2da8c24b88244876fd3510565727fabf553fcb7b13d76",
+    "trained_weights.npy": "05c0e4f8f1519e5ea9357bcd63284be1dd2225d37835eb9072f59909c9279149",
+    "train_counts.npy": "922c6fc1dea6080af6bd95fbe768785dad072afd5aac9e9167ca586141c7f3f2",
+    "train_ids.npy": "ad626b6cf9b5fcc76d93005e55309292ab67089f130b4bbe729772fa2fb055ea",
+    "train_labels.npy": "746f40ad3ccf6da863d0aa47dddcafbcea3f80ccc04dbe29fdf42c35e5d8a64f"
+  },
+  "auditor_sha256": "25c10a171042764ebf79c890b91f60e5b2227775e43d0da7565d3eb2a2cf36e6",
+  "final_manifest_present": false,
+  "completed_full_experiment": false,
+  "recorded_training": {
+    "kind": "stdp_training_complete",
+    "training_samples": 30000,
+    "timesteps": 3000000,
+    "training_seconds": 10634.715850299981,
+    "output_spikes": 381414078,
+    "images_with_change_after_initial_image": 29996,
+    "initial_weight_sha256": "3bbd2c76c30fa0d30f0debdc7c6d4185fc8619a334676b1d41f7bf544e738cfe",
+    "final_weight_sha256": "c8d84c1d06661a111619ff082c0fb6c85d90a8e4c7f9bda16100021deb018a81",
+    "clipping": {
+      "first_step_clipping_verified": true,
+      "initial_out_of_bounds": 1365,
+      "clipping_l1": 3530.22216796875,
+      "post_first_step_changed_coefficients": 1600,
+      "post_first_step_l1": 2.708406925201416,
+      "monitor_semantics": "native post-update[t], before post-window hook/normalization"
+    },
+    "learning_beyond_initial_clipping_observed": true
+  },
+  "training_images_verified": 30000,
+  "trajectory_rows_verified": 30000,
+  "train_feature_blocks_verified": 235,
+  "train_feature_rows_verified": 30000,
+  "train_spikes": 371097910,
+  "train_silent_images": 3,
+  "frozen_state": {
+    "weights": {
+      "('Input', 'Conv1')": "c8d84c1d06661a111619ff082c0fb6c85d90a8e4c7f9bda16100021deb018a81"
+    },
+    "biases": {
+      "('Input', 'Conv1')": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+    },
+    "thresholds": {
+      "Conv1": "17432784d5daa5dd09ae91e9435e8fdd0aa5da1d2a48477349bb1c7e12c9b24c",
+      "Inhib1": "17432784d5daa5dd09ae91e9435e8fdd0aa5da1d2a48477349bb1c7e12c9b24c"
+    }
+  },
+  "completed_head_epochs": 5,
+  "completed_head_updates": 295,
+  "test_evaluation_evidence_present": false,
+  "accuracy": null,
+  "limitations": [
+    "No SNN/STDP forward or input-encoder replay.",
+    "Stored checkpoint bytes hashed, not deserialized here.",
+    "Scaler shape/range verified, not recomputed here; recovery qualification must replay train-only scaler.",
+    "Events verify saved state telemetry, not independent model execution.",
+    "Start failed/network_executed=false are initial fail-safe markers, not a completion result."
+  ],
+  "hardware_access": false,
+  "model_executed": false
+}
