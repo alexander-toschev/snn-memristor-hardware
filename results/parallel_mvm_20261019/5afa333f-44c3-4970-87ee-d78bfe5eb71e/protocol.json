@@ -1,0 +1,109 @@
+{
+  "protocol_id": "readonly-parallel-mvm-v1-20261019",
+  "seed": 20261019,
+  "basis_levels_v": [
+    0.025,
+    0.05,
+    0.1
+  ],
+  "basis_repeats": 3,
+  "fit_repeats": 2,
+  "test_repeats": 3,
+  "fit_densities": [
+    2,
+    4,
+    8,
+    16
+  ],
+  "test_densities": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "lif_densities": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    16,
+    8,
+    4,
+    2,
+    0
+  ],
+  "lif_patterns": 2,
+  "lif_repeats": 2,
+  "initial_final_read_repeats": 3,
+  "fresh_active_cell_reads_before_every_vector": 1,
+  "maximum_impacts": 18304,
+  "maximum_mode7_reads": 13472,
+  "maximum_mode10": 4832,
+  "maximum_programming_decisions": 0,
+  "maximum_programming_pulses": 0,
+  "programming_guard": {
+    "prediction": "requested_voltage_over_last_valid_mode7_native_resistance",
+    "sign0_limit_a": 0.04,
+    "sign1_limit_source": "board.soft_cc",
+    "invalid_resistance": "global_stop",
+    "skip_policy": "advance_ramp_without_impact_or_state_update"
+  },
+  "simulator_pulse_width_s": 0.0,
+  "baseline_scope": "fresh active-cell native R before each vector; all read-only",
+  "current_model_limit_a": 0.005,
+  "gui_output_limit_v": 3.3,
+  "adc_headroom_fraction": 0.8,
+  "guard_voltage": "max(requested_v,native_decoded_v)",
+  "source_states_matched": false,
+  "basis_headroom_factor": 2.0,
+  "basis_sd_multiplier": 3.0,
+  "common_amplitude": "largest safe basis level for all32 inputs/all8WL before fit, else .025 with explicit skips; frozen thereafter",
+  "calibration": {
+    "ridge": 0.0001,
+    "minimum_design_rank": 9,
+    "maximum_condition": 1000000.0,
+    "maximum_original_adc_operator_gain": 10.0,
+    "minimum_complete_fit_masks": 9,
+    "targets": "same-chip singleton superposition, not trained weights",
+    "invalid_fit": "calibration unavailable; raw baseline retained"
+  },
+  "lif": {
+    "leak": 0.5,
+    "threshold": 1.0,
+    "reset": 0.0,
+    "diagnostic_gains_per_volt": [
+      10.0,
+      100.0,
+      1000.0
+    ],
+    "pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    "all_silent": "uninformative, not passed"
+  },
+  "physical_pulse_width_s": null,
+  "trained_weights_programmed": false,
+  "cifar_replayed": false,
+  "physical_lif": false,
+  "atomic_eight_output_vector": false
+}
