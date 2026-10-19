@@ -1,0 +1,22 @@
+{
+  "verdict": "GO offline final audit only after full acquisition/training completion",
+  "source_sha256": {
+    "tools/audit_mnist_stdp_full.py": "1f41fb863642b482bbefe49c6524ba20320b7b6ad2c93e88351c00aedb535abb",
+    "tests/test_mnist_stdp_full_audit.py": "da4cb737e75e370943cb0287d89c1b24d77d15e16848177cf7b41dc2183989e4",
+    "docs/plans/MNIST_FULL_FINAL_AUDIT_20261019.md": "668c749928cc82b8dd1ab70760b514d1b954e611befc870cfe4b38d854d71a69"
+  },
+  "code_review_pass": true,
+  "author_offline_tests": "8/8 tiny synthetic tests PASS",
+  "actual_full_audit_executed": false,
+  "model_executed_by_reviewer": false,
+  "linear_replay": {
+    "preprocessing": "CPU float32 log1p/normalization",
+    "dot": "CPU float64",
+    "chunk_rows": 128,
+    "atol": 0.001,
+    "rtol": 0.0001,
+    "any_argmax_disagreement": "review_required exit3",
+    "any_logit_tolerance_violation": "review_required exit3"
+  },
+  "qualified_full_training_wrapper_sha256": "87eedc25cc3ca73aa429d5dff9b210c9076b8257538ce2789cbec4aa5a6016fd"
+}
