@@ -1,0 +1,14 @@
+{
+  "schema": "mnist-interrupted-source-archive-v1",
+  "source_session": "results/mnist_stdp_retraining_20261019/7a536bf8-0269-4edd-b454-a8ba2c33c219",
+  "archive": "results/mnist_stdp_retraining_20261019/7a536bf8-0269-4edd-b454-a8ba2c33c219-source.tar.gz",
+  "archive_sha256": "5e61494dce47eb93d4ed4cdd27831a318f4b18df64c59ba447891291eac1a639",
+  "compressed_bytes": 283120099,
+  "uncompressed_bytes": 4644084840,
+  "regular_files": 29,
+  "every_member_sha256_and_size_matches": "experiments/mnist_stdp_finish_20261019/INPUT_SNAPSHOT.json",
+  "verification": "Read every tar member, reject nonregular files except directories, require exact file coverage, size and SHA256 match with registered snapshot; gzip fully read.",
+  "secret_scan": {"tool": "gitleaks dir", "exit_code": 0, "reported_scanned_bytes": 4644075692, "findings": 0, "scope": "Original source directory before lossless archive publication"},
+  "status": "Interrupted after training features and head epoch5; no test accuracy",
+  "training_restarted": false
+}
