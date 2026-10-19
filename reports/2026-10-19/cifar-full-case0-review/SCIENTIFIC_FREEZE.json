@@ -1,0 +1,27 @@
+{
+  "scope": "bounded_native_sim_smoke_scientific_review",
+  "acquisition_executed_by_reviewer": false,
+  "native_sim_smoke_design_qualified": true,
+  "hardware_run_qualified_by_this_report": false,
+  "canonical_protocol_sha256": "2cb1d57689508725f7155bf7b1d0d17fec9d4f6b65782171e2b85481bc9aa558",
+  "protocol_file_sha256": "fdb1acd5837b21c133f59f8bd67a2031cb9d411f68f83733d87aa00f2a45b2c9",
+  "source_sha256": {
+    "audit_native.py": "d3cd8bf2cf11512f81aabff0300c5fde391dad240fd9008834150e698910e717",
+    "classifier.py": "64ba6e85cda19367f93a0c8294f77b6c9b6f5f26cbf40d188685bc47430053e5",
+    "collector.py": "03c6121560ca558904c5722228b4c1a6e7e8eb6d7264b6fb6f18cc393b2e5c21",
+    "experiment.py": "5e8647da40961558fd76276d7a5b5eef188e57b77dfb44478a86cb2e376a70cf",
+    "plan.py": "d795d6f820eeacca36e6746746bcfd558850bc5d1bedce32cc969820b3ce94d7",
+    "reconstruct.py": "516810cdc7d8a23d18d3487c98bf0de53659bd6f82bc126c43d9481a46ade9b7",
+    "trace.py": "c8093a346b46f2124b389fe9bd7f9d1fea6ac161dce7892df70181b058542d37"
+  },
+  "validation_reported_by_authors": {
+    "offline_schedule_and_fake_connector_tests": "14/14 passed",
+    "classifier_bridge_tests": "6/6 passed",
+    "native_sim_dry_run": "passed; no hardware access"
+  },
+  "remaining": [
+    "Actual native SIM smoke and independent audit",
+    "Full actual raw replay/classifier integration before claiming full prediction",
+    "Raspberry pinned sources/INI preflight before hardware acquisition"
+  ]
+}

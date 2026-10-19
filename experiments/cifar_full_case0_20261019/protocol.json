@@ -1,0 +1,23 @@
+{
+  "schema": "full-case0-bounded-v1",
+  "max_active": 4,
+  "amplitude_v": 0.05,
+  "reset_levels_v": [0.3, 0.6, 0.9, 1.2, 1.5, 2.0, 2.5, 3.0],
+  "set_levels_v": [0.3, 0.6, 0.9, 1.2, 1.5, 2.0, 2.5, 3.0],
+  "reset_stop_q": 0.005,
+  "weight_absolute_tolerance_v": 0.00061,
+  "weight_relative_tolerance": 0.05,
+  "maximum_impacts": 15000000,
+  "maximum_programming_pulses": 115200,
+  "maximum_matrix_gain": 10.0,
+  "maximum_matrix_condition": 1000000.0,
+  "calibration_ridge": 0.0001,
+  "hardware_gain": 0.125,
+  "simulator_gain": 0.015,
+  "seed": 20261019,
+  "programming_quality_failure": "retain_approximate_and_continue",
+  "current_model_limit_a": 0.005,
+  "gui_output_limit_v": 3.3,
+  "basis_headroom_factor": 2.0,
+  "basis_sd_multiplier": 3.0
+}
