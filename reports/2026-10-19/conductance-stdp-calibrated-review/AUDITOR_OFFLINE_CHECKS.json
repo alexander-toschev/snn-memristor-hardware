@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "audit_tool_sha256": "f1fab366818f554e90dea185c0a23073074f0e2984bd5af3c15ff415cac8bcfa",
+  "tests_sha256": "b08d5716c7594035105c144fadff218d5ec474894dd4027a91e74a1c28489065",
+  "test_command": "python -B -m unittest tests.test_audit_conductance_stdp_calibrated -v",
+  "test_methods": 2,
+  "synthetic_valid_outcomes": 2,
+  "rehashed_rejected_corruptions": [
+    "selected_gain",
+    "candidate_trajectory",
+    "control_used_for_selection",
+    "postfreeze_gain",
+    "learning_sign",
+    "fit_bank",
+    "duplicate_bracket",
+    "wrong_checkpoint_cell",
+    "eligibility",
+    "sham_native_r",
+    "repeated_training_pulse_reference",
+    "physical_nonfit_request_before_freeze"
+  ],
+  "elapsed_seconds": 28.592,
+  "native_connector_opened": false,
+  "model_run": false
+}
