@@ -5,6 +5,8 @@ results/**/*.gz filter=lfs diff=lfs merge=lfs -text
 results/**/array.cb filter=lfs diff=lfs merge=lfs -text
 results/**/*.npy filter=lfs diff=lfs merge=lfs -text
 results/**/*.pt filter=lfs diff=lfs merge=lfs -text
+reports/**/*.f32 filter=lfs diff=lfs merge=lfs -text
+results/**/*.f32 filter=lfs diff=lfs merge=lfs -text
 weights/*.pt filter=lfs diff=lfs merge=lfs -text
 weights/*.npy filter=lfs diff=lfs merge=lfs -text
 weights/mnist_baseline_20261019/*.pt filter=lfs diff=lfs merge=lfs -text

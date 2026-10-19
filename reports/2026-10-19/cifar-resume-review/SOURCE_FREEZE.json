@@ -1,0 +1,26 @@
+{
+  "schema": "cifar-resumable-source-review-v1",
+  "verdict": "native_sim_qualification_only",
+  "spec_sha256": "95e0eb4c7a6694486060c7dec5436e3c3d29357d4d22bd7725c4b08685da3560",
+  "physical_protocol_sha256": "2cb1d57689508725f7155bf7b1d0d17fec9d4f6b65782171e2b85481bc9aa558",
+  "source_sha256": {
+    "experiments/cifar_resumable_20261019/README.md": "ff48955806b24620f3d76ab5e08c331a07b3ccbf1c53609c0878763f880ee84f",
+    "experiments/cifar_resumable_20261019/collector.py": "794eaced2fc551a7b26898cd57409dfe5276f3d4d7351787b1bc875f2fe6da1f",
+    "experiments/cifar_resumable_20261019/contract.py": "d7902489769b808f5a29a9e7e8e43d1e2662b915802cd6851302eb16024fe9be",
+    "experiments/cifar_resumable_20261019/durable.py": "b00c094da70af933a7318a119fe5439b40d957c7aaabb39c752170a1dbf2abb3",
+    "experiments/cifar_resumable_20261019/experiment.py": "f52a623436d73c30a368733dbb75c7666603905f5440201900f7862211b44379",
+    "tests/test_audit_cifar_interrupted_prefix.py": "cf2a333cc267fb678fe6e79781559b4c37d1b957fc60419c6b3e238fbfad529f",
+    "tests/test_cifar_resumable.py": "42b4084cb80fdbf76dec71aeb98720af1790e708a95123c24bbd96831e264774",
+    "tools/audit_cifar_interrupted_prefix.py": "1c19c6e4b0db4af3892a681035b27123633d2ca7c840f1537928b13e35ec3b00",
+    "tools/cifar_prefix_replay.py": "0f6bb5743dd8b4218b68701c65749db00874d8e444d6df18feda08f127a39c69",
+    "tools/classify_cifar_continuation.py": "a3d61cbf2ac89811b5aa6f4299a6294e3eed3ce1be8baa0bf614277ac756ec73",
+    "tools/plan_cifar_continuation.py": "57edfc2f68c5d3de9ef4aad85ad8ab097cdabe080206722a23e9076df5e61908"
+  },
+  "independent_tests": {
+    "prefix": "8/8 PASS 19.548s",
+    "resumable": "12/12 PASS 20.212s"
+  },
+  "hardware_qualified": false,
+  "model_or_native_driver_executed_by_reviewer": false,
+  "registration_artifacts": "Root creates immutable reviewed four-source registry and source-specific SIM grant after this snapshot. Their hashes must be captured before native acquisition. Future hardware grant requires actual nativeSIM qualification; no source mutation."
+}

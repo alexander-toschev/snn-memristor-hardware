@@ -1,0 +1,36 @@
+{
+  "schema": "cifar-private-source-operator-receipt-v1",
+  "observed_utc": "2026-10-19T14:49:06.081093+00:00",
+  "host": "raspberrypi",
+  "git_head": "11290a9e4be49563fdcb22ec7c7aa1ddf5185811",
+  "operator": "root",
+  "acquisition_session": "results/cifar_full_case0_20261019/f21e608c-059f-4dce-afe0-6edf5c26133c",
+  "verification": "remote_operator_verified",
+  "local_private_bytes_available": false,
+  "cryptographic_remote_attestation": false,
+  "observed_time_source": "Raspberry system UTC clock",
+  "records": [
+    {
+      "path": "vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py",
+      "observed_sha256": "bc717659fa5d4d36d2037eef978bf1cd8dcf0fe92f9bbfad51f1eb1d0d27df9c",
+      "expected_sha256": "bc717659fa5d4d36d2037eef978bf1cd8dcf0fe92f9bbfad51f1eb1d0d27df9c",
+      "size_bytes": 8844,
+      "resolved_path": "/home/raspberrypi/Documents/snn-memristor-hardware/.tmp/survey-20261019/vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py"
+    },
+    {
+      "path": "vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py",
+      "observed_sha256": "5bcb02c04bc185e332b2ec96acabc2d4303d21724c9c052de540ef92d603b634",
+      "expected_sha256": "5bcb02c04bc185e332b2ec96acabc2d4303d21724c9c052de540ef92d603b634",
+      "size_bytes": 4950,
+      "resolved_path": "/home/raspberrypi/Documents/snn-memristor-hardware/.tmp/survey-20261019/vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py"
+    }
+  ],
+  "stdout_evidence_path": "reports/2026-10-19/cifar-full-case0-review/PRIVATE_SOURCE_OBSERVED_STDOUT.json",
+  "stdout_evidence_sha256": "3976a51098651492e67ac88c44ee02e47ea460be3fa5754e69920e464d356f45",
+  "command": "python3 -B -c 'import json,hashlib,socket,subprocess,datetime; from pathlib import Path; m=json.loads(Path(\"results/cifar_full_case0_20261019/f21e608c-059f-4dce-afe0-6edf5c26133c/start_manifest.json\").read_text()); print(json.dumps(dict(observed_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),host=socket.gethostname(),git_head=subprocess.check_output([\"git\",\"rev-parse\",\"HEAD\"],text=True).strip()))); [print(json.dumps(dict(path=n,observed_sha256=hashlib.sha256(Path(n).read_bytes()).hexdigest(),expected_sha256=m[\"source_sha256\"][n],size_bytes=Path(n).stat().st_size,resolved_path=str(Path(n).resolve())))) for n in (\"vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py\",\"vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py\")]'",
+  "limitations": [
+    "Observed stdout transcribed by root; not byte-for-byte stdout capture or a signed attestation.",
+    "Fresh hashes verify files present at observation, not independently prove file contents at acquisition time.",
+    "No driver import, execution or board operation occurred during this check."
+  ]
+}

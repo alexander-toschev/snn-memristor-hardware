@@ -1,0 +1,47 @@
+{
+  "schema": "cifar-prefix-second-review-v1",
+  "status": "reuse_qualified",
+  "source_report_sha256": "49cdfe3f5b5d76854431c8a3e58e855a43e4b8fe76ea887ad1316e6e045011b6",
+  "reviewer_tool_sha256": "abf62acf9313a5b7183da697ea8744effa2c680453578452d90838984f0c7470",
+  "accepted_stage_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "first_fresh_stage": 13,
+  "local_source_files_checked": 72,
+  "remote_private_files": [
+    "vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py",
+    "vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py"
+  ],
+  "raw_compressed_files_rehashed": 56,
+  "stage_payloads_rehashed": 26,
+  "numerical_raw_replay_repeated": false,
+  "reviewed_auditor_fake_tests": "8/8 PASS, 19.548 s",
+  "strict_numeric_replay": "FAIL_condition_only",
+  "condition_only_stages": [
+    0,
+    2,
+    11
+  ],
+  "native_impacts_lower_bound": 3909496,
+  "programming_pulses_lower_bound": 18800,
+  "full_hardware_launch_qualified": false,
+  "current_board_state_inferred": false,
+  "limitations": [
+    "Second review checks source, certificates, payloads and compressed raw hashes; the actual raw semantic replay is the separately reviewed prefix auditor.",
+    "Private files have fresh remote operator evidence, not local bytes or signed attestation.",
+    "No original final manifest/close proof; incomplete stage13 and truncated tail are not reusable.",
+    "New hardware continuation still requires native SIM abrupt-loss recovery qualification and preflight."
+  ]
+}
