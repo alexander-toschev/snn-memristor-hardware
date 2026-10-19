@@ -1,0 +1,28 @@
+{
+  "schema": "full-cifar-comparison-source-review-v1",
+  "verdict": "qualified_for_completed_reports_comparison_on_pi",
+  "source_sha256": {
+    "tools/compare_full_cifar_reports.py": "a2d02825ba7501f7bdc87db3e8c79c1747ed9cb90d020597eb8031101895f192",
+    "tests/test_compare_full_cifar_reports.py": "50b5275884daa3fc45bdbfb0470f08d810817378447fdbb96abb381abdf82142",
+    "docs/plans/CIFAR_FULL_REPORT_COMPARISON_20261019.md": "72435a60168f113932c68e70e2436d96d21d2f20f7e73213b692c1625051bbab"
+  },
+  "offline_tests": {
+    "passed": 7,
+    "duration_seconds": 0.574,
+    "synthetic_only": true
+  },
+  "actual_sim_single_side": {
+    "report_sha256": "d219f9adc2baf8b866f9179c82e197350224aeb9b8644dae96ac3efab9537749",
+    "session": "results/cifar_full_case0_20261019/5ee64f20-d499-40df-a742-95a76d2dc386",
+    "manifest_sha256": "cace70a074a619234ff5ddc3fe657cef57459a0fc5f9600db199db54714a7eb0",
+    "locally_verified_sources": 73,
+    "immediate_within_tolerance": 3682,
+    "calibrated_first_spike_valid": false
+  },
+  "hardware_report_available": false,
+  "actual_paired_comparison_performed": false,
+  "raw_replayed": false,
+  "model_executed": false,
+  "hardware_access": false,
+  "documentation_revision": "Exact active hardware UUID and planned NATIVE_HW_FULL_CLASSIFIER.json path; execution remains gated on completion and independent audit"
+}
