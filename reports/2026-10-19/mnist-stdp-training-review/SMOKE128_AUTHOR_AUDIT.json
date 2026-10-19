@@ -1,0 +1,112 @@
+{
+  "schema": "mnist-stdp-author-saved-array-audit-v1",
+  "status": "PASS",
+  "session": "results/mnist_stdp_retraining_20261019/440fc54b-a3bc-48f9-ae3c-43196809b96d",
+  "manifest_sha256": "3761f285f1a659c0a03aa6d235b9fadb655840f1d90e53ef3f5b9565918e5f4a",
+  "audit_tool_sha256": "06356a6f1e0a603db23a6bd0259d082eafc2fe4d03b1a81f413a8f2a6181e04b",
+  "source_sha256": "7f2a35d9fe5b832686d73b57d940acbc6fae99a3406de41258377d4d2fd9ee3f",
+  "spec_sha256": "db6a90ce72a25a37144971f405c6a23097de83c9583dd0c9e713848c50e205bd",
+  "files_verified": 11,
+  "sources_verified": 18,
+  "image_ids_exact": true,
+  "images": 128,
+  "timesteps": 12800,
+  "initial": {
+    "min": 0.025140181183815002,
+    "max": 8.068779945373535,
+    "per_filter_sum_min": 78.39998626708984,
+    "per_filter_sum_max": 78.40001678466797,
+    "coefficients_above_one": 1365
+  },
+  "first_step": {
+    "pure_clipping_exact": true,
+    "l1_change": 3530.2224563360214
+  },
+  "first_window": {
+    "post_clipping_changed_coefficients": 1600,
+    "post_clipping_l1_change": 2.7084071803838015,
+    "postwindow_equals_last_native_record_exact": true
+  },
+  "subsequent_images": {
+    "all127_change_weights": true,
+    "changed_coefficients_min": 1532,
+    "changed_coefficients_max": 1600,
+    "l1_delta_min": 0.10652867704629898,
+    "l1_delta_max": 13.611839681863785
+  },
+  "final": {
+    "min": 0.053018100559711456,
+    "max": 0.7652305364608765,
+    "mean": 0.6511131525039673,
+    "changed_vs_first_clipped_coefficients": 1600,
+    "l1_vs_first_clipped": 446.2130020428449,
+    "above_first_clipped": 20,
+    "below_first_clipped": 1580,
+    "saturated_zero": 0,
+    "saturated_one": 0,
+    "weight_trajectory_all_finite_in_bounds": true
+  },
+  "activity": {
+    "input_spikes": 1959,
+    "output_spikes": 2775598,
+    "silent_images": 0
+  },
+  "fixed_state": {
+    "threshold_hashes": {
+      "Conv1": "17432784d5daa5dd09ae91e9435e8fdd0aa5da1d2a48477349bb1c7e12c9b24c",
+      "Inhib1": "17432784d5daa5dd09ae91e9435e8fdd0aa5da1d2a48477349bb1c7e12c9b24c"
+    },
+    "bias_hash": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+    "all128_unchanged": true
+  },
+  "timing": {
+    "training_seconds": 42.48192059999565,
+    "session_wall_seconds": 43.037767,
+    "first_image_seconds": 2.156057199987117,
+    "image_mean_seconds": 0.3276353257856499,
+    "image_median_seconds": 0.30950125004164875,
+    "image_p95_seconds": 0.3619237299717496,
+    "steady_mean_seconds": 0.3132383031541423,
+    "full30000_from_total_ratio_seconds": 9956.70014062398,
+    "full30000_from_steady_mean_seconds": 9397.149094624268,
+    "feature314_batches_pilot_sensitivity_seconds": [
+      1580.99,
+      2682.8160000000003
+    ],
+    "readout_runtime": "unmeasured"
+  },
+  "resources": {
+    "session_bytes": 1609518,
+    "cuda_peak_allocated_bytes": 37395968,
+    "cuda_peak_reserved_bytes": 39845888,
+    "full_weight_trajectory_bytes": 192000000,
+    "full_counts_bytes": 5898240000
+  },
+  "accuracy": null,
+  "test_samples": 0,
+  "readout_trained": false,
+  "actual_head_updates": 0,
+  "actual_feature_batches": 0,
+  "physical_memristor": false,
+  "manifest_planned_fields_not_executed": {
+    "head_updates": 1475,
+    "feature_batches": {
+      "train": 235,
+      "test": 79
+    },
+    "counts_bytes": 5898240000
+  },
+  "limitations": [
+    "Saved-array consistency audit, not independent reexecution of all native STDP updates.",
+    "Only first image has per-step weights; later evidence is per-image trajectory.",
+    "Aggregate deltas alone do not separately identify every LTD/LTP event.",
+    "Prefix128 runtime is a planning estimate, not a full30k runtime guarantee."
+  ],
+  "full_proposal": {
+    "keep_existing_wall_budget_seconds": 28800,
+    "keep_maximum_output_bytes": 8589934592,
+    "keep_initial_free_disk_bytes": 19327352832,
+    "independent_review_required": true,
+    "full_gate_opened": false
+  }
+}
