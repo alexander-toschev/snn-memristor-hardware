@@ -1,0 +1,38 @@
+{
+  "schema": "mnist-physical-design-cost-second-review-v1",
+  "status": "arithmetic_verified_design_only",
+  "source_report_sha256": "befa41909d52299872701c47ef4d62a5be6ad73d61c1e36a1d245d81fb299676",
+  "input_sha256": "054d2bfec848a5eb4a1d6379ee06f231817895c740c2efe357915a95405d3358",
+  "saved_input_shape": [
+    100,
+    128,
+    1,
+    28,
+    28
+  ],
+  "images_checked": 128,
+  "all_per_image_rows_equal": true,
+  "actual_archive_stride": 1,
+  "actual_archive_kernel": 5,
+  "actual_archive_filters": 64,
+  "actual_archive_time": 100,
+  "spatial_positions": 576,
+  "independent_mean": {
+    "input_spikes": 15.3046875,
+    "active_cell_contributions": 378.8671875,
+    "nonempty_t_positions": 375.3203125,
+    "split_vectors": 375.3203125,
+    "positions_ever_active": 185.9609375
+  },
+  "resident8_read_mode10": 122185625.0,
+  "resident8_guard_mode7": 30309375.0,
+  "full64_multiplex_read_multiplier": 8,
+  "model_executed": false,
+  "connector_imported": false,
+  "hardware_launch_qualified": false,
+  "limitations": [
+    "Projected from128 fixed software encoder inputs, not complete10k acquisition.",
+    "Does not include programming/readback/calibration/reprogramming/checkpoint/transport overhead.",
+    "Current hardware weight state and actual learning are not established by arithmetic."
+  ]
+}

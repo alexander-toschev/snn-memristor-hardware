@@ -1,0 +1,63 @@
+{
+  "schema": "cifar-native-sim-recovery-final-review-v1",
+  "status": "hardware_batch_conditionally_qualified",
+  "qualification_report_sha256": "476ed4975aed961a8572dca0afa63d6eb337d4da61e25385edaaeb8d13a6a684",
+  "source_freeze_sha256": "b300b073ee56388e1570e3fdf00d1bbc97ee63a1135208c96e90b74b8fd02609",
+  "stage_summaries": [
+    {
+      "stage": 0,
+      "session": "results/cifar_resumable_20261019/0c525c03-417d-4f78-bde2-4bdae14982f2",
+      "manifest_sha256": "c6cdb255c06474986a2ca031bccbea9535813b1dfb718d86b89df9341299a21c",
+      "impacts": 356812,
+      "pulses": 1770,
+      "coefficients": 128,
+      "tensor_values": 37632,
+      "strict_numeric_replay": "PASS"
+    },
+    {
+      "stage": 1,
+      "session": "results/cifar_resumable_20261019/c16ab462-249b-4e46-b066-d3d4526d623e",
+      "manifest_sha256": "7f13295888b047fcc1e61f584d2c247310dcb049338afa8fc26e812ca10e39ba",
+      "impacts": 318496,
+      "pulses": 1536,
+      "coefficients": 128,
+      "tensor_values": 37632,
+      "strict_numeric_replay": "PASS"
+    },
+    {
+      "stage": 2,
+      "session": "results/cifar_resumable_20261019/80aa8f9b-4a40-4525-a89c-65357fd50ffa",
+      "manifest_sha256": "a49a3d32d1458ca3a9242f37be54ebbf1a229c862ec98fba69d17d4ad98c5798",
+      "impacts": 171842,
+      "pulses": 549,
+      "coefficients": 44,
+      "tensor_values": 37632,
+      "strict_numeric_replay": "PASS"
+    }
+  ],
+  "result_files_rehashed": 213,
+  "full_numeric_replay_repeated": false,
+  "all_current_source_pins_match": true,
+  "completed_stage_impacts": 847150,
+  "completed_stage_pulses": 3855,
+  "failed_attempt_durable_impacts": 40568,
+  "failed_attempt_durable_pulses": 1536,
+  "total_known_impacts_lower_bound": 887718,
+  "total_known_pulses_lower_bound": 5391,
+  "unknown_unindexed_tail": true,
+  "failed_stage_payload_used": false,
+  "observed_outer_shell_exit": 1,
+  "child_exit86_directly_observed": false,
+  "hardware_batch_plan_sha256": "8a2ca214c6a7830d25465c8be1c2974db1425c3287088e6c5c1fe33f29113e9e",
+  "hardware_batch_range": [
+    13,
+    19
+  ],
+  "conditions": [
+    "Immutable HW grant must bind this qualification and unchanged reviewed sources/registry.",
+    "Pi source/INI/disk preflight and old-process absence required before public MemriBoard acquisition.",
+    "Only whole stages; no reuse of old stage13 positions/C or failed SIM contribution.",
+    "Choose/shorten finite batch to complete current tile before22:00MSK, no overnight automatic continuation.",
+    "All48 stages still required for full classifier; qualification is not classification accuracy."
+  ]
+}

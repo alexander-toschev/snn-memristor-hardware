@@ -11,3 +11,6 @@ weights/*.pt filter=lfs diff=lfs merge=lfs -text
 weights/*.npy filter=lfs diff=lfs merge=lfs -text
 weights/mnist_baseline_20261019/*.pt filter=lfs diff=lfs merge=lfs -text
 experiments/mnist_baseline_20261019/data/MNIST/raw/*.gz filter=lfs diff=lfs merge=lfs -text
+# Exact zero-byte evidence from the deliberate process-loss test stays in ordinary Git.
+results/cifar_resumable_20261019/f437bee7-3956-4080-a101-372b730eb767/native_stdout.txt.gz -filter -diff -merge -text
+results/cifar_resumable_20261019/f437bee7-3956-4080-a101-372b730eb767/raw/part-000013.jsonl.gz -filter -diff -merge -text
