@@ -1,0 +1,371 @@
+{
+  "schema": "mnist-recovery-preflight-v1",
+  "archive_hash_checks": [
+    {
+      "path": "weights/mnist_baseline_20261019/model.pt",
+      "expected_sha256": "43f7d6237b0ec8405956a4f9ef34c2ea0c8a3a592c4c76467e1acc00beee47de",
+      "actual_sha256": "43f7d6237b0ec8405956a4f9ef34c2ea0c8a3a592c4c76467e1acc00beee47de",
+      "matches": true
+    },
+    {
+      "path": "weights/mnist_baseline_20261019/label_map.pt",
+      "expected_sha256": "f457dac8ce38e70fcd1f080547d90c62ac960c338fc43816e3c50d3c045da595",
+      "actual_sha256": "f457dac8ce38e70fcd1f080547d90c62ac960c338fc43816e3c50d3c045da595",
+      "matches": true
+    },
+    {
+      "path": "weights/mnist_baseline_20261019/parent_model_after_train.pt",
+      "expected_sha256": "cd4131b893ad01683dce8046164319f9ad3e212817227548b6365adc8ab40e77",
+      "actual_sha256": "cd4131b893ad01683dce8046164319f9ad3e212817227548b6365adc8ab40e77",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/evidence/evaluation/summary.json",
+      "expected_sha256": "a463ee04b7da05c7645a53621576ac0d99c106e1a59f315e9b04e14bb85e73aa",
+      "actual_sha256": "a463ee04b7da05c7645a53621576ac0d99c106e1a59f315e9b04e14bb85e73aa",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/evidence/evaluation/live.log",
+      "expected_sha256": "db04634d6f6951cffa3e19fee56d27858b609d4750608d805cb708cb4f80fe39",
+      "actual_sha256": "db04634d6f6951cffa3e19fee56d27858b609d4750608d805cb708cb4f80fe39",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/evidence/training/summary.json",
+      "expected_sha256": "182dc87cbcb9ab1a497b6c6290f9abea0602e657a30081faf79df62e79677e71",
+      "actual_sha256": "182dc87cbcb9ab1a497b6c6290f9abea0602e657a30081faf79df62e79677e71",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/evidence/training/live.log",
+      "expected_sha256": "57dde68dfa50cb1c8fde95f7de56956028baa93bfae254ca93365f8982409568",
+      "actual_sha256": "57dde68dfa50cb1c8fde95f7de56956028baa93bfae254ca93365f8982409568",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/data/MNIST/raw/train-images-idx3-ubyte.gz",
+      "expected_sha256": "440fcabf73cc546fa21475e81ea370265605f56be210a4024d2ca8f203523609",
+      "actual_sha256": "440fcabf73cc546fa21475e81ea370265605f56be210a4024d2ca8f203523609",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/data/MNIST/raw/train-labels-idx1-ubyte.gz",
+      "expected_sha256": "3552534a0a558bbed6aed32b30c495cca23d567ec52cac8be1a0730e8010255c",
+      "actual_sha256": "3552534a0a558bbed6aed32b30c495cca23d567ec52cac8be1a0730e8010255c",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/data/MNIST/raw/t10k-images-idx3-ubyte.gz",
+      "expected_sha256": "8d422c7b0a1c1c79245a5bcf07fe86e33eeafee792b84584aec276f5a2dbc4e6",
+      "actual_sha256": "8d422c7b0a1c1c79245a5bcf07fe86e33eeafee792b84584aec276f5a2dbc4e6",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/data/MNIST/raw/t10k-labels-idx1-ubyte.gz",
+      "expected_sha256": "f7ae60f92e00ec6debd23a6088c31dbd2371eca3ffa0defaefb259924204aec6",
+      "actual_sha256": "f7ae60f92e00ec6debd23a6088c31dbd2371eca3ffa0defaefb259924204aec6",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/reference_source/agent_mvp/experiment_runner.py",
+      "expected_sha256": "6ef3dcc16655890d70656cf843a2b3f385c2c8645af65abd7f2ce1490a90b468",
+      "actual_sha256": "6ef3dcc16655890d70656cf843a2b3f385c2c8645af65abd7f2ce1490a90b468",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/reference_source/agent_mvp/agent_common.py",
+      "expected_sha256": "cceab923e871a70ad2a21d23051fecacadef712afbe8600c3121ca7b496588c1",
+      "actual_sha256": "cceab923e871a70ad2a21d23051fecacadef712afbe8600c3121ca7b496588c1",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/reference_source/csnn_mnist_net.py",
+      "expected_sha256": "db75ddb5b9cd262b0122c6336152bdf640fb7cea382154b538768be318b26485",
+      "actual_sha256": "db75ddb5b9cd262b0122c6336152bdf640fb7cea382154b538768be318b26485",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/reference_source/snn_mnist_net.py",
+      "expected_sha256": "e71b3dab94d3cb8c6bde57729ea5a6d2a2bd120e9c1d4f79d5826ea24d405758",
+      "actual_sha256": "e71b3dab94d3cb8c6bde57729ea5a6d2a2bd120e9c1d4f79d5826ea24d405758",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/reference_source/encoders.py",
+      "expected_sha256": "d02ab7431da183801c0fc1e0cb6c1bda63ec8fd3e97572db9b7d240919aff824",
+      "actual_sha256": "d02ab7431da183801c0fc1e0cb6c1bda63ec8fd3e97572db9b7d240919aff824",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/reference_source/label_map.py",
+      "expected_sha256": "3bd4e7c6c9531e68d69947e5155b6f27ed7cbc3f3e724d32dcf643c74813f546",
+      "actual_sha256": "3bd4e7c6c9531e68d69947e5155b6f27ed7cbc3f3e724d32dcf643c74813f546",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/reference_source/counts_readout.py",
+      "expected_sha256": "2991e9e3d14a42bef7d1e3621acefbb1cc61499192e2da65ca032d14264921c7",
+      "actual_sha256": "2991e9e3d14a42bef7d1e3621acefbb1cc61499192e2da65ca032d14264921c7",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/reference_source/evaluation.py",
+      "expected_sha256": "840e1c31d2600be502df639c8e31813cd362e1d5bfc93bc1e3e50f4724f86776",
+      "actual_sha256": "840e1c31d2600be502df639c8e31813cd362e1d5bfc93bc1e3e50f4724f86776",
+      "matches": true
+    },
+    {
+      "path": "experiments/mnist_baseline_20261019/reference_source/readout_models.py",
+      "expected_sha256": "5b9a5c2c92d84f201b7bbcf79ef7a591af223a4c119b5ff2960c28b27926a885",
+      "actual_sha256": "5b9a5c2c92d84f201b7bbcf79ef7a591af223a4c119b5ff2960c28b27926a885",
+      "matches": true
+    }
+  ],
+  "archive_integrity_valid": true,
+  "training_executed": false,
+  "network_executed": false,
+  "board_access": false,
+  "native_simulator_executed": false,
+  "historical_accuracy": 0.6965,
+  "historical_accuracy_reproduced": false,
+  "source_attested_for_run": false,
+  "readout_saved": false,
+  "scaler_saved": false,
+  "datasets": {
+    "experiments/mnist_baseline_20261019/data/MNIST/raw/train-images-idx3-ubyte.gz": {
+      "samples": 60000,
+      "dimensions": [
+        28,
+        28
+      ],
+      "payload_bytes": 47040000,
+      "minimum": 0,
+      "maximum": 255,
+      "gzip_crc_checked": true
+    },
+    "experiments/mnist_baseline_20261019/data/MNIST/raw/train-labels-idx1-ubyte.gz": {
+      "samples": 60000,
+      "dimensions": [],
+      "payload_bytes": 60000,
+      "minimum": 0,
+      "maximum": 9,
+      "gzip_crc_checked": true
+    },
+    "experiments/mnist_baseline_20261019/data/MNIST/raw/t10k-images-idx3-ubyte.gz": {
+      "samples": 10000,
+      "dimensions": [
+        28,
+        28
+      ],
+      "payload_bytes": 7840000,
+      "minimum": 0,
+      "maximum": 255,
+      "gzip_crc_checked": true
+    },
+    "experiments/mnist_baseline_20261019/data/MNIST/raw/t10k-labels-idx1-ubyte.gz": {
+      "samples": 10000,
+      "dimensions": [],
+      "payload_bytes": 10000,
+      "minimum": 0,
+      "maximum": 9,
+      "gzip_crc_checked": true
+    }
+  },
+  "checkpoint_containers": {
+    "model.pt": {
+      "format": "torch ZIP, no pickle execution",
+      "entries": [
+        {
+          "name": "model/data.pkl",
+          "bytes": 1861,
+          "sha256": "9e513cddb949a0a74fddba9a9a1eb8a299f22a122e7f5a94329f61e4d13faa37"
+        },
+        {
+          "name": "model/.format_version",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "name": "model/.storage_alignment",
+          "bytes": 2,
+          "sha256": "a68b412c4282555f15546cf6e1fc42893b7e07f271557ceb021821098dd66c1b"
+        },
+        {
+          "name": "model/byteorder",
+          "bytes": 6,
+          "sha256": "180ca01b95f0dfdd36fbb600e51cf6e46c8ef468de56b017847886fefaf7b6f9"
+        },
+        {
+          "name": "model/data/0",
+          "bytes": 6400,
+          "sha256": "89cbe275beac267f0842fc83ff5abb805b7c85ae2153a4495c80f0933041dad4"
+        },
+        {
+          "name": "model/data/1",
+          "bytes": 4,
+          "sha256": "17432784d5daa5dd09ae91e9435e8fdd0aa5da1d2a48477349bb1c7e12c9b24c"
+        },
+        {
+          "name": "model/version",
+          "bytes": 2,
+          "sha256": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2"
+        },
+        {
+          "name": "model/.data/serialization_id",
+          "bytes": 40,
+          "sha256": "b83e8c8019ba4ab13eefff4c8529738a38bfaa993bc50df2a69578491af56720"
+        }
+      ],
+      "weights_loaded": false
+    },
+    "parent_model_after_train.pt": {
+      "format": "torch ZIP, no pickle execution",
+      "entries": [
+        {
+          "name": "model_after_train/data.pkl",
+          "bytes": 1689,
+          "sha256": "d442352d61417e94477e2adecf6a184205d33cfa2ec4d1f60138e78de83469c4"
+        },
+        {
+          "name": "model_after_train/.format_version",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "name": "model_after_train/.storage_alignment",
+          "bytes": 2,
+          "sha256": "a68b412c4282555f15546cf6e1fc42893b7e07f271557ceb021821098dd66c1b"
+        },
+        {
+          "name": "model_after_train/byteorder",
+          "bytes": 6,
+          "sha256": "180ca01b95f0dfdd36fbb600e51cf6e46c8ef468de56b017847886fefaf7b6f9"
+        },
+        {
+          "name": "model_after_train/data/0",
+          "bytes": 6400,
+          "sha256": "89cbe275beac267f0842fc83ff5abb805b7c85ae2153a4495c80f0933041dad4"
+        },
+        {
+          "name": "model_after_train/data/1",
+          "bytes": 4,
+          "sha256": "17432784d5daa5dd09ae91e9435e8fdd0aa5da1d2a48477349bb1c7e12c9b24c"
+        },
+        {
+          "name": "model_after_train/version",
+          "bytes": 2,
+          "sha256": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2"
+        },
+        {
+          "name": "model_after_train/.data/serialization_id",
+          "bytes": 40,
+          "sha256": "c0c0108cb59cebe2a1e148c1c847901b4d4885f1c82b580578d1672c256dd408"
+        }
+      ],
+      "weights_loaded": false
+    },
+    "label_map.pt": {
+      "format": "torch ZIP, no pickle execution",
+      "entries": [
+        {
+          "name": "label_map/data.pkl",
+          "bytes": 310,
+          "sha256": "dfc08bdd4633503eea17426b81669921325cea0f44129c8d1eb9ef999c259315"
+        },
+        {
+          "name": "label_map/.format_version",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "name": "label_map/.storage_alignment",
+          "bytes": 2,
+          "sha256": "a68b412c4282555f15546cf6e1fc42893b7e07f271557ceb021821098dd66c1b"
+        },
+        {
+          "name": "label_map/byteorder",
+          "bytes": 6,
+          "sha256": "180ca01b95f0dfdd36fbb600e51cf6e46c8ef468de56b017847886fefaf7b6f9"
+        },
+        {
+          "name": "label_map/data/0",
+          "bytes": 294912,
+          "sha256": "078227fd07bdecd36c0974013576d8b619bc0dff86b3b6201ba8cba5da8ae42c"
+        },
+        {
+          "name": "label_map/version",
+          "bytes": 2,
+          "sha256": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2"
+        },
+        {
+          "name": "label_map/.data/serialization_id",
+          "bytes": 40,
+          "sha256": "66d6d93390691e82545cdad382f1c6afc6c7714314da6364b0cc61476a578498"
+        }
+      ],
+      "weights_loaded": false
+    }
+  },
+  "source_semantics": {
+    "connection_name_bound_inside_builder": false,
+    "connection_load_lines": [
+      253,
+      258
+    ],
+    "historical_hook_warning": true,
+    "interpretation": "Reference snapshot only: undefined connection in post-run normalization hook is caught before E/I. Initial conn normalization exists. Actual run source SHA not attested."
+  },
+  "readout_recovery_spec": {
+    "features": 36864,
+    "classes": 10,
+    "train_samples": 30000,
+    "test_samples": 10000,
+    "feature_pipeline": "spike counts -> log1p -> train-only z-score (sample std, floor1e-6)",
+    "historical_linear": {
+      "epochs": 25,
+      "batch_size": 512,
+      "optimizer": "SGD",
+      "lr": 0.001,
+      "weight_decay": 0.0001
+    },
+    "count_collection": {
+      "batch_size": 128,
+      "timesteps": 100,
+      "rate_scale": 0.0015,
+      "poisson_base_seed": 123,
+      "deterministic": true
+    },
+    "stored_raw_float32_features_bytes": 5898240000,
+    "required_new_artifacts": [
+      "readout state_dict",
+      "train-only mean/std",
+      "train/test sample IDs",
+      "encoder and feature-runtime hashes",
+      "RNG seeds and states",
+      "dependency lock",
+      "predictions and labels"
+    ]
+  },
+  "current_python_environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "distributions": {
+      "torch": null,
+      "torchvision": null,
+      "bindsnet": null,
+      "numpy": "2.0.2",
+      "tqdm": null,
+      "scipy": null
+    },
+    "imports_verified": false,
+    "meaning": "Metadata only; not proof of compatible imports or archived run versions"
+  },
+  "status": "archive_verified_recovery_not_ready",
+  "blockers": [
+    "Trained Linear head and z-score statistics missing",
+    "Archived execution dependencies not pinned; current source environment.yml was absent from reference commit",
+    "Feature-extractor semantics must be frozen: post-window hook has undefined connection and swallows exceptions",
+    "Freeze/verify actual Conv1 weights during counts: zero STDP learning rates alone do not attest all update/normalization behavior",
+    "No validated MemriBoard MNIST collector/mapper or native SIM equivalence yet"
+  ]
+}

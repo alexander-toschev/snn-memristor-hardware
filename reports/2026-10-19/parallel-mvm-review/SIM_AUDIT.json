@@ -1,0 +1,170 @@
+{
+  "schema": "parallel-mvm-native-sim-independent-review-v1",
+  "review_date": "2026-10-19",
+  "session": "results/parallel_mvm_20261019/06e5d296-fe6a-4e20-9098-aca518d8a1dc",
+  "source": "native_simulator",
+  "status": "passed",
+  "errors": [],
+  "manifest_sha256": "c59a1a9d837d3a08eaea664744da67a5c722514778be006dcab78bb6f7581386",
+  "code_sha256": "4ccb2cab96db0cc4dfe3a8b023a1469eb98ffc59b750f3b930382e325cd72de6",
+  "protocol_sha256": "3b72170d36a8f2a7e39a825150377ad4c2710a862ccbf45065b66ff212e6a28c",
+  "result_sha256": {
+    "analysis.json": "52920fc3594cdb5a92c6c25aa5323b076bfc8fceae51d9df3cce1d7703b26a28",
+    "array.cb": "9d8e9680e805439f0db1387fa28e05625587c140ef8947a6c0de4a9112e4a3bf",
+    "basis.json": "22db9af79435a829bcaadc8a716b5b2727d5abbf94f8886fb2b5db7e416ed83e",
+    "board.ini": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c",
+    "frozen_amplitude.json": "53409e6d4f8aa7c4f5c1e2f0dce48f11cf8ae6c551c3097fb897bbc331f79b24",
+    "frozen_calibration.json": "fe1ad18cd31a9ca37dfd29920bf32589b49a59a3f2a51ea2bfc0fe97ea4fa61e",
+    "observations.json": "a89731765834608788d3ba15102149faf970267d2681dac98346792802f8e0e9",
+    "protocol.json": "3b72170d36a8f2a7e39a825150377ad4c2710a862ccbf45065b66ff212e6a28c",
+    "raw.jsonl": "e6768e03e86b3663668d1583af70b9fb2c03bbf810b69acd341ca8a6ca78e7a8",
+    "schedule.json": "3328e1d2eb81725e86164c5dde6a4d2891f7b8899c0e7eeba38d5f2aa0f153e2",
+    "simulator_settings.ini": "9ef3229595cbbba0ccc7d7450981d7a63266092792f4573d405beb2f364d3ddb",
+    "start_manifest.json": "ac263677ba1b4b564920bfc16d72c207ee2ce898057ff08cb70632314af6bd5e",
+    "summary.json": "a1fc09cb2e0cb051dc36c249d13ecf23c16cfa33fee468247078fe02323096b8",
+    "vectors.jsonl": "e4cac738f22ae827e859a7824c2eac7377acc0743ae9434e7b5d587fcaf5e261"
+  },
+  "checks": {
+    "result_and_source_hashes_match": true,
+    "requests_responses_and_bounds_verified": true,
+    "fresh_active_cell_reads_and_guard_verified": true,
+    "compact_vectors_match_raw": true,
+    "nonzero_fit_test_masks_disjoint": true,
+    "calibration_fitting_ids_are_fit_only": true,
+    "per_density_rmse_independently_recomputed": true,
+    "digital_lif_recomputed_from_saved_vectors": true
+  },
+  "summary": {
+    "status": "completed",
+    "source": "simulator",
+    "cells": [],
+    "initial_array": [],
+    "final_array": [],
+    "checkpoint_count": 0,
+    "programming_repeatability_qualified": false,
+    "baseline_scope": "fresh active-cell native R before each vector; all read-only",
+    "protocol_id": "readonly-parallel-mvm-v1-20261019",
+    "impact_attempts": 18304,
+    "mode7_reads": 13472,
+    "mode10_attempts": 4832,
+    "programming_pulse_attempts": 0,
+    "nominal_v": 0.1,
+    "vectors_recorded": 604,
+    "complete_vectors": 604,
+    "calibration_status": "available",
+    "finished_utc": "2026-10-19T07:52:40.602434+00:00"
+  },
+  "raw_events": {
+    "request": 18304,
+    "result": 18304,
+    "vector_guard": 4832
+  },
+  "mode_counts": {
+    "7": 13472,
+    "10": 4832
+  },
+  "calibration": {
+    "status": "available",
+    "complete_distinct_nonzero_masks": 30,
+    "nominal_v": 0.1,
+    "target": "same-chip singleton-superposition ADC, not trained weight accuracy",
+    "frozen_before_test": true,
+    "calibration_spec": {
+      "ridge": 0.0001,
+      "minimum_design_rank": 9,
+      "maximum_condition": 1000000.0,
+      "maximum_original_adc_operator_gain": 10.0,
+      "minimum_complete_fit_masks": 9,
+      "targets": "same-chip singleton superposition, not trained weights",
+      "invalid_fit": "calibration unavailable; raw baseline retained"
+    },
+    "design_rank": 9,
+    "normalized_design_condition": 20.570340073056638,
+    "original_adc_operator_gain": 1.0508598443439998,
+    "training_rmse_adc": 0.4548574674268804
+  },
+  "density_results": [
+    {
+      "density": 1,
+      "raw_max_wl_rmse_adc": 0.0,
+      "corrected_max_wl_rmse_adc": 0.37766826684690924,
+      "valid_vectors": 96
+    },
+    {
+      "density": 2,
+      "raw_max_wl_rmse_adc": 0.7905694150420949,
+      "corrected_max_wl_rmse_adc": 0.75156411503783,
+      "valid_vectors": 48
+    },
+    {
+      "density": 4,
+      "raw_max_wl_rmse_adc": 1.8708286933869707,
+      "corrected_max_wl_rmse_adc": 1.0290723798035248,
+      "valid_vectors": 24
+    },
+    {
+      "density": 8,
+      "raw_max_wl_rmse_adc": 4.06201920231798,
+      "corrected_max_wl_rmse_adc": 1.3868629214703194,
+      "valid_vectors": 12
+    },
+    {
+      "density": 16,
+      "raw_max_wl_rmse_adc": 8.514693182963201,
+      "corrected_max_wl_rmse_adc": 1.2225242809613746,
+      "valid_vectors": 6
+    },
+    {
+      "density": 32,
+      "raw_max_wl_rmse_adc": 18.0,
+      "corrected_max_wl_rmse_adc": 0.5908994983769276,
+      "valid_vectors": 3
+    }
+  ],
+  "lif": [
+    {
+      "gain_per_volt": 10,
+      "traces": 4,
+      "spike_decisions_per_branch": 192,
+      "spike_mismatches": {
+        "raw": 0,
+        "calibrated": 0
+      },
+      "silent_traces": {
+        "reference": 4,
+        "raw": 4,
+        "calibrated": 4
+      }
+    },
+    {
+      "gain_per_volt": 100,
+      "traces": 4,
+      "spike_decisions_per_branch": 192,
+      "spike_mismatches": {
+        "raw": 4,
+        "calibrated": 4
+      },
+      "silent_traces": {
+        "reference": 0,
+        "raw": 0,
+        "calibrated": 0
+      }
+    },
+    {
+      "gain_per_volt": 1000,
+      "traces": 4,
+      "spike_decisions_per_branch": 192,
+      "spike_mismatches": {
+        "raw": 0,
+        "calibrated": 0
+      },
+      "silent_traces": {
+        "reference": 0,
+        "raw": 0,
+        "calibrated": 0
+      }
+    }
+  ],
+  "all_raw_test_errors_fit_ADC_truncation_bound_0_to_density_minus_1": true,
+  "interpretation": "Protocol execution qualified for the same bounded read-only hardware trial after preflight; no trained-weight or CIFAR accuracy claim."
+}
