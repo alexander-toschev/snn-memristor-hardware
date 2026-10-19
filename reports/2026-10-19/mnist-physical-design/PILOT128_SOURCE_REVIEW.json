@@ -1,0 +1,56 @@
+{
+  "schema": "mnist-physical-pilot128-source-review-v1",
+  "verdict": "implementation_only",
+  "hardware_launch_qualified": false,
+  "full_10000_qualified": false,
+  "native_sim_executed_by_reviewer": false,
+  "model_executed_by_reviewer": false,
+  "sources_sha256": {
+    "docs/plans/MNIST_PHYSICAL_PILOT128_20261019.md": "3a2e4b6a3fce91f4fb57701d0bc200977746bbc54e0012176ea4e8d2ad1a2455",
+    "tools/prepare_mnist_conductance_fixture.py": "9f195d33cb27309c3ed98403fe33eac4bb945d6d4e7b434f81142f98343d8215",
+    "tests/test_mnist_conductance_fixture.py": "b3d431dc063f857e5af9c0aaf8773bed0155cefa81c83183a2c5db379d7b2cd5"
+  },
+  "bounds": {
+    "complete": {
+      "impacts": 172288,
+      "pulses": 2560
+    },
+    "no_eligible_gain": {
+      "impacts": 34560,
+      "pulses": 2048
+    },
+    "separate_sim_reference": {
+      "impacts": 171776,
+      "pulses": 2048
+    }
+  },
+  "coverage": {
+    "checkpoint_cells": 256,
+    "learning_cells": 128,
+    "control_cells": 128,
+    "distinct_input_images": 176,
+    "measured_image_presentations": 208
+  },
+  "gain_grid": [
+    1,
+    2,
+    4,
+    8,
+    10,
+    20,
+    40,
+    80,
+    100,
+    200,
+    400,
+    800,
+    1600
+  ],
+  "offline_tests": {
+    "suite": "tests.test_mnist_conductance_fixture",
+    "passed": 4,
+    "seconds": 0.044,
+    "synthetic_only": true
+  },
+  "extractor_execution_qualified": true
+}
