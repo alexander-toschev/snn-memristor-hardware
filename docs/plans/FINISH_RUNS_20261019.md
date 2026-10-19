@@ -3,8 +3,12 @@
 Команды выполняются **по одной, foreground**, с проверкой результата перед
 следующей. Никаких detach, фонового автопродолжения, токенов в командах или
 изменения выполняющихся исходников. Реальное I/O — только MemriBoard.
+Уточнение пользователя: Raspberry максимально оставляем для физических
+мемристорных операций и записи сырых данных через public MemriBoard.
+Тяжёлые raw replay/classifier, обработка признаков, обучение head и сравнение
+результатов выполняются локально. Все аппаратные запуски координирует root.
 
-## Raspberry: сначала закончить CIFAR и сохранить строгий аудит
+## Raspberry: закончить CIFAR, сохранить неизменные raw и provenance
 
 Локальная ветка Pi `codex/survey-20261019`, стартовый HEAD `c67526b`, PID18068.
 Единственная remote-ветка публикации — `codex/full-cifar-diagnostic`.
@@ -22,7 +26,7 @@ ps -p 18068 -o pid,stat,etime,args
 не запускать другой аппаратный опыт. После возврата приглашения shell:
 
 ```bash
-../../.venv/bin/python -B -c 'import json; from pathlib import Path; p=Path("results/cifar_full_case0_20261019/f21e608c-059f-4dce-afe0-6edf5c26133c/manifest.json"); m=json.loads(p.read_text()); print({k:m.get(k) for k in ("status","source","scope","impacts","pulses")}); assert m["status"]=="completed" and m["source"]=="hardware" and m["scope"]=="full"; assert not Path("results/read_all/.hardware.lock").exists()'
+../../.venv/bin/python -B -c 'import json; from pathlib import Path; p=Path("results/cifar_full_case0_20261019/f21e608c-059f-4dce-afe0-6edf5c26133c/manifest.json"); m=json.loads(p.read_text()); print({k:m.get(k) for k in ("status","source","scope","impacts","pulses")}); assert m["status"]=="completed" and m["source"]=="hardware" and m["scope"]=="full"; actual={f.relative_to(p.parent).as_posix() for f in p.parent.rglob("*") if f.is_file()}; assert actual==set(m["result_sha256"])|{"manifest.json"}; print("inventory files",len(actual)); assert not Path("results/read_all/.hardware.lock").exists()'
 ```
 
 Ошибка/отсутствующий manifest/оставшийся lock — остановка процедуры, а не
@@ -30,23 +34,14 @@ ps -p 18068 -o pid,stat,etime,args
 данные. Ключи финального manifest именно `impacts` и `pulses`: их возвращает
 `Collector.run()`, затем entrypoint переносит через `manifest.update(result)`.
 Не путать с `native_impacts`/`programming_pulses` внутри raw-аудита.
-Для completed выполнить **до fetch/merge**:
+Проверка выше читает только manifest и имена файлов; это лёгкая проверка
+завершения/inventory, **не strict raw audit**. Manifest, start_manifest,
+protocol, INI, SHA исходников и сырой журнал остаются неизменными. На Pi
+не запускать тяжёлый classifier/replay даже при наличии `.deps-classifier`.
 
-```bash
-../../.venv/bin/python -B experiments/cifar_full_case0_20261019/classifier.py --session results/cifar_full_case0_20261019/f21e608c-059f-4dce-afe0-6edf5c26133c --output reports/2026-10-19/cifar-full-case0-review/NATIVE_HW_FULL_CLASSIFIER.json
-```
+## После сбора: обновить Git без массового LFS, опубликовать именно результат
 
-Classifier проверяет источник/manifest/raw, выполняет strict replay и затем
-CPU/raw/C downstream. Он не открывает плату. На Pi проверено наличие
-**checkout-local `.deps-classifier/torch`** и `../../.venv/bin/python`.
-Сам classifier добавляет `.deps-classifier` и `.deps` этого checkout в импорт;
-`PYTHONPATH` и родительский `.deps-classifier` не нужны. Существующий отчёт
-не перезаписывать. Exit0 и созданный отчёт означают завершение аудита,
-но не автоматически хорошую точность; проверить silence/ties отдельно.
-
-## После аудита: обновить Git без массового LFS, опубликовать именно результат
-
-Remote уже впереди стартового Pi HEAD. Сначала сохранить аудит на диске,
+Remote уже впереди стартового Pi HEAD. Сначала дождаться финальных raw/provenance,
 затем fast-forward; коммит результатов **после FF**, чтобы не создать
 расхождение веток. При любой ошибке FF остановиться, не делать reset/stash
 или принудительное слияние автоматически.
@@ -68,10 +63,11 @@ git diff --cached --name-only
 ```
 
 До добавления новых файлов index должен быть пуст. Добавить только текущую
-сессию и её отчёт; не `git add results/` и не `git add .`:
+сессию; будущий локальный отчёт пока не существует. Не `git add results/`
+и не `git add .`:
 
 ```bash
-git add -- results/cifar_full_case0_20261019/f21e608c-059f-4dce-afe0-6edf5c26133c reports/2026-10-19/cifar-full-case0-review/NATIVE_HW_FULL_CLASSIFIER.json
+git add -- results/cifar_full_case0_20261019/f21e608c-059f-4dce-afe0-6edf5c26133c
 ```
 
 ```bash
@@ -79,7 +75,7 @@ git diff --cached --stat
 ```
 
 ```bash
-git -c core.hooksPath=.githooks commit -m "Record full CIFAR MemriBoard hardware case0 and strict audit"
+git -c core.hooksPath=.githooks commit -m "Preserve full CIFAR hardware raw and provenance for local audit"
 ```
 
 Этот commit запускает штатный secret-check staged Git и проверку содержимого
@@ -96,13 +92,28 @@ git -c gc.auto=0 -c credential.helper='cache --timeout=43200' -c core.hooksPath=
 настроенный credential helper/скрытый ввод; PAT не помещать в команду или URL.
 Если remote успел измениться, не использовать force push.
 
-После независимого review полного аппаратного отчёта выполнить на Pi
-[сравнение завершённых SIM/HW отчётов](CIFAR_FULL_REPORT_COMPARISON_20261019.md).
-Оно использует опубликованный отдельный инструмент и обе точные сессии,
-проверяет исходники, декодеры/тишину и метрики; raw SIM повторно не скачивается.
-Сохранённый `FULL_SIM_HARDWARE_COMPARISON.json` также проверить и опубликовать
-отдельным коммитом с теми же hooks в `codex/full-cifar-diagnostic`.
-Это сравнение ещё не выполнено; результат нынешнего аппаратного сбора ожидается.
+Публикация неизменных raw/provenance предшествует тяжёлому локальному аудиту
+и сама по себе не означает PASS или точность классификации.
+
+## Локально: сначала квалифицировать перенос аудита
+
+После публикации получить в локальный checkout именно аппаратную сессию через
+Git/LFS, проверить все content SHA и происхождение. Затем подготовить strict
+raw audit/classifier и [сравнение SIM/HW](CIFAR_FULL_REPORT_COMPARISON_20261019.md)
+в локальной согласованной среде. Старые отчёты и семь frozen CIFAR sources
+не переписывать. Сам classifier ищет `.deps-classifier` и `.deps` относительно
+checkout; наличие папок ещё не квалифицирует платформу.
+
+**Локальный перенос пока не прошёл квалификацию.** Нужно отдельно решить
+наличие/проверку записанных SHA приватного MemriCORE без его публикации и
+проверить платформенные численные различия, особенно rank7 и выбор матрицы C.
+Нельзя пропускать private-SHA проверки, подменять матрицу, менять допуски или
+объявлять Windows replay эквивалентным Pi без review. До этой квалификации
+нет утверждённой команды локального аппаратного classifier. Это ограничение
+не является разрешением перенести тяжёлую обработку обратно на Pi.
+После квалификации и успешного аудита отчёт создаётся новым файлом локально,
+проверяется независимо и публикуется отдельным коммитом. Проверять silence/ties
+отдельно от целостности сбора.
 
 ## После освобождения платы: STDP v2
 
@@ -138,19 +149,19 @@ git lfs pull origin --include="results/conductance_stdp_calibrated_20261019/d27d
 STDP_SESSION=results/conductance_stdp_hardware_20261019/REPLACE_WITH_ACTUAL_UUID
 ```
 
-```bash
-../../.venv/bin/python -B tools/audit_conductance_stdp_hardware.py --session "$STDP_SESSION" --output reports/2026-10-19/conductance-stdp-calibrated-review/NATIVE_HW_SUPPLEMENTAL_AUDIT.json
-```
-
-Нужен именно supplemental hardware auditor: он проверяет новый launcher и
+Сохранить final status, raw, observations и provenance; публиковать их с Pi
+для последующего **локального** аудита. Нужен supplemental hardware auditor
+`tools/audit_conductance_stdp_hardware.py`: он проверяет новый launcher и
 квалификацию, затем вызывает frozen native raw replay. Один старый SIM auditor
 не проверяет все поля нового аппаратного запуска. Ошибка запуска/аудита
 сохраняется как результат; следующий эксперимент автоматически не стартует.
 
-Для публикации этого результата также использовать только точную сессию:
+Его локальная среда и private source-SHA проверки также требуют квалификации;
+на Pi не запускать raw replay/postprocessing. Для публикации исходных данных
+использовать только точную сессию, без ещё не существующего отчёта:
 
 ```bash
-git add -- "$STDP_SESSION" reports/2026-10-19/conductance-stdp-calibrated-review/NATIVE_HW_SUPPLEMENTAL_AUDIT.json
+git add -- "$STDP_SESSION"
 ```
 
 ```bash
@@ -158,7 +169,7 @@ git diff --cached --stat
 ```
 
 ```bash
-git -c core.hooksPath=.githooks commit -m "Record calibrated conductance STDP hardware and supplemental audit"
+git -c core.hooksPath=.githooks commit -m "Preserve calibrated conductance STDP hardware raw for local audit"
 ```
 
 ```bash
@@ -172,9 +183,14 @@ failed-сессии, которую supplemental auditor отклоняет, п�
 
 ## Локальный MNIST
 
-Текущий full STDP UUID `7a536bf8-0269-4edd-b454-a8ba2c33c219` проверять только
-после `manifest.json: completed`. Точная foreground команда и интерпретация
-exit3/`review_required` опубликованы в
-[MNIST_FULL_FINAL_AUDIT_20261019.md](MNIST_FULL_FINAL_AUDIT_20261019.md).
-Это отдельный CPU-аудит сохранённых данных в `.venv-mnist-pilot`, без повторного
+Сессия `7a536bf8-0269-4edd-b454-a8ba2c33c219` **остановлена после head epoch5**,
+это partial, а не completed full-run; финальной test accuracy нет. Не запускать
+на ней completed-only финальный аудит и не менять её исходники/артефакты.
+`python_refactor` готовит отдельный локальный recovery, validator проверяет
+его контракт; восстановление не считать уже выполненным.
+Требования completed-only проверки и интерпретация exit3/`review_required` в
+[MNIST_FULL_FINAL_AUDIT_20261019.md](MNIST_FULL_FINAL_AUDIT_20261019.md)
+относятся к будущему завершённому квалифицированному результату; команда со
+старым UUID не превращает partial в полный результат. Это CPU-аудит в
+локальной `.venv-mnist-pilot`, без повторного
 обучения, GPU или платы. Старый smoke128 auditor для full результата не подходит.

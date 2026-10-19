@@ -11,10 +11,15 @@
 & .venv-mnist-pilot/Scripts/python.exe -B -m unittest tests.test_compare_full_cifar_reports -v
 ```
 
-Основную команду выполнять на Raspberry из проверенного Git checkout после
-завершения обоих classifier reports и независимого ревью. Windows checkout
-не содержит приватный rpi_FPGAed.py: проверка там обязана остановиться.
-Для Pi нужны оба отчёта и manifest/protocol sidecars после обновления Git,
+По актуальному уточнению пользователя postprocessing выполняется **локально**,
+а Pi остаётся для physical MemriBoard acquisition. Прежнее требование выполнить
+команду на Raspberry отменено. Локальный перенос ещё не квалифицирован:
+нужно проверить приватные source-SHA без публикации исходников и платформенные
+численные различия (включая rank7/выбор C). Если private `rpi_FPGAed.py`
+отсутствует, нынешняя проверка обязана остановиться; её нельзя пропустить.
+Команда ниже — интерфейс будущего локального запуска **после квалификации**,
+завершения обоих classifier reports и независимого ревью. Нужны оба отчёта
+и manifest/protocol sidecars после обновления Git,
 но скачивать raw SIM (сотни МБ) для этой утилиты не требуется.
 Ниже команда для текущей аппаратной сессии
 `f21e608c-059f-4dce-afe0-6edf5c26133c`. Её данные ещё не готовы:
@@ -22,8 +27,8 @@
 аудита и создания `NATIVE_HW_FULL_CLASSIFIER.json`. Указание имени будущего
 отчёта не означает, что результат уже существует.
 
-```bash
-python3 -B tools/compare_full_cifar_reports.py --sim-report reports/2026-10-19/cifar-full-case0-review/NATIVE_SIM_FULL_CLASSIFIER.json --hardware-report reports/2026-10-19/cifar-full-case0-review/NATIVE_HW_FULL_CLASSIFIER.json --sim-session results/cifar_full_case0_20261019/5ee64f20-d499-40df-a742-95a76d2dc386 --hardware-session results/cifar_full_case0_20261019/f21e608c-059f-4dce-afe0-6edf5c26133c --output reports/2026-10-19/cifar-full-case0-review/FULL_SIM_HARDWARE_COMPARISON.json
+```powershell
+& .venv-mnist-pilot/Scripts/python.exe -B tools/compare_full_cifar_reports.py --sim-report reports/2026-10-19/cifar-full-case0-review/NATIVE_SIM_FULL_CLASSIFIER.json --hardware-report reports/2026-10-19/cifar-full-case0-review/NATIVE_HW_FULL_CLASSIFIER.json --sim-session results/cifar_full_case0_20261019/5ee64f20-d499-40df-a742-95a76d2dc386 --hardware-session results/cifar_full_case0_20261019/f21e608c-059f-4dce-afe0-6edf5c26133c --output reports/2026-10-19/cifar-full-case0-review/FULL_SIM_HARDWARE_COMPARISON.json
 ```
 
 Выходной файл создаётся только новым; история не перезаписывается. Утилита
