@@ -1,0 +1,69 @@
+{
+  "review_scope": "native_sim_only",
+  "native_sim_source_review": "pass",
+  "hardware_approved": false,
+  "native_execution_performed_by_reviewer": false,
+  "protocol": {
+    "schema": "conductance-stdp-v1",
+    "bl": [
+      6,
+      8,
+      9,
+      14
+    ],
+    "wl": [
+      5,
+      7
+    ],
+    "amplitude_v": 0.05,
+    "reset_v": 1.4,
+    "set_v": 1.7,
+    "maximum_impacts": 6712,
+    "maximum_pulses": 128,
+    "training_windows": 16,
+    "probe_windows_per_phase": 4,
+    "timesteps": 16,
+    "lif_leak": 0.5,
+    "lif_gain": 100.0,
+    "lif_threshold": 1.0,
+    "trace_tau": 4.0,
+    "depression_factor": 1.05,
+    "eligibility_threshold": 0.25,
+    "retention_seconds": 60.0,
+    "simulator_pulse_width_s": 0.0001,
+    "hardware_submitted_width_s": 0.0,
+    "hardware_physical_width_s": null,
+    "seed": 20261019
+  },
+  "protocol_sha256": "72f6b41aec3a22ed7286ec6e063d125ed2c23cc3220b3b87a118b0f8a954eb68",
+  "file_sha256": {
+    "core.py": "005586394be54aad0ac7d116c729d7b733628161ef7a442975ee9b94209aa86f",
+    "experiment.py": "76e5d8974d4df6c7d3a28a615bc5314ec092c0bbef97d9e10e4bee485c4aa39c",
+    "PROTOCOL.md": "b129f63211bc9ce2a55a461afaa221aff0e53813cc3ed281f48f1ecb51bb1084",
+    "raw.py": "bb52dad606db21cf57cea6aa908882cac07fa5955b47c4c9b1e2c85329bba8a7",
+    "README.md": "ff7cf03b8a346c52ceea80b91d63aa6b05fb2dc8d54510521a5fac2753f56bbf",
+    "REVIEW.md": "e4b89f68db10009a5c24f95e1e3b6bec52dbcb46e8dc155427b6468e5cb7443b"
+  },
+  "maximum_impacts": 6712,
+  "maximum_nonzero_pulses": 128,
+  "fixed_mode10": 4776,
+  "checkpoint_count": 232,
+  "windows": 28,
+  "digital_lif_steps": 896,
+  "tests_reported_by_authors": "10/10 offline passed; includes fake complete gzip evidence replay and hardware gate/core hash rejection",
+  "dry_run_reported_by_author": "simulator registration/source validation passed; no Connector opened",
+  "io_review": "public MemriBoard Connector, native converters and INI-selected driver only; no direct transport or dynamic driver import",
+  "scientific_limits": [
+    "Logical window-batched STDP, not intrinsic physical delta-t STDP",
+    "Both banks receive preparation; control receives no training pulses",
+    "Fresh initial states required; historic q matching is not transfer equivalence",
+    "Silent or saturated fixed LIF can be uninformative; no posthoc retuning",
+    "Training MVM changes measured per window, not immediately after each pulse",
+    "No network accuracy claim"
+  ],
+  "required_after_native_sim": [
+    "Actual raw/source/manifest audit",
+    "Independent ADC to LIF to eligibility and pulse-decision replay",
+    "No hardware run before separate qualification and CIFAR completion"
+  ]
+}

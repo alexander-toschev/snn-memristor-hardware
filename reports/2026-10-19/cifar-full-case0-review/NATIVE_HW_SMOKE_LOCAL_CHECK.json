@@ -1,0 +1,15 @@
+{
+  "session_id": "355349c5-c446-48e6-9156-8d7d9161c2f3",
+  "local_source_files_missing": [
+    "vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py",
+    "vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py"
+  ],
+  "errors": [],
+  "result_files_verified": 6,
+  "local_source_files_verified": 72,
+  "local_full_source_verification": false,
+  "manifest_sha256": "a41c00c9a1ea8d5615fd2a2d77c43781be4f3b2aa1b8af055b1ab54975612a32",
+  "local_registered_raw_replay": "failed",
+  "replay_error": "ValueError('Independent numeric calibration replay differs')",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 16, in <module>\n  File \"D:\\projects\\memristor-aware-twd-snn\\.tmp\\publish-data-20261017\\experiments\\cifar_full_case0_20261019\\audit_native.py\", line 305, in audit\n    numerically_same(matrix,event['matrix']);matrix=event['matrix']\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\projects\\memristor-aware-twd-snn\\.tmp\\publish-data-20261017\\experiments\\cifar_full_case0_20261019\\audit_native.py\", line 28, in numerically_same\n    for k in a:numerically_same(a[k],b[k])\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\projects\\memristor-aware-twd-snn\\.tmp\\publish-data-20261017\\experiments\\cifar_full_case0_20261019\\audit_native.py\", line 33, in numerically_same\n    if not math.isclose(a,b,rel_tol=1e-10,abs_tol=1e-10):raise ValueError('Independent numeric calibration replay differs')\n                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Independent numeric calibration replay differs\n"
+}
