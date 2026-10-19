@@ -3,7 +3,10 @@
 results/**/*.jsonl filter=lfs diff=lfs merge=lfs -text
 results/**/*.gz filter=lfs diff=lfs merge=lfs -text
 results/**/array.cb filter=lfs diff=lfs merge=lfs -text
+results/**/*.npy filter=lfs diff=lfs merge=lfs -text
+results/**/*.pt filter=lfs diff=lfs merge=lfs -text
 weights/*.pt filter=lfs diff=lfs merge=lfs -text
 weights/*.npy filter=lfs diff=lfs merge=lfs -text
 weights/mnist_baseline_20261019/*.pt filter=lfs diff=lfs merge=lfs -text
 experiments/mnist_baseline_20261019/data/MNIST/raw/*.gz filter=lfs diff=lfs merge=lfs -text
+results/mnist_full_recovery_20261019/**/*.npy filter=lfs diff=lfs merge=lfs -text

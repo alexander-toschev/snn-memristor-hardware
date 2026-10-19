@@ -1,0 +1,78 @@
+{
+  "review_status": "conditional_only_pending_full_native_SIM_and_classifier",
+  "hardware_started_by_reviewer": false,
+  "full_hardware_unconditional_go": false,
+  "additional_protocol_blocker_found": false,
+  "canonical_protocol_sha256": "2cb1d57689508725f7155bf7b1d0d17fec9d4f6b65782171e2b85481bc9aa558",
+  "source_sha256": {
+    "audit_native.py": "d3cd8bf2cf11512f81aabff0300c5fde391dad240fd9008834150e698910e717",
+    "classifier.py": "64ba6e85cda19367f93a0c8294f77b6c9b6f5f26cbf40d188685bc47430053e5",
+    "collector.py": "03c6121560ca558904c5722228b4c1a6e7e8eb6d7264b6fb6f18cc393b2e5c21",
+    "experiment.py": "5e8647da40961558fd76276d7a5b5eef188e57b77dfb44478a86cb2e376a70cf",
+    "plan.py": "d795d6f820eeacca36e6746746bcfd558850bc5d1bedce32cc969820b3ce94d7",
+    "reconstruct.py": "516810cdc7d8a23d18d3487c98bf0de53659bd6f82bc126c43d9481a46ade9b7",
+    "trace.py": "c8093a346b46f2124b389fe9bd7f9d1fea6ac161dce7892df70181b058542d37"
+  },
+  "protocol_file_sha256": "fdb1acd5837b21c133f59f8bd67a2031cb9d411f68f83733d87aa00f2a45b2c9",
+  "hardware_smoke_strict_pi_audit_status": "pass",
+  "hardware_smoke_audit_report_sha256": "ea522d36236e72a0b007845dc06c017ac8ba6d549ab7b3a9674a8e32f31e12c8",
+  "hardware_smoke_sources_matching_local": 72,
+  "hardware_smoke_private_sources_absent_local": [
+    "vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py",
+    "vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py"
+  ],
+  "full_sim_session": "results/cifar_full_case0_20261019/5ee64f20-d499-40df-a742-95a76d2dc386",
+  "full_sim_start_source_files_verified": 73,
+  "full_sim_completed_manifest_present": false,
+  "operator_reported_pi_preflight": {
+    "commit": "c9d39ed4cd854c529f01806d05afb256b3e49230",
+    "clean_tracked": true,
+    "hardware_full_preflight": "pass",
+    "free_gib": 77.39,
+    "independently_repeated_by_this_reviewer": false
+  },
+  "io_route": "Public MemriBoard Connector; native converters; normal INI/parameter driver selection; no direct transport or dynamic driver import",
+  "coverage": {
+    "unique_physical_cells": 256,
+    "simultaneous_differential_filters": 4,
+    "active_input_BL_per_impact_max": 4,
+    "coefficient_weights": 4800,
+    "stages": 48,
+    "spatial_positions": 784,
+    "logical_timesteps": 12,
+    "full_partial_elements": 1806336
+  },
+  "bounds": {
+    "max_programming_pulses": 115200,
+    "max_impacts": 15000000,
+    "computed_impact_upper": 14457648,
+    "raw_expanded_limit_gib": 32,
+    "initial_free_required_gib": 72,
+    "runtime_free_reserve_gib": 8,
+    "read_v": 0.05,
+    "programming_levels_v": [
+      0.3,
+      0.6,
+      0.9,
+      1.2,
+      1.5,
+      2,
+      2.5,
+      3
+    ]
+  },
+  "pending_before_full_HW": [
+    "Completed full native SIM manifest plus exact raw/source/result integrity",
+    "Registered auditor complete_full_tensor 4800 coefficients and 1806336 partial values; no missing fill",
+    "Actual classifier integration raw and calibrated plus digital CPU checkpoint control",
+    "Same frozen source/INI/private driver pins and storage checks on Raspberry at launch"
+  ],
+  "persistent_limitations": [
+    "HW smoke weight error raw1106%/calibrated1052% is accepted approximate outcome, not useful-weight qualification",
+    "Source-specific HW .125 versus SIM .015 gain is a comparison confound",
+    "Windows replay condition-number mismatch remains FAIL; hardware strict audit/classifier must run on qualified Pi environment",
+    "Physical pulse duration unknown; long-run drift not proven",
+    "One case is not dataset accuracy; CPU case0 itself misclassified",
+    "Hard safety/transport/raw/budget failures must stop; never bypass MemriBoard"
+  ]
+}
