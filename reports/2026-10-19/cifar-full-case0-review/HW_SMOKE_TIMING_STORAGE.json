@@ -1,0 +1,351 @@
+{
+  "session": "results/cifar_full_case0_20261019/355349c5-c446-48e6-9156-8d7d9161c2f3",
+  "manifest_sha256": "a41c00c9a1ea8d5615fd2a2d77c43781be4f3b2aa1b8af055b1ab54975612a32",
+  "source": "hardware",
+  "scope": "smoke",
+  "status": "completed",
+  "started_utc": "2026-10-19T08:35:54.187606+00:00",
+  "finished_utc": "2026-10-19T08:42:46.193896+00:00",
+  "impacts": 145162,
+  "pulses": 4545,
+  "latencies": {
+    "read": {
+      "n": 53001,
+      "sum_s": 126.4946647790157,
+      "mean_s": 0.0023866467572124244,
+      "median_s": 0.002373323000028904,
+      "p05_s": 0.002358434999223391,
+      "p95_s": 0.002429287000268232,
+      "min_s": 0.0022951009996177163,
+      "max_s": 0.00712852499964356
+    },
+    "reset": {
+      "n": 2518,
+      "sum_s": 6.006222123026419,
+      "mean_s": 0.0023853145842042964,
+      "median_s": 0.0023747950003780716,
+      "p05_s": 0.0023620279998795013,
+      "p95_s": 0.0024261389999082894,
+      "min_s": 0.002331064999452792,
+      "max_s": 0.003243215000111377
+    },
+    "mode10": {
+      "n": 87616,
+      "sum_s": 264.45568932191145,
+      "mean_s": 0.003018349266365863,
+      "median_s": 0.002985290000196983,
+      "p05_s": 0.0029554370003097574,
+      "p95_s": 0.0031291979994421126,
+      "min_s": 0.0028815660007239785,
+      "max_s": 0.008643142999972042
+    },
+    "set": {
+      "n": 2027,
+      "sum_s": 4.85524558902398,
+      "mean_s": 0.0023952864277375333,
+      "median_s": 0.0023819349999030237,
+      "p05_s": 0.002366822999647411,
+      "p95_s": 0.002436064999528753,
+      "min_s": 0.0023080279997884645,
+      "max_s": 0.0032647550006004167
+    }
+  },
+  "group_counts": {
+    "programming": {
+      "read": 23161,
+      "reset": 2518,
+      "mode10": 55848,
+      "set": 2027
+    },
+    "calibration": {
+      "mode10": 31392,
+      "read": 29256
+    },
+    "inference": {
+      "mode10": 376,
+      "read": 584
+    }
+  },
+  "stage_latencies": {
+    "0": {
+      "read": {
+        "n": 20670,
+        "sum_s": 49.32711898404705,
+        "mean_s": 0.0023864111748450436,
+        "median_s": 0.0023739729995213565,
+        "p05_s": 0.0023585649996675784,
+        "p95_s": 0.002427751000141143,
+        "min_s": 0.0022951009996177163,
+        "max_s": 0.006415451000066241
+      },
+      "reset": {
+        "n": 1227,
+        "sum_s": 2.9217739250107115,
+        "mean_s": 0.002381233842714516,
+        "median_s": 0.002374158000748139,
+        "p05_s": 0.0023611019996678806,
+        "p95_s": 0.002411973000562284,
+        "min_s": 0.0023316770002566045,
+        "max_s": 0.002858568000192463
+      },
+      "mode10": {
+        "n": 35960,
+        "sum_s": 108.52013689902287,
+        "mean_s": 0.003017801359817099,
+        "median_s": 0.002985530999922048,
+        "p05_s": 0.0029542720003519207,
+        "p95_s": 0.0031257159998858697,
+        "min_s": 0.0028877349996037083,
+        "max_s": 0.007878457000515482
+      },
+      "set": {
+        "n": 915,
+        "sum_s": 2.192595289014207,
+        "mean_s": 0.0023962790043871116,
+        "median_s": 0.0023823249994165963,
+        "p05_s": 0.002366325000366487,
+        "p95_s": 0.002448010000080103,
+        "min_s": 0.0023080279997884645,
+        "max_s": 0.0032647550006004167
+      }
+    },
+    "1": {
+      "read": {
+        "n": 19572,
+        "sum_s": 46.71174088597945,
+        "mean_s": 0.0023866616025944947,
+        "median_s": 0.0023728600008325884,
+        "p05_s": 0.0023584529999425285,
+        "p95_s": 0.0024313060002896236,
+        "min_s": 0.0022968590001255507,
+        "max_s": 0.00712852499964356
+      },
+      "reset": {
+        "n": 996,
+        "sum_s": 2.377943581026557,
+        "mean_s": 0.002387493555247547,
+        "median_s": 0.0023750550003569515,
+        "p05_s": 0.0023631019994354574,
+        "p95_s": 0.002432602000226325,
+        "min_s": 0.002331064999452792,
+        "max_s": 0.003124437000224134
+      },
+      "mode10": {
+        "n": 34360,
+        "sum_s": 103.64609685792675,
+        "mean_s": 0.0030164754615228974,
+        "median_s": 0.0029831960000592517,
+        "p05_s": 0.002954825999950117,
+        "p95_s": 0.00311984499967366,
+        "min_s": 0.0028815660007239785,
+        "max_s": 0.008643142999972042
+      },
+      "set": {
+        "n": 848,
+        "sum_s": 2.0303767320037878,
+        "mean_s": 0.0023943121839667307,
+        "median_s": 0.002381231000072148,
+        "p05_s": 0.002366601999710838,
+        "p95_s": 0.002428472000246984,
+        "min_s": 0.002337656999770843,
+        "max_s": 0.002997807000610919
+      }
+    },
+    "2": {
+      "read": {
+        "n": 12759,
+        "sum_s": 30.455804908989194,
+        "mean_s": 0.0023870056359424087,
+        "median_s": 0.0023729519998596516,
+        "p05_s": 0.002358249000280921,
+        "p95_s": 0.002429970999401121,
+        "min_s": 0.00229624799976591,
+        "max_s": 0.007115931000043929
+      },
+      "reset": {
+        "n": 295,
+        "sum_s": 0.7065046169891502,
+        "mean_s": 0.002394930905047967,
+        "median_s": 0.002376360000198474,
+        "p05_s": 0.0023632489992451156,
+        "p95_s": 0.0025868230004562065,
+        "min_s": 0.002340379000088433,
+        "max_s": 0.003243215000111377
+      },
+      "mode10": {
+        "n": 17296,
+        "sum_s": 52.28945556496183,
+        "mean_s": 0.0030232108906661555,
+        "median_s": 0.0029884084997320315,
+        "p05_s": 0.002960009999696922,
+        "p95_s": 0.0031418629996551317,
+        "min_s": 0.0028844909993495094,
+        "max_s": 0.0071359319999828585
+      },
+      "set": {
+        "n": 264,
+        "sum_s": 0.632273568005985,
+        "mean_s": 0.0023949756363863066,
+        "median_s": 0.0023833599998397403,
+        "p05_s": 0.0023716200003036647,
+        "p95_s": 0.0024261000007754774,
+        "min_s": 0.0023475819998566294,
+        "max_s": 0.0028366950000418
+      }
+    }
+  },
+  "wall_seconds": 412.00629,
+  "timed_call_sum_seconds": 401.81182181297754,
+  "outside_timed_call_seconds": 10.194468187022437,
+  "outside_timed_call_per_impact_s": 7.022821528376874e-05,
+  "raw_expanded_bytes": 134006138,
+  "raw_compressed_bytes": 10761460,
+  "raw_group_bytes": {
+    "other": 1356,
+    "programming": 79636753,
+    "calibration": 53560019,
+    "inference": 808010
+  },
+  "raw_group_class_bytes": {
+    "other:metadata": 1356,
+    "programming:metadata": 4582206,
+    "programming:read": 14309413,
+    "programming:reset": 1380870,
+    "programming:mode10": 58260280,
+    "programming:set": 1103984,
+    "calibration:mode10": 32685971,
+    "calibration:metadata": 2577063,
+    "calibration:read": 18296985,
+    "inference:metadata": 32283,
+    "inference:mode10": 395811,
+    "inference:read": 379916
+  },
+  "event_counts": {
+    "session_begin": 1,
+    "stage_begin": 3,
+    "coefficient_begin": 300,
+    "request": 145162,
+    "result": 145162,
+    "driver_output": 175232,
+    "vector_complete": 10952,
+    "coefficient_complete": 300,
+    "programming_complete": 3,
+    "basis_complete": 3,
+    "worst_four_guard_passed": 3,
+    "calibration_frozen": 3,
+    "heldout_complete": 3,
+    "position_begin": 3,
+    "position_complete": 3,
+    "stage_complete": 3,
+    "session_complete": 1
+  },
+  "raw_hashes_verified": true,
+  "full_fixed_inference_calibration_counts": {
+    "read": 7209008,
+    "mode10": 5635840,
+    "reset": 0,
+    "set": 0
+  },
+  "full_fixed_timed_mean_h": 9.50452474868717,
+  "full_projections": {
+    "observed_300_weight_workload_times_16": {
+      "call_counts": {
+        "read": 7579584,
+        "mode10": 6529408,
+        "reset": 40288,
+        "set": 32432
+      },
+      "total_impacts": 14181712,
+      "programming_counts": {
+        "read": 370576,
+        "reset": 40288,
+        "mode10": 893568,
+        "set": 32432
+      },
+      "timed_calls_h": {
+        "p05_s": 10.373647879459964,
+        "mean_s": 10.547668584615383,
+        "p95_s": 10.839318354965398
+      },
+      "outside_timed_calls_h_at_smoke_per_call_rate": 0.27665453428566844,
+      "combined_h_sensitivity": {
+        "p05_s": 10.650302413745633,
+        "mean_s": 10.824323118901052,
+        "p95_s": 11.115972889251067
+      },
+      "storage_projection": {
+        "expanded_bytes": 12361240307.27298,
+        "expanded_GiB": 11.5123021484101,
+        "compressed_GiB_at_observed_ratio": 0.924503764730757,
+        "observed_compressed_over_expanded": 0.0803057245034552,
+        "expanded_GiB_with_10pct_size_sensitivity": 12.663532363251111
+      }
+    },
+    "maximum_allowed_programming_workload": {
+      "call_counts": {
+        "read": 7669808,
+        "mode10": 6672640,
+        "reset": 76800,
+        "set": 38400
+      },
+      "total_impacts": 14457648,
+      "programming_counts": {
+        "read": 460800,
+        "mode10": 1036800,
+        "reset": 76800,
+        "set": 38400
+      },
+      "timed_calls_h": {
+        "p05_s": 10.578222367735462,
+        "mean_s": 10.755736555349287,
+        "p95_s": 11.05334693864599
+      },
+      "outside_timed_calls_h_at_smoke_per_call_rate": 0.282037448955819,
+      "combined_h_sensitivity": {
+        "p05_s": 10.860259816691281,
+        "mean_s": 11.037774004305106,
+        "p95_s": 11.33538438760181
+      },
+      "storage_projection": {
+        "expanded_bytes": 12601426984.463566,
+        "expanded_GiB": 11.735993422999574,
+        "compressed_GiB_at_observed_ratio": 0.942467454601766,
+        "observed_compressed_over_expanded": 0.0803057245034552,
+        "expanded_GiB_with_10pct_size_sensitivity": 12.909592765299532
+      }
+    }
+  },
+  "projection_notes": [
+    "Conditioned on unchanged frozen protocol and successful complete run; no guarantee about drift, errors, current guards or future latencies.",
+    "p05/p95 multiplication is a sensitivity scenario, NOT a confidence interval or predicted percentile of whole-run duration.",
+    "Timed call latency includes driver-output capture; outside-call residual includes initialization, Python, compression/logging and closing.",
+    "Observed programming is first300 coefficients only, multiplied16; different weights/states can change attempts and failures.",
+    "Metadata byte projection scales by phase mode10 count; IDs/coordinates/driver output entropy may change. Compression ratio from2 short smoke chunks is not guaranteed.",
+    "32GiB expanded raw cap, 72GiB preflightfree and8GiB runtimefree guards remain unchanged."
+  ],
+  "manifest_result_hashes_verified": true,
+  "manifest_counters_match_raw": true,
+  "invocation": {
+    "git": {
+      "commit": "662a420ed532644bd4b487a9bce02adb400e363d",
+      "dirty_tracked": false,
+      "untracked": [
+        "reports/2026-10-19/cifar-full-case0-review/pi-cpu-bridge-case0.json",
+        "results/cifar_full_case0_20261019/355349c5-c446-48e6-9156-8d7d9161c2f3/",
+        "results/read_all/"
+      ],
+      "status_porcelain": "?? reports/2026-10-19/cifar-full-case0-review/pi-cpu-bridge-case0.json\n?? results/cifar_full_case0_20261019/355349c5-c446-48e6-9156-8d7d9161c2f3/\n?? results/read_all/"
+    },
+    "process_argv": [
+      "experiments/cifar_full_case0_20261019/experiment.py",
+      "--run-hardware",
+      "--scope",
+      "smoke"
+    ],
+    "hardware_argv": [
+      "--run-hardware",
+      "--scope",
+      "smoke"
+    ]
+  }
+}
