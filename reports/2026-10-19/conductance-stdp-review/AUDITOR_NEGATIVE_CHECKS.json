@@ -1,0 +1,25 @@
+{
+  "method": "In-memory Path read mocks; original files unchanged; numeric/timing/guard cases have recomputed raw/index/manifest hashes",
+  "checks": [
+    {
+      "case": "raw_hash_corruption",
+      "rejected": true,
+      "reason": "Result bytes mismatch: raw/raw.jsonl.gz"
+    },
+    {
+      "case": "rehashed_lif_corruption",
+      "rejected": true,
+      "reason": "Numeric replay mismatch: 0.1 != 0.0"
+    },
+    {
+      "case": "rehashed_timing_corruption",
+      "rejected": true,
+      "reason": "Input timing mismatch"
+    },
+    {
+      "case": "rehashed_guard_corruption",
+      "rejected": true,
+      "reason": "Pulse current exceeded"
+    }
+  ]
+}

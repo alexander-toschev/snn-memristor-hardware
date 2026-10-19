@@ -1,0 +1,46 @@
+{
+  "auditor_sha256": "4ae6a2f37c96fabaf91c9ac23ce9606514332ba18fb02e9940a48d24781b3c41",
+  "method": "In-memory Path read mocks; raw/index/manifest hashes recomputed except deliberate raw corruption; original acquisition files unchanged",
+  "checks": [
+    {
+      "case": "raw_hash_corruption",
+      "rejected": true,
+      "reason": "Result bytes mismatch: raw/raw.jsonl.gz"
+    },
+    {
+      "case": "rehashed_lif_corruption",
+      "rejected": true,
+      "reason": "Numeric replay mismatch: 0.1 != 0.0"
+    },
+    {
+      "case": "rehashed_timing_corruption",
+      "rejected": true,
+      "reason": "Input timing mismatch"
+    },
+    {
+      "case": "rehashed_guard_corruption",
+      "rejected": true,
+      "reason": "Pulse current exceeded"
+    },
+    {
+      "case": "rehashed_bracket_duplicate_reference",
+      "rejected": true,
+      "reason": "Bracket task IDs must be distinct and chronological with only its fresh guard between"
+    },
+    {
+      "case": "rehashed_top_bracket_reuse",
+      "rejected": true,
+      "reason": "Duplicate top-level bracket"
+    },
+    {
+      "case": "rehashed_checkpoint_read_other_cell",
+      "rejected": true,
+      "reason": "Checkpoint read cell/mode differs"
+    },
+    {
+      "case": "rehashed_nested_bracket_other_cell",
+      "rejected": true,
+      "reason": "Checkpoint MVM cell differs"
+    }
+  ]
+}

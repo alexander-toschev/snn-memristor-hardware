@@ -1,0 +1,32 @@
+{
+  "schema": "conductance-stdp-v1",
+  "bl": [
+    6,
+    8,
+    9,
+    14
+  ],
+  "wl": [
+    5,
+    7
+  ],
+  "amplitude_v": 0.05,
+  "reset_v": 1.4,
+  "set_v": 1.7,
+  "maximum_impacts": 6712,
+  "maximum_pulses": 128,
+  "training_windows": 16,
+  "probe_windows_per_phase": 4,
+  "timesteps": 16,
+  "lif_leak": 0.5,
+  "lif_gain": 100.0,
+  "lif_threshold": 1.0,
+  "trace_tau": 4.0,
+  "depression_factor": 1.05,
+  "eligibility_threshold": 0.25,
+  "retention_seconds": 60.0,
+  "simulator_pulse_width_s": 0.0001,
+  "hardware_submitted_width_s": 0.0,
+  "hardware_physical_width_s": null,
+  "seed": 20261019
+}
