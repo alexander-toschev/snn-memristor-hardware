@@ -1,0 +1,11 @@
+# STDP v2: независимый review аппаратного launcher
+
+**GO только после завершения CIFAR на плате и свежего строгого preflight на Raspberry.** Точные исходники/квалификация закреплены в [SOURCE_FREEZE.json](SOURCE_FREEZE.json). Новый launcher находится вне frozen SIM directory; прежние core, entry, protocol и auditor не меняются.
+
+Проверен полный код нового launcher и supplemental auditor. Launcher проверяет qualifying SIM manifest/result inventory, independent audit, conditional qualification, source freeze и исходники реальными SHA. Затем обычным импортом использует public manager.board.Connector(cb_type=real, board_type из reviewed INI, task_format=SI), штатные converters и неизменённый Collector. Проверяет путь импортированных модулей; прямого GPIO/SPI/serial/driver доступа или динамической подмены нет. Общий lock создаётся эксклюзивно, удаляется только при совпадении токена владельца; raw writer готов до Connector. Cleanup/неуспешный или no-eligible outcome сохраняются.
+
+Core выполняет свои аппаратные параметры: submitted pulse_width0 при неизвестной физической длительности, прежние1.7/1.4В и guards, максимум6712 impacts/128 pulses. Gain заново выбирается только по двум аппаратным fit-окнам из прежней сетки; SIM gain800 не переносится. Нет разрешения менять амплитуды, расширять сетку или повторять fit при неудаче.
+
+Новое поле launcher_source_sha256 отделено от сохранённого core source inventory и не теряется: supplemental auditor первым проверяет exact launcher bytes/inventory/spec, qualification refs, start/final и hardware invocation. Только затем вызывает неизменённый SHA-pinned native replay. Один старый auditor без supplemental attestation не подтверждает новый launcher. Аргументы audit — repository-relative; отчёт пишется только новым файлом под reports.
+
+Автор выполнил5 offline тестов, включая fake hardware branch с шириной0, своим fit gain400, полным бюджетом/контролем и start/final tampering. Это не аппаратный прогон. Локальный dry-run ожидаемо отклонён из-за отсутствующего private rpi_FPGAed.py; ограничение не обходится. Нужны on-Pi preflight и затем on-Pi supplemental audit actual результатов. Результат может быть uninformative_calibration; это предусмотренный диагностический исход, не основание к ретюнингу.

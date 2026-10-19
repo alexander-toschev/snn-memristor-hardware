@@ -1,0 +1,88 @@
+{
+  "schema": "cifar-full-native-sim-operations-summary-v1",
+  "source": "native MemriBoard simulator",
+  "input_report_sha256": "d219f9adc2baf8b866f9179c82e197350224aeb9b8644dae96ac3efab9537749",
+  "acquisition_manifest_sha256": "cace70a074a619234ff5ddc3fe657cef57459a0fc5f9600db199db54714a7eb0",
+  "hardware": false,
+  "accuracy_measured": false,
+  "coefficients": 4800,
+  "address_coverage": 256,
+  "immediate_within_tolerance": 3682,
+  "effective_absolute_weight_tolerance": 0.04066666666666666,
+  "programming_stop_counts": {
+    "bounded_set_attempts": 2001,
+    "initial_overshoot_or_within_tolerance": 2799
+  },
+  "weight_errors": {
+    "immediate_weight": {
+      "rmse": 0.05131242696939428,
+      "relative_l2": 0.9149407391340789,
+      "zero_coefficients": 2807,
+      "wrong_nonzero_sign": 2
+    },
+    "final_raw_weight": {
+      "rmse": 0.05131242696939428,
+      "relative_l2": 0.9149407391340789,
+      "zero_coefficients": 2807,
+      "wrong_nonzero_sign": 2
+    },
+    "final_calibrated_weight": {
+      "rmse": 0.04460144635295986,
+      "relative_l2": 0.7952787015310373,
+      "zero_coefficients": 2693,
+      "wrong_nonzero_sign": 53
+    }
+  },
+  "heldout": {
+    "better_stages": 35,
+    "same_stages": 9,
+    "worse_stages": 4,
+    "raw_mean_stage_rmse_v": 0.0003750712134090054,
+    "calibrated_mean_stage_rmse_v": 0.00030010968828137575
+  },
+  "conv1_errors": {
+    "calibrated": {
+      "conv1_rmse": 0.1433921754360199,
+      "conv1_max_abs": 1.6297372579574585,
+      "relative_l2": 0.5978338718414307
+    },
+    "raw": {
+      "conv1_rmse": 0.14596104621887207,
+      "conv1_max_abs": 1.4627994298934937,
+      "relative_l2": 0.6085429191589355
+    }
+  },
+  "conv1_rmse_relative_improvement_percent": 1.7599701080520447,
+  "predictions": {
+    "cpu_reference": {
+      "fine_labels": {
+        "first_spike": 1,
+        "membrane": 1,
+        "twd": 1
+      },
+      "output_spikes": 1.0,
+      "all_output_classes_silent": false,
+      "first_spike_winner_count": 1
+    },
+    "calibrated": {
+      "fine_labels": {
+        "first_spike": 0,
+        "membrane": 14,
+        "twd": 0
+      },
+      "output_spikes": 0.0,
+      "all_output_classes_silent": true,
+      "first_spike_winner_count": 10
+    },
+    "raw": {
+      "fine_labels": {
+        "first_spike": 1,
+        "membrane": 1,
+        "twd": 1
+      },
+      "output_spikes": 1.0,
+      "all_output_classes_silent": false,
+      "first_spike_winner_count": 1
+    }
+  }
+}

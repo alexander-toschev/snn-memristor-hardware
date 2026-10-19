@@ -1,0 +1,22 @@
+{
+  "launcher_sha256": "cef6db7a176d2264c12be077852d56a0dc62bc7e696f351bc49ebfeb328ae5ed",
+  "launcher_source_sha256": {
+    "experiments/conductance_stdp_hardware_20261019/experiment.py": "cef6db7a176d2264c12be077852d56a0dc62bc7e696f351bc49ebfeb328ae5ed",
+    "experiments/conductance_stdp_hardware_20261019/README.md": "76790bc9c6ac3f1effdbab6495cf7acb922232315417f3af1ba21dc2485a8748"
+  },
+  "supplemental_auditor_sha256": "7eff95d9c8c22a5d175dc64da15c9688d19762333515d2e44aea7d7b7acd9167",
+  "launcher_spec_sha256": "ef9d61315c7a248732c0f56a877e92776db92746a8d2e4a24f02a2b1979635e9",
+  "protocol_sha256": "6d86180c0a73311753bfa420b66e8f6727d779106025ad23ac9d8cc6a3b414c5",
+  "qualification_reference_sha256": {
+    "reports/2026-10-19/conductance-stdp-calibrated-review/SOURCE_FREEZE.json": "e6c33fc2da25b14f8653832e94398a2fa6275ee6ca101825226af256d7827ccd",
+    "reports/2026-10-19/conductance-stdp-calibrated-review/NATIVE_SIM_INDEPENDENT_AUDIT.json": "19ebfdbb29e4196a7780521743684f309939917310ce2543d7be508353b5ae53",
+    "reports/2026-10-19/conductance-stdp-calibrated-review/HARDWARE_CONDITIONAL_QUALIFICATION.json": "3a019ee587a24fb0bd821b07655c5aefdd470c34326a8a1e775853e58a06948a",
+    "results/conductance_stdp_calibrated_20261019/d27da87e-9928-4303-971e-215afbc63158/manifest.json": "d34b2b03d88c7d01e49e4817ce1dbfeca425853d28674a05343aee43e073c51c",
+    "tools/audit_conductance_stdp_calibrated.py": "f1fab366818f554e90dea185c0a23073074f0e2984bd5af3c15ff415cac8bcfa"
+  },
+  "verdict": "GO after CIFAR releases board and strict Raspberry source/INI preflight",
+  "registered": true,
+  "acquisition_executed_by_reviewer": false,
+  "tests_author_reported": "5/5 offline PASS; local dry-run correctly rejects missing private hardware source",
+  "native_auditor_sha256": "f1fab366818f554e90dea185c0a23073074f0e2984bd5af3c15ff415cac8bcfa"
+}
