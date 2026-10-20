@@ -1,0 +1,19 @@
+test_saved_native_sim_identical_numeric_results (tests.test_audit_conductance_stdp_local_transfer.SavedSimulatorReplayTests.test_saved_native_sim_identical_numeric_results) ... FAIL
+test_exact_static_replay_identity (tests.test_audit_conductance_stdp_local_transfer.TransferReceiptTests.test_exact_static_replay_identity) ... ok
+test_exact_synthetic_receipt_accepted_with_limits (tests.test_audit_conductance_stdp_local_transfer.TransferReceiptTests.test_exact_synthetic_receipt_accepted_with_limits) ... ok
+test_ini_start_source_and_observation_tampering_rejected (tests.test_audit_conductance_stdp_local_transfer.TransferReceiptTests.test_ini_start_source_and_observation_tampering_rejected) ... ok
+test_rehashed_binding_and_private_source_mutations_rejected (tests.test_audit_conductance_stdp_local_transfer.TransferReceiptTests.test_rehashed_binding_and_private_source_mutations_rejected) ... ok
+
+======================================================================
+FAIL: test_saved_native_sim_identical_numeric_results (tests.test_audit_conductance_stdp_local_transfer.SavedSimulatorReplayTests.test_saved_native_sim_identical_numeric_results)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\memristor-aware-twd-snn\.tmp\publish-data-20261017\tests\test_audit_conductance_stdp_local_transfer.py", line 65, in test_saved_native_sim_identical_numeric_results
+    self.assertEqual({k:v for k,v in current.items() if k!='auditor_sha256'}, {k:v for k,v in previous.items() if k!='auditor_sha256'})
+AssertionError: {'sta[9334 chars]s': {7: 1840, 10: 4776}, 'preparation_pulses':[5687 chars]DP.'} != {'sta[9334 chars]s': {'7': 1840, '10': 4776}, 'preparation_puls[5691 chars]DP.'}
+Diff is 22229 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.070s
+
+FAILED (failures=1)

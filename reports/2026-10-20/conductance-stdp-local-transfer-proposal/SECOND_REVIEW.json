@@ -1,0 +1,24 @@
+{
+  "schema": "stdp-local-transfer-independent-source-review-v1",
+  "date": "2026-10-20",
+  "status": "source_qualified_for_separate_local_saved_data_audit",
+  "source_sha256": {
+    "tools/audit_conductance_stdp_local_transfer.py": "624c1aae8feea4c1308a9b9550ceea22c649b92215c1fa3441cab3f076d37997",
+    "tests/test_audit_conductance_stdp_local_transfer.py": "d7486315a8c95e7aff296bb86910c01b55327bfa9a5caac51694df3ee882923e"
+  },
+  "frozen_original_auditor_sha256": "f1fab366818f554e90dea185c0a23073074f0e2984bd5af3c15ff415cac8bcfa",
+  "frozen_numeric_tail_lf_sha256": "c65003bc6133bba843a1b4d20a68de21f08aefe72dcd75995095b802feea4d37",
+  "independent_tests": {
+    "command": "python -B -m unittest tests.test_audit_conductance_stdp_local_transfer -v",
+    "passed": 5,
+    "elapsed_seconds": 1.332,
+    "saved_sim_session": "d27da87e-9928-4303-971e-215afbc63158",
+    "saved_numeric_result_equal_except_new_auditor_identity": true
+  },
+  "hardware_launch_authorized_by_this_review": false,
+  "actual_hardware_route_executed": false,
+  "old_strict_all_local_source_pass_claimed": false,
+  "private_source_proof": "exact_two_file_operator_receipt_with_explicit_noncryptographic_remote_limit",
+  "scientific_efficacy_or_accuracy_proven": false,
+  "new_model_or_native_sim_or_hardware_execution": false
+}

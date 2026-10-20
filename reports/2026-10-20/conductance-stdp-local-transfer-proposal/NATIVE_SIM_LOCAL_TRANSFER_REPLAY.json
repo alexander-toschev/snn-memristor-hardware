@@ -1,0 +1,550 @@
+{
+  "schema": "stdp-local-transfer-audit-v1",
+  "status": "pass_separate_local_transfer_route",
+  "source": "simulator",
+  "session": "results/conductance_stdp_calibrated_20261019/d27da87e-9928-4303-971e-215afbc63158",
+  "auditor_sha256": "624c1aae8feea4c1308a9b9550ceea22c649b92215c1fa3441cab3f076d37997",
+  "replay_identity": {
+    "original_auditor_sha256": "f1fab366818f554e90dea185c0a23073074f0e2984bd5af3c15ff415cac8bcfa",
+    "numeric_tail_lf_sha256": "c65003bc6133bba843a1b4d20a68de21f08aefe72dcd75995095b802feea4d37",
+    "copy_identity": "exact_text_after_CRLF_to_LF_only"
+  },
+  "launcher_attestation": null,
+  "source_provenance": {
+    "status": "all_sources_locally_verified",
+    "private_source_evidence": null,
+    "source_inventory_sha256": "1952a6c3c642e5b7fae68758b7c5bf9dfe785da778ef4f89367fed564dade73a",
+    "board_ini_sha256": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c"
+  },
+  "native_replay": {
+    "status": "pass",
+    "auditor_sha256": "624c1aae8feea4c1308a9b9550ceea22c649b92215c1fa3441cab3f076d37997",
+    "session": "results/conductance_stdp_calibrated_20261019/d27da87e-9928-4303-971e-215afbc63158",
+    "manifest_sha256": "d34b2b03d88c7d01e49e4817ce1dbfeca425853d28674a05343aee43e073c51c",
+    "runtime": {
+      "git": {
+        "commit": "daa2505292c85b95bb09b723df72b37ac2d2a895",
+        "dirty_tracked": false,
+        "untracked": [
+          "results/cifar_full_case0_20261019/5ee64f20-d499-40df-a742-95a76d2dc386/",
+          "results/conductance_stdp_calibrated_20261019/",
+          "results/mnist_stdp_retraining_20261019/7a536bf8-0269-4edd-b454-a8ba2c33c219/"
+        ],
+        "status_porcelain": "?? results/cifar_full_case0_20261019/5ee64f20-d499-40df-a742-95a76d2dc386/\n?? results/conductance_stdp_calibrated_20261019/\n?? results/mnist_stdp_retraining_20261019/7a536bf8-0269-4edd-b454-a8ba2c33c219/"
+      },
+      "process_argv": [
+        "experiments/conductance_stdp_calibrated_20261019/experiment.py",
+        "--run-simulator"
+      ],
+      "hardware_argv": [
+        "--run-simulator"
+      ]
+    },
+    "source_count": 68,
+    "result_file_count": 8,
+    "source_sha256": {
+      "vendor/MemriBoard/manager/service/converters.py": "28c6495c56afa225501dd6b0dea999215f08b73f30e016ff7ea34d6c5412701c",
+      "vendor/MemriBoard/manager/service/__init__.py": "116c5e49243fbeed84f1807f938901bcb24f84415ed8ac84568126ca187b1098",
+      "vendor/MemriBoard/manager/board.py": "5e7076651001532e409287f1cd7d17a95ba26d3d382c44e1865de56e45477df0",
+      "vendor/MemriBoard/manager/service/drivers.py": "e4e47cd172196f6e1b6d2f22e9481a8d69cf2fcbcedb78760c43daebc8f0cdc9",
+      "vendor/MemriBoard/simulator/src.py": "d41edc5c0464e15d44a23a1bb628e8025194e518d914635c1a14dd46ea2d4cc2",
+      "vendor/MemriBoard/simulator/memristor.py": "bb9c43d0f254c512c21902a64b5414e05f63f1deecf10016e5b97bd086050aca",
+      "vendor/MemriBoard/main.py": "8e078abe97a726d0fe4986333e945c851bf870007e8de63cdfc05be1bf048241",
+      "vendor/MemriBoard/make_build.py": "cab1ba086f8ebb8f7d15b26fe81be651ffa1decf38c87df5c64f03f5eed8aa27",
+      "vendor/MemriBoard/gui/src.py": "2ca0d23c9588ffd37c3e1ba3b23980173ce1d159621611dc478a3826bee462c8",
+      "vendor/MemriBoard/gui/themes.py": "64ac39cd45f992e8351e428e77406b3a0ad065235577dd778761b02a6708fc2d",
+      "vendor/MemriBoard/manager/app.py": "6ae6dea53331a2a4c7c9e2ab581ed7a39a7fa8b44b546ba5d7c15d9a75b694ae",
+      "vendor/MemriBoard/manager/blanks.py": "696c318c9569674a45d7517cea6ab811e6fbf2c81ce2c0efbdd7646e05b2dc46",
+      "vendor/MemriBoard/manager/comport.py": "1ba271576880bbf8c5190d1d4a7e08e3ba8d50729f31cf604bf82b26fd353989",
+      "vendor/MemriBoard/manager/main.py": "8101987a08b6ca70d2510d23ea2e9e5369b2b9df775e14b8733b8699fe8cd783",
+      "vendor/MemriBoard/manager/menu.py": "da0dd1c25596d29e7cc2fdfbd41689c313a1d5f8f30465bc9ad6f6bf7351a6f1",
+      "vendor/MemriBoard/manager/terminate.py": "00b385405bf19b6adff5e3d8dfa02e6c80dd10b3f4693476730d3bdcc2c3b779",
+      "vendor/MemriBoard/manager/__init__.py": "22cf0f37f6ebfe6342fbea00b0b5d8d6973bfb4271569e57a7cc145add413b8e",
+      "vendor/MemriBoard/gui/widgets/MplGraphicsView.py": "e0dcc48607fdeb6c0912323ad3ae1a7d3a341f8933a73a1a5bc355335f6fc2e7",
+      "vendor/MemriBoard/gui/widgets/QCodeEditor.py": "d3a8e27f7e492c09f774b56b253dd4c0902bdfc3c262215014a9de47341cc1b0",
+      "vendor/MemriBoard/gui/widgets/ScientificQLineEdit.py": "d47cd58b72510ae0ca4bab830e50bcaebb3a5a69dfd105c69706485adf992602",
+      "vendor/MemriBoard/gui/widgets/SignalParametersConfig.py": "33319ce0a1572c3dadc6dfff5aa45a7b465861d5f878b24d871667d678d36d66",
+      "vendor/MemriBoard/gui/widgets/syntax_highlighter.py": "8ba8ecb1c48045d62c896ff4fa36a8b728a6de9da7676e5fb741fb0388cba808",
+      "vendor/MemriBoard/gui/windows/algorithm_editor.py": "dfb8048d5209a4db074a19e601720aaeb540db2bfa3d2654156ac51c4f97d09c",
+      "vendor/MemriBoard/gui/windows/apply.py": "a0bc7de540eb42b5c41e0d1916ed26ad24900a56ca195323194092965300e079",
+      "vendor/MemriBoard/gui/windows/cb_info.py": "8defc49f1c3fb69284e3db4210f8570f053c095bfef74cf2306b2f231a77be6b",
+      "vendor/MemriBoard/gui/windows/cell_info.py": "f6d8582cf62499038e783a533b42f8dd593273087f1c8f7a6e46e6ad8d1aed97",
+      "vendor/MemriBoard/gui/windows/connect.py": "435563e327c011bd2752a9275b372e2c1e3470f942bba4928914a61f83d1e7e8",
+      "vendor/MemriBoard/gui/windows/crossbar.py": "89bd016228534fc731f0a4c84351063e3ce084d7b1f51ea7e0620499a162fdcf",
+      "vendor/MemriBoard/gui/windows/experiment.py": "4358a1a572fcf52e5a5f5da54c11b13121a5512a1d7bfeb1c2efb3cff8f6836d",
+      "vendor/MemriBoard/gui/windows/filter.py": "41a53114c430e81866a10035dd98304a31f3b50ce9637b1496808723c1046c2e",
+      "vendor/MemriBoard/gui/windows/help.py": "e06f8ef9cec5ba403afe76e83b53bc9030ddb18dcd42bc50d3c55d575d002f08",
+      "vendor/MemriBoard/gui/windows/history.py": "334c4b6adf99661d291766505346d0ea4ba3cf75106de6e38c209df6adbe48e4",
+      "vendor/MemriBoard/gui/windows/map.py": "48b758f74e8b2edd7394bd2aa60aa9543fc5970e74e7b8156688447b2b48d4c6",
+      "vendor/MemriBoard/gui/windows/math.py": "985eaaed9192ab83d3f62ce016a7d4d1999fc1bdf03951fe280438eb90102bdb",
+      "vendor/MemriBoard/gui/windows/new_ann.py": "77bf7b5f92251e85aca06751f4cb1c72a71184aa791d76ae609bd52e9c038b29",
+      "vendor/MemriBoard/gui/windows/requests.py": "8df669d07c2eece287a7f53a173f5346e19f56e9330316436830d96d3c30d0b0",
+      "vendor/MemriBoard/gui/windows/rram.py": "a7c5d7667db506f24b7fb781b92f260f7c86968f0b650abe9786010d10848a06",
+      "vendor/MemriBoard/gui/windows/settings.py": "34220f388c13cbf86d6941fef0fb2f2a8ac25c72b35741ef9669ed5e916ceb58",
+      "vendor/MemriBoard/gui/windows/signal.py": "046676fd8d308fcb4b4ba104bf972adea7ef09f9e453f451e39af487133dea3c",
+      "vendor/MemriBoard/gui/windows/snapshot.py": "2c52a94441947095a513f2ef84cda28feecff8bf8516a410fd69a3af380097f9",
+      "vendor/MemriBoard/gui/windows/terminal.py": "41d3effd3d7f83c0ac62473d3e8db8b0285e4754360aa3458a3349216b8cebbc",
+      "vendor/MemriBoard/gui/windows/testing.py": "68a22b994c72eb3d0b5809077389a9acb4bd88f91b8da1f9e10b3e8ac76afe88",
+      "vendor/MemriBoard/gui/windows/wait.py": "cd919267d4cddabb5feebf64fca0c3457c9d3faea00e2c1866c228510fd41644",
+      "vendor/MemriBoard/manager/algorithms/algorithm.py": "a6bcbad1531c96a6733f1a9417a12deaa5a0509995b23e65a19c5192b135635d",
+      "vendor/MemriBoard/manager/algorithms/alg_generator.py": "356053dda6c4834465b29de30536ed394afa89df55011a590074c4e6ff668f9e",
+      "vendor/MemriBoard/manager/algorithms/ticket_generator.py": "28cafe54fb79ae9a1cddf2bf54be831308b1e43b397aa91f4d6ff0b444662fd7",
+      "vendor/MemriBoard/manager/algorithms/__init__.py": "1c9fbccf5324a138b8e1b822206ebacf7f87e3c01417f4fb7c8482df4502f33e",
+      "vendor/MemriBoard/manager/model/db.py": "49e75e3a71351c9fff5b6efc95352d936f6458979c75cc2c271bdf77580e5ad0",
+      "vendor/MemriBoard/manager/model/src.py": "debaf249fb8df0db7ffe104dc07a70a1bb85859e34b39e11226d13da60613541",
+      "vendor/MemriBoard/manager/modes/std.py": "9269cbb8a7d6497c849fb16a33180f05babf0bdffd1a65d53024dfdcf7640efd",
+      "vendor/MemriBoard/manager/modes/tst.py": "76e073b2743602f3cf245702a35b152dbc9ded772e9820fe37d64b24d223894e",
+      "vendor/MemriBoard/manager/modes/__init__.py": "b94504619f9515f9f6b77303c66540da8887ffe9ebbf449ce20a7144084edd72",
+      "vendor/MemriBoard/manager/service/global_settings.py": "4c9f146317ac58f2fba48be0a00ac01c5bf4718a126fbe42af59dbe0e07d0610",
+      "vendor/MemriBoard/manager/service/plots.py": "4504de731d7d5fcfe9150512edd1670ddf71755c6663c653556d7d0d3c2bade7",
+      "vendor/MemriBoard/manager/service/prepare.py": "ef8bddf1b615a84508e84ab8266299e954a7ced50687347e8b6524fdeee31f7c",
+      "vendor/MemriBoard/manager/service/saves.py": "ae80e2726cd57ad1c581acc866e59d1f1762343d5ff20c0dcbf465d3a835b08b",
+      "vendor/MemriBoard/manager/service/templates.py": "2000ae85de118f4d46366eecc9486b9a9c7996ac8fa747c86417744d140d289e",
+      "configs/raspberry_board.ini": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c",
+      "vendor/MemriBoard/simulator/simulator_settings.ini": "9ef3229595cbbba0ccc7d7450981d7a63266092792f4573d405beb2f364d3ddb",
+      "experiments/conductance_stdp_20261019/core.py": "005586394be54aad0ac7d116c729d7b733628161ef7a442975ee9b94209aa86f",
+      "experiments/conductance_stdp_20261019/raw.py": "bb52dad606db21cf57cea6aa908882cac07fa5955b47c4c9b1e2c85329bba8a7",
+      "cell_calibration.py": "eff0b2f72586f6a6659a13fba410c6ad0d564bd95d3b83e24b13cf739121c2e8",
+      "read_all.py": "b30ae2f4dd3cd166dbc5cefb07b558127de2bbdba1f6674c40b1b45f4dd74d5f",
+      "native_conversions.py": "2ad2e9c057bb14979b083a6e846e8c417c080a6c5273d848e31f893b7970253e",
+      "experiment_hardware.py": "059dc4f827943a9df631631f52e776b57182afc9d36db0c1ad5246427f73548c",
+      "experiments/conductance_stdp_calibrated_20261019/core.py": "0b3f0bac8762a1cd93a17a6849139ffd8bea4d35cfffc8c10dec67a32d9ea06c",
+      "experiments/conductance_stdp_calibrated_20261019/experiment.py": "cd56bbf243d236ed4b544733f510d16b5de512d8e4aba7f1677af26a6954d75c",
+      "experiments/conductance_stdp_calibrated_20261019/PROTOCOL.md": "ebf8065e2908fbf29cec3faef2ea49289fbaacc85673affbd71d4121fc48ca24"
+    },
+    "protocol_sha256": "6d86180c0a73311753bfa420b66e8f6727d779106025ad23ac9d8cc6a3b414c5",
+    "raw_index": {
+      "lines": 16211,
+      "expanded_bytes": 7575870,
+      "expanded_sha256": "03e0bb14f796641b87fe16e7e3d77f8427507de8db480563316d97d9b6ef9e96",
+      "compressed_bytes": 524658,
+      "compressed_sha256": "60031ef1f0a5aa71c4afe4d50e0885b5411245224bfbcfc7b4b42d59e8783195",
+      "compression": "gzip-level1"
+    },
+    "event_counts": {
+      "session_begin": 1,
+      "port_open": 1,
+      "request": 6616,
+      "result": 6616,
+      "bracket": 1592,
+      "checkpoint": 232,
+      "pulse_decision": 96,
+      "pulse_complete": 96,
+      "fit_measurement_step": 64,
+      "window_complete": 28,
+      "gain_frozen": 1,
+      "lif_step": 832,
+      "no_update": 32,
+      "retention_begin": 1,
+      "retention_end": 1,
+      "port_close": 1,
+      "session_end": 1
+    },
+    "impacts": 6616,
+    "mode_counts": {
+      "7": 1840,
+      "10": 4776
+    },
+    "preparation_pulses": 64,
+    "training_attempts": 32,
+    "training_pulses": 32,
+    "current_skips": 0,
+    "maximum_mvm_predicted_current_a": 8.499599668855597e-06,
+    "outcome": "completed",
+    "selected_gain": 800.0,
+    "gain_candidates": [
+      {
+        "gain": 10.0,
+        "eligible": false,
+        "total_posts": 0,
+        "objective": [
+          4,
+          10.0
+        ]
+      },
+      {
+        "gain": 20.0,
+        "eligible": false,
+        "total_posts": 0,
+        "objective": [
+          4,
+          20.0
+        ]
+      },
+      {
+        "gain": 40.0,
+        "eligible": false,
+        "total_posts": 0,
+        "objective": [
+          4,
+          40.0
+        ]
+      },
+      {
+        "gain": 80.0,
+        "eligible": false,
+        "total_posts": 0,
+        "objective": [
+          4,
+          80.0
+        ]
+      },
+      {
+        "gain": 100.0,
+        "eligible": false,
+        "total_posts": 0,
+        "objective": [
+          4,
+          100.0
+        ]
+      },
+      {
+        "gain": 200.0,
+        "eligible": false,
+        "total_posts": 0,
+        "objective": [
+          4,
+          200.0
+        ]
+      },
+      {
+        "gain": 400.0,
+        "eligible": false,
+        "total_posts": 0,
+        "objective": [
+          4,
+          400.0
+        ]
+      },
+      {
+        "gain": 800.0,
+        "eligible": true,
+        "total_posts": 4,
+        "objective": [
+          0,
+          800.0
+        ]
+      },
+      {
+        "gain": 1600.0,
+        "eligible": true,
+        "total_posts": 4,
+        "objective": [
+          0,
+          1600.0
+        ]
+      }
+    ],
+    "checkpoints": 232,
+    "windows": 28,
+    "lif_steps": 832,
+    "fit_measurement_steps": 64,
+    "phase_spikes": {
+      "pretest/5": 4,
+      "pretest/7": 6,
+      "train/5": 32,
+      "train/7": 48,
+      "posttest/5": 8,
+      "posttest/7": 12,
+      "retention/5": 8,
+      "retention/7": 12
+    },
+    "spikes": {
+      "5": 52,
+      "7": 78
+    },
+    "maximum_unreset_membrane": 2.1999999999999997,
+    "window_centered_voltage_min_v": 0.0,
+    "window_centered_voltage_max_v": 0.00275,
+    "eligibility_max_abs": 1.0195352908698818,
+    "retention_elapsed_s": 60.0,
+    "trajectory": [
+      {
+        "wl": 5,
+        "bl": 6,
+        "phase": "initial",
+        "q_mean": 0.023279756719039063,
+        "mvm_mean_v": 0.00092
+      },
+      {
+        "wl": 5,
+        "bl": 8,
+        "phase": "initial",
+        "q_mean": 0.034201087099015974,
+        "mvm_mean_v": 0.00153
+      },
+      {
+        "wl": 5,
+        "bl": 9,
+        "phase": "initial",
+        "q_mean": 0.05609735781444694,
+        "mvm_mean_v": 0.00275
+      },
+      {
+        "wl": 5,
+        "bl": 14,
+        "phase": "initial",
+        "q_mean": 0.003290027269341173,
+        "mvm_mean_v": 0.0
+      },
+      {
+        "wl": 7,
+        "bl": 6,
+        "phase": "initial",
+        "q_mean": 0.023279756719039063,
+        "mvm_mean_v": 0.00092
+      },
+      {
+        "wl": 7,
+        "bl": 8,
+        "phase": "initial",
+        "q_mean": 0.028737967579692124,
+        "mvm_mean_v": 0.00122
+      },
+      {
+        "wl": 7,
+        "bl": 9,
+        "phase": "initial",
+        "q_mean": 0.034201087099015974,
+        "mvm_mean_v": 0.00153
+      },
+      {
+        "wl": 7,
+        "bl": 14,
+        "phase": "initial",
+        "q_mean": 0.05609735781444694,
+        "mvm_mean_v": 0.00275
+      },
+      {
+        "wl": 5,
+        "bl": 6,
+        "phase": "after_preparation",
+        "q_mean": 0.040018529791976405,
+        "mvm_mean_v": 0.00183
+      },
+      {
+        "wl": 5,
+        "bl": 8,
+        "phase": "after_preparation",
+        "q_mean": 0.003290027269341173,
+        "mvm_mean_v": 0.0
+      },
+      {
+        "wl": 5,
+        "bl": 9,
+        "phase": "after_preparation",
+        "q_mean": 0.052504128733759516,
+        "mvm_mean_v": 0.00244
+      },
+      {
+        "wl": 5,
+        "bl": 14,
+        "phase": "after_preparation",
+        "q_mean": 0.014227934091035494,
+        "mvm_mean_v": 0.00061
+      },
+      {
+        "wl": 7,
+        "bl": 6,
+        "phase": "after_preparation",
+        "q_mean": 0.003290027269341173,
+        "mvm_mean_v": 0.0
+      },
+      {
+        "wl": 7,
+        "bl": 8,
+        "phase": "after_preparation",
+        "q_mean": 0.039904857146657605,
+        "mvm_mean_v": 0.00183
+      },
+      {
+        "wl": 7,
+        "bl": 9,
+        "phase": "after_preparation",
+        "q_mean": 0.05609735781444694,
+        "mvm_mean_v": 0.00275
+      },
+      {
+        "wl": 7,
+        "bl": 14,
+        "phase": "after_preparation",
+        "q_mean": 0.052860895751906195,
+        "mvm_mean_v": 0.00244
+      },
+      {
+        "wl": 5,
+        "bl": 6,
+        "phase": "baseline_before_training",
+        "q_mean": 0.040018529791976405,
+        "mvm_mean_v": 0.00183
+      },
+      {
+        "wl": 5,
+        "bl": 8,
+        "phase": "baseline_before_training",
+        "q_mean": 0.003290027269341173,
+        "mvm_mean_v": 0.0
+      },
+      {
+        "wl": 5,
+        "bl": 9,
+        "phase": "baseline_before_training",
+        "q_mean": 0.052504128733759516,
+        "mvm_mean_v": 0.00244
+      },
+      {
+        "wl": 5,
+        "bl": 14,
+        "phase": "baseline_before_training",
+        "q_mean": 0.014227934091035494,
+        "mvm_mean_v": 0.00061
+      },
+      {
+        "wl": 7,
+        "bl": 6,
+        "phase": "baseline_before_training",
+        "q_mean": 0.003290027269341173,
+        "mvm_mean_v": 0.0
+      },
+      {
+        "wl": 7,
+        "bl": 8,
+        "phase": "baseline_before_training",
+        "q_mean": 0.039904857146657605,
+        "mvm_mean_v": 0.00183
+      },
+      {
+        "wl": 7,
+        "bl": 9,
+        "phase": "baseline_before_training",
+        "q_mean": 0.05609735781444694,
+        "mvm_mean_v": 0.00275
+      },
+      {
+        "wl": 7,
+        "bl": 14,
+        "phase": "baseline_before_training",
+        "q_mean": 0.052860895751906195,
+        "mvm_mean_v": 0.00244
+      },
+      {
+        "wl": 5,
+        "bl": 6,
+        "phase": "after_posttest",
+        "q_mean": 0.040018529791976405,
+        "mvm_mean_v": 0.00183
+      },
+      {
+        "wl": 5,
+        "bl": 8,
+        "phase": "after_posttest",
+        "q_mean": 0.003290027269341173,
+        "mvm_mean_v": 0.0
+      },
+      {
+        "wl": 5,
+        "bl": 9,
+        "phase": "after_posttest",
+        "q_mean": 0.052504128733759516,
+        "mvm_mean_v": 0.00244
+      },
+      {
+        "wl": 5,
+        "bl": 14,
+        "phase": "after_posttest",
+        "q_mean": 0.004050570762243771,
+        "mvm_mean_v": 0.0
+      },
+      {
+        "wl": 7,
+        "bl": 6,
+        "phase": "after_posttest",
+        "q_mean": 0.003290027269341173,
+        "mvm_mean_v": 0.0
+      },
+      {
+        "wl": 7,
+        "bl": 8,
+        "phase": "after_posttest",
+        "q_mean": 0.039904857146657605,
+        "mvm_mean_v": 0.00183
+      },
+      {
+        "wl": 7,
+        "bl": 9,
+        "phase": "after_posttest",
+        "q_mean": 0.05609735781444694,
+        "mvm_mean_v": 0.00275
+      },
+      {
+        "wl": 7,
+        "bl": 14,
+        "phase": "after_posttest",
+        "q_mean": 0.052860895751906195,
+        "mvm_mean_v": 0.00244
+      },
+      {
+        "wl": 5,
+        "bl": 6,
+        "phase": "after_retention",
+        "q_mean": 0.040018529791976405,
+        "mvm_mean_v": 0.00183
+      },
+      {
+        "wl": 5,
+        "bl": 8,
+        "phase": "after_retention",
+        "q_mean": 0.003290027269341173,
+        "mvm_mean_v": 0.0
+      },
+      {
+        "wl": 5,
+        "bl": 9,
+        "phase": "after_retention",
+        "q_mean": 0.052504128733759516,
+        "mvm_mean_v": 0.00244
+      },
+      {
+        "wl": 5,
+        "bl": 14,
+        "phase": "after_retention",
+        "q_mean": 0.004050570762243771,
+        "mvm_mean_v": 0.0
+      },
+      {
+        "wl": 7,
+        "bl": 6,
+        "phase": "after_retention",
+        "q_mean": 0.003290027269341173,
+        "mvm_mean_v": 0.0
+      },
+      {
+        "wl": 7,
+        "bl": 8,
+        "phase": "after_retention",
+        "q_mean": 0.039904857146657605,
+        "mvm_mean_v": 0.00183
+      },
+      {
+        "wl": 7,
+        "bl": 9,
+        "phase": "after_retention",
+        "q_mean": 0.05609735781444694,
+        "mvm_mean_v": 0.00275
+      },
+      {
+        "wl": 7,
+        "bl": 14,
+        "phase": "after_retention",
+        "q_mean": 0.052860895751906195,
+        "mvm_mean_v": 0.00244
+      }
+    ],
+    "hardware_approved": false,
+    "qualification": "Integrity and independent fit-selection/LIF/eligibility replay passed. Activity and pulse coverage are descriptive, not learning efficacy or intrinsic physical STDP."
+  },
+  "old_strict_local_full_audit_pass_claimed": false,
+  "hardware_io_executed": false,
+  "physical_learning_improvement_proven": false,
+  "classification_accuracy": null
+}
