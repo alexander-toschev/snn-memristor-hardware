@@ -4,6 +4,7 @@ import json
 from pathlib import Path, PureWindowsPath
 
 ROOT=Path(__file__).resolve().parents[2]
+from tools import runtime_provenance as provenance_policy
 PHYSICAL_PROTOCOL_SHA='2cb1d57689508725f7155bf7b1d0d17fec9d4f6b65782171e2b85481bc9aa558'
 PINS={
  'experiments/cifar_full_case0_20261019/audit_native.py':'d3cd8bf2cf11512f81aabff0300c5fde391dad240fd9008834150e698910e717',
@@ -28,10 +29,10 @@ SPEC=dict(schema='cifar-resumable-v1',physical_protocol_sha256=PHYSICAL_PROTOCOL
     native_sim_qualification=dict(stages=[0,1,2],interrupted_stage=1,interrupt_after_positions=17,
                                   fault='SIM-only os._exit86 before closing position17 chunk; durableindex16',repeat_interrupted_stage_in_full=True),
     hardware_duration_s=None,physical_io='public MemriBoard Connector/native converters/INI only')
-GRANTS={source:'reports/2026-10-19/cifar-resume-review/'+source.upper()+'_EXECUTION_GRANT.json' for source in ('simulator','hardware')}
+GRANTS={source:'reports/2026-10-20/runtime-provenance-v2/'+source.upper()+'_EXECUTION_GRANT.json' for source in ('simulator','hardware')}
 APPROVED_PREFIX_AUDITOR_SHA256=frozenset({'1c19c6e4b0db4af3892a681035b27123633d2ca7c840f1537928b13e35ec3b00'})
 PREFIX_REPLAY_SHA='0f6bb5743dd8b4218b68701c65749db00874d8e444d6df18feda08f127a39c69'
-STAGE_REGISTRY='tools/cifar_stage_source_registry.json'
+STAGE_REGISTRY='tools/cifar_stage_source_registry_v2.json'
 
 
 def digest(value):
@@ -59,9 +60,13 @@ def verify_pins():
     return dict(PINS)
 
 
-def execution_grant(source):
+def execution_grant(source, historical_path=None):
     """Separate immutable reviewed grant per source; never edit a completed SIM grant."""
-    path=local(GRANTS[source])
+    grant_name=historical_path or GRANTS[source]
+    path=local(grant_name)
+    if historical_path is not None:
+        approved=provenance_policy.versions(ROOT)['historical_grants']
+        if approved.get(grant_name)!=sha(path):raise ValueError('Unreviewed historical grant')
     if not path.exists():return None
     grant=json.loads(path.read_text())
     if grant.get('schema')!='cifar-resumable-execution-grant-v1' or grant.get('registration')!='approved_after_review' or grant.get('source')!=source:
@@ -70,17 +75,20 @@ def execution_grant(source):
         raise ValueError('Grant refers to another protocol')
     names={p.relative_to(ROOT).as_posix() for p in Path(__file__).parent.glob('*.py')}
     names.update(('tools/plan_cifar_continuation.py','tools/classify_cifar_continuation.py',
-                  'tools/audit_cifar_interrupted_prefix.py','tools/cifar_prefix_replay.py',STAGE_REGISTRY))
+                  'tools/audit_cifar_interrupted_prefix.py','tools/cifar_prefix_replay.py',
+                  provenance_policy.OLD_REGISTRY if historical_path else STAGE_REGISTRY))
+    if historical_path is None:names.update(('tools/runtime_provenance.py',provenance_policy.REGISTRATION))
     if set(grant.get('source_sha256',{}))!=names:raise ValueError('Execution grant source inventory incomplete')
     for name,pin in grant['source_sha256'].items():
-        if sha(local(name))!=pin:raise ValueError('Execution grant source changed: '+name)
+        if historical_path:provenance_policy.verify_source(name,pin,ROOT)
+        elif sha(local(name))!=pin:raise ValueError('Execution grant source changed: '+name)
     if source=='hardware':
         ref=grant.get('native_sim_qualification',{});report_path=local(ref['path'])
         if sha(report_path)!=ref['sha256']:raise ValueError('Qualifying nativeSIM report changed')
         report=json.loads(report_path.read_text())
         if report.get('status')!='qualification_pass' or report.get('source')!='simulator' or report.get('accepted_stage_ids')!=[0,1,2] or report.get('classifier_executed') is not False:
             raise ValueError('Missing complete nativeSIM recovery qualification')
-        if report.get('analyzer_sha256')!=grant['source_sha256']['tools/classify_cifar_continuation.py'] or report.get('spec_sha256')!=digest(SPEC):
+        if report.get('analyzer_sha256')!=provenance_policy.versions(ROOT)['historical_sources']['tools/classify_cifar_continuation.py'] or report.get('spec_sha256')!=digest(SPEC):
             raise ValueError('Qualification analyzer/protocol differs')
         fault=report.get('controlled_interruption',{})
         if fault.get('durable_completed_positions')!=16 or fault.get('incomplete_tail_verified') is not True or fault.get('failed_stage_payload_used') is not False:
@@ -89,7 +97,7 @@ def execution_grant(source):
             if sha(local(stage_report['path']))!=stage_report['sha256']:raise ValueError('Qualified stage report changed')
     elif grant.get('native_sim_qualification') is not None:
         raise ValueError('SIM acquisition grant must not claim existing native qualification')
-    return dict(path=GRANTS[source],sha256=sha(path),document=grant)
+    return dict(path=grant_name,sha256=sha(path),document=grant)
 
 
 def validate_plan(plan,source):
@@ -112,21 +120,7 @@ def validate_plan(plan,source):
             raise ValueError('Incompatible prefix report')
         if report.get('status') not in ('verified_complete_stage_prefix','completed_range') or report.get('complete_full_tensor') is not False:
             raise ValueError('Failed diagnostic is not an accepted stage certificate')
-        auditor=report.get('audit_source_sha256',{}).get('tools/audit_cifar_interrupted_prefix.py')
-        if auditor not in APPROVED_PREFIX_AUDITOR_SHA256:raise ValueError('Prefix auditor not registered')
-        audit_sources=report['audit_source_sha256']
-        expected_sources={'tools/audit_cifar_interrupted_prefix.py','tools/cifar_prefix_replay.py'}
-        registry=report.get('provenance',{}).get('stage_source_registry')
-        if registry is not None:
-            expected_sources.add(STAGE_REGISTRY)
-            if registry.get('schema')!='cifar-reviewed-stage-source-registry-v1' or registry.get('registration')!='approved_after_review' or registry.get('spec_sha256')!=digest(SPEC) or registry.get('physical_protocol_sha256')!=PHYSICAL_PROTOCOL_SHA:
-                raise ValueError('Stage report lacks reviewed source registry')
-            if report['provenance'].get('stage_source_registry_sha256')!=audit_sources.get(STAGE_REGISTRY) or registry!=json.loads(local(STAGE_REGISTRY).read_text()):
-                raise ValueError('Stage registry report binding differs')
-        if set(audit_sources)!=expected_sources or audit_sources.get('tools/cifar_prefix_replay.py')!=PREFIX_REPLAY_SHA:
-            raise ValueError('Exact reviewed prefix replay inventory required')
-        for name,pin in report.get('audit_source_sha256',{}).items():
-            if sha(local(name))!=pin:raise ValueError('Prefix replay source changed')
+        provenance_policy.audit_sources(report,ROOT)
         for cert in report['accepted_stages']:
             body={k:v for k,v in cert.items() if k!='certificate_sha256'}
             if digest(body)!=cert['certificate_sha256']:raise ValueError('Stage certificate changed')

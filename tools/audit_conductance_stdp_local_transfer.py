@@ -1,4 +1,4 @@
-"""Separate STDP local-transfer audit: exact frozen replay, explicit private-source receipts.
+"""Separate STDP local-transfer audit: exact frozen replay, recorded private-runtime provenance (optional legacy receipts).
 
 Never opens Connector, patches an imported checker, or claims the old strict-local audit passed.
 """
@@ -17,6 +17,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT / '.deps'), str(ROOT)]
 from tools.audit_conductance_stdp_calibrated import EXP, REVIEW, BL, HELPERS, require, digest, close
+
+from tools import runtime_provenance as provenance_policy
 
 OLD = ROOT/'tools/audit_conductance_stdp_calibrated.py'
 OLD_SHA = 'f1fab366818f554e90dea185c0a23073074f0e2984bd5af3c15ff415cac8bcfa'
@@ -102,29 +104,30 @@ def verify_sources(session,manifest,freeze,private_receipt=None):
     for name,pin in HELPERS.items():require(sha(local(name))==pin,'Pinned helper differs: '+name)
     for name,pin in freeze['file_sha256'].items():require(sha(local(EXP+'/'+name))==pin,'Frozen acquisition file differs: '+name)
     proof=None
-    if private_receipt is None:
-        from cell_calibration import check_sources
-        _,ini,expected=check_sources(manifest['source'])
-    else:
-        proof=verify_receipt(private_receipt,session,manifest)
-        from read_all import INI,VENDOR,EXPECTED_BOARD,EXPECTED_SOURCES,FPGA_SOURCE,FPGA_SHA256
-        ini=local(INI).read_bytes();config=ConfigParser();config.read_string(ini.decode('utf-8-sig'))
-        require(config.get('board','board_type')=='rp5_fpga_python','Wrong hardware driver INI')
-        require(all(config.getfloat('board',k)==v for k,v in EXPECTED_BOARD.items()),'Hardware INI settings differ')
-        expected={VENDOR+'/'+name:pin for name,pin in {**EXPECTED_SOURCES,FPGA_SOURCE:FPGA_SHA256}.items()}
+    if manifest['source']=='hardware':
+        ini,expected=provenance_policy.hardware_runtime(ROOT)
+        proof=provenance_policy.private_recorded(manifest['source_sha256'])
+        if private_receipt is not None:proof=verify_receipt(private_receipt,session,manifest)
+        from read_all import INI,VENDOR
         for p in local(VENDOR).rglob('*.py'):
-            name=p.relative_to(ROOT).as_posix();value=sha(p)
+            name=p.relative_to(ROOT).as_posix()
+            if name in PRIVATE:continue
+            value=sha(p)
             require(name not in expected or expected[name]==value,'Required native source changed: '+name)
             expected[name]=value
         expected.update({INI:sha(local(INI)),'read_all.py':sha(local('read_all.py'))})
+    else:
+        require(private_receipt is None,'Private receipt forbidden for simulator')
+        from cell_calibration import check_sources
+        _,ini,expected=check_sources(manifest['source'])
     expected.update(HELPERS);expected.update({EXP+'/'+name:pin for name,pin in freeze['file_sha256'].items()})
     require(expected==manifest['source_sha256'],'Exact source inventory mismatch')
     for name,pin in expected.items():
         p=local(name)
-        if proof is not None and name in PRIVATE and not p.exists():continue
+        if manifest['source']=='hardware' and name in PRIVATE:continue
         require(sha(p)==pin,'Local source bytes differ: '+name)
     require((session/'board.ini').read_bytes()==ini,'Recorded INI differs')
-    return expected,dict(status='public_local_private_operator_verified' if proof else 'all_sources_locally_verified',private_source_evidence=proof,source_inventory_sha256=canonical_sha(expected),board_ini_sha256=sha(session/'board.ini'))
+    return expected,dict(status=(provenance_policy.STATUS if private_receipt is None else 'public_local_private_operator_verified') if manifest['source']=='hardware' else 'all_sources_locally_verified',private_source_evidence=proof,source_inventory_sha256=canonical_sha(expected),board_ini_sha256=sha(session/'board.ini'))
 
 
 def replay(session,private_receipt=None):
@@ -429,6 +432,7 @@ def replay(session,private_receipt=None):
 def audit(session,private_receipt=None):
     session=Path(session).resolve()
     require(session.is_relative_to(ROOT/'results'),'Session outside results')
+    provenance_policy.versions(ROOT)
     identity=verify_replay_identity()
     manifest=json.loads((session/'manifest.json').read_text())
     launcher=None
@@ -441,7 +445,7 @@ def audit(session,private_receipt=None):
     freeze=json.loads((REVIEW/'SOURCE_FREEZE.json').read_text())
     _,provenance=verify_sources(session,manifest,freeze,private_receipt)
     native=replay(session,private_receipt)
-    return dict(schema='stdp-local-transfer-audit-v1',status='pass_separate_local_transfer_route',source=manifest['source'],session=session.relative_to(ROOT).as_posix(),auditor_sha256=sha(__file__),replay_identity=identity,launcher_attestation=launcher,source_provenance=provenance,native_replay=native,old_strict_local_full_audit_pass_claimed=False,hardware_io_executed=False,physical_learning_improvement_proven=False,classification_accuracy=None)
+    return dict(provenance_generation='v2',provenance_policy_sha256=sha(ROOT/'tools/runtime_provenance.py'),provenance_registration_sha256=sha(ROOT/provenance_policy.REGISTRATION),schema='stdp-local-transfer-audit-v1',status='pass_separate_local_transfer_route',source=manifest['source'],session=session.relative_to(ROOT).as_posix(),auditor_sha256=sha(__file__),replay_identity=identity,launcher_attestation=launcher,source_provenance=provenance,native_replay=native,old_strict_local_full_audit_pass_claimed=False,hardware_io_executed=False,physical_learning_improvement_proven=False,classification_accuracy=None)
 
 
 def main(argv=None):

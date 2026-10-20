@@ -15,6 +15,7 @@ import zlib
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT / '.deps'), str(ROOT)]
+from tools import runtime_provenance as provenance_policy
 EXP = 'experiments/cifar_full_case0_20261019'
 PROTOCOL_SHA = '2cb1d57689508725f7155bf7b1d0d17fec9d4f6b65782171e2b85481bc9aa558'
 FROZEN = {
@@ -169,26 +170,23 @@ def verify_sources(session, private_receipt=None, stage_session=False):
     for name, pin in required.items():
         require(sha(local(ROOT, name)) == pin, 'Reviewed source changed: ' + name)
     private_proof=None
-    if private_receipt is None:
-        # Read-only source/INI check, no Connector instantiated or imported.
-        from cell_calibration import check_sources
-        _, ini, runtime = check_sources(start['source'])
+    if start['source']=='hardware':
+        ini,runtime=provenance_policy.hardware_runtime(ROOT)
+        private_proof=provenance_policy.private_recorded(start['source_sha256'])
+        if private_receipt is not None:
+            private_proof=verify_private_receipt(private_receipt,session,start['source_sha256'])
     else:
-        require(start['source']=='hardware', 'Remote private receipt applies only to hardware evidence')
-        private_proof=verify_private_receipt(private_receipt,session,start['source_sha256'])
-        from read_all import INI, EXPECTED_BOARD, EXPECTED_SOURCES, FPGA_SOURCE, FPGA_SHA256
-        ini=(ROOT/INI).read_bytes();config=ConfigParser();config.read_string(ini.decode('utf-8-sig'))
-        require(config.get('board','board_type')=='rp5_fpga_python', 'Wrong INI backend')
-        require(all(config.getfloat('board',k)==v for k,v in EXPECTED_BOARD.items()), 'INI board setting changed')
-        runtime={'vendor/MemriBoard/'+name:pin for name,pin in {**EXPECTED_SOURCES,FPGA_SOURCE:FPGA_SHA256}.items()}
-        runtime[INI]=sha(ROOT/INI)
+        require(private_receipt is None,'Private receipt applies only to hardware')
+        from cell_calibration import check_sources
+        _,ini,runtime=check_sources(start['source'])
     required.update(runtime)
     required.update({'weights/conv1_weights.npy': '8be312b9eafb9de23f8340b17f848e7e0e2e7884293c826a6d9f6cbb5125d440',
                      'weights/cifar100_conv1_fixture.json': '8cb9ec0fe30242328527073bb076f8019295d73a748343f58fc2a8671bf7c154'})
     recorded = start['source_sha256']
-    stage_registry=None
+    stage_registry=None;registry_name=None
     if stage_session:
-        registry_path=ROOT/STAGE_REGISTRY
+        registry_name,stage_registry=provenance_policy.registry_for(recorded,ROOT)
+        registry_path=ROOT/registry_name
         require(registry_path.is_file(), 'Completed-stage source registration is closed pending review')
         stage_registry=json.loads(registry_path.read_text())
         require(stage_registry.get('schema')=='cifar-reviewed-stage-source-registry-v1' and stage_registry.get('registration')=='approved_after_review',
@@ -201,21 +199,24 @@ def verify_sources(session, private_receipt=None, stage_session=False):
         require(set(stage_registry['source_sha256'])==names, 'Stage registry source set differs')
         required.update(stage_registry['source_sha256'])
     require(all(recorded.get(k) == v for k, v in required.items()), 'Missing/mismatched required source pin')
+    public_verification={}
     for name, pin in recorded.items():
-        if private_proof is not None and name in PRIVATE and not local(ROOT,name).exists():
-            continue
-        require(sha(local(ROOT, name)) == pin, 'Acquisition source bytes missing or changed: ' + name)
+        if start['source']=='hardware' and name in PRIVATE:continue
+        public_verification[name]=provenance_policy.verify_source(name,pin,ROOT)
     require((session / 'board.ini').read_bytes() == ini, 'Recorded board INI mismatch')
     require(sha(session / 'protocol.json') == FROZEN['protocol.json'], 'Recorded protocol bytes mismatch')
-    return start, dict(status='public_local_private_remote_operator_verified' if private_proof else 'all_recorded_source_bytes_verified_locally',
+    return start, dict(status=(provenance_policy.STATUS if private_receipt is None else 'public_local_private_remote_operator_verified') if start['source']=='hardware' else 'all_recorded_source_bytes_verified_locally',
+                       provenance_generation='v2',public_source_verification=public_verification,
                        private_source_evidence=private_proof, source_sha256=recorded,
                        stage_source_registry=stage_registry,
-                       stage_source_registry_sha256=sha(ROOT/STAGE_REGISTRY) if stage_registry else None,
+                       stage_source_registry_sha256=sha(ROOT/registry_name) if stage_registry else None,
+                       stage_source_registry_path=registry_name,
                        start_manifest_sha256=sha(session / 'start_manifest.json'),
                        board_ini_sha256=sha(session / 'board.ini'), protocol_file_sha256=sha(session / 'protocol.json'))
 
 
 def audit_session(session, output, portable_condition=False, private_receipt=None, stage_session=False):
+    provenance_policy.versions(ROOT)
     require(not output.exists(), 'Preserve previous report: output directory exists')
     start, provenance = verify_sources(session,private_receipt,stage_session)
     inv = inventory(session / 'raw')
@@ -254,11 +255,11 @@ def audit_session(session, output, portable_condition=False, private_receipt=Non
                   provenance=provenance, raw_inventory=inv, original_final_manifest_present=(session / 'manifest.json').exists(),
                   original_raw_index_present=(session / 'raw/index.json').exists(),
                   audit_source_sha256={name: sha(ROOT / name) for name in
-                    ('tools/cifar_prefix_replay.py', 'tools/audit_cifar_interrupted_prefix.py')},
+                    ('tools/cifar_prefix_replay.py', 'tools/audit_cifar_interrupted_prefix.py', 'tools/runtime_provenance.py', provenance_policy.REGISTRATION)},
                   physical_state_now_inferred=False, hardware_acquisition_performed=False,
                   incomplete_tail_not_reused=True, unknown_actual_tail_operations=not stage_session)
     if stage_session:
-        report['audit_source_sha256'][STAGE_REGISTRY]=provenance['stage_source_registry_sha256']
+        report['audit_source_sha256'][provenance['stage_source_registry_path']]=provenance['stage_source_registry_sha256']
     output.mkdir(parents=True)
     for stage in report['accepted_stages']:
         stage['session_id'] = start['session_id']

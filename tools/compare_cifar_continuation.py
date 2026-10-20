@@ -13,6 +13,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from tools import compare_full_cifar_reports as metrics
+from tools import runtime_provenance as provenance_policy
 
 PINNED_TOOLS = {
     'tools/compare_full_cifar_reports.py': 'a2d02825ba7501f7bdc87db3e8c79c1747ed9cb90d020597eb8031101895f192',
@@ -33,8 +34,9 @@ local = metrics.local
 
 
 def verify_tools():
+    current=provenance_policy.versions(ROOT)['current']
     for name, expected in PINNED_TOOLS.items():
-        require(sha(local(name)) == expected, 'Comparison dependency changed: ' + name)
+        require(sha(local(name)) == current.get(name,expected), 'Comparison dependency changed: ' + name)
 
 
 def validate_composite(report):
@@ -46,7 +48,7 @@ def validate_composite(report):
             and report.get('hardware_acquisition_performed') is False, 'Invalid offline/accuracy claim')
     require(report.get('physical_protocol_sha256') == metrics.PROTOCOL_SHA
             and report.get('spec_sha256') == SPEC_SHA, 'Protocol mismatch')
-    require(report.get('analyzer_sha256') == PINNED_TOOLS['tools/classify_cifar_continuation.py']
+    require(report.get('analyzer_sha256') in {PINNED_TOOLS['tools/classify_cifar_continuation.py'],provenance_policy.versions(ROOT)['current']['tools/classify_cifar_continuation.py']}
             and report.get('frozen_digital_bridge_sha256') == metrics.PINS['classifier.py']
             and report.get('digital_downstream_sha256') == metrics.DIGITAL_SHA, 'Unreviewed classifier chain')
     require(report.get('case') == metrics.CASE and report.get('output_class_fine_labels') == metrics.LABELS,
@@ -85,11 +87,7 @@ def validate_stage_report(report, reference):
             'Missing, duplicate or reordered stage certificate')
     require(report['native_impacts'] == reference['native_impacts']
             and report['programming_pulses'] == reference['programming_pulses'], 'Stage counters differ')
-    expected_sources = {name: PINNED_TOOLS[name] for name in
-                        ('tools/audit_cifar_interrupted_prefix.py', 'tools/cifar_prefix_replay.py')}
-    if report['provenance'].get('stage_source_registry') is not None:
-        expected_sources['tools/cifar_stage_source_registry.json'] = PINNED_TOOLS['tools/cifar_stage_source_registry.json']
-    require(report.get('audit_source_sha256') == expected_sources, 'Unreviewed stage audit dependency inventory')
+    provenance_policy.audit_sources(report,ROOT,verify_bytes=False)
     require(report.get('strict_numeric_replay') in ('PASS', 'FAIL_condition_only'), 'Unqualified numerical replay')
     if report['strict_numeric_replay'] != 'PASS':
         require(report.get('portable_condition_policy') == 'excluded-rank-condition-v1', 'Unknown portable numerical policy')
@@ -158,15 +156,23 @@ def bind_stage_sidecars(report, reference):
     """Recheck source/receipt/manifest metadata, not raw streams or model math."""
     from tools import audit_cifar_interrupted_prefix as audit
     from tools import classify_cifar_continuation as composer
+    provenance_policy.audit_sources(report,ROOT)
     session = local(reference['acquisition_session'])
     original = report['status'] == 'verified_complete_stage_prefix'
     expected_namespace = 'cifar_full_case0_20261019' if original else 'cifar_resumable_20261019'
     require(session.parent == ROOT / 'results' / expected_namespace, 'Unexpected acquisition namespace')
     private = report['provenance'].get('private_source_evidence')
-    receipt = local(private['receipt_path']) if private else None
+    receipt = local(private['receipt_path']) if private and 'receipt_path' in private else None
     start, actual = audit.verify_sources(session, private_receipt=receipt, stage_session=not original)
     require(report['session_id'] == start['session_id'], 'Stage report/start session mismatch')
-    require(actual == report['provenance'], 'Recorded source provenance no longer matches checked sidecars')
+    recorded=report['provenance']
+    if recorded.get('provenance_generation')=='v2':
+        require(actual == recorded, 'Recorded source provenance no longer matches checked sidecars')
+    else:
+        require(recorded.get('status') in ('public_local_private_remote_operator_verified','all_recorded_source_bytes_verified_locally'), 'Unknown historical provenance')
+        for key in ('source_sha256','stage_source_registry','stage_source_registry_sha256','start_manifest_sha256','board_ini_sha256','protocol_file_sha256'):
+            require(actual.get(key)==recorded.get(key),'Historical source binding changed: '+key)
+        if private is not None:require(actual['private_source_evidence']==private,'Historical receipt evidence changed')
     require(start['source_sha256'].get('weights/conv1_weights.npy') == WEIGHTS_SHA, 'Different programmed weights')
     require(sha(session / 'start_manifest.json') == actual['start_manifest_sha256'], 'Start manifest binding differs')
     if original:

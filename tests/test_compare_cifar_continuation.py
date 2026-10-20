@@ -137,6 +137,11 @@ class ContinuationComparisonTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=adapter.ROOT/'.tmp') as folder:
             root=Path(folder)
             report,prefix,path,audit_path=write_synthetic_payload_evidence(root)
+            # The isolated evidence root now includes its explicit reviewed
+            # provenance metadata; do not patch production registration gates.
+            for name in ('tools/runtime_provenance.py',adapter.provenance_policy.REGISTRATION):
+                target=root/name;target.parent.mkdir(parents=True,exist_ok=True)
+                target.write_bytes((adapter.ROOT/name).read_bytes())
             with mock.patch.object(adapter.metrics,'ROOT',root),mock.patch.object(adapter,'ROOT',root),\
                  mock.patch.object(adapter,'bind_stage_sidecars',return_value={'synthetic_binding_stub':True}):
                 aggregate,binding=adapter.bind_composite(report,path)

@@ -10,6 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 for folder in (ROOT,ROOT/'.deps-classifier',ROOT/'.deps'):
     if folder.is_dir():sys.path.insert(0,str(folder))
 from experiments.cifar_resumable_20261019 import contract as c
+from tools import runtime_provenance as provenance_policy
 
 APPROVED_AUDIT_SOURCES={
     'tools/audit_cifar_interrupted_prefix.py':'1c19c6e4b0db4af3892a681035b27123633d2ca7c840f1537928b13e35ec3b00',
@@ -39,7 +40,8 @@ def combine(stages):
 
 
 def verify_stage_grant(session,start,require_final=True):
-    grant=c.execution_grant(start['source'])
+    name=start.get('execution_grant_path')
+    grant=c.execution_grant(start['source'],historical_path=name if name!=c.GRANTS[start['source']] else None)
     if grant is None or start.get('execution_grant_path')!=grant['path'] or start.get('execution_grant_sha256')!=grant['sha256']:
         raise ValueError('Stage execution grant not explicitly reviewed')
     if c.sha(session/'execution_grant.json')!=grant['sha256']:raise ValueError('Stage grant snapshot differs')
@@ -52,9 +54,9 @@ def verify_stage_grant(session,start,require_final=True):
 
 def replay_sessions(session_names,output,qualification=False,portable_condition=False,private_receipts=None):
     from tools import audit_cifar_interrupted_prefix as audit
-    if not APPROVED_AUDIT_SOURCES:raise ValueError('Independent range auditor not registered')
-    for name,pin in APPROVED_AUDIT_SOURCES.items():
-        if c.sha(ROOT/name)!=pin:raise ValueError('Independent audit source changed')
+    reviewed=provenance_policy.versions(ROOT)['current']
+    for name in ('tools/audit_cifar_interrupted_prefix.py','tools/cifar_prefix_replay.py','tools/runtime_provenance.py'):
+        if c.sha(ROOT/name)!=reviewed[name]:raise ValueError('Independent audit source changed')
     accepted={};reports=[];source=None
     if len(set(session_names))!=len(session_names):raise ValueError('Duplicate acquisition session')
     for index,name in enumerate(session_names):
