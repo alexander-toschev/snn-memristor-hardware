@@ -30,7 +30,7 @@ HOOKS={'.githooks/pre-commit':'7a25e5dbed9dd3fc71c37fa0888b554c9aebc674554ebaff6
        '.githooks/post-commit':'081dc7099c6baf397c42d3633d8d2aaf5d1f908ece0fa6e7724cd02ebd545dd3',
        '.githooks/post-checkout':'e6f244abc09b4bfbf7769b15bc97e29339028dad767d79e179b3308def5ad012',
        '.githooks/post-merge':'e00c5919922d9cf584199b7ab9291781c03e1beb11ea3ec88a8bc1396ce2156f',
-       'tools/security/scan_staged_lfs.py':'af6246330a77446304fc6e7f3f44dcf2dcf057e609986c6bff68756567158669'}
+       'tools/security/scan_staged_lfs.py':'ea2ec4b179b73317730ac94d495c1141983e1af53512e00a55f3e9e108542e30'}
 SESSION_ROOT='results/cifar_resumable_20261019'
 BATCH_ROOT='results/cifar_batch_preservation'
 DESTINATION='refs/heads/codex/full-cifar-diagnostic'
@@ -196,25 +196,17 @@ def decoded_chunks(path,summary):
 
 def scan_chunks(scanner,chunks):
     with tempfile.TemporaryDirectory(prefix='cifar-secret-scan-') as isolated:
-        process=None
         try:
-            process=subprocess.Popen([scanner,'stdin','--redact=100','--no-banner','--ignore-gitleaks-allow',
-                '--max-target-megabytes=0','--exit-code=1'],cwd=isolated,env=safe_env(),stdin=subprocess.PIPE,
-                stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
-            for data in chunks:process.stdin.write(data)
-            process.stdin.close();require(process.wait(timeout=300)==0,'secret_scan_failed_or_finding')
-        except Pending:raise
-        except (OSError,subprocess.SubprocessError):raise Pending('secret_scan_failed_or_finding') from None
-        finally:
-            if process is not None and process.poll() is None:
-                process.kill();process.wait()
+            return security.scan_chunks(scanner,chunks,isolated,env=safe_env())
+        except security.Blocked:
+            raise Pending('secret_scan_failed_or_finding') from None
 
 
 def scan_files(names):
     scanner=security.find_scanner(ROOT); result={}
     for name in names:
-        path=local(name);scan_chunks(scanner,raw_chunks(path)); entry=dict(raw_scanned=True)
-        if name.endswith('.gz'):scan_chunks(scanner,decoded_chunks(path,entry))
+        path=local(name);raw_scan=scan_chunks(scanner,raw_chunks(path)); entry=dict(raw_scanned=True,raw_scan=raw_scan)
+        if name.endswith('.gz'):entry['decoded_scan']=scan_chunks(scanner,decoded_chunks(path,entry))
         result[name]=entry
     return result
 

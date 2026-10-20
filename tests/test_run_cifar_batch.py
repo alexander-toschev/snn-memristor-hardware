@@ -99,10 +99,10 @@ class PreservationTests(unittest.TestCase):
             self.assertEqual(b.main(['finalize','--batch',batch.relative_to(self.root).as_posix()]),3)
         child.assert_not_called();self.assertEqual(evidence.read_bytes(),b'evidence')
     def test_failed_scanner_is_not_ignored(self):
-        process=Mock();process.stdin=Mock();process.wait.return_value=1;process.poll.return_value=1
+        process=Mock();process.stdin=Mock();process.stdin.write.side_effect=len;process.stdin.closed=False;process.wait.return_value=1;process.poll.return_value=1
         with patch.object(b.subprocess,'Popen',return_value=process),self.assertRaises(b.Pending):
             b.scan_chunks('fake-scanner',[b'payload'])
-        process.stdin.write.assert_called_once_with(b'payload')
+        self.assertEqual([c.args[0] for c in process.stdin.write.call_args_list],[b.security.SCAN_FRAME,b'payload'])
     def test_frozen_entry_pin_matches_real_source(self):
         real=Path(__file__).resolve().parents[1]
         self.assertEqual(b.sha(real/b.ENTRY),b.ENTRY_SHA)

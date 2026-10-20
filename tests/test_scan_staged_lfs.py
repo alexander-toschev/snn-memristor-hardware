@@ -1,5 +1,6 @@
 """Offline fixtures only. No repository mutation, network, or real credentials."""
 import hashlib
+import gzip
 import io
 import os
 from pathlib import Path
@@ -28,6 +29,54 @@ def cache(root, data):
 
 
 class PayloadTests(unittest.TestCase):
+    @staticmethod
+    def scanner_process(code):
+        process = mock.Mock()
+        process.stdin.write.side_effect = len
+        process.stdin.closed = False
+        process.wait.return_value = code
+        process.poll.return_value = code
+        return process
+
+    def test_framing_preserves_all_original_bytes_and_counts(self):
+        payload = b'\x1f\x8b\0binary\xff\n' * 100000
+        process = self.scanner_process(0)
+        chunks = [payload[:123], payload[123:]]
+        with mock.patch.object(scan.subprocess, 'Popen', return_value=process):
+            result = scan.scan_chunks('scanner', iter(chunks), '.')
+        written = b''.join(c.args[0] for c in process.stdin.write.call_args_list)
+        self.assertEqual(written, scan.SCAN_FRAME + payload)
+        self.assertGreaterEqual(len(scan.SCAN_FRAME), 1024)
+        self.assertTrue(scan.SCAN_FRAME.isascii())
+        self.assertIn(b'\n', scan.SCAN_FRAME)
+        self.assertEqual(result['payload_bytes'], len(payload))
+        self.assertEqual(result['scanner_input_bytes'], len(written))
+
+    def test_early_close_zero_exit_and_short_writes_block(self):
+        for failure in (BrokenPipeError('synthetic'), 0):
+            process = self.scanner_process(0)
+            process.stdin.write.side_effect = [len(scan.SCAN_FRAME), failure]
+            with mock.patch.object(scan.subprocess, 'Popen', return_value=process):
+                with self.assertRaises(scan.Blocked):
+                    scan.scan_chunks('scanner', [b'payload'], '.')
+
+    def test_scanner_timeout_blocks_and_kills(self):
+        process = self.scanner_process(0)
+        process.wait.side_effect = [subprocess.TimeoutExpired('scanner', 300), 0]
+        process.poll.return_value = None
+        with mock.patch.object(scan.subprocess, 'Popen', return_value=process):
+            with self.assertRaises(scan.Blocked):
+                scan.scan_chunks('scanner', [b'payload'], '.')
+        process.kill.assert_called_once()
+
+    def test_chunk_source_failure_blocks_without_acceptance(self):
+        def chunks():
+            yield b'prefix'
+            raise OSError('unread tail')
+        with mock.patch.object(scan.subprocess, 'Popen', return_value=self.scanner_process(0)):
+            with self.assertRaises(scan.Blocked):
+                scan.scan_chunks('scanner', chunks(), '.')
+
     def test_pointer_and_crlf(self):
         data = b'example\0binary\xff'
         for blob in (pointer(data), pointer(data).replace(b'\n', b'\r\n')):
@@ -108,7 +157,7 @@ class PayloadTests(unittest.TestCase):
 
     def test_scanner_mandatory_flags_and_isolated_config(self):
         with mock.patch.dict(os.environ, {'GITLEAKS_CONFIG':'suppress.toml', 'GITLEAKS_CONFIG_TOML':'anything'}), \
-             mock.patch.object(scan.subprocess, 'run', return_value=subprocess.CompletedProcess([], 0)) as call:
+             mock.patch.object(scan.subprocess, 'Popen', return_value=self.scanner_process(0)) as call:
             scan.scan_stream('scanner', io.BytesIO(b'bytes'), 'scratch')
         args, kwargs = call.call_args
         for flag in ('stdin', '--redact=100', '--ignore-gitleaks-allow', '--max-target-megabytes=0'):
@@ -121,7 +170,7 @@ class PayloadTests(unittest.TestCase):
 
     def test_scanner_finding_and_error_both_block(self):
         for code in (1, 2, 127):
-            with mock.patch.object(scan.subprocess, 'run', return_value=subprocess.CompletedProcess([], code)):
+            with mock.patch.object(scan.subprocess, 'Popen', return_value=self.scanner_process(code)):
                 with self.assertRaises(scan.Blocked):
                     scan.scan_stream('scanner', io.BytesIO(b'anything'), '.')
 
@@ -172,6 +221,31 @@ class PayloadTests(unittest.TestCase):
         self.assertEqual(result.returncode, 1)
         self.assertEqual(result.stdout, b'')
         self.assertIn(b'working Python 3.8+', result.stderr)
+
+    @unittest.skipUnless(os.environ.get('LFS_SCAN_TEST_GITLEAKS'), 'Optional installed Gitleaks integration')
+    def test_real_gzip_magic_and_begin_middle_end_canaries(self):
+        scanner = os.environ['LFS_SCAN_TEST_GITLEAKS']
+        # Generated noncredential, never printed or saved.
+        token = b'gh' + b'p_' + hashlib.sha256(b'framed-stream-noncredential').hexdigest()[:36].encode()
+        harmless = b''.join(hashlib.sha256(str(i).encode()).digest() for i in range(10000))
+        packed = gzip.compress(harmless, mtime=0)
+        original = hashlib.sha256(packed).hexdigest()
+        with tempfile.TemporaryDirectory() as root:
+            result = scan.scan_stream(scanner, io.BytesIO(packed), root)
+            self.assertEqual(result['payload_bytes'], len(packed))
+            for position in (0, len(packed)//2, len(packed)):
+                with self.subTest(kind='raw', position=position):
+                    data = packed[:position] + b'\nfixture=' + token + b'\n' + packed[position:]
+                    with self.assertRaisesRegex(scan.Blocked, 'detected a potential secret'):
+                        scan.scan_stream(scanner, io.BytesIO(data), root)
+            text = b'{"safe":"measurement"}\n' * 30000
+            for position in (0, len(text)//2, len(text)):
+                with self.subTest(kind='decoded', position=position):
+                    data = text[:position] + b'\nfixture=' + token + b'\n' + text[position:]
+                    compressed = gzip.compress(data, mtime=0)
+                    with self.assertRaisesRegex(scan.Blocked, 'detected a potential secret'):
+                        scan.scan_stream(scanner, io.BytesIO(gzip.decompress(compressed)), root)
+        self.assertEqual(hashlib.sha256(packed).hexdigest(), original)
 
     @unittest.skipUnless(os.environ.get('LFS_SCAN_TEST_GITLEAKS'), 'Optional installed Gitleaks integration')
     def test_real_scanner_detects_synthetic_token_after_large_binary_prefix(self):

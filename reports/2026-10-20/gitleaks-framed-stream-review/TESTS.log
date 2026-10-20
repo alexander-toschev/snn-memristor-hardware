@@ -1,0 +1,84 @@
+test_cache_env_handles_spaces_and_linked_worktree (tests.test_scan_staged_lfs.PayloadTests.test_cache_env_handles_spaces_and_linked_worktree) ... ok
+test_chunk_source_failure_blocks_without_acceptance (tests.test_scan_staged_lfs.PayloadTests.test_chunk_source_failure_blocks_without_acceptance) ... ok
+test_early_close_zero_exit_and_short_writes_block (tests.test_scan_staged_lfs.PayloadTests.test_early_close_zero_exit_and_short_writes_block) ... ok
+test_framing_preserves_all_original_bytes_and_counts (tests.test_scan_staged_lfs.PayloadTests.test_framing_preserves_all_original_bytes_and_counts) ... ok
+test_hook_no_working_python_blocks (tests.test_scan_staged_lfs.PayloadTests.test_hook_no_working_python_blocks) ... FAIL
+test_hook_retains_original_staged_scan_before_lfs (tests.test_scan_staged_lfs.PayloadTests.test_hook_retains_original_staged_scan_before_lfs) ... ok
+test_hook_skips_nonworking_python3_alias (tests.test_scan_staged_lfs.PayloadTests.test_hook_skips_nonworking_python3_alias) ... FAIL
+test_index_change_blocks (tests.test_scan_staged_lfs.PayloadTests.test_index_change_blocks) ... ok
+test_index_paths_are_nul_separated_not_line_split (tests.test_scan_staged_lfs.PayloadTests.test_index_paths_are_nul_separated_not_line_split) ... ok
+test_large_binary_snapshot_preserves_every_byte (tests.test_scan_staged_lfs.PayloadTests.test_large_binary_snapshot_preserves_every_byte) ... ok
+test_main_never_prints_arbitrary_exception (tests.test_scan_staged_lfs.PayloadTests.test_main_never_prints_arbitrary_exception) ... ok
+test_malformed_or_extended_lfs_fails_closed (tests.test_scan_staged_lfs.PayloadTests.test_malformed_or_extended_lfs_fails_closed) ... ok
+test_missing_cache_never_uses_worktree (tests.test_scan_staged_lfs.PayloadTests.test_missing_cache_never_uses_worktree) ... ok
+test_pointer_and_crlf (tests.test_scan_staged_lfs.PayloadTests.test_pointer_and_crlf) ... ok
+test_real_gzip_magic_and_begin_middle_end_canaries (tests.test_scan_staged_lfs.PayloadTests.test_real_gzip_magic_and_begin_middle_end_canaries) ... ok
+test_real_scanner_detects_synthetic_token_after_large_binary_prefix (tests.test_scan_staged_lfs.PayloadTests.test_real_scanner_detects_synthetic_token_after_large_binary_prefix) ... ok
+test_scanner_finding_and_error_both_block (tests.test_scan_staged_lfs.PayloadTests.test_scanner_finding_and_error_both_block) ... ok
+test_scanner_mandatory_flags_and_isolated_config (tests.test_scan_staged_lfs.PayloadTests.test_scanner_mandatory_flags_and_isolated_config) ... ok
+test_scanner_timeout_blocks_and_kills (tests.test_scan_staged_lfs.PayloadTests.test_scanner_timeout_blocks_and_kills) ... ok
+test_size_and_digest_mismatch (tests.test_scan_staged_lfs.PayloadTests.test_size_and_digest_mismatch) ... ok
+test_staged_object_not_unstaged_payload_is_scanned_and_deduplicated (tests.test_scan_staged_lfs.PayloadTests.test_staged_object_not_unstaged_payload_is_scanned_and_deduplicated) ... ok
+{"commit": "owncommit", "phase": "push_committed_evidence"}
+test_committed_retry_pushes_same_commit_without_add_or_commit (tests.test_run_cifar_batch.PreservationTests.test_committed_retry_pushes_same_commit_without_add_or_commit) ... ok
+test_environment_cannot_override_hooks_or_prompt (tests.test_run_cifar_batch.PreservationTests.test_environment_cannot_override_hooks_or_prompt) ... ok
+test_failed_scanner_is_not_ignored (tests.test_run_cifar_batch.PreservationTests.test_failed_scanner_is_not_ignored) ... ok
+test_final_inventory_and_private_extra_rejected (tests.test_run_cifar_batch.PreservationTests.test_final_inventory_and_private_extra_rejected) ... ok
+{"acquisition": 0, "batch": "results/cifar_batch_preservation/51e9d37a-f4c5-4bb8-b552-6798cab0b780", "push": "not_requested"}
+test_finalize_never_launches_acquisition (tests.test_run_cifar_batch.PreservationTests.test_finalize_never_launches_acquisition) ... ok
+test_fixed_git_flags_enforce_hooks_and_lfs_upload (tests.test_run_cifar_batch.PreservationTests.test_fixed_git_flags_enforce_hooks_and_lfs_upload) ... ok
+test_frozen_entry_pin_matches_real_source (tests.test_run_cifar_batch.PreservationTests.test_frozen_entry_pin_matches_real_source) ... ok
+test_gzip_all_members_and_truncated_final_stream (tests.test_run_cifar_batch.PreservationTests.test_gzip_all_members_and_truncated_final_stream) ... ok
+test_gzip_corruption_and_budget_fail_closed (tests.test_run_cifar_batch.PreservationTests.test_gzip_corruption_and_budget_fail_closed) ... ok
+test_interrupted_bytes_preserved_without_claiming_complete (tests.test_run_cifar_batch.PreservationTests.test_interrupted_bytes_preserved_without_claiming_complete) ... ok
+test_nested_batch_filename_not_allowlisted (tests.test_run_cifar_batch.PreservationTests.test_nested_batch_filename_not_allowlisted) ... ok
+{"evidence_kept": true, "physical_retry_performed": false, "preservation": "pending_local_review", "push": "not_attempted_or_unconfirmed"}
+test_publication_failure_retains_batch_and_never_relaunches (tests.test_run_cifar_batch.PreservationTests.test_publication_failure_retains_batch_and_never_relaunches) ... ok
+test_real_isolated_git_hook_failure_commit_retry_and_lfs (tests.test_run_cifar_batch.PreservationTests.test_real_isolated_git_hook_failure_commit_retry_and_lfs)
+{"files": 4, "phase": "secret_scan"}
+{"files": 5, "phase": "stage_exact_evidence"}
+{"files": 5, "phase": "stage_exact_evidence"}
+Only temp Git repository; stub security scanner; no remote operations. ... ERROR
+test_relative_paths_and_private_namespace (tests.test_run_cifar_batch.PreservationTests.test_relative_paths_and_private_namespace) ... ok
+test_remote_has_no_credentials_or_other_destination (tests.test_run_cifar_batch.PreservationTests.test_remote_has_no_credentials_or_other_destination) ... ok
+test_retry_publication_cannot_rebind_exit_or_destination (tests.test_run_cifar_batch.PreservationTests.test_retry_publication_cannot_rebind_exit_or_destination) ... ok
+test_unrelated_retry_commit_refused_without_mutation (tests.test_run_cifar_batch.PreservationTests.test_unrelated_retry_commit_refused_without_mutation) ... ok
+test_untracked_extra_commit_hook_rejected (tests.test_run_cifar_batch.PreservationTests.test_untracked_extra_commit_hook_rejected) ... ok
+
+======================================================================
+ERROR: test_real_isolated_git_hook_failure_commit_retry_and_lfs (tests.test_run_cifar_batch.PreservationTests.test_real_isolated_git_hook_failure_commit_retry_and_lfs)
+Only temp Git repository; stub security scanner; no remote operations.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\memristor-aware-twd-snn\.tmp\publish-data-20261017\tests\test_run_cifar_batch.py", line 199, in test_real_isolated_git_hook_failure_commit_retry_and_lfs
+    result=b.commit_or_retry(batch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\memristor-aware-twd-snn\.tmp\publish-data-20261017\tools\run_cifar_batch.py", line 270, in commit_or_retry
+    git.run('--literal-pathspecs','add','--pathspec-from-file=-','--pathspec-file-nul',data=b'\0'.join(n.encode() for n in names)+b'\0')
+  File "D:\projects\memristor-aware-twd-snn\.tmp\publish-data-20261017\tools\run_cifar_batch.py", line 101, in run
+    require(result.returncode==0,'git_'+args[0]+'_failed')
+  File "D:\projects\memristor-aware-twd-snn\.tmp\publish-data-20261017\tools\run_cifar_batch.py", line 47, in require
+    if not value:raise Pending(code)
+                 ^^^^^^^^^^^^^^^^^^^
+tools.run_cifar_batch.Pending: git_--literal-pathspecs_failed
+
+======================================================================
+FAIL: test_hook_no_working_python_blocks (tests.test_scan_staged_lfs.PayloadTests.test_hook_no_working_python_blocks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\memristor-aware-twd-snn\.tmp\publish-data-20261017\tests\test_scan_staged_lfs.py", line 221, in test_hook_no_working_python_blocks
+    self.assertEqual(result.returncode, 1)
+AssertionError: 3221225794 != 1
+
+======================================================================
+FAIL: test_hook_skips_nonworking_python3_alias (tests.test_scan_staged_lfs.PayloadTests.test_hook_skips_nonworking_python3_alias)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\memristor-aware-twd-snn\.tmp\publish-data-20261017\tests\test_scan_staged_lfs.py", line 205, in test_hook_skips_nonworking_python3_alias
+    self.assertEqual(result.returncode, 0)
+AssertionError: 3221225794 != 0
+
+----------------------------------------------------------------------
+Ran 39 tests in 12.970s
+
+FAILED (failures=2, errors=1)

@@ -1,0 +1,62 @@
+{
+  "schema": "gitleaks-framed-stream-source-review-candidate-v1",
+  "status": "author_tests_pass_independent_review_pending",
+  "gitleaks_version": "8.30.1",
+  "source_sha256": {
+    "tools/security/scan_staged_lfs.py": "ea2ec4b179b73317730ac94d495c1141983e1af53512e00a55f3e9e108542e30",
+    "tools/run_cifar_batch.py": "bd916a0b217776789e124d922b779b4fe4335a873ca944faa87d9a0bc254590e",
+    "tests/test_scan_staged_lfs.py": "38261b8093cdd029bf71d7bfa4b658c02f527b61b1ea631b0688e4497bae5fe6",
+    "tests/test_run_cifar_batch.py": "250474d088c8e7db5f0673e70b74177185126ec809e1c7713bca3750804d6b0e"
+  },
+  "framing_bytes": 1053,
+  "frame_sha256": "03b2584cfe0d3b5a1b8bcb0f06eb1e751940dde2a5e70e109116eeb96ec26d0a",
+  "tests": {
+    "passed": 39,
+    "seconds": 13.163,
+    "actual_scanner_integrations_enabled": true,
+    "log": "TESTS_UNSANDBOXED.log",
+    "prior_sandbox_log": "TESTS.log",
+    "prior_sandbox_failures": "2 Git Bash startup 0xC0000142 and1 isolated Git LFS failure; scanner tests passed"
+  },
+  "hardware_io": false,
+  "measured_data_modified": false,
+  "working_repository_git_mutated": false,
+  "existing_preserve_recovery": true,
+  "authoritative_operator_batch": {
+    "batch": "c93d6fde-a709-4ec1-935d-2612c1ec8696",
+    "base_commit": "b7232c4367096d1c29eeb4d4c0c7e40645a99142",
+    "finished_utc": "2026-10-20T11:42:30.179528+00:00",
+    "child_exit": 0,
+    "child_terminated": true,
+    "attribution_verified": true,
+    "hardware_lock": false,
+    "publication_manifest_present": false,
+    "stages": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "impacts": [
+      340346,
+      175912,
+      369044,
+      336294,
+      176942,
+      370778
+    ],
+    "pulses": [
+      1897,
+      540,
+      1874,
+      1831,
+      563,
+      1945
+    ],
+    "total_impacts": 1769316,
+    "total_pulses": 8650,
+    "source": "root operator observation; not independent raw replay"
+  }
+}

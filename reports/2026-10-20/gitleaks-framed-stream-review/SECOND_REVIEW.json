@@ -1,0 +1,35 @@
+{
+  "schema": "gitleaks-framed-stream-independent-review-v1",
+  "verdict": "GO_scanner_publication_fix_only",
+  "source_sha256": {
+    "tools/security/scan_staged_lfs.py": "ea2ec4b179b73317730ac94d495c1141983e1af53512e00a55f3e9e108542e30",
+    "tools/run_cifar_batch.py": "bd916a0b217776789e124d922b779b4fe4335a873ca944faa87d9a0bc254590e",
+    "tests/test_scan_staged_lfs.py": "38261b8093cdd029bf71d7bfa4b658c02f527b61b1ea631b0688e4497bae5fe6",
+    "tests/test_run_cifar_batch.py": "250474d088c8e7db5f0673e70b74177185126ec809e1c7713bca3750804d6b0e"
+  },
+  "independent_tests": {
+    "passed": 36,
+    "failed": 0,
+    "seconds": 8.058,
+    "real_gitleaks": true,
+    "gitleaks_version": "8.30.1",
+    "selection": "All PayloadTests and PreservationTests except listed unchanged shell/Git tests",
+    "not_repeated": [
+      "test_hook_skips_nonworking_python3_alias",
+      "test_hook_no_working_python_blocks",
+      "test_real_isolated_git_hook_failure_commit_retry_and_lfs"
+    ]
+  },
+  "verified_properties": [
+    "1053-byte ASCII/LF prefix exists only in scanner pipe; all source bytes follow unchanged",
+    "Short write, BrokenPipe including scanner exit0, stream failure, nonzero and timeout block publication",
+    "Real canaries detected in beginning/middle/end raw binary and decoded text and after12MiB NUL prefix",
+    "Wrapper scans raw and decoded gzip streams separately; staged-LFS hook does not decompress",
+    "Full gzip members scanned; truncated decoded prefix labelled and raw separately scanned; corruption fails closed",
+    "No physical retry, original evidence not modified, exact wrapper source pin updated"
+  ],
+  "working_repository_git_mutated": false,
+  "hardware_access": false,
+  "raw_measurements_changed": false,
+  "provenance_v2_approval_included": false
+}

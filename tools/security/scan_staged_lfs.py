@@ -119,25 +119,57 @@ def find_scanner(repo):
     raise Blocked('Install Gitleaks on PATH or in repository .tools.')
 
 
-def scan_stream(scanner, stream, cwd):
-    # stdin is mandatory: no filename/extension/binary-file walk or file-size
-    # exclusion. Scan all verified bytes, including NULs, from a private snapshot.
-    # Isolated cwd prevents .gitleaksignore in the source checkout suppressing
-    # stdin findings; repo config is not copied. Suppress ALL scanner diagnostics.
-    env = dict(os.environ)
-    env.pop('GITLEAKS_CONFIG', None)
-    env.pop('GITLEAKS_CONFIG_TOML', None)
+# Gitleaks 8.30.1 stdin still MIME-sniffs its first fragment and silently
+# skips application/* (including gzip). Scan-only ASCII framing prevents that
+# optimization; every original byte follows unchanged, including NULs.
+SCAN_FRAME = b'gitleaks-full-byte-stream-v1\n' + b'\n' * 1024
+
+
+def scan_chunks(scanner, chunks, cwd, env=None):
+    environment = dict(os.environ if env is None else env)
+    environment.pop('GITLEAKS_CONFIG', None)
+    environment.pop('GITLEAKS_CONFIG_TOML', None)
+    process = None
+    payload_bytes = 0
     try:
-        p = subprocess.run([scanner, 'stdin', '--redact=100', '--no-banner',
-                            '--ignore-gitleaks-allow', '--max-target-megabytes=0',
-                            '--exit-code=1'], stdin=stream, cwd=cwd, env=env,
-                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    except OSError:
-        raise Blocked('Gitleaks could not start.') from None
-    if p.returncode == 1:
-        raise Blocked('Gitleaks detected a potential secret in a staged LFS payload.')
-    if p.returncode:
-        raise Blocked('Gitleaks failed to scan a staged LFS payload; commit blocked.')
+        process = subprocess.Popen([scanner, 'stdin', '--redact=100', '--no-banner',
+            '--ignore-gitleaks-allow', '--max-target-megabytes=0', '--exit-code=1'],
+            stdin=subprocess.PIPE, cwd=cwd, env=environment,
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        if process.stdin.write(SCAN_FRAME) != len(SCAN_FRAME):
+            raise Blocked('Scanner input write incomplete.')
+        for chunk in chunks:
+            if not isinstance(chunk, bytes):
+                raise Blocked('Scanner requires binary chunks.')
+            if process.stdin.write(chunk) != len(chunk):
+                raise Blocked('Scanner input write incomplete.')
+            payload_bytes += len(chunk)
+        process.stdin.close()
+        code = process.wait(timeout=300)
+        if code == 1:
+            raise Blocked('Gitleaks detected a potential secret in a staged LFS payload.')
+        if code:
+            raise Blocked('Gitleaks failed to scan payload; publication blocked.')
+        return dict(payload_bytes=payload_bytes, framing_bytes=len(SCAN_FRAME),
+                    scanner_input_bytes=payload_bytes + len(SCAN_FRAME),
+                    scan_framing='ascii-lf-v1')
+    except (OSError, subprocess.SubprocessError):
+        raise Blocked('Gitleaks stream failed; publication blocked.') from None
+    finally:
+        if process is not None:
+            if process.poll() is None:
+                process.kill()
+                process.wait()
+            if process.stdin is not None and not process.stdin.closed:
+                try:
+                    process.stdin.close()
+                except OSError:
+                    pass
+
+
+def scan_stream(scanner, stream, cwd):
+    # The caller supplies an isolated directory and a verified immutable snapshot.
+    return scan_chunks(scanner, iter(lambda: stream.read(1024**2), b''), cwd)
 
 
 def scan(repo):
