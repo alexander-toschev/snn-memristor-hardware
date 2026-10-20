@@ -1,0 +1,48 @@
+{
+  "schema": "cifar-batch-publication-source-review-v1",
+  "date": "2026-10-20",
+  "status": "source_qualified_pending_operator_pi_preflight",
+  "source_sha256": {
+    "tools/run_cifar_batch.py": "24443e7e0c0aa11cd6c85a6edddf81176994dfbff0101b9a4b33361893ea4ee7",
+    "tests/test_run_cifar_batch.py": "ae98d448d8c1734b25106653e08a2156fedd8c99a0f835a054539d14a85b2918",
+    "docs/plans/CIFAR_BATCH_PUBLICATION_20261020.md": "80d3d506cb4c1a9f37ac02b9bc884eddad27f8bb593993896d077780744c8753",
+    ".gitattributes": "259997e23d17e6c1031357797a35c05b61c7f894849943bb02dc34025976bcb2"
+  },
+  "unchanged_acquisition_entry_sha256": "f52a623436d73c30a368733dbb75c7666603905f5440201900f7862211b44379",
+  "reviewed_finite_plan": {
+    "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/HW_BATCH_19_25_PLAN.json",
+    "sha256": "c3838b01b7855b57a5b38d26965b0ea9a5e4ef35043334007dea328bde383a15",
+    "first_stage": 19,
+    "stop_stage_exclusive": 25,
+    "total_target_stages": 48
+  },
+  "independent_validation": {
+    "tests_covered": 18,
+    "synthetic_mocked_tests_passed": 17,
+    "isolated_real_git_lfs_test_passed": 1,
+    "isolated_git_test_elapsed_seconds": 6.409,
+    "isolated_git_test_hooks_and_scanner": "stubs",
+    "first_system_temp_attempt": "Windows sandbox filesystem restriction",
+    "sandbox_integration_attempt": "Git LFS filter failed under Windows sandbox",
+    "integration_retry": "approved unsandboxed execution in disposable temporary repository, repo-local TEMP/TMP",
+    "project_git_mutated": false,
+    "network_push_executed": false,
+    "hardware_or_native_sim_executed": false
+  },
+  "guards_reviewed": [
+    "exact session attribution and finite plan",
+    "evidence retained on failure; no physical retry",
+    "exact file allowlist and no symlink/reparse",
+    "raw plus decoded gzip secret scanning",
+    "reviewed hook directory inventory and pinned bytes",
+    "GIT_LFS_SKIP_PUSH removed; incomplete LFS push forbidden",
+    "retry metadata bindings and uncommitted retry rescan",
+    "exact staged/committed bytes and LFS pointers",
+    "fixed noninteractive remote and branch; no force",
+    "separate acquisition/preservation/push/semantic statuses"
+  ],
+  "semantic_audit_pass_claimed": false,
+  "full_cifar_complete": false,
+  "accuracy_claimed": false,
+  "remote_lfs_readback_tested": false
+}
