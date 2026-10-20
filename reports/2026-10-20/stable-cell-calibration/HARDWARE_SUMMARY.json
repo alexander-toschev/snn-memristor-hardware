@@ -1,0 +1,201 @@
+{
+  "session": "4c8c70ca-f819-4c82-83c8-8fed7f9fe3b0",
+  "source": "hardware",
+  "archive": "results/stable_cell_calibration_20261020/archives/4c8c70ca-f819-4c82-83c8-8fed7f9fe3b0.tar.gz",
+  "archive_sha256": "c90fd796aed036621c094d3ffac5de00ee09203799463928738a50e70fb7a664",
+  "cells_measured": 256,
+  "strict_eligible_cells": [
+    [
+      0,
+      12
+    ],
+    [
+      7,
+      14
+    ]
+  ],
+  "resolved_cells": 70,
+  "cell_reason_counts": {
+    "insufficient_reproducible_span": 186,
+    "cross_cycle": 81,
+    "repeat_noise": 27,
+    "middle_outside_endpoints": 9,
+    "state_drift": 76
+  },
+  "selection": {
+    "bls": [
+      2,
+      3,
+      6,
+      10,
+      11,
+      12,
+      14,
+      15
+    ],
+    "coefficient_slots": 8,
+    "pairs": [
+      [
+        0,
+        7
+      ]
+    ],
+    "worst_normalized_error": 18.60462332024986
+  },
+  "qualified": false,
+  "pair_mandatory_pass": true,
+  "calibration": {
+    "matrix": {
+      "candidates": [
+        {
+          "gain": 1.0,
+          "matrix": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ],
+          "name": "identity",
+          "selection_rmse_v": 0.035857216149612056
+        },
+        {
+          "gain": 0.7878022803064082,
+          "matrix": [
+            [
+              0.7878022803064082,
+              0.0
+            ],
+            [
+              0.0,
+              0.7354167142245089
+            ]
+          ],
+          "name": "diagonal",
+          "selection_rmse_v": 0.00773272091285941
+        },
+        {
+          "gain": 0.840795083790628,
+          "matrix": [
+            [
+              0.7442683823900197,
+              0.04698584335028806
+            ],
+            [
+              -0.06272239761362425,
+              0.7780726861770038
+            ]
+          ],
+          "name": "full",
+          "selection_rmse_v": 0.007115415350085228
+        }
+      ],
+      "gain": 0.840795083790628,
+      "intercept": false,
+      "matrix": [
+        [
+          0.7442683823900197,
+          0.04698584335028806
+        ],
+        [
+          -0.06272239761362425,
+          0.7780726861770038
+        ]
+      ],
+      "name": "full",
+      "normalized_condition": 2.94964725771927,
+      "ridge_v2": 0.0001,
+      "selection_rmse_v": 0.007115415350085228,
+      "target": "fresh_same_state_singleton_superposition",
+      "trained_weights_used": false,
+      "x_spectrum": {
+        "margin_pass": true,
+        "rank": 2,
+        "tol": 7.384501015416284e-14,
+        "values": [
+          2.309502501482349,
+          0.7713584974230666
+        ]
+      },
+      "y_spectrum": {
+        "margin_pass": true,
+        "rank": 2,
+        "tol": 5.6035852498917644e-14,
+        "values": [
+          1.7525211418993998,
+          0.599326294625021
+        ]
+      }
+    },
+    "status": "joint_unqualified",
+    "validation": {
+      "heldout_refit": false,
+      "qualified": false,
+      "strata": [
+        {
+          "corrected_rmse_adc_equivalent": 32.25510578170681,
+          "count": 3,
+          "density": 1,
+          "limit": 16.5664896,
+          "pair": [
+            0,
+            7
+          ],
+          "qualified": false,
+          "raw_rmse_adc_equivalent": 1.2944298049195302,
+          "status": "measured",
+          "target_rms_adc_equivalent": 165.664896
+        },
+        {
+          "corrected_rmse_adc_equivalent": 9.5585872276872,
+          "count": 6,
+          "density": 2,
+          "limit": 6.03051447600636,
+          "pair": [
+            0,
+            7
+          ],
+          "qualified": false,
+          "raw_rmse_adc_equivalent": 5.014815813031207,
+          "status": "measured",
+          "target_rms_adc_equivalent": 60.3051447600636
+        },
+        {
+          "corrected_rmse_adc_equivalent": 28.332095695912912,
+          "count": 24,
+          "density": 3,
+          "limit": 25.701440703428087,
+          "pair": [
+            0,
+            7
+          ],
+          "qualified": false,
+          "raw_rmse_adc_equivalent": 85.93383313597066,
+          "status": "measured",
+          "target_rms_adc_equivalent": 257.01440703428085
+        },
+        {
+          "corrected_rmse_adc_equivalent": 35.15259648708175,
+          "count": 39,
+          "density": 4,
+          "limit": 20.634892172031513,
+          "pair": [
+            0,
+            7
+          ],
+          "qualified": false,
+          "raw_rmse_adc_equivalent": 117.44211457545566,
+          "status": "measured",
+          "target_rms_adc_equivalent": 206.3489217203151
+        }
+      ]
+    }
+  },
+  "impacts": 293294,
+  "pulses": 8960,
+  "cifar_accuracy": null,
+  "interpretation": "Diagnostic best available selection. Calibration improves dense masks but worsens singleton/doubleton heldout masks; raw and corrected classifier branches must both be reported."
+}
