@@ -1,0 +1,117 @@
+{
+  "source": "native MemriBoard simulator, not hardware",
+  "train_session": "a1677ea8-8f82-4871-8236-115b33e00358",
+  "accuracy_session": "25531a6c-c96c-4073-a502-ddf4ff3bf8cf",
+  "gains": [
+    100.0,
+    100.0,
+    100.0,
+    100.0
+  ],
+  "train_seconds": 698.355318,
+  "accuracy_seconds": 64.156098,
+  "train_impacts": 55828,
+  "accuracy_impacts": 47908,
+  "total_pulses": 2168,
+  "training_updates": {
+    "SET": 91,
+    "RESET": 29,
+    "expected": 73,
+    "opposite": 11,
+    "zero": 36,
+    "unique_cells": 85
+  },
+  "phases": {
+    "preprobe": {
+      "images": 16,
+      "posts": 14,
+      "posts_per_neuron": [
+        4,
+        1,
+        4,
+        5
+      ],
+      "silent_images": 8
+    },
+    "train": {
+      "images": 128,
+      "posts": 126,
+      "posts_per_neuron": [
+        36,
+        26,
+        28,
+        36
+      ],
+      "silent_images": 71
+    },
+    "postprobe": {
+      "images": 16,
+      "posts": 14,
+      "posts_per_neuron": [
+        4,
+        1,
+        4,
+        5
+      ],
+      "silent_images": 6
+    },
+    "retentionprobe": {
+      "images": 16,
+      "posts": 14,
+      "posts_per_neuron": [
+        4,
+        1,
+        4,
+        5
+      ],
+      "silent_images": 6
+    },
+    "readout_train": {
+      "images": 128,
+      "posts": 104,
+      "posts_per_neuron": [
+        27,
+        26,
+        27,
+        24
+      ],
+      "silent_images": 80
+    },
+    "official_test": {
+      "images": 100,
+      "posts": 109,
+      "posts_per_neuron": [
+        26,
+        20,
+        25,
+        38
+      ],
+      "silent_images": 52
+    }
+  },
+  "accuracy": {
+    "strict_correct": 10,
+    "strict_accuracy": 0.1,
+    "conventional_argmax_correct": 24,
+    "conventional_argmax_accuracy": 0.24,
+    "coverage": 0.48,
+    "conditional_accuracy": 0.20833333333333334,
+    "silent": 52,
+    "tied": 0,
+    "strict_wilson95": [
+      0.0552291370606751,
+      0.17436566150491345
+    ]
+  },
+  "allocated_cells": 256,
+  "train_input_active_cells": 212,
+  "image_participating_cells": 212,
+  "separate_control_bank": false,
+  "previous_sim32": {
+    "strict_accuracy": 0.17,
+    "conventional_argmax_accuracy": 0.21,
+    "silent": 10,
+    "coverage": 0.9
+  },
+  "provenance": "Actual launch Git is in immutable manifests. Executed new source byte hashes match later commit1ae4fa1, verified separately; not a clean1ae4fa1 launch."
+}

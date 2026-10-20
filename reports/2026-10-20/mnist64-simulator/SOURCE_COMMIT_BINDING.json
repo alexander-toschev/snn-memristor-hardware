@@ -1,0 +1,82 @@
+{
+  "launch_invocation": {
+    "git": {
+      "commit": "52c99896691db611d7b097abc2260955e4f4f705",
+      "dirty_tracked": true,
+      "status_porcelain": " M AGENTS.md\n M docs/plans/GOAL_CONTROL_20261020.md\n M docs/plans/MNIST_MATCHED_STDP_AFTER_CIFAR_20261020.md\n?? experiments/mnist64_20261020/\n?? reports/2026-10-20/cifar-generic-batch-review/\n?? results/cifar_confirmatory_native_20261020/868268a6-9277-4809-863f-86420d58ef87/\n?? results/cifar_confirmatory_native_20261020/f237904b-0560-4a9a-8c33-f22c69345650/\n?? results/compact_cifar_physical_20261020/3c069a98-1afc-4931-b355-9090b0d27704/\n?? results/compact_cifar_physical_20261020/69c5bfda-17bf-41ad-8805-704dc9b22ac4/\n?? results/conductance_stdp_hardware_20261019/4615c933-40a1-44fb-9c25-5459e98d4e1b/\n?? results/mnist_accuracy_20261020/17ff1c2c-d2d7-4629-9034-db5d3c681bc5/\n?? results/mnist_accuracy_20261020/effc6a74-5f82-4b71-8c47-3bdab4985f4a/\n?? results/mnist_conductance_20261019/e5dd5913-330b-4c9d-9886-420dce452d14/\n?? results/mnist_diagonal_20261020/a4327210-2cc4-4c19-bb7b-b8820d2e84e4/\n?? results/mnist_diagonal_20261020/ee0db984-cd00-4052-95e6-069e71c720eb/\n?? results/mnist_stdp_retraining_20261019/7a536bf8-0269-4edd-b454-a8ba2c33c219/\n?? results/stable_cell_calibration_20261020/0d2b8b1b-0f4f-4b73-b2d9-e426d0e767ee/\n?? results/stable_cell_calibration_20261020/4c8c70ca-f819-4c82-83c8-8fed7f9fe3b0/\n?? results/stable_cell_calibration_20261020/beb56c75-496b-4ac6-a088-5ba77b306d13/\n?? results/stable_cell_diagnostic_20261020/f4862a1c-9bf0-494f-b0fd-b5737df736f5/\n?? tests/test_mnist64.py",
+      "untracked": [
+        "experiments/mnist64_20261020/",
+        "reports/2026-10-20/cifar-generic-batch-review/",
+        "results/cifar_confirmatory_native_20261020/868268a6-9277-4809-863f-86420d58ef87/",
+        "results/cifar_confirmatory_native_20261020/f237904b-0560-4a9a-8c33-f22c69345650/",
+        "results/compact_cifar_physical_20261020/3c069a98-1afc-4931-b355-9090b0d27704/",
+        "results/compact_cifar_physical_20261020/69c5bfda-17bf-41ad-8805-704dc9b22ac4/",
+        "results/conductance_stdp_hardware_20261019/4615c933-40a1-44fb-9c25-5459e98d4e1b/",
+        "results/mnist_accuracy_20261020/17ff1c2c-d2d7-4629-9034-db5d3c681bc5/",
+        "results/mnist_accuracy_20261020/effc6a74-5f82-4b71-8c47-3bdab4985f4a/",
+        "results/mnist_conductance_20261019/e5dd5913-330b-4c9d-9886-420dce452d14/",
+        "results/mnist_diagonal_20261020/a4327210-2cc4-4c19-bb7b-b8820d2e84e4/",
+        "results/mnist_diagonal_20261020/ee0db984-cd00-4052-95e6-069e71c720eb/",
+        "results/mnist_stdp_retraining_20261019/7a536bf8-0269-4edd-b454-a8ba2c33c219/",
+        "results/stable_cell_calibration_20261020/0d2b8b1b-0f4f-4b73-b2d9-e426d0e767ee/",
+        "results/stable_cell_calibration_20261020/4c8c70ca-f819-4c82-83c8-8fed7f9fe3b0/",
+        "results/stable_cell_calibration_20261020/beb56c75-496b-4ac6-a088-5ba77b306d13/",
+        "results/stable_cell_diagnostic_20261020/f4862a1c-9bf0-494f-b0fd-b5737df736f5/",
+        "tests/test_mnist64.py"
+      ]
+    },
+    "hardware_argv": [
+      "--run-simulator"
+    ],
+    "process_argv": [
+      "experiments/mnist64_20261020/experiment.py",
+      "--run-simulator"
+    ]
+  },
+  "source_storage_commit": "1ae4fa1",
+  "sources": [
+    {
+      "path": "experiments/mnist64_20261020/analyze.py",
+      "sha256": "caaf8c87e0d337eb088212ca69fc369bf37ebce2f9cef86e0b82ba9f364ae5d1",
+      "commit_blob_sha256": "caaf8c87e0d337eb088212ca69fc369bf37ebce2f9cef86e0b82ba9f364ae5d1",
+      "match": true
+    },
+    {
+      "path": "experiments/mnist64_20261020/core.py",
+      "sha256": "f7ef657338410026bd0b3b8c82f76e821406624fe7b243206d17a2ad103e3843",
+      "commit_blob_sha256": "f7ef657338410026bd0b3b8c82f76e821406624fe7b243206d17a2ad103e3843",
+      "match": true
+    },
+    {
+      "path": "experiments/mnist64_20261020/experiment.py",
+      "sha256": "eabeb7aca6ebc8c6c9c26b73809776c41c23a322bc4b76ff4464a668bb47a852",
+      "commit_blob_sha256": "eabeb7aca6ebc8c6c9c26b73809776c41c23a322bc4b76ff4464a668bb47a852",
+      "match": true
+    },
+    {
+      "path": "experiments/mnist64_20261020/inputs.py",
+      "sha256": "0e36a3cc8b6865736f36a79927d4925acb3dc4daa633864730a3a0c78c448fad",
+      "commit_blob_sha256": "0e36a3cc8b6865736f36a79927d4925acb3dc4daa633864730a3a0c78c448fad",
+      "match": true
+    },
+    {
+      "path": "experiments/mnist64_20261020/logic.py",
+      "sha256": "f55bce7b59ccf05672bf03d1fcf3407028bacd9424727ca9ce7478a908a69f4a",
+      "commit_blob_sha256": "f55bce7b59ccf05672bf03d1fcf3407028bacd9424727ca9ce7478a908a69f4a",
+      "match": true
+    },
+    {
+      "path": "experiments/mnist64_20261020/readout.py",
+      "sha256": "25e8a0117401f588ff02521fcd4098cb6109c535ca986b077218c8fcf9af9b42",
+      "commit_blob_sha256": "25e8a0117401f588ff02521fcd4098cb6109c535ca986b077218c8fcf9af9b42",
+      "match": true
+    },
+    {
+      "path": "experiments/mnist64_20261020/replay.py",
+      "sha256": "09306ce14a00cdd11c893975d19ad04e7f33685932d5f000e07a47783ee3f2b2",
+      "commit_blob_sha256": "09306ce14a00cdd11c893975d19ad04e7f33685932d5f000e07a47783ee3f2b2",
+      "match": true
+    }
+  ],
+  "note": "Files were uncommitted at actual launch; later committed identical bytes. Manifest unchanged."
+}

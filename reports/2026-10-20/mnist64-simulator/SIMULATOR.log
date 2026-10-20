@@ -1,0 +1,33 @@
+Session a1677ea8-8f82-4871-8236-115b33e00358 simulator train
+fit 16/32; impacts=16728 pulses=2048
+fit 32/32; impacts=19916 pulses=2048
+preprobe 16/16; impacts=22884 pulses=2048
+STDP 16/128; impacts=25652 pulses=2064
+STDP 32/128; impacts=28569 pulses=2075
+STDP 48/128; impacts=31304 pulses=2088
+STDP 64/128; impacts=34409 pulses=2103
+STDP 80/128; impacts=37260 pulses=2124
+STDP 96/128; impacts=40332 pulses=2144
+STDP 112/128; impacts=42976 pulses=2148
+STDP 128/128; impacts=46052 pulses=2168
+postprobe 16/16; impacts=49020 pulses=2168
+retentionprobe 16/16; impacts=51988 pulses=2168
+Session 25531a6c-c96c-4073-a502-ddf4ff3bf8cf simulator accuracy
+Readout train collection 16/128; impacts=6560 pulses=0
+Readout train collection 32/128; impacts=9444 pulses=0
+Readout train collection 48/128; impacts=12140 pulses=0
+Readout train collection 64/128; impacts=15200 pulses=0
+Readout train collection 80/128; impacts=17988 pulses=0
+Readout train collection 96/128; impacts=21000 pulses=0
+Readout train collection 112/128; impacts=23632 pulses=0
+Readout train collection 128/128; impacts=26648 pulses=0
+Test response collection 16/100; impacts=29412 pulses=0
+Test response collection 32/100; impacts=32164 pulses=0
+Test response collection 48/100; impacts=34716 pulses=0
+Test response collection 64/100; impacts=37632 pulses=0
+Test response collection 80/100; impacts=40480 pulses=0
+Test response collection 96/100; impacts=43352 pulses=0
+Test response collection 100/100; impacts=44068 pulses=0
+Readout fit: 128 frozen train responses, ridge lambda=1
+Accuracy: strict=10/100; argmax=24/100; coverage=0.48
+{"sessions": ["results/mnist64_20261020/a1677ea8-8f82-4871-8236-115b33e00358", "results/mnist64_20261020/25531a6c-c96c-4073-a502-ddf4ff3bf8cf"], "status": "completed", "error": null, "accuracy": {"strict_accuracy": 0.1, "conventional_argmax_accuracy": 0.24, "coverage": 0.48, "silent": 52, "tied": 0}}
