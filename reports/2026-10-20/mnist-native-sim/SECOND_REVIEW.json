@@ -1,0 +1,620 @@
+{
+  "schema": "mnist-native-pair-second-review-v1",
+  "status": "native_sim_mechanism_qualified_not_efficacy",
+  "reviewer_sha256": "f3277ccb596ee81598ac3a61c1a0b0c176516be12ffdb3561b287d25fcbdf551",
+  "freeze_sha256": "54c0865f841430187aa6e242c3698a8b721a5d207dda273119d1ecb8bc22d7b8",
+  "freeze_files_verified": 76,
+  "main": {
+    "session": "results/mnist_conductance_20261019/1caee2d0-16fe-47a1-8460-a0a3bad7ba24",
+    "audit_path": "reports/2026-10-20/mnist-native-sim/MAIN_AUDIT.json",
+    "audit_sha256": "c950aa5150af5d3c9eac4e8537eedfa3ba62ee8658dd90b7a13ad5f49c5cbe96",
+    "manifest_sha256": "a506b820edf3b55eccd209991c214e61f73e2727b22ef40a1b7876c10912e49c",
+    "source_files_verified": 72,
+    "result_files_verified": 2737,
+    "raw_closed_parts_verified": 2727,
+    "native_impacts": 107728,
+    "pulses": 2400,
+    "selected_gain": 200.0,
+    "phase_summary": {
+      "preprobe": {
+        "images": 16,
+        "posts_by_wl": [
+          33,
+          18,
+          30,
+          28,
+          23,
+          31,
+          20,
+          30
+        ],
+        "silent_images_by_wl": [
+          1,
+          3,
+          1,
+          1,
+          2,
+          0,
+          4,
+          1
+        ],
+        "maximum_posts_per_image_by_wl": [
+          4,
+          2,
+          3,
+          3,
+          3,
+          4,
+          3,
+          3
+        ],
+        "all_32_steps_spiking_images_by_wl": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "distinct_neuron_traces": 8,
+        "distinct_learning_neuron_traces": 4,
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false
+      },
+      "train": {
+        "images": 128,
+        "posts_by_wl": [
+          150,
+          113,
+          178,
+          144,
+          193,
+          193,
+          172,
+          234
+        ],
+        "silent_images_by_wl": [
+          36,
+          48,
+          31,
+          43,
+          29,
+          27,
+          33,
+          20
+        ],
+        "maximum_posts_per_image_by_wl": [
+          4,
+          4,
+          4,
+          5,
+          4,
+          5,
+          4,
+          5
+        ],
+        "all_32_steps_spiking_images_by_wl": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "distinct_neuron_traces": 8,
+        "distinct_learning_neuron_traces": 4,
+        "unique_eight_neuron_outputs": 122,
+        "all_learning_traces_identical": false
+      },
+      "postprobe": {
+        "images": 16,
+        "posts_by_wl": [
+          13,
+          16,
+          14,
+          10,
+          23,
+          31,
+          20,
+          30
+        ],
+        "silent_images_by_wl": [
+          6,
+          5,
+          4,
+          6,
+          2,
+          0,
+          4,
+          1
+        ],
+        "maximum_posts_per_image_by_wl": [
+          2,
+          2,
+          2,
+          1,
+          3,
+          4,
+          3,
+          3
+        ],
+        "all_32_steps_spiking_images_by_wl": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "distinct_neuron_traces": 8,
+        "distinct_learning_neuron_traces": 4,
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false
+      },
+      "retentionprobe": {
+        "images": 16,
+        "posts_by_wl": [
+          13,
+          16,
+          14,
+          10,
+          23,
+          31,
+          20,
+          30
+        ],
+        "silent_images_by_wl": [
+          6,
+          5,
+          4,
+          6,
+          2,
+          0,
+          4,
+          1
+        ],
+        "maximum_posts_per_image_by_wl": [
+          2,
+          2,
+          2,
+          1,
+          3,
+          4,
+          3,
+          3
+        ],
+        "all_32_steps_spiking_images_by_wl": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "distinct_neuron_traces": 8,
+        "distinct_learning_neuron_traces": 4,
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false
+      }
+    },
+    "training_attempts": 352,
+    "admitted_training_pulses": 352,
+    "distinct_training_updated_cells": 91,
+    "training_pulses_by_wl": [
+      92,
+      79,
+      97,
+      84,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_update_sign_response": {
+      "requested_direction": 236,
+      "unchanged": 80,
+      "opposite_direction": 36
+    },
+    "before_to_after_training": {
+      "learning": {
+        "changed_cells": 73,
+        "positive": 24,
+        "negative": 49,
+        "sum_abs_delta": 0.0034522880908562045,
+        "maximum_abs_delta": 0.00016002221377304777
+      },
+      "control": {
+        "changed_cells": 1,
+        "positive": 0,
+        "negative": 1,
+        "sum_abs_delta": 1.2393592601327033e-08,
+        "maximum_abs_delta": 1.2393592601327033e-08
+      }
+    },
+    "post_to_retention": {
+      "learning": {
+        "changed_cells": 0,
+        "positive": 0,
+        "negative": 0,
+        "sum_abs_delta": 0.0,
+        "maximum_abs_delta": 0.0
+      },
+      "control": {
+        "changed_cells": 0,
+        "positive": 0,
+        "negative": 0,
+        "sum_abs_delta": 0.0,
+        "maximum_abs_delta": 0.0
+      }
+    },
+    "runtime": {
+      "git": {
+        "commit": "8c24520f8265d7e31606c5676fec02ef7429e074",
+        "dirty_tracked": false,
+        "untracked": [
+          "docs/plans/GOAL_CONTROL_20261020.md",
+          "reports/2026-10-20/",
+          "results/mnist_conductance_20261019/",
+          "results/mnist_stdp_retraining_20261019/7a536bf8-0269-4edd-b454-a8ba2c33c219/"
+        ],
+        "status_porcelain": "?? docs/plans/GOAL_CONTROL_20261020.md\n?? reports/2026-10-20/\n?? results/mnist_conductance_20261019/\n?? results/mnist_stdp_retraining_20261019/7a536bf8-0269-4edd-b454-a8ba2c33c219/"
+      },
+      "process_argv": [
+        "experiments/mnist_conductance_20261019/experiment.py",
+        "--run-simulator"
+      ],
+      "hardware_argv": [
+        "--run-simulator"
+      ]
+    },
+    "array_initial_sha256": "9d8e9680e805439f0db1387fa28e05625587c140ef8947a6c0de4a9112e4a3bf",
+    "reference": null
+  },
+  "reference": {
+    "session": "results/mnist_conductance_20261019/cd7b32c0-f180-474d-bded-f859132b9d94",
+    "audit_path": "reports/2026-10-20/mnist-native-sim/REFERENCE_AUDIT.json",
+    "audit_sha256": "741800f85c45380916a33dcb2720fd924d21f14954527563eee56fe77a0f9e5d",
+    "manifest_sha256": "6baee46de7d2857b12357600119fffab3d93b50cf4f0939d4f0e17f159721894",
+    "source_files_verified": 72,
+    "result_files_verified": 2799,
+    "raw_closed_parts_verified": 2789,
+    "native_impacts": 107648,
+    "pulses": 2048,
+    "selected_gain": 200.0,
+    "phase_summary": {
+      "preprobe": {
+        "images": 16,
+        "posts_by_wl": [
+          33,
+          18,
+          30,
+          28,
+          23,
+          31,
+          20,
+          30
+        ],
+        "silent_images_by_wl": [
+          1,
+          3,
+          1,
+          1,
+          2,
+          0,
+          4,
+          1
+        ],
+        "maximum_posts_per_image_by_wl": [
+          4,
+          2,
+          3,
+          3,
+          3,
+          4,
+          3,
+          3
+        ],
+        "all_32_steps_spiking_images_by_wl": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "distinct_neuron_traces": 8,
+        "distinct_learning_neuron_traces": 4,
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false
+      },
+      "train": {
+        "images": 128,
+        "posts_by_wl": [
+          233,
+          131,
+          221,
+          230,
+          193,
+          193,
+          172,
+          234
+        ],
+        "silent_images_by_wl": [
+          12,
+          41,
+          21,
+          18,
+          29,
+          27,
+          33,
+          20
+        ],
+        "maximum_posts_per_image_by_wl": [
+          5,
+          4,
+          5,
+          5,
+          4,
+          5,
+          4,
+          5
+        ],
+        "all_32_steps_spiking_images_by_wl": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "distinct_neuron_traces": 8,
+        "distinct_learning_neuron_traces": 4,
+        "unique_eight_neuron_outputs": 123,
+        "all_learning_traces_identical": false
+      },
+      "postprobe": {
+        "images": 16,
+        "posts_by_wl": [
+          33,
+          18,
+          30,
+          28,
+          23,
+          31,
+          20,
+          30
+        ],
+        "silent_images_by_wl": [
+          1,
+          3,
+          1,
+          1,
+          2,
+          0,
+          4,
+          1
+        ],
+        "maximum_posts_per_image_by_wl": [
+          4,
+          2,
+          3,
+          3,
+          3,
+          4,
+          3,
+          3
+        ],
+        "all_32_steps_spiking_images_by_wl": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "distinct_neuron_traces": 8,
+        "distinct_learning_neuron_traces": 4,
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false
+      },
+      "retentionprobe": {
+        "images": 16,
+        "posts_by_wl": [
+          33,
+          18,
+          30,
+          28,
+          23,
+          31,
+          20,
+          30
+        ],
+        "silent_images_by_wl": [
+          1,
+          3,
+          1,
+          1,
+          2,
+          0,
+          4,
+          1
+        ],
+        "maximum_posts_per_image_by_wl": [
+          4,
+          2,
+          3,
+          3,
+          3,
+          4,
+          3,
+          3
+        ],
+        "all_32_steps_spiking_images_by_wl": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "distinct_neuron_traces": 8,
+        "distinct_learning_neuron_traces": 4,
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false
+      }
+    },
+    "training_attempts": 420,
+    "admitted_training_pulses": 0,
+    "distinct_training_updated_cells": 0,
+    "training_pulses_by_wl": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_update_sign_response": {},
+    "before_to_after_training": {
+      "learning": {
+        "changed_cells": 0,
+        "positive": 0,
+        "negative": 0,
+        "sum_abs_delta": 0.0,
+        "maximum_abs_delta": 0.0
+      },
+      "control": {
+        "changed_cells": 1,
+        "positive": 0,
+        "negative": 1,
+        "sum_abs_delta": 1.2393592601327033e-08,
+        "maximum_abs_delta": 1.2393592601327033e-08
+      }
+    },
+    "post_to_retention": {
+      "learning": {
+        "changed_cells": 0,
+        "positive": 0,
+        "negative": 0,
+        "sum_abs_delta": 0.0,
+        "maximum_abs_delta": 0.0
+      },
+      "control": {
+        "changed_cells": 0,
+        "positive": 0,
+        "negative": 0,
+        "sum_abs_delta": 0.0,
+        "maximum_abs_delta": 0.0
+      }
+    },
+    "runtime": {
+      "git": {
+        "commit": "00d1c8ce14fc6507983996732c821fc941a8bdf4",
+        "dirty_tracked": true,
+        "untracked": [
+          "docs/plans/CIFAR_BATCH_PUBLICATION_20261020.md",
+          "reports/2026-10-20/conductance-stdp-local-transfer-proposal/",
+          "reports/2026-10-20/mnist-native-sim/",
+          "results/mnist_conductance_20261019/",
+          "results/mnist_stdp_retraining_20261019/7a536bf8-0269-4edd-b454-a8ba2c33c219/",
+          "tests/test_audit_conductance_stdp_local_transfer.py",
+          "tests/test_run_cifar_batch.py",
+          "tools/audit_conductance_stdp_local_transfer.py",
+          "tools/run_cifar_batch.py"
+        ],
+        "status_porcelain": " M .gitattributes\n?? docs/plans/CIFAR_BATCH_PUBLICATION_20261020.md\n?? reports/2026-10-20/conductance-stdp-local-transfer-proposal/\n?? reports/2026-10-20/mnist-native-sim/\n?? results/mnist_conductance_20261019/\n?? results/mnist_stdp_retraining_20261019/7a536bf8-0269-4edd-b454-a8ba2c33c219/\n?? tests/test_audit_conductance_stdp_local_transfer.py\n?? tests/test_run_cifar_batch.py\n?? tools/audit_conductance_stdp_local_transfer.py\n?? tools/run_cifar_batch.py"
+      },
+      "process_argv": [
+        "experiments/mnist_conductance_20261019/experiment.py",
+        "--run-simulator",
+        "--reference-main",
+        "results/mnist_conductance_20261019/1caee2d0-16fe-47a1-8460-a0a3bad7ba24"
+      ],
+      "hardware_argv": [
+        "--run-simulator",
+        "--reference-main",
+        "results/mnist_conductance_20261019/1caee2d0-16fe-47a1-8460-a0a3bad7ba24"
+      ]
+    },
+    "array_initial_sha256": "9d8e9680e805439f0db1387fa28e05625587c140ef8947a6c0de4a9112e4a3bf",
+    "reference": {
+      "session": "results/mnist_conductance_20261019/1caee2d0-16fe-47a1-8460-a0a3bad7ba24",
+      "manifest_sha256": "a506b820edf3b55eccd209991c214e61f73e2727b22ef40a1b7876c10912e49c",
+      "observations_sha256": "ab2379a0d438c75896f42b96296f108a5472e279ba5e28bcbd931b7ba1f92dc4",
+      "gain": 200.0,
+      "array_initial_sha256": "9d8e9680e805439f0db1387fa28e05625587c140ef8947a6c0de4a9112e4a3bf",
+      "fit_raw_index_sha256": "d95794a74a21d910d551f835c09ac4c044c0d6b7b66fa15594e367bc4feac777"
+    }
+  },
+  "probe_comparisons": {
+    "preprobe": {
+      "exact_eight_neuron_trace_matches": 16,
+      "hamming_bits_by_wl": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "postprobe": {
+      "exact_eight_neuron_trace_matches": 1,
+      "hamming_bits_by_wl": [
+        24,
+        2,
+        24,
+        24,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "retentionprobe": {
+      "exact_eight_neuron_trace_matches": 1,
+      "hamming_bits_by_wl": [
+        24,
+        2,
+        24,
+        24,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "full_raw_replay_repeated": false,
+  "relies_on_bound_independent_raw_audits": true,
+  "hardware_grant_issued": false,
+  "full10k_qualified": false,
+  "classification_accuracy_measured": false,
+  "limitations": [
+    "No intrinsic physical STDP or physical LIF proof.",
+    "Common initial seed does not align random draws after update paths diverge.",
+    "Readout labels/test and classification head are absent.",
+    "Diversity and conductance changes do not prove useful features or learning benefit.",
+    "Simulator waiting interval does not establish physical retention."
+  ]
+}

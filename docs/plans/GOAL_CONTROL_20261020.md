@@ -123,3 +123,19 @@ UUID и actual raw audit ещё не подтверждены этой запи�
 Проверен конечный следующий план19–24, stop25, target48, cap1807920impact/
 14400pulse. Он требует свежего Pi preflight и не разрешает автоматический
 запуск до review новой обёртки. Полная классификация всё ещё pending.
+
+Фактическая программная квалификация MNIST128 завершена:
+main `1caee2d0-16fe-47a1-8460-a0a3bad7ba24` и no-update reference
+`cd7b32c0-f180-474d-bded-f859132b9d94` прошли независимый raw-аудит и
+[второй review](../../reports/2026-10-20/mnist-native-sim/SECOND_REVIEW_RU.md).
+NativeSIM-механизм информативен: gain200,352 training-импульса по91 learning
+ячейке; reference без training-импульсов. Learning probe posts снизились
+109→53, reference остаётся109; улучшение обучения/accuracy не доказано.
+Это завершает этап программной main/reference-квалификации, а не аппаратный
+MNIST и не full10k. Hardware gate остаётся закрытым. Аппаратное завершение
+CIFAR48, его полное сравнение и8-cell STDP остаются pending; цель дня active.
+
+Source review отдельной обёртки конечного batch завершён:
+[проверка и ограничения](../../reports/2026-10-20/cifar-batch-publication-review/SOURCE_REVIEW_RU.md).
+Разрешён дальнейший операторский Pi preflight опубликованной версии, затем
+явный конечный план; успешный автокоммит не заменяет semantic audit.
