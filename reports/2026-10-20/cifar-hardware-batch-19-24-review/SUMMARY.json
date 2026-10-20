@@ -1,0 +1,755 @@
+{
+  "schema": "cifar-six-stage-descriptive-summary-v1",
+  "scope": "hardware stages19..24 only; not complete classifier or accuracy",
+  "stages": [
+    {
+      "stage": 19,
+      "report": "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-19/PREFIX_AUDIT.json",
+      "report_sha256": "be8a272c6f017d63504f584e2e90a09d39ef03c298ec82b245ce79ca81d50c17",
+      "impacts": 340346,
+      "pulses": 1897,
+      "coefficient_count": 128,
+      "strict_numeric_replay": "PASS",
+      "numeric_diagnostics": [
+        {
+          "stage": 19,
+          "strict_numeric_replay": "PASS",
+          "decision_equivalence": "exact_within_original_tolerance"
+        }
+      ],
+      "heldout": {
+        "stage": 19,
+        "raw_rmse_v": 0.03673979443458395,
+        "calibrated_rmse_v": 0.027338966846256665
+      },
+      "retention": [
+        {
+          "stage": 19,
+          "final_minus_initial_basis_rmse_v": 0.0002470464418777257,
+          "max_abs_v": 0.001423333333333332
+        }
+      ],
+      "weights": {
+        "gain_v_per_weight": 0.125,
+        "tolerance": "abs((effective-trained)*gain)<=max(.00061V,.05*abs(trained*gain))",
+        "phases": {
+          "immediate_weight": {
+            "rmse": 0.4949700014737414,
+            "relative_l2": 7.85816145545335,
+            "maximum_absolute_error": 2.7280778064227102,
+            "direct_within_tolerance": 12,
+            "total": 128,
+            "exact_zero_effective": 82,
+            "wrong_sign_nonzero_target": 4,
+            "zero_effective_nonzero_target": 82
+          },
+          "post_all_raw_weight": {
+            "rmse": 0.5560176205703848,
+            "relative_l2": 8.827355640765791,
+            "maximum_absolute_error": 2.7174911397560435,
+            "direct_within_tolerance": 9,
+            "total": 128,
+            "exact_zero_effective": 80,
+            "wrong_sign_nonzero_target": 8,
+            "zero_effective_nonzero_target": 80
+          },
+          "post_all_calibrated_weight": {
+            "rmse": 0.5329679066217488,
+            "relative_l2": 8.461417557303966,
+            "maximum_absolute_error": 2.7210413800235402,
+            "direct_within_tolerance": 5,
+            "total": 128,
+            "exact_zero_effective": 60,
+            "wrong_sign_nonzero_target": 22,
+            "zero_effective_nonzero_target": 60
+          },
+          "final_raw_weight": {
+            "rmse": 0.5555102764252724,
+            "relative_l2": 8.819301026963133,
+            "maximum_absolute_error": 2.7272778064227103,
+            "direct_within_tolerance": 12,
+            "total": 128,
+            "exact_zero_effective": 80,
+            "wrong_sign_nonzero_target": 8,
+            "zero_effective_nonzero_target": 80
+          },
+          "final_calibrated_weight": {
+            "rmse": 0.532533757523708,
+            "relative_l2": 8.454524990687839,
+            "maximum_absolute_error": 2.7296309778668912,
+            "direct_within_tolerance": 7,
+            "total": 128,
+            "exact_zero_effective": 60,
+            "wrong_sign_nonzero_target": 21,
+            "zero_effective_nonzero_target": 60
+          }
+        }
+      }
+    },
+    {
+      "stage": 20,
+      "report": "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-20/PREFIX_AUDIT.json",
+      "report_sha256": "c7004b38da3050b4b35008a177ef16a74281180abcc8c76556b7a449717ee65f",
+      "impacts": 175912,
+      "pulses": 540,
+      "coefficient_count": 44,
+      "strict_numeric_replay": "FAIL_condition_only",
+      "numeric_diagnostics": [
+        {
+          "stage": 20,
+          "strict_numeric_replay": "FAIL_condition_only",
+          "decision_equivalence": "PASS",
+          "policy": "excluded-rank-condition-v1",
+          "recorded_condition": 4.7352569862469896e+16,
+          "local_condition": 5.105327079327128e+16,
+          "unchanged_other_fields_tolerance": {
+            "absolute": 1e-10,
+            "relative": 1e-10
+          },
+          "spectra": {
+            "fit": {
+              "singular_values": [
+                4.647790748372888,
+                1.9053363670106,
+                1.0654770946439112,
+                0.5673562615622288,
+                0.41030027735612495,
+                0.30127430269392547,
+                0.1648705030602063,
+                1.5780190078886544e-17
+              ],
+              "numpy_rank_tolerance": 1.981472372153613e-13,
+              "margin_factor": 16,
+              "stable": true
+            },
+            "reference": {
+              "singular_values": [
+                4.292000577144355,
+                1.8958796770336634,
+                1.1611859475765856,
+                0.37500402430185337,
+                0.1101319683565217,
+                0.0810469291092283,
+                0.02108371107157944,
+                3.5391663956466485e-17
+              ],
+              "numpy_rank_tolerance": 1.8297898991808475e-13,
+              "margin_factor": 16,
+              "stable": true
+            }
+          }
+        }
+      ],
+      "heldout": {
+        "stage": 20,
+        "raw_rmse_v": 0.0343782690573091,
+        "calibrated_rmse_v": 0.02592137859271105
+      },
+      "retention": [
+        {
+          "stage": 20,
+          "final_minus_initial_basis_rmse_v": 0.00040366478002128105,
+          "max_abs_v": 0.0019299999999999873
+        }
+      ],
+      "weights": {
+        "gain_v_per_weight": 0.125,
+        "tolerance": "abs((effective-trained)*gain)<=max(.00061V,.05*abs(trained*gain))",
+        "phases": {
+          "immediate_weight": {
+            "rmse": 0.7782410326381305,
+            "relative_l2": 17.337872946497487,
+            "maximum_absolute_error": 2.833462487796545,
+            "direct_within_tolerance": 10,
+            "total": 44,
+            "exact_zero_effective": 16,
+            "wrong_sign_nonzero_target": 3,
+            "zero_effective_nonzero_target": 16
+          },
+          "post_all_raw_weight": {
+            "rmse": 0.8151612480455931,
+            "relative_l2": 18.16039190533726,
+            "maximum_absolute_error": 2.807435821129878,
+            "direct_within_tolerance": 8,
+            "total": 44,
+            "exact_zero_effective": 15,
+            "wrong_sign_nonzero_target": 4,
+            "zero_effective_nonzero_target": 15
+          },
+          "post_all_calibrated_weight": {
+            "rmse": 0.784469562573947,
+            "relative_l2": 17.47663389091155,
+            "maximum_absolute_error": 2.658167483596324,
+            "direct_within_tolerance": 9,
+            "total": 44,
+            "exact_zero_effective": 15,
+            "wrong_sign_nonzero_target": 5,
+            "zero_effective_nonzero_target": 15
+          },
+          "final_raw_weight": {
+            "rmse": 0.8169029065343795,
+            "relative_l2": 18.199193063755246,
+            "maximum_absolute_error": 2.813115821129878,
+            "direct_within_tolerance": 8,
+            "total": 44,
+            "exact_zero_effective": 15,
+            "wrong_sign_nonzero_target": 4,
+            "zero_effective_nonzero_target": 15
+          },
+          "final_calibrated_weight": {
+            "rmse": 0.7861706167161913,
+            "relative_l2": 17.5145304542595,
+            "maximum_absolute_error": 2.6635450853093294,
+            "direct_within_tolerance": 9,
+            "total": 44,
+            "exact_zero_effective": 15,
+            "wrong_sign_nonzero_target": 5,
+            "zero_effective_nonzero_target": 15
+          }
+        }
+      }
+    },
+    {
+      "stage": 21,
+      "report": "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-21/PREFIX_AUDIT.json",
+      "report_sha256": "a12e9b0a77276bee6d37b489881790353cc6f6009879a77e8f5cf18c99d92abb",
+      "impacts": 369044,
+      "pulses": 1874,
+      "coefficient_count": 128,
+      "strict_numeric_replay": "PASS",
+      "numeric_diagnostics": [
+        {
+          "stage": 21,
+          "strict_numeric_replay": "PASS",
+          "decision_equivalence": "exact_within_original_tolerance"
+        }
+      ],
+      "heldout": {
+        "stage": 21,
+        "raw_rmse_v": 0.026235474824739,
+        "calibrated_rmse_v": 0.02372348723556039
+      },
+      "retention": [
+        {
+          "stage": 21,
+          "final_minus_initial_basis_rmse_v": 0.00021885741710887558,
+          "max_abs_v": 0.0018299999999999983
+        }
+      ],
+      "weights": {
+        "gain_v_per_weight": 0.125,
+        "tolerance": "abs((effective-trained)*gain)<=max(.00061V,.05*abs(trained*gain))",
+        "phases": {
+          "immediate_weight": {
+            "rmse": 0.5363089271042397,
+            "relative_l2": 8.006929842455769,
+            "maximum_absolute_error": 2.780810102239847,
+            "direct_within_tolerance": 11,
+            "total": 128,
+            "exact_zero_effective": 79,
+            "wrong_sign_nonzero_target": 1,
+            "zero_effective_nonzero_target": 79
+          },
+          "post_all_raw_weight": {
+            "rmse": 0.5680495729920854,
+            "relative_l2": 8.480808071838318,
+            "maximum_absolute_error": 2.7710234355731806,
+            "direct_within_tolerance": 10,
+            "total": 128,
+            "exact_zero_effective": 79,
+            "wrong_sign_nonzero_target": 1,
+            "zero_effective_nonzero_target": 79
+          },
+          "post_all_calibrated_weight": {
+            "rmse": 0.5309209422990389,
+            "relative_l2": 7.926488861246675,
+            "maximum_absolute_error": 2.676687096910045,
+            "direct_within_tolerance": 10,
+            "total": 128,
+            "exact_zero_effective": 79,
+            "wrong_sign_nonzero_target": 1,
+            "zero_effective_nonzero_target": 79
+          },
+          "final_raw_weight": {
+            "rmse": 0.5685720180256035,
+            "relative_l2": 8.488608017948682,
+            "maximum_absolute_error": 2.7726767689065137,
+            "direct_within_tolerance": 9,
+            "total": 128,
+            "exact_zero_effective": 79,
+            "wrong_sign_nonzero_target": 1,
+            "zero_effective_nonzero_target": 79
+          },
+          "final_calibrated_weight": {
+            "rmse": 0.5315148027613554,
+            "relative_l2": 7.935355018078432,
+            "maximum_absolute_error": 2.678284638677692,
+            "direct_within_tolerance": 10,
+            "total": 128,
+            "exact_zero_effective": 79,
+            "wrong_sign_nonzero_target": 1,
+            "zero_effective_nonzero_target": 79
+          }
+        }
+      }
+    },
+    {
+      "stage": 22,
+      "report": "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-22/PREFIX_AUDIT.json",
+      "report_sha256": "2654f561ef8bca114fa12d1ac272044ad5103236e1bedfd597ce5489c6cdf7f7",
+      "impacts": 336294,
+      "pulses": 1831,
+      "coefficient_count": 128,
+      "strict_numeric_replay": "PASS",
+      "numeric_diagnostics": [
+        {
+          "stage": 22,
+          "strict_numeric_replay": "PASS",
+          "decision_equivalence": "exact_within_original_tolerance"
+        }
+      ],
+      "heldout": {
+        "stage": 22,
+        "raw_rmse_v": 0.01918047529639154,
+        "calibrated_rmse_v": 0.017623331774927597
+      },
+      "retention": [
+        {
+          "stage": 22,
+          "final_minus_initial_basis_rmse_v": 0.00022596165611375355,
+          "max_abs_v": 0.0015266666666666762
+        }
+      ],
+      "weights": {
+        "gain_v_per_weight": 0.125,
+        "tolerance": "abs((effective-trained)*gain)<=max(.00061V,.05*abs(trained*gain))",
+        "phases": {
+          "immediate_weight": {
+            "rmse": 0.5341674820693253,
+            "relative_l2": 14.248106228027764,
+            "maximum_absolute_error": 2.792776293823719,
+            "direct_within_tolerance": 23,
+            "total": 128,
+            "exact_zero_effective": 93,
+            "wrong_sign_nonzero_target": 4,
+            "zero_effective_nonzero_target": 93
+          },
+          "post_all_raw_weight": {
+            "rmse": 0.5693652619699267,
+            "relative_l2": 15.186953544363323,
+            "maximum_absolute_error": 2.780616293823719,
+            "direct_within_tolerance": 22,
+            "total": 128,
+            "exact_zero_effective": 93,
+            "wrong_sign_nonzero_target": 6,
+            "zero_effective_nonzero_target": 93
+          },
+          "post_all_calibrated_weight": {
+            "rmse": 0.5577738842221973,
+            "relative_l2": 14.877771149285575,
+            "maximum_absolute_error": 2.857077216384662,
+            "direct_within_tolerance": 22,
+            "total": 128,
+            "exact_zero_effective": 93,
+            "wrong_sign_nonzero_target": 6,
+            "zero_effective_nonzero_target": 93
+          },
+          "final_raw_weight": {
+            "rmse": 0.5706534622842786,
+            "relative_l2": 15.22131433107906,
+            "maximum_absolute_error": 2.788749627157052,
+            "direct_within_tolerance": 21,
+            "total": 128,
+            "exact_zero_effective": 93,
+            "wrong_sign_nonzero_target": 5,
+            "zero_effective_nonzero_target": 93
+          },
+          "final_calibrated_weight": {
+            "rmse": 0.5589792876481078,
+            "relative_l2": 14.909923454763751,
+            "maximum_absolute_error": 2.865433000057873,
+            "direct_within_tolerance": 24,
+            "total": 128,
+            "exact_zero_effective": 93,
+            "wrong_sign_nonzero_target": 6,
+            "zero_effective_nonzero_target": 93
+          }
+        }
+      }
+    },
+    {
+      "stage": 23,
+      "report": "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-23/PREFIX_AUDIT.json",
+      "report_sha256": "a09f18e938d91eab9455fd16152b01ed1c4a2bc429c4f1881a0a06bd4126b0ec",
+      "impacts": 176942,
+      "pulses": 563,
+      "coefficient_count": 44,
+      "strict_numeric_replay": "FAIL_condition_only",
+      "numeric_diagnostics": [
+        {
+          "stage": 23,
+          "strict_numeric_replay": "FAIL_condition_only",
+          "decision_equivalence": "PASS",
+          "policy": "excluded-rank-condition-v1",
+          "recorded_condition": 9.238714743365029e+16,
+          "local_condition": 5.963364837523439e+16,
+          "unchanged_other_fields_tolerance": {
+            "absolute": 1e-10,
+            "relative": 1e-10
+          },
+          "spectra": {
+            "fit": {
+              "singular_values": [
+                5.583116716544535,
+                1.7921946824577766,
+                1.09279545307851,
+                0.605815022954953,
+                0.3735397700906753,
+                0.3179725288362635,
+                0.14161288172383846,
+                2.4932506616248958e-17
+              ],
+              "numpy_rank_tolerance": 2.380225815504901e-13,
+              "margin_factor": 16,
+              "stable": true
+            },
+            "reference": {
+              "singular_values": [
+                5.474609550028932,
+                1.8676212960136949,
+                1.1821414059205921,
+                0.18302481181553854,
+                0.09744861801582022,
+                0.055743184719899634,
+                0.021338541348168993,
+                2.2758704185060214e-17
+              ],
+              "numpy_rank_tolerance": 2.333966428137557e-13,
+              "margin_factor": 16,
+              "stable": true
+            }
+          }
+        }
+      ],
+      "heldout": {
+        "stage": 23,
+        "raw_rmse_v": 0.03302067458295173,
+        "calibrated_rmse_v": 0.020742022665756057
+      },
+      "retention": [
+        {
+          "stage": 23,
+          "final_minus_initial_basis_rmse_v": 0.00026902021299523237,
+          "max_abs_v": 0.0013233333333333326
+        }
+      ],
+      "weights": {
+        "gain_v_per_weight": 0.125,
+        "tolerance": "abs((effective-trained)*gain)<=max(.00061V,.05*abs(trained*gain))",
+        "phases": {
+          "immediate_weight": {
+            "rmse": 0.7757942704786387,
+            "relative_l2": 25.658936184216397,
+            "maximum_absolute_error": 2.798722552367151,
+            "direct_within_tolerance": 6,
+            "total": 44,
+            "exact_zero_effective": 16,
+            "wrong_sign_nonzero_target": 4,
+            "zero_effective_nonzero_target": 16
+          },
+          "post_all_raw_weight": {
+            "rmse": 0.8047798829229115,
+            "relative_l2": 26.617618154771762,
+            "maximum_absolute_error": 2.795495885700484,
+            "direct_within_tolerance": 4,
+            "total": 44,
+            "exact_zero_effective": 15,
+            "wrong_sign_nonzero_target": 5,
+            "zero_effective_nonzero_target": 15
+          },
+          "post_all_calibrated_weight": {
+            "rmse": 0.8115744291811037,
+            "relative_l2": 26.84234374952525,
+            "maximum_absolute_error": 2.7789607636268467,
+            "direct_within_tolerance": 7,
+            "total": 44,
+            "exact_zero_effective": 15,
+            "wrong_sign_nonzero_target": 6,
+            "zero_effective_nonzero_target": 15
+          },
+          "final_raw_weight": {
+            "rmse": 0.8037164755719085,
+            "relative_l2": 26.582446586231587,
+            "maximum_absolute_error": 2.7938692190338172,
+            "direct_within_tolerance": 5,
+            "total": 44,
+            "exact_zero_effective": 15,
+            "wrong_sign_nonzero_target": 5,
+            "zero_effective_nonzero_target": 15
+          },
+          "final_calibrated_weight": {
+            "rmse": 0.8106061651347988,
+            "relative_l2": 26.81031898945802,
+            "maximum_absolute_error": 2.777343771723467,
+            "direct_within_tolerance": 8,
+            "total": 44,
+            "exact_zero_effective": 15,
+            "wrong_sign_nonzero_target": 6,
+            "zero_effective_nonzero_target": 15
+          }
+        }
+      }
+    },
+    {
+      "stage": 24,
+      "report": "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-24/PREFIX_AUDIT.json",
+      "report_sha256": "ba69f117576763c3cb33d3b4804f90017e6fda9050ed41a5abb2e770e13b90f1",
+      "impacts": 370778,
+      "pulses": 1945,
+      "coefficient_count": 128,
+      "strict_numeric_replay": "PASS",
+      "numeric_diagnostics": [
+        {
+          "stage": 24,
+          "strict_numeric_replay": "PASS",
+          "decision_equivalence": "exact_within_original_tolerance"
+        }
+      ],
+      "heldout": {
+        "stage": 24,
+        "raw_rmse_v": 0.03718369566908474,
+        "calibrated_rmse_v": 0.030998252524140683
+      },
+      "retention": [
+        {
+          "stage": 24,
+          "final_minus_initial_basis_rmse_v": 0.00025100328984925904,
+          "max_abs_v": 0.0018299999999999983
+        }
+      ],
+      "weights": {
+        "gain_v_per_weight": 0.125,
+        "tolerance": "abs((effective-trained)*gain)<=max(.00061V,.05*abs(trained*gain))",
+        "phases": {
+          "immediate_weight": {
+            "rmse": 0.5389484548054502,
+            "relative_l2": 7.82254165580026,
+            "maximum_absolute_error": 2.847831252193451,
+            "direct_within_tolerance": 15,
+            "total": 128,
+            "exact_zero_effective": 84,
+            "wrong_sign_nonzero_target": 7,
+            "zero_effective_nonzero_target": 84
+          },
+          "post_all_raw_weight": {
+            "rmse": 0.577944697679906,
+            "relative_l2": 8.388550764065076,
+            "maximum_absolute_error": 2.8258579188601174,
+            "direct_within_tolerance": 10,
+            "total": 128,
+            "exact_zero_effective": 84,
+            "wrong_sign_nonzero_target": 9,
+            "zero_effective_nonzero_target": 84
+          },
+          "post_all_calibrated_weight": {
+            "rmse": 0.5471516534000697,
+            "relative_l2": 7.941606590758422,
+            "maximum_absolute_error": 2.858930839595902,
+            "direct_within_tolerance": 8,
+            "total": 128,
+            "exact_zero_effective": 84,
+            "wrong_sign_nonzero_target": 9,
+            "zero_effective_nonzero_target": 84
+          },
+          "final_raw_weight": {
+            "rmse": 0.5780100714000321,
+            "relative_l2": 8.389499627809506,
+            "maximum_absolute_error": 2.8339912521934507,
+            "direct_within_tolerance": 11,
+            "total": 128,
+            "exact_zero_effective": 84,
+            "wrong_sign_nonzero_target": 9,
+            "zero_effective_nonzero_target": 84
+          },
+          "final_calibrated_weight": {
+            "rmse": 0.5472665719193968,
+            "relative_l2": 7.943274570129072,
+            "maximum_absolute_error": 2.867161155371712,
+            "direct_within_tolerance": 9,
+            "total": 128,
+            "exact_zero_effective": 84,
+            "wrong_sign_nonzero_target": 9,
+            "zero_effective_nonzero_target": 84
+          }
+        }
+      }
+    }
+  ],
+  "impacts": 1769316,
+  "pulses": 8650,
+  "coefficients": 600,
+  "weights": {
+    "gain_v_per_weight": 0.125,
+    "tolerance": "abs((effective-trained)*gain)<=max(.00061V,.05*abs(trained*gain))",
+    "phases": {
+      "immediate_weight": {
+        "rmse": 0.5701006187010572,
+        "relative_l2": 9.87821676500702,
+        "maximum_absolute_error": 2.847831252193451,
+        "direct_within_tolerance": 77,
+        "total": 600,
+        "exact_zero_effective": 370,
+        "wrong_sign_nonzero_target": 23,
+        "zero_effective_nonzero_target": 370
+      },
+      "post_all_raw_weight": {
+        "rmse": 0.6094521742407679,
+        "relative_l2": 10.560066920769279,
+        "maximum_absolute_error": 2.8258579188601174,
+        "direct_within_tolerance": 63,
+        "total": 600,
+        "exact_zero_effective": 366,
+        "wrong_sign_nonzero_target": 33,
+        "zero_effective_nonzero_target": 366
+      },
+      "post_all_calibrated_weight": {
+        "rmse": 0.5868554177997418,
+        "relative_l2": 10.168529618425863,
+        "maximum_absolute_error": 2.858930839595902,
+        "direct_within_tolerance": 61,
+        "total": 600,
+        "exact_zero_effective": 346,
+        "wrong_sign_nonzero_target": 49,
+        "zero_effective_nonzero_target": 346
+      },
+      "final_raw_weight": {
+        "rmse": 0.6097956718092641,
+        "relative_l2": 10.566018753355582,
+        "maximum_absolute_error": 2.8339912521934507,
+        "direct_within_tolerance": 66,
+        "total": 600,
+        "exact_zero_effective": 366,
+        "wrong_sign_nonzero_target": 32,
+        "zero_effective_nonzero_target": 366
+      },
+      "final_calibrated_weight": {
+        "rmse": 0.5872222293243747,
+        "relative_l2": 10.174885415338489,
+        "maximum_absolute_error": 2.867161155371712,
+        "direct_within_tolerance": 67,
+        "total": 600,
+        "exact_zero_effective": 346,
+        "wrong_sign_nonzero_target": 48,
+        "zero_effective_nonzero_target": 346
+      }
+    }
+  },
+  "heldout": {
+    "raw_mean_rmse_v": 0.03112306397751001,
+    "calibrated_mean_rmse_v": 0.024391239939892072,
+    "improved": 6
+  },
+  "execution": {
+    "schema": "six-stage-audit-execution-v1",
+    "stages": [
+      {
+        "stage": 19,
+        "session": "f7bf7c8a-2a1c-4073-b9a0-cc5f6166ae25",
+        "exit_code": 0,
+        "elapsed_s": 28.0,
+        "command": [
+          "-B",
+          "tools/audit_cifar_interrupted_prefix.py",
+          "--session",
+          "results/cifar_resumable_20261019/f7bf7c8a-2a1c-4073-b9a0-cc5f6166ae25",
+          "--stage-session",
+          "--portable-condition",
+          "--output-dir",
+          "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-19"
+        ]
+      },
+      {
+        "stage": 20,
+        "session": "5466a726-92de-4b74-97be-f72125ee87ab",
+        "exit_code": 0,
+        "elapsed_s": 16.09399999998277,
+        "command": [
+          "-B",
+          "tools/audit_cifar_interrupted_prefix.py",
+          "--session",
+          "results/cifar_resumable_20261019/5466a726-92de-4b74-97be-f72125ee87ab",
+          "--stage-session",
+          "--portable-condition",
+          "--output-dir",
+          "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-20"
+        ]
+      },
+      {
+        "stage": 21,
+        "session": "927e86ac-7610-4e4c-833f-101b5fc5504f",
+        "exit_code": 0,
+        "elapsed_s": 30.09299999999348,
+        "command": [
+          "-B",
+          "tools/audit_cifar_interrupted_prefix.py",
+          "--session",
+          "results/cifar_resumable_20261019/927e86ac-7610-4e4c-833f-101b5fc5504f",
+          "--stage-session",
+          "--portable-condition",
+          "--output-dir",
+          "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-21"
+        ]
+      },
+      {
+        "stage": 22,
+        "session": "2b615ac3-61e7-4b01-a21f-d8339615505c",
+        "exit_code": 0,
+        "elapsed_s": 26.64100000000326,
+        "command": [
+          "-B",
+          "tools/audit_cifar_interrupted_prefix.py",
+          "--session",
+          "results/cifar_resumable_20261019/2b615ac3-61e7-4b01-a21f-d8339615505c",
+          "--stage-session",
+          "--portable-condition",
+          "--output-dir",
+          "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-22"
+        ]
+      },
+      {
+        "stage": 23,
+        "session": "16238418-f20b-417c-b8f9-c7365d062ca3",
+        "exit_code": 0,
+        "elapsed_s": 15.84399999998277,
+        "command": [
+          "-B",
+          "tools/audit_cifar_interrupted_prefix.py",
+          "--session",
+          "results/cifar_resumable_20261019/16238418-f20b-417c-b8f9-c7365d062ca3",
+          "--stage-session",
+          "--portable-condition",
+          "--output-dir",
+          "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-23"
+        ]
+      },
+      {
+        "stage": 24,
+        "session": "fda586d1-bac8-4f45-9c42-78e1833bdb94",
+        "exit_code": 0,
+        "elapsed_s": 30.01500000001397,
+        "command": [
+          "-B",
+          "tools/audit_cifar_interrupted_prefix.py",
+          "--session",
+          "results/cifar_resumable_20261019/fda586d1-bac8-4f45-9c42-78e1833bdb94",
+          "--stage-session",
+          "--portable-condition",
+          "--output-dir",
+          "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-24"
+        ]
+      }
+    ]
+  },
+  "weight_summary_helper_sha256": "a2d02825ba7501f7bdc87db3e8c79c1747ed9cb90d020597eb8031101895f192",
+  "private_runtime_status": "private_runtime_not_independently_reverified"
+}

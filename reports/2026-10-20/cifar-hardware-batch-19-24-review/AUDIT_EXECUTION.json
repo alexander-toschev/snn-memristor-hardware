@@ -1,0 +1,101 @@
+{
+  "schema": "six-stage-audit-execution-v1",
+  "stages": [
+    {
+      "stage": 19,
+      "session": "f7bf7c8a-2a1c-4073-b9a0-cc5f6166ae25",
+      "exit_code": 0,
+      "elapsed_s": 28.0,
+      "command": [
+        "-B",
+        "tools/audit_cifar_interrupted_prefix.py",
+        "--session",
+        "results/cifar_resumable_20261019/f7bf7c8a-2a1c-4073-b9a0-cc5f6166ae25",
+        "--stage-session",
+        "--portable-condition",
+        "--output-dir",
+        "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-19"
+      ]
+    },
+    {
+      "stage": 20,
+      "session": "5466a726-92de-4b74-97be-f72125ee87ab",
+      "exit_code": 0,
+      "elapsed_s": 16.09399999998277,
+      "command": [
+        "-B",
+        "tools/audit_cifar_interrupted_prefix.py",
+        "--session",
+        "results/cifar_resumable_20261019/5466a726-92de-4b74-97be-f72125ee87ab",
+        "--stage-session",
+        "--portable-condition",
+        "--output-dir",
+        "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-20"
+      ]
+    },
+    {
+      "stage": 21,
+      "session": "927e86ac-7610-4e4c-833f-101b5fc5504f",
+      "exit_code": 0,
+      "elapsed_s": 30.09299999999348,
+      "command": [
+        "-B",
+        "tools/audit_cifar_interrupted_prefix.py",
+        "--session",
+        "results/cifar_resumable_20261019/927e86ac-7610-4e4c-833f-101b5fc5504f",
+        "--stage-session",
+        "--portable-condition",
+        "--output-dir",
+        "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-21"
+      ]
+    },
+    {
+      "stage": 22,
+      "session": "2b615ac3-61e7-4b01-a21f-d8339615505c",
+      "exit_code": 0,
+      "elapsed_s": 26.64100000000326,
+      "command": [
+        "-B",
+        "tools/audit_cifar_interrupted_prefix.py",
+        "--session",
+        "results/cifar_resumable_20261019/2b615ac3-61e7-4b01-a21f-d8339615505c",
+        "--stage-session",
+        "--portable-condition",
+        "--output-dir",
+        "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-22"
+      ]
+    },
+    {
+      "stage": 23,
+      "session": "16238418-f20b-417c-b8f9-c7365d062ca3",
+      "exit_code": 0,
+      "elapsed_s": 15.84399999998277,
+      "command": [
+        "-B",
+        "tools/audit_cifar_interrupted_prefix.py",
+        "--session",
+        "results/cifar_resumable_20261019/16238418-f20b-417c-b8f9-c7365d062ca3",
+        "--stage-session",
+        "--portable-condition",
+        "--output-dir",
+        "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-23"
+      ]
+    },
+    {
+      "stage": 24,
+      "session": "fda586d1-bac8-4f45-9c42-78e1833bdb94",
+      "exit_code": 0,
+      "elapsed_s": 30.01500000001397,
+      "command": [
+        "-B",
+        "tools/audit_cifar_interrupted_prefix.py",
+        "--session",
+        "results/cifar_resumable_20261019/fda586d1-bac8-4f45-9c42-78e1833bdb94",
+        "--stage-session",
+        "--portable-condition",
+        "--output-dir",
+        "reports/2026-10-20/cifar-hardware-batch-19-24-review/stage-24"
+      ]
+    }
+  ]
+}
