@@ -1,0 +1,220 @@
+{
+  "schema": "mnist-diagonal-sim-summary-v1",
+  "source": "native_simulator",
+  "session": "results/mnist_diagonal_20261020/ee0db984-cd00-4052-95e6-069e71c720eb",
+  "status": "completed",
+  "independent_replay": "PASS",
+  "audit_sha256": "ec44178c0f6fc93f420da1c61824ff6037625ab8b78a90576c799a808ca2b84b",
+  "manifest_sha256": "6e1b58eec948bd4c920e5119270222a54c025f66d93708bf807b4cadab1242a4",
+  "observations_sha256": "12fffbe501377f1e16573dada7dff3c84503d8b78429aa83714bb382ac2710fa",
+  "gain": [
+    200.0,
+    200.0,
+    200.0,
+    100.0,
+    200.0,
+    200.0,
+    200.0,
+    100.0
+  ],
+  "impacts": 107298,
+  "pulses": 2314,
+  "preparation_pulses": 2048,
+  "elapsed_seconds": 513.224743,
+  "phase": {
+    "postprobe": {
+      "images": 16,
+      "posts_by_wl": [
+        14,
+        11,
+        21,
+        0,
+        23,
+        31,
+        20,
+        0
+      ],
+      "learning_posts": 46,
+      "control_posts": 74,
+      "learning_posts_per_image": 2.875,
+      "control_posts_per_image": 4.625,
+      "silent_images_by_wl": [
+        5,
+        6,
+        1,
+        16,
+        2,
+        0,
+        4,
+        16
+      ],
+      "unique_eight_neuron_outputs": 16,
+      "all_learning_traces_identical": false
+    },
+    "preprobe": {
+      "images": 16,
+      "posts_by_wl": [
+        33,
+        18,
+        30,
+        0,
+        23,
+        31,
+        20,
+        0
+      ],
+      "learning_posts": 81,
+      "control_posts": 74,
+      "learning_posts_per_image": 5.0625,
+      "control_posts_per_image": 4.625,
+      "silent_images_by_wl": [
+        1,
+        3,
+        1,
+        16,
+        2,
+        0,
+        4,
+        16
+      ],
+      "unique_eight_neuron_outputs": 16,
+      "all_learning_traces_identical": false
+    },
+    "retentionprobe": {
+      "images": 16,
+      "posts_by_wl": [
+        14,
+        11,
+        21,
+        0,
+        23,
+        31,
+        20,
+        0
+      ],
+      "learning_posts": 46,
+      "control_posts": 74,
+      "learning_posts_per_image": 2.875,
+      "control_posts_per_image": 4.625,
+      "silent_images_by_wl": [
+        5,
+        6,
+        1,
+        16,
+        2,
+        0,
+        4,
+        16
+      ],
+      "unique_eight_neuron_outputs": 16,
+      "all_learning_traces_identical": false
+    },
+    "train": {
+      "images": 128,
+      "posts_by_wl": [
+        166,
+        86,
+        180,
+        14,
+        193,
+        193,
+        172,
+        26
+      ],
+      "learning_posts": 446,
+      "control_posts": 584,
+      "learning_posts_per_image": 3.484375,
+      "control_posts_per_image": 4.5625,
+      "silent_images_by_wl": [
+        36,
+        64,
+        30,
+        114,
+        29,
+        27,
+        33,
+        102
+      ],
+      "unique_eight_neuron_outputs": 120,
+      "all_learning_traces_identical": false
+    }
+  },
+  "training": {
+    "attempts": 266,
+    "admitted": 266,
+    "guard_skipped": 0,
+    "by_sign": {
+      "RESET": {
+        "admitted": 110,
+        "expected_delta_g": 82,
+        "opposite_delta_g": 17,
+        "exact_zero_delta_g": 11,
+        "delta_g_sum_siemens": -0.0045106554578970975
+      },
+      "SET": {
+        "admitted": 156,
+        "expected_delta_g": 98,
+        "opposite_delta_g": 13,
+        "exact_zero_delta_g": 45,
+        "delta_g_sum_siemens": 0.002409746589134999
+      }
+    },
+    "unique_updated_cells": 78,
+    "updated_cells_by_wl": [
+      22,
+      20,
+      25,
+      11
+    ]
+  },
+  "coverage": {
+    "checkpoint_cells": 256,
+    "learning_eligible_cells": 128,
+    "image_contributing_cells": 232,
+    "no_image_event_bl": [
+      0,
+      16,
+      24
+    ]
+  },
+  "training_g_change": {
+    "start": "after_preprobe",
+    "end": "after_train_128",
+    "banks": {
+      "learning": {
+        "nonzero_cells": 61,
+        "mean_delta_siemens": -1.6410633451872015e-05,
+        "max_abs_delta_siemens": 0.00016002221377304777
+      },
+      "control": {
+        "nonzero_cells": 0,
+        "mean_delta_siemens": 0.0,
+        "max_abs_delta_siemens": 0.0
+      }
+    }
+  },
+  "retention_g_change": {
+    "start": "after_postprobe",
+    "end": "after_retentionprobe",
+    "banks": {
+      "learning": {
+        "nonzero_cells": 0,
+        "mean_delta_siemens": 0.0,
+        "max_abs_delta_siemens": 0.0
+      },
+      "control": {
+        "nonzero_cells": 0,
+        "mean_delta_siemens": 0.0,
+        "max_abs_delta_siemens": 0.0
+      }
+    }
+  },
+  "classification_accuracy_measured": false,
+  "hardware_measured": false,
+  "limitations": [
+    "Native SIM mechanism/integrity result, not hardware learning benefit or accuracy.",
+    "Exact-zero delta bins; sign alone is not efficacy.",
+    "Shared preparation does not make control the exact same weights/state as learning rows.",
+    "No new no-update whole-SIM counterfactual for diagonal variant; old scalar reference is historical."
+  ]
+}

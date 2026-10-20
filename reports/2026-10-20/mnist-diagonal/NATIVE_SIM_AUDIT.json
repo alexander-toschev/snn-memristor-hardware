@@ -1,0 +1,8589 @@
+{
+  "schema": "mnist128-diagonal-local-audit-v1",
+  "status": "PASS",
+  "source": "simulator",
+  "outcome": "completed",
+  "session": "results/mnist_diagonal_20261020/ee0db984-cd00-4052-95e6-069e71c720eb",
+  "analyzer_sha256": "79ac5e1d6ba24474a317184b2b48fe48fa90e574fb568307a9bff4267e357f95",
+  "numeric_replay_sha256": "ca36aaeba54d22a8cee066227cf175917b5e3c5edd67d5975708b671c9a30825",
+  "diagonal_replay_sha256": "a0db49a7dd73d622d64999931bf0caaf9596dedbc6191ba8a25b16750f519986",
+  "manifest_sha256": "6e1b58eec948bd4c920e5119270222a54c025f66d93708bf807b4cadab1242a4",
+  "protocol_sha256": "c9bf3eb6164ab32208f15092b20fdcfa4200011d8fb75d0f5fd90ab7409b74e4",
+  "fixture_sha256": "02a75724f9048d451f1a82aa313c225310ff0ce4bf85bd1de9e90ae660323356",
+  "private_runtime_status": "private_runtime_not_independently_reverified",
+  "private_receipt_required": false,
+  "native_impacts": 107298,
+  "pulses": 2314,
+  "decisions": 2314,
+  "measured_images": 208,
+  "selected_gain": [
+    200,
+    200,
+    200,
+    100,
+    200,
+    200,
+    200,
+    100
+  ],
+  "records": 322206,
+  "checkpoint_count": 14,
+  "checkpoint_cells": 256,
+  "learning_eligible_cells": 128,
+  "control_cells": 128,
+  "mode_counts": {
+    "7": 54010,
+    "10": 53288
+  },
+  "maximum_predicted_mvm_current_a": 3.399839867542239e-05,
+  "input_events_by_bl": [
+    0,
+    16,
+    53,
+    138,
+    151,
+    140,
+    59,
+    11,
+    1,
+    61,
+    158,
+    204,
+    205,
+    193,
+    115,
+    18,
+    0,
+    76,
+    157,
+    205,
+    204,
+    183,
+    80,
+    17,
+    0,
+    50,
+    133,
+    188,
+    174,
+    117,
+    21,
+    1
+  ],
+  "no_image_event_bl": [
+    0,
+    16,
+    24
+  ],
+  "image_cell_participation": [
+    [
+      0,
+      16,
+      53,
+      138,
+      151,
+      140,
+      59,
+      11,
+      1,
+      61,
+      158,
+      204,
+      205,
+      193,
+      115,
+      18,
+      0,
+      76,
+      157,
+      205,
+      204,
+      183,
+      80,
+      17,
+      0,
+      50,
+      133,
+      188,
+      174,
+      117,
+      21,
+      1
+    ],
+    [
+      0,
+      16,
+      53,
+      138,
+      151,
+      140,
+      59,
+      11,
+      1,
+      61,
+      158,
+      204,
+      205,
+      193,
+      115,
+      18,
+      0,
+      76,
+      157,
+      205,
+      204,
+      183,
+      80,
+      17,
+      0,
+      50,
+      133,
+      188,
+      174,
+      117,
+      21,
+      1
+    ],
+    [
+      0,
+      16,
+      53,
+      138,
+      151,
+      140,
+      59,
+      11,
+      1,
+      61,
+      158,
+      204,
+      205,
+      193,
+      115,
+      18,
+      0,
+      76,
+      157,
+      205,
+      204,
+      183,
+      80,
+      17,
+      0,
+      50,
+      133,
+      188,
+      174,
+      117,
+      21,
+      1
+    ],
+    [
+      0,
+      16,
+      53,
+      138,
+      151,
+      140,
+      59,
+      11,
+      1,
+      61,
+      158,
+      204,
+      205,
+      193,
+      115,
+      18,
+      0,
+      76,
+      157,
+      205,
+      204,
+      183,
+      80,
+      17,
+      0,
+      50,
+      133,
+      188,
+      174,
+      117,
+      21,
+      1
+    ],
+    [
+      0,
+      16,
+      53,
+      138,
+      151,
+      140,
+      59,
+      11,
+      1,
+      61,
+      158,
+      204,
+      205,
+      193,
+      115,
+      18,
+      0,
+      76,
+      157,
+      205,
+      204,
+      183,
+      80,
+      17,
+      0,
+      50,
+      133,
+      188,
+      174,
+      117,
+      21,
+      1
+    ],
+    [
+      0,
+      16,
+      53,
+      138,
+      151,
+      140,
+      59,
+      11,
+      1,
+      61,
+      158,
+      204,
+      205,
+      193,
+      115,
+      18,
+      0,
+      76,
+      157,
+      205,
+      204,
+      183,
+      80,
+      17,
+      0,
+      50,
+      133,
+      188,
+      174,
+      117,
+      21,
+      1
+    ],
+    [
+      0,
+      16,
+      53,
+      138,
+      151,
+      140,
+      59,
+      11,
+      1,
+      61,
+      158,
+      204,
+      205,
+      193,
+      115,
+      18,
+      0,
+      76,
+      157,
+      205,
+      204,
+      183,
+      80,
+      17,
+      0,
+      50,
+      133,
+      188,
+      174,
+      117,
+      21,
+      1
+    ],
+    [
+      0,
+      16,
+      53,
+      138,
+      151,
+      140,
+      59,
+      11,
+      1,
+      61,
+      158,
+      204,
+      205,
+      193,
+      115,
+      18,
+      0,
+      76,
+      157,
+      205,
+      204,
+      183,
+      80,
+      17,
+      0,
+      50,
+      133,
+      188,
+      174,
+      117,
+      21,
+      1
+    ]
+  ],
+  "diagnostics": {
+    "phases": {
+      "preprobe": {
+        "images": 16,
+        "post_counts_by_wl": [
+          [
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            1,
+            1,
+            3,
+            2,
+            2,
+            4,
+            3,
+            0,
+            3,
+            3
+          ],
+          [
+            0,
+            1,
+            1,
+            2,
+            1,
+            1,
+            1,
+            0,
+            2,
+            1,
+            2,
+            1,
+            0,
+            1,
+            2,
+            2
+          ],
+          [
+            3,
+            1,
+            2,
+            3,
+            3,
+            2,
+            1,
+            1,
+            3,
+            0,
+            1,
+            2,
+            2,
+            1,
+            3,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            2,
+            1,
+            1,
+            1,
+            3,
+            1,
+            1,
+            3,
+            1,
+            0,
+            2,
+            2
+          ],
+          [
+            1,
+            1,
+            2,
+            1,
+            2,
+            2,
+            1,
+            2,
+            3,
+            1,
+            2,
+            3,
+            2,
+            1,
+            4,
+            3
+          ],
+          [
+            0,
+            1,
+            2,
+            2,
+            1,
+            2,
+            1,
+            0,
+            1,
+            0,
+            2,
+            3,
+            0,
+            1,
+            2,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "silent_images_by_wl": [
+          1,
+          3,
+          1,
+          16,
+          2,
+          0,
+          4,
+          16
+        ],
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false,
+        "pairwise": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "exact_matching_images": 1,
+            "active_images": 16,
+            "matching_active_images": 1,
+            "hamming_bits": 25,
+            "jaccard": 0.34210526315789475,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "exact_matching_images": 2,
+            "active_images": 16,
+            "matching_active_images": 2,
+            "hamming_bits": 27,
+            "jaccard": 0.4,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "exact_matching_images": 1,
+            "active_images": 15,
+            "matching_active_images": 0,
+            "hamming_bits": 33,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "exact_matching_images": 2,
+            "active_images": 15,
+            "matching_active_images": 1,
+            "hamming_bits": 28,
+            "jaccard": 0.3333333333333333,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "exact_matching_images": 4,
+            "active_images": 16,
+            "matching_active_images": 4,
+            "hamming_bits": 26,
+            "jaccard": 0.4222222222222222,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "exact_matching_images": 1,
+            "active_images": 16,
+            "matching_active_images": 1,
+            "hamming_bits": 33,
+            "jaccard": 0.23255813953488372,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "exact_matching_images": 1,
+            "active_images": 15,
+            "matching_active_images": 0,
+            "hamming_bits": 33,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "exact_matching_images": 2,
+            "active_images": 16,
+            "matching_active_images": 2,
+            "hamming_bits": 22,
+            "jaccard": 0.37142857142857144,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "exact_matching_images": 3,
+            "active_images": 13,
+            "matching_active_images": 0,
+            "hamming_bits": 18,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "exact_matching_images": 4,
+            "active_images": 16,
+            "matching_active_images": 4,
+            "hamming_bits": 19,
+            "jaccard": 0.36666666666666664,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "exact_matching_images": 3,
+            "active_images": 16,
+            "matching_active_images": 3,
+            "hamming_bits": 23,
+            "jaccard": 0.3611111111111111,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "exact_matching_images": 10,
+            "active_images": 13,
+            "matching_active_images": 7,
+            "hamming_bits": 8,
+            "jaccard": 0.6521739130434783,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "exact_matching_images": 3,
+            "active_images": 13,
+            "matching_active_images": 0,
+            "hamming_bits": 18,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "exact_matching_images": 1,
+            "active_images": 15,
+            "matching_active_images": 0,
+            "hamming_bits": 30,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "exact_matching_images": 5,
+            "active_images": 16,
+            "matching_active_images": 5,
+            "hamming_bits": 13,
+            "jaccard": 0.6060606060606061,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "exact_matching_images": 2,
+            "active_images": 16,
+            "matching_active_images": 2,
+            "hamming_bits": 23,
+            "jaccard": 0.4523809523809524,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "exact_matching_images": 3,
+            "active_images": 15,
+            "matching_active_images": 2,
+            "hamming_bits": 24,
+            "jaccard": 0.35135135135135137,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "exact_matching_images": 1,
+            "active_images": 15,
+            "matching_active_images": 0,
+            "hamming_bits": 30,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "exact_matching_images": 2,
+            "active_images": 14,
+            "matching_active_images": 0,
+            "hamming_bits": 23,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "exact_matching_images": 0,
+            "active_images": 16,
+            "matching_active_images": 0,
+            "hamming_bits": 31,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "exact_matching_images": 4,
+            "active_images": 12,
+            "matching_active_images": 0,
+            "hamming_bits": 20,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "exact_matching_images": 16,
+            "active_images": 0,
+            "matching_active_images": 0,
+            "hamming_bits": 0,
+            "jaccard": null,
+            "empty_union": true
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "exact_matching_images": 2,
+            "active_images": 16,
+            "matching_active_images": 2,
+            "hamming_bits": 22,
+            "jaccard": 0.42105263157894735,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "exact_matching_images": 3,
+            "active_images": 16,
+            "matching_active_images": 3,
+            "hamming_bits": 23,
+            "jaccard": 0.30303030303030304,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "exact_matching_images": 2,
+            "active_images": 14,
+            "matching_active_images": 0,
+            "hamming_bits": 23,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "exact_matching_images": 2,
+            "active_images": 16,
+            "matching_active_images": 2,
+            "hamming_bits": 25,
+            "jaccard": 0.34210526315789475,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "exact_matching_images": 0,
+            "active_images": 16,
+            "matching_active_images": 0,
+            "hamming_bits": 31,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "exact_matching_images": 4,
+            "active_images": 12,
+            "matching_active_images": 0,
+            "hamming_bits": 20,
+            "jaccard": 0.0,
+            "empty_union": false
+          }
+        ],
+        "eligibility_signs_by_wl": [
+          {
+            "positive": 147,
+            "negative": 83
+          },
+          {
+            "positive": 153,
+            "negative": 36
+          },
+          {
+            "positive": 139,
+            "negative": 81
+          },
+          {
+            "positive": 0,
+            "negative": 0
+          },
+          {
+            "positive": 140,
+            "negative": 67
+          },
+          {
+            "positive": 169,
+            "negative": 66
+          },
+          {
+            "positive": 122,
+            "negative": 59
+          },
+          {
+            "positive": 0,
+            "negative": 0
+          }
+        ]
+      },
+      "train": {
+        "images": 128,
+        "post_counts_by_wl": [
+          [
+            2,
+            3,
+            1,
+            1,
+            2,
+            2,
+            1,
+            3,
+            0,
+            1,
+            3,
+            0,
+            4,
+            2,
+            1,
+            0,
+            2,
+            2,
+            1,
+            0,
+            2,
+            2,
+            1,
+            0,
+            2,
+            3,
+            2,
+            4,
+            3,
+            1,
+            1,
+            2,
+            2,
+            0,
+            1,
+            2,
+            2,
+            1,
+            2,
+            0,
+            1,
+            1,
+            0,
+            1,
+            2,
+            0,
+            2,
+            1,
+            1,
+            2,
+            2,
+            1,
+            0,
+            0,
+            1,
+            1,
+            3,
+            0,
+            1,
+            0,
+            2,
+            0,
+            2,
+            2,
+            0,
+            1,
+            0,
+            0,
+            3,
+            1,
+            2,
+            2,
+            1,
+            0,
+            0,
+            2,
+            2,
+            0,
+            0,
+            2,
+            2,
+            2,
+            3,
+            1,
+            1,
+            0,
+            3,
+            0,
+            3,
+            1,
+            0,
+            2,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            2,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            3,
+            4,
+            0,
+            0,
+            4,
+            0,
+            1,
+            2,
+            1,
+            0,
+            3,
+            3,
+            3,
+            2,
+            2,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            3,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            2,
+            2,
+            0,
+            0,
+            2,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            2,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            2,
+            1,
+            2,
+            0,
+            0,
+            2,
+            2,
+            2,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            2,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            3,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            1,
+            2,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            3,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            1,
+            0,
+            1,
+            2,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            4,
+            3,
+            1,
+            2,
+            2,
+            2,
+            0,
+            4,
+            0,
+            0,
+            2,
+            0,
+            3,
+            2,
+            1,
+            0,
+            2,
+            3,
+            2,
+            0,
+            1,
+            2,
+            1,
+            1,
+            2,
+            3,
+            1,
+            3,
+            2,
+            1,
+            0,
+            1,
+            2,
+            0,
+            0,
+            2,
+            1,
+            1,
+            1,
+            2,
+            1,
+            3,
+            0,
+            1,
+            2,
+            0,
+            2,
+            3,
+            2,
+            2,
+            3,
+            3,
+            0,
+            0,
+            0,
+            3,
+            2,
+            0,
+            1,
+            1,
+            3,
+            2,
+            1,
+            0,
+            2,
+            1,
+            1,
+            1,
+            4,
+            1,
+            1,
+            1,
+            1,
+            2,
+            1,
+            2,
+            4,
+            0,
+            1,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            1,
+            2,
+            0,
+            2,
+            2,
+            1,
+            0,
+            1,
+            1,
+            2,
+            2,
+            0,
+            1,
+            3,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            3,
+            1,
+            1,
+            3,
+            0,
+            0,
+            2,
+            1,
+            0,
+            4,
+            2,
+            2,
+            2,
+            3,
+            2,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            4,
+            0,
+            2,
+            1,
+            1,
+            0,
+            2,
+            0,
+            0,
+            1,
+            0,
+            2,
+            1,
+            1,
+            0,
+            2,
+            3,
+            1,
+            1,
+            1,
+            3,
+            0,
+            1,
+            3,
+            4,
+            0,
+            2,
+            3,
+            0,
+            0,
+            2,
+            2,
+            0,
+            3,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            0,
+            1,
+            2,
+            0,
+            1,
+            3,
+            2,
+            1,
+            2,
+            2,
+            0,
+            1,
+            0,
+            2,
+            2,
+            0,
+            2,
+            0,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            2,
+            1,
+            3,
+            3,
+            0,
+            2,
+            1,
+            3,
+            1,
+            4,
+            4,
+            1,
+            0,
+            2,
+            2,
+            1,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1,
+            3,
+            2,
+            2,
+            1,
+            1,
+            2,
+            2,
+            2,
+            0,
+            2,
+            3,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            3,
+            2,
+            1,
+            1,
+            4,
+            0,
+            1,
+            2,
+            1,
+            1,
+            3,
+            3,
+            4,
+            3,
+            4,
+            3,
+            0,
+            0,
+            2,
+            0,
+            2
+          ],
+          [
+            3,
+            3,
+            0,
+            0,
+            1,
+            1,
+            0,
+            2,
+            0,
+            1,
+            3,
+            0,
+            4,
+            2,
+            1,
+            0,
+            3,
+            2,
+            1,
+            0,
+            1,
+            2,
+            1,
+            0,
+            3,
+            5,
+            0,
+            2,
+            4,
+            1,
+            1,
+            2,
+            2,
+            0,
+            2,
+            2,
+            2,
+            1,
+            2,
+            1,
+            1,
+            1,
+            0,
+            1,
+            3,
+            0,
+            1,
+            1,
+            2,
+            3,
+            2,
+            2,
+            1,
+            0,
+            1,
+            2,
+            4,
+            0,
+            2,
+            0,
+            3,
+            0,
+            1,
+            1,
+            1,
+            1,
+            2,
+            1,
+            4,
+            2,
+            1,
+            2,
+            1,
+            1,
+            1,
+            4,
+            4,
+            0,
+            0,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            3,
+            1,
+            4,
+            1,
+            1,
+            2,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            3,
+            0,
+            2,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            3,
+            4,
+            1,
+            0,
+            4,
+            0,
+            0,
+            2,
+            1,
+            1,
+            4,
+            1,
+            3,
+            2,
+            4,
+            3,
+            0,
+            1,
+            1,
+            1,
+            2
+          ],
+          [
+            2,
+            3,
+            1,
+            1,
+            2,
+            1,
+            0,
+            3,
+            0,
+            1,
+            1,
+            0,
+            2,
+            2,
+            0,
+            0,
+            3,
+            2,
+            2,
+            0,
+            2,
+            3,
+            1,
+            2,
+            2,
+            4,
+            2,
+            1,
+            2,
+            0,
+            1,
+            1,
+            2,
+            0,
+            1,
+            2,
+            2,
+            0,
+            2,
+            2,
+            0,
+            2,
+            0,
+            1,
+            1,
+            1,
+            0,
+            2,
+            0,
+            3,
+            1,
+            4,
+            0,
+            1,
+            2,
+            2,
+            1,
+            1,
+            0,
+            0,
+            1,
+            2,
+            1,
+            2,
+            1,
+            3,
+            2,
+            0,
+            3,
+            2,
+            0,
+            1,
+            0,
+            1,
+            1,
+            4,
+            3,
+            0,
+            0,
+            2,
+            2,
+            2,
+            2,
+            3,
+            0,
+            0,
+            1,
+            0,
+            2,
+            3,
+            1,
+            1,
+            1,
+            1,
+            0,
+            2,
+            2,
+            2,
+            1,
+            0,
+            1,
+            1,
+            0,
+            2,
+            0,
+            0,
+            1,
+            2,
+            4,
+            0,
+            0,
+            3,
+            0,
+            0,
+            1,
+            1,
+            1,
+            2,
+            2,
+            1,
+            2,
+            4,
+            2,
+            1,
+            1,
+            1,
+            1,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "silent_images_by_wl": [
+          36,
+          64,
+          30,
+          114,
+          29,
+          27,
+          33,
+          102
+        ],
+        "unique_eight_neuron_outputs": 120,
+        "all_learning_traces_identical": false,
+        "pairwise": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "exact_matching_images": 35,
+            "active_images": 99,
+            "matching_active_images": 6,
+            "hamming_bits": 168,
+            "jaccard": 0.2,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "exact_matching_images": 39,
+            "active_images": 109,
+            "matching_active_images": 20,
+            "hamming_bits": 154,
+            "jaccard": 0.384,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "exact_matching_images": 38,
+            "active_images": 92,
+            "matching_active_images": 2,
+            "hamming_bits": 156,
+            "jaccard": 0.07142857142857142,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "exact_matching_images": 36,
+            "active_images": 112,
+            "matching_active_images": 20,
+            "hamming_bits": 165,
+            "jaccard": 0.3702290076335878,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "exact_matching_images": 47,
+            "active_images": 108,
+            "matching_active_images": 27,
+            "hamming_bits": 135,
+            "jaccard": 0.4534412955465587,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "exact_matching_images": 32,
+            "active_images": 108,
+            "matching_active_images": 12,
+            "hamming_bits": 184,
+            "jaccard": 0.2950191570881226,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "exact_matching_images": 39,
+            "active_images": 93,
+            "matching_active_images": 4,
+            "hamming_bits": 148,
+            "jaccard": 0.12941176470588237,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "exact_matching_images": 29,
+            "active_images": 104,
+            "matching_active_images": 5,
+            "hamming_bits": 162,
+            "jaccard": 0.24299065420560748,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "exact_matching_images": 71,
+            "active_images": 64,
+            "matching_active_images": 7,
+            "hamming_bits": 74,
+            "jaccard": 0.14942528735632185,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "exact_matching_images": 31,
+            "active_images": 105,
+            "matching_active_images": 8,
+            "hamming_bits": 171,
+            "jaccard": 0.24,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "exact_matching_images": 34,
+            "active_images": 105,
+            "matching_active_images": 11,
+            "hamming_bits": 177,
+            "jaccard": 0.2236842105263158,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "exact_matching_images": 45,
+            "active_images": 97,
+            "matching_active_images": 14,
+            "hamming_bits": 122,
+            "jaccard": 0.35789473684210527,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "exact_matching_images": 68,
+            "active_images": 70,
+            "matching_active_images": 10,
+            "hamming_bits": 82,
+            "jaccard": 0.15463917525773196,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "exact_matching_images": 31,
+            "active_images": 98,
+            "matching_active_images": 1,
+            "hamming_bits": 168,
+            "jaccard": 0.0718232044198895,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "exact_matching_images": 48,
+            "active_images": 108,
+            "matching_active_images": 28,
+            "hamming_bits": 127,
+            "jaccard": 0.492,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "exact_matching_images": 36,
+            "active_images": 110,
+            "matching_active_images": 18,
+            "hamming_bits": 177,
+            "jaccard": 0.3563636363636364,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "exact_matching_images": 30,
+            "active_images": 112,
+            "matching_active_images": 14,
+            "hamming_bits": 198,
+            "jaccard": 0.28,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "exact_matching_images": 34,
+            "active_images": 98,
+            "matching_active_images": 4,
+            "hamming_bits": 160,
+            "jaccard": 0.12568306010928962,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "exact_matching_images": 31,
+            "active_images": 99,
+            "matching_active_images": 2,
+            "hamming_bits": 183,
+            "jaccard": 0.06153846153846154,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "exact_matching_images": 31,
+            "active_images": 101,
+            "matching_active_images": 4,
+            "hamming_bits": 179,
+            "jaccard": 0.07253886010362694,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "exact_matching_images": 35,
+            "active_images": 95,
+            "matching_active_images": 2,
+            "hamming_bits": 162,
+            "jaccard": 0.06896551724137931,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "exact_matching_images": 108,
+            "active_images": 29,
+            "matching_active_images": 9,
+            "hamming_bits": 22,
+            "jaccard": 0.2903225806451613,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "exact_matching_images": 46,
+            "active_images": 110,
+            "matching_active_images": 28,
+            "hamming_bits": 144,
+            "jaccard": 0.45660377358490567,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "exact_matching_images": 23,
+            "active_images": 112,
+            "matching_active_images": 7,
+            "hamming_bits": 195,
+            "jaccard": 0.30357142857142855,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "exact_matching_images": 33,
+            "active_images": 99,
+            "matching_active_images": 4,
+            "hamming_bits": 173,
+            "jaccard": 0.11734693877551021,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "exact_matching_images": 37,
+            "active_images": 112,
+            "matching_active_images": 21,
+            "hamming_bits": 167,
+            "jaccard": 0.37218045112781956,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "exact_matching_images": 30,
+            "active_images": 102,
+            "matching_active_images": 4,
+            "hamming_bits": 179,
+            "jaccard": 0.10050251256281408,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "exact_matching_images": 37,
+            "active_images": 96,
+            "matching_active_images": 5,
+            "hamming_bits": 150,
+            "jaccard": 0.13793103448275862,
+            "empty_union": false
+          }
+        ],
+        "eligibility_signs_by_wl": [
+          {
+            "positive": 858,
+            "negative": 492
+          },
+          {
+            "positive": 694,
+            "negative": 252
+          },
+          {
+            "positive": 913,
+            "negative": 526
+          },
+          {
+            "positive": 188,
+            "negative": 15
+          },
+          {
+            "positive": 976,
+            "negative": 499
+          },
+          {
+            "positive": 987,
+            "negative": 478
+          },
+          {
+            "positive": 948,
+            "negative": 465
+          },
+          {
+            "positive": 318,
+            "negative": 38
+          }
+        ]
+      },
+      "postprobe": {
+        "images": 16,
+        "post_counts_by_wl": [
+          [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            2,
+            1,
+            1,
+            1,
+            0,
+            2,
+            2
+          ],
+          [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            1,
+            1,
+            3,
+            1,
+            0,
+            1,
+            1,
+            2,
+            1,
+            1,
+            2,
+            1,
+            1,
+            2,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            2,
+            1,
+            1,
+            1,
+            3,
+            1,
+            1,
+            3,
+            1,
+            0,
+            2,
+            2
+          ],
+          [
+            1,
+            1,
+            2,
+            1,
+            2,
+            2,
+            1,
+            2,
+            3,
+            1,
+            2,
+            3,
+            2,
+            1,
+            4,
+            3
+          ],
+          [
+            0,
+            1,
+            2,
+            2,
+            1,
+            2,
+            1,
+            0,
+            1,
+            0,
+            2,
+            3,
+            0,
+            1,
+            2,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "silent_images_by_wl": [
+          5,
+          6,
+          1,
+          16,
+          2,
+          0,
+          4,
+          16
+        ],
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false,
+        "pairwise": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "exact_matching_images": 3,
+            "active_images": 15,
+            "matching_active_images": 2,
+            "hamming_bits": 17,
+            "jaccard": 0.19047619047619047,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "exact_matching_images": 3,
+            "active_images": 15,
+            "matching_active_images": 2,
+            "hamming_bits": 25,
+            "jaccard": 0.16666666666666666,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "exact_matching_images": 5,
+            "active_images": 11,
+            "matching_active_images": 0,
+            "hamming_bits": 14,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "exact_matching_images": 3,
+            "active_images": 15,
+            "matching_active_images": 2,
+            "hamming_bits": 21,
+            "jaccard": 0.27586206896551724,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "exact_matching_images": 3,
+            "active_images": 16,
+            "matching_active_images": 3,
+            "hamming_bits": 23,
+            "jaccard": 0.3235294117647059,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "exact_matching_images": 2,
+            "active_images": 15,
+            "matching_active_images": 1,
+            "hamming_bits": 22,
+            "jaccard": 0.21428571428571427,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "exact_matching_images": 5,
+            "active_images": 11,
+            "matching_active_images": 0,
+            "hamming_bits": 14,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "exact_matching_images": 3,
+            "active_images": 16,
+            "matching_active_images": 3,
+            "hamming_bits": 18,
+            "jaccard": 0.28,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "exact_matching_images": 6,
+            "active_images": 10,
+            "matching_active_images": 0,
+            "hamming_bits": 11,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "exact_matching_images": 1,
+            "active_images": 16,
+            "matching_active_images": 1,
+            "hamming_bits": 24,
+            "jaccard": 0.1724137931034483,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "exact_matching_images": 3,
+            "active_images": 16,
+            "matching_active_images": 3,
+            "hamming_bits": 26,
+            "jaccard": 0.23529411764705882,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "exact_matching_images": 9,
+            "active_images": 12,
+            "matching_active_images": 5,
+            "hamming_bits": 9,
+            "jaccard": 0.55,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "exact_matching_images": 6,
+            "active_images": 10,
+            "matching_active_images": 0,
+            "hamming_bits": 11,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "exact_matching_images": 1,
+            "active_images": 15,
+            "matching_active_images": 0,
+            "hamming_bits": 21,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "exact_matching_images": 6,
+            "active_images": 16,
+            "matching_active_images": 6,
+            "hamming_bits": 16,
+            "jaccard": 0.4666666666666667,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "exact_matching_images": 3,
+            "active_images": 16,
+            "matching_active_images": 3,
+            "hamming_bits": 26,
+            "jaccard": 0.3333333333333333,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "exact_matching_images": 4,
+            "active_images": 16,
+            "matching_active_images": 4,
+            "hamming_bits": 19,
+            "jaccard": 0.36666666666666664,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "exact_matching_images": 1,
+            "active_images": 15,
+            "matching_active_images": 0,
+            "hamming_bits": 21,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "exact_matching_images": 2,
+            "active_images": 14,
+            "matching_active_images": 0,
+            "hamming_bits": 23,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "exact_matching_images": 0,
+            "active_images": 16,
+            "matching_active_images": 0,
+            "hamming_bits": 31,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "exact_matching_images": 4,
+            "active_images": 12,
+            "matching_active_images": 0,
+            "hamming_bits": 20,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "exact_matching_images": 16,
+            "active_images": 0,
+            "matching_active_images": 0,
+            "hamming_bits": 0,
+            "jaccard": null,
+            "empty_union": true
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "exact_matching_images": 2,
+            "active_images": 16,
+            "matching_active_images": 2,
+            "hamming_bits": 22,
+            "jaccard": 0.42105263157894735,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "exact_matching_images": 3,
+            "active_images": 16,
+            "matching_active_images": 3,
+            "hamming_bits": 23,
+            "jaccard": 0.30303030303030304,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "exact_matching_images": 2,
+            "active_images": 14,
+            "matching_active_images": 0,
+            "hamming_bits": 23,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "exact_matching_images": 2,
+            "active_images": 16,
+            "matching_active_images": 2,
+            "hamming_bits": 25,
+            "jaccard": 0.34210526315789475,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "exact_matching_images": 0,
+            "active_images": 16,
+            "matching_active_images": 0,
+            "hamming_bits": 31,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "exact_matching_images": 4,
+            "active_images": 12,
+            "matching_active_images": 0,
+            "hamming_bits": 20,
+            "jaccard": 0.0,
+            "empty_union": false
+          }
+        ],
+        "eligibility_signs_by_wl": [
+          {
+            "positive": 114,
+            "negative": 41
+          },
+          {
+            "positive": 103,
+            "negative": 29
+          },
+          {
+            "positive": 126,
+            "negative": 85
+          },
+          {
+            "positive": 0,
+            "negative": 0
+          },
+          {
+            "positive": 140,
+            "negative": 67
+          },
+          {
+            "positive": 169,
+            "negative": 66
+          },
+          {
+            "positive": 122,
+            "negative": 59
+          },
+          {
+            "positive": 0,
+            "negative": 0
+          }
+        ]
+      },
+      "retentionprobe": {
+        "images": 16,
+        "post_counts_by_wl": [
+          [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            2,
+            1,
+            1,
+            1,
+            0,
+            2,
+            2
+          ],
+          [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            1,
+            1,
+            3,
+            1,
+            0,
+            1,
+            1,
+            2,
+            1,
+            1,
+            2,
+            1,
+            1,
+            2,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            2,
+            2,
+            1,
+            1,
+            1,
+            3,
+            1,
+            1,
+            3,
+            1,
+            0,
+            2,
+            2
+          ],
+          [
+            1,
+            1,
+            2,
+            1,
+            2,
+            2,
+            1,
+            2,
+            3,
+            1,
+            2,
+            3,
+            2,
+            1,
+            4,
+            3
+          ],
+          [
+            0,
+            1,
+            2,
+            2,
+            1,
+            2,
+            1,
+            0,
+            1,
+            0,
+            2,
+            3,
+            0,
+            1,
+            2,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "silent_images_by_wl": [
+          5,
+          6,
+          1,
+          16,
+          2,
+          0,
+          4,
+          16
+        ],
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false,
+        "pairwise": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "exact_matching_images": 3,
+            "active_images": 15,
+            "matching_active_images": 2,
+            "hamming_bits": 17,
+            "jaccard": 0.19047619047619047,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "exact_matching_images": 3,
+            "active_images": 15,
+            "matching_active_images": 2,
+            "hamming_bits": 25,
+            "jaccard": 0.16666666666666666,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "exact_matching_images": 5,
+            "active_images": 11,
+            "matching_active_images": 0,
+            "hamming_bits": 14,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "exact_matching_images": 3,
+            "active_images": 15,
+            "matching_active_images": 2,
+            "hamming_bits": 21,
+            "jaccard": 0.27586206896551724,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "exact_matching_images": 3,
+            "active_images": 16,
+            "matching_active_images": 3,
+            "hamming_bits": 23,
+            "jaccard": 0.3235294117647059,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "exact_matching_images": 2,
+            "active_images": 15,
+            "matching_active_images": 1,
+            "hamming_bits": 22,
+            "jaccard": 0.21428571428571427,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "exact_matching_images": 5,
+            "active_images": 11,
+            "matching_active_images": 0,
+            "hamming_bits": 14,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "exact_matching_images": 3,
+            "active_images": 16,
+            "matching_active_images": 3,
+            "hamming_bits": 18,
+            "jaccard": 0.28,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "exact_matching_images": 6,
+            "active_images": 10,
+            "matching_active_images": 0,
+            "hamming_bits": 11,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "exact_matching_images": 1,
+            "active_images": 16,
+            "matching_active_images": 1,
+            "hamming_bits": 24,
+            "jaccard": 0.1724137931034483,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "exact_matching_images": 3,
+            "active_images": 16,
+            "matching_active_images": 3,
+            "hamming_bits": 26,
+            "jaccard": 0.23529411764705882,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "exact_matching_images": 9,
+            "active_images": 12,
+            "matching_active_images": 5,
+            "hamming_bits": 9,
+            "jaccard": 0.55,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "exact_matching_images": 6,
+            "active_images": 10,
+            "matching_active_images": 0,
+            "hamming_bits": 11,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "exact_matching_images": 1,
+            "active_images": 15,
+            "matching_active_images": 0,
+            "hamming_bits": 21,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "exact_matching_images": 6,
+            "active_images": 16,
+            "matching_active_images": 6,
+            "hamming_bits": 16,
+            "jaccard": 0.4666666666666667,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "exact_matching_images": 3,
+            "active_images": 16,
+            "matching_active_images": 3,
+            "hamming_bits": 26,
+            "jaccard": 0.3333333333333333,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "exact_matching_images": 4,
+            "active_images": 16,
+            "matching_active_images": 4,
+            "hamming_bits": 19,
+            "jaccard": 0.36666666666666664,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "exact_matching_images": 1,
+            "active_images": 15,
+            "matching_active_images": 0,
+            "hamming_bits": 21,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "exact_matching_images": 2,
+            "active_images": 14,
+            "matching_active_images": 0,
+            "hamming_bits": 23,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "exact_matching_images": 0,
+            "active_images": 16,
+            "matching_active_images": 0,
+            "hamming_bits": 31,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "exact_matching_images": 4,
+            "active_images": 12,
+            "matching_active_images": 0,
+            "hamming_bits": 20,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "exact_matching_images": 16,
+            "active_images": 0,
+            "matching_active_images": 0,
+            "hamming_bits": 0,
+            "jaccard": null,
+            "empty_union": true
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "exact_matching_images": 2,
+            "active_images": 16,
+            "matching_active_images": 2,
+            "hamming_bits": 22,
+            "jaccard": 0.42105263157894735,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "exact_matching_images": 3,
+            "active_images": 16,
+            "matching_active_images": 3,
+            "hamming_bits": 23,
+            "jaccard": 0.30303030303030304,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "exact_matching_images": 2,
+            "active_images": 14,
+            "matching_active_images": 0,
+            "hamming_bits": 23,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "exact_matching_images": 2,
+            "active_images": 16,
+            "matching_active_images": 2,
+            "hamming_bits": 25,
+            "jaccard": 0.34210526315789475,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "exact_matching_images": 0,
+            "active_images": 16,
+            "matching_active_images": 0,
+            "hamming_bits": 31,
+            "jaccard": 0.0,
+            "empty_union": false
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "exact_matching_images": 4,
+            "active_images": 12,
+            "matching_active_images": 0,
+            "hamming_bits": 20,
+            "jaccard": 0.0,
+            "empty_union": false
+          }
+        ],
+        "eligibility_signs_by_wl": [
+          {
+            "positive": 114,
+            "negative": 41
+          },
+          {
+            "positive": 103,
+            "negative": 29
+          },
+          {
+            "positive": 126,
+            "negative": 85
+          },
+          {
+            "positive": 0,
+            "negative": 0
+          },
+          {
+            "positive": 140,
+            "negative": 67
+          },
+          {
+            "positive": 169,
+            "negative": 66
+          },
+          {
+            "positive": 122,
+            "negative": 59
+          },
+          {
+            "positive": 0,
+            "negative": 0
+          }
+        ]
+      }
+    },
+    "conductance": [
+      {
+        "phase": "initial",
+        "row_mean": [
+          9.43831885769454e-05,
+          8.956448916683026e-05,
+          0.00010093333867922268,
+          7.49046888142582e-05,
+          9.438913369188773e-05,
+          9.852943168676556e-05,
+          9.474712351602486e-05,
+          9.783434752094733e-05
+        ],
+        "row_cv": [
+          0.5328151269202475,
+          0.6190779446179309,
+          0.48472669638587096,
+          0.7037670770428652,
+          0.5794525946358796,
+          0.5495412537340764,
+          0.6200145493639375,
+          0.5286149235417965
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.7400322660382308
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.7522859325704708
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.6981045964127864
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.6878608152003145
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.8174738897600062
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.7401616369316479
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.7514669710119363
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.7233515886741549
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.6761683655193718
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.7450241123558826
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.6729180821876467
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.7613669146062799
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.7855689520233367
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.7484345148761339
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.8426851801064336
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.811134341915961
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.7708034298084905
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.826031372342318
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7345562438393377
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.7435565109299127
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7069022303299973
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.7615981508078811
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.7775086817270987
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.6605723978378141
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8180963822856374
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.7060680912725598
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7542921565387176
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.6728091576587073
+          }
+        ]
+      },
+      {
+        "phase": "after_preparation",
+        "row_mean": [
+          0.0001118309185040177,
+          0.00011070414021056751,
+          0.00012156025000111448,
+          0.0001175550916670755,
+          0.00011070203440953719,
+          0.0001250182540944292,
+          0.00010618482294139367,
+          0.00011941476202219032
+        ],
+        "row_cv": [
+          0.5053237714440026,
+          0.5895174711448776,
+          0.3854355516850481,
+          0.5069311399219001,
+          0.5514257542054565,
+          0.4299422225700666,
+          0.5724670769517054,
+          0.46524183732618124
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.727843634295474
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.8066892800138525
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.8012156193583315
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.7754716772238566
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.8267951021776411
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.7297836301522831
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.8108288102371953
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.8475372863872568
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.708644345573124
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.7816756251843077
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.7876445234887297
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.8133430215601466
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.7213939325490633
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.8408417506059088
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.8771077933732797
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.8261272087105668
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.7963716384159383
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.8761982708879675
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7770357858434784
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.8258911176834479
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7744460408199939
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.8192689074776786
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.8266059643349891
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.7226321715282296
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8507439500052136
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.7681084473127848
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7688664207070844
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.7864366088844759
+          }
+        ]
+      },
+      {
+        "phase": "after_fit",
+        "row_mean": [
+          0.0001118309185040177,
+          0.00011070455638532623,
+          0.00012156069226617338,
+          0.00011755545924601652,
+          0.00011070242170930598,
+          0.0001250192114409522,
+          0.00010618482294139367,
+          0.00011941592059872779
+        ],
+        "row_cv": [
+          0.5053237714440026,
+          0.5895115263604987,
+          0.385429191667985,
+          0.5069246051576629,
+          0.5514193511445802,
+          0.4299331195518248,
+          0.5724670769517054,
+          0.4652221389792146
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.7278447499473802
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.8066883369205413
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.8012182699704604
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.775472511273149
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.8268010462705995
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.7297836301522831
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.8108357802981949
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.847539603451885
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.7086474092419952
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.7816786982417966
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.7876464673147274
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.8133448186318685
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.7214073486257053
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.8408457779835601
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.8771137966510161
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.8261301215283252
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.7963749247462889
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.8762083426233536
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7770390328038542
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.8258996731096206
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7744494680524497
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.8192730493842224
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.8266037176871501
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.7226347835223565
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8507495507111914
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.768113594868976
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7688752221100987
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.7864444338423884
+          }
+        ]
+      },
+      {
+        "phase": "after_preprobe",
+        "row_mean": [
+          0.0001118309185040177,
+          0.00011070455638532623,
+          0.00012156069226617338,
+          0.00011755545924601652,
+          0.00011070242170930598,
+          0.0001250192114409522,
+          0.00010618482294139367,
+          0.00011941592059872779
+        ],
+        "row_cv": [
+          0.5053237714440026,
+          0.5895115263604987,
+          0.385429191667985,
+          0.5069246051576629,
+          0.5514193511445802,
+          0.4299331195518248,
+          0.5724670769517054,
+          0.4652221389792146
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.7278447499473802
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.8066883369205413
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.8012182699704604
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.775472511273149
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.8268010462705995
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.7297836301522831
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.8108357802981949
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.847539603451885
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.7086474092419952
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.7816786982417966
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.7876464673147274
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.8133448186318685
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.7214073486257053
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.8408457779835601
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.8771137966510161
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.8261301215283252
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.7963749247462889
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.8762083426233536
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7770390328038542
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.8258996731096206
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7744494680524497
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.8192730493842224
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.8266037176871501
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.7226347835223565
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8507495507111914
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.768113594868976
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7688752221100987
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.7864444338423884
+          }
+        ]
+      },
+      {
+        "phase": "after_train_016",
+        "row_mean": [
+          0.00010560536895028386,
+          0.00010752174896452328,
+          0.00011734892493167245,
+          0.0001177264199867211,
+          0.00011070242170930598,
+          0.0001250192114409522,
+          0.00010618482294139367,
+          0.00011941592059872779
+        ],
+        "row_cv": [
+          0.5434442200375189,
+          0.6125518267867138,
+          0.435977963220404,
+          0.5041787197749305,
+          0.5514193511445802,
+          0.4299331195518248,
+          0.5724670769517054,
+          0.4652221389792146
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.7132242753511665
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.7622159747356696
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.7657925442387837
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.771415941589122
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.8282621564994632
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.7217425724579848
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.8167500157763956
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.8358879027162261
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.7303477930646262
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.7688419963336518
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.7623529510117437
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.8359204734704497
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.7080677345016884
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.8088966031209411
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.8509721761270905
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.7988146626234016
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.7711923622484039
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.8600446748065614
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7780276172847763
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.8272324132660126
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7742859516496722
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.8202124022075116
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.8266037176871501
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.7226347835223565
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8507495507111914
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.768113594868976
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7688752221100987
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.7864444338423884
+          }
+        ]
+      },
+      {
+        "phase": "after_train_032",
+        "row_mean": [
+          0.0001063633079157668,
+          0.00010255761235406717,
+          0.00011659457634373983,
+          0.00011772820761819752,
+          0.00011070242170930598,
+          0.0001250192114409522,
+          0.00010618482294139367,
+          0.00011941592059872779
+        ],
+        "row_cv": [
+          0.5493990355352594,
+          0.6555354435490094,
+          0.4506458111192666,
+          0.5041717719402106,
+          0.5514193511445802,
+          0.4299331195518248,
+          0.5724670769517054,
+          0.4652221389792146
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.6723544093373254
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.7664397958974009
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.7743317177462957
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.7835208074125324
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.8187726424528985
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.7134371397832178
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.8261136394954826
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.8375760398598361
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.7020940426783439
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.7839413129093393
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.7836081515293164
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.8054380122536776
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.6870745092246286
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.8034505477749561
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.8513978963790122
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.7925794254425015
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.765409896906006
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.8599871830420847
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7780340265561535
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.827239099682336
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7742942660833173
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.8202156698275308
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.8266037176871501
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.7226347835223565
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8507495507111914
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.768113594868976
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7688752221100987
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.7864444338423884
+          }
+        ]
+      },
+      {
+        "phase": "after_train_048",
+        "row_mean": [
+          9.843100788369464e-05,
+          0.0001006536819508183,
+          0.00011411817239839156,
+          0.00011782751842453768,
+          0.00011070242170930598,
+          0.0001250192114409522,
+          0.00010618482294139367,
+          0.00011941592059872779
+        ],
+        "row_cv": [
+          0.6355517356428678,
+          0.6788681668730909,
+          0.4966267654122655,
+          0.5039991586827205,
+          0.5514193511445802,
+          0.4299331195518248,
+          0.5724670769517054,
+          0.4652221389792146
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.6539261125138718
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.7652207053469342
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.7461572993652569
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.7872920504327625
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.8193246195059172
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.6549436829197284
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.7827375701503492
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.8100340072488892
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.688051827209248
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.7712332068148066
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.784749907595623
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.8062348152626619
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.6723710742734044
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.7940273941892435
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.840529549740944
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.7784022183980419
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.7486370617427822
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.8405456118698172
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7784442920437318
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.8273580550712799
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7747323998437983
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.8204293807077478
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.8266037176871501
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.7226347835223565
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8507495507111914
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.768113594868976
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7688752221100987
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.7864444338423884
+          }
+        ]
+      },
+      {
+        "phase": "after_train_064",
+        "row_mean": [
+          9.037711576354376e-05,
+          0.00010094868606495665,
+          0.00010860000848564014,
+          0.00011782751842453768,
+          0.00011070242170930598,
+          0.0001250192114409522,
+          0.00010618482294139367,
+          0.00011941592059872779
+        ],
+        "row_cv": [
+          0.6953850812562861,
+          0.6700375771741697,
+          0.5274677992566913,
+          0.5039991586827205,
+          0.5514193511445802,
+          0.4299331195518248,
+          0.5724670769517054,
+          0.4652221389792146
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.6852221649586382
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.6933864603062798
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.6922265416234511
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.7415811878856374
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.8144210785749542
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.6800558112482289
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.7211202037753285
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.7678880440107226
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.6920883547515372
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.7396913910250976
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.7430409855853276
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.8592483628099893
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.7084959584153149
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.794301316248025
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.8317734821725424
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.7547939534801938
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.767582251595837
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.8317001190740319
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7784442920437318
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.8273580550712799
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7747323998437983
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.8204293807077478
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.8266037176871501
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.7226347835223565
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8507495507111914
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.768113594868976
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7688752221100987
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.7864444338423884
+          }
+        ]
+      },
+      {
+        "phase": "after_train_080",
+        "row_mean": [
+          8.517076764850112e-05,
+          0.00010059096940687714,
+          0.00010601781040142118,
+          0.00011782751842453768,
+          0.00011070242170930598,
+          0.0001250192114409522,
+          0.00010618482294139367,
+          0.00011941592059872779
+        ],
+        "row_cv": [
+          0.7375170630932205,
+          0.6782042754374183,
+          0.5318457014322979,
+          0.5039991586827205,
+          0.5514193511445802,
+          0.4299331195518248,
+          0.5724670769517054,
+          0.4652221389792146
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.6446832922965416
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.6949342341604805
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.6683524786788166
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.7218567446818327
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.7914195277505384
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.6414860539601649
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.6968335064812283
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.7382501105170344
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.6871499659257713
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.7415167399980773
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.7412104657548757
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.8564138804145551
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.7039687249254939
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.7943559669647031
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.8351805329083248
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.7497684237461728
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.7487763267778373
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.823652450662791
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7784442920437318
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.8273580550712799
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7747323998437983
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.8204293807077478
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.8266037176871501
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.7226347835223565
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8507495507111914
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.768113594868976
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7688752221100987
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.7864444338423884
+          }
+        ]
+      },
+      {
+        "phase": "after_train_096",
+        "row_mean": [
+          8.689279323624583e-05,
+          9.543502626898236e-05,
+          0.00010229009379965915,
+          0.00011782751842453768,
+          0.00011070242170930598,
+          0.00012501860578583167,
+          0.00010618482294139367,
+          0.00011941592059872779
+        ],
+        "row_cv": [
+          0.6916208303767877,
+          0.7196706197198792,
+          0.5677387841141197,
+          0.5039991586827205,
+          0.5514193511445802,
+          0.42993527905972406,
+          0.5724670769517054,
+          0.4652221389792146
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.6529428379147209
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.709761102501818
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.6949346378805714
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.7377312582212507
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.7976400701820663
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.6388352542007165
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.7324807449589389
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.7688330536052446
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.669044180710057
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.7229516312839851
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.7308146309139404
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.8117298345897738
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.6759247855091889
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.8130262582633975
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.846711918832538
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.7616408608808533
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.7752676842834215
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.8030497979683198
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7784442920437318
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.8273556809968293
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7747323998437983
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.8204293807077478
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.8266058199324822
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.7226347835223565
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8507495507111914
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.7681118124433869
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7688778869491517
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.7864444338423884
+          }
+        ]
+      },
+      {
+        "phase": "after_train_112",
+        "row_mean": [
+          9.18733043802068e-05,
+          8.929755166732157e-05,
+          0.00010451913878657631,
+          0.00011282682424412993,
+          0.00011070242170930598,
+          0.0001250192114409522,
+          0.00010618482294139367,
+          0.00011941592059872779
+        ],
+        "row_cv": [
+          0.6561177236553375,
+          0.7818040838829801,
+          0.5542051102240616,
+          0.5449262299897757,
+          0.5514193511445802,
+          0.4299331195518248,
+          0.5724670769517054,
+          0.4652221389792146
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.6944718076834125
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.6861261180627924
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.6832641702792617
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.7160678992607554
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.7688117461699917
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.677856215026684
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.7458590161361635
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.7457514757646946
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.6844499360549452
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.6827653529290959
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.7324772236209969
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.7808919221498555
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.6427485119103233
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.8256995206212928
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.8353264142184571
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.7515024507330689
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.7651269830255187
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.8175237908125166
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7470452913355355
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.8009919760394965
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7522767349668098
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.8023853408272607
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.8266037176871501
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.7226347835223565
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8507495507111914
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.768113594868976
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7688752221100987
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.7864444338423884
+          }
+        ]
+      },
+      {
+        "phase": "after_train_128",
+        "row_mean": [
+          8.589706561540794e-05,
+          9.034270325635549e-05,
+          0.00010696931121743111,
+          0.00011280001250485122,
+          0.00011070242170930598,
+          0.0001250192114409522,
+          0.00010618482294139367,
+          0.00011941592059872779
+        ],
+        "row_cv": [
+          0.7259404831978412,
+          0.7762757344762906,
+          0.5205125348696575,
+          0.5458784140339558,
+          0.5514193511445802,
+          0.4299331195518248,
+          0.5724670769517054,
+          0.4652221389792146
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.6551333852244117
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.6619682027917126
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.7036214460710369
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.6441733960956554
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.7156724399240796
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.6247842242660507
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.6649578801047443
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.757933641822048
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.6518291253934633
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.697618913414989
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.708625486470404
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.8032987314096341
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.6724402113154976
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.8114004433185467
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.8509707294231303
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.7774994151986765
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.7619483308436579
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.8289103246535884
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7465641562162284
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.8013591524605859
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7519403690734193
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.8013297568309065
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.8266037176871501
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.7226347835223565
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8507495507111914
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.768113594868976
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7688752221100987
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.7864444338423884
+          }
+        ]
+      },
+      {
+        "phase": "after_postprobe",
+        "row_mean": [
+          8.589706561540794e-05,
+          9.034270325635549e-05,
+          0.00010696931121743111,
+          0.00011280001250485122,
+          0.00011070242170930598,
+          0.0001250192114409522,
+          0.00010618482294139367,
+          0.00011941592059872779
+        ],
+        "row_cv": [
+          0.7259404831978412,
+          0.7762757344762906,
+          0.5205125348696575,
+          0.5458784140339558,
+          0.5514193511445802,
+          0.4299331195518248,
+          0.5724670769517054,
+          0.4652221389792146
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.6551333852244117
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.6619682027917126
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.7036214460710369
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.6441733960956554
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.7156724399240796
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.6247842242660507
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.6649578801047443
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.757933641822048
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.6518291253934633
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.697618913414989
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.708625486470404
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.8032987314096341
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.6724402113154976
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.8114004433185467
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.8509707294231303
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.7774994151986765
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.7619483308436579
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.8289103246535884
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7465641562162284
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.8013591524605859
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7519403690734193
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.8013297568309065
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.8266037176871501
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.7226347835223565
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8507495507111914
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.768113594868976
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7688752221100987
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.7864444338423884
+          }
+        ]
+      },
+      {
+        "phase": "after_retentionprobe",
+        "row_mean": [
+          8.589706561540794e-05,
+          9.034270325635549e-05,
+          0.00010696931121743111,
+          0.00011280001250485122,
+          0.00011070242170930598,
+          0.0001250192114409522,
+          0.00010618482294139367,
+          0.00011941592059872779
+        ],
+        "row_cv": [
+          0.7259404831978412,
+          0.7762757344762906,
+          0.5205125348696575,
+          0.5458784140339558,
+          0.5514193511445802,
+          0.4299331195518248,
+          0.5724670769517054,
+          0.4652221389792146
+        ],
+        "pairwise_cosine": [
+          {
+            "wl_pair": [
+              0,
+              1
+            ],
+            "cosine": 0.6551333852244117
+          },
+          {
+            "wl_pair": [
+              0,
+              2
+            ],
+            "cosine": 0.6619682027917126
+          },
+          {
+            "wl_pair": [
+              0,
+              3
+            ],
+            "cosine": 0.7036214460710369
+          },
+          {
+            "wl_pair": [
+              0,
+              4
+            ],
+            "cosine": 0.6441733960956554
+          },
+          {
+            "wl_pair": [
+              0,
+              5
+            ],
+            "cosine": 0.7156724399240796
+          },
+          {
+            "wl_pair": [
+              0,
+              6
+            ],
+            "cosine": 0.6247842242660507
+          },
+          {
+            "wl_pair": [
+              0,
+              7
+            ],
+            "cosine": 0.6649578801047443
+          },
+          {
+            "wl_pair": [
+              1,
+              2
+            ],
+            "cosine": 0.757933641822048
+          },
+          {
+            "wl_pair": [
+              1,
+              3
+            ],
+            "cosine": 0.6518291253934633
+          },
+          {
+            "wl_pair": [
+              1,
+              4
+            ],
+            "cosine": 0.697618913414989
+          },
+          {
+            "wl_pair": [
+              1,
+              5
+            ],
+            "cosine": 0.708625486470404
+          },
+          {
+            "wl_pair": [
+              1,
+              6
+            ],
+            "cosine": 0.8032987314096341
+          },
+          {
+            "wl_pair": [
+              1,
+              7
+            ],
+            "cosine": 0.6724402113154976
+          },
+          {
+            "wl_pair": [
+              2,
+              3
+            ],
+            "cosine": 0.8114004433185467
+          },
+          {
+            "wl_pair": [
+              2,
+              4
+            ],
+            "cosine": 0.8509707294231303
+          },
+          {
+            "wl_pair": [
+              2,
+              5
+            ],
+            "cosine": 0.7774994151986765
+          },
+          {
+            "wl_pair": [
+              2,
+              6
+            ],
+            "cosine": 0.7619483308436579
+          },
+          {
+            "wl_pair": [
+              2,
+              7
+            ],
+            "cosine": 0.8289103246535884
+          },
+          {
+            "wl_pair": [
+              3,
+              4
+            ],
+            "cosine": 0.7465641562162284
+          },
+          {
+            "wl_pair": [
+              3,
+              5
+            ],
+            "cosine": 0.8013591524605859
+          },
+          {
+            "wl_pair": [
+              3,
+              6
+            ],
+            "cosine": 0.7519403690734193
+          },
+          {
+            "wl_pair": [
+              3,
+              7
+            ],
+            "cosine": 0.8013297568309065
+          },
+          {
+            "wl_pair": [
+              4,
+              5
+            ],
+            "cosine": 0.8266037176871501
+          },
+          {
+            "wl_pair": [
+              4,
+              6
+            ],
+            "cosine": 0.7226347835223565
+          },
+          {
+            "wl_pair": [
+              4,
+              7
+            ],
+            "cosine": 0.8507495507111914
+          },
+          {
+            "wl_pair": [
+              5,
+              6
+            ],
+            "cosine": 0.768113594868976
+          },
+          {
+            "wl_pair": [
+              5,
+              7
+            ],
+            "cosine": 0.7688752221100987
+          },
+          {
+            "wl_pair": [
+              6,
+              7
+            ],
+            "cosine": 0.7864444338423884
+          }
+        ]
+      }
+    ],
+    "training_decisions_by_cell_reset_set": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    ],
+    "training_pulses_by_cell_reset_set": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    ],
+    "training_attempts": 266,
+    "training_admitted_pulses": 266,
+    "guard_skipped": 0,
+    "reference_suppressed": 0,
+    "mechanism": {
+      "learning_bank_train_posts": 446,
+      "nonzero_learning_eligibility": 3938,
+      "admitted_updates_with_post_r": 266,
+      "uninformative_no_learning_posts": false,
+      "uninformative_no_eligibility": false,
+      "no_admitted_training_pulses": false
+    },
+    "admitted_delta_g_signs": {
+      "positive": 115,
+      "negative": 95,
+      "unchanged": 56
+    }
+  },
+  "classification_accuracy_measured": false,
+  "full10k_executed": false,
+  "model_or_connector_opened_by_auditor": false,
+  "limitations": [
+    "Integrity/mechanism qualification does not demonstrate learning benefit or accuracy.",
+    "No private driver attestation; Git does not verify untracked runtime bytes.",
+    "Digital checkpoints cannot restore physical conductances after interruption."
+  ]
+}
