@@ -2,6 +2,13 @@
 
 ## Актуально: ночь 20→21 октября 2026
 
+**Завершено:** строгая accuracy **64,29% (6429/10000)**, argmax 64,31%,
+silent 2, ties 0. Saved-head/scaler/official-label verification PASS.
+Цель выше 50% достигнута; резервный validation-поиск не запускался.
+Полные данные сохранены в Git LFS. Отчёт:
+`reports/2026-10-20/mnist-archive64-train10000/REPORT_RU.md`.
+Повторно эксперимент автоматически не запускать. Hardware не трогать.
+
 Только native MemriBoard Simulator, без hardware: архивные сохранённые
 STDP-веса 64 фильтров и новый readout на первых 10000 train, итоговая оценка
 на 10000 official test. Цель — accuracy выше 50%, если достижимо; гарантий нет.
