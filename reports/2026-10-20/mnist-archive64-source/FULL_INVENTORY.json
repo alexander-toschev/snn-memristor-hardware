@@ -1,0 +1,32 @@
+{
+  "scope": "input_only_no_network_no_Connector_no_labels",
+  "train_images": 30000,
+  "test_images": 10000,
+  "batch_size": 8,
+  "cpu_threads": 1,
+  "elapsed_s": 350.61000000004424,
+  "unique_masks": 968,
+  "native_masks": 968,
+  "max_popcount": 4,
+  "unique_mask_popcount_histogram": {
+    "0": 1,
+    "1": 25,
+    "2": 300,
+    "3": 638,
+    "4": 4
+  },
+  "encoding_sha256": {
+    "train": "00feeb9231ad384a683ba4718e6491ce406920a3e5bac499b8ebcddab33dfb68",
+    "test": "f44d33a2693ee121d776cf4416a3cf16f69c52de2073db89eba6574518746532"
+  },
+  "native_lut_calls": 1352832,
+  "maximum_programming_calls": 1683200,
+  "post_read_calls": 9600,
+  "maximum_programming_pulses": 332800,
+  "maximum_impacts": 3045632,
+  "input_source_sha256": {
+    "train-images-idx3-ubyte.gz": "440fcabf73cc546fa21475e81ea370265605f56be210a4024d2ca8f203523609",
+    "t10k-images-idx3-ubyte.gz": "8d422c7b0a1c1c79245a5bcf07fe86e33eeafee792b84584aec276f5a2dbc4e6"
+  },
+  "code_sha256": "37515deebf38341a23fdb4c81f91d1c38eb02d32018915780fdce900cdff461e"
+}

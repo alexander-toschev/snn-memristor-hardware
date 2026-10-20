@@ -1,0 +1,33 @@
+{
+  "schema": "archive64-pilot-descriptive-diagnostics-v1",
+  "session": "1e5a3121-748f-45a5-a048-cc4cbd079548",
+  "features": 36864,
+  "train_never_active_features": 9025,
+  "test_active_features": 25550,
+  "train_never_active_but_test_active": 1541,
+  "scaler_sd_floor_features": 9025,
+  "scaler_sd_floor_but_test_active": 1541,
+  "test_images_with_unseen_active_features": 86,
+  "test_unseen_feature_nonzero_entries": 2279,
+  "test_all_feature_nonzero_entries": 209483,
+  "test_unseen_feature_spikes": 2343,
+  "test_spikes": 234730,
+  "standardized_test_max_abs": 1386294.375,
+  "standardized_test_l2_quantiles": [
+    75.01945915734278,
+    980258.1596015766,
+    1765876.011150035,
+    3430378.154583021,
+    9518724.138327831
+  ],
+  "logits_max_abs": 71887.390625,
+  "logits_l2_quantiles": [
+    1.190648658343958,
+    9071.191858320304,
+    17590.682691327427,
+    33954.700080221926,
+    106278.05178347211
+  ],
+  "no_test_tuning": true,
+  "interpretation": "Descriptive mismatch of128train support and36864feature readout; not an isolated causal attribution of accuracy"
+}

@@ -1,0 +1,202 @@
+{
+  "status": "PASS",
+  "scope": "independent raw native-LUT and digital numerical replay; no hardware/no training",
+  "session": "1e5a3121-748f-45a5-a048-cc4cbd079548",
+  "manifest_sha256": "51595275247d7efec8dfc48ac1b2c5df2b92bafb94a3f704a0f8ecd1706772ed",
+  "raw_records": 3632538,
+  "native_impacts": 1569710,
+  "programming_pulses": 241750,
+  "native_mvm_requests": 112128,
+  "exact_mvm_passes": 3,
+  "result_mode10_command_vol_is_native_DAC_shared_list": true,
+  "all16stages": true,
+  "replayed_images": 228,
+  "inventory_sha_match": true,
+  "all_counts_exact": true,
+  "saved_head_logits_exact": true,
+  "scaler_train_only_exact": true,
+  "strict_accuracy": 0.09,
+  "conventional_argmax_accuracy": 0.09,
+  "stages": [
+    {
+      "stage": 0,
+      "target_miss_fraction": 0.575,
+      "singleton_rmse": 0.2952677038800602,
+      "alpha": [
+        143.07580990559643,
+        250.87668820158575,
+        152.01159868133928,
+        216.06887928256265
+      ]
+    },
+    {
+      "stage": 1,
+      "target_miss_fraction": 0.59,
+      "singleton_rmse": 0.28911043845004697,
+      "alpha": [
+        162.45612397183953,
+        245.58703077685388,
+        182.26582597918124,
+        271.6203715446919
+      ]
+    },
+    {
+      "stage": 2,
+      "target_miss_fraction": 0.58,
+      "singleton_rmse": 0.30799287710931583,
+      "alpha": [
+        123.31353681959031,
+        226.7587968897855,
+        153.62199123960937,
+        264.84527270231393
+      ]
+    },
+    {
+      "stage": 3,
+      "target_miss_fraction": 0.595,
+      "singleton_rmse": 0.30316124689194834,
+      "alpha": [
+        162.2777807195997,
+        214.57769529918414,
+        161.13952439793366,
+        189.8244745109721
+      ]
+    },
+    {
+      "stage": 4,
+      "target_miss_fraction": 0.595,
+      "singleton_rmse": 0.2960450223626422,
+      "alpha": [
+        167.26797824256676,
+        243.45772355757353,
+        174.964881471335,
+        277.6176773094008
+      ]
+    },
+    {
+      "stage": 5,
+      "target_miss_fraction": 0.57,
+      "singleton_rmse": 0.2894735506007054,
+      "alpha": [
+        174.64586059623733,
+        232.58383626573755,
+        179.43649383796784,
+        250.58153417364417
+      ]
+    },
+    {
+      "stage": 6,
+      "target_miss_fraction": 0.555,
+      "singleton_rmse": 0.3007058682902413,
+      "alpha": [
+        144.94278474006384,
+        221.03164100411848,
+        111.17267175716742,
+        298.9164410774762
+      ]
+    },
+    {
+      "stage": 7,
+      "target_miss_fraction": 0.57,
+      "singleton_rmse": 0.28614936136660696,
+      "alpha": [
+        144.38994391173475,
+        222.83484462366175,
+        218.07513604871764,
+        272.5191029491901
+      ]
+    },
+    {
+      "stage": 8,
+      "target_miss_fraction": 0.585,
+      "singleton_rmse": 0.2960132211895326,
+      "alpha": [
+        166.4693389991917,
+        210.76520499310203,
+        220.50131762367414,
+        260.8850901296454
+      ]
+    },
+    {
+      "stage": 9,
+      "target_miss_fraction": 0.6,
+      "singleton_rmse": 0.3073146204555409,
+      "alpha": [
+        165.4762357230187,
+        197.15151369532992,
+        151.68331163952644,
+        216.2870205635851
+      ]
+    },
+    {
+      "stage": 10,
+      "target_miss_fraction": 0.605,
+      "singleton_rmse": 0.29515609257318937,
+      "alpha": [
+        146.91478277698445,
+        216.23528529529594,
+        211.74820259702122,
+        281.0691583917349
+      ]
+    },
+    {
+      "stage": 11,
+      "target_miss_fraction": 0.585,
+      "singleton_rmse": 0.2828137860908113,
+      "alpha": [
+        211.96562503804222,
+        256.5514752154701,
+        185.8426175208394,
+        220.4072361965564
+      ]
+    },
+    {
+      "stage": 12,
+      "target_miss_fraction": 0.575,
+      "singleton_rmse": 0.28789972663733365,
+      "alpha": [
+        172.45696705530153,
+        254.69216191080037,
+        227.12524901059115,
+        276.21918168057323
+      ]
+    },
+    {
+      "stage": 13,
+      "target_miss_fraction": 0.63,
+      "singleton_rmse": 0.2909762400159296,
+      "alpha": [
+        164.15650095602984,
+        231.49733763729552,
+        192.65301919668315,
+        269.2032197874467
+      ]
+    },
+    {
+      "stage": 14,
+      "target_miss_fraction": 0.565,
+      "singleton_rmse": 0.2962107894516314,
+      "alpha": [
+        164.91584021548965,
+        266.9368861667173,
+        224.12367153969865,
+        220.42438015460505
+      ]
+    },
+    {
+      "stage": 15,
+      "target_miss_fraction": 0.57,
+      "singleton_rmse": 0.2950350692664524,
+      "alpha": [
+        156.54941867136878,
+        225.83818515195603,
+        192.78511252480777,
+        232.10473983647438
+      ]
+    }
+  ],
+  "limits": [
+    "Does not re-train SGD head or attest historical69.65 run",
+    "Does not establish physical hardware invariance"
+  ]
+}
