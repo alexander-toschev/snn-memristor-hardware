@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "session_id": "1dfea7b2-229b-4396-8e2b-64fc8f4c1fe5",
+  "file": "results/mnist_archive64_20261020/1dfea7b2-229b-4396-8e2b-64fc8f4c1fe5/mask_keys.npy",
+  "sha256": "8b90c47889bd1b577ba766375dda3e1fd2a691614844440bda0cadd76531afb8",
+  "size": 3016,
+  "synthetic_manifest_probe_before": "generic-api-key false positive; redacted report retained",
+  "change": "One anchored exact checksum secret allowlist; useDefault=true retained; no payload changes",
+  "focused_tests": 2,
+  "checks": [
+    "both verified checksums accepted",
+    "each single-character checksum mutation blocked",
+    "unrelated synthetic token alongside either checksum blocked",
+    "isolated stdin uses explicit repository config"
+  ],
+  "config_sha256": "67eb02bb2b419bef19b30057155a6a65235a2231e3de52dfce6266204c4653a0",
+  "acquisition_sources_changed": false
+}

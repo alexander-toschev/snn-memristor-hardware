@@ -226,18 +226,22 @@ class PayloadTests(unittest.TestCase):
     @unittest.skipUnless(os.environ.get('LFS_SCAN_TEST_GITLEAKS'), 'Optional installed Gitleaks integration')
     def test_exact_verified_checksum_only_and_unrelated_token_blocked(self):
         scanner = os.environ['LFS_SCAN_TEST_GITLEAKS']
-        digest = '0ca53cce0281fbe7c7077a11e6f141210183cad57b366a70649f32e3144f388b'
-        fixture = Path(__file__).resolve().parents[1] / 'results/mnist_archive64_20261020/1e5a3121-748f-45a5-a048-cc4cbd079548/mask_keys.npy'
-        if fixture.is_file():
-            self.assertEqual(hashlib.sha256(fixture.read_bytes()).hexdigest(),digest)
-        permitted = ('{"mask_keys.npy": "'+digest+'"}\n').encode()
-        changed = ('{"mask_keys.npy": "'+digest[:-1]+'c"}\n').encode()
+        fixtures = (
+            ('1e5a3121-748f-45a5-a048-cc4cbd079548','0ca53cce0281fbe7c7077a11e6f141210183cad57b366a70649f32e3144f388b'),
+            ('1dfea7b2-229b-4396-8e2b-64fc8f4c1fe5','8b90c47889bd1b577ba766375dda3e1fd2a691614844440bda0cadd76531afb8'))
         token = b'gh'+b'p_'+hashlib.sha256(b'checksum-allowlist-noncredential').hexdigest()[:36].encode()
         with tempfile.TemporaryDirectory() as root:
-            scan.scan_stream(scanner,io.BytesIO(permitted),root)
-            for payload in (changed,permitted+b'fixture='+token+b'\n'):
-                with self.assertRaisesRegex(scan.Blocked,'detected a potential secret'):
-                    scan.scan_stream(scanner,io.BytesIO(payload),root)
+            for session,digest in fixtures:
+                with self.subTest(session=session):
+                    fixture = Path(__file__).resolve().parents[1] / 'results/mnist_archive64_20261020' / session / 'mask_keys.npy'
+                    if fixture.is_file():
+                        self.assertEqual(hashlib.sha256(fixture.read_bytes()).hexdigest(),digest)
+                    permitted = ('{"mask_keys.npy": "'+digest+'"}\n').encode()
+                    changed = ('{"mask_keys.npy": "'+digest[:-1]+'c"}\n').encode()
+                    scan.scan_stream(scanner,io.BytesIO(permitted),root)
+                    for payload in (changed,permitted+b'fixture='+token+b'\n'):
+                        with self.assertRaisesRegex(scan.Blocked,'detected a potential secret'):
+                            scan.scan_stream(scanner,io.BytesIO(payload),root)
 
     @unittest.skipUnless(os.environ.get('LFS_SCAN_TEST_GITLEAKS'), 'Optional installed Gitleaks integration')
     def test_real_gzip_magic_and_begin_middle_end_canaries(self):
