@@ -14,14 +14,25 @@ best available выбраны WL0/7 × BL2/3/6/10/11/12/14/15, qualified=false.
 Матрица C улучшает плотные heldout-маски, ухудшает разреженные.
 Сводка: `reports/2026-10-20/stable-cell-calibration/HARDWARE_SUMMARY.json`.
 
-На момент проверки 20 октября около13:30UTC аппаратный compact100
-`69c5bfda-17bf-41ad-8805-704dc9b22ac4` работал, PID48481, stage0/image87.
+Аппаратный compact100 `69c5bfda-17bf-41ad-8805-704dc9b22ac4`
+завершён 20 октября14:09:51UTC: все48тайлов,735290воздействий,
+8321импульс, completed/error=null. Архив опубликован `2c80974`,
+локально проверены SHA и все файлы, выполнен readout:
+raw11/100, C14/100; silent/ties0 в обеих ветвях.
 План `results/compact_cifar_20261020/physical_plan_4c8c70ca.json`;
-исходники Pi92b5ebd. Не запускать дубликат; текущий статус читать из
-manifest/progress и процесса. Это48 тайлов новой модели, не старые48stages.
+исходники Pi92b5ebd. Не запускать дубликат.
+Это48 тайлов новой модели, не старые48stages.
 Параллельный nativeSIM compact100: `3c069a98-1afc-4931-b355-9090b0d27704`;
 план `results/compact_cifar_20261020/simulator_plan.json`.
-Итоговые raw/C accuracy обеих ветвей пока pending. После CIFAR — STDP8cell;
+Native SIM завершён: все48тайлов,711318воздействий,7399импульсов;
+raw20/100, C16/100, CPU26/100. Silent/ties обеих ветвей0.
+Отчёт `results/compact_cifar_20261020/NATIVE_SIM_PILOT100.json`;
+архив проверен на секреты и сохранность байтов, публикация ожидает
+автопубликацию аппаратного результата. C ухудшила test accuracy:
+не выбирать ветвь и не перенастраивать параметры по этому test-набору.
+Сравнение: `reports/2026-10-20/COMPACT_CIFAR_COMPARISON.md`.
+Следующий этап — STDP8cell; portable launcher прошёл4теста и dry-run,
+архиватор3теста, включая сохранение uninformative_calibration;
 старые источники/результаты сохраняются, обновление launcher не меняет протокол.
 MNIST128 nativeSIM main/reference уже завершены: оба raw-аудита PASS,
 review `native_sim_mechanism_qualified_not_efficacy`; доказательства в

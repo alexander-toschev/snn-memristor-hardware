@@ -40,7 +40,7 @@ def preserve(folder,base=None):
     if folder.parent!=base or folder.name=='archives':raise ValueError('Expected direct session directory')
     manifest_path=folder/'manifest.json'
     manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
-    if manifest.get('status') not in ('completed','failed','no_stable_rectangle','pair_qualification_failed') or not manifest.get('finished_utc'):
+    if manifest.get('status') not in ('completed','failed','no_stable_rectangle','pair_qualification_failed','uninformative_calibration') or not manifest.get('finished_utc'):
         raise ValueError('Terminal manifest required; never archive a live acquisition')
     files,before=inventory(folder)
     for name,digest in manifest.get('result_sha256',{}).items():

@@ -197,5 +197,6 @@
   "impacts": 293294,
   "pulses": 8960,
   "cifar_accuracy": null,
-  "interpretation": "Diagnostic best available selection. Calibration improves dense masks but worsens singleton/doubleton heldout masks; raw and corrected classifier branches must both be reported."
+  "interpretation": "Diagnostic best available selection. Calibration improves dense masks but worsens singleton/doubleton heldout masks; raw and corrected classifier branches must both be reported.",
+  "selection_explanation": "The two strictly eligible cells are WL0/BL12 and WL7/BL14. They do not form a same-BL differential pair; no fully qualified rectangle was found. Sixteen resolved cells were selected by the declared diagnostic capacity/quality rule. Unselected cells are not declared physically broken."
 }

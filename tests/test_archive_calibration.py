@@ -28,6 +28,22 @@ class ArchiveTests(unittest.TestCase):
             wrong=dict(original);wrong['manifest.json']=dict(wrong['manifest.json'],sha256='0'*64)
             with self.assertRaises(ValueError):a.verify_archive(base/'archives/test-session.tar.gz','test-session',wrong)
 
+    def test_uninformative_terminal_preserved_without_manifest_change(self):
+        temporary=a.ROOT/'.tmp/archive-unit';temporary.mkdir(parents=True,exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=temporary) as directory:
+            base=Path(directory);session=base/'uninformative-session';session.mkdir()
+            path=session/'manifest.json'
+            path.write_text(json.dumps(dict(status='uninformative_calibration',finished_utc='2026-10-20T00:00:00Z',
+                                            source='hardware',result_sha256={})))
+            original=path.read_bytes()
+            with patch.object(a.b.security,'find_scanner',return_value=Path(a.__file__)),patch.object(a.b,'scan_chunks',side_effect=lambda scanner,chunks: dict(passed=True,bytes=sum(len(c) for c in chunks))):
+                report=a.preserve(session,base)
+            self.assertEqual(report['acquisition_status'],'uninformative_calibration')
+            self.assertEqual(path.read_bytes(),original)
+            saved=json.loads((base/'archives/uninformative-session.json').read_text())
+            self.assertTrue(saved['byte_identical_archive_verified'])
+            self.assertEqual(saved['files']['manifest.json']['sha256'],a.b.sha(path))
+
     def test_live_and_corrupted_payload_rejected(self):
         temporary=a.ROOT/'.tmp/archive-unit';temporary.mkdir(parents=True,exist_ok=True)
         with tempfile.TemporaryDirectory(dir=temporary) as directory:
