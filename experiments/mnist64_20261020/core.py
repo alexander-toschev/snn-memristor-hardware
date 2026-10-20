@@ -1,11 +1,24 @@
 """Resident64x4: two physical32x4 planes, one LIF step after their measured sum."""
+from __future__ import annotations
+
 import contextlib
 import math
 import time
+from collections.abc import Callable, Iterable
+from typing import TYPE_CHECKING, Unpack, cast
+
+if TYPE_CHECKING:
+    from manager.board import Connector
 from experiments.mnist_conductance_20261019.core import Collector as Physical,DriverLog,safe,GAINS
 from experiments.mnist64_20261020 import inputs,logic
+from experiments.mnist64_20261020.types import (
+    Calibration, Checkpoint, Converters, Fixture, ImageMeasurement, ImageOutcome,
+    InputImage, Limits, NativeCommand, NativeReading, NeuronOutcome, Parent,
+    Progress, ProtocolSpec, PulseDecision, PulseMetadata, RawWriter, Scope,
+    Signal, Source, Summary,
+)
 
-SPEC=dict(schema='mnist-resident64x4-stdp-and-frozen-accuracy-v1',physical_shape=[32,8],logical_shape=[64,4],
+SPEC: ProtocolSpec = dict(schema='mnist-resident64x4-stdp-and-frozen-accuracy-v1',physical_shape=[32,8],logical_shape=[64,4],
     pooling='integer8x8,28px boundaries0,3,7,10,14,17,21,24,28',timesteps=32,amplitude_v=.05,maximum_mask=4,
     mapping='WL=neuron+4*(feature//32);BL=feature%32',tile_sum_before_lif=True,separate_control_bank=False,
     lif_leak=.5,lif_threshold=1.,eligibility_features=64,trace_decay=math.exp(-.25),depression=1.05,
@@ -21,31 +34,50 @@ SPEC=dict(schema='mnist-resident64x4-stdp-and-frozen-accuracy-v1',physical_shape
 
 
 class Collector(Physical):
-    def __init__(self,connector,converters,writer,source,fixture,gain=None,parent=None,progress=None):
+    def __init__(self, connector: Connector, converters: Converters, writer: RawWriter,
+                 source: Source, fixture: Fixture, gain: list[float] | None = None,
+                 parent: Parent | None = None, progress: Progress | None = None) -> None:
         if source not in ('hardware','simulator') or connector.cb_type!=('real' if source=='hardware' else 'simulator'):
             raise ValueError('Public Connector/source mismatch')
-        self.connector,self.converters,self.writer,self.source=connector,converters,writer,source
-        self.images=inputs.verify(fixture);self.scope=fixture['scope'];self.limits=inputs.budget(fixture)
-        self.gain=gain;self.parent=parent;self.reference=None;self.calibration=None
+        self.connector: Connector = connector
+        self.converters: Converters = converters
+        self.writer: RawWriter = writer
+        self.source: Source = source
+        self.images: dict[int, InputImage] = inputs.verify(fixture)
+        self.scope: Scope = fixture['scope']
+        self.limits: Limits = inputs.budget(fixture)
+        self.gain: list[float] | None = gain
+        self.parent: Parent | None = parent
+        self.reference: None = None
+        self.calibration: Calibration | None = None
         if self.scope=='accuracy' and (not isinstance(gain,list) or len(gain)!=4 or any(g not in GAINS for g in gain)):
             raise ValueError('Frozen4gain parent required')
-        self.calls=self.pulses=self.decisions=self.ordinal=0
-        self.outcomes=[];self.updates=[];self.checkpoints=[]
-        self.image_cell_participation=[[0]*32 for _ in range(8)]
-        self.input_event_counts={p:[0]*64 for p in inputs.groups(self.scope)}
-        self.monotonic=time.monotonic;self.sleep=time.sleep
-        self.progress=progress or (lambda text:None)
+        self.calls: int = 0
+        self.pulses: int = 0
+        self.decisions: int = 0
+        self.ordinal: int = 0
+        self.outcomes: list[ImageOutcome] = []
+        self.updates: list[PulseDecision] = []
+        self.checkpoints: list[Checkpoint] = []
+        self.image_cell_participation: list[list[int]] = [[0]*32 for _ in range(8)]
+        self.input_event_counts: dict[str, list[int]] = {p:[0]*64 for p in inputs.groups(self.scope)}
+        self.monotonic: Callable[[], float] = time.monotonic
+        self.sleep: Callable[[float], None] = time.sleep
+        self.progress: Progress = progress or (lambda text:None)
 
-    def call(self,command,phase,**meta):
+    def call(self, command: NativeCommand, phase: str, **meta: object) -> NativeReading:
         # Explicit new cap. Does not call a historical method with global SPEC.
         if self.calls>=self.limits['maximum_impacts']:raise ValueError('New64x4 impact cap')
         if self.scope=='accuracy' and command['mode_flag']==7 and command['vol']!=0:raise ValueError('Frozen accuracy write forbidden')
-        self.calls+=1;task={**command,'id':self.calls if command['mode_flag']==7 else 0}
+        self.calls+=1
+        task: NativeCommand = {**command,'id':self.calls if command['mode_flag']==7 else 0}
         fields=dict(task_id=self.calls,command_si=task,phase=phase,**meta)
         self.emit('request',**fields);started=self.monotonic()
         try:
             with contextlib.redirect_stdout(DriverLog(self,'stdout')),contextlib.redirect_stderr(DriverLog(self,'stderr')):
-                result=self.connector.impact({**task,'vol':list(task['vol']) if isinstance(task['vol'],list) else task['vol']})
+                voltage = task['vol']
+                submitted: NativeCommand = {**task,'vol':list(voltage) if isinstance(voltage,list) else voltage}
+                result=self.connector.impact(submitted)
             self.emit('result',**fields,native_result=safe(result),latency_s=self.monotonic()-started)
             if not isinstance(result,(list,tuple)) or len(result)!=3:raise ValueError('Invalid native tuple')
             r,echo,adc=result
@@ -57,12 +89,16 @@ class Collector(Physical):
         except (Exception,KeyboardInterrupt) as exc:
             self.emit('call_error',task_id=self.calls,error=repr(exc));raise
 
-    def pulse(self,wl,bl,sign,phase,**meta):
+    def pulse(self, wl: int, bl: int, sign: int, phase: str, **meta: Unpack[PulseMetadata]) -> None:
         if self.scope!='train' or self.decisions>=2560 or phase not in ('preparation','training_update'):raise ValueError('Write scope/cap')
         level=1.7 if sign else 1.4
         guard=self.read_r(wl,bl,'pulse_guard',intended_phase=phase,**meta)
         self.decisions+=1;admitted=level/guard['r']<=(.002 if sign else .04)
-        result=dict(wl=wl,bl=bl,sign=sign,voltage_v=level,phase=phase,decision=self.decisions,guard=guard,admitted=admitted,**meta)
+        # Unpack[PulseMetadata] restricts the extra fields; this exact-shape cast
+        # bridges mypy's open-TypedDict unpack limitation, without Any.
+        payload: dict[str, object] = dict(wl=wl,bl=bl,sign=sign,voltage_v=level,phase=phase,
+                                          decision=self.decisions,guard=guard,admitted=admitted,**meta)
+        result = cast(PulseDecision, payload)
         self.emit('pulse_decision',**result)
         if admitted:
             self.pulses+=1
@@ -73,41 +109,43 @@ class Collector(Physical):
         self.updates.append(result);self.emit('pulse_complete',**result)
         self.writer.checkpoint(reason='complete_update',impacts=self.calls,pulses=self.pulses)
 
-    def image(self,phase,index):
+    def image(self, phase: str, index: int) -> ImageMeasurement:
         if (phase=='fit')!=(self.gain is None):raise ValueError('Image/gain freeze order')
         row=self.images[index];schedule=row['schedule'];ordinal=self.ordinal;self.ordinal+=1
         meta=dict(image_phase=phase,image_ordinal=ordinal,train_index=index)
         self.emit('image_begin',phase=phase,ordinal=ordinal,train_index=index,image_sha256=row['image_sha256'],
                   schedule_sha256=row['schedule_sha256'],schedule=schedule)
         order=list(range(8)) if ordinal%2==0 else list(reversed(range(8)))
-        before={wl:self.vector(wl,[],'image_zero_before',**meta) for wl in order};signals=[]
+        before={wl:self.vector(wl,[],'image_zero_before',**meta) for wl in order}
+        signals: list[Signal] = []
         for tick,mask in enumerate(schedule):
             for f in mask:self.input_event_counts[phase][f]+=1
             for tile in (0,1):
                 active=[f%32 for f in mask if f//32==tile]
                 for micro,start in enumerate(range(0,len(active),4)):
                     chunk=active[start:start+4]
-                    neurons=range(4) if (ordinal+tick+tile+micro)%2==0 else reversed(range(4))
-                    for neuron in neurons:
+                    neuron_order: Iterable[int] = range(4) if (ordinal+tick+tile+micro)%2==0 else reversed(range(4))
+                    for neuron in neuron_order:
                         wl=4*tile+neuron
-                        result=self.vector(wl,chunk,'image_signal',t=tick,tile=tile,micro=micro,neuron=neuron,**meta)
-                        signals.append(dict(wl=wl,neuron=neuron,tile=tile,t=tick,micro=micro,mask=chunk,**result))
+                        signal=self.vector(wl,chunk,'image_signal',t=tick,tile=tile,micro=micro,neuron=neuron,**meta)
+                        signals.append(dict(wl=wl,neuron=neuron,tile=tile,t=tick,micro=micro,mask=chunk,**signal))
                         for bl in chunk:self.image_cell_participation[wl][bl]+=1
         after={wl:self.vector(wl,[],'image_zero_after',**meta) for wl in order[::-1]}
         volts=[[0.]*32 for _ in range(4)]
         for s in signals:
             # Sum both tile planes and all microvectors before ONE leak/threshold.
             volts[s['neuron']][s['t']]+=s['voltage_v']-(before[s['wl']]['voltage_v']+after[s['wl']]['voltage_v'])/2
-        result=dict(phase=phase,ordinal=ordinal,train_index=index,schedule=schedule,voltages=volts,
+        result: ImageMeasurement = dict(phase=phase,ordinal=ordinal,train_index=index,schedule=schedule,voltages=volts,
             zero_before=before,zero_after=after,signals=signals,zero_drift_v=[after[w]['voltage_v']-before[w]['voltage_v'] for w in range(8)])
         self.emit('image_measurements_complete',**result)
         if phase!='fit':
-            neurons=[]
+            assert self.gain is not None  # Already enforced by the image/gain guard above.
+            neurons: list[NeuronOutcome] = []
             for n in range(4):
                 steps,choice=logic.trajectory(schedule,volts[n],self.gain[n])
                 for step in steps:self.emit('lif_step',image_ordinal=ordinal,image_phase=phase,train_index=index,neuron=n,**step)
                 neurons.append(dict(neuron=n,posts=[s['post'] for s in steps],eligibility=steps[-1]['eligibility'],choice=choice))
-            outcome=dict(phase=phase,ordinal=ordinal,train_index=index,neurons=neurons,zero_drift_v=result['zero_drift_v'])
+            outcome: ImageOutcome = dict(phase=phase,ordinal=ordinal,train_index=index,neurons=neurons,zero_drift_v=result['zero_drift_v'])
             self.outcomes.append(outcome);self.emit('image_feedback_complete',**outcome)
             if phase=='train':
                 for n in (range(4) if index%2==0 else reversed(range(4))):
@@ -125,13 +163,13 @@ class Collector(Physical):
             self.progress('%s %d/%d; impacts=%d pulses=%d'%(label,done,len(indices),self.calls,self.pulses))
         return result
 
-    def summary(self,status):
+    def summary(self, status: str) -> Summary:
         return dict(status=status,scope=self.scope,impacts=self.calls,pulses=self.pulses,decisions=self.decisions,
             measured_images=self.ordinal,gain=self.gain,calibration=self.calibration,outcomes=self.outcomes,
             updates=self.updates,checkpoints=self.checkpoints,image_cell_participation=self.image_cell_participation,
             input_event_counts=self.input_event_counts,separate_control_bank=False,classification_accuracy_measured=False)
 
-    def run(self):
+    def run(self) -> Summary:
         status='failed';error=None;opened=False
         try:
             self.emit('session_begin',protocol=SPEC,scope=self.scope,parent=self.parent,gain=self.gain,limits=self.limits)
