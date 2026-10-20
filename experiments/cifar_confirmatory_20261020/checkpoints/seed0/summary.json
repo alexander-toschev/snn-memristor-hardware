@@ -1,0 +1,23 @@
+{
+  "run_id": "twd1_sigma0p0_seed0",
+  "dataset": "cifar100:0,1,2,3,5,8,13,14,17,19",
+  "T": 12,
+  "loss_mode": "tet",
+  "best_epoch": 185,
+  "epochs": 200,
+  "finished_at": "2026-10-06T13:27:22Z",
+  "selection": "highest_unrounded_val_acc_fs_earliest_epoch_on_tie",
+  "checkpoint": "best_fs.pt",
+  "checkpoint_sha256": "ee4fc4f58a3d010218116e9ad4c7ba808787959f9ed7687cd58cbb32d90f62fb",
+  "split_index_sha256": "f3a5acaf7d61d1221b28a6ba66e468f905a44463630a8bdc5cf38cbb956f0492",
+  "selected_val_acc_fs_raw": 0.756,
+  "best_val_acc_fs": 0.756,
+  "best_val_acc_mem": 0.84,
+  "best_val_acc_twd": 0.778,
+  "final_test_acc_fs": 0.725,
+  "final_test_acc_mem": 0.834,
+  "final_test_acc_twd": 0.764,
+  "final_test_acc_fs_raw": 0.725,
+  "final_test_acc_mem_raw": 0.834,
+  "final_test_acc_twd_raw": 0.764
+}

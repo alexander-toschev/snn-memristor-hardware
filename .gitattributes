@@ -12,6 +12,7 @@ results/**/*.f32 filter=lfs diff=lfs merge=lfs -text
 weights/*.pt filter=lfs diff=lfs merge=lfs -text
 weights/*.npy filter=lfs diff=lfs merge=lfs -text
 weights/mnist_baseline_20261019/*.pt filter=lfs diff=lfs merge=lfs -text
+experiments/cifar_confirmatory_20261020/checkpoints/**/*.pt filter=lfs diff=lfs merge=lfs -text
 data/cifar-100-python/train filter=lfs diff=lfs merge=lfs -text
 data/cifar-100-python/test filter=lfs diff=lfs merge=lfs -text
 experiments/mnist_baseline_20261019/data/MNIST/raw/*.gz filter=lfs diff=lfs merge=lfs -text
