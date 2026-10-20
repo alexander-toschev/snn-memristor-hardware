@@ -1,0 +1,240 @@
+{
+  "schema": "mnist-diagonal-hardware-summary-v1",
+  "source": "hardware",
+  "session": "results/mnist_diagonal_20261020/a4327210-2cc4-4c19-bb7b-b8820d2e84e4",
+  "status": "completed",
+  "independent_replay": "PASS",
+  "manifest_sha256": "914faacd78c4afecec316c68fa17ce0639c783586096ccfee6151c6e3bdd090c",
+  "observations_sha256": "58ef8f9a82e484c830286bf9c2dfeae91a25281070fc5f9fd19217207b663742",
+  "protocol_sha256": "c9bf3eb6164ab32208f15092b20fdcfa4200011d8fb75d0f5fd90ab7409b74e4",
+  "gain": [
+    20.0,
+    80.0,
+    400.0,
+    10.0,
+    20.0,
+    80.0,
+    400.0,
+    10.0
+  ],
+  "per_wl_selected": [
+    {
+      "gain": 20.0,
+      "total_posts": 24,
+      "wl": 0
+    },
+    {
+      "gain": 80.0,
+      "total_posts": 39,
+      "wl": 1
+    },
+    {
+      "gain": 400.0,
+      "total_posts": 37,
+      "wl": 2
+    },
+    {
+      "gain": 10.0,
+      "total_posts": 32,
+      "wl": 3
+    }
+  ],
+  "shared_gain_diagnostic": null,
+  "impacts": 107533,
+  "pulses": 2361,
+  "preparation_pulses": 2048,
+  "measured_presentations": 208,
+  "training_presentations": 128,
+  "elapsed_seconds": 494.30682,
+  "phase": {
+    "postprobe": {
+      "images": 16,
+      "posts_by_wl": [
+        2,
+        11,
+        4,
+        17,
+        0,
+        21,
+        63,
+        3
+      ],
+      "learning_posts": 34,
+      "control_posts": 87,
+      "learning_posts_per_image": 2.125,
+      "control_posts_per_image": 5.4375,
+      "silent_images_by_wl": [
+        14,
+        5,
+        12,
+        0,
+        16,
+        0,
+        0,
+        13
+      ],
+      "unique_eight_neuron_outputs": 16,
+      "all_learning_traces_identical": false
+    },
+    "preprobe": {
+      "images": 16,
+      "posts_by_wl": [
+        5,
+        16,
+        13,
+        18,
+        0,
+        21,
+        63,
+        3
+      ],
+      "learning_posts": 52,
+      "control_posts": 87,
+      "learning_posts_per_image": 3.25,
+      "control_posts_per_image": 5.4375,
+      "silent_images_by_wl": [
+        11,
+        3,
+        6,
+        0,
+        16,
+        0,
+        0,
+        13
+      ],
+      "unique_eight_neuron_outputs": 16,
+      "all_learning_traces_identical": false
+    },
+    "retentionprobe": {
+      "images": 16,
+      "posts_by_wl": [
+        2,
+        11,
+        4,
+        17,
+        0,
+        21,
+        63,
+        3
+      ],
+      "learning_posts": 34,
+      "control_posts": 87,
+      "learning_posts_per_image": 2.125,
+      "control_posts_per_image": 5.4375,
+      "silent_images_by_wl": [
+        14,
+        5,
+        12,
+        0,
+        16,
+        0,
+        0,
+        13
+      ],
+      "unique_eight_neuron_outputs": 16,
+      "all_learning_traces_identical": false
+    },
+    "train": {
+      "images": 128,
+      "posts_by_wl": [
+        36,
+        106,
+        86,
+        144,
+        28,
+        191,
+        430,
+        34
+      ],
+      "learning_posts": 372,
+      "control_posts": 683,
+      "learning_posts_per_image": 2.90625,
+      "control_posts_per_image": 5.3359375,
+      "silent_images_by_wl": [
+        93,
+        37,
+        58,
+        1,
+        100,
+        12,
+        0,
+        96
+      ],
+      "unique_eight_neuron_outputs": 128,
+      "all_learning_traces_identical": false
+    }
+  },
+  "training": {
+    "attempts": 313,
+    "admitted": 313,
+    "guard_skipped": 0,
+    "by_sign": {
+      "RESET": {
+        "admitted": 195,
+        "expected_delta_g": 103,
+        "opposite_delta_g": 75,
+        "exact_zero_delta_g": 17,
+        "delta_g_sum_siemens": -0.0016474604304472017
+      },
+      "SET": {
+        "admitted": 118,
+        "expected_delta_g": 90,
+        "opposite_delta_g": 18,
+        "exact_zero_delta_g": 10,
+        "delta_g_sum_siemens": 0.0009050975476467852
+      }
+    },
+    "unique_updated_cells": 78,
+    "updated_cells_by_wl": [
+      14,
+      22,
+      22,
+      20
+    ]
+  },
+  "coverage": {
+    "checkpoint_cells": 256,
+    "learning_eligible_cells": 128,
+    "image_contributing_cells": 232,
+    "no_image_event_bl": [
+      0,
+      16,
+      24
+    ]
+  },
+  "training_g_change": {
+    "start": "after_preprobe",
+    "end": "after_train_128",
+    "banks": {
+      "learning": {
+        "nonzero_cells": 123,
+        "mean_delta_siemens": -6.244423349252154e-06,
+        "max_abs_delta_siemens": 4.62847908129291e-05
+      },
+      "control": {
+        "nonzero_cells": 123,
+        "mean_delta_siemens": -1.0392783955342269e-08,
+        "max_abs_delta_siemens": 4.195650697675859e-07
+      }
+    }
+  },
+  "retention_g_change": {
+    "start": "after_postprobe",
+    "end": "after_retentionprobe",
+    "banks": {
+      "learning": {
+        "nonzero_cells": 124,
+        "mean_delta_siemens": -8.959009552564247e-09,
+        "max_abs_delta_siemens": 2.9864132322470605e-07
+      },
+      "control": {
+        "nonzero_cells": 121,
+        "mean_delta_siemens": -1.6259297895947815e-08,
+        "max_abs_delta_siemens": 2.7438364086240937e-07
+      }
+    }
+  },
+  "classification_accuracy_measured": false,
+  "full10k_executed": false,
+  "private_runtime_status": "private_runtime_not_independently_reverified"
+}

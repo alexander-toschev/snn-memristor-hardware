@@ -1,0 +1,389 @@
+{
+  "schema": "mnist-diagonal-hw-vs-sim-descriptive-v1",
+  "sim_summary_sha256": "d86fa8512db8c6aca7da8c56d6b72f1e330ac1f8b3016409d9c6cd6d7958c838",
+  "simulator_session": "results/mnist_diagonal_20261020/ee0db984-cd00-4052-95e6-069e71c720eb",
+  "hardware_session": "results/mnist_diagonal_20261020/a4327210-2cc4-4c19-bb7b-b8820d2e84e4",
+  "gains": {
+    "hardware": [
+      20.0,
+      80.0,
+      400.0,
+      10.0,
+      20.0,
+      80.0,
+      400.0,
+      10.0
+    ],
+    "simulator": [
+      200.0,
+      200.0,
+      200.0,
+      100.0,
+      200.0,
+      200.0,
+      200.0,
+      100.0
+    ]
+  },
+  "phase": {
+    "preprobe": {
+      "hardware": {
+        "images": 16,
+        "posts_by_wl": [
+          5,
+          16,
+          13,
+          18,
+          0,
+          21,
+          63,
+          3
+        ],
+        "learning_posts": 52,
+        "control_posts": 87,
+        "learning_posts_per_image": 3.25,
+        "control_posts_per_image": 5.4375,
+        "silent_images_by_wl": [
+          11,
+          3,
+          6,
+          0,
+          16,
+          0,
+          0,
+          13
+        ],
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false
+      },
+      "simulator": {
+        "images": 16,
+        "posts_by_wl": [
+          33,
+          18,
+          30,
+          0,
+          23,
+          31,
+          20,
+          0
+        ],
+        "learning_posts": 81,
+        "control_posts": 74,
+        "learning_posts_per_image": 5.0625,
+        "control_posts_per_image": 4.625,
+        "silent_images_by_wl": [
+          1,
+          3,
+          1,
+          16,
+          2,
+          0,
+          4,
+          16
+        ],
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false
+      }
+    },
+    "train": {
+      "hardware": {
+        "images": 128,
+        "posts_by_wl": [
+          36,
+          106,
+          86,
+          144,
+          28,
+          191,
+          430,
+          34
+        ],
+        "learning_posts": 372,
+        "control_posts": 683,
+        "learning_posts_per_image": 2.90625,
+        "control_posts_per_image": 5.3359375,
+        "silent_images_by_wl": [
+          93,
+          37,
+          58,
+          1,
+          100,
+          12,
+          0,
+          96
+        ],
+        "unique_eight_neuron_outputs": 128,
+        "all_learning_traces_identical": false
+      },
+      "simulator": {
+        "images": 128,
+        "posts_by_wl": [
+          166,
+          86,
+          180,
+          14,
+          193,
+          193,
+          172,
+          26
+        ],
+        "learning_posts": 446,
+        "control_posts": 584,
+        "learning_posts_per_image": 3.484375,
+        "control_posts_per_image": 4.5625,
+        "silent_images_by_wl": [
+          36,
+          64,
+          30,
+          114,
+          29,
+          27,
+          33,
+          102
+        ],
+        "unique_eight_neuron_outputs": 120,
+        "all_learning_traces_identical": false
+      }
+    },
+    "postprobe": {
+      "hardware": {
+        "images": 16,
+        "posts_by_wl": [
+          2,
+          11,
+          4,
+          17,
+          0,
+          21,
+          63,
+          3
+        ],
+        "learning_posts": 34,
+        "control_posts": 87,
+        "learning_posts_per_image": 2.125,
+        "control_posts_per_image": 5.4375,
+        "silent_images_by_wl": [
+          14,
+          5,
+          12,
+          0,
+          16,
+          0,
+          0,
+          13
+        ],
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false
+      },
+      "simulator": {
+        "images": 16,
+        "posts_by_wl": [
+          14,
+          11,
+          21,
+          0,
+          23,
+          31,
+          20,
+          0
+        ],
+        "learning_posts": 46,
+        "control_posts": 74,
+        "learning_posts_per_image": 2.875,
+        "control_posts_per_image": 4.625,
+        "silent_images_by_wl": [
+          5,
+          6,
+          1,
+          16,
+          2,
+          0,
+          4,
+          16
+        ],
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false
+      }
+    },
+    "retentionprobe": {
+      "hardware": {
+        "images": 16,
+        "posts_by_wl": [
+          2,
+          11,
+          4,
+          17,
+          0,
+          21,
+          63,
+          3
+        ],
+        "learning_posts": 34,
+        "control_posts": 87,
+        "learning_posts_per_image": 2.125,
+        "control_posts_per_image": 5.4375,
+        "silent_images_by_wl": [
+          14,
+          5,
+          12,
+          0,
+          16,
+          0,
+          0,
+          13
+        ],
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false
+      },
+      "simulator": {
+        "images": 16,
+        "posts_by_wl": [
+          14,
+          11,
+          21,
+          0,
+          23,
+          31,
+          20,
+          0
+        ],
+        "learning_posts": 46,
+        "control_posts": 74,
+        "learning_posts_per_image": 2.875,
+        "control_posts_per_image": 4.625,
+        "silent_images_by_wl": [
+          5,
+          6,
+          1,
+          16,
+          2,
+          0,
+          4,
+          16
+        ],
+        "unique_eight_neuron_outputs": 16,
+        "all_learning_traces_identical": false
+      }
+    }
+  },
+  "training": {
+    "hardware": {
+      "attempts": 313,
+      "admitted": 313,
+      "guard_skipped": 0,
+      "by_sign": {
+        "RESET": {
+          "admitted": 195,
+          "expected_delta_g": 103,
+          "opposite_delta_g": 75,
+          "exact_zero_delta_g": 17,
+          "delta_g_sum_siemens": -0.0016474604304472017
+        },
+        "SET": {
+          "admitted": 118,
+          "expected_delta_g": 90,
+          "opposite_delta_g": 18,
+          "exact_zero_delta_g": 10,
+          "delta_g_sum_siemens": 0.0009050975476467852
+        }
+      },
+      "unique_updated_cells": 78,
+      "updated_cells_by_wl": [
+        14,
+        22,
+        22,
+        20
+      ]
+    },
+    "simulator": {
+      "attempts": 266,
+      "admitted": 266,
+      "guard_skipped": 0,
+      "by_sign": {
+        "RESET": {
+          "admitted": 110,
+          "expected_delta_g": 82,
+          "opposite_delta_g": 17,
+          "exact_zero_delta_g": 11,
+          "delta_g_sum_siemens": -0.0045106554578970975
+        },
+        "SET": {
+          "admitted": 156,
+          "expected_delta_g": 98,
+          "opposite_delta_g": 13,
+          "exact_zero_delta_g": 45,
+          "delta_g_sum_siemens": 0.002409746589134999
+        }
+      },
+      "unique_updated_cells": 78,
+      "updated_cells_by_wl": [
+        22,
+        20,
+        25,
+        11
+      ]
+    }
+  },
+  "coverage": {
+    "hardware": {
+      "checkpoint_cells": 256,
+      "learning_eligible_cells": 128,
+      "image_contributing_cells": 232,
+      "no_image_event_bl": [
+        0,
+        16,
+        24
+      ]
+    },
+    "simulator": {
+      "checkpoint_cells": 256,
+      "learning_eligible_cells": 128,
+      "image_contributing_cells": 232,
+      "no_image_event_bl": [
+        0,
+        16,
+        24
+      ]
+    }
+  },
+  "retention_g_change": {
+    "hardware": {
+      "start": "after_postprobe",
+      "end": "after_retentionprobe",
+      "banks": {
+        "learning": {
+          "nonzero_cells": 124,
+          "mean_delta_siemens": -8.959009552564247e-09,
+          "max_abs_delta_siemens": 2.9864132322470605e-07
+        },
+        "control": {
+          "nonzero_cells": 121,
+          "mean_delta_siemens": -1.6259297895947815e-08,
+          "max_abs_delta_siemens": 2.7438364086240937e-07
+        }
+      }
+    },
+    "simulator": {
+      "start": "after_postprobe",
+      "end": "after_retentionprobe",
+      "banks": {
+        "learning": {
+          "nonzero_cells": 0,
+          "mean_delta_siemens": 0.0,
+          "max_abs_delta_siemens": 0.0
+        },
+        "control": {
+          "nonzero_cells": 0,
+          "mean_delta_siemens": 0.0,
+          "max_abs_delta_siemens": 0.0
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Each fresh fit selects its own diagonal; this is not an identical fixed-gain intervention.",
+    "Same fixture/protocol does not make SIM and HW initial conductances identical.",
+    "Post-count or delta-G sign differences do not establish accuracy or learning benefit."
+  ]
+}
