@@ -1,0 +1,31 @@
+{
+  "schema": "mnist-conductance-auditor-offline-review-v1",
+  "status": "independent_source_review_accepted_for_native_sim_only",
+  "auditor_sha256": "ca36aaeba54d22a8cee066227cf175917b5e3c5edd67d5975708b671c9a30825",
+  "tests_sha256": "36cb3a6f04b181d303de2f54284d9f673452fbbbb3a9cc5fbeda4b428e7b9d53",
+  "tests": [
+    {
+      "scope": "full synthetic main, no-eligible, reference, semantic mutations and raw corruption",
+      "passed": 7,
+      "elapsed_seconds": 278.047,
+      "before_final_narrow_hardening": true
+    },
+    {
+      "scope": "exact request/result commands, bounded readline, executed helper pin, unknown physical duration",
+      "passed": 4,
+      "elapsed_seconds": 1.37,
+      "final_candidate": true
+    }
+  ],
+  "native_sim_executed": false,
+  "hardware_executed": false,
+  "hardware_qualified": false,
+  "full10k_qualified": false,
+  "reference_requirement": "Separate actual native SIM main and no-update reference need independent replay and scientific comparison before a hardware/full10k decision.",
+  "independent_review": {
+    "agent": "scientific_validator",
+    "focused_tests_passed": 4,
+    "elapsed_seconds": 1.378,
+    "acquisition_code_freeze_pending": true
+  }
+}
