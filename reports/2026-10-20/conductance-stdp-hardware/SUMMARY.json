@@ -1,0 +1,152 @@
+{
+  "source": "hardware",
+  "session": "results/conductance_stdp_hardware_20261019/4615c933-40a1-44fb-9c25-5459e98d4e1b",
+  "status": "pass",
+  "outcome": "completed",
+  "impacts": 6598,
+  "preparation_pulses": 64,
+  "training_pulses": 26,
+  "training_set": 18,
+  "training_reset": 8,
+  "selected_gain": 40.0,
+  "retention_elapsed_s": 60.00007062700024,
+  "cells": [
+    {
+      "wl": 5,
+      "bl": 6,
+      "group": "trained",
+      "training_set": 5,
+      "training_reset": 0,
+      "G_uS": {
+        "baseline_before_training": 11.910241800782412,
+        "after_posttest": 80.27349266154194,
+        "after_retention": 80.19431171362561
+      },
+      "post_change_percent": 573.9870945044003,
+      "retention_change_percent": -0.09863897195825366
+    },
+    {
+      "wl": 5,
+      "bl": 8,
+      "group": "trained",
+      "training_set": 5,
+      "training_reset": 0,
+      "G_uS": {
+        "baseline_before_training": 108.41358648012928,
+        "after_posttest": 105.11257632887225,
+        "after_retention": 105.05916484977809
+      },
+      "post_change_percent": -3.0448306881371012,
+      "retention_change_percent": -0.05081359525148654
+    },
+    {
+      "wl": 5,
+      "bl": 9,
+      "group": "trained",
+      "training_set": 8,
+      "training_reset": 8,
+      "G_uS": {
+        "baseline_before_training": 110.73951977892114,
+        "after_posttest": 66.33043252450719,
+        "after_retention": 66.2417356021403
+      },
+      "post_change_percent": -40.10229351099919,
+      "retention_change_percent": -0.13371980098896286
+    },
+    {
+      "wl": 5,
+      "bl": 14,
+      "group": "trained",
+      "training_set": 0,
+      "training_reset": 0,
+      "G_uS": {
+        "baseline_before_training": 54.78538174146796,
+        "after_posttest": 55.19016291716507,
+        "after_retention": 55.078422414698245
+      },
+      "post_change_percent": 0.7388488732400722,
+      "retention_change_percent": -0.20246452730088293
+    },
+    {
+      "wl": 7,
+      "bl": 6,
+      "group": "control",
+      "training_set": 0,
+      "training_reset": 0,
+      "G_uS": {
+        "baseline_before_training": 17.284999178794862,
+        "after_posttest": 17.08041855707087,
+        "after_retention": 17.19405661784001
+      },
+      "post_change_percent": -1.1835732221206596,
+      "retention_change_percent": 0.665311920720435
+    },
+    {
+      "wl": 7,
+      "bl": 8,
+      "group": "control",
+      "training_set": 0,
+      "training_reset": 0,
+      "G_uS": {
+        "baseline_before_training": 246.41937709489937,
+        "after_posttest": 246.5128779200104,
+        "after_retention": 246.38816285551988
+      },
+      "post_change_percent": 0.03794377950847583,
+      "retention_change_percent": -0.05059170358271414
+    },
+    {
+      "wl": 7,
+      "bl": 9,
+      "group": "control",
+      "training_set": 0,
+      "training_reset": 0,
+      "G_uS": {
+        "baseline_before_training": 43.52196106936609,
+        "after_posttest": 43.364302431740995,
+        "after_retention": 43.456255916369976
+      },
+      "post_change_percent": -0.3622507666274921,
+      "retention_change_percent": 0.21204880390668368
+    },
+    {
+      "wl": 7,
+      "bl": 14,
+      "group": "control",
+      "training_set": 0,
+      "training_reset": 0,
+      "G_uS": {
+        "baseline_before_training": 63.627910544490184,
+        "after_posttest": 63.75925177317491,
+        "after_retention": 63.59872759347222
+      },
+      "post_change_percent": 0.20642077912158552,
+      "retention_change_percent": -0.2517660970579705
+    }
+  ],
+  "hardware_phase_spikes": {
+    "pretest/5": 4,
+    "pretest/7": 2,
+    "train/5": 21,
+    "train/7": 16,
+    "posttest/5": 4,
+    "posttest/7": 4,
+    "retention/5": 4,
+    "retention/7": 4
+  },
+  "simulator_phase_spikes": {
+    "pretest/5": 4,
+    "pretest/7": 6,
+    "train/5": 32,
+    "train/7": 48,
+    "posttest/5": 8,
+    "posttest/7": 12,
+    "retention/5": 8,
+    "retention/7": 12
+  },
+  "simulator_gain": 800.0,
+  "simulator_training_pulses": 32,
+  "learning_efficacy_measured": false,
+  "intrinsic_physical_stdp_claimed": false,
+  "private_runtime_status": "private_runtime_not_independently_reverified"
+}
