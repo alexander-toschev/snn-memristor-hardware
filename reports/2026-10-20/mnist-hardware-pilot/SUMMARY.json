@@ -1,0 +1,71 @@
+{
+  "session": "results/mnist_conductance_20261019/e5dd5913-330b-4c9d-9886-420dce452d14",
+  "source": "hardware",
+  "status": "uninformative_calibration",
+  "started_utc": "2026-10-20T14:36:47.214874+00:00",
+  "finished_utc": "2026-10-20T14:39:33.155311+00:00",
+  "impacts": 25072,
+  "preparation_pulses": 2048,
+  "training_images": 0,
+  "training_pulses": 0,
+  "measured_fit_images": 32,
+  "shared_gain_selected": null,
+  "per_neuron_offline_analysis": [
+    {
+      "wl": 0,
+      "eligible_gains": [
+        8.0,
+        10.0,
+        20.0,
+        40.0
+      ],
+      "offline_suggested_gain": 20.0,
+      "fit_total_posts": 35,
+      "images_with_posts": 23
+    },
+    {
+      "wl": 1,
+      "eligible_gains": [
+        20.0,
+        40.0,
+        80.0,
+        100.0,
+        200.0,
+        400.0,
+        800.0,
+        1600.0
+      ],
+      "offline_suggested_gain": 200.0,
+      "fit_total_posts": 41,
+      "images_with_posts": 27
+    },
+    {
+      "wl": 2,
+      "eligible_gains": [
+        100.0,
+        200.0,
+        400.0,
+        800.0,
+        1600.0
+      ],
+      "offline_suggested_gain": 400.0,
+      "fit_total_posts": 44,
+      "images_with_posts": 32
+    },
+    {
+      "wl": 3,
+      "eligible_gains": [
+        4.0,
+        8.0,
+        10.0,
+        20.0
+      ],
+      "offline_suggested_gain": 8.0,
+      "fit_total_posts": 32,
+      "images_with_posts": 29
+    }
+  ],
+  "individual_gain_replay_is_new_proposal": true,
+  "proposal_executed_on_board": false,
+  "classification_accuracy_measured": false
+}
