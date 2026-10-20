@@ -1,0 +1,157 @@
+{
+  "binding": null,
+  "classification_performed": false,
+  "decisions": 256,
+  "finished_utc": "2026-10-20T15:58:18.973794+00:00",
+  "impacts": 1304,
+  "initial_array_sha256": "f6911e4853c9e8b0fe803a18c1df0e73e4ab31c8e67d8561f25111f6df2a62c4",
+  "kind": "characterize",
+  "private_runtime_status": "private_runtime_not_independently_reverified",
+  "protocol": {
+    "all_filters": 64,
+    "characterization_cells": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        12
+      ],
+      [
+        4,
+        16
+      ],
+      [
+        5,
+        20
+      ],
+      [
+        6,
+        24
+      ],
+      [
+        7,
+        28
+      ]
+    ],
+    "characterization_cycles": 2,
+    "characterization_max_impacts": 1304,
+    "characterization_max_pulses": 256,
+    "coefficients": 4800,
+    "labels_used": false,
+    "levels_v": [
+      0.3,
+      0.6,
+      0.9,
+      1.2,
+      1.5,
+      2.0,
+      2.5,
+      3.0
+    ],
+    "mapping": "L/H=10%/90% between median RESET and SET endpoints of8cells*2cycles",
+    "mode": 7,
+    "native_mvm": false,
+    "pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    "physical_duration_equivalence_claim": false,
+    "physical_hardware": false,
+    "programming": "each leg8RESET then up to8SET; stop at crossing or tolerance max(.01span,3SE), no retries",
+    "programming_max_impacts": 825600,
+    "programming_max_pulses": 153600,
+    "pulse_width_s": 0.000125,
+    "read_repeats": 3,
+    "reset_current_limit_a": 0.04,
+    "schema": "confirmatory-conv1-native-readback-v1",
+    "set_current_limit_a": 0.002,
+    "shape": [
+      32,
+      8
+    ],
+    "signed_mapping": "Gplus=L+positive(w)*span/maxabs_filter; Gminus=L+negative(w)*span/maxabs_filter",
+    "soft_deadline_s": 14400,
+    "source": "native_memriboard_simulator",
+    "target_misses": "retain measured values; approximate continuation; never ideal-weight replacement",
+    "units": "G=1/nativeR in Siemens; not GUI weight, not330/R proxy"
+  },
+  "pulses": 256,
+  "random_seed": 20261021,
+  "result_sha256": {
+    "array.cb": "2ca85f0a9cd5be09771857dbf251e2740f9e5350fbe20815a895d68a090513c4",
+    "array_initial.cb": "f6911e4853c9e8b0fe803a18c1df0e73e4ab31c8e67d8561f25111f6df2a62c4",
+    "board.ini": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c",
+    "lifecycle_output.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observations.json": "5e0fd07f54229e2afb58ab8d0415f8f985333b450aa2c17eb2ad8ac053f98209",
+    "progress.json": "2ad4d188a39468e902fe4d04edb98cf9e77cea9bcb13da830a9fb8405e8c2c40",
+    "raw/index.json": "e0e7fd014398c82132ccf33301ae59dac75c31c13ebe180745b438fff10b9d28",
+    "raw/part-000000.jsonl.gz": "a2ffcaa5584c72c720da8e68c79e74df019df6739d44701f171b5879ab2ec5fd",
+    "raw/part-000001.jsonl.gz": "b40441d8cee5d19be4dbc1ed1ba722a705ab225944b9bca7d94d43ac3e7f60de",
+    "raw/part-000002.jsonl.gz": "3a66061b72ad9d210b762e58d285d9873415c855c6c5c29ca80c13bc6fcf4fb7",
+    "raw/part-000003.jsonl.gz": "3038e783b17aa65f08fd8ee7d3625933fba79cbf94cf147033cffd797d169707",
+    "raw/part-000004.jsonl.gz": "7edc544e0ab71e45d11835302380f43f4f9fb1ea087f573e4f070080bbb1968a",
+    "raw/part-000005.jsonl.gz": "d5814aba01f2c288254b2eeb1928c18b8ea9ac2934d356652e20e3ac55771282",
+    "raw/part-000006.jsonl.gz": "2813573bd84a423382be468e6b5604ce9cd8b1a7d105616870684c15a65e6920",
+    "raw/part-000007.jsonl.gz": "a0adbcbb856bd0880b006397f6cb0cf6de7da81720dad33b7bc989e91e9cf144",
+    "raw/part-000008.jsonl.gz": "f36d43b288f9722707b1ba8239d3ce230e60e5bf8badb261f2d982f44169d5ae",
+    "raw/part-000009.jsonl.gz": "f475ebcaf9e176b748f947e553aa9e3645d9a8b7387769a0a484b7ce29338ff2",
+    "raw/part-000010.jsonl.gz": "afbcbc359d6557f43406c35e834e1348f74fff19450ce67bf41e703378e7c652",
+    "raw/part-000011.jsonl.gz": "159d2441933f19af73b9ee0a348d90e6e0e5f7025a48f43b3126f191a9c149e7",
+    "raw/part-000012.jsonl.gz": "c632f4ad79d97fdb1c173bcf093987b8c617ed8d4df239eeb73ad46f38d5811f",
+    "raw/part-000013.jsonl.gz": "953fc01d416584a7e0a361aa7610e8db2ba1f64157d842fd362d25686b12c50e",
+    "raw/part-000014.jsonl.gz": "5c955ea448c828f738b99a3e5edc2c9569c8373888f1511e65a1e13fec41486a",
+    "raw/part-000015.jsonl.gz": "4ef1641f24d2fd8ba6e6cecef15fdad266402107b8dd8f09a46258880ccee094",
+    "raw/part-000016.jsonl.gz": "b8a823c8ab997bf7806310ca6f92c2217ec2dfa8e1738fe39a31f3c5a2b2217d",
+    "simulator_settings.ini": "9ef3229595cbbba0ccc7d7450981d7a63266092792f4573d405beb2f364d3ddb",
+    "start_manifest.json": "3981c1ef774681fa9eb76edf013076a37d0b75f8c61c4561fb041dfd9594b44f"
+  },
+  "schema": "confirmatory-conv1-native-readback-v1",
+  "session_id": "f237904b-0560-4a9a-8c33-f22c69345650",
+  "source": "simulator",
+  "source_sha256": {
+    "configs/raspberry_board.ini": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c",
+    "docs/plans/FRESH_STABLE_CELL_CALIBRATION_20261020.md": "c2d4cd0e864a2f574eee807b80e5514674ffdb43af226a32472acf4625068675",
+    "experiments/cifar_confirmatory_20261020/native.py": "f389d1c50b99cb94a70bf90b811987f78ed9a0ea8adade602a66ef3f683e7d71",
+    "experiments/cifar_resumable_20261019/durable.py": "b00c094da70af933a7318a119fe5439b40d957c7aaabb39c752170a1dbf2abb3",
+    "experiments/stable_cell_calibration_20261020/README.md": "284d65024eaf13ac72440555a95af84f4d6758fbf510aaba9a177e2be79abb84",
+    "experiments/stable_cell_calibration_20261020/core.py": "aada107b0a0e71cc647ad405cc0bf05b928a1d074b4d24338f002122df568bf9",
+    "experiments/stable_cell_calibration_20261020/experiment.py": "dc185270ec8ff68b29fc8b9975f14f7f73e5dddcf10c35693c2fd4400043b6fe",
+    "experiments/stable_cell_calibration_20261020/metrics.py": "e85d5fef69206039f2d00e857936566f414f2669a4c42b826adc205e68c206c1",
+    "experiments/stable_cell_calibration_20261020/plan.py": "5b88fa53ffa624feca939f02b5daf6e01147d6d69f70caed8cdc22a947eacacd",
+    "experiments/unn_rev3_20261014/paths.py": "2c841b4a446a767595c68aad243abd966cee94ffd91f74c3c2823998fdc9ec1c",
+    "read_all.py": "b30ae2f4dd3cd166dbc5cefb07b558127de2bbdba1f6674c40b1b45f4dd74d5f",
+    "vendor/MemriBoard/manager/board.py": "5e7076651001532e409287f1cd7d17a95ba26d3d382c44e1865de56e45477df0",
+    "vendor/MemriBoard/manager/service/__init__.py": "116c5e49243fbeed84f1807f938901bcb24f84415ed8ac84568126ca187b1098",
+    "vendor/MemriBoard/manager/service/converters.py": "28c6495c56afa225501dd6b0dea999215f08b73f30e016ff7ea34d6c5412701c",
+    "vendor/MemriBoard/manager/service/drivers.py": "e4e47cd172196f6e1b6d2f22e9481a8d69cf2fcbcedb78760c43daebc8f0cdc9",
+    "vendor/MemriBoard/simulator/memristor.py": "bb9c43d0f254c512c21902a64b5414e05f63f1deecf10016e5b97bd086050aca",
+    "vendor/MemriBoard/simulator/simulator_settings.ini": "9ef3229595cbbba0ccc7d7450981d7a63266092792f4573d405beb2f364d3ddb",
+    "vendor/MemriBoard/simulator/src.py": "d41edc5c0464e15d44a23a1bb628e8025194e518d914635c1a14dd46ea2d4cc2"
+  },
+  "started_utc": "2026-10-20T15:58:15.606033+00:00",
+  "status": "completed"
+}
