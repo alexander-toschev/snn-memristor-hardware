@@ -1,0 +1,64 @@
+{
+  "schema": "cifar-continuation-plan-v1",
+  "source": "hardware",
+  "purpose": "full",
+  "spec_sha256": "95e0eb4c7a6694486060c7dec5436e3c3d29357d4d22bd7725c4b08685da3560",
+  "physical_protocol_sha256": "2cb1d57689508725f7155bf7b1d0d17fec9d4f6b65782171e2b85481bc9aa558",
+  "first_stage": 19,
+  "stop_stage_exclusive": 25,
+  "target_stop_stage_exclusive": 48,
+  "accepted_stage_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "prefix_reports": [
+    {
+      "path": "reports/2026-10-19/cifar-full-case0-review/hardware-prefix-diagnostic/PREFIX_AUDIT.json",
+      "sha256": "49cdfe3f5b5d76854431c8a3e58e855a43e4b8fe76ea887ad1316e6e045011b6"
+    },
+    {
+      "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-13/PREFIX_AUDIT.json",
+      "sha256": "96751a54f616b4dad38269b0df791e6b2511a16547fb7aa04c4959ce8542deb6"
+    },
+    {
+      "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-14/PREFIX_AUDIT.json",
+      "sha256": "fac059568fa3b503330208c630180b1c2291952a72bbbfb2d59954fdc589a66c"
+    },
+    {
+      "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-15/PREFIX_AUDIT.json",
+      "sha256": "dbecf95517b77a378c45dfcff968cb820dca998a4f0dc3242b36618aba14167d"
+    },
+    {
+      "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-16/PREFIX_AUDIT.json",
+      "sha256": "e680dcacef6321cfc437a26e35e9f004d97acb80e6f8de8dfd531a0668712728"
+    },
+    {
+      "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-17/PREFIX_AUDIT.json",
+      "sha256": "d641dea0c4c25c66904a6ef86a7bd24ca51cd303fff5d7d65db8781e8777a600"
+    },
+    {
+      "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-18/PREFIX_AUDIT.json",
+      "sha256": "cb895a4d63e75dd76a8c62868bc62c36803099e74e71ce4b5c7036205bd1c7fe"
+    }
+  ],
+  "incomplete_stage_policy": "Discard no evidence; reacquire entire first unaccepted stage with fresh programming/R/C",
+  "retry_policy": "No automatic retry; a later invocation requires a newly verified plan",
+  "prior_actual_impacts": "Preserved report lower bound, buffered lost tail unknown; each original attempt upper bound15000000"
+}
