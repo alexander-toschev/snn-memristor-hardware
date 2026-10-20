@@ -1,0 +1,556 @@
+{
+  "schema": "cifar-batch-second-review-v1",
+  "status": "reuse_qualified",
+  "reviewer_tool_sha256": "1fcd2b49b5d30414b62e40b3b0f57ce3be2d726490313a64c3b8c7b52b746208",
+  "accepted_stages": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "first_unaccepted_stage": 19,
+  "newly_accepted_stages": [
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "remaining_stages": [
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47
+  ],
+  "reports": [
+    {
+      "path": "reports/2026-10-19/cifar-full-case0-review/hardware-prefix-diagnostic/PREFIX_AUDIT.json",
+      "sha256": "49cdfe3f5b5d76854431c8a3e58e855a43e4b8fe76ea887ad1316e6e045011b6",
+      "stages": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "session": "results/cifar_full_case0_20261019/f21e608c-059f-4dce-afe0-6edf5c26133c",
+      "manifest_binding": {
+        "start_manifest_sha256": "1c937e084b19b1a2f565c1ad82e7e3e375d5f8492edfbeafa34ac4aeeba3ea6a",
+        "final_manifest_required": false
+      },
+      "strict_numeric_replay": "FAIL_condition_only",
+      "condition_only_stages": [
+        0,
+        2,
+        11
+      ],
+      "native_impacts": 3909496,
+      "programming_pulses": 18800,
+      "observed_coefficients": 1328,
+      "immediate_within_tolerance": 141,
+      "post_all_weight_relative_l2": {
+        "raw": 9.867747872933185,
+        "calibrated": 9.45684932751257
+      },
+      "heldout": [
+        {
+          "stage": 0,
+          "raw_rmse_v": 0.025316798971359907,
+          "calibrated_rmse_v": 0.018284567793915126
+        },
+        {
+          "stage": 1,
+          "raw_rmse_v": 0.04156935876573566,
+          "calibrated_rmse_v": 0.018593134615749563
+        },
+        {
+          "stage": 2,
+          "raw_rmse_v": 0.031613324655751264,
+          "calibrated_rmse_v": 0.02056230813139907
+        },
+        {
+          "stage": 3,
+          "raw_rmse_v": 0.01893926347903931,
+          "calibrated_rmse_v": 0.014431757952062588
+        },
+        {
+          "stage": 4,
+          "raw_rmse_v": 0.03704190340311489,
+          "calibrated_rmse_v": 0.025041955308951203
+        },
+        {
+          "stage": 5,
+          "raw_rmse_v": 0.040284999179565205,
+          "calibrated_rmse_v": 0.015043090652656802
+        },
+        {
+          "stage": 6,
+          "raw_rmse_v": 0.03726813260256397,
+          "calibrated_rmse_v": 0.03101410165438039
+        },
+        {
+          "stage": 7,
+          "raw_rmse_v": 0.02884631493802063,
+          "calibrated_rmse_v": 0.018796471640631827
+        },
+        {
+          "stage": 8,
+          "raw_rmse_v": 0.03560708404641125,
+          "calibrated_rmse_v": 0.02954163822562207
+        },
+        {
+          "stage": 9,
+          "raw_rmse_v": 0.030406500455745934,
+          "calibrated_rmse_v": 0.026659398114470552
+        },
+        {
+          "stage": 10,
+          "raw_rmse_v": 0.028748236940204504,
+          "calibrated_rmse_v": 0.0211911236837798
+        },
+        {
+          "stage": 11,
+          "raw_rmse_v": 0.03700527233750036,
+          "calibrated_rmse_v": 0.02124981159348708
+        },
+        {
+          "stage": 12,
+          "raw_rmse_v": 0.02137008700340235,
+          "calibrated_rmse_v": 0.01543148669664772
+        }
+      ],
+      "retention": [
+        {
+          "stage": 0,
+          "final_minus_initial_basis_rmse_v": 0.0002446323600476668,
+          "max_abs_v": 0.001423333333333332
+        },
+        {
+          "stage": 1,
+          "final_minus_initial_basis_rmse_v": 0.00022625594100874057,
+          "max_abs_v": 0.001223333333333334
+        },
+        {
+          "stage": 2,
+          "final_minus_initial_basis_rmse_v": 0.0002638525559783281,
+          "max_abs_v": 0.001013333333333366
+        },
+        {
+          "stage": 3,
+          "final_minus_initial_basis_rmse_v": 0.0002735178146839704,
+          "max_abs_v": 0.0020333333333333336
+        },
+        {
+          "stage": 4,
+          "final_minus_initial_basis_rmse_v": 0.0002494093190269929,
+          "max_abs_v": 0.0015266666666666762
+        },
+        {
+          "stage": 5,
+          "final_minus_initial_basis_rmse_v": 0.00029754104136454234,
+          "max_abs_v": 0.0015233333333333349
+        },
+        {
+          "stage": 6,
+          "final_minus_initial_basis_rmse_v": 0.00028546126061714704,
+          "max_abs_v": 0.0017299999999999538
+        },
+        {
+          "stage": 7,
+          "final_minus_initial_basis_rmse_v": 0.00026587461286160845,
+          "max_abs_v": 0.0019333333333333425
+        },
+        {
+          "stage": 8,
+          "final_minus_initial_basis_rmse_v": 0.0003478192644761669,
+          "max_abs_v": 0.0016300000000000203
+        },
+        {
+          "stage": 9,
+          "final_minus_initial_basis_rmse_v": 0.00027355404983625867,
+          "max_abs_v": 0.0012200000000000006
+        },
+        {
+          "stage": 10,
+          "final_minus_initial_basis_rmse_v": 0.0002589352713468653,
+          "max_abs_v": 0.0013200000000000156
+        },
+        {
+          "stage": 11,
+          "final_minus_initial_basis_rmse_v": 0.0003833594495934489,
+          "max_abs_v": 0.0018333333333333257
+        },
+        {
+          "stage": 12,
+          "final_minus_initial_basis_rmse_v": 0.00027758692938790065,
+          "max_abs_v": 0.0018300000000000002
+        }
+      ],
+      "maximum_shared_zero_shift_v": 0.0,
+      "maximum_position_bracket_duration_s": 1.2010742100028438,
+      "private_source_verification": "public_local_private_remote_operator_verified"
+    },
+    {
+      "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-13/PREFIX_AUDIT.json",
+      "sha256": "96751a54f616b4dad38269b0df791e6b2511a16547fb7aa04c4959ce8542deb6",
+      "stages": [
+        13
+      ],
+      "session": "results/cifar_resumable_20261019/ac92f059-fec1-4c08-99f5-325a46b7124e",
+      "manifest_binding": {
+        "start_manifest_sha256": "3b203613ead631188d2020a2a3c5587c23d046d8eca397d29da963fcac0b6fad",
+        "final_manifest_sha256": "04f368bb99711ad195b33885a1676602c7a14086d42ef54ad7ebe1d8ae6cb862"
+      },
+      "strict_numeric_replay": "PASS",
+      "condition_only_stages": [],
+      "native_impacts": 335164,
+      "programming_pulses": 1750,
+      "observed_coefficients": 128,
+      "immediate_within_tolerance": 22,
+      "post_all_weight_relative_l2": {
+        "raw": 11.953607274193708,
+        "calibrated": 11.953607274193708
+      },
+      "heldout": [
+        {
+          "stage": 13,
+          "raw_rmse_v": 0.03104712503534054,
+          "calibrated_rmse_v": 0.03104712503534054
+        }
+      ],
+      "retention": [
+        {
+          "stage": 13,
+          "final_minus_initial_basis_rmse_v": 0.00018537465475696103,
+          "max_abs_v": 0.00102
+        }
+      ],
+      "maximum_shared_zero_shift_v": 0.0,
+      "maximum_position_bracket_duration_s": 1.1759305260020483,
+      "private_source_verification": "public_local_private_remote_operator_verified"
+    },
+    {
+      "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-14/PREFIX_AUDIT.json",
+      "sha256": "fac059568fa3b503330208c630180b1c2291952a72bbbfb2d59954fdc589a66c",
+      "stages": [
+        14
+      ],
+      "session": "results/cifar_resumable_20261019/cb0794f0-8cca-4b0a-8bee-218cbe0d0871",
+      "manifest_binding": {
+        "start_manifest_sha256": "d9b713bdd72ca9c6c715f21079e02b2cbfff69becdffa770c37584ac0ae58c97",
+        "final_manifest_sha256": "19c62f2d938c6faafe949f673a6533a4a7b26f46073f82979148f0f6bc9343d3"
+      },
+      "strict_numeric_replay": "FAIL_condition_only",
+      "condition_only_stages": [
+        14
+      ],
+      "native_impacts": 175026,
+      "programming_pulses": 489,
+      "observed_coefficients": 44,
+      "immediate_within_tolerance": 10,
+      "post_all_weight_relative_l2": {
+        "raw": 16.77687044642399,
+        "calibrated": 16.241508055635858
+      },
+      "heldout": [
+        {
+          "stage": 14,
+          "raw_rmse_v": 0.03336129825252234,
+          "calibrated_rmse_v": 0.02094548794239499
+        }
+      ],
+      "retention": [
+        {
+          "stage": 14,
+          "final_minus_initial_basis_rmse_v": 0.0003931744029195043,
+          "max_abs_v": 0.0016266666666666669
+        }
+      ],
+      "maximum_shared_zero_shift_v": 0.0,
+      "maximum_position_bracket_duration_s": 0.6404092660013703,
+      "private_source_verification": "public_local_private_remote_operator_verified"
+    },
+    {
+      "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-15/PREFIX_AUDIT.json",
+      "sha256": "dbecf95517b77a378c45dfcff968cb820dca998a4f0dc3242b36618aba14167d",
+      "stages": [
+        15
+      ],
+      "session": "results/cifar_resumable_20261019/ec1ef122-44d6-4dba-ba8f-28ba06f0fb04",
+      "manifest_binding": {
+        "start_manifest_sha256": "eb83382b3d61517accc697b43f4dbbe5fbcab80ffc85af56a698b284623c3857",
+        "final_manifest_sha256": "8a01880588ce71198a1560f5ac7148c625e5cb64811e0ec5dce439ef85254368"
+      },
+      "strict_numeric_replay": "PASS",
+      "condition_only_stages": [],
+      "native_impacts": 369236,
+      "programming_pulses": 1810,
+      "observed_coefficients": 128,
+      "immediate_within_tolerance": 7,
+      "post_all_weight_relative_l2": {
+        "raw": 8.448029697448854,
+        "calibrated": 7.101495003005105
+      },
+      "heldout": [
+        {
+          "stage": 15,
+          "raw_rmse_v": 0.019625276420116286,
+          "calibrated_rmse_v": 0.019154057372148616
+        }
+      ],
+      "retention": [
+        {
+          "stage": 15,
+          "final_minus_initial_basis_rmse_v": 0.0002348154587400488,
+          "max_abs_v": 0.0016300000000000203
+        }
+      ],
+      "maximum_shared_zero_shift_v": 0.0,
+      "maximum_position_bracket_duration_s": 1.1735052240001096,
+      "private_source_verification": "public_local_private_remote_operator_verified"
+    },
+    {
+      "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-16/PREFIX_AUDIT.json",
+      "sha256": "e680dcacef6321cfc437a26e35e9f004d97acb80e6f8de8dfd531a0668712728",
+      "stages": [
+        16
+      ],
+      "session": "results/cifar_resumable_20261019/bfe92593-4a84-4997-9b32-e283235fe280",
+      "manifest_binding": {
+        "start_manifest_sha256": "30c4c3a50f22df3e7d2bf635f299f0771ec59167d31863f6f93fd4dc2fb21c6b",
+        "final_manifest_sha256": "58909a207abe05e24e2e33ccf152b344a349a4a1bd83e2d56de9672cba490ba6"
+      },
+      "strict_numeric_replay": "PASS",
+      "condition_only_stages": [],
+      "native_impacts": 337898,
+      "programming_pulses": 1797,
+      "observed_coefficients": 128,
+      "immediate_within_tolerance": 18,
+      "post_all_weight_relative_l2": {
+        "raw": 9.821234101901474,
+        "calibrated": 9.37110304619053
+      },
+      "heldout": [
+        {
+          "stage": 16,
+          "raw_rmse_v": 0.03570478866899466,
+          "calibrated_rmse_v": 0.025069316742428693
+        }
+      ],
+      "retention": [
+        {
+          "stage": 16,
+          "final_minus_initial_basis_rmse_v": 0.00024131234910723057,
+          "max_abs_v": 0.0013199999999999998
+        }
+      ],
+      "maximum_shared_zero_shift_v": 0.0,
+      "maximum_position_bracket_duration_s": 1.1673897239998041,
+      "private_source_verification": "public_local_private_remote_operator_verified"
+    },
+    {
+      "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-17/PREFIX_AUDIT.json",
+      "sha256": "d641dea0c4c25c66904a6ef86a7bd24ca51cd303fff5d7d65db8781e8777a600",
+      "stages": [
+        17
+      ],
+      "session": "results/cifar_resumable_20261019/606c1245-5a45-4652-9d89-ff57143f2345",
+      "manifest_binding": {
+        "start_manifest_sha256": "b8a9ea92aeada7d2eed2bb71cde7e043a8d73e639c192c1b3091b9592ba0b84f",
+        "final_manifest_sha256": "3be8f40d27c153cc05f378efef73ec8dc5a351a218f1ae8019626feef0c9912c"
+      },
+      "strict_numeric_replay": "FAIL_condition_only",
+      "condition_only_stages": [
+        17
+      ],
+      "native_impacts": 176692,
+      "programming_pulses": 566,
+      "observed_coefficients": 44,
+      "immediate_within_tolerance": 7,
+      "post_all_weight_relative_l2": {
+        "raw": 12.956549109719596,
+        "calibrated": 12.455029918540433
+      },
+      "heldout": [
+        {
+          "stage": 17,
+          "raw_rmse_v": 0.03342429850116736,
+          "calibrated_rmse_v": 0.029180308742325075
+        }
+      ],
+      "retention": [
+        {
+          "stage": 17,
+          "final_minus_initial_basis_rmse_v": 0.0002596179975071634,
+          "max_abs_v": 0.0010166666666666657
+        }
+      ],
+      "maximum_shared_zero_shift_v": 0.0,
+      "maximum_position_bracket_duration_s": 0.6303995109992684,
+      "private_source_verification": "public_local_private_remote_operator_verified"
+    },
+    {
+      "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-18/PREFIX_AUDIT.json",
+      "sha256": "cb895a4d63e75dd76a8c62868bc62c36803099e74e71ce4b5c7036205bd1c7fe",
+      "stages": [
+        18
+      ],
+      "session": "results/cifar_resumable_20261019/d1931130-6136-47ad-92b3-6d701e8bddbe",
+      "manifest_binding": {
+        "start_manifest_sha256": "abb4bed6d08d074880917a8ac8deebf94836f3b25ea71cbdd5283ecb3b8b9e43",
+        "final_manifest_sha256": "1f028c795ab582047ce7373e28c03fd6534dafce9d68413fb7aee6548f6a834d"
+      },
+      "strict_numeric_replay": "PASS",
+      "condition_only_stages": [],
+      "native_impacts": 368910,
+      "programming_pulses": 1795,
+      "observed_coefficients": 128,
+      "immediate_within_tolerance": 13,
+      "post_all_weight_relative_l2": {
+        "raw": 9.221113138434585,
+        "calibrated": 8.47911238900594
+      },
+      "heldout": [
+        {
+          "stage": 18,
+          "raw_rmse_v": 0.0407698484072397,
+          "calibrated_rmse_v": 0.027957980696626715
+        }
+      ],
+      "retention": [
+        {
+          "stage": 18,
+          "final_minus_initial_basis_rmse_v": 0.0002867325065335817,
+          "max_abs_v": 0.0022366666666666646
+        }
+      ],
+      "maximum_shared_zero_shift_v": 0.0,
+      "maximum_position_bracket_duration_s": 1.1660085359981167,
+      "private_source_verification": "public_local_private_remote_operator_verified"
+    }
+  ],
+  "raw_compressed_files_rehashed": 422,
+  "result_inventory_files_rehashed": 414,
+  "payloads_rehashed": 38,
+  "native_raw_replay_repeated": false,
+  "model_or_board_access": false,
+  "full_classifier_executed": false,
+  "full_dataset_accuracy_measured": false,
+  "prior_interrupted_tail_reused": false,
+  "hardware_launch_performed": false,
+  "next_finite_plan": {
+    "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/HW_BATCH_19_25_PLAN.json",
+    "sha256": "c3838b01b7855b57a5b38d26965b0ea9a5e4ef35043334007dea328bde383a15",
+    "stage_range": [
+      19,
+      25
+    ],
+    "target_stop_stage_exclusive": 48,
+    "hardware_grant_sha256": "c582bb60703a02744d87af5ba8f5b1194b98ebc1f342dd61b24dc421d5b28374",
+    "maximum_impacts": 1807920,
+    "maximum_pulses": 14400,
+    "stage_bounds": [
+      {
+        "stage": 19,
+        "maximum_impacts": 346568,
+        "maximum_pulses": 3072,
+        "positions": 784,
+        "programming_impacts_upper": 43008
+      },
+      {
+        "stage": 20,
+        "maximum_impacts": 180656,
+        "maximum_pulses": 1056,
+        "positions": 784,
+        "programming_impacts_upper": 14784
+      },
+      {
+        "stage": 21,
+        "maximum_impacts": 377072,
+        "maximum_pulses": 3072,
+        "positions": 784,
+        "programming_impacts_upper": 43008
+      },
+      {
+        "stage": 22,
+        "maximum_impacts": 346520,
+        "maximum_pulses": 3072,
+        "positions": 784,
+        "programming_impacts_upper": 43008
+      },
+      {
+        "stage": 23,
+        "maximum_impacts": 180872,
+        "maximum_pulses": 1056,
+        "positions": 784,
+        "programming_impacts_upper": 14784
+      },
+      {
+        "stage": 24,
+        "maximum_impacts": 376232,
+        "maximum_pulses": 3072,
+        "positions": 784,
+        "programming_impacts_upper": 43008
+      }
+    ],
+    "launch_requires_fresh_pi_preflight": true,
+    "autorun_qualified": false
+  },
+  "limitations": [
+    "Certificates are grounded in the separately completed frozen raw replay; this second review checks bytes and bindings, not a second numerical replay.",
+    "Private source receipt is remote operator evidence; local private source bytes remain unavailable.",
+    "Condition-only exclusions remain explicit, not a claim that frozen strict numerical replay passed.",
+    "Original interrupted stage13 tail is excluded; new whole-stage13 has its own source/grant/calibration.",
+    "The one record after each completed-stage boundary is the separately verified terminal session_complete footer, not unused physical operations.",
+    "Reuse qualification does not infer current board state or replace fresh launch preflight."
+  ]
+}

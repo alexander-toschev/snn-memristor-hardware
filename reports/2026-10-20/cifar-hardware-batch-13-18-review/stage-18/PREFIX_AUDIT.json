@@ -1,0 +1,3804 @@
+{
+  "schema": "cifar-stage-prefix-v1",
+  "source": "hardware",
+  "scope": "full",
+  "status": "completed_range",
+  "protocol_sha256": "2cb1d57689508725f7155bf7b1d0d17fec9d4f6b65782171e2b85481bc9aa558",
+  "first_stage": 18,
+  "stop_stage_exclusive": 19,
+  "requested_stop_stage_exclusive": 19,
+  "accepted_stages": [
+    {
+      "stage": 18,
+      "native_impacts": 368910,
+      "programming_pulses": 1795,
+      "task_first": 1,
+      "task_last": 368910,
+      "calibration_sha256": "974d6bb9789d84c13f7a257fa4ab24bfe0b08c54270f6f8df748ecf101d28b23",
+      "shape": [
+        12,
+        4,
+        28,
+        28
+      ],
+      "dtype": "<f4",
+      "payload_sha256": {
+        "raw": "f0f6a87ce993227000cbdda16b6ce651c46d9821e1e1ab00a44d4c19a60cba19",
+        "calibrated": "8d7eb7e57205a31732418659257b029cdb5c8a4f89e18d8c87248712ce5b9a83"
+      },
+      "session_id": "d1931130-6136-47ad-92b3-6d701e8bddbe",
+      "source": "hardware",
+      "scope": "full",
+      "protocol_sha256": "2cb1d57689508725f7155bf7b1d0d17fec9d4f6b65782171e2b85481bc9aa558",
+      "source_provenance_sha256": "00c3efdf4246f8a99670c1b4774d8561232c305c412215818da912eb6e4494df",
+      "raw_inventory_sha256": "5ad5d1638c82264a26c4d5f374c3fcde50faf12ed7fc7ade7016941b5eea17ba",
+      "payloads": {
+        "raw": {
+          "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-18/stage-18-raw.f32",
+          "sha256": "f0f6a87ce993227000cbdda16b6ce651c46d9821e1e1ab00a44d4c19a60cba19",
+          "shape": [
+            12,
+            4,
+            28,
+            28
+          ],
+          "dtype": "<f4"
+        },
+        "calibrated": {
+          "path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-18/stage-18-calibrated.f32",
+          "sha256": "8d7eb7e57205a31732418659257b029cdb5c8a4f89e18d8c87248712ce5b9a83",
+          "shape": [
+            12,
+            4,
+            28,
+            28
+          ],
+          "dtype": "<f4"
+        }
+      },
+      "certificate_sha256": "a7040bc1cea0b6ae1cf8a9b05d2f1a19bfc95d2f7cf648410d7760d38ffebfe7"
+    }
+  ],
+  "complete_full_tensor": false,
+  "hardware_import_enabled": false,
+  "frozen_full_auditor_pass_claimed": false,
+  "terminal_session_event_verified": true,
+  "native_impacts": 368910,
+  "programming_pulses": 1795,
+  "observed_coefficients": 128,
+  "covered_tensor_elements": 37632,
+  "maximum_shared_zero_shift_v": 0.0,
+  "maximum_position_bracket_duration_s": 1.1660085359981167,
+  "heldout": [
+    {
+      "stage": 18,
+      "raw_rmse_v": 0.0407698484072397,
+      "calibrated_rmse_v": 0.027957980696626715
+    }
+  ],
+  "retention": [
+    {
+      "stage": 18,
+      "final_minus_initial_basis_rmse_v": 0.0002867325065335817,
+      "max_abs_v": 0.0022366666666666646
+    }
+  ],
+  "weight_observations": [
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 0,
+      "bl": 0,
+      "positive_cell": [
+        0,
+        0
+      ],
+      "negative_cell": [
+        1,
+        0
+      ],
+      "trained_weight": -0.038472604006528854,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 1,
+      "bl": 1,
+      "positive_cell": [
+        0,
+        1
+      ],
+      "negative_cell": [
+        1,
+        1
+      ],
+      "trained_weight": 0.009961804375052452,
+      "immediate_weight": 2.81024,
+      "immediate_within_tolerance": false,
+      "programming_stop": "initial_overshoot_or_within_tolerance",
+      "post_all_raw_weight": 2.804533333333333,
+      "post_all_calibrated_weight": 2.7200069644844316,
+      "final_raw_weight": 2.8029066666666664,
+      "final_calibrated_weight": 2.7184293242368938,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 2,
+      "bl": 2,
+      "positive_cell": [
+        0,
+        2
+      ],
+      "negative_cell": [
+        1,
+        2
+      ],
+      "trained_weight": -0.02436137944459915,
+      "immediate_weight": -0.06352,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.07408,
+      "post_all_calibrated_weight": -0.06425249318215977,
+      "final_raw_weight": -0.07162666666666667,
+      "final_calibrated_weight": -0.0621246208377542,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 3,
+      "bl": 3,
+      "positive_cell": [
+        0,
+        3
+      ],
+      "negative_cell": [
+        1,
+        3
+      ],
+      "trained_weight": -0.05836161598563194,
+      "immediate_weight": -0.52248,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.5225066666666667,
+      "post_all_calibrated_weight": -0.45319055126394475,
+      "final_raw_weight": -0.5241333333333333,
+      "final_calibrated_weight": -0.45460142314447455,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 4,
+      "bl": 4,
+      "positive_cell": [
+        0,
+        4
+      ],
+      "negative_cell": [
+        1,
+        4
+      ],
+      "trained_weight": 0.007232846692204475,
+      "immediate_weight": 0.08304,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.09032,
+      "post_all_calibrated_weight": 0.08759782817066436,
+      "final_raw_weight": 0.09197333333333332,
+      "final_calibrated_weight": 0.08920133137307981,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 5,
+      "bl": 5,
+      "positive_cell": [
+        0,
+        5
+      ],
+      "negative_cell": [
+        1,
+        5
+      ],
+      "trained_weight": -0.0341055728495121,
+      "immediate_weight": -0.10496,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.10253333333333334,
+      "post_all_calibrated_weight": -0.08893118656782013,
+      "final_raw_weight": -0.09682666666666667,
+      "final_calibrated_weight": -0.08398157046235498,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 6,
+      "bl": 6,
+      "positive_cell": [
+        0,
+        6
+      ],
+      "negative_cell": [
+        1,
+        6
+      ],
+      "trained_weight": -0.011478749103844166,
+      "immediate_weight": -0.01224,
+      "immediate_within_tolerance": true,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.020373333333333334,
+      "post_all_calibrated_weight": -0.017670592077455027,
+      "final_raw_weight": -0.016293333333333333,
+      "final_calibrated_weight": -0.014131847852519662,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 7,
+      "bl": 7,
+      "positive_cell": [
+        0,
+        7
+      ],
+      "negative_cell": [
+        1,
+        7
+      ],
+      "trained_weight": -0.0220490749925375,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 8,
+      "bl": 8,
+      "positive_cell": [
+        0,
+        8
+      ],
+      "negative_cell": [
+        1,
+        8
+      ],
+      "trained_weight": -0.032116033136844635,
+      "immediate_weight": -0.41752,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 1.3152,
+      "post_all_calibrated_weight": 1.3133572079090168,
+      "final_raw_weight": 1.3119466666666666,
+      "final_calibrated_weight": 1.3105327302403016,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 9,
+      "bl": 9,
+      "positive_cell": [
+        0,
+        9
+      ],
+      "negative_cell": [
+        1,
+        9
+      ],
+      "trained_weight": -0.007613238412886858,
+      "immediate_weight": -0.06592,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.046373333333333336,
+      "post_all_calibrated_weight": -0.04022141311870981,
+      "final_raw_weight": -0.049653333333333334,
+      "final_calibrated_weight": -0.04306628592699118,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 10,
+      "bl": 10,
+      "positive_cell": [
+        0,
+        10
+      ],
+      "negative_cell": [
+        1,
+        10
+      ],
+      "trained_weight": -0.03570772334933281,
+      "immediate_weight": -0.09032,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.0708,
+      "post_all_calibrated_weight": -0.061407620373878403,
+      "final_raw_weight": -0.07082666666666666,
+      "final_calibrated_weight": -0.061430749421100196,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 11,
+      "bl": 11,
+      "positive_cell": [
+        0,
+        11
+      ],
+      "negative_cell": [
+        1,
+        11
+      ],
+      "trained_weight": 0.00990183837711811,
+      "immediate_weight": 0.05616,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0692,
+      "post_all_calibrated_weight": 0.06711436790755064,
+      "final_raw_weight": 0.06266666666666666,
+      "final_calibrated_weight": 0.060777943962521765,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 12,
+      "bl": 12,
+      "positive_cell": [
+        0,
+        12
+      ],
+      "negative_cell": [
+        1,
+        12
+      ],
+      "trained_weight": 0.04009612277150154,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 13,
+      "bl": 13,
+      "positive_cell": [
+        0,
+        13
+      ],
+      "negative_cell": [
+        1,
+        13
+      ],
+      "trained_weight": 0.03024585172533989,
+      "immediate_weight": 0.18064,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.17498666666666665,
+      "post_all_calibrated_weight": 0.1697127099072629,
+      "final_raw_weight": 0.17578666666666667,
+      "final_calibrated_weight": 0.170488598553593,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 14,
+      "bl": 14,
+      "positive_cell": [
+        0,
+        14
+      ],
+      "negative_cell": [
+        1,
+        14
+      ],
+      "trained_weight": -0.027242595329880714,
+      "immediate_weight": -0.07568,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.07162666666666667,
+      "post_all_calibrated_weight": -0.0621246208377542,
+      "final_raw_weight": -0.07325333333333334,
+      "final_calibrated_weight": -0.06353549271828399,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 15,
+      "bl": 15,
+      "positive_cell": [
+        0,
+        15
+      ],
+      "negative_cell": [
+        1,
+        15
+      ],
+      "trained_weight": -0.01292011421173811,
+      "immediate_weight": -1.84824,
+      "immediate_within_tolerance": false,
+      "programming_stop": "initial_overshoot_or_within_tolerance",
+      "post_all_raw_weight": -1.8409333333333333,
+      "post_all_calibrated_weight": -1.5967137749569473,
+      "final_raw_weight": -1.8490666666666666,
+      "final_calibrated_weight": -1.6037681343595962,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 16,
+      "bl": 16,
+      "positive_cell": [
+        0,
+        16
+      ],
+      "negative_cell": [
+        1,
+        16
+      ],
+      "trained_weight": 0.034663185477256775,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 17,
+      "bl": 17,
+      "positive_cell": [
+        0,
+        17
+      ],
+      "negative_cell": [
+        1,
+        17
+      ],
+      "trained_weight": 0.08682321012020111,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 18,
+      "bl": 18,
+      "positive_cell": [
+        0,
+        18
+      ],
+      "negative_cell": [
+        1,
+        18
+      ],
+      "trained_weight": 0.03037569671869278,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 19,
+      "bl": 19,
+      "positive_cell": [
+        0,
+        19
+      ],
+      "negative_cell": [
+        1,
+        19
+      ],
+      "trained_weight": 0.03476741164922714,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 20,
+      "bl": 20,
+      "positive_cell": [
+        0,
+        20
+      ],
+      "negative_cell": [
+        1,
+        20
+      ],
+      "trained_weight": -0.0560310035943985,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 21,
+      "bl": 21,
+      "positive_cell": [
+        0,
+        21
+      ],
+      "negative_cell": [
+        1,
+        21
+      ],
+      "trained_weight": -0.029506389051675797,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 22,
+      "bl": 22,
+      "positive_cell": [
+        0,
+        22
+      ],
+      "negative_cell": [
+        1,
+        22
+      ],
+      "trained_weight": 0.0317804291844368,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 23,
+      "bl": 23,
+      "positive_cell": [
+        0,
+        23
+      ],
+      "negative_cell": [
+        1,
+        23
+      ],
+      "trained_weight": 0.0724058523774147,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 24,
+      "bl": 24,
+      "positive_cell": [
+        0,
+        24
+      ],
+      "negative_cell": [
+        1,
+        24
+      ],
+      "trained_weight": 0.07823026925325394,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 25,
+      "bl": 25,
+      "positive_cell": [
+        0,
+        25
+      ],
+      "negative_cell": [
+        1,
+        25
+      ],
+      "trained_weight": -0.07408502697944641,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 26,
+      "bl": 26,
+      "positive_cell": [
+        0,
+        26
+      ],
+      "negative_cell": [
+        1,
+        26
+      ],
+      "trained_weight": 0.05698126554489136,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 27,
+      "bl": 27,
+      "positive_cell": [
+        0,
+        27
+      ],
+      "negative_cell": [
+        1,
+        27
+      ],
+      "trained_weight": 0.14386630058288574,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 28,
+      "bl": 28,
+      "positive_cell": [
+        0,
+        28
+      ],
+      "negative_cell": [
+        1,
+        28
+      ],
+      "trained_weight": 0.14484858512878418,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 29,
+      "bl": 29,
+      "positive_cell": [
+        0,
+        29
+      ],
+      "negative_cell": [
+        1,
+        29
+      ],
+      "trained_weight": 0.04508423060178757,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 30,
+      "bl": 30,
+      "positive_cell": [
+        0,
+        30
+      ],
+      "negative_cell": [
+        1,
+        30
+      ],
+      "trained_weight": -0.03861814737319946,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 24,
+      "tap": 31,
+      "bl": 31,
+      "positive_cell": [
+        0,
+        31
+      ],
+      "negative_cell": [
+        1,
+        31
+      ],
+      "trained_weight": 0.05591493472456932,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 0,
+      "bl": 0,
+      "positive_cell": [
+        2,
+        0
+      ],
+      "negative_cell": [
+        3,
+        0
+      ],
+      "trained_weight": -0.08561139553785324,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 1,
+      "bl": 1,
+      "positive_cell": [
+        2,
+        1
+      ],
+      "negative_cell": [
+        3,
+        1
+      ],
+      "trained_weight": -0.13354037702083588,
+      "immediate_weight": -0.11472,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.11474666666666666,
+      "post_all_calibrated_weight": -0.10866755477309858,
+      "final_raw_weight": -0.11392000000000001,
+      "final_calibrated_weight": -0.10788468370687361,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 2,
+      "bl": 2,
+      "positive_cell": [
+        2,
+        2
+      ],
+      "negative_cell": [
+        3,
+        2
+      ],
+      "trained_weight": -0.1507788449525833,
+      "immediate_weight": -0.10744,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.11637333333333333,
+      "post_all_calibrated_weight": -0.11020804300018643,
+      "final_raw_weight": -0.11394666666666667,
+      "final_calibrated_weight": -0.1079099376122357,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 3,
+      "bl": 3,
+      "positive_cell": [
+        2,
+        3
+      ],
+      "negative_cell": [
+        3,
+        3
+      ],
+      "trained_weight": -0.10742206871509552,
+      "immediate_weight": -0.12448,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.13837333333333332,
+      "post_all_calibrated_weight": -0.13104251492391553,
+      "final_raw_weight": -0.13757333333333333,
+      "final_calibrated_weight": -0.13028489776305266,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 4,
+      "bl": 4,
+      "positive_cell": [
+        2,
+        4
+      ],
+      "negative_cell": [
+        3,
+        4
+      ],
+      "trained_weight": -0.11090021580457687,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 5,
+      "bl": 5,
+      "positive_cell": [
+        2,
+        5
+      ],
+      "negative_cell": [
+        3,
+        5
+      ],
+      "trained_weight": -0.10501556843519211,
+      "immediate_weight": -0.57376,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.5754133333333333,
+      "post_all_calibrated_weight": -0.544928769903305,
+      "final_raw_weight": -0.5770133333333334,
+      "final_calibrated_weight": -0.5464440042250307,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 6,
+      "bl": 6,
+      "positive_cell": [
+        2,
+        6
+      ],
+      "negative_cell": [
+        3,
+        6
+      ],
+      "trained_weight": -0.0657292827963829,
+      "immediate_weight": -0.10496,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.10496,
+      "post_all_calibrated_weight": -0.09939937150520939,
+      "final_raw_weight": -0.10984,
+      "final_calibrated_weight": -0.10402083618647294,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 7,
+      "bl": 7,
+      "positive_cell": [
+        2,
+        7
+      ],
+      "negative_cell": [
+        3,
+        7
+      ],
+      "trained_weight": -0.07887003570795059,
+      "immediate_weight": -1.6212,
+      "immediate_within_tolerance": false,
+      "programming_stop": "initial_overshoot_or_within_tolerance",
+      "post_all_raw_weight": -1.63344,
+      "post_all_calibrated_weight": -1.5469027190498212,
+      "final_raw_weight": -1.6252533333333332,
+      "final_calibrated_weight": -1.5391497701036576,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 8,
+      "bl": 8,
+      "positive_cell": [
+        2,
+        8
+      ],
+      "negative_cell": [
+        3,
+        8
+      ],
+      "trained_weight": -0.0916115939617157,
+      "immediate_weight": -0.55912,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -1.8328,
+      "post_all_calibrated_weight": -1.73570091553685,
+      "final_raw_weight": -1.8303466666666666,
+      "final_calibrated_weight": -1.7333775562435372,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 9,
+      "bl": 9,
+      "positive_cell": [
+        2,
+        9
+      ],
+      "negative_cell": [
+        3,
+        9
+      ],
+      "trained_weight": -0.11834635585546494,
+      "immediate_weight": -0.14408,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.14650666666666667,
+      "post_all_calibrated_weight": -0.13874495605935477,
+      "final_raw_weight": -0.15298666666666666,
+      "final_calibrated_weight": -0.14488165506234407,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 10,
+      "bl": 10,
+      "positive_cell": [
+        2,
+        10
+      ],
+      "negative_cell": [
+        3,
+        10
+      ],
+      "trained_weight": -0.07449425011873245,
+      "immediate_weight": -0.11232,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.11392,
+      "post_all_calibrated_weight": -0.1078846837068736,
+      "final_raw_weight": -0.11474666666666666,
+      "final_calibrated_weight": -0.10866755477309858,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 11,
+      "bl": 11,
+      "positive_cell": [
+        2,
+        11
+      ],
+      "negative_cell": [
+        3,
+        11
+      ],
+      "trained_weight": -0.05496026948094368,
+      "immediate_weight": -2.49528,
+      "immediate_within_tolerance": false,
+      "programming_stop": "initial_overshoot_or_within_tolerance",
+      "post_all_raw_weight": -2.5090933333333334,
+      "post_all_calibrated_weight": -2.376165209424964,
+      "final_raw_weight": -2.5082666666666666,
+      "final_calibrated_weight": -2.3753823383587385,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 12,
+      "bl": 12,
+      "positive_cell": [
+        2,
+        12
+      ],
+      "negative_cell": [
+        3,
+        12
+      ],
+      "trained_weight": -0.058532316237688065,
+      "immediate_weight": -0.1416,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.13101333333333334,
+      "post_all_calibrated_weight": -0.12407243704397708,
+      "final_raw_weight": -0.13349333333333332,
+      "final_calibrated_weight": -0.126421050242652,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 13,
+      "bl": 13,
+      "positive_cell": [
+        2,
+        13
+      ],
+      "negative_cell": [
+        3,
+        13
+      ],
+      "trained_weight": -0.05954468995332718,
+      "immediate_weight": -0.10008,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.09277333333333333,
+      "post_all_calibrated_weight": -0.08785833675473158,
+      "final_raw_weight": -0.0944,
+      "final_calibrated_weight": -0.08939882498181942,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 14,
+      "bl": 14,
+      "positive_cell": [
+        2,
+        14
+      ],
+      "negative_cell": [
+        3,
+        14
+      ],
+      "trained_weight": -0.07474661618471146,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 15,
+      "bl": 15,
+      "positive_cell": [
+        2,
+        15
+      ],
+      "negative_cell": [
+        3,
+        15
+      ],
+      "trained_weight": -0.039899569004774094,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 16,
+      "bl": 16,
+      "positive_cell": [
+        2,
+        16
+      ],
+      "negative_cell": [
+        3,
+        16
+      ],
+      "trained_weight": -0.021564939990639687,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 17,
+      "bl": 17,
+      "positive_cell": [
+        2,
+        17
+      ],
+      "negative_cell": [
+        3,
+        17
+      ],
+      "trained_weight": -0.04970351606607437,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 18,
+      "bl": 18,
+      "positive_cell": [
+        2,
+        18
+      ],
+      "negative_cell": [
+        3,
+        18
+      ],
+      "trained_weight": -0.061575744301080704,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 19,
+      "bl": 19,
+      "positive_cell": [
+        2,
+        19
+      ],
+      "negative_cell": [
+        3,
+        19
+      ],
+      "trained_weight": -0.04295962676405907,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 20,
+      "bl": 20,
+      "positive_cell": [
+        2,
+        20
+      ],
+      "negative_cell": [
+        3,
+        20
+      ],
+      "trained_weight": 0.06985121220350266,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 21,
+      "bl": 21,
+      "positive_cell": [
+        2,
+        21
+      ],
+      "negative_cell": [
+        3,
+        21
+      ],
+      "trained_weight": 0.012849847786128521,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 22,
+      "bl": 22,
+      "positive_cell": [
+        2,
+        22
+      ],
+      "negative_cell": [
+        3,
+        22
+      ],
+      "trained_weight": 0.004478047601878643,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": true,
+      "programming_stop": "initial_overshoot_or_within_tolerance",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 23,
+      "bl": 23,
+      "positive_cell": [
+        2,
+        23
+      ],
+      "negative_cell": [
+        3,
+        23
+      ],
+      "trained_weight": 0.018506214022636414,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 24,
+      "bl": 24,
+      "positive_cell": [
+        2,
+        24
+      ],
+      "negative_cell": [
+        3,
+        24
+      ],
+      "trained_weight": 0.05549337714910507,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 25,
+      "bl": 25,
+      "positive_cell": [
+        2,
+        25
+      ],
+      "negative_cell": [
+        3,
+        25
+      ],
+      "trained_weight": -0.024276379495859146,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 26,
+      "bl": 26,
+      "positive_cell": [
+        2,
+        26
+      ],
+      "negative_cell": [
+        3,
+        26
+      ],
+      "trained_weight": -0.0010255324887111783,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": true,
+      "programming_stop": "initial_overshoot_or_within_tolerance",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 27,
+      "bl": 27,
+      "positive_cell": [
+        2,
+        27
+      ],
+      "negative_cell": [
+        3,
+        27
+      ],
+      "trained_weight": -0.007376541383564472,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 28,
+      "bl": 28,
+      "positive_cell": [
+        2,
+        28
+      ],
+      "negative_cell": [
+        3,
+        28
+      ],
+      "trained_weight": -0.03388337045907974,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 29,
+      "bl": 29,
+      "positive_cell": [
+        2,
+        29
+      ],
+      "negative_cell": [
+        3,
+        29
+      ],
+      "trained_weight": -0.04037196934223175,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 30,
+      "bl": 30,
+      "positive_cell": [
+        2,
+        30
+      ],
+      "negative_cell": [
+        3,
+        30
+      ],
+      "trained_weight": 0.026210490614175797,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 25,
+      "tap": 31,
+      "bl": 31,
+      "positive_cell": [
+        2,
+        31
+      ],
+      "negative_cell": [
+        3,
+        31
+      ],
+      "trained_weight": 0.018638430163264275,
+      "immediate_weight": -0.08056000000000008,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.08466666666666656,
+      "post_all_calibrated_weight": -0.03906191246581381,
+      "final_raw_weight": -0.08383999999999991,
+      "final_calibrated_weight": -0.038006005296940315,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 0,
+      "bl": 0,
+      "positive_cell": [
+        4,
+        0
+      ],
+      "negative_cell": [
+        5,
+        0
+      ],
+      "trained_weight": -0.09712716937065125,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 1,
+      "bl": 1,
+      "positive_cell": [
+        4,
+        1
+      ],
+      "negative_cell": [
+        5,
+        1
+      ],
+      "trained_weight": -0.09216547012329102,
+      "immediate_weight": -0.15384,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.18149333333333334,
+      "post_all_calibrated_weight": -0.06840251366244196,
+      "final_raw_weight": -0.18066666666666667,
+      "final_calibrated_weight": -0.06809095357964212,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 2,
+      "bl": 2,
+      "positive_cell": [
+        4,
+        2
+      ],
+      "negative_cell": [
+        5,
+        2
+      ],
+      "trained_weight": -0.06321203708648682,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 3,
+      "bl": 3,
+      "positive_cell": [
+        4,
+        3
+      ],
+      "negative_cell": [
+        5,
+        3
+      ],
+      "trained_weight": -0.1047978550195694,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 4,
+      "bl": 4,
+      "positive_cell": [
+        4,
+        4
+      ],
+      "negative_cell": [
+        5,
+        4
+      ],
+      "trained_weight": -0.0752125009894371,
+      "immediate_weight": -0.09768,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.11146666666666666,
+      "post_all_calibrated_weight": -0.04201035955172015,
+      "final_raw_weight": -0.10984,
+      "final_calibrated_weight": -0.04139728971137208,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 5,
+      "bl": 5,
+      "positive_cell": [
+        4,
+        5
+      ],
+      "negative_cell": [
+        5,
+        5
+      ],
+      "trained_weight": -0.10529568791389465,
+      "immediate_weight": -0.10984,
+      "immediate_within_tolerance": true,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.12616,
+      "post_all_calibrated_weight": -0.047548088765355996,
+      "final_raw_weight": -0.13269333333333333,
+      "final_calibrated_weight": -0.05001041845199988,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 6,
+      "bl": 6,
+      "positive_cell": [
+        4,
+        6
+      ],
+      "negative_cell": [
+        5,
+        6
+      ],
+      "trained_weight": -0.051469750702381134,
+      "immediate_weight": -0.0952,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.11554666666666666,
+      "post_all_calibrated_weight": -0.04354805931521613,
+      "final_raw_weight": -0.1196,
+      "final_calibrated_weight": -0.0450757087534605,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 7,
+      "bl": 7,
+      "positive_cell": [
+        4,
+        7
+      ],
+      "negative_cell": [
+        5,
+        7
+      ],
+      "trained_weight": -0.03749154508113861,
+      "immediate_weight": -0.00248,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.013013333333333333,
+      "post_all_calibrated_weight": -0.004904558722784554,
+      "final_raw_weight": -0.01384,
+      "final_calibrated_weight": -0.005216118805584393,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 8,
+      "bl": 8,
+      "positive_cell": [
+        4,
+        8
+      ],
+      "negative_cell": [
+        5,
+        8
+      ],
+      "trained_weight": -0.0484795905649662,
+      "immediate_weight": -0.12448,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.09765333333333334,
+      "post_all_calibrated_weight": -0.03680429107138738,
+      "final_raw_weight": -0.09602666666666666,
+      "final_calibrated_weight": -0.0361912212310393,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 9,
+      "bl": 9,
+      "positive_cell": [
+        4,
+        9
+      ],
+      "negative_cell": [
+        5,
+        9
+      ],
+      "trained_weight": -0.1144927367568016,
+      "immediate_weight": -0.0952,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.1188,
+      "post_all_calibrated_weight": -0.04477419899591228,
+      "final_raw_weight": -0.11472,
+      "final_calibrated_weight": -0.0432364992324163,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 10,
+      "bl": 10,
+      "positive_cell": [
+        4,
+        10
+      ],
+      "negative_cell": [
+        5,
+        10
+      ],
+      "trained_weight": -0.047919005155563354,
+      "immediate_weight": -0.07328,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.08464,
+      "post_all_calibrated_weight": -0.03189973234860282,
+      "final_raw_weight": -0.08872,
+      "final_calibrated_weight": -0.03343743211209879,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 11,
+      "bl": 11,
+      "positive_cell": [
+        4,
+        11
+      ],
+      "negative_cell": [
+        5,
+        11
+      ],
+      "trained_weight": -0.03469197452068329,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 12,
+      "bl": 12,
+      "positive_cell": [
+        4,
+        12
+      ],
+      "negative_cell": [
+        5,
+        12
+      ],
+      "trained_weight": -0.01143747940659523,
+      "immediate_weight": -0.02688,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.03744,
+      "post_all_calibrated_weight": -0.014110656653257201,
+      "final_raw_weight": -0.034986666666666666,
+      "final_calibrated_weight": -0.013186026730109292,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 13,
+      "bl": 13,
+      "positive_cell": [
+        4,
+        13
+      ],
+      "negative_cell": [
+        5,
+        13
+      ],
+      "trained_weight": -0.04042458161711693,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 14,
+      "bl": 14,
+      "positive_cell": [
+        4,
+        14
+      ],
+      "negative_cell": [
+        5,
+        14
+      ],
+      "trained_weight": -0.06204930320382118,
+      "immediate_weight": -0.06592,
+      "immediate_within_tolerance": true,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.06917333333333334,
+      "post_all_calibrated_weight": -0.026070543702670358,
+      "final_raw_weight": -0.07,
+      "final_calibrated_weight": -0.026382103785470196,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 15,
+      "bl": 15,
+      "positive_cell": [
+        4,
+        15
+      ],
+      "negative_cell": [
+        5,
+        15
+      ],
+      "trained_weight": -0.07380833476781845,
+      "immediate_weight": -0.0708,
+      "immediate_within_tolerance": true,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.0692,
+      "post_all_calibrated_weight": -0.026080594027921962,
+      "final_raw_weight": -0.0692,
+      "final_calibrated_weight": -0.026080594027921962,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 16,
+      "bl": 16,
+      "positive_cell": [
+        4,
+        16
+      ],
+      "negative_cell": [
+        5,
+        16
+      ],
+      "trained_weight": 0.017988888546824455,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 17,
+      "bl": 17,
+      "positive_cell": [
+        4,
+        17
+      ],
+      "negative_cell": [
+        5,
+        17
+      ],
+      "trained_weight": -0.014916743151843548,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 18,
+      "bl": 18,
+      "positive_cell": [
+        4,
+        18
+      ],
+      "negative_cell": [
+        5,
+        18
+      ],
+      "trained_weight": 0.01450644712895155,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 19,
+      "bl": 19,
+      "positive_cell": [
+        4,
+        19
+      ],
+      "negative_cell": [
+        5,
+        19
+      ],
+      "trained_weight": -0.0025557491462677717,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": true,
+      "programming_stop": "initial_overshoot_or_within_tolerance",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 20,
+      "bl": 20,
+      "positive_cell": [
+        4,
+        20
+      ],
+      "negative_cell": [
+        5,
+        20
+      ],
+      "trained_weight": 0.005031453911215067,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 21,
+      "bl": 21,
+      "positive_cell": [
+        4,
+        21
+      ],
+      "negative_cell": [
+        5,
+        21
+      ],
+      "trained_weight": 0.03388366103172302,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 22,
+      "bl": 22,
+      "positive_cell": [
+        4,
+        22
+      ],
+      "negative_cell": [
+        5,
+        22
+      ],
+      "trained_weight": 0.06135466694831848,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 23,
+      "bl": 23,
+      "positive_cell": [
+        4,
+        23
+      ],
+      "negative_cell": [
+        5,
+        23
+      ],
+      "trained_weight": 0.011055221781134605,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 24,
+      "bl": 24,
+      "positive_cell": [
+        4,
+        24
+      ],
+      "negative_cell": [
+        5,
+        24
+      ],
+      "trained_weight": -0.04610477015376091,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 25,
+      "bl": 25,
+      "positive_cell": [
+        4,
+        25
+      ],
+      "negative_cell": [
+        5,
+        25
+      ],
+      "trained_weight": 0.0352809764444828,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 26,
+      "bl": 26,
+      "positive_cell": [
+        4,
+        26
+      ],
+      "negative_cell": [
+        5,
+        26
+      ],
+      "trained_weight": 0.014416809193789959,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 27,
+      "bl": 27,
+      "positive_cell": [
+        4,
+        27
+      ],
+      "negative_cell": [
+        5,
+        27
+      ],
+      "trained_weight": 0.04330480471253395,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 28,
+      "bl": 28,
+      "positive_cell": [
+        4,
+        28
+      ],
+      "negative_cell": [
+        5,
+        28
+      ],
+      "trained_weight": 0.04931913688778877,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 29,
+      "bl": 29,
+      "positive_cell": [
+        4,
+        29
+      ],
+      "negative_cell": [
+        5,
+        29
+      ],
+      "trained_weight": 0.059912778437137604,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 30,
+      "bl": 30,
+      "positive_cell": [
+        4,
+        30
+      ],
+      "negative_cell": [
+        5,
+        30
+      ],
+      "trained_weight": 0.004134686663746834,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": true,
+      "programming_stop": "initial_overshoot_or_within_tolerance",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 26,
+      "tap": 31,
+      "bl": 31,
+      "positive_cell": [
+        4,
+        31
+      ],
+      "negative_cell": [
+        5,
+        31
+      ],
+      "trained_weight": 0.015098498202860355,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 0,
+      "bl": 0,
+      "positive_cell": [
+        6,
+        0
+      ],
+      "negative_cell": [
+        7,
+        0
+      ],
+      "trained_weight": 0.026337750256061554,
+      "immediate_weight": -1.96792,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -1.9809066666666666,
+      "post_all_calibrated_weight": -1.709246945444176,
+      "final_raw_weight": -1.9630133333333333,
+      "final_calibrated_weight": -1.6938074874129305,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 1,
+      "bl": 1,
+      "positive_cell": [
+        6,
+        1
+      ],
+      "negative_cell": [
+        7,
+        1
+      ],
+      "trained_weight": 0.008019635453820229,
+      "immediate_weight": -2.56608,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -2.58888,
+      "post_all_calibrated_weight": -2.2338433741392083,
+      "final_raw_weight": -2.59296,
+      "final_calibrated_weight": -2.2373638466858266,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 2,
+      "bl": 2,
+      "positive_cell": [
+        6,
+        2
+      ],
+      "negative_cell": [
+        7,
+        2
+      ],
+      "trained_weight": 0.051620934158563614,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 3,
+      "bl": 3,
+      "positive_cell": [
+        6,
+        3
+      ],
+      "negative_cell": [
+        7,
+        3
+      ],
+      "trained_weight": 0.11771643161773682,
+      "immediate_weight": 0.23192,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.20997333333333335,
+      "post_all_calibrated_weight": 0.08047042521162551,
+      "final_raw_weight": 0.21485333333333334,
+      "final_calibrated_weight": 0.08234064210440269,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 4,
+      "bl": 4,
+      "positive_cell": [
+        6,
+        4
+      ],
+      "negative_cell": [
+        7,
+        4
+      ],
+      "trained_weight": 0.0139166209846735,
+      "immediate_weight": 0.08055999999999999,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.053706666666666666,
+      "post_all_calibrated_weight": 0.0002850976915234546,
+      "final_raw_weight": 0.054533333333333336,
+      "final_calibrated_weight": 0.004119121901937573,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 5,
+      "bl": 5,
+      "positive_cell": [
+        6,
+        5
+      ],
+      "negative_cell": [
+        7,
+        5
+      ],
+      "trained_weight": -0.0011450847378000617,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": true,
+      "programming_stop": "initial_overshoot_or_within_tolerance",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 6,
+      "bl": 6,
+      "positive_cell": [
+        6,
+        6
+      ],
+      "negative_cell": [
+        7,
+        6
+      ],
+      "trained_weight": -0.046178583055734634,
+      "immediate_weight": -0.0684,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.08869333333333333,
+      "post_all_calibrated_weight": -0.07653001104608435,
+      "final_raw_weight": -0.0944,
+      "final_calibrated_weight": -0.08145407068645177,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 7,
+      "bl": 7,
+      "positive_cell": [
+        6,
+        7
+      ],
+      "negative_cell": [
+        7,
+        7
+      ],
+      "trained_weight": -0.028929254040122032,
+      "immediate_weight": -0.03176,
+      "immediate_within_tolerance": true,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.049626666666666666,
+      "post_all_calibrated_weight": -0.04282091117160643,
+      "final_raw_weight": -0.052879999999999996,
+      "final_calibrated_weight": -0.04562808535910561,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 8,
+      "bl": 8,
+      "positive_cell": [
+        6,
+        8
+      ],
+      "negative_cell": [
+        7,
+        8
+      ],
+      "trained_weight": 0.011203099973499775,
+      "immediate_weight": 0.1392,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -1.41608,
+      "post_all_calibrated_weight": -1.2320352380469963,
+      "final_raw_weight": -1.42992,
+      "final_calibrated_weight": -1.236955599990697,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 9,
+      "bl": 9,
+      "positive_cell": [
+        6,
+        9
+      ],
+      "negative_cell": [
+        7,
+        9
+      ],
+      "trained_weight": -0.07182426005601883,
+      "immediate_weight": -0.06592,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.07893333333333333,
+      "post_all_calibrated_weight": -0.06810848848358679,
+      "final_raw_weight": -0.07976,
+      "final_calibrated_weight": -0.06882178684270544,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 10,
+      "bl": 10,
+      "positive_cell": [
+        6,
+        10
+      ],
+      "negative_cell": [
+        7,
+        10
+      ],
+      "trained_weight": -0.010896174237132072,
+      "immediate_weight": -0.01712,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.03989333333333333,
+      "post_all_calibrated_weight": -0.034422398233596566,
+      "final_raw_weight": -0.035813333333333336,
+      "final_calibrated_weight": -0.03090192568697874,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 11,
+      "bl": 11,
+      "positive_cell": [
+        6,
+        11
+      ],
+      "negative_cell": [
+        7,
+        11
+      ],
+      "trained_weight": -0.05380858853459358,
+      "immediate_weight": -0.08792,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.07976,
+      "post_all_calibrated_weight": -0.06882178684270544,
+      "final_raw_weight": -0.07488,
+      "final_calibrated_weight": -0.06461102556145666,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 12,
+      "bl": 12,
+      "positive_cell": [
+        6,
+        12
+      ],
+      "negative_cell": [
+        7,
+        12
+      ],
+      "trained_weight": 0.0048363846726715565,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": true,
+      "programming_stop": "initial_overshoot_or_within_tolerance",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 13,
+      "bl": 13,
+      "positive_cell": [
+        6,
+        13
+      ],
+      "negative_cell": [
+        7,
+        13
+      ],
+      "trained_weight": 0.03879857435822487,
+      "immediate_weight": 0.03416,
+      "immediate_within_tolerance": true,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.043146666666666667,
+      "post_all_calibrated_weight": 0.01653557886619381,
+      "final_raw_weight": 0.03664,
+      "final_calibrated_weight": 0.014041956342490912,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 14,
+      "bl": 14,
+      "positive_cell": [
+        6,
+        14
+      ],
+      "negative_cell": [
+        7,
+        14
+      ],
+      "trained_weight": -0.05331172049045563,
+      "immediate_weight": -0.10496,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.09928000000000001,
+      "post_all_calibrated_weight": -0.08566483196770056,
+      "final_raw_weight": -0.10661333333333332,
+      "final_calibrated_weight": -0.09199247870181756,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 15,
+      "bl": 15,
+      "positive_cell": [
+        6,
+        15
+      ],
+      "negative_cell": [
+        7,
+        15
+      ],
+      "trained_weight": -0.0119923772290349,
+      "immediate_weight": -0.05856,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": -0.045573333333333334,
+      "post_all_calibrated_weight": -0.0393234482494763,
+      "final_raw_weight": -0.04477333333333333,
+      "final_calibrated_weight": -0.03863315951484535,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 16,
+      "bl": 16,
+      "positive_cell": [
+        6,
+        16
+      ],
+      "negative_cell": [
+        7,
+        16
+      ],
+      "trained_weight": -0.04515356943011284,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 17,
+      "bl": 17,
+      "positive_cell": [
+        6,
+        17
+      ],
+      "negative_cell": [
+        7,
+        17
+      ],
+      "trained_weight": -0.017586449161171913,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 18,
+      "bl": 18,
+      "positive_cell": [
+        6,
+        18
+      ],
+      "negative_cell": [
+        7,
+        18
+      ],
+      "trained_weight": 0.037373676896095276,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 19,
+      "bl": 19,
+      "positive_cell": [
+        6,
+        19
+      ],
+      "negative_cell": [
+        7,
+        19
+      ],
+      "trained_weight": -0.06254687905311584,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 20,
+      "bl": 20,
+      "positive_cell": [
+        6,
+        20
+      ],
+      "negative_cell": [
+        7,
+        20
+      ],
+      "trained_weight": -0.018535248935222626,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 21,
+      "bl": 21,
+      "positive_cell": [
+        6,
+        21
+      ],
+      "negative_cell": [
+        7,
+        21
+      ],
+      "trained_weight": -0.05159773305058479,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 22,
+      "bl": 22,
+      "positive_cell": [
+        6,
+        22
+      ],
+      "negative_cell": [
+        7,
+        22
+      ],
+      "trained_weight": -0.006997755263000727,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 23,
+      "bl": 23,
+      "positive_cell": [
+        6,
+        23
+      ],
+      "negative_cell": [
+        7,
+        23
+      ],
+      "trained_weight": 0.06500434875488281,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 24,
+      "bl": 24,
+      "positive_cell": [
+        6,
+        24
+      ],
+      "negative_cell": [
+        7,
+        24
+      ],
+      "trained_weight": -0.06292017549276352,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 25,
+      "bl": 25,
+      "positive_cell": [
+        6,
+        25
+      ],
+      "negative_cell": [
+        7,
+        25
+      ],
+      "trained_weight": -0.003220195649191737,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": true,
+      "programming_stop": "initial_overshoot_or_within_tolerance",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 26,
+      "bl": 26,
+      "positive_cell": [
+        6,
+        26
+      ],
+      "negative_cell": [
+        7,
+        26
+      ],
+      "trained_weight": -0.0369536317884922,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 27,
+      "bl": 27,
+      "positive_cell": [
+        6,
+        27
+      ],
+      "negative_cell": [
+        7,
+        27
+      ],
+      "trained_weight": -0.13916240632534027,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 28,
+      "bl": 28,
+      "positive_cell": [
+        6,
+        28
+      ],
+      "negative_cell": [
+        7,
+        28
+      ],
+      "trained_weight": 0.06474637240171432,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 29,
+      "bl": 29,
+      "positive_cell": [
+        6,
+        29
+      ],
+      "negative_cell": [
+        7,
+        29
+      ],
+      "trained_weight": -0.10063278675079346,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 30,
+      "bl": 30,
+      "positive_cell": [
+        6,
+        30
+      ],
+      "negative_cell": [
+        7,
+        30
+      ],
+      "trained_weight": 0.02360413782298565,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    },
+    {
+      "stage": 18,
+      "filter": 27,
+      "tap": 31,
+      "bl": 31,
+      "positive_cell": [
+        6,
+        31
+      ],
+      "negative_cell": [
+        7,
+        31
+      ],
+      "trained_weight": 0.024564433842897415,
+      "immediate_weight": 0.0,
+      "immediate_within_tolerance": false,
+      "programming_stop": "bounded_set_attempts",
+      "post_all_raw_weight": 0.0,
+      "post_all_calibrated_weight": 0.0,
+      "final_raw_weight": 0.0,
+      "final_calibrated_weight": 0.0,
+      "per_coefficient_fitting_used": false
+    }
+  ],
+  "independent_fitting_float_tolerance": {
+    "absolute": 1e-10,
+    "relative": 1e-10
+  },
+  "strict_numeric_replay": "PASS",
+  "portable_condition_policy": "excluded-rank-condition-v1",
+  "numeric_diagnostics": [
+    {
+      "stage": 18,
+      "strict_numeric_replay": "PASS",
+      "decision_equivalence": "exact_within_original_tolerance"
+    }
+  ],
+  "phase_counts": {
+    "pulse_guard": 1795,
+    "program_reset": 923,
+    "program_feedback_zero_before": 8000,
+    "vector_guard": 212496,
+    "program_feedback": 8000,
+    "program_feedback_zero_after": 8000,
+    "program_set": 872,
+    "basis": 792,
+    "fit_zero_before": 1536,
+    "fit": 1536,
+    "fit_zero_after": 1536,
+    "selection_zero_before": 768,
+    "selection": 768,
+    "selection_zero_after": 768,
+    "heldout_zero_before": 768,
+    "heldout": 768,
+    "heldout_zero_after": 768,
+    "inference_zero_before": 6272,
+    "inference_signal": 105480,
+    "inference_zero_after": 6272,
+    "final_basis": 792
+  },
+  "session": "results/cifar_resumable_20261019/d1931130-6136-47ad-92b3-6d701e8bddbe",
+  "session_id": "d1931130-6136-47ad-92b3-6d701e8bddbe",
+  "provenance": {
+    "status": "public_local_private_remote_operator_verified",
+    "private_source_evidence": {
+      "status": "remote_operator_verified_local_bytes_unavailable",
+      "receipt_path": "reports/2026-10-19/cifar-resume-review/hardware-batch-13-18/PRIVATE_SOURCE_RECEIPT_STAGE_18.json",
+      "receipt_sha256": "6d765f1ef3caa42b036469eac8bd18ed718899ac2c781749c8fe45e77c1e0633",
+      "receipt": {
+        "schema": "cifar-private-source-operator-receipt-v1",
+        "observed_utc": "2026-10-19T17:01:15.495052+00:00",
+        "host": "raspberrypi",
+        "git_head": "0bca5314b32e8b348c2ca263555f6230444b1b3a",
+        "operator": "root",
+        "acquisition_session": "results/cifar_resumable_20261019/d1931130-6136-47ad-92b3-6d701e8bddbe",
+        "verification": "remote_operator_verified",
+        "local_private_bytes_available": false,
+        "cryptographic_remote_attestation": false,
+        "observed_time_source": "Raspberry system UTC clock",
+        "records": [
+          {
+            "path": "vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py",
+            "observed_sha256": "bc717659fa5d4d36d2037eef978bf1cd8dcf0fe92f9bbfad51f1eb1d0d27df9c",
+            "expected_sha256": "bc717659fa5d4d36d2037eef978bf1cd8dcf0fe92f9bbfad51f1eb1d0d27df9c",
+            "size_bytes": 8844,
+            "resolved_path": "/home/raspberrypi/Documents/snn-memristor-hardware/.tmp/survey-20261019/vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py"
+          },
+          {
+            "path": "vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py",
+            "observed_sha256": "5bcb02c04bc185e332b2ec96acabc2d4303d21724c9c052de540ef92d603b634",
+            "expected_sha256": "5bcb02c04bc185e332b2ec96acabc2d4303d21724c9c052de540ef92d603b634",
+            "size_bytes": 4950,
+            "resolved_path": "/home/raspberrypi/Documents/snn-memristor-hardware/.tmp/survey-20261019/vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py"
+          }
+        ],
+        "stdout_evidence_path": "reports/2026-10-19/cifar-resume-review/hardware-batch-13-18/PRIVATE_SOURCE_OBSERVED_STDOUT.json",
+        "stdout_evidence_sha256": "98020721b14163a383e2662d2033402f78cff7a5e82b1fe2186cf17361dd928c",
+        "limitations": [
+          "Visible stdout transcribed by root; not byte-for-byte capture or signed attestation.",
+          "Fresh hashes verify files present at observation, not independently prove contents during acquisition.",
+          "Source pins for both files were checked against all six hardware start manifests; all_six_source_pins_match True.",
+          "No private driver import, execution or board I/O during the hash check.",
+          "This receipt does not replace the pending independent semantic audit."
+        ]
+      },
+      "strict_all_source_local_bytes_pass": false
+    },
+    "source_sha256": {
+      "cell_calibration.py": "eff0b2f72586f6a6659a13fba410c6ad0d564bd95d3b83e24b13cf739121c2e8",
+      "configs/raspberry_board.ini": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c",
+      "experiment_hardware.py": "059dc4f827943a9df631631f52e776b57182afc9d36db0c1ad5246427f73548c",
+      "experiments/cifar_full_case0_20261019/audit_native.py": "d3cd8bf2cf11512f81aabff0300c5fde391dad240fd9008834150e698910e717",
+      "experiments/cifar_full_case0_20261019/classifier.py": "64ba6e85cda19367f93a0c8294f77b6c9b6f5f26cbf40d188685bc47430053e5",
+      "experiments/cifar_full_case0_20261019/collector.py": "03c6121560ca558904c5722228b4c1a6e7e8eb6d7264b6fb6f18cc393b2e5c21",
+      "experiments/cifar_full_case0_20261019/experiment.py": "5e8647da40961558fd76276d7a5b5eef188e57b77dfb44478a86cb2e376a70cf",
+      "experiments/cifar_full_case0_20261019/plan.py": "d795d6f820eeacca36e6746746bcfd558850bc5d1bedce32cc969820b3ce94d7",
+      "experiments/cifar_full_case0_20261019/protocol.json": "fdb1acd5837b21c133f59f8bd67a2031cb9d411f68f83733d87aa00f2a45b2c9",
+      "experiments/cifar_full_case0_20261019/reconstruct.py": "516810cdc7d8a23d18d3487c98bf0de53659bd6f82bc126c43d9481a46ade9b7",
+      "experiments/cifar_full_case0_20261019/trace.py": "c8093a346b46f2124b389fe9bd7f9d1fea6ac161dce7892df70181b058542d37",
+      "experiments/cifar_resumable_20261019/collector.py": "794eaced2fc551a7b26898cd57409dfe5276f3d4d7351787b1bc875f2fe6da1f",
+      "experiments/cifar_resumable_20261019/contract.py": "d7902489769b808f5a29a9e7e8e43d1e2662b915802cd6851302eb16024fe9be",
+      "experiments/cifar_resumable_20261019/durable.py": "b00c094da70af933a7318a119fe5439b40d957c7aaabb39c752170a1dbf2abb3",
+      "experiments/cifar_resumable_20261019/experiment.py": "f52a623436d73c30a368733dbb75c7666603905f5440201900f7862211b44379",
+      "native_conversions.py": "2ad2e9c057bb14979b083a6e846e8c417c080a6c5273d848e31f893b7970253e",
+      "read_all.py": "b30ae2f4dd3cd166dbc5cefb07b558127de2bbdba1f6674c40b1b45f4dd74d5f",
+      "vendor/MemriBoard/MemriCORE/rp5_fpga_python/FPGA_SIM.py": "5bcb02c04bc185e332b2ec96acabc2d4303d21724c9c052de540ef92d603b634",
+      "vendor/MemriBoard/MemriCORE/rp5_fpga_python/rpi_FPGAed.py": "bc717659fa5d4d36d2037eef978bf1cd8dcf0fe92f9bbfad51f1eb1d0d27df9c",
+      "vendor/MemriBoard/gui/src.py": "2ca0d23c9588ffd37c3e1ba3b23980173ce1d159621611dc478a3826bee462c8",
+      "vendor/MemriBoard/gui/themes.py": "64ac39cd45f992e8351e428e77406b3a0ad065235577dd778761b02a6708fc2d",
+      "vendor/MemriBoard/gui/widgets/MplGraphicsView.py": "e0dcc48607fdeb6c0912323ad3ae1a7d3a341f8933a73a1a5bc355335f6fc2e7",
+      "vendor/MemriBoard/gui/widgets/QCodeEditor.py": "d3a8e27f7e492c09f774b56b253dd4c0902bdfc3c262215014a9de47341cc1b0",
+      "vendor/MemriBoard/gui/widgets/ScientificQLineEdit.py": "d47cd58b72510ae0ca4bab830e50bcaebb3a5a69dfd105c69706485adf992602",
+      "vendor/MemriBoard/gui/widgets/SignalParametersConfig.py": "33319ce0a1572c3dadc6dfff5aa45a7b465861d5f878b24d871667d678d36d66",
+      "vendor/MemriBoard/gui/widgets/syntax_highlighter.py": "8ba8ecb1c48045d62c896ff4fa36a8b728a6de9da7676e5fb741fb0388cba808",
+      "vendor/MemriBoard/gui/windows/algorithm_editor.py": "dfb8048d5209a4db074a19e601720aaeb540db2bfa3d2654156ac51c4f97d09c",
+      "vendor/MemriBoard/gui/windows/apply.py": "a0bc7de540eb42b5c41e0d1916ed26ad24900a56ca195323194092965300e079",
+      "vendor/MemriBoard/gui/windows/cb_info.py": "8defc49f1c3fb69284e3db4210f8570f053c095bfef74cf2306b2f231a77be6b",
+      "vendor/MemriBoard/gui/windows/cell_info.py": "f6d8582cf62499038e783a533b42f8dd593273087f1c8f7a6e46e6ad8d1aed97",
+      "vendor/MemriBoard/gui/windows/connect.py": "435563e327c011bd2752a9275b372e2c1e3470f942bba4928914a61f83d1e7e8",
+      "vendor/MemriBoard/gui/windows/crossbar.py": "89bd016228534fc731f0a4c84351063e3ce084d7b1f51ea7e0620499a162fdcf",
+      "vendor/MemriBoard/gui/windows/experiment.py": "4358a1a572fcf52e5a5f5da54c11b13121a5512a1d7bfeb1c2efb3cff8f6836d",
+      "vendor/MemriBoard/gui/windows/filter.py": "41a53114c430e81866a10035dd98304a31f3b50ce9637b1496808723c1046c2e",
+      "vendor/MemriBoard/gui/windows/help.py": "e06f8ef9cec5ba403afe76e83b53bc9030ddb18dcd42bc50d3c55d575d002f08",
+      "vendor/MemriBoard/gui/windows/history.py": "334c4b6adf99661d291766505346d0ea4ba3cf75106de6e38c209df6adbe48e4",
+      "vendor/MemriBoard/gui/windows/map.py": "48b758f74e8b2edd7394bd2aa60aa9543fc5970e74e7b8156688447b2b48d4c6",
+      "vendor/MemriBoard/gui/windows/math.py": "985eaaed9192ab83d3f62ce016a7d4d1999fc1bdf03951fe280438eb90102bdb",
+      "vendor/MemriBoard/gui/windows/new_ann.py": "77bf7b5f92251e85aca06751f4cb1c72a71184aa791d76ae609bd52e9c038b29",
+      "vendor/MemriBoard/gui/windows/requests.py": "8df669d07c2eece287a7f53a173f5346e19f56e9330316436830d96d3c30d0b0",
+      "vendor/MemriBoard/gui/windows/rram.py": "a7c5d7667db506f24b7fb781b92f260f7c86968f0b650abe9786010d10848a06",
+      "vendor/MemriBoard/gui/windows/settings.py": "34220f388c13cbf86d6941fef0fb2f2a8ac25c72b35741ef9669ed5e916ceb58",
+      "vendor/MemriBoard/gui/windows/signal.py": "046676fd8d308fcb4b4ba104bf972adea7ef09f9e453f451e39af487133dea3c",
+      "vendor/MemriBoard/gui/windows/snapshot.py": "2c52a94441947095a513f2ef84cda28feecff8bf8516a410fd69a3af380097f9",
+      "vendor/MemriBoard/gui/windows/terminal.py": "41d3effd3d7f83c0ac62473d3e8db8b0285e4754360aa3458a3349216b8cebbc",
+      "vendor/MemriBoard/gui/windows/testing.py": "68a22b994c72eb3d0b5809077389a9acb4bd88f91b8da1f9e10b3e8ac76afe88",
+      "vendor/MemriBoard/gui/windows/wait.py": "cd919267d4cddabb5feebf64fca0c3457c9d3faea00e2c1866c228510fd41644",
+      "vendor/MemriBoard/main.py": "8e078abe97a726d0fe4986333e945c851bf870007e8de63cdfc05be1bf048241",
+      "vendor/MemriBoard/make_build.py": "cab1ba086f8ebb8f7d15b26fe81be651ffa1decf38c87df5c64f03f5eed8aa27",
+      "vendor/MemriBoard/manager/__init__.py": "22cf0f37f6ebfe6342fbea00b0b5d8d6973bfb4271569e57a7cc145add413b8e",
+      "vendor/MemriBoard/manager/algorithms/__init__.py": "1c9fbccf5324a138b8e1b822206ebacf7f87e3c01417f4fb7c8482df4502f33e",
+      "vendor/MemriBoard/manager/algorithms/alg_generator.py": "356053dda6c4834465b29de30536ed394afa89df55011a590074c4e6ff668f9e",
+      "vendor/MemriBoard/manager/algorithms/algorithm.py": "a6bcbad1531c96a6733f1a9417a12deaa5a0509995b23e65a19c5192b135635d",
+      "vendor/MemriBoard/manager/algorithms/ticket_generator.py": "28cafe54fb79ae9a1cddf2bf54be831308b1e43b397aa91f4d6ff0b444662fd7",
+      "vendor/MemriBoard/manager/app.py": "6ae6dea53331a2a4c7c9e2ab581ed7a39a7fa8b44b546ba5d7c15d9a75b694ae",
+      "vendor/MemriBoard/manager/blanks.py": "696c318c9569674a45d7517cea6ab811e6fbf2c81ce2c0efbdd7646e05b2dc46",
+      "vendor/MemriBoard/manager/board.py": "5e7076651001532e409287f1cd7d17a95ba26d3d382c44e1865de56e45477df0",
+      "vendor/MemriBoard/manager/comport.py": "1ba271576880bbf8c5190d1d4a7e08e3ba8d50729f31cf604bf82b26fd353989",
+      "vendor/MemriBoard/manager/main.py": "8101987a08b6ca70d2510d23ea2e9e5369b2b9df775e14b8733b8699fe8cd783",
+      "vendor/MemriBoard/manager/menu.py": "da0dd1c25596d29e7cc2fdfbd41689c313a1d5f8f30465bc9ad6f6bf7351a6f1",
+      "vendor/MemriBoard/manager/model/db.py": "49e75e3a71351c9fff5b6efc95352d936f6458979c75cc2c271bdf77580e5ad0",
+      "vendor/MemriBoard/manager/model/src.py": "debaf249fb8df0db7ffe104dc07a70a1bb85859e34b39e11226d13da60613541",
+      "vendor/MemriBoard/manager/modes/__init__.py": "b94504619f9515f9f6b77303c66540da8887ffe9ebbf449ce20a7144084edd72",
+      "vendor/MemriBoard/manager/modes/std.py": "9269cbb8a7d6497c849fb16a33180f05babf0bdffd1a65d53024dfdcf7640efd",
+      "vendor/MemriBoard/manager/modes/tst.py": "76e073b2743602f3cf245702a35b152dbc9ded772e9820fe37d64b24d223894e",
+      "vendor/MemriBoard/manager/service/__init__.py": "116c5e49243fbeed84f1807f938901bcb24f84415ed8ac84568126ca187b1098",
+      "vendor/MemriBoard/manager/service/converters.py": "28c6495c56afa225501dd6b0dea999215f08b73f30e016ff7ea34d6c5412701c",
+      "vendor/MemriBoard/manager/service/drivers.py": "e4e47cd172196f6e1b6d2f22e9481a8d69cf2fcbcedb78760c43daebc8f0cdc9",
+      "vendor/MemriBoard/manager/service/global_settings.py": "4c9f146317ac58f2fba48be0a00ac01c5bf4718a126fbe42af59dbe0e07d0610",
+      "vendor/MemriBoard/manager/service/plots.py": "4504de731d7d5fcfe9150512edd1670ddf71755c6663c653556d7d0d3c2bade7",
+      "vendor/MemriBoard/manager/service/prepare.py": "ef8bddf1b615a84508e84ab8266299e954a7ced50687347e8b6524fdeee31f7c",
+      "vendor/MemriBoard/manager/service/saves.py": "ae80e2726cd57ad1c581acc866e59d1f1762343d5ff20c0dcbf465d3a835b08b",
+      "vendor/MemriBoard/manager/service/templates.py": "2000ae85de118f4d46366eecc9486b9a9c7996ac8fa747c86417744d140d289e",
+      "vendor/MemriBoard/manager/terminate.py": "00b385405bf19b6adff5e3d8dfa02e6c80dd10b3f4693476730d3bdcc2c3b779",
+      "vendor/MemriBoard/simulator/memristor.py": "bb9c43d0f254c512c21902a64b5414e05f63f1deecf10016e5b97bd086050aca",
+      "vendor/MemriBoard/simulator/src.py": "d41edc5c0464e15d44a23a1bb628e8025194e518d914635c1a14dd46ea2d4cc2",
+      "weights/cifar100_conv1_fixture.json": "8cb9ec0fe30242328527073bb076f8019295d73a748343f58fc2a8671bf7c154",
+      "weights/conv1_weights.npy": "8be312b9eafb9de23f8340b17f848e7e0e2e7884293c826a6d9f6cbb5125d440"
+    },
+    "stage_source_registry": {
+      "physical_protocol_sha256": "2cb1d57689508725f7155bf7b1d0d17fec9d4f6b65782171e2b85481bc9aa558",
+      "registration": "approved_after_review",
+      "schema": "cifar-reviewed-stage-source-registry-v1",
+      "source_review_path": "reports/2026-10-19/cifar-resume-review/SOURCE_REVIEW_RU.md",
+      "source_review_sha256": "dd45c3176c3c0b0f4a63f45d0b31ee6e47661aea6a6804fcc7ed19bac2911214",
+      "source_sha256": {
+        "experiments/cifar_resumable_20261019/collector.py": "794eaced2fc551a7b26898cd57409dfe5276f3d4d7351787b1bc875f2fe6da1f",
+        "experiments/cifar_resumable_20261019/contract.py": "d7902489769b808f5a29a9e7e8e43d1e2662b915802cd6851302eb16024fe9be",
+        "experiments/cifar_resumable_20261019/durable.py": "b00c094da70af933a7318a119fe5439b40d957c7aaabb39c752170a1dbf2abb3",
+        "experiments/cifar_resumable_20261019/experiment.py": "f52a623436d73c30a368733dbb75c7666603905f5440201900f7862211b44379"
+      },
+      "spec_sha256": "95e0eb4c7a6694486060c7dec5436e3c3d29357d4d22bd7725c4b08685da3560"
+    },
+    "stage_source_registry_sha256": "15c6f2729df901c5aa9a92f92645cd7ecd7e58dd4e6a596ac9a8afc1e1632583",
+    "start_manifest_sha256": "abb4bed6d08d074880917a8ac8deebf94836f3b25ea71cbdd5283ecb3b8b9e43",
+    "board_ini_sha256": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c",
+    "protocol_file_sha256": "fdb1acd5837b21c133f59f8bd67a2031cb9d411f68f83733d87aa00f2a45b2c9"
+  },
+  "raw_inventory": {
+    "parts": [
+      {
+        "path": "part-000000.jsonl.gz",
+        "bytes": 294904,
+        "sha256": "364d56c0e2560683a391d43a68b649148fe54da6056d4695d0dbf233acf94d46",
+        "admitted": true,
+        "records": 13307,
+        "expanded_sha256": "349c9347efd2156e94bc8f4a1922ce6446b6fba4c5c1bfe39546e7cf5996c103"
+      },
+      {
+        "path": "part-000001.jsonl.gz",
+        "bytes": 380530,
+        "sha256": "b37d716fe899fb7fe1291d07248f62ba7b688eb9a83c7564fec69c1a167e9795",
+        "admitted": true,
+        "records": 17752,
+        "expanded_sha256": "8fcff9c5dc4a18f4cf115b53343900108eefbaf3f08ee7d9373ace49cd238be7"
+      },
+      {
+        "path": "part-000002.jsonl.gz",
+        "bytes": 301134,
+        "sha256": "9e13e42f9c6d969eb1f3fe1f7fbc92468be136e1d8d938f1e9e5eada0a548d48",
+        "admitted": true,
+        "records": 13743,
+        "expanded_sha256": "d9b0bd7f3d83c4de710ae9d60c1b25f17d099f802e398b98bf95a194ae8c8511"
+      },
+      {
+        "path": "part-000003.jsonl.gz",
+        "bytes": 336975,
+        "sha256": "ec803d9d3e1014ed7450c6571ea6885e7cb51b8344535b29949afd4e25edc665",
+        "admitted": true,
+        "records": 15724,
+        "expanded_sha256": "6cf2556d00666edd3af1330924fcd09e55e4b2513f371d06aa9fa871e7c3931e"
+      },
+      {
+        "path": "part-000004.jsonl.gz",
+        "bytes": 350959,
+        "sha256": "51fad1db2973663c06bd6280575b5f25f49f840399cd350390c8f77e67006302",
+        "admitted": true,
+        "records": 16043,
+        "expanded_sha256": "e6dd38750452e9b5e949d4623f18e5b5e55eba9fd6a5815654e94aa1b4a10fc1"
+      },
+      {
+        "path": "part-000005.jsonl.gz",
+        "bytes": 335661,
+        "sha256": "a0d6a2ee56956860c6f5224ab157f3c9d01dacf8410971c5c731a22255cdc8f0",
+        "admitted": true,
+        "records": 15692,
+        "expanded_sha256": "eef0b439b502253380d431f012af51feac0cd99127c5558d20bbc2d12e355da4"
+      },
+      {
+        "path": "part-000006.jsonl.gz",
+        "bytes": 298678,
+        "sha256": "5c7bd9f05a10673142d4c533d53cfeeb8d6771a33c87ff83448dc7897d4dd935",
+        "admitted": true,
+        "records": 13549,
+        "expanded_sha256": "b4e859d5c1e23fcf971abb7e27e7f8156b75c0fe3ff94f9b017f43ddaeb01941"
+      },
+      {
+        "path": "part-000007.jsonl.gz",
+        "bytes": 354684,
+        "sha256": "a660507af829a09d9516bb16d15cc3655b01834828128796532b95ed08d0cabb",
+        "admitted": true,
+        "records": 16628,
+        "expanded_sha256": "fd7b6d27a3c3b8a27584cfa7fe35c221b72eac74073005fb0249f8028adbbcdd"
+      },
+      {
+        "path": "part-000008.jsonl.gz",
+        "bytes": 96,
+        "sha256": "183da5ba9fe6ba461e1589240dcb04a35fc1f5e261aa7c58d467df548d187ebe",
+        "admitted": true,
+        "records": 1,
+        "expanded_sha256": "ae626c53b7217ed31693a49c04ccec393abb89e02cb59ac64eb5e297efa3f2e3"
+      },
+      {
+        "path": "part-000009.jsonl.gz",
+        "bytes": 687344,
+        "sha256": "eba3f81d6fa906df76fbe81e438c6aebd129ab9e23b8c63ae2a447ae07216a00",
+        "admitted": true,
+        "records": 29654,
+        "expanded_sha256": "fc6846d4f6af14e0c761185305bb680abc7833857ce13e3bd866c65922e62fcc"
+      },
+      {
+        "path": "part-000010.jsonl.gz",
+        "bytes": 350853,
+        "sha256": "3121533a490ca12718253769d9854212e4cc01791f3926bd2d7fc91024e0d502",
+        "admitted": true,
+        "records": 14848,
+        "expanded_sha256": "bfcb9755fe4264c405ea7c7b62509fe08cdd042604bf4f5c2ef77ad25af2575b"
+      },
+      {
+        "path": "part-000011.jsonl.gz",
+        "bytes": 358622,
+        "sha256": "d2b4747ec72c68b41a8c4fbfbfeedf2c0da46648b1097773c3583b1e1b049aab",
+        "admitted": true,
+        "records": 14449,
+        "expanded_sha256": "9b036c9d15e814533535287977fac0db20d7f44aa346c818386a5386f5e93191"
+      },
+      {
+        "path": "part-000012.jsonl.gz",
+        "bytes": 469588,
+        "sha256": "4688e86abafed0a173c3052e6911875932481ad52d48742e47f860e137cf0e05",
+        "admitted": true,
+        "records": 18092,
+        "expanded_sha256": "fd1ceb88352b9d9c5f1a9f3567b9122729e29b64f2383372273786b5ad9469a6"
+      },
+      {
+        "path": "part-000013.jsonl.gz",
+        "bytes": 470074,
+        "sha256": "bef9242fe6f9ef653a89f60fa5924a60fc98c28e3c9279d9276535c2d648ce9d",
+        "admitted": true,
+        "records": 18125,
+        "expanded_sha256": "2163b936989d9fd4c59365654af906e1976cbee8182cf3cfc7053cbaccad2f65"
+      },
+      {
+        "path": "part-000014.jsonl.gz",
+        "bytes": 480193,
+        "sha256": "cda897b4b42f7aa4da83f83e308d17fad80cf9ba1460f365727c190574df6b4b",
+        "admitted": true,
+        "records": 18850,
+        "expanded_sha256": "c9651e7b704815a80c4bf2dccb783e288aa4e21e112e7af73d0426b7ba9f6abe"
+      },
+      {
+        "path": "part-000015.jsonl.gz",
+        "bytes": 469637,
+        "sha256": "1d82a34340cc2b9ed405aaf4e59a084d4753fa6f18d007ac33469fb74880bb89",
+        "admitted": true,
+        "records": 18158,
+        "expanded_sha256": "ffb83d5823ba27a27492248a775db2c2106b9d989e97889787975fc20d8a3b3e"
+      },
+      {
+        "path": "part-000016.jsonl.gz",
+        "bytes": 473477,
+        "sha256": "49a530065f18debb7b33eeb4e98fec789f441abb49a97e440d29e36d105a91e8",
+        "admitted": true,
+        "records": 18388,
+        "expanded_sha256": "dc4288f199fd21363325e8d4bb14a53f9c01e56b701226ac618ef240d0b821a4"
+      },
+      {
+        "path": "part-000017.jsonl.gz",
+        "bytes": 468463,
+        "sha256": "c8f5ceb7805812411d1bbd2e7d6b70e30bb9436d8cb73e3769620885031f393e",
+        "admitted": true,
+        "records": 18126,
+        "expanded_sha256": "7e70462d7fd9819651db9c9ec48ccf8c3bf9cbbad42cb29e196183c3f4e2f90c"
+      },
+      {
+        "path": "part-000018.jsonl.gz",
+        "bytes": 465489,
+        "sha256": "04715bb461c5c8ffcfd594717108ac555f9eb7e4fdea998cfc6c1777ece5c862",
+        "admitted": true,
+        "records": 17860,
+        "expanded_sha256": "e8a689eb45db41a835e2eaa6159a5ab4ab441d90ca6db0500163671e86137af2"
+      },
+      {
+        "path": "part-000019.jsonl.gz",
+        "bytes": 475365,
+        "sha256": "5e3e17127772b6ef17c98571acb76cb6e77a168b4bc970aeac1b6eae4402e81a",
+        "admitted": true,
+        "records": 18390,
+        "expanded_sha256": "ad0d4442492a498565b35f3b849789f7027635008688870204816406ca3e7029"
+      },
+      {
+        "path": "part-000020.jsonl.gz",
+        "bytes": 463554,
+        "sha256": "09749172c4c6f43f28aae2fa68157067be3f9c14ac8df21a4349638613a76561",
+        "admitted": true,
+        "records": 17629,
+        "expanded_sha256": "f586b5164f1c1aeb3bec49f8ae0f2df3edf71b00de6737f7d902eac81e972d77"
+      },
+      {
+        "path": "part-000021.jsonl.gz",
+        "bytes": 473933,
+        "sha256": "fbd2c4f24992fcdf66fa2c05172a14a99572c0549fadc9ad59c85a4e0501fc21",
+        "admitted": true,
+        "records": 18223,
+        "expanded_sha256": "72f56c7556044b4d4a6bc51e4a4d5be6771c9ef1eb36b633bcc97abd88560b48"
+      },
+      {
+        "path": "part-000022.jsonl.gz",
+        "bytes": 467019,
+        "sha256": "a16d5f2009c483136b679ab294e63baca6e321337e13fdcd2046fa8d4dac9f2d",
+        "admitted": true,
+        "records": 17893,
+        "expanded_sha256": "31205cb41fffb271d83a47cc3cb8cd4e06852d516e6d4714db554592cecddfb7"
+      },
+      {
+        "path": "part-000023.jsonl.gz",
+        "bytes": 472472,
+        "sha256": "6bc6636f37970e61bc0b3ee4538ebafaff73092deeff30607c269e9316244158",
+        "admitted": true,
+        "records": 18190,
+        "expanded_sha256": "a32889e28de23219e297e06582c284c74ce9ba823c50fa95cb4b0319bf1f53a7"
+      },
+      {
+        "path": "part-000024.jsonl.gz",
+        "bytes": 472347,
+        "sha256": "79dd26f2237c7c3cbb81b2623c639b5ebb8b569478c2e838db084edef4cfb767",
+        "admitted": true,
+        "records": 18223,
+        "expanded_sha256": "b9aa2716f9a824d0200ae7b35de5425659bfd0e7ccd2d5c2bab8fd81be421a24"
+      },
+      {
+        "path": "part-000025.jsonl.gz",
+        "bytes": 472051,
+        "sha256": "76a3082bb097ecd4928d3c578b4c39be9e6ada249e1534493c062cc5767ec1ce",
+        "admitted": true,
+        "records": 18124,
+        "expanded_sha256": "c69b21786a0507a7325b18951dbabc3e8351e91cd834b068b60c63678a3932e2"
+      },
+      {
+        "path": "part-000026.jsonl.gz",
+        "bytes": 479136,
+        "sha256": "41242f493e520185ebf997100928382d319770ed6ca9ba00e0fcab732747fa95",
+        "admitted": true,
+        "records": 18685,
+        "expanded_sha256": "d060e2a52ceb7cc53c5f6dbb7bfd6bedd2b8185b00da5975e530233d8a2e07cb"
+      },
+      {
+        "path": "part-000027.jsonl.gz",
+        "bytes": 471387,
+        "sha256": "e38e137e9a7f26100aa2bb7aa51a89d82d31a77cd897b5cd533175cee421f90f",
+        "admitted": true,
+        "records": 18091,
+        "expanded_sha256": "422b44b74fcfc5b31b2a8d54d8cb5dd61616a145e677dac41fea9d8ed0c2f4f0"
+      },
+      {
+        "path": "part-000028.jsonl.gz",
+        "bytes": 481773,
+        "sha256": "72f1b5c487b7742fff41d2ef9adba9486cccc56e49396f73eafe2a720a89872b",
+        "admitted": true,
+        "records": 18850,
+        "expanded_sha256": "1c056438a59aa724acab9ec6e0feb37b96e013e399e4310e77541416e848dbdf"
+      },
+      {
+        "path": "part-000029.jsonl.gz",
+        "bytes": 471023,
+        "sha256": "509d160915111028a61bd827eefa505403d754eec27ba6f4cee8ac07528e174e",
+        "admitted": true,
+        "records": 18058,
+        "expanded_sha256": "8696c462a9393201927b381699840901b2a4733f3a252f89340d70d152f87ab5"
+      },
+      {
+        "path": "part-000030.jsonl.gz",
+        "bytes": 476718,
+        "sha256": "12e57ad093f2f678c71b842ad724fc42af46142f9b32ec149b90e5355a6e94f9",
+        "admitted": true,
+        "records": 18521,
+        "expanded_sha256": "6d2db3b22eeb64b8a2ae7011eda4a371161950bdf7d9884397ffedf138d11171"
+      },
+      {
+        "path": "part-000031.jsonl.gz",
+        "bytes": 469641,
+        "sha256": "42c36fcc05b179e287a33bda14078124910f10409074a69be64784915b2b16ee",
+        "admitted": true,
+        "records": 18025,
+        "expanded_sha256": "9245ff991ee0ab4a57c0e6ee24cd77841bba117a0077b073a2f88b65a4fd7776"
+      },
+      {
+        "path": "part-000032.jsonl.gz",
+        "bytes": 462464,
+        "sha256": "77b826dd1ad439f48ac2cb92d95e1923cdae50d4920270dde64a108dc37c8639",
+        "admitted": true,
+        "records": 17935,
+        "expanded_sha256": "92f79e1d94a07e24075ad7ecdc30c04b50f6bb11fd203cf9f37939e3f2fded6a"
+      },
+      {
+        "path": "part-000033.jsonl.gz",
+        "bytes": 474400,
+        "sha256": "9046900f6596afce5e12be09ff1a4f1cdb3c52c0fecbf3e0ec1d6d5b2578e88e",
+        "admitted": true,
+        "records": 18322,
+        "expanded_sha256": "15b194bfee3a392c258dfc3c44ec497a979122073d7441d0079cebc1e55f8881"
+      },
+      {
+        "path": "part-000034.jsonl.gz",
+        "bytes": 442052,
+        "sha256": "7203a8950e1de1613e1a264c4ad774f03bad82d4aa08962da9939d2b288b3908",
+        "admitted": true,
+        "records": 17306,
+        "expanded_sha256": "b73540f263ec8d4485bb02f3b04b6eefb84afc9416c4df5ad4e95e1c52b6a67d"
+      },
+      {
+        "path": "part-000035.jsonl.gz",
+        "bytes": 470664,
+        "sha256": "60bca4e13ffa837b48424d0f4af33b51f935275e68c0a2b436bf477abd8d4453",
+        "admitted": true,
+        "records": 18175,
+        "expanded_sha256": "8e2538e29798aea0d4bbc0e7cf167c2a663d8339429d7647aa757a305817012b"
+      },
+      {
+        "path": "part-000036.jsonl.gz",
+        "bytes": 434815,
+        "sha256": "05041b31d01eccf5298424208e89962f228be52861eb031370516d8636605ad9",
+        "admitted": true,
+        "records": 16927,
+        "expanded_sha256": "bcb366328f18a11e1d884c95979a5d3efdb25da97d2146c984ffd1bec5df7891"
+      },
+      {
+        "path": "part-000037.jsonl.gz",
+        "bytes": 452763,
+        "sha256": "0d5b40d30d0f985fe3f0480ac48052f9e88b8ce056619041d47d2e10d5581c20",
+        "admitted": true,
+        "records": 17561,
+        "expanded_sha256": "c521ddbc9a6b5a5e56cf5f0f64a2209907d256e6b16ee1aa51bdf510bf1e5772"
+      },
+      {
+        "path": "part-000038.jsonl.gz",
+        "bytes": 456431,
+        "sha256": "511907a12d5dd120f1fad0cda8e6d4211663a4c42a8c4e92d414ba4377bb8eb9",
+        "admitted": true,
+        "records": 17639,
+        "expanded_sha256": "5a74dc2f4a0bd91190b3ac5ee6d0fd1dac5bb935076f7702a4ad955060017ba5"
+      },
+      {
+        "path": "part-000039.jsonl.gz",
+        "bytes": 432869,
+        "sha256": "8fc5cbb9b4cf7ffd32cc1e202690efb0ff0d621291638d02479198c5b983983b",
+        "admitted": true,
+        "records": 16797,
+        "expanded_sha256": "1883d54087b86ea912234c02cd28bd87ddc97e118a5c50d514559227d29695bf"
+      },
+      {
+        "path": "part-000040.jsonl.gz",
+        "bytes": 464277,
+        "sha256": "8ae728bcfb3680d1a23038a13a42e8d74d059de5b14a189e7cd43e7b41c0f375",
+        "admitted": true,
+        "records": 17847,
+        "expanded_sha256": "778c159d3947e93bf5bd92981452595cc12e4b930ab6821e6673e334c05bf5ec"
+      },
+      {
+        "path": "part-000041.jsonl.gz",
+        "bytes": 434366,
+        "sha256": "59f18f7411521e00dba960118e02039f054a595e62a5144ed88578286381e59d",
+        "admitted": true,
+        "records": 16729,
+        "expanded_sha256": "6f03311cde482a20b58dea5eb52a041a70b42cbb4a73e37e09f9060ff12a2d92"
+      },
+      {
+        "path": "part-000042.jsonl.gz",
+        "bytes": 447727,
+        "sha256": "e63eb0f7773e07a917ed5d81232e366f8f065819c8a902fe16db2eb65ba09551",
+        "admitted": true,
+        "records": 17148,
+        "expanded_sha256": "e61f8f812daab25237a8320752335021ce219eb4b7054e59edc9876312664c2f"
+      },
+      {
+        "path": "part-000043.jsonl.gz",
+        "bytes": 423152,
+        "sha256": "78d56e68242751f3be66d909cbb8d700d6347e36026059d6af79dab4c75c2190",
+        "admitted": true,
+        "records": 16576,
+        "expanded_sha256": "0950a82a9943ffd5addacda4de3b9cf4748ef85802789dc89c4e72d5f3748d80"
+      },
+      {
+        "path": "part-000044.jsonl.gz",
+        "bytes": 455842,
+        "sha256": "1c5fa04d69bc439c1f7887ea0b66fcaa14aae7826cede7415f64f40494389b59",
+        "admitted": true,
+        "records": 17371,
+        "expanded_sha256": "5e9ecef314bc9ba63b1b5c8162bfc8f8d54a6748e3fbd14735e244d6633ddf1d"
+      },
+      {
+        "path": "part-000045.jsonl.gz",
+        "bytes": 425349,
+        "sha256": "cea4af33f118b75d4fd9689192868d79a62c93ae602e699c8e52589cd2484dfe",
+        "admitted": true,
+        "records": 16590,
+        "expanded_sha256": "3f34ff4be5b8df8bb5e33bbac2b437ca5095a6dfc67389148021df5585892a1a"
+      },
+      {
+        "path": "part-000046.jsonl.gz",
+        "bytes": 471575,
+        "sha256": "2f36450ae1f7f51f2d001f6c594bbb1d522afeccf7d24da4f55092c7bbcb9786",
+        "admitted": true,
+        "records": 18157,
+        "expanded_sha256": "b769af8dfeed37afe310b7c6147149d4c0519ea570e98af525add8242bad742a"
+      },
+      {
+        "path": "part-000047.jsonl.gz",
+        "bytes": 425231,
+        "sha256": "1509c8d81b49b1ed4debd91272e269871534d946d1576692633ae5f684a5075a",
+        "admitted": true,
+        "records": 16523,
+        "expanded_sha256": "ca5f54f7e6d9479810aa2afe714fc5e815ccbe229082beb6ad92387b13fb83ed"
+      },
+      {
+        "path": "part-000048.jsonl.gz",
+        "bytes": 469631,
+        "sha256": "fc6ffaac5bb9f91e7efeb50d27c475326be2fef37ae53c0eb031efd014131e8f",
+        "admitted": true,
+        "records": 18243,
+        "expanded_sha256": "b7430584f7040571d44c7bd72942d722927d628792e2d88a45ba05a102429f44"
+      },
+      {
+        "path": "part-000049.jsonl.gz",
+        "bytes": 440514,
+        "sha256": "f6dda253741bc848f98aeed48dc8fc50937dc41b1a03b8429dd8921c5c7e87ac",
+        "admitted": true,
+        "records": 17024,
+        "expanded_sha256": "a352c58d7be4ea2c618ce9520e0738e980888e36d95ff5efe066db7cc9aa883b"
+      },
+      {
+        "path": "part-000050.jsonl.gz",
+        "bytes": 461574,
+        "sha256": "13033011cb480553b7d3ab344c707fa476f66a0fc15ed08e0e13de3fb4a53381",
+        "admitted": true,
+        "records": 17987,
+        "expanded_sha256": "0d05d0b02be69d5baa8c6e7a2df90b9fe453da6c727a2dbfe9ccabd50fee133b"
+      },
+      {
+        "path": "part-000051.jsonl.gz",
+        "bytes": 472862,
+        "sha256": "d95ed7c6608b949f06c342b6a25d8766e90622395cf797fd7cdc1ee39a5a8ced",
+        "admitted": true,
+        "records": 18290,
+        "expanded_sha256": "312a71a0f64747682bf6abf0baf6b6fb3d16cf8a5e1b904f1f0285e5a90874c6"
+      },
+      {
+        "path": "part-000052.jsonl.gz",
+        "bytes": 477576,
+        "sha256": "218b9b82383c822a4f2f801dbe4dd918c752e19e039d3c0f2719957700c82937",
+        "admitted": true,
+        "records": 18586,
+        "expanded_sha256": "000b567e37afe3c039ade51d07fc0192ef937d2ca8029d73108e2de6e59d5570"
+      },
+      {
+        "path": "part-000053.jsonl.gz",
+        "bytes": 475444,
+        "sha256": "5b2cdd9259d303d1ed90891211afbc6634040e49c128083087ab894750f55c4e",
+        "admitted": true,
+        "records": 18572,
+        "expanded_sha256": "cf89334a85bd4e826d300c40cc4e1301fa186dc070016c2e7eb83c61393895c5"
+      },
+      {
+        "path": "part-000054.jsonl.gz",
+        "bytes": 464828,
+        "sha256": "c1952e5cc24392990b5bf55d48385497e8c0c1312916b78610e2faf20340845a",
+        "admitted": true,
+        "records": 18183,
+        "expanded_sha256": "70674d064bdc0c866e09e552f0575cf26dcbeb4386338c59afea745b3e9a8c0d"
+      },
+      {
+        "path": "part-000055.jsonl.gz",
+        "bytes": 478593,
+        "sha256": "39f58693328fe76fb5e3b71ba4306d630c70eb0eb018ed8443e1dc5212fa9c26",
+        "admitted": true,
+        "records": 18754,
+        "expanded_sha256": "f38894dd2b8721dad249be16bf1647dff9790daeaf2c3a7e2b1661ae8d686980"
+      },
+      {
+        "path": "part-000056.jsonl.gz",
+        "bytes": 457857,
+        "sha256": "c506fa66576e320a71a63cd99131ef7bb8c09f6cfb8b13d85bf7896b71cf7735",
+        "admitted": true,
+        "records": 17922,
+        "expanded_sha256": "3496e279e611247cbc6a85126bc51701b5419fd36d1c21d645a4c3fa39518fa4"
+      },
+      {
+        "path": "part-000057.jsonl.gz",
+        "bytes": 481932,
+        "sha256": "d68372984341a2add738b59851bb2de50620231101a1ecd63cea8cf20281bb8b",
+        "admitted": true,
+        "records": 18883,
+        "expanded_sha256": "119f303a86fc13b42d7629d6bcc16c0cd214ff0ebb48f4e8497bb2156d1314cc"
+      },
+      {
+        "path": "part-000058.jsonl.gz",
+        "bytes": 451940,
+        "sha256": "1a73bd3c4c083cb1e7e6f9019fb784ebe504930eaa6ae79b9d887788b58535bd",
+        "admitted": true,
+        "records": 17527,
+        "expanded_sha256": "86147f2bbae1e6b9b1b25c72884dc5d49b759d5987e4ef0239c7ea7d4617ec67"
+      },
+      {
+        "path": "part-000059.jsonl.gz",
+        "bytes": 477630,
+        "sha256": "b9e24a0e242827918fabecc1768d7143d3d69d23d732f674d334718b2c2c4e8b",
+        "admitted": true,
+        "records": 18538,
+        "expanded_sha256": "80c0be483dca0049a721c07f422b886590a8e64906876d26db981bc140a282e2"
+      },
+      {
+        "path": "part-000060.jsonl.gz",
+        "bytes": 453100,
+        "sha256": "1bf346c1fa79eab5b7e00e1cfc133a4d7628023a24b51e375cc6c9c069de31f6",
+        "admitted": true,
+        "records": 17596,
+        "expanded_sha256": "ab2c8e5197a9a3cf7129d20323e1f4e1d9129b2dc7b63ba26ceda4a453147b23"
+      },
+      {
+        "path": "part-000061.jsonl.gz",
+        "bytes": 111072,
+        "sha256": "474e6b0be16bda323b98b0ca9623e57384977a612a5e76f882f51ca5f1804493",
+        "admitted": true,
+        "records": 4804,
+        "expanded_sha256": "582abfd80be074487605734e8b3d36b110f6e2eebe78fa7836f24dbffe3c9bae"
+      },
+      {
+        "path": "part-000062.jsonl.gz",
+        "bytes": 161,
+        "sha256": "0856a7b48deaa010382625313fa33a6b5b56763451fb005ebb5a54d3dbec6f9e",
+        "admitted": true,
+        "records": 1,
+        "expanded_sha256": "f318b66e02a8f8cd903ba33896cf6d97d69468396275db11ac2be86a348d1889"
+      }
+    ],
+    "admitted_parts": [
+      "part-000000.jsonl.gz",
+      "part-000001.jsonl.gz",
+      "part-000002.jsonl.gz",
+      "part-000003.jsonl.gz",
+      "part-000004.jsonl.gz",
+      "part-000005.jsonl.gz",
+      "part-000006.jsonl.gz",
+      "part-000007.jsonl.gz",
+      "part-000008.jsonl.gz",
+      "part-000009.jsonl.gz",
+      "part-000010.jsonl.gz",
+      "part-000011.jsonl.gz",
+      "part-000012.jsonl.gz",
+      "part-000013.jsonl.gz",
+      "part-000014.jsonl.gz",
+      "part-000015.jsonl.gz",
+      "part-000016.jsonl.gz",
+      "part-000017.jsonl.gz",
+      "part-000018.jsonl.gz",
+      "part-000019.jsonl.gz",
+      "part-000020.jsonl.gz",
+      "part-000021.jsonl.gz",
+      "part-000022.jsonl.gz",
+      "part-000023.jsonl.gz",
+      "part-000024.jsonl.gz",
+      "part-000025.jsonl.gz",
+      "part-000026.jsonl.gz",
+      "part-000027.jsonl.gz",
+      "part-000028.jsonl.gz",
+      "part-000029.jsonl.gz",
+      "part-000030.jsonl.gz",
+      "part-000031.jsonl.gz",
+      "part-000032.jsonl.gz",
+      "part-000033.jsonl.gz",
+      "part-000034.jsonl.gz",
+      "part-000035.jsonl.gz",
+      "part-000036.jsonl.gz",
+      "part-000037.jsonl.gz",
+      "part-000038.jsonl.gz",
+      "part-000039.jsonl.gz",
+      "part-000040.jsonl.gz",
+      "part-000041.jsonl.gz",
+      "part-000042.jsonl.gz",
+      "part-000043.jsonl.gz",
+      "part-000044.jsonl.gz",
+      "part-000045.jsonl.gz",
+      "part-000046.jsonl.gz",
+      "part-000047.jsonl.gz",
+      "part-000048.jsonl.gz",
+      "part-000049.jsonl.gz",
+      "part-000050.jsonl.gz",
+      "part-000051.jsonl.gz",
+      "part-000052.jsonl.gz",
+      "part-000053.jsonl.gz",
+      "part-000054.jsonl.gz",
+      "part-000055.jsonl.gz",
+      "part-000056.jsonl.gz",
+      "part-000057.jsonl.gz",
+      "part-000058.jsonl.gz",
+      "part-000059.jsonl.gz",
+      "part-000060.jsonl.gz",
+      "part-000061.jsonl.gz",
+      "part-000062.jsonl.gz"
+    ],
+    "crc_valid_records": 1064404,
+    "prefix_records": 1064403,
+    "last_candidate_stage": 18,
+    "excluded_crc_valid_tail_records": 1,
+    "unknown_buffered_or_truncated_tail_operations": false,
+    "count_interpretation": "Completed stage stream and final manifest counts independently matched"
+  },
+  "original_final_manifest_present": true,
+  "original_raw_index_present": true,
+  "audit_source_sha256": {
+    "tools/cifar_prefix_replay.py": "0f6bb5743dd8b4218b68701c65749db00874d8e444d6df18feda08f127a39c69",
+    "tools/audit_cifar_interrupted_prefix.py": "1c19c6e4b0db4af3892a681035b27123633d2ca7c840f1537928b13e35ec3b00",
+    "tools/cifar_stage_source_registry.json": "15c6f2729df901c5aa9a92f92645cd7ecd7e58dd4e6a596ac9a8afc1e1632583"
+  },
+  "physical_state_now_inferred": false,
+  "hardware_acquisition_performed": false,
+  "incomplete_tail_not_reused": true,
+  "unknown_actual_tail_operations": false
+}

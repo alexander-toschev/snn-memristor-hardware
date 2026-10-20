@@ -1,0 +1,344 @@
+{
+  "schema": "cifar-hardware-complete-stage-batch-review-v1",
+  "source": "hardware",
+  "status": "six_stage_semantic_replays_pass",
+  "new_stages": [
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "accepted_prefix_stages": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "next_stage": 19,
+  "complete_full_tensor": false,
+  "classifier_executed": false,
+  "classification_accuracy_measured": false,
+  "hardware_access_by_this_review": false,
+  "original_prefix_report": {
+    "path": "reports/2026-10-19/cifar-full-case0-review/hardware-prefix-diagnostic/PREFIX_AUDIT.json",
+    "sha256": "49cdfe3f5b5d76854431c8a3e58e855a43e4b8fe76ea887ad1316e6e045011b6"
+  },
+  "stage_reports": [
+    {
+      "stage": 13,
+      "session": "results/cifar_resumable_20261019/ac92f059-fec1-4c08-99f5-325a46b7124e",
+      "audit_path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-13/PREFIX_AUDIT.json",
+      "audit_sha256": "96751a54f616b4dad38269b0df791e6b2511a16547fb7aa04c4959ce8542deb6",
+      "certificate_sha256": "65a207bddba9cb95f198e393e58ff4c73a53be8cdb40695be16f77ff19892f4f",
+      "status": "completed_range",
+      "strict_numeric_replay": "PASS",
+      "portable_condition_policy": "excluded-rank-condition-v1",
+      "numeric_diagnostics": [
+        {
+          "stage": 13,
+          "strict_numeric_replay": "PASS",
+          "decision_equivalence": "exact_within_original_tolerance"
+        }
+      ],
+      "native_impacts": 335164,
+      "programming_pulses": 1750,
+      "observed_coefficients": 128,
+      "within_immediate_tolerance": 22,
+      "elapsed_acquisition_seconds": 912.000125,
+      "private_source_receipt_sha256": "929472d4fa83b64ebeb2b5c030bf39e1c9a145e11d812f115aef2630149b7afb",
+      "private_source_status": "remote_operator_verified_local_bytes_unavailable",
+      "execution_grant_snapshot_verified": true
+    },
+    {
+      "stage": 14,
+      "session": "results/cifar_resumable_20261019/cb0794f0-8cca-4b0a-8bee-218cbe0d0871",
+      "audit_path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-14/PREFIX_AUDIT.json",
+      "audit_sha256": "fac059568fa3b503330208c630180b1c2291952a72bbbfb2d59954fdc589a66c",
+      "certificate_sha256": "3b397d6c5447f868040fea1b51d143f5a109960ac12a3294b89f404652b1fd05",
+      "status": "completed_range",
+      "strict_numeric_replay": "FAIL_condition_only",
+      "portable_condition_policy": "excluded-rank-condition-v1",
+      "numeric_diagnostics": [
+        {
+          "stage": 14,
+          "strict_numeric_replay": "FAIL_condition_only",
+          "decision_equivalence": "PASS",
+          "policy": "excluded-rank-condition-v1",
+          "recorded_condition": 2.4875420022314723e+17,
+          "local_condition": 6.129960964706268e+17,
+          "unchanged_other_fields_tolerance": {
+            "absolute": 1e-10,
+            "relative": 1e-10
+          },
+          "spectra": {
+            "fit": {
+              "singular_values": [
+                5.530116331259216,
+                1.5153152378423254,
+                1.2756770564746562,
+                0.6951492018042925,
+                0.26939435867944184,
+                0.2176572294450118,
+                4.2565918907084894e-17,
+                1.6478908525754194e-18
+              ],
+              "numpy_rank_tolerance": 2.357630392250719e-13,
+              "margin_factor": 16,
+              "stable": true
+            },
+            "reference": {
+              "singular_values": [
+                5.200365440829312,
+                1.6460385954196535,
+                1.178882008120157,
+                0.38766670399521364,
+                0.03037732623105006,
+                0.019679795362548103,
+                6.341760533815762e-17,
+                4.757676191977031e-19
+              ],
+              "numpy_rank_tolerance": 2.2170491323674834e-13,
+              "margin_factor": 16,
+              "stable": true
+            }
+          }
+        }
+      ],
+      "native_impacts": 175026,
+      "programming_pulses": 489,
+      "observed_coefficients": 44,
+      "within_immediate_tolerance": 10,
+      "elapsed_acquisition_seconds": 501.18539,
+      "private_source_receipt_sha256": "d8b413614aeff3ca6c7cf232421dfd2bf35e91d34fd84e085f80f6893e2b5f64",
+      "private_source_status": "remote_operator_verified_local_bytes_unavailable",
+      "execution_grant_snapshot_verified": true
+    },
+    {
+      "stage": 15,
+      "session": "results/cifar_resumable_20261019/ec1ef122-44d6-4dba-ba8f-28ba06f0fb04",
+      "audit_path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-15/PREFIX_AUDIT.json",
+      "audit_sha256": "dbecf95517b77a378c45dfcff968cb820dca998a4f0dc3242b36618aba14167d",
+      "certificate_sha256": "39347e7763649f6024ec33891b1bbbbedff910bbdf7cf7f26300ed282e4e47bc",
+      "status": "completed_range",
+      "strict_numeric_replay": "PASS",
+      "portable_condition_policy": "excluded-rank-condition-v1",
+      "numeric_diagnostics": [
+        {
+          "stage": 15,
+          "strict_numeric_replay": "PASS",
+          "decision_equivalence": "exact_within_original_tolerance"
+        }
+      ],
+      "native_impacts": 369236,
+      "programming_pulses": 1810,
+      "observed_coefficients": 128,
+      "within_immediate_tolerance": 7,
+      "elapsed_acquisition_seconds": 1003.256181,
+      "private_source_receipt_sha256": "9da844723608cca75abc47651b91481a8d918215a77b688aab02ec22e5b21ed3",
+      "private_source_status": "remote_operator_verified_local_bytes_unavailable",
+      "execution_grant_snapshot_verified": true
+    },
+    {
+      "stage": 16,
+      "session": "results/cifar_resumable_20261019/bfe92593-4a84-4997-9b32-e283235fe280",
+      "audit_path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-16/PREFIX_AUDIT.json",
+      "audit_sha256": "e680dcacef6321cfc437a26e35e9f004d97acb80e6f8de8dfd531a0668712728",
+      "certificate_sha256": "09b908dda85925c9ec3f75f92a6ad61ccdadb684bab667a3b0dc45d8cca321e6",
+      "status": "completed_range",
+      "strict_numeric_replay": "PASS",
+      "portable_condition_policy": "excluded-rank-condition-v1",
+      "numeric_diagnostics": [
+        {
+          "stage": 16,
+          "strict_numeric_replay": "PASS",
+          "decision_equivalence": "exact_within_original_tolerance"
+        }
+      ],
+      "native_impacts": 337898,
+      "programming_pulses": 1797,
+      "observed_coefficients": 128,
+      "within_immediate_tolerance": 18,
+      "elapsed_acquisition_seconds": 920.971628,
+      "private_source_receipt_sha256": "eb5d66a1cefe0f4dfe69a8372266ffdd79ce7f795cd6a55a3713e1a8514d3abd",
+      "private_source_status": "remote_operator_verified_local_bytes_unavailable",
+      "execution_grant_snapshot_verified": true
+    },
+    {
+      "stage": 17,
+      "session": "results/cifar_resumable_20261019/606c1245-5a45-4652-9d89-ff57143f2345",
+      "audit_path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-17/PREFIX_AUDIT.json",
+      "audit_sha256": "d641dea0c4c25c66904a6ef86a7bd24ca51cd303fff5d7d65db8781e8777a600",
+      "certificate_sha256": "4955c9133313bf88d8449f3364612c3a163cc5c255a157cd2aa95ae6b7aded5c",
+      "status": "completed_range",
+      "strict_numeric_replay": "FAIL_condition_only",
+      "portable_condition_policy": "excluded-rank-condition-v1",
+      "numeric_diagnostics": [
+        {
+          "stage": 17,
+          "strict_numeric_replay": "FAIL_condition_only",
+          "decision_equivalence": "PASS",
+          "policy": "excluded-rank-condition-v1",
+          "recorded_condition": 9.89075712025428e+16,
+          "local_condition": 3.8961688595829766e+17,
+          "unchanged_other_fields_tolerance": {
+            "absolute": 1e-10,
+            "relative": 1e-10
+          },
+          "spectra": {
+            "fit": {
+              "singular_values": [
+                6.301244324920461,
+                1.6030037492573095,
+                0.9630806472827165,
+                0.39512061470011217,
+                0.24293458856232653,
+                0.19309998118727784,
+                0.020001990869106267,
+                4.885355080741492e-18
+              ],
+              "numpy_rank_tolerance": 2.686382028793074e-13,
+              "margin_factor": 16,
+              "stable": true
+            },
+            "reference": {
+              "singular_values": [
+                6.045914454426465,
+                1.7493742398060776,
+                1.1390757689301314,
+                0.18333255370222684,
+                0.11859379915631386,
+                0.04019269399961447,
+                1.2205535898796589e-16,
+                2.6809660550264542e-17
+              ],
+              "numpy_rank_tolerance": 2.5775283579718283e-13,
+              "margin_factor": 16,
+              "stable": true
+            }
+          }
+        }
+      ],
+      "native_impacts": 176692,
+      "programming_pulses": 566,
+      "observed_coefficients": 44,
+      "within_immediate_tolerance": 7,
+      "elapsed_acquisition_seconds": 503.962874,
+      "private_source_receipt_sha256": "bebdafda912d2523445e1ce95a52c139091e1a8dcb6dd4dae416f8ba139f06a2",
+      "private_source_status": "remote_operator_verified_local_bytes_unavailable",
+      "execution_grant_snapshot_verified": true
+    },
+    {
+      "stage": 18,
+      "session": "results/cifar_resumable_20261019/d1931130-6136-47ad-92b3-6d701e8bddbe",
+      "audit_path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/stage-18/PREFIX_AUDIT.json",
+      "audit_sha256": "cb895a4d63e75dd76a8c62868bc62c36803099e74e71ce4b5c7036205bd1c7fe",
+      "certificate_sha256": "a7040bc1cea0b6ae1cf8a9b05d2f1a19bfc95d2f7cf648410d7760d38ffebfe7",
+      "status": "completed_range",
+      "strict_numeric_replay": "PASS",
+      "portable_condition_policy": "excluded-rank-condition-v1",
+      "numeric_diagnostics": [
+        {
+          "stage": 18,
+          "strict_numeric_replay": "PASS",
+          "decision_equivalence": "exact_within_original_tolerance"
+        }
+      ],
+      "native_impacts": 368910,
+      "programming_pulses": 1795,
+      "observed_coefficients": 128,
+      "within_immediate_tolerance": 13,
+      "elapsed_acquisition_seconds": 1001.039595,
+      "private_source_receipt_sha256": "6d765f1ef3caa42b036469eac8bd18ed718899ac2c781749c8fe45e77c1e0633",
+      "private_source_status": "remote_operator_verified_local_bytes_unavailable",
+      "execution_grant_snapshot_verified": true
+    }
+  ],
+  "totals": {
+    "native_impacts": 1762926,
+    "programming_pulses": 8207,
+    "observed_coefficients": 600,
+    "immediate_within_tolerance": 77,
+    "acquisition_seconds": 4842.415793
+  },
+  "proposed_next_batch": {
+    "plan_path": "reports/2026-10-20/cifar-hardware-batch-13-18-review/HW_BATCH_19_25_PLAN.json",
+    "plan_sha256": "c3838b01b7855b57a5b38d26965b0ea9a5e4ef35043334007dea328bde383a15",
+    "range": [
+      19,
+      25
+    ],
+    "stage_bounds": [
+      {
+        "stage": 19,
+        "maximum_impacts": 346568,
+        "maximum_pulses": 3072,
+        "positions": 784,
+        "programming_impacts_upper": 43008
+      },
+      {
+        "stage": 20,
+        "maximum_impacts": 180656,
+        "maximum_pulses": 1056,
+        "positions": 784,
+        "programming_impacts_upper": 14784
+      },
+      {
+        "stage": 21,
+        "maximum_impacts": 377072,
+        "maximum_pulses": 3072,
+        "positions": 784,
+        "programming_impacts_upper": 43008
+      },
+      {
+        "stage": 22,
+        "maximum_impacts": 346520,
+        "maximum_pulses": 3072,
+        "positions": 784,
+        "programming_impacts_upper": 43008
+      },
+      {
+        "stage": 23,
+        "maximum_impacts": 180872,
+        "maximum_pulses": 1056,
+        "positions": 784,
+        "programming_impacts_upper": 14784
+      },
+      {
+        "stage": 24,
+        "maximum_impacts": 376232,
+        "maximum_pulses": 3072,
+        "positions": 784,
+        "programming_impacts_upper": 43008
+      }
+    ],
+    "maximum_impacts": 1807920,
+    "maximum_pulses": 14400,
+    "raw_expanded_cap_bytes": 12884901888,
+    "required_free_bytes": 34359738368,
+    "hardware_launch_performed": false
+  },
+  "limits": [
+    "Accepted complete stages preserve time-local outputs, not current physical conductance.",
+    "Private sources are remote operator verified by explicit receipt; not all source bytes are locally available.",
+    "Portable condition exceptions are explicit, not frozen full-auditor PASS.",
+    "Original interrupted session retains an unknown tail; totals here cover only the six completed new sessions.",
+    "One-image classifier remains unavailable until all48 stages are combined; no accuracy result."
+  ]
+}
