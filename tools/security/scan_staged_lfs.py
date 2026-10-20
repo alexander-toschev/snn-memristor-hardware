@@ -123,6 +123,7 @@ def find_scanner(repo):
 # skips application/* (including gzip). Scan-only ASCII framing prevents that
 # optimization; every original byte follows unchanged, including NULs.
 SCAN_FRAME = b'gitleaks-full-byte-stream-v1\n' + b'\n' * 1024
+REPOSITORY_CONFIG = Path(__file__).resolve().parents[2] / '.gitleaks.toml'
 
 
 def scan_chunks(scanner, chunks, cwd, env=None):
@@ -132,7 +133,9 @@ def scan_chunks(scanner, chunks, cwd, env=None):
     process = None
     payload_bytes = 0
     try:
-        process = subprocess.Popen([scanner, 'stdin', '--redact=100', '--no-banner',
+        if not REPOSITORY_CONFIG.is_file():
+            raise Blocked('Repository scanner configuration is missing.')
+        process = subprocess.Popen([scanner, 'stdin', '--config', str(REPOSITORY_CONFIG), '--redact=100', '--no-banner',
             '--ignore-gitleaks-allow', '--max-target-megabytes=0', '--exit-code=1'],
             stdin=subprocess.PIPE, cwd=cwd, env=environment,
             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)

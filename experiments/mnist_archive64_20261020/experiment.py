@@ -2,7 +2,7 @@
 
 Шаги читаются последовательно в execute(): без нового STDP, без физической
 платы и без идеальной свёртки вместо MemriBoard. --pilot явно128/100; основной
-режим30000/10000. Hardware-параметра у этого entrypoint нет.
+режим10000/10000. Hardware-параметра у этого entrypoint нет.
 """
 from __future__ import annotations
 import argparse
@@ -35,8 +35,9 @@ from read_all import now
 
 BASE=ROOT/'results/mnist_archive64_20261020'
 CHARACTERIZATION=Path(__file__).parent/'calibration'
-SPEC: dict[str,object]=dict(schema='mnist-archive64-native-fullmask-lut-v1',checkpoint_sha256=CHECKPOINT_SHA,
+SPEC: dict[str,object]=dict(schema='mnist-archive64-native-fullmask-lut-v2-train10000',checkpoint_sha256=CHECKPOINT_SHA,
     source='native_memriboard_simulator',physical_hardware=False,new_stdp_training=False,
+    train_images=10000,test_images=10000,pilot_train_images=128,pilot_test_images=100,
     archive_filters=64,taps=25,spatial=[24,24],timesteps=100,poisson_rate=.0015,poisson_seed=123,
     poisson_content_deterministic=True,encoder_boost=1.,synchronous_input_delay=1,
     lif_tau_ms=150.,lif_threshold=.38,lif_refrac_ms=2,rest_reset=0.,dt_ms=1.,
@@ -67,6 +68,11 @@ def mapping() -> tuple[float,float,dict[str,object]]:
                          observations_sha256=sha(path),mapping=measured)
 
 
+def sample_counts(pilot: bool) -> tuple[int,int]:
+    """Фиксированные первые N официальных изображений; метки здесь не читаются."""
+    return (128,100) if pilot else (10000,10000)
+
+
 def execute(pilot: bool,batch_size: int,argv: list[str]) -> RunResult:
     if not 1<=batch_size<=16:raise ValueError('Small exact encoder batch1..16 required')
     torch.set_num_threads(2);torch.use_deterministic_algorithms(True)
@@ -83,11 +89,11 @@ def execute(pilot: bool,batch_size: int,argv: list[str]) -> RunResult:
     for name in ('experiments/mnist_feature_pilot_20261019/experiment.py','experiments/mnist_accuracy_20261020/inputs.py',
                  'tools/prepare_mnist_conductance_fixture.py','experiment_hardware.py'):
         hashes[name]=sha(ROOT/name)
-    ntrain,ntest=(128,100) if pilot else (30000,10000)
+    ntrain,ntest=sample_counts(pilot)
     sid=str(uuid.uuid4());out=BASE/sid;out.mkdir(parents=True)
     def progress(message: str) -> None:
         print(message,flush=True)
-    manifest: Manifest=dict(session_id=sid,source='simulator',scope='pilot128-100' if pilot else 'archive30000-10000',
+    manifest: Manifest=dict(session_id=sid,source='simulator',scope='pilot128-100' if pilot else 'archive10000-10000',
         status='failed',started_utc=now(),protocol=SPEC,source_sha256=hashes,invocation=launch_provenance(argv),
         checkpoint_sha256=CHECKPOINT_SHA,characterization=binding,seed=20261019,batch_size=batch_size,
         train_images=ntrain,test_images=ntest,physical_hardware=False,new_stdp_training=False,

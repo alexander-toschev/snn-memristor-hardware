@@ -1,0 +1,9 @@
+# Preserve every built-in rule. This single value is an independently verified
+# SHA256 of pilot mask_keys.npy, not a credential; payload bytes are unchanged.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Exact verified MNIST archive64 pilot mask_keys.npy SHA256"
+regexTarget = "secret"
+regexes = ['''^0ca53cce0281fbe7c7077a11e6f141210183cad57b366a70649f32e3144f388b$''']

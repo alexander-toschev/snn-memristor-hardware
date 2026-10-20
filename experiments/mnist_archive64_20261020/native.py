@@ -48,7 +48,10 @@ class Collector:
         self.calls+=1;task={**command,'id':self.calls if command['mode_flag']==7 else 0}
         self.emit('request',task_id=self.calls,command_si=task,metadata=metadata)
         with contextlib.redirect_stdout(DriverOutput(self,'stdout')),contextlib.redirect_stderr(DriverOutput(self,'stderr')):
-            native=self.connector.impact(task)
+            # Connector делает shallow-copy ticket и преобразует vol-list
+            # in-place в DAC. Отдельная копия сохраняет оба raw command_si
+            # в вольтах; численные значения, переданные Connector, прежние.
+            native=self.connector.impact({**task,'vol':list(task['vol']) if isinstance(task['vol'],list) else task['vol']})
         self.emit('result',task_id=self.calls,command_si=task,native_result=safe(native))
         if not isinstance(native,(tuple,list)) or len(native)!=3:raise ValueError('Invalid native response')
         resistance,echo,adc=native

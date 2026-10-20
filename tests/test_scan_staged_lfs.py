@@ -162,6 +162,7 @@ class PayloadTests(unittest.TestCase):
         args, kwargs = call.call_args
         for flag in ('stdin', '--redact=100', '--ignore-gitleaks-allow', '--max-target-megabytes=0'):
             self.assertIn(flag, args[0])
+        self.assertEqual(args[0][args[0].index('--config')+1], str(scan.REPOSITORY_CONFIG))
         self.assertEqual(kwargs['cwd'], 'scratch')
         self.assertNotIn('GITLEAKS_CONFIG', kwargs['env'])
         self.assertNotIn('GITLEAKS_CONFIG_TOML', kwargs['env'])
@@ -221,6 +222,22 @@ class PayloadTests(unittest.TestCase):
         self.assertEqual(result.returncode, 1)
         self.assertEqual(result.stdout, b'')
         self.assertIn(b'working Python 3.8+', result.stderr)
+
+    @unittest.skipUnless(os.environ.get('LFS_SCAN_TEST_GITLEAKS'), 'Optional installed Gitleaks integration')
+    def test_exact_verified_checksum_only_and_unrelated_token_blocked(self):
+        scanner = os.environ['LFS_SCAN_TEST_GITLEAKS']
+        digest = '0ca53cce0281fbe7c7077a11e6f141210183cad57b366a70649f32e3144f388b'
+        fixture = Path(__file__).resolve().parents[1] / 'results/mnist_archive64_20261020/1e5a3121-748f-45a5-a048-cc4cbd079548/mask_keys.npy'
+        if fixture.is_file():
+            self.assertEqual(hashlib.sha256(fixture.read_bytes()).hexdigest(),digest)
+        permitted = ('{"mask_keys.npy": "'+digest+'"}\n').encode()
+        changed = ('{"mask_keys.npy": "'+digest[:-1]+'c"}\n').encode()
+        token = b'gh'+b'p_'+hashlib.sha256(b'checksum-allowlist-noncredential').hexdigest()[:36].encode()
+        with tempfile.TemporaryDirectory() as root:
+            scan.scan_stream(scanner,io.BytesIO(permitted),root)
+            for payload in (changed,permitted+b'fixture='+token+b'\n'):
+                with self.assertRaisesRegex(scan.Blocked,'detected a potential secret'):
+                    scan.scan_stream(scanner,io.BytesIO(payload),root)
 
     @unittest.skipUnless(os.environ.get('LFS_SCAN_TEST_GITLEAKS'), 'Optional installed Gitleaks integration')
     def test_real_gzip_magic_and_begin_middle_end_canaries(self):

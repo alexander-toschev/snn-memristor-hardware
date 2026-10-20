@@ -1,6 +1,7 @@
 """Focused offline tests: no native Connector is instantiated/opened."""
 from __future__ import annotations
 import sys
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -13,6 +14,16 @@ from experiments.mnist_archive64_20261020.cache import ExactCache,Response
 from experiments.mnist_archive64_20261020 import inputs,lif,readout,native
 
 class ArchiveTests(unittest.TestCase):
+    def test_fixed_train10000_protocol_and_pilot(self):
+        from experiments.mnist_archive64_20261020.experiment import SPEC,sample_counts
+        self.assertEqual(sample_counts(False),(10000,10000))
+        self.assertEqual(sample_counts(True),(128,100))
+        self.assertEqual(SPEC['train_images'],10000)
+        self.assertEqual(SPEC['test_images'],10000)
+        self.assertFalse(SPEC['test_tuning'])
+        self.assertFalse(SPEC['physical_hardware'])
+        self.assertFalse(SPEC['new_stdp_training'])
+
     def test_cache_exact_mvm_different_guard_and_invalidation(self):
         cache=ExactCache(2,[0,31])
         for repeat in range(3):
@@ -47,6 +58,28 @@ class ArchiveTests(unittest.TestCase):
         mvm=[x for x in connector.commands if x['mode_flag']==10]
         self.assertEqual(len(mvm),1);self.assertEqual(mvm[0]['vol'],[.05]*25+[0.]*7)
         with self.assertRaises(ValueError):collector.query(3,0,0,0)
+
+    def test_public_converter_mutation_does_not_corrupt_raw_si(self):
+        class MutatingConnector:
+            def __init__(self):self.received=None
+            def impact(self,task):
+                self.received=json.loads(json.dumps(task))
+                for i,v in enumerate(task['vol']):task['vol'][i]=abs(int(round(v*4095/5,0)))
+                return [100000.,task['id'],10]
+        class SnapshotWriter:
+            def __init__(self):self.rows=[]
+            def write(self,row):self.rows.append(json.loads(json.dumps(row)))
+        connector=MutatingConnector();writer=SnapshotWriter()
+        collector=native.Collector(connector,None,writer,1,lambda _:None)
+        volts=[.05]*25+[0.]*7
+        collector.call(dict(mode_flag=10,wl=2,vol=volts))
+        request=next(r for r in writer.rows if r['event']=='request')
+        result=next(r for r in writer.rows if r['event']=='result')
+        expected=dict(mode_flag=10,wl=2,vol=[.05]*25+[0.]*7,id=0)
+        self.assertEqual(connector.received,expected)
+        self.assertEqual(request['command_si'],expected)
+        self.assertEqual(result['command_si'],expected)
+        self.assertEqual(volts,[.05]*25+[0.]*7)
 
     def test_poisson_batch_independent_and_patch_order(self):
         pixels=np.arange(2*784,dtype=np.uint16).reshape(2,1,28,28).astype(np.uint8)

@@ -1,0 +1,21 @@
+.....F.F..............
+======================================================================
+FAIL: test_hook_no_working_python_blocks (tests.test_scan_staged_lfs.PayloadTests.test_hook_no_working_python_blocks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\memristor-aware-twd-snn\.tmp\publish-data-20261017\tests\test_scan_staged_lfs.py", line 222, in test_hook_no_working_python_blocks
+    self.assertEqual(result.returncode, 1)
+AssertionError: 3221225794 != 1
+
+======================================================================
+FAIL: test_hook_skips_nonworking_python3_alias (tests.test_scan_staged_lfs.PayloadTests.test_hook_skips_nonworking_python3_alias)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\memristor-aware-twd-snn\.tmp\publish-data-20261017\tests\test_scan_staged_lfs.py", line 206, in test_hook_skips_nonworking_python3_alias
+    self.assertEqual(result.returncode, 0)
+AssertionError: 3221225794 != 0
+
+----------------------------------------------------------------------
+Ran 22 tests in 10.112s
+
+FAILED (failures=2)
