@@ -1,5 +1,33 @@
 # Контроль целей — 20 октября 2026
 
+## Текущий этап после изменения задачи пользователем
+
+Пользователь выбрал новую компактную CIFAR100 subset10 RGB48→8 LIF→10,
+100 test-изображений; старый all-256 baseline остаётся 25/48 collected/audited.
+Его stages25–47 автоматически не продолжаются. CPU checkpoint
+`1aa6dcc7-b729-450e-8f95-beb6344bc075`: 26/100, только программная accuracy.
+
+Аппаратная калибровка `4c8c70ca-f819-4c82-83c8-8fed7f9fe3b0`
+завершена и опубликована: 256 ячеек, 293294 impacts, 8960 pulses;
+70 ячеек с разрешимым диапазоном, 2 строго стабильные. Для diagnostic
+best available выбраны WL0/7 × BL2/3/6/10/11/12/14/15, qualified=false.
+Матрица C улучшает плотные heldout-маски, ухудшает разреженные.
+Сводка: `reports/2026-10-20/stable-cell-calibration/HARDWARE_SUMMARY.json`.
+
+На момент проверки 20 октября около13:30UTC аппаратный compact100
+`69c5bfda-17bf-41ad-8805-704dc9b22ac4` работал, PID48481, stage0/image87.
+План `results/compact_cifar_20261020/physical_plan_4c8c70ca.json`;
+исходники Pi92b5ebd. Не запускать дубликат; текущий статус читать из
+manifest/progress и процесса. Это48 тайлов новой модели, не старые48stages.
+Параллельный nativeSIM compact100: `3c069a98-1afc-4931-b355-9090b0d27704`;
+план `results/compact_cifar_20261020/simulator_plan.json`.
+Итоговые raw/C accuracy обеих ветвей пока pending. После CIFAR — STDP8cell;
+старые источники/результаты сохраняются, обновление launcher не меняет протокол.
+MNIST128 nativeSIM main/reference уже завершены: оба raw-аудита PASS,
+review `native_sim_mechanism_qualified_not_efficacy`; доказательства в
+`reports/2026-10-20/mnist-native-sim/`. Это проверка механизма, не улучшения
+распознавания и не аппаратный запуск. Повторять её для закрытия пункта не нужно.
+
 **Последнее указание: сократить барьеры и расход токенов.** Для нового
 компактного CIFAR один агент завершает код. Нет повторных review-циклов,
 ручных receipts или обязательных source-freeze/grant/SHA-подтверждений.
