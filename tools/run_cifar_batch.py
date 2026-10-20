@@ -26,10 +26,10 @@ ENTRY='experiments/cifar_resumable_20261019/experiment.py'
 ENTRY_SHA='f52a623436d73c30a368733dbb75c7666603905f5440201900f7862211b44379'
 # Actual immutable entry bytes are checked below; no shell/source rewriting.
 HOOKS={'.githooks/pre-commit':'7a25e5dbed9dd3fc71c37fa0888b554c9aebc674554ebaff6e1009676920f425',
-       '.githooks/pre-push':'193f2f6be35f2285fe7b965c22b01319b6b1e2b666280d8235371e8fd3e26aeb',
-       '.githooks/post-commit':'796dd3beaafc4b715b655d759a841eb133b22512f8b17a252fd68780bae215d7',
-       '.githooks/post-checkout':'bbda59754e9e30c8ad41942885b98d57bd4e3561c852364fa8c36a843cfaa44a',
-       '.githooks/post-merge':'d42e319e56564b9a730e65b4e52862f748e5486f7a0d1a535f48a5a16b9a096c',
+       '.githooks/pre-push':'30513afae0f85264059ed90bba0ff03c5b2cf09666b999d95b08b623d17bbce8',
+       '.githooks/post-commit':'081dc7099c6baf397c42d3633d8d2aaf5d1f908ece0fa6e7724cd02ebd545dd3',
+       '.githooks/post-checkout':'e6f244abc09b4bfbf7769b15bc97e29339028dad767d79e179b3308def5ad012',
+       '.githooks/post-merge':'e00c5919922d9cf584199b7ab9291781c03e1beb11ea3ec88a8bc1396ce2156f',
        'tools/security/scan_staged_lfs.py':'af6246330a77446304fc6e7f3f44dcf2dcf057e609986c6bff68756567158669'}
 SESSION_ROOT='results/cifar_resumable_20261019'
 BATCH_ROOT='results/cifar_batch_preservation'
@@ -111,7 +111,11 @@ def remote_allowed(value):
 def verify_hooks():
     require(set(files_under(local('.githooks')))=={n for n in HOOKS if n.startswith('.githooks/')},
             'unexpected_hook_inventory')
-    for name,pin in HOOKS.items():require(sha(local(name))==pin,'reviewed_hook_changed')
+    for name,pin in HOOKS.items():
+        path=local(name)
+        require(sha(path)==pin,'reviewed_hook_changed')
+        if name.startswith('.githooks/') and os.name=='posix':
+            require(os.access(path,os.X_OK),'reviewed_hook_not_executable')
 
 
 def git_preflight(git,require_clean_index=True):

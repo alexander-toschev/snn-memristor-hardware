@@ -1,0 +1,54 @@
+{
+  "schema": "lfs-hook-compatibility-source-review-v1",
+  "date": "2026-10-20",
+  "status": "source_qualified_mandatory_pi_3_6_1_preflight_pending",
+  "source_sha256": {
+    "tools/run_cifar_batch.py": "3ba76b10122fd87144353a597a629d57a0a3941344190cb614c977a12cfa13c9",
+    ".githooks/pre-push": "30513afae0f85264059ed90bba0ff03c5b2cf09666b999d95b08b623d17bbce8",
+    ".githooks/post-commit": "081dc7099c6baf397c42d3633d8d2aaf5d1f908ece0fa6e7724cd02ebd545dd3",
+    ".githooks/post-checkout": "e6f244abc09b4bfbf7769b15bc97e29339028dad767d79e179b3308def5ad012",
+    ".githooks/post-merge": "e00c5919922d9cf584199b7ab9291781c03e1beb11ea3ec88a8bc1396ce2156f",
+    "tests/test_lfs_owned_hooks.py": "74c02879c3cd6c69549f1b5b54a49168eec28f39ec3b8d0d11c1a8525b25addb",
+    "docs/plans/LFS_HOOK_COMPATIBILITY_20261020.md": "4f09920aeed121a599aa498ee54f1b7d59ecfdc8fd350556b2a56712b35fb1b8"
+  },
+  "unchanged_sha256": {
+    ".githooks/pre-commit": "7a25e5dbed9dd3fc71c37fa0888b554c9aebc674554ebaff6e1009676920f425",
+    "tools/security/scan_staged_lfs.py": "af6246330a77446304fc6e7f3f44dcf2dcf057e609986c6bff68756567158669",
+    "tests/test_run_cifar_batch.py": "ae98d448d8c1734b25106653e08a2156fedd8c99a0f835a054539d14a85b2918",
+    "experiments/cifar_resumable_20261019/experiment.py": "f52a623436d73c30a368733dbb75c7666603905f5440201900f7862211b44379"
+  },
+  "independent_tests": {
+    "command": "python -B -m unittest tests.test_lfs_owned_hooks -v",
+    "passed": 4,
+    "elapsed_seconds": 8.254,
+    "local_git_lfs_version": "2.13.3 Windows amd64",
+    "real_filter_process_add_pointer_commit_repeated_diff_hook_stability": true,
+    "explicit_update_refuses_custom_replacement_without_byte_changes": true,
+    "shell_argv_stdin_exit_0_23_and_missing_lfs_2": true,
+    "posix_executable_negative_check": true,
+    "scope": "approved unsandboxed offline test execution in disposable repo-local temporary repositories",
+    "project_git_mutated": false,
+    "network_executed": false,
+    "hardware_or_native_sim_executed": false
+  },
+  "author_combined_tests": {
+    "passed": 22,
+    "elapsed_seconds": 16.073
+  },
+  "mandatory_operator_gate": {
+    "platform": "Raspberry, actual Git LFS 3.6.1",
+    "completed_by_this_review": false,
+    "requires": [
+      "published reviewed source bytes",
+      "exact five-hook inventory and SHA before and after Git/filter-process operations",
+      "POSIX executable hooks",
+      "successful ordinary Git diff and strict git_preflight",
+      "clean tracked worktree and no foreign staged changes",
+      "unchanged existing scanner/plan/grant/storage/lock/process checks"
+    ],
+    "on_failure": "stop before hardware; no ignore-dirty, hook overwrite, force install or bypass"
+  },
+  "remote_lfs_upload_tested": false,
+  "hardware_launch_authorized_without_pi_gate": false,
+  "scientific_or_full_cifar_completion_claimed": false
+}
