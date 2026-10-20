@@ -1,0 +1,75 @@
+{
+  "session": "4615c933-40a1-44fb-9c25-5459e98d4e1b",
+  "source": "hardware",
+  "acquisition_status": "completed",
+  "archive": "results/conductance_stdp_hardware_20261019/archives/4615c933-40a1-44fb-9c25-5459e98d4e1b.tar.gz",
+  "archive_sha256": "7d66cff4a2dc0bb20072c58687c1b6aed715989c41b5b366e6f7fa88c4c3d5be",
+  "archive_bytes": 1220320,
+  "impacts": 6598,
+  "pulses": 90,
+  "files": {
+    "board.ini": {
+      "bytes": 246,
+      "sha256": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c"
+    },
+    "lifecycle_output.txt": {
+      "bytes": 983,
+      "sha256": "442b17c7f2d5cb1c6ffbbc60fd954aabeaa46b899e3193ab6e3dba589393dbd5"
+    },
+    "manifest.json": {
+      "bytes": 5339,
+      "sha256": "2130b859e7ab10d07b4fd77f51c7549c7335ef77a360cbeeafcd36934bfb684b"
+    },
+    "observations.json": {
+      "bytes": 2136246,
+      "sha256": "7a25a931f33a0a8939fb895c403f5db63a43f4c8b20c88f86552970265b6644e"
+    },
+    "protocol.json": {
+      "bytes": 1658,
+      "sha256": "a2b5bdf1a3c8f40ab367cda2a6857b8a1240a712ed5a10f7318709ef9bf04e71"
+    },
+    "raw/index.json": {
+      "bytes": 292,
+      "sha256": "219f5699e1c5ec08f339882d7205003016994690b923623df4d310e9e63ed759"
+    },
+    "raw/raw.jsonl.gz": {
+      "bytes": 1047714,
+      "sha256": "4e23cd191df1af6eb06bfb9287e05de780f1c411589aeefdc4c2c0fc2d038146"
+    },
+    "start_manifest.json": {
+      "bytes": 4546,
+      "sha256": "12036a72c099b5da3b34d844b7e8351cc316bec5f885ffddd595d93bc381310a"
+    }
+  },
+  "decoded_gzip": {
+    "raw/raw.jsonl.gz": {
+      "decoded_bytes": 9714592,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    }
+  },
+  "secret_scan": {
+    "raw": {
+      "payload_bytes": 3197201,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 3198254,
+      "scan_framing": "ascii-lf-v1"
+    },
+    "decoded_gzip": {
+      "payload_bytes": 9714615,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 9715668,
+      "scan_framing": "ascii-lf-v1"
+    }
+  },
+  "scanner_sha256": "00e91bbe655bd7c47753e8cfe61cb76ea1a5d7e7702fe161ee40102b46b3823b",
+  "scan_helper_sha256": "ea2ec4b179b73317730ac94d495c1141983e1af53512e00a55f3e9e108542e30",
+  "raw_bytes": 3197024,
+  "decoded_bytes": 9714592,
+  "byte_identical_archive_verified": true,
+  "original_files_removed": false,
+  "notes": "Preservation only; no semantic audit, hardware operation or accuracy claim."
+}
