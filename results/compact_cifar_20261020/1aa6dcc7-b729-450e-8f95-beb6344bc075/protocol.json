@@ -1,0 +1,50 @@
+{
+  "schema": "compact-rgb48-lif8-cifar10-cpu-v1",
+  "seed": 20261020,
+  "source": "CPU",
+  "classes": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    8,
+    13,
+    14,
+    17,
+    19
+  ],
+  "T": 12,
+  "leak": 0.5,
+  "threshold": 1.0,
+  "reset": "hard_zero_detached_mask",
+  "surrogate": "1/(1+5*abs(u-1))**2",
+  "epochs": 50,
+  "batch_size": 128,
+  "updates_per_epoch": 36,
+  "train_count": 4500,
+  "validation_count": 500,
+  "test_count": 100,
+  "optimizer": {
+    "name": "Adam",
+    "lr": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0,
+    "amsgrad": false
+  },
+  "W_projection": [
+    -1.0,
+    1.0
+  ],
+  "train_shuffle": true,
+  "drop_last": false,
+  "threads": 2,
+  "checkpoint_selection": "minimum validation mean CE; exact ties earliest epoch",
+  "test_selection": "first10/class official order excluding10 historical fixtures; sorted index",
+  "test_tuning": false,
+  "hardware_accuracy": false
+}

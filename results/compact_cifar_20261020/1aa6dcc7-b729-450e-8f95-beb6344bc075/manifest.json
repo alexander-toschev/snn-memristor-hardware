@@ -1,0 +1,104 @@
+{
+  "status": "completed",
+  "started_utc": "2026-10-20T12:54:59.807661+00:00",
+  "spec": {
+    "schema": "compact-rgb48-lif8-cifar10-cpu-v1",
+    "seed": 20261020,
+    "source": "CPU",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      14,
+      17,
+      19
+    ],
+    "T": 12,
+    "leak": 0.5,
+    "threshold": 1.0,
+    "reset": "hard_zero_detached_mask",
+    "surrogate": "1/(1+5*abs(u-1))**2",
+    "epochs": 50,
+    "batch_size": 128,
+    "updates_per_epoch": 36,
+    "train_count": 4500,
+    "validation_count": 500,
+    "test_count": 100,
+    "optimizer": {
+      "name": "Adam",
+      "lr": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0,
+      "amsgrad": false
+    },
+    "W_projection": [
+      -1.0,
+      1.0
+    ],
+    "train_shuffle": true,
+    "drop_last": false,
+    "threads": 2,
+    "checkpoint_selection": "minimum validation mean CE; exact ties earliest epoch",
+    "test_selection": "first10/class official order excluding10 historical fixtures; sorted index",
+    "test_tuning": false,
+    "hardware_accuracy": false
+  },
+  "spec_sha256": "ca88ae4caca899d7645017cc1e5f318dc9ea11a20903be6d613e6efbd1aaf329",
+  "source_sha256": {
+    "experiments/compact_cifar_20261020/data.py": "703131191f4724c2b548388230fd6158a6efe386747a68dab391891babbe584d",
+    "experiments/compact_cifar_20261020/experiment.py": "9b3b63e4b1c77b4e1e37cd34043135c7a40c8bf22b998132e987b68167319aa2",
+    "experiments/compact_cifar_20261020/model.py": "c05e32e8e3f8ba35934aa49ddf702c5c6892a48987bdaa05b22d7c80190aa427",
+    "experiments/compact_cifar_20261020/README.md": "d8cd0e888bcbe3553f93548f3d0cc9e0d376717d29dba7fbc7ce1b464d5d0013"
+  },
+  "dataset_sha256": {
+    "train": "735e79b04f092ca3d2e6d07f368c0a7d70d48c48d28865950cc24454cf45129b",
+    "test": "4b67687d9933c4db8f0831104447f15b93774f4f464bd0516f0f0f2ac83b7864",
+    "meta": "a5d4786345c961390f865e93b434dbd5c6904ce880667e0cb888c97d449f28b9"
+  },
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.0.2",
+    "torch": "2.14.1+cpu",
+    "device": "cpu",
+    "threads": 2,
+    "deterministic": true
+  },
+  "selected_epoch": 50,
+  "updates": 1800,
+  "cpu_pilot_correct": 26,
+  "cpu_pilot_total": 100,
+  "finished_utc": "2026-10-20T12:55:11.970199+00:00",
+  "result_sha256": {
+    "A.npy": "df0c8a435cd8508155566f18c73026ffc1d202360b573adaff9b3076fecbdf73",
+    "acquisition_fixture.json": "4ac91c06f5b2b26d2c23bbb4125ffc73cf81e7290e79cced081e23b42f4400a8",
+    "b.npy": "82d6b709f09c124ca7299ade9e4cfbaef1e49baaebe3efb35b69b830de287009",
+    "checkpoint_freeze.json": "83be03a9ec55f93b8430286f6ef89c35368dcfa932d1ba35f4ee21f7f9dee7b6",
+    "cpu_currents.npy": "b6059ef2074ed21ded86f2d4279a11ec642860c7a2c9e0fa6da87077ca60eb45",
+    "cpu_membranes.npy": "10039737cf08fdbb641ec4b099bbcfea34522461779757d7ed836df88b49863e",
+    "CPU_PILOT100.json": "4d9eeccfacf7a9b0bd4391de1b3af0b478726f33ed25e6aa76e0b995cd3c82fe",
+    "cpu_spikes.npy": "33297d50da1a65c7aa2e4cee205ee81d1700fc250e740cf1371023f319504d36",
+    "epochs.json": "52893f58589bf0dc02cfeede8031b2e005f117ca08285b4643ff61c984ee2b31",
+    "final_training_state.pt": "7b366a95ee24c25161d3309441d6208fcea31fe8b7c2c7aac33d9b278e12da08",
+    "gain_plan.json": "4681e95e11960bee870e28fb6f635ecbaa3ed257efdd81e724106c6af684163d",
+    "initial.pt": "1fee46f76b67b3818b958a3534cb73d3b392d4969942a23abf9c4cd07912afd6",
+    "input_freeze.json": "f045af3c99f092bbf9d68c47df0cd4f698f6f78989d19b6d5a1b6b5a1e522c7e",
+    "permutations.npy": "28110300373bd8cedcadce6e2fcbbcccbe91e433b15fc5d84b18d42beac24d55",
+    "progress.json": "18bd18a6b64961fa73257fff6eb1596b06c719e472ea9fbb08241eae42e79f83",
+    "protocol.json": "f1136497ff664b5ef6823622dc462f1f7d6852fc8d09efcb54440851d783b0f5",
+    "rng.json": "15c167c33e5bd1b3b5c2b09d510a99ab62ed8fe6cd9165bc560c1443188fcc57",
+    "sealed_evaluation.json": "94e8cc295f2931d92e2f4da9786c3053847c3ca8563e1fc5d543df86bd66388a",
+    "selected.pt": "499fe5072c7d78f6dc787ab53672ed14f534f9b065ea0dec64770277f3ec85a4",
+    "start_manifest.json": "2264e5a2079c34214f2985eed66ecfa43650c0d69216d3b7f6a4ff857156bc74",
+    "train_validation_manifest.json": "f411580537ec061052610243681e5dc0fc9e91cd6ded2389d277007378c25a94",
+    "train_validation_times.npy": "96f59f67a6c3e1cb5893e0df029fdb7fc548bcdffe37d59fad57a3d15008cb1c",
+    "W.npy": "1b5de72806d7c0686e35cba33abcec49a94f98508716bfb75a27ef219ace3b53"
+  }
+}
