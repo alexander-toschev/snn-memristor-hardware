@@ -1,4 +1,9 @@
-# MNIST64 block STDP — только MemriBoard Simulator
+# EXP_FMNIST_STDP — MNIST64 block STDP, только MemriBoard Simulator
+
+Новое пользовательское имя и каноническая точка входа:
+[`experiments/EXP_FMNIST_STDP/experiment.py`](../EXP_FMNIST_STDP/experiment.py).
+Датасет **MNIST**, не Fashion-MNIST. Этот каталог остаётся реализацией для
+обратной совместимости; работающий прогон и пути результатов не меняются.
 
 Это **новый** протокол с отложенной записью, не повтор timestep-STDP и не
 прежний результат64,29% на готовых весах. Fresh initialization64×5×5,
@@ -39,7 +44,7 @@ state_variable или `.interface`. Чтения не кешируются; mode
 Все пути относительны. Сначала runtime benchmark, не подбор по accuracy:
 
 ```powershell
-.venv-mnist-pilot/Scripts/python.exe -B experiments/mnist_block_stdp64_20261021/experiment.py --run-simulator --benchmark --block-size 32
+.venv-mnist-pilot/Scripts/python.exe -B experiments/EXP_FMNIST_STDP/experiment.py --run-simulator --benchmark --block-size 32
 ```
 
 Два блока можно измерить на более плотном заранее выбранном train участке:
@@ -49,7 +54,7 @@ state_variable или `.interface`. Чтения не кешируются; mode
 полной сети. Размер блока выбираем по времени/памяти, не меткам или точности.
 
 ```powershell
-.venv-mnist-pilot/Scripts/python.exe -B experiments/mnist_block_stdp64_20261021/experiment.py --run-simulator --block-size 32 --wall-hours 8
+.venv-mnist-pilot/Scripts/python.exe -B experiments/EXP_FMNIST_STDP/experiment.py --run-simulator --block-size 32 --wall-hours 8
 ```
 
 CLI без `--run-simulator` только preflight. Верхний импульсный бюджет:
