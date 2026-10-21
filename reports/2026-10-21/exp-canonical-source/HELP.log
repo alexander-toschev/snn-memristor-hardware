@@ -1,0 +1,18 @@
+usage: experiment.py [-h] [--run-simulator] [--benchmark]
+                     [--block-size {32,64,128,256}]
+                     [--benchmark-start BENCHMARK_START]
+                     [--wall-hours WALL_HOURS]
+
+EXP_FMNIST_STDP: один SIM-only опыт: block-STDP → frozen native LUT → CPU
+LIF/readout. --benchmark --block-size32: два физических блока, не
+accuracy64filters. Full: fresh64filters, train10000/test10000; deadline8h
+означает partial, а не выдачу точности незавершённой сети. Hardware CLI
+намеренно отсутствует.
+
+options:
+  -h, --help            show this help message and exit
+  --run-simulator
+  --benchmark
+  --block-size {32,64,128,256}
+  --benchmark-start BENCHMARK_START
+  --wall-hours WALL_HOURS

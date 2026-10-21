@@ -10,11 +10,23 @@ import numpy as np
 import torch
 from experiment_common import mnist_inputs as inputs
 from experiment_common.mnist_stdp import DigitalStep
-from experiments.mnist_block_stdp64_20261021.core import Collector, EvidenceWriter, WallBudget, digital_block
+from experiments.EXP_FMNIST_STDP.core import Collector, EvidenceWriter, WallBudget, digital_block
 from tests.test_mnist_online_stdp64 import FakeCV, FakeWriter, FakeConnector
 
 
 class BlockTests(unittest.TestCase):
+    def test_canonical_entry_owns_implementation_and_old_paths_only_reexport(self):
+        from experiments.EXP_FMNIST_STDP import experiment as canonical, core
+        from experiments.mnist_block_stdp64_20261021 import experiment as legacy, core as legacy_core
+        root=Path(__file__).resolve().parents[1]
+        self.assertEqual(Path(canonical.run.__code__.co_filename).resolve(),root/'experiments/EXP_FMNIST_STDP/experiment.py')
+        self.assertEqual(Path(canonical.main.__code__.co_filename).resolve(),root/'experiments/EXP_FMNIST_STDP/experiment.py')
+        self.assertIs(legacy.run,canonical.run)
+        self.assertIs(legacy.main,canonical.main)
+        self.assertIs(legacy_core.Collector,core.Collector)
+        self.assertIs(legacy_core.train_block,core.train_block)
+        self.assertEqual(canonical.BASE,root/'results/mnist_block_stdp64_20261021')
+
     def test_shadow_carries_between_images_but_forward_uses_fixed_measured_lut(self):
         torch.set_num_threads(2)
         pixels=inputs.images('train',2)
