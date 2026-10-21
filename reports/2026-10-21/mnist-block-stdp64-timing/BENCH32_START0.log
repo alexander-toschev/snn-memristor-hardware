@@ -1,0 +1,39 @@
+Input inventory train 8/128
+Input inventory test 8/128
+Block STDP SIM session 4abc3228-270a-42b4-b39b-c517c4d29024
+Initialize block0 filter1/4 calls=18835 pulses=3707
+Initialize block0 filter2/4 calls=38735 pulses=7627
+Initialize block0 filter3/4 calls=58085 pulses=11437
+Initialize block0 filter4/4 calls=79075 pulses=15575
+Block STDP stage1/1 images32/64 calls=89898 pulses=15666 elapsed=0.6min
+Block STDP stage1/1 images64/64 calls=102319 pulses=15755 elapsed=0.7min
+CPU LIF64 train 8/128
+CPU LIF64 train 128/128
+CPU LIF64 test 8/128
+CPU LIF64 test 128/128
+CPU readout epoch 1/25 loss=2.432333
+CPU readout epoch 2/25 loss=2.398975
+CPU readout epoch 3/25 loss=2.366158
+CPU readout epoch 4/25 loss=2.333887
+CPU readout epoch 5/25 loss=2.302166
+CPU readout epoch 6/25 loss=2.271001
+CPU readout epoch 7/25 loss=2.240395
+CPU readout epoch 8/25 loss=2.210353
+CPU readout epoch 9/25 loss=2.180878
+CPU readout epoch 10/25 loss=2.151971
+CPU readout epoch 11/25 loss=2.123633
+CPU readout epoch 12/25 loss=2.095864
+CPU readout epoch 13/25 loss=2.068661
+CPU readout epoch 14/25 loss=2.042019
+CPU readout epoch 15/25 loss=2.015933
+CPU readout epoch 16/25 loss=1.990393
+CPU readout epoch 17/25 loss=1.965391
+CPU readout epoch 18/25 loss=1.940916
+CPU readout epoch 19/25 loss=1.916954
+CPU readout epoch 20/25 loss=1.893495
+CPU readout epoch 21/25 loss=1.870524
+CPU readout epoch 22/25 loss=1.848027
+CPU readout epoch 23/25 loss=1.825992
+CPU readout epoch 24/25 loss=1.804403
+CPU readout epoch 25/25 loss=1.783249
+{"session": "results/mnist_block_stdp64_20261021/4abc3228-270a-42b4-b39b-c517c4d29024", "status": "completed", "error": null, "accuracy": null}

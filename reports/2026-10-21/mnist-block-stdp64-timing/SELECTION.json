@@ -1,0 +1,101 @@
+{
+  "selected_block_size": 256,
+  "train_images": 10000,
+  "test_images": 10000,
+  "filters": 64,
+  "stages": 16,
+  "training_blocks_per_stage": 40,
+  "last_block_images": 16,
+  "selection_basis": "runtime and storage only; no test labels/accuracy",
+  "benchmark_sessions": [
+    {
+      "session": "4abc3228-270a-42b4-b39b-c517c4d29024",
+      "status": "completed",
+      "block_size": 32,
+      "start": 0,
+      "block_seconds": [
+        6.157000000006519,
+        6.186999999976251
+      ],
+      "block_calls": [
+        10223,
+        12421
+      ],
+      "digital_seconds": [
+        3.0160000000032596,
+        2.7030000000377186
+      ],
+      "test_accuracy_evaluated": false
+    },
+    {
+      "session": "03f65aaf-1c43-4fda-b1c2-1ff721ec9442",
+      "status": "completed",
+      "block_size": 32,
+      "start": 8960,
+      "block_seconds": [
+        7.98399999999674,
+        6.172000000020489
+      ],
+      "block_calls": [
+        17051,
+        11754
+      ],
+      "digital_seconds": [
+        2.7339999999967404,
+        2.75
+      ],
+      "test_accuracy_evaluated": false
+    },
+    {
+      "session": "9e636d25-b9d0-48e5-b00c-bc825cb57a0c",
+      "status": "completed",
+      "block_size": 128,
+      "start": 8960,
+      "block_seconds": [
+        19.969000000040978,
+        17.93699999997625
+      ],
+      "block_calls": [
+        25559,
+        16862
+      ],
+      "digital_seconds": [
+        11.73499999998603,
+        12.25
+      ],
+      "test_accuracy_evaluated": false
+    },
+    {
+      "session": "698524be-8d5d-499a-8f5e-62998c0c0966",
+      "status": "completed",
+      "block_size": 256,
+      "start": 8960,
+      "block_seconds": [
+        34.35899999999674,
+        34.53100000001723
+      ],
+      "block_calls": [
+        30455,
+        29746
+      ],
+      "digital_seconds": [
+        23.78100000001723,
+        24.56300000002375
+      ],
+      "test_accuracy_evaluated": false
+    }
+  ],
+  "forecast_hours_by_block_size": {
+    "32": 11.0906,
+    "64": 9.5468,
+    "128": 8.3457,
+    "256": 7.31
+  },
+  "forecast_method": "Exact train10000 mask-query counts, four passes; 2300 non-LUT native calls per block upper bound; maximum native seconds/call and digital seconds/image from two dense 256-image blocks; 16 initializations and final frozen LUT; one hour reserved for CPU features/readout. Initial inventory and host-load variation add uncertainty. 64 is extrapolated, not benchmarked.",
+  "full_wall_hours": 7.75,
+  "cleanup_reserve_minutes": 15,
+  "accuracy_available": false,
+  "physical_hardware": false,
+  "raw_policy": "first training block each stage complete raw; all blocks retain conductance, target, spikes, decisions and counters; omitted low-level records digested, not replayable",
+  "historical_data_deleted": false
+}

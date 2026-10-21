@@ -1,0 +1,15 @@
+Offline source checks; no native experiment was launched by this agent.
+
+Python3.11 .venv-mnist-pilot:
+python -B -m unittest tests.test_mnist_block_stdp64 -v
+5 tests passed in0.815s, exit0.
+
+BundledPython3.12, PYTHONPATH=.tmp/typing-deps:
+python -B -m mypy --config-file typing/mnist_block_stdp64/mypy.ini --python-executable .venv-mnist-pilot/Scripts/python.exe
+Success: no issues found in2source files. exit0.
+An earlier attempt with Python3.11 could not import the Python3.12 librt wheel;
+this was a checker-runtime mismatch, not a source error.
+
+python -B experiments/mnist_block_stdp64_20261021/experiment.py --benchmark --block-size32
+Actual invocation used separate arguments --block-size 32.
+preflight_only, exit0; no Connector opened.

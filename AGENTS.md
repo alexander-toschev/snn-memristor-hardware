@@ -1,5 +1,19 @@
 # Правила работы с платой
 
+## Актуально21октября: block-STDP SIM, runtime budget8h
+
+Пользователь разрешил отдельный block-STDP маршрут: сначала блоки32изображения,
+benchmark минимум двух блоков, размер32/64/128/256 выбирается только по времени
+и памяти. Сохраняем10000train/10000test и64filters. Forward только измеренный
+native MemriBoard LUT при frozenG внутри блока; цифровой shadow target WDP
+переносится между изображениями и clip каждыйtick. После блока bounded
+SET/RESET/readback; это явно новый delayed-write протокол, не timestep replay.
+Hardware запрещён. `experiments/mnist_block_stdp64_20261021/experiment.py`.
+8h cooperative wall-budget, partial не выдаётся за завершённую accuracy.
+Sampled raw обозначается честно, старые журналы не удалять. Strict typing,
+current/ADC guards и secret scan сохраняются. Старые64,29% и timestep-smoke
+остаются неизменными самостоятельными результатами.
+
 ## Актуально 21 октября: новое online STDP
 
 Пользователь выбрал новое обучение проводимостей через native MemriBoard
