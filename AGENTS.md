@@ -1,5 +1,27 @@
 # Правила работы с платой
 
+## Smoke после рефакторинга и следующий аппаратный этап
+
+По новой команде пользователя 21 октября выполнен локальный native SIM smoke
+через `experiments/EXP_FMNIST_STDP/experiment.py --run-simulator --benchmark
+--block-size 256 --benchmark-start 8960 --wall-hours 0.25`.
+Сессия `c3dcb80c-1ab9-4bc8-8f6d-25c9183349d5`: completed,122.375s,
+174404 вызова,15772 импульса (15575 initialization +197 learning).
+Два блока,512 train изображений,4 фильтра; frozen features128train/128test,
+readout25epochs. Test accuracy не вычислялась. Численные block records без
+таймингов и байты LUT/counts/head/scaler совпали с дорефакторинговой сессией
+`698524be-8d5d-499a-8f5e-62998c0c0966`. Полное сравнение:
+`reports/2026-10-21/shared-refactor-smoke/COMPARISON.json`.
+Архив smoke в Git LFS, обычный и распакованный журнал проверены на секреты.
+
+Пользователь планирует аппаратный этап на 22 октября. Сегодня плату не трогать.
+Текущий EXP entrypoint ещё SIM-only: аппаратную ветку сначала подготовить
+через тот же публичный MemriBoard Connector/converters и INI; нельзя выдавать
+SIM-прогон или проигрывание SIM-LUT за измерения платы. Начать с короткого
+аппаратного smoke и свежих измерений, затем решать об увеличении объёма.
+Совпадение SIM после рефакторинга не гарантирует точность/стабильность платы.
+Токовые ограничения и корректное закрытие Connector сохранять.
+
 ## Завершено21октября: EXP_FMNIST_STDP и общие компоненты
 
 Полный native SIM block-STDP `cdf8b7d9-c951-4f29-8871-da09ca05d8d5`
