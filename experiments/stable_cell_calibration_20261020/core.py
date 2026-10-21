@@ -1,25 +1,10 @@
 """A/B/C scheduler. Device access is exclusively public Connector methods."""
 import contextlib
 from datetime import datetime, timezone
-import io
+from experiment_common.native_output import safe as safe, DriverOutput as DriverOutput
 import math
 import time
 from . import metrics, plan
-
-
-def safe(value):
-    if value is None or type(value) in (str,int,bool):return value
-    if type(value) is float:return value if math.isfinite(value) else repr(value)
-    if isinstance(value,(list,tuple)):return [safe(v) for v in value]
-    return repr(value)
-
-
-class DriverOutput(io.TextIOBase):
-    def __init__(self,owner,channel):self.owner,self.channel=owner,channel
-    def write(self,text):
-        if text:self.owner.emit('driver_output',channel=self.channel,text=text,task_id=self.owner.calls)
-        return len(text)
-    def flush(self):pass
 
 
 class Collector:

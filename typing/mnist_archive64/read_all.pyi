@@ -1,1 +1,3 @@
 def now() -> str: ...
+EXPECTED_BOARD: dict[str, float]
+EXPECTED_SOURCES: dict[str, str]

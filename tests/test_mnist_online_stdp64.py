@@ -7,8 +7,8 @@ from bindsnet.network import Network
 from bindsnet.network.nodes import Input,LIFNodes
 from bindsnet.network.topology import Conv2dConnection
 from bindsnet.learning import WeightDependentPostPre
-from experiments.mnist_online_stdp64_20261021.logic import DigitalStep,initialization
-from experiments.mnist_online_stdp64_20261021.collector import Collector
+from experiment_common.mnist_stdp import DigitalStep,initialization
+from experiment_common.stdp_collector import Collector
 
 
 class FakeConnector:

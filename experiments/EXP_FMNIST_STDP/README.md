@@ -10,6 +10,10 @@ Simulator**. Датасет остаётся **MNIST**, не Fashion-MNIST: пе
 Подробности операций, границы цифрового/мемристорного вычисления, guards и
 журналирования: [протокол](../mnist_block_stdp64_20261021/README.md).
 
+Общие Collector, cache, MNIST-входы, LIF/readout и writer выделены в корневой
+[`experiment_common/`](../../experiment_common/README.md), а не дублируются
+рядом с этим entrypoint. `experiment.py` остаётся на своём месте.
+
 Из корня репозитория:
 
 ```powershell
@@ -22,7 +26,8 @@ Simulator**. Датасет остаётся **MNIST**, не Fashion-MNIST: пе
 .venv-mnist-pilot/Scripts/python.exe -X utf8 -B experiments/EXP_FMNIST_STDP/experiment.py --run-simulator --block-size 256 --wall-hours 7.75
 ```
 
-Не запускайте второй экземпляр, пока текущий полный прогон не завершён.
+Последний полный прогон завершён:66,36%,10000test,22988s. Новый запуск
+рефакторингом не выполнялся; исторические результаты сохранены отдельно.
 `-X utf8` позволяет вывести русскую справку со стрелками в Windows-консоли.
 Переименование не перезапускает его и не меняет исходники процесса.
 Результаты по-прежнему сохраняются в

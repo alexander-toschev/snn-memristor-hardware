@@ -46,6 +46,9 @@ def preflight(source):
     paths=list(PUBLIC_PINS)+list(HELPERS)+[INI,SIM_INI,DESIGN]
     paths += [p.relative_to(ROOT).as_posix() for p in Path(__file__).parent.iterdir()
               if p.suffix in ('.py','.md')]
+    # Old durable import is now a compatibility alias; record actual shared
+    # implementations for new runs, never alter previously saved manifests.
+    paths += [p.relative_to(ROOT).as_posix() for p in (ROOT/'experiment_common').glob('*.py')]
     return config,{name:sha(ROOT/name) for name in sorted(set(paths))}
 
 

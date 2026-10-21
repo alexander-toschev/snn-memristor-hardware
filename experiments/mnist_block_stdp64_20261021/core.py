@@ -9,10 +9,10 @@ from typing import TYPE_CHECKING
 import numpy as np
 from numpy.typing import NDArray
 import torch
-from experiments.mnist_archive64_20261020 import inputs, native
-from experiments.mnist_online_stdp64_20261021.collector import Collector as PreviousCollector
-from experiments.mnist_online_stdp64_20261021.logic import DigitalStep
-from experiments.cifar_resumable_20261019.durable import Writer, atomic_json
+from experiment_common import mnist_inputs as inputs, native_memriboard as native
+from experiment_common.stdp_collector import Collector as ConductanceCollector
+from experiment_common.mnist_stdp import DigitalStep
+from experiment_common.durable import Writer, atomic_json
 if TYPE_CHECKING:
     from manager.board import Connector
 
@@ -52,7 +52,7 @@ class EvidenceWriter(Writer):
                     full_native_raw_replay_available=False, historical_raw_deleted=False)
 
 
-class Collector(PreviousCollector):
+class Collector(ConductanceCollector):
     def __init__(self, connector: Connector, converters: native.Converters,
                  writer: EvidenceWriter, cap: int, pulse_cap: int, span: float,
                  progress: Callable[[str], None], deadline: float) -> None:

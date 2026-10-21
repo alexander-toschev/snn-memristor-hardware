@@ -31,6 +31,7 @@
 |---|---|
 | `experiment.py` | Исторические сценарии и режимы; без флагов — справка |
 | `experiments/*/experiment.py` | Отдельные новые опыты с собственными протоколами и README |
+| [experiment_common/](experiment_common/README.md) | Общие typed Collector, cache, MNIST-входы, LIF/readout и writer; сценарии остаются в своих experiment.py |
 | `configs/` | Зафиксированные протоколы, INI и параметры платы |
 | `weights/` | Checkpoint, исходные веса, fixture, карты и их происхождение |
 | `results/` | Полные журналы измерений, manifest, независимые аудиты; не переписывать |

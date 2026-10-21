@@ -22,14 +22,14 @@ sys.path.insert(0, str(ROOT))
 import numpy as np
 import torch
 from experiments.mnist_block_stdp64_20261021.core import Collector, EvidenceWriter, WallBudget, train_block
-from experiments.mnist_online_stdp64_20261021.logic import initialization
-from experiments.mnist_online_stdp64_20261021.collector import INIT_CALLS, INIT_PULSES
-from experiments.mnist_online_stdp64_20261021.experiment import conductance_mapping, query_cost
-from experiments.mnist_archive64_20261020 import inputs, lif, readout
-from experiments.mnist_archive64_20261020.schema import MemmapFactory
-from experiments.stable_cell_calibration_20261020 import experiment as calibration
-from experiments.cifar_resumable_20261019.durable import atomic_json, sha
-from experiments.unn_rev3_20261014.paths import use_local_dependencies
+from experiment_common.mnist_stdp import initialization
+from experiment_common.stdp_collector import INIT_CALLS, INIT_PULSES
+from experiment_common.runtime import conductance_mapping, query_cost
+from experiment_common import mnist_inputs as inputs, lif, readout
+from experiment_common.schema import MemmapFactory
+from experiment_common import runtime as calibration
+from experiment_common.durable import atomic_json, sha
+from experiment_common.runtime import use_local_dependencies
 from experiment_hardware import launch_provenance
 from read_all import now
 
@@ -82,11 +82,6 @@ def run(block_size: int, benchmark: bool, start_image: int, wall_hours: float, a
     pulse_cap = stages*(INIT_PULSES+blocks*100)
     sid = str(uuid.uuid4()); out = BASE/sid; out.mkdir(parents=True)
     for path in Path(__file__).parent.glob('*.py'):hashes[path.relative_to(ROOT).as_posix()] = sha(path)
-    for directory, names in (
-        ('mnist_online_stdp64_20261021', ('logic.py','collector.py','experiment.py')),
-        ('mnist_archive64_20261020', ('native.py','cache.py','inputs.py','lif.py','readout.py'))):
-        for name in names:
-            path = ROOT/'experiments'/directory/name; hashes[path.relative_to(ROOT).as_posix()] = sha(path)
     protocol = dict(SPEC, block_size=block_size, wall_budget_hours=wall_hours)
     manifest: dict[str, object] = dict(session_id=sid, status='failed', source='simulator',
         scope='two-block-cost-benchmark' if benchmark else 'block64-train10000-test10000',

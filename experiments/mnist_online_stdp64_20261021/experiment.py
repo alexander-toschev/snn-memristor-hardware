@@ -25,11 +25,11 @@ from numpy.typing import NDArray
 import torch
 from experiments.mnist_online_stdp64_20261021.logic import DigitalStep,initialization
 from experiments.mnist_online_stdp64_20261021.collector import Collector,INIT_CALLS,INIT_PULSES,DEADBAND
-from experiments.mnist_archive64_20261020 import inputs,lif,readout
-from experiments.mnist_archive64_20261020.schema import MemmapFactory
-from experiments.stable_cell_calibration_20261020 import experiment as calibration
-from experiments.cifar_resumable_20261019.durable import Writer,atomic_json,sha
-from experiments.unn_rev3_20261014.paths import use_local_dependencies
+from experiment_common import mnist_inputs as inputs,lif,readout
+from experiment_common.schema import MemmapFactory
+from experiment_common import runtime as calibration
+from experiment_common.durable import Writer,atomic_json,sha
+from experiment_common.runtime import use_local_dependencies,conductance_mapping,query_cost
 from experiment_hardware import launch_provenance
 from read_all import now
 
@@ -52,22 +52,8 @@ SPEC: dict[str,object]=dict(schema='mnist-online-native-timestep-stdp-v1',source
     private_runtime_status='private_runtime_not_independently_reverified')
 
 
-def conductance_mapping() -> tuple[float,float]:
-    # Только прежняя label-free характеристика самого SIM. Архивные W/model.pt
-    # здесь вообще не открываются. Шкала фиксируется до online обучения.
-    folder=ROOT/'experiments/mnist_archive64_20261020/calibration'
-    meta=json.loads((folder/'manifest.json').read_text(encoding='utf-8'))
-    path=folder/'observations.json'
-    if meta['status']!='completed' or sha(path)!=meta['result_sha256']['observations.json']:
-        raise ValueError('Invalid label-free characterization')
-    data=json.loads(path.read_text(encoding='utf-8'))['mapping']
-    low=float(data['low_g_s']);span=float(data['span_g_s'])
-    if not np.isfinite([low,span]).all() or min(low,span)<=0:raise ValueError('Invalid G scale')
-    return low,span
 
 
-def query_cost(keys: list[int]) -> int:
-    return 24*sum(1+m.bit_count() for m in set(keys)|{0})
 
 
 def inventory(data: dict[str,NDArray[np.uint8]]) -> tuple[list[int],int,dict[str,str]]:
@@ -127,8 +113,6 @@ def run(smoke: bool,argv: list[str]) -> dict[str,object]:
     pulse_cap=stages*(INIT_PULSES+n*100*100)
     sid=str(uuid.uuid4());out=BASE/sid;out.mkdir(parents=True)
     for path in Path(__file__).parent.glob('*.py'):hashes[path.relative_to(ROOT).as_posix()]=sha(path)
-    for name in ('native.py','cache.py','inputs.py','lif.py','readout.py'):
-        path=ROOT/'experiments/mnist_archive64_20261020'/name;hashes[path.relative_to(ROOT).as_posix()]=sha(path)
     manifest: dict[str,object]=dict(session_id=sid,status='failed',scope='block0-one-image-100ticks' if smoke else 'online64-train10000-test10000',
         source='simulator',physical_hardware=False,protocol=SPEC,source_sha256=hashes,invocation=launch_provenance(argv),
         started_utc=now(),train_images=n,stages=stages,maximum_impacts=cap,maximum_pulses=pulse_cap,

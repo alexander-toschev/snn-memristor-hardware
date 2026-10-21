@@ -8,8 +8,8 @@ import time
 import unittest
 import numpy as np
 import torch
-from experiments.mnist_archive64_20261020 import inputs
-from experiments.mnist_online_stdp64_20261021.logic import DigitalStep
+from experiment_common import mnist_inputs as inputs
+from experiment_common.mnist_stdp import DigitalStep
 from experiments.mnist_block_stdp64_20261021.core import Collector, EvidenceWriter, WallBudget, digital_block
 from tests.test_mnist_online_stdp64 import FakeCV, FakeWriter, FakeConnector
 
