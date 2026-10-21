@@ -1,5 +1,21 @@
 # Правила работы с платой
 
+## Актуально 21 октября: новое online STDP
+
+Пользователь выбрал новое обучение проводимостей через native MemriBoard
+Simulator: fresh64×5×5, Poisson/LIF100ticks, timestep STDP на10000train.
+Только SIM; hardware запрещён. Старые64,29% относятся к сохранённым архивным
+STDP-весам и остаются неизменным baseline, не результатом нового обучения.
+Новый путь: `experiments/mnist_online_stdp64_20261021/experiment.py`.
+Сначала smoke одной группы4filters/image0/100ticks с pre/post frozenprobe;
+полный запуск root решает по измеренной стоимости. Один массив32×8,
+последовательно16блоков; shared25weights обновляются после суммирования576
+spatial correlations каждого timestep. Forward только publicConnector mode10;
+цифровые LIF/traces/WDP и readout обозначены явно. Измеренный nominal W,
+fixed gain, bounded SET/RESET и deadband — pulse-quantized адаптация, не точный
+replay старого цифрового STDP. Готовые веса, ideal W@input и скрытая подстановка
+не допускаются. Все новые исходники строго типизированы; guards сохраняются.
+
 ## Актуально: ночь 20→21 октября 2026
 
 **Завершено:** строгая accuracy **64,29% (6429/10000)**, argmax 64,31%,

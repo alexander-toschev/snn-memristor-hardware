@@ -12,3 +12,8 @@ regexes = ['''^0ca53cce0281fbe7c7077a11e6f141210183cad57b366a70649f32e3144f388b$
 description = "Exact verified MNIST archive64 train10000 mask_keys.npy SHA256"
 regexTarget = "secret"
 regexes = ['''^8b90c47889bd1b577ba766375dda3e1fd2a691614844440bda0cadd76531afb8$''']
+
+[[allowlists]]
+description = "Exact verified MNIST online STDP one-image mask_keys.npy SHA256"
+regexTarget = "secret"
+regexes = ['''^86427a3ee109b2ae5314d3a17f85646a353cb6487782d5a6af5d051a8520dfc3$''']
