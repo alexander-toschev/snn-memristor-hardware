@@ -1,0 +1,27 @@
+{
+  "session_id": "cdf8b7d9-c951-4f29-8871-da09ca05d8d5",
+  "observed_utc": "2026-10-21T10:34:05Z",
+  "status_at_observation": "running",
+  "source_commit": "31801a681710d3a55a500cde8a47ca88b0a2381d",
+  "block_size": 256,
+  "train_images": 10000,
+  "test_images": 10000,
+  "filters": 64,
+  "stages": 16,
+  "wall_hours": 7.75,
+  "wall_budget_includes_input_inventory": true,
+  "first_completed_block": {
+    "stage": 0,
+    "images": 256,
+    "seconds": 33.484,
+    "calls": 28183,
+    "pulses": 99,
+    "correlated_update_ticks": 5923,
+    "coefficients_with_nonzero_accumulated_plasticity": 100
+  },
+  "results": "results/mnist_block_stdp64_20261021/cdf8b7d9-c951-4f29-8871-da09ca05d8d5",
+  "log": "reports/2026-10-21/mnist-block-stdp64-timing/FULL_RUN.log",
+  "physical_hardware": false,
+  "new_accuracy_available": false,
+  "note": "Historical launch receipt, not a live status or completion claim. Sources remain frozen; no duplicate run."
+}
