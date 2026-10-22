@@ -1,0 +1,123 @@
+{
+  "session": "5f7fcb92-26d2-4bf3-b6ea-e6f225b4e9e6",
+  "source": "simulator",
+  "acquisition_status": "completed",
+  "archive": "results/expanded_blocks_20261022/archives/5f7fcb92-26d2-4bf3-b6ea-e6f225b4e9e6.tar.gz",
+  "archive_sha256": "3bc769ef6a457eccf7cfca2d841321124e84d8bcd3e8a5dedccb097c4363f985",
+  "archive_bytes": 1081695,
+  "impacts": 20416,
+  "pulses": 0,
+  "files": {
+    "array.cb": {
+      "bytes": 11229,
+      "sha256": "e2dcdb7ae9ce2276d913fe33c844ce510d41a3481416d55ca8dc1b275d2054a2"
+    },
+    "array_initial.cb": {
+      "bytes": 11229,
+      "sha256": "e2dcdb7ae9ce2276d913fe33c844ce510d41a3481416d55ca8dc1b275d2054a2"
+    },
+    "board.ini": {
+      "bytes": 246,
+      "sha256": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c"
+    },
+    "lifecycle_output.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "load_000_frozen.json": {
+      "bytes": 1405910,
+      "sha256": "c88075cb18bffa79eea595041fbf71dcde49873be3de7a980c8840afba350504"
+    },
+    "load_000_operators.json": {
+      "bytes": 18594,
+      "sha256": "afb88425786fddca565bab188366bc0a7ce99553757e46eebe02444d0633ced4"
+    },
+    "manifest.json": {
+      "bytes": 21598,
+      "sha256": "3f9f0b382f3735f233d1eb9f99a472cac1fd10aa22c6460bf687ec7bd66711d0"
+    },
+    "map.html": {
+      "bytes": 35094,
+      "sha256": "f1f33cff1d202fdf695e78b0448f0bc92234af229d8b45145c113596db172901"
+    },
+    "observations.json": {
+      "bytes": 4232167,
+      "sha256": "96a5ea8036eceabdc07d21e418b664e1381b42a213abb596784aa7a934b0391f"
+    },
+    "progress.json": {
+      "bytes": 220,
+      "sha256": "67e890a4feeeafc3cd7467c6e18c5cc7c346401a82fb7e3e55df453a95b5a135"
+    },
+    "protocol.json": {
+      "bytes": 13845,
+      "sha256": "b7310fd1bc5a52d83014115a42f3ae000003ebb5682c2c06a777ef2dd83ed506"
+    },
+    "raw/index.json": {
+      "bytes": 957,
+      "sha256": "c2b8f41d755844686462d88f7e1368ad09d91c0ea2a9a4e0aa0ba2ed119af03c"
+    },
+    "raw/part-000000.jsonl.gz": {
+      "bytes": 464845,
+      "sha256": "5b2d21249655c2a10e3b1b3b44afa5adfa057ded659b68307e1ca2326dca55a3"
+    },
+    "raw/part-000001.jsonl.gz": {
+      "bytes": 341443,
+      "sha256": "a9dadbd1c7b3519396f7c8bb89e039666ca49b1e7f6ca255ceb87dec0f3f58d9"
+    },
+    "selected_map.json": {
+      "bytes": 25001,
+      "sha256": "9990ddf601c1a9b2d45449ee620f561e7a5c0b7c774d9d83ad0175dc92d64b5f"
+    },
+    "simulator_settings.ini": {
+      "bytes": 216,
+      "sha256": "9ef3229595cbbba0ccc7d7450981d7a63266092792f4573d405beb2f364d3ddb"
+    },
+    "start_manifest.json": {
+      "bytes": 19885,
+      "sha256": "ddff9cb5950cdef58d56d5aeed0c027eff9bdffa70ab7665b3ff0785a107e1de"
+    },
+    "summary.json": {
+      "bytes": 25395,
+      "sha256": "1945e63da2e5379cb15754828004ede500eab3b3cea213493da6dd53f3a0296b"
+    }
+  },
+  "decoded_gzip": {
+    "raw/part-000000.jsonl.gz": {
+      "decoded_bytes": 8388374,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    },
+    "raw/part-000001.jsonl.gz": {
+      "decoded_bytes": 6351580,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    }
+  },
+  "secret_scan": {
+    "raw": {
+      "payload_bytes": 6628292,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 6629345,
+      "scan_framing": "ascii-lf-v1"
+    },
+    "decoded_gzip": {
+      "payload_bytes": 14740016,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 14741069,
+      "scan_framing": "ascii-lf-v1"
+    }
+  },
+  "scanner_sha256": "17157e2ee8b76fc8b1d8bee607a250e34b8a8023c8bc81822d4b5ee4d78fcb7c",
+  "scan_helper_sha256": "7efd151d28dc7533648c02fda12e7f3d791ece4ba7b17520176fa5cbdb361bba",
+  "raw_bytes": 6627874,
+  "decoded_bytes": 14739954,
+  "byte_identical_archive_verified": true,
+  "original_files_removed": false,
+  "notes": "Preservation only; no semantic audit, hardware operation or accuracy claim."
+}
