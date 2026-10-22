@@ -31,6 +31,7 @@ class Profile:
     block: Block
     biased: bool
     delta: float
+    global_bias: bool = False
 
 
 @dataclass(frozen=True)
@@ -137,7 +138,7 @@ def acquire_load(reader: ReadCollector, selected: tuple[Profile, ...], out: Path
                     leg_order = (block.plus_wl, block.minus_wl) if repeat % 2 == 0 else (block.minus_wl, block.plus_wl)
                     kind: Phase = 'basis' if phase == 'basis' else 'validation'
                     mode: Mode = 'fixed_positive' if profile.biased else 'ordinary'
-                    legs = {wl: reader.measure_leg(block, wl, kind, repeat, mode, profile.delta, targets) for wl in leg_order}
+                    legs = {wl: reader.measure_leg(block, wl, kind, repeat, mode, profile.delta, targets, global_bias=profile.global_bias) for wl in leg_order}
                     pair = Pair(block.name, kind, repeat, mode, profile.delta, targets, leg_order, legs[block.plus_wl], legs[block.minus_wl])
                     reader.pairs.append(pair)
                     reader.emit('transfer_bracket', load=load, **asdict(pair))

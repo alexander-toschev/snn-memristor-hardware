@@ -164,6 +164,7 @@ def run(source: Source, publish: bool) -> tuple[dict[str, object], int]:
 
 
 def main(argv: list[str] | None = None) -> int:
+    global PLAN
     parser = argparse.ArgumentParser(description=__doc__)
     modes = parser.add_mutually_exclusive_group(required=True)
     modes.add_argument('--dry-run', action='store_true')
@@ -171,7 +172,11 @@ def main(argv: list[str] | None = None) -> int:
     modes.add_argument('--run-hardware', action='store_true')
     modes.add_argument('--publish-session', metavar='UUID')
     parser.add_argument('--publish', action='store_true')
+    parser.add_argument('--global-bias', action='store_true', help='Pinned global .025V background, read-only')
     args = parser.parse_args(argv)
+    if args.global_bias:
+        PLAN = Path(__file__).parent/'plan_global.json'
+        SPEC['plan'] = json.loads(PLAN.read_text(encoding='utf-8'))
     if args.publish_session:
         sid = str(uuid.UUID(args.publish_session))
         result = terminal_publication.publish(ROOT, BASE/sid, log=ROOT/'.tmp'/('publish-block-readout-'+sid+'.log'))

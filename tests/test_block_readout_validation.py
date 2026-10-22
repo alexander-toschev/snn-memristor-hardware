@@ -34,6 +34,16 @@ class Native:
 
 
 class BlockTests(unittest.TestCase):
+    def test_global_bias_guards_all32_and_preserves_background(self):
+        n=Native();c=Collector(cast('Connector',n),Converters(),cast(Writer,Sink()),'simulator')
+        leg=c.measure_leg(BLOCKS[0],0,'basis',0,'fixed_positive',.05,(4,),global_bias=True)
+        self.assertEqual(len(leg.guards),32)
+        self.assertEqual({t['bl'] for t in n.calls[:32]},set(range(32)))
+        self.assertTrue(all(t['mode_flag']==7 and t['vol']==0. for t in n.calls[:32]))
+        signals=n.calls[36:40]
+        self.assertTrue(all(t['vol'][4]==.075 and all(v==.025 for b,v in enumerate(t['vol']) if b!=4) for t in signals))
+        self.assertAlmostEqual(leg.centered('mean4'),80.)
+
     @classmethod
     def setUpClass(cls):
         cls.native=Native();cls.sink=Sink()

@@ -25,7 +25,7 @@ def validate(reader: Collector, path: Path, out: Path) -> dict[str, object]:
         b = Block(name, int(number(wls[0])), int(number(wls[1])), tuple(int(number(v)) for v in bls))
         if not 0 <= b.plus_wl < 8 or not 0 <= b.minus_wl < 8 or b.plus_wl == b.minus_wl or not 1<=len(b.bls)<=3 or any(not 0<=v<32 for v in b.bls):
             raise ValueError('Invalid bounded profile')
-        profiles.append(Profile(b, row['mode']=='fixed_positive', number(row['delta_v'])))
+        profiles.append(Profile(b, row['mode']=='fixed_positive', number(row['delta_v']), row.get('global_bias') is True))
         metadata[name] = row
     operators, _ = acquire_load(reader, tuple(profiles), out, 0)
     selected: dict[str, dict[str, object]] = {}
@@ -51,7 +51,7 @@ def validate(reader: Collector, path: Path, out: Path) -> dict[str, object]:
         if admitted and group not in selected:
             selected[group] = dict(block=group, bls=row['bls'], wl_pair=row['wl_pair'], mode=row['mode'],
                 delta_v=row['delta_v'], coefficient_slots=len(row['bls']) if isinstance(row['bls'],list) else 0,
-                new=row['new'], calibrated_range=row.get('calibrated_range'),
+                new=row['new'], global_bias=row.get('global_bias', False), calibrated_range=row.get('calibrated_range'),
                 qualification='current_state_binary_readout; post-weight-programming revalidation still required')
     all_cells: set[tuple[int, int]] = set()
     for row in selected.values():

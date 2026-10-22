@@ -174,17 +174,19 @@ class Collector:
         return Reading(task_id=self.calls, resistance_ohm=r, adc=adc)
 
     def measure_leg(self, block: Block, wl: int, phase: Phase, repeat: int,
-                    mode: Mode, delta: float, targets: tuple[int, ...]) -> Leg:
+                    mode: Mode, delta: float, targets: tuple[int, ...], *, global_bias: bool = False) -> Leg:
         if wl not in (block.plus_wl, block.minus_wl) or not targets or any(b not in block.bls for b in targets):
             raise ValueError('Unplanned block coordinates')
-        active = targets if mode == 'ordinary' else block.bls
+        if global_bias and mode != 'fixed_positive':
+            raise ValueError('Global bias requires fixed-positive mode')
+        active = tuple(range(32)) if global_bias else (targets if mode == 'ordinary' else block.bls)
         baseline = [(.025 if b in active else 0.) if mode == 'fixed_positive' else 0. for b in range(32)]
         signal = [round(baseline[b] + delta, 3) if b in targets else baseline[b] for b in range(32)]
         base_codes = tuple(self.cv.convert_volt_to_dac(12, 5, v) for v in baseline)
         codes = tuple(self.cv.convert_volt_to_dac(12, 5, v) for v in signal)
         base_decoded = tuple(self.cv.convert_dac_to_volt(12, 5, c) for c in base_codes)
         decoded = tuple(self.cv.convert_dac_to_volt(12, 5, c) for c in codes)
-        meta: dict[str, object] = dict(block=block.name, phase=phase, repeat=repeat, mode=mode, delta_v=delta, targets=list(targets))
+        meta: dict[str, object] = dict(block=block.name, phase=phase, repeat=repeat, mode=mode, delta_v=delta, targets=list(targets), global_bias=global_bias)
         guards = tuple(self.call(dict(mode_flag=7, wl=wl, bl=b, vol=0., sign=0, pulse_width=0.), role='guard', **meta) for b in active)
         current = sum(max(signal[b], decoded[b]) / r['resistance_ohm'] for b, r in zip(active, guards))
         if current > .005 or 330 * current >= 3.3:
