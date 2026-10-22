@@ -66,7 +66,10 @@ def classify(out: Path, keys: np.ndarray[tuple[int, ...], np.dtype[np.uint32]],
     for name in ('readout.pt', 'scaler.pt'):
         shutil.copyfile(ASSETS / name, out / name)
     counts = np.zeros((10000, 64 * 24 * 24), dtype=np.uint8)
-    extract(images('test', 10000), keys, lut, .38, counts, 8, lambda s: print(s, flush=True), 'test')
+    def progress(message: str) -> None:
+        atomic_json(out/'phase_progress.json', dict(phase='CPU_LIF_test', message=message, updated_utc=now()))
+        print(message, flush=True)
+    extract(images('test', 10000), keys, lut, .38, counts, 8, progress, 'test')
     np.save(out / 'test_counts.npy', counts)
     accuracy: dict[str, object] = dict(evaluate(model, counts, out))
     accuracy.update(physical_hardware=source == 'hardware', new_readout=False,
@@ -264,6 +267,7 @@ def evaluate_session(sid: str, publish: bool) -> tuple[dict[str, object], int]:
         source_lut_sha256=sha(source_path/'partial_lut.npy'), hardware_calls_this_process=0,
         protocol=meta['protocol'], source_sha256={p.relative_to(ROOT).as_posix(): sha(p) for p in (Path(__file__), *(ROOT/'experiment_common').glob('*.py'))})
     accuracy: dict[str, object] | None = None
+    atomic_json(out/'start_manifest.json', manifest)
     try:
         keys = np.load(ASSETS/'input_masks.npy', allow_pickle=False).astype(np.uint32)
         from manager.service import converters
