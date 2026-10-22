@@ -24,6 +24,40 @@ BLS = (2, 3, 6, 10, 11, 12, 14, 15)
 CELLS = tuple((wl, bl) for wl in (0, 7) for bl in BLS)
 
 
+@dataclass(frozen=True)
+class Schedule:
+    """Явные адреса/фазы; default сохраняет исходный сценарий16 A/B."""
+    cells: tuple[tuple[int, int], ...] = CELLS
+    include_b: bool = True
+    final_recheck_cells: tuple[tuple[int, int], ...] = ()
+    wall_seconds: float = 1200.
+
+    def __post_init__(self) -> None:
+        combined = self.cells + self.final_recheck_cells
+        if not self.cells or len(set(combined)) != len(combined):
+            raise ValueError('Empty/duplicate validation addresses')
+        if any(type(w) is not int or type(b) is not int or not 0 <= w < 8 or not 0 <= b < 32 for w, b in combined):
+            raise ValueError('Invalid validation address')
+        if self.include_b and (self.cells != CELLS or self.final_recheck_cells):
+            raise ValueError('B is defined only for original16cell protocol')
+        if not 0 < self.wall_seconds <= 3600:
+            raise ValueError('Invalid finite wall budget')
+
+    @property
+    def calls_by_phase(self) -> dict[str, int]:
+        caps = dict(A=1104 * len(self.cells), B=6656 if self.include_b else 0)
+        if self.final_recheck_cells:
+            caps['R'] = 40 * len(self.final_recheck_cells)
+        return caps
+
+    @property
+    def pulses_by_phase(self) -> dict[str, int]:
+        caps = dict(A=32 * len(self.cells), B=768 if self.include_b else 0)
+        if self.final_recheck_cells:
+            caps['R'] = 0
+        return caps
+
+
 def recipe(state: str, incremental: bool = False) -> list[tuple[int, float]]:
     if state == 'R':
         return [(0, level) for level in LEVELS]
@@ -80,12 +114,12 @@ class PairPoint:
     time: float
 
 
-def assess_cells(points: list[Point], updates: list[Pulse]) -> list[dict[str, object]]:
+def assess_cells(points: list[Point], updates: list[Pulse], cells: tuple[tuple[int, int], ...] = CELLS) -> list[dict[str, object]]:
     """Точные исходные lower-span/SNR/noise/drift/cycle формулы, без rerank."""
     reports: list[dict[str, object]] = []
     needed = [(cycle, state, role) for cycle in range(2) for state in ('R', 'M', 'H')
               for role in ('immediate', 'delay_0', 'delay_10', 'delay_60')] + [(-1, 'H', 'final')]
-    for wl, bl in CELLS:
+    for wl, bl in cells:
         by = {(p.cycle, p.state, p.role): p for p in points if (p.wl, p.bl) == (wl, bl)}
         hard: list[str] = []
         reasons: list[str] = []
@@ -183,14 +217,20 @@ class Collector:
     def __init__(self, connector: Connector, converters: Converters, writer: Writer,
                  source: Source, progress: Callable[[str], None], *,
                  clock: Callable[[], float] = time.monotonic,
-                 sleep: Callable[[float], None] = time.sleep) -> None:
+                 sleep: Callable[[float], None] = time.sleep,
+                 schedule: Schedule | None = None) -> None:
         self.connector: Connector = connector
         self.cv, self.writer, self.source = converters, writer, source
         self.progress, self.clock, self.sleep = progress, clock, sleep
+        self.schedule = schedule if schedule is not None else Schedule()
+        self.allowed = frozenset(self.schedule.cells + self.schedule.final_recheck_cells)
+        self.write_cells = frozenset(self.schedule.cells)
+        self.call_caps = self.schedule.calls_by_phase
+        self.pulse_caps = self.schedule.pulses_by_phase
         self.calls = self.pulses = self.decisions = 0
         self.phase = 'A'
-        self.phase_calls = dict(A=0, B=0)
-        self.phase_pulses = dict(A=0, B=0)
+        self.phase_calls = dict.fromkeys(self.call_caps, 0)
+        self.phase_pulses = dict.fromkeys(self.pulse_caps, 0)
         self.started = clock()
         self.last_decision = self.started
         self.waited = 0.
@@ -206,19 +246,22 @@ class Collector:
                                monotonic_s=self.clock(), **fields))
 
     def budget(self) -> None:
-        if self.clock() - self.started >= 1200:
-            raise TimeoutError('1200second finite wall budget')
-        if self.calls >= 24320 or self.phase_calls[self.phase] >= (17664 if self.phase == 'A' else 6656):
+        if self.clock() - self.started >= self.schedule.wall_seconds:
+            raise TimeoutError('Finite wall budget exhausted')
+        if self.calls >= sum(self.call_caps.values()) or self.phase_calls[self.phase] >= self.call_caps[self.phase]:
             raise ValueError('Finite impact budget')
 
     def call(self, command: dict[str, int | float | list[float]], **metadata: object) -> Reading:
         self.budget()
         mode, wl = command['mode_flag'], command['wl']
-        if type(wl) is not int or wl not in (0, 7) or type(mode) is not int:
+        if type(wl) is not int or wl not in {w for w, _ in self.allowed} or type(mode) is not int:
             raise ValueError('Outside selected WL')
         if mode == 7:
-            if type(command.get('bl')) is not int or type(command.get('sign')) is not int or command.get('bl') not in BLS or command.get('sign') not in (0, 1):
+            bl = command.get('bl')
+            if type(bl) is not int or type(command.get('sign')) is not int or (wl, bl) not in self.allowed or command.get('sign') not in (0, 1):
                 raise ValueError('Outside selected cell/polarity')
+            if command.get('vol') != 0. and (self.phase == 'R' or (wl, bl) not in self.write_cells):
+                raise ValueError('Writes forbidden outside programmed target')
             if command.get('vol') not in (0., *LEVELS):
                 raise ValueError('Unreviewed pulse voltage')
             width = 0. if command['vol'] == 0. or self.source == 'hardware' else .000125
@@ -228,7 +271,7 @@ class Collector:
             voltage = command.get('vol')
             if not isinstance(voltage, list) or len(voltage) != 32 or sum(v > 0 for v in voltage) > 1:
                 raise ValueError('Expected zero/singleton vector')
-            if any(v not in (0., .05) or v > 0 and bl not in BLS for bl, v in enumerate(voltage)):
+            if any(v not in (0., .05) or v > 0 and (wl, bl) not in self.allowed for bl, v in enumerate(voltage)):
                 raise ValueError('Unreviewed mode10 voltage/address')
         else:
             raise ValueError('Only public mode7/mode10')
@@ -254,7 +297,7 @@ class Collector:
         return self.call(dict(mode_flag=7, wl=wl, bl=bl, vol=0., sign=0, pulse_width=0.), **metadata)
 
     def pulse(self, wl: int, bl: int, sign: int, level: float, cycle: int, **metadata: object) -> None:
-        if sign not in (0, 1) or level not in LEVELS or self.decisions >= 1280:
+        if self.phase == 'R' or (wl, bl) not in self.write_cells or sign not in (0, 1) or level not in LEVELS or self.decisions >= sum(self.pulse_caps.values()):
             raise ValueError('Invalid finite pulse decision')
         guard = self.read(wl, bl, role='write_guard', **metadata)
         self.decisions += 1
@@ -266,7 +309,7 @@ class Collector:
         self.last_decision = self.clock()
         response: Reading | None = None
         if admitted:
-            if self.pulses >= 1280 or self.phase_pulses[self.phase] >= (512 if self.phase == 'A' else 768):
+            if self.pulses >= sum(self.pulse_caps.values()) or self.phase_pulses[self.phase] >= self.pulse_caps[self.phase]:
                 raise ValueError('Finite pulse cap')
             self.pulses += 1
             self.phase_pulses[self.phase] += 1
@@ -309,7 +352,8 @@ class Collector:
     def wait(self, origin: float, delay: float) -> None:
         self.budget()
         remaining = max(0., origin + delay - self.clock())
-        if self.waited + remaining > 600. + 1e-7 or self.clock() - self.started + remaining >= 1200:
+        wait_limit = 600. if self.schedule.include_b else 360.
+        if self.waited + remaining > wait_limit + 1e-7 or self.clock() - self.started + remaining >= self.schedule.wall_seconds:
             raise TimeoutError('Finite explicit wait/wall budget')
         self.emit('wait', requested_s=remaining, origin=origin, delay=delay)
         if remaining:
@@ -317,23 +361,23 @@ class Collector:
         self.waited += remaining
 
     def phase_a(self) -> None:
-        for wl, bl in CELLS:
+        for wl, bl in self.schedule.cells:
             self.checkpoint(wl, bl, -1, 'initial', 'baseline')
         for cycle in range(2):
             for state in ('R', 'M', 'H'):
-                for wl, bl in CELLS:
+                for wl, bl in self.schedule.cells:
                     for sign, level in recipe(state, incremental=True):
                         self.pulse(wl, bl, sign, level, cycle, state=state)
                     self.checkpoint(wl, bl, cycle, state, 'immediate')
                 origin = self.last_decision
                 for delay in (0, 10, 60):
                     self.wait(origin, delay)
-                    for wl, bl in CELLS:
+                    for wl, bl in self.schedule.cells:
                         self.checkpoint(wl, bl, cycle, state, 'delay_' + str(delay))
                 self.progress(f'A cycle{cycle+1}/2 state{state}; calls{self.calls} pulses{self.pulses}')
-        for wl, bl in CELLS:
+        for wl, bl in self.schedule.cells:
             self.checkpoint(wl, bl, -1, 'H', 'final')
-        self.cells = assess_cells(self.points, self.updates)
+        self.cells = assess_cells(self.points, self.updates, self.schedule.cells)
         self.emit('phase_a_complete', cells=self.cells, rerank=False)
 
     def paired_checkpoint(self, bl: int, configuration: str, role: str) -> None:
@@ -365,6 +409,14 @@ class Collector:
 
     def run(self) -> dict[str, object]:
         self.phase_a()
+        if not self.schedule.include_b:
+            if self.schedule.final_recheck_cells:
+                self.phase = 'R'
+                for wl, bl in self.schedule.final_recheck_cells:
+                    self.checkpoint(wl, bl, -2, 'prior_H_after_other_writes', 'final_recheck')
+                self.emit('old_cells_readonly_recheck_complete')
+            self.status = 'completed'
+            return self.result()
         # Не rerank и не расширение: все16 прежних legs должны снова иметь
         # разрешимый диапазон. Stablezero не является полезным synapticweight.
         if not all(row['hard_eligible'] is True for row in self.cells):
