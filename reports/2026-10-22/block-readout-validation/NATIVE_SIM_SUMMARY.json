@@ -1,0 +1,46 @@
+{
+  "session_id": "d527edc0-bef8-452b-a9dc-bbcbceeca238",
+  "status": "completed",
+  "error": null,
+  "impacts": 74518,
+  "pulses": 0,
+  "complete_pairs": 2352,
+  "elapsed_seconds": 65.07800000009593,
+  "selected_blocks": [
+    {
+      "block": "B07",
+      "bls": [
+        7
+      ],
+      "coefficient_slots": 1,
+      "delta_v": 0.05,
+      "mode": "fixed_positive",
+      "profile": "biased_delta05",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        1,
+        5
+      ]
+    },
+    {
+      "block": "B15",
+      "bls": [
+        10
+      ],
+      "coefficient_slots": 1,
+      "delta_v": 0.05,
+      "mode": "fixed_positive",
+      "profile": "biased_delta05",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        6,
+        7
+      ]
+    }
+  ],
+  "selected_cells": 4,
+  "scope": "Functional run on fresh random native SIM array; not matched hardware conductances or hardware qualification",
+  "manifest_sha256": "ecb0c547f7453f48c46dc0fc56a1c44b4371b9e7fcb0e2365aa94d1075ee40a6"
+}
