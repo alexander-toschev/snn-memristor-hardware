@@ -1,0 +1,217 @@
+{
+  "schema": "memriboard-stable-block-map-v1",
+  "session_id": "7aa6d488-da3d-468d-bc9f-e98f03ff4d31",
+  "source_summary": "results/block_readout_validation_20261022/summaries/7aa6d488-da3d-468d-bc9f-e98f03ff4d31.json",
+  "source_sha256": "e54f667e98815ca36a72e9c1d1e337e1225941a34c5f50ca7ce9554840d5f81f",
+  "qualification": "current_conductance_state_and_tested_binary_profile_only",
+  "selected_blocks": [
+    {
+      "block": "B02",
+      "bls": [
+        8,
+        13
+      ],
+      "coefficient_slots": 2,
+      "delta_v": 0.05,
+      "mode": "ordinary",
+      "profile": "ordinary_delta05",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        0,
+        3
+      ]
+    },
+    {
+      "block": "B03",
+      "bls": [
+        11
+      ],
+      "coefficient_slots": 1,
+      "delta_v": 0.05,
+      "mode": "ordinary",
+      "profile": "ordinary_delta05",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        0,
+        4
+      ]
+    },
+    {
+      "block": "B04",
+      "bls": [
+        15
+      ],
+      "coefficient_slots": 1,
+      "delta_v": 0.05,
+      "mode": "ordinary",
+      "profile": "ordinary_delta05",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        1,
+        2
+      ]
+    },
+    {
+      "block": "B05",
+      "bls": [
+        10
+      ],
+      "coefficient_slots": 1,
+      "delta_v": 0.05,
+      "mode": "ordinary",
+      "profile": "ordinary_delta05",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        1,
+        3
+      ]
+    },
+    {
+      "block": "B06",
+      "bls": [
+        14
+      ],
+      "coefficient_slots": 1,
+      "delta_v": 0.05,
+      "mode": "ordinary",
+      "profile": "ordinary_delta05",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        1,
+        4
+      ]
+    },
+    {
+      "block": "B07",
+      "bls": [
+        7
+      ],
+      "coefficient_slots": 1,
+      "delta_v": 0.05,
+      "mode": "ordinary",
+      "profile": "ordinary_delta05",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        1,
+        5
+      ]
+    },
+    {
+      "block": "B09",
+      "bls": [
+        0
+      ],
+      "coefficient_slots": 1,
+      "delta_v": 0.05,
+      "mode": "ordinary",
+      "profile": "ordinary_delta05",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        2,
+        5
+      ]
+    },
+    {
+      "block": "B10",
+      "bls": [
+        2,
+        3
+      ],
+      "coefficient_slots": 2,
+      "delta_v": 0.025,
+      "mode": "fixed_positive",
+      "profile": "biased_delta025",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        3,
+        4
+      ]
+    },
+    {
+      "block": "B11",
+      "bls": [
+        1,
+        10,
+        15
+      ],
+      "coefficient_slots": 3,
+      "delta_v": 0.025,
+      "mode": "fixed_positive",
+      "profile": "biased_delta025",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        4,
+        5
+      ]
+    },
+    {
+      "block": "B12",
+      "bls": [
+        13
+      ],
+      "coefficient_slots": 1,
+      "delta_v": 0.05,
+      "mode": "ordinary",
+      "profile": "ordinary_delta05",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        4,
+        6
+      ]
+    },
+    {
+      "block": "B13",
+      "bls": [
+        3,
+        5,
+        14
+      ],
+      "coefficient_slots": 3,
+      "delta_v": 0.05,
+      "mode": "fixed_positive",
+      "profile": "biased_delta05",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        5,
+        6
+      ]
+    },
+    {
+      "block": "B15",
+      "bls": [
+        10
+      ],
+      "coefficient_slots": 1,
+      "delta_v": 0.05,
+      "mode": "ordinary",
+      "profile": "ordinary_delta05",
+      "qualification": "stable_current_state_readout_only",
+      "samples_per_level": 4,
+      "wl_pair": [
+        6,
+        7
+      ]
+    }
+  ],
+  "coefficients": 18,
+  "physical_cells": 36,
+  "readout": "each leg: fresh current guard; baseline mean4, signal mean4, baseline mean4; signed difference",
+  "lif_rule": "sum all measured partial contributions before one logical LIF update",
+  "all_nonempty_binary_patterns_validated": true,
+  "validation_repeats": 5,
+  "after_programming": "repeat readout validation at the new conductance state",
+  "mnist_scheduler_implemented": false,
+  "mnist_run_performed": false,
+  "cpu_ideal_matmul_is_not_a_replacement": true
+}
