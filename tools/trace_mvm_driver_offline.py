@@ -89,9 +89,9 @@ def extract(path: Path) -> tuple[Callable[[Context,list[int],int,int,int,int,int
         raise ValueError('Expected unique literal mvm_css assignment')
     method=methods[0]
     # No import, dynamic access, file APIs or module initialization is compiled.
-    allowed_calls={'int','list','range','len','min','max','abs','enumerate','zip','print','map'}
+    allowed_calls={'int','list','range','len','min','max','abs','enumerate','zip','print','map','sum'}
     allowed_attributes={'spi_send','spi_read','ldac_mvm','BLINK_ON','BLINK_OFF','gen_registers_bytes','array','zeros','where',
-                        'astype','tolist','clip','int64','int32','uint8','uint16','uint32','sleep'}
+                        'astype','tolist','clip','int64','int32','uint8','uint16','uint32','sleep','append'}
     for node in ast.walk(method):
         if isinstance(node,(ast.Import,ast.ImportFrom,ast.Global,ast.Nonlocal,ast.ClassDef,ast.AsyncFunctionDef,ast.With)):
             raise ValueError('Unsafe construct in extracted method')
@@ -113,7 +113,7 @@ def extract(path: Path) -> tuple[Callable[[Context,list[int],int,int,int,int,int
     def quiet_print(*values: object, **keywords: object) -> None:
         return None
     builtins: dict[str,object]=dict(int=int,list=list,range=range,len=len,min=min,max=max,abs=abs,
-                                 enumerate=enumerate,zip=zip,print=quiet_print,map=map)
+                                 enumerate=enumerate,zip=zip,print=quiet_print,map=map,sum=sum)
     namespace: dict[str,object]={'__builtins__':builtins,'np':np,'time':OfflineTime,
         'FPGA_SIM':SimpleNamespace(gen_registers_bytes=register_stub.gen_registers_bytes)}
     exec(compile(module,'<mode_mvm-offline>','exec'),namespace)

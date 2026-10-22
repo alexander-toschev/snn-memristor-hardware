@@ -22,7 +22,9 @@ class Driver:
         self.fpga.ldac_mvm()
         self.fpga.spi_read(0,2)
         self.fpga.BLINK_OFF()
-        return (0,task_id)
+        zero_parts = []
+        zero_parts.append(0)
+        return (sum(zero_parts),task_id)
 '''
 
 
