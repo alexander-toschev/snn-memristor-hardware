@@ -1,0 +1,27 @@
+{
+  "strict_typing": {
+    "command": "mypy --config-file typing/selected_programming/mypy.ini --python-executable .venv-mnist-pilot/Scripts/python.exe",
+    "sources": 3,
+    "status": "PASS"
+  },
+  "unit_tests": {
+    "command": "python -B -m unittest tests.test_selected_programming_validation -v",
+    "passed": 4,
+    "seconds": 0.864
+  },
+  "actual_old_hardware_metrics_comparison": {
+    "session": "4c8c70ca-f819-4c82-83c8-8fed7f9fe3b0",
+    "cell_reports_exact": 16,
+    "pair_reports_exact": 8,
+    "status": "PASS"
+  },
+  "full_fake_limits": {
+    "calls": 24320,
+    "pulses": 1280,
+    "wait_seconds": 600,
+    "phase_a_calls": 17664,
+    "phase_b_calls": 6656
+  },
+  "native_session": "cbff4d06-f798-424a-b666-45f038a9ebb2",
+  "native_outcome": "terminal negative no_stable_rectangle; see NATIVE_SIM_SUMMARY.json"
+}
