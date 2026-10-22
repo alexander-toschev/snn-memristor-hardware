@@ -1,0 +1,452 @@
+{
+  "cause_identified": false,
+  "complete_brackets": 54,
+  "error": null,
+  "group_comparisons": [
+    {
+      "bls": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "centered_adc": [
+        1989.0,
+        1991.0,
+        1992.0
+      ],
+      "count": 3,
+      "mask": "lower0_7",
+      "mean_adc": 1990.6666666666667,
+      "sd_adc": 1.5275252316519468,
+      "wl": 0
+    },
+    {
+      "bls": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "centered_adc": [
+        1553.0,
+        1555.0,
+        1559.0
+      ],
+      "count": 3,
+      "mask": "lower8_15",
+      "mean_adc": 1555.6666666666667,
+      "sd_adc": 3.0550504633038935,
+      "wl": 0
+    },
+    {
+      "bls": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "centered_adc": [
+        565.0,
+        567.0,
+        566.0
+      ],
+      "count": 3,
+      "mask": "upper16_23",
+      "mean_adc": 566.0,
+      "sd_adc": 1.0,
+      "wl": 0
+    },
+    {
+      "bls": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "centered_adc": [
+        786.0,
+        789.0,
+        789.0
+      ],
+      "count": 3,
+      "mask": "upper24_31",
+      "mean_adc": 788.0,
+      "sd_adc": 1.7320508075688772,
+      "wl": 0
+    },
+    {
+      "bls": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "centered_adc": [
+        1023.0,
+        1023.0,
+        1023.0
+      ],
+      "count": 3,
+      "mask": "upper16_31",
+      "mean_adc": 1023.0,
+      "sd_adc": 0.0,
+      "wl": 0
+    },
+    {
+      "bls": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "centered_adc": [
+        1023.0,
+        1023.0,
+        1020.0
+      ],
+      "count": 3,
+      "mask": "upper16_30",
+      "mean_adc": 1022.0,
+      "sd_adc": 1.7320508075688772,
+      "wl": 0
+    },
+    {
+      "bls": [
+        31
+      ],
+      "centered_adc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "count": 3,
+      "mask": "BL31",
+      "mean_adc": 0.0,
+      "sd_adc": 0.0,
+      "wl": 0
+    },
+    {
+      "bls": [
+        14
+      ],
+      "centered_adc": [
+        61.0,
+        63.0,
+        62.0
+      ],
+      "count": 3,
+      "mask": "BL14",
+      "mean_adc": 62.0,
+      "sd_adc": 1.0,
+      "wl": 0
+    },
+    {
+      "bls": [
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "centered_adc": [
+        1080.0,
+        1083.0,
+        1084.0
+      ],
+      "count": 3,
+      "mask": "BL14_plus_upper16_30",
+      "mean_adc": 1082.3333333333333,
+      "sd_adc": 2.0816659994661326,
+      "wl": 0
+    },
+    {
+      "centered_adc": [
+        1019.0,
+        1020.0,
+        1022.0
+      ],
+      "count": 3,
+      "interpretation": "Adjacent measured responses; not proof of additivity or isolated channel contribution.",
+      "mask": "measured_mixed_minus_BL14",
+      "mean_adc": 1020.3333333333334,
+      "wl": 0
+    },
+    {
+      "bls": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "centered_adc": [
+        2025.0,
+        2020.0,
+        2013.0
+      ],
+      "count": 3,
+      "mask": "lower0_7",
+      "mean_adc": 2019.3333333333333,
+      "sd_adc": 6.027713773341708,
+      "wl": 7
+    },
+    {
+      "bls": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "centered_adc": [
+        1612.0,
+        1615.0,
+        1614.0
+      ],
+      "count": 3,
+      "mask": "lower8_15",
+      "mean_adc": 1613.6666666666667,
+      "sd_adc": 1.5275252316519468,
+      "wl": 7
+    },
+    {
+      "bls": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "centered_adc": [
+        1125.0,
+        1122.0,
+        1125.0
+      ],
+      "count": 3,
+      "mask": "upper16_23",
+      "mean_adc": 1124.0,
+      "sd_adc": 1.7320508075688772,
+      "wl": 7
+    },
+    {
+      "bls": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "centered_adc": [
+        596.0,
+        601.0,
+        594.0
+      ],
+      "count": 3,
+      "mask": "upper24_31",
+      "mean_adc": 597.0,
+      "sd_adc": 3.605551275463989,
+      "wl": 7
+    },
+    {
+      "bls": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "centered_adc": [
+        1324.0,
+        1328.0,
+        1332.0
+      ],
+      "count": 3,
+      "mask": "upper16_31",
+      "mean_adc": 1328.0,
+      "sd_adc": 4.0,
+      "wl": 7
+    },
+    {
+      "bls": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "centered_adc": [
+        1332.0,
+        1331.0,
+        1331.0
+      ],
+      "count": 3,
+      "mask": "upper16_30",
+      "mean_adc": 1331.3333333333333,
+      "sd_adc": 0.5773502691896257,
+      "wl": 7
+    },
+    {
+      "bls": [
+        31
+      ],
+      "centered_adc": [
+        121.0,
+        122.0,
+        119.0
+      ],
+      "count": 3,
+      "mask": "BL31",
+      "mean_adc": 120.66666666666667,
+      "sd_adc": 1.5275252316519468,
+      "wl": 7
+    },
+    {
+      "bls": [
+        14
+      ],
+      "centered_adc": [
+        326.0,
+        331.0,
+        325.0
+      ],
+      "count": 3,
+      "mask": "BL14",
+      "mean_adc": 327.3333333333333,
+      "sd_adc": 3.2145502536643185,
+      "wl": 7
+    },
+    {
+      "bls": [
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "centered_adc": [
+        1401.0,
+        1403.0,
+        1403.0
+      ],
+      "count": 3,
+      "mask": "BL14_plus_upper16_30",
+      "mean_adc": 1402.3333333333333,
+      "sd_adc": 1.1547005383792515,
+      "wl": 7
+    },
+    {
+      "centered_adc": [
+        1075.0,
+        1072.0,
+        1078.0
+      ],
+      "count": 3,
+      "interpretation": "Adjacent measured responses; not proof of additivity or isolated channel contribution.",
+      "mask": "measured_mixed_minus_BL14",
+      "mean_adc": 1075.0,
+      "wl": 7
+    }
+  ],
+  "impacts": 648,
+  "note": "R and MVM have different analog routes; no resistance-derived replacement of measured MVM.",
+  "programmable_range_validated": false,
+  "pulses": 0,
+  "session_id": "49b04c58-cc58-4da0-a61f-87f755df6df2",
+  "source": "hardware",
+  "status": "completed"
+}
