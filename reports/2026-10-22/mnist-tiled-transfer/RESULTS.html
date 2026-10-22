@@ -1,0 +1,527 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><title>MNIST: 12 блоков</title><style>body{font:16px system-ui;max-width:1050px;margin:2em auto;padding:1em}table{border-collapse:collapse}td,th{padding:.5em 1em;border:1px solid #bbb;text-align:left}pre{white-space:pre-wrap}</style><h1>MNIST64: перенос обученных STDP-весов через 12 блоков</h1><p>89 загрузок,18 пар,36 физических ячеек;1600 коэффициентов.10 000 test; head/scaler заморожены.</p><table><tr><th>Источник</th><th>Strict accuracy</th><th>Верно</th><th>Argmax accuracy</th></tr><tr><td>Симулятор</td><td>55.34%</td><td>5534/10000</td><td>55.36%</td></tr><tr><td>Плата</td><td>55.07%</td><td>5507/10000</td><td>55.09%</td></tr></table><p>Исходное обучение в прежней раскладке:66,36%. Текущие числа относятся к переносу через12блоков.</p><p>Это гибридный инференс по замороженным измеренным откликам: MemriBoard выполняет запись и частичные MVM; CPU складывает результаты до LIF и применяет прежний классификатор. Нет live-запроса платы для каждой картинки и нет аналогового LIF.</p><p>Все89 аппаратных загрузок прошли заданную проверку повторяемости. При этом2295из3200 записей ячеек не попали в допуск G;905попали. Это количество записей при многократном использовании36ячеек. Ошибки не заменялись идеальными весами.</p><p>Использована фиксированная шкала исходной модели; индивидуальная калибровочная матрица и переобучение head не применялись. Это результат прямого переноса, а не оценка предельной достижимой точности платы. Округление штатного конвертера исправлено пересчётом каждого raw-отсчёта; аппаратный сбор не повторялся.</p><p>Близкая суммарная accuracy не доказывает совпадение MVM или верное воспроизведение каждого веса. Отклики различаются по масштабу и знакам; отдельные прогнозы и парное сравнение сохранены ниже.</p><h2>Ошибки записи по физическим ячейкам</h2><table><tr><th>Ячейка</th><th>Промахов/записей</th><th>Средняя абсолютная ошибка,мкСм</th></tr><tr><td>WL0/BL8</td><td>89/89</td><td>345.39</td></tr><tr><td>WL0/BL11</td><td>74/89</td><td>12.25</td></tr><tr><td>WL0/BL13</td><td>70/89</td><td>10.83</td></tr><tr><td>WL1/BL7</td><td>64/89</td><td>18.70</td></tr><tr><td>WL1/BL10</td><td>63/89</td><td>16.59</td></tr><tr><td>WL1/BL14</td><td>80/89</td><td>16.53</td></tr><tr><td>WL1/BL15</td><td>89/89</td><td>224.64</td></tr><tr><td>WL2/BL0</td><td>79/89</td><td>19.07</td></tr><tr><td>WL2/BL15</td><td>61/89</td><td>10.04</td></tr><tr><td>WL3/BL2</td><td>63/89</td><td>13.27</td></tr><tr><td>WL3/BL3</td><td>71/89</td><td>12.74</td></tr><tr><td>WL3/BL8</td><td>89/89</td><td>203.94</td></tr><tr><td>WL3/BL10</td><td>81/89</td><td>6.80</td></tr><tr><td>WL3/BL13</td><td>79/89</td><td>7.00</td></tr><tr><td>WL4/BL1</td><td>60/89</td><td>19.51</td></tr><tr><td>WL4/BL2</td><td>60/89</td><td>10.78</td></tr><tr><td>WL4/BL3</td><td>7/89</td><td>1.63</td></tr><tr><td>WL4/BL10</td><td>73/89</td><td>19.18</td></tr><tr><td>WL4/BL11</td><td>60/89</td><td>10.59</td></tr><tr><td>WL4/BL13</td><td>80/89</td><td>26.18</td></tr><tr><td>WL4/BL14</td><td>89/89</td><td>11.73</td></tr><tr><td>WL4/BL15</td><td>68/89</td><td>16.92</td></tr><tr><td>WL5/BL0</td><td>49/89</td><td>7.78</td></tr><tr><td>WL5/BL1</td><td>53/89</td><td>5.51</td></tr><tr><td>WL5/BL3</td><td>52/89</td><td>13.33</td></tr><tr><td>WL5/BL5</td><td>49/89</td><td>11.35</td></tr><tr><td>WL5/BL7</td><td>57/89</td><td>8.18</td></tr><tr><td>WL5/BL10</td><td>49/89</td><td>7.19</td></tr><tr><td>WL5/BL14</td><td>44/88</td><td>12.64</td></tr><tr><td>WL5/BL15</td><td>42/89</td><td>6.71</td></tr><tr><td>WL6/BL3</td><td>87/89</td><td>11.90</td></tr><tr><td>WL6/BL5</td><td>65/89</td><td>11.70</td></tr><tr><td>WL6/BL10</td><td>56/88</td><td>19.72</td></tr><tr><td>WL6/BL13</td><td>57/89</td><td>10.78</td></tr><tr><td>WL6/BL14</td><td>18/88</td><td>3.11</td></tr><tr><td>WL7/BL10</td><td>68/88</td><td>8.68</td></tr></table><details><summary>Данные и происхождение</summary><pre>{
+  &quot;schema&quot;: &quot;mnist12-transfer-comparison-v1&quot;,
+  &quot;scope&quot;: &quot;Frozen measured partial MVM operators; CPU sum before LIF; CPU LIF and frozen source head.&quot;,
+  &quot;live_hardware_per_image&quot;: false,
+  &quot;new_stdp&quot;: false,
+  &quot;new_readout&quot;: false,
+  &quot;calibration&quot;: &quot;Fixed source physical scale330ohm and native DAC; no fitted per-cell calibration matrix or readout adaptation.&quot;,
+  &quot;original_source_strict_accuracy&quot;: 0.6636,
+  &quot;results&quot;: {
+    &quot;hardware&quot;: {
+      &quot;accuracy&quot;: {
+        &quot;conditional_accuracy&quot;: 0.5508101620324065,
+        &quot;conventional_argmax_accuracy&quot;: 0.5509,
+        &quot;coverage&quot;: 0.9998,
+        &quot;execution&quot;: &quot;frozen measured partial MVM operators; CPU LIF and frozen CPU head&quot;,
+        &quot;live_hardware_per_image&quot;: false,
+        &quot;new_readout&quot;: false,
+        &quot;original_6965_reproduction_claim&quot;: false,
+        &quot;physical_hardware&quot;: true,
+        &quot;silent&quot;: 2,
+        &quot;strict_accuracy&quot;: 0.5507,
+        &quot;strict_correct&quot;: 5507,
+        &quot;test_feature_nonzero&quot;: 73720954,
+        &quot;test_images&quot;: 10000,
+        &quot;test_labels_used_for_selection&quot;: false,
+        &quot;test_spikes&quot;: 105325440,
+        &quot;tied&quot;: 0,
+        &quot;wilson95_argmax&quot;: [
+          0.5411333981130507,
+          0.5606275108528144
+        ],
+        &quot;wilson95_strict&quot;: [
+          0.5409330748077992,
+          0.5604279877574141
+        ]
+      },
+      &quot;acquisition_session&quot;: &quot;cb53be86-ae2b-485f-bf40-3b7d994e7a50&quot;,
+      &quot;elapsed_seconds&quot;: 430.76600000006147,
+      &quot;error&quot;: null,
+      &quot;scope&quot;: &quot;CPU inference from frozen acquired operators&quot;,
+      &quot;session_id&quot;: &quot;0d2465d8-7095-43bd-a2b5-55a72b4c4042&quot;,
+      &quot;source&quot;: &quot;hardware&quot;,
+      &quot;status&quot;: &quot;completed&quot;
+    },
+    &quot;simulator&quot;: {
+      &quot;accuracy&quot;: {
+        &quot;conditional_accuracy&quot;: 0.5535107021404281,
+        &quot;conventional_argmax_accuracy&quot;: 0.5536,
+        &quot;coverage&quot;: 0.9998,
+        &quot;execution&quot;: &quot;frozen measured partial MVM operators; CPU LIF and frozen CPU head&quot;,
+        &quot;live_hardware_per_image&quot;: false,
+        &quot;new_readout&quot;: false,
+        &quot;original_6965_reproduction_claim&quot;: false,
+        &quot;physical_hardware&quot;: false,
+        &quot;silent&quot;: 2,
+        &quot;strict_accuracy&quot;: 0.5534,
+        &quot;strict_correct&quot;: 5534,
+        &quot;test_feature_nonzero&quot;: 31811738,
+        &quot;test_images&quot;: 10000,
+        &quot;test_labels_used_for_selection&quot;: false,
+        &quot;test_spikes&quot;: 37017534,
+        &quot;tied&quot;: 0,
+        &quot;wilson95_argmax&quot;: [
+          0.5438379186065062,
+          0.5633209167681573
+        ],
+        &quot;wilson95_strict&quot;: [
+          0.5436375737959241,
+          0.5631214151780876
+        ]
+      },
+      &quot;acquisition_session&quot;: &quot;0c7d20fc-045f-4f27-a031-cdcf1889500c&quot;,
+      &quot;elapsed_seconds&quot;: 387.43799999996554,
+      &quot;error&quot;: null,
+      &quot;scope&quot;: &quot;CPU inference from frozen acquired operators&quot;,
+      &quot;session_id&quot;: &quot;0b909723-b4b3-4e4c-b704-a03fea42404c&quot;,
+      &quot;source&quot;: &quot;simulator&quot;,
+      &quot;status&quot;: &quot;completed&quot;
+    }
+  },
+  &quot;hardware_acquisition&quot;: {
+    &quot;accuracy&quot;: null,
+    &quot;completed_loads&quot;: 89,
+    &quot;elapsed_seconds&quot;: 4421.512625070998,
+    &quot;error&quot;: null,
+    &quot;impacts&quot;: 1634874,
+    &quot;inference&quot;: &quot;measured frozen partial MVM LUT + digital sum + CPU LIF + frozen CPU head&quot;,
+    &quot;logical_coefficients&quot;: 1600,
+    &quot;physical_cells&quot;: 36,
+    &quot;pilot&quot;: false,
+    &quot;planned_loads&quot;: 89,
+    &quot;programmed_cell_loads&quot;: 3200,
+    &quot;programming_errors_replaced_by_ideal_weights&quot;: false,
+    &quot;pulses&quot;: 210354,
+    &quot;scope&quot;: &quot;acquisition_only_accuracy_pending&quot;,
+    &quot;session_id&quot;: &quot;cb53be86-ae2b-485f-bf40-3b7d994e7a50&quot;,
+    &quot;source&quot;: &quot;hardware&quot;,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;target_misses&quot;: 2295,
+    &quot;target_tolerance_s&quot;: 2.560355420368765e-06
+  },
+  &quot;simulator_acquisition&quot;: {
+    &quot;accuracy&quot;: {
+      &quot;conditional_accuracy&quot;: 0.5531106221244249,
+      &quot;conventional_argmax_accuracy&quot;: 0.5532,
+      &quot;coverage&quot;: 0.9998,
+      &quot;execution&quot;: &quot;frozen measured partial MVM operators; CPU LIF and frozen CPU head&quot;,
+      &quot;live_hardware_per_image&quot;: false,
+      &quot;new_readout&quot;: false,
+      &quot;original_6965_reproduction_claim&quot;: false,
+      &quot;physical_hardware&quot;: false,
+      &quot;silent&quot;: 2,
+      &quot;strict_accuracy&quot;: 0.553,
+      &quot;strict_correct&quot;: 5530,
+      &quot;test_feature_nonzero&quot;: 31895024,
+      &quot;test_images&quot;: 10000,
+      &quot;test_labels_used_for_selection&quot;: false,
+      &quot;test_spikes&quot;: 37114932,
+      &quot;tied&quot;: 0,
+      &quot;wilson95_argmax&quot;: [
+        0.5434372305795988,
+        0.5629219119937613
+      ],
+      &quot;wilson95_strict&quot;: [
+        0.5432368889573236,
+        0.5627224072153847
+      ]
+    },
+    &quot;completed_loads&quot;: 89,
+    &quot;elapsed_seconds&quot;: 1048.2810000000754,
+    &quot;error&quot;: null,
+    &quot;impacts&quot;: 1118459,
+    &quot;inference&quot;: &quot;measured frozen partial MVM LUT + digital sum + CPU LIF + frozen CPU head&quot;,
+    &quot;logical_coefficients&quot;: 1600,
+    &quot;physical_cells&quot;: 36,
+    &quot;pilot&quot;: false,
+    &quot;planned_loads&quot;: 89,
+    &quot;programmed_cell_loads&quot;: 3200,
+    &quot;programming_errors_replaced_by_ideal_weights&quot;: false,
+    &quot;pulses&quot;: 107071,
+    &quot;scope&quot;: &quot;acquisition_and_accuracy&quot;,
+    &quot;session_id&quot;: &quot;0c7d20fc-045f-4f27-a031-cdcf1889500c&quot;,
+    &quot;source&quot;: &quot;simulator&quot;,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;target_misses&quot;: 873,
+    &quot;target_tolerance_s&quot;: 2.560355420368765e-06
+  },
+  &quot;acquisition_accuracy_superseded&quot;: &quot;Use corrected inference results above, not earlier acquisition accuracy.&quot;,
+  &quot;operator_diagnostics&quot;: {
+    &quot;unweighted_unique_binary_masks&quot;: 722,
+    &quot;filters&quot;: 64,
+    &quot;pearson_flat&quot;: 0.09941025441122851,
+    &quot;note&quot;: &quot;Descriptive over unique masks, not weighted by image frequencies; no calibration fitted to test.&quot;,
+    &quot;paired_predictions&quot;: {
+      &quot;same_test_order&quot;: true,
+      &quot;argmax_agreement&quot;: 0.5776,
+      &quot;both_strict_correct&quot;: 4322,
+      &quot;hardware_only_correct&quot;: 1185,
+      &quot;simulator_only_correct&quot;: 1212,
+      &quot;neither_strict_correct&quot;: 3281
+    },
+    &quot;simulator&quot;: {
+      &quot;absolute_current_quantiles_50_90_99_max&quot;: [
+        0.29351985454559326,
+        1.0131168365478516,
+        1.7327139377593994,
+        2.5990710258483887
+      ],
+      &quot;zero_fraction&quot;: 0.08245325484764543,
+      &quot;negative_fraction&quot;: 0.3570377423822715
+    },
+    &quot;hardware&quot;: {
+      &quot;absolute_current_quantiles_50_90_99_max&quot;: [
+        9.921286582946777,
+        106.9907455444336,
+        134.71810287475586,
+        234.67819213867188
+      ],
+      &quot;zero_fraction&quot;: 0.1996840373961219,
+      &quot;negative_fraction&quot;: 0.030081371191135735
+    }
+  },
+  &quot;physical_cell_programming&quot;: [
+    {
+      &quot;wl&quot;: 0,
+      &quot;bl&quot;: 8,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 89,
+      &quot;mae_us&quot;: 345.3947531614041,
+      &quot;rmse_us&quot;: 346.87797757185194,
+      &quot;maximum_abs_error_us&quot;: 388.85400609496673
+    },
+    {
+      &quot;wl&quot;: 0,
+      &quot;bl&quot;: 11,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 74,
+      &quot;mae_us&quot;: 12.250537957242015,
+      &quot;rmse_us&quot;: 15.590117434017376,
+      &quot;maximum_abs_error_us&quot;: 55.31239266224048
+    },
+    {
+      &quot;wl&quot;: 0,
+      &quot;bl&quot;: 13,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 70,
+      &quot;mae_us&quot;: 10.82516039960749,
+      &quot;rmse_us&quot;: 17.56148797295744,
+      &quot;maximum_abs_error_us&quot;: 105.10365923551977
+    },
+    {
+      &quot;wl&quot;: 1,
+      &quot;bl&quot;: 7,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 64,
+      &quot;mae_us&quot;: 18.700404752534762,
+      &quot;rmse_us&quot;: 25.253177892216673,
+      &quot;maximum_abs_error_us&quot;: 74.43686471643672
+    },
+    {
+      &quot;wl&quot;: 1,
+      &quot;bl&quot;: 10,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 63,
+      &quot;mae_us&quot;: 16.593574002241958,
+      &quot;rmse_us&quot;: 23.396336383050667,
+      &quot;maximum_abs_error_us&quot;: 72.40410811328732
+    },
+    {
+      &quot;wl&quot;: 1,
+      &quot;bl&quot;: 14,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 80,
+      &quot;mae_us&quot;: 16.53101128672034,
+      &quot;rmse_us&quot;: 25.26747614230888,
+      &quot;maximum_abs_error_us&quot;: 87.42664506470835
+    },
+    {
+      &quot;wl&quot;: 1,
+      &quot;bl&quot;: 15,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 89,
+      &quot;mae_us&quot;: 224.6365947438549,
+      &quot;rmse_us&quot;: 226.63191034376172,
+      &quot;maximum_abs_error_us&quot;: 248.73727720221095
+    },
+    {
+      &quot;wl&quot;: 2,
+      &quot;bl&quot;: 0,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 79,
+      &quot;mae_us&quot;: 19.074495360010463,
+      &quot;rmse_us&quot;: 28.34709273985004,
+      &quot;maximum_abs_error_us&quot;: 83.45370887869602
+    },
+    {
+      &quot;wl&quot;: 2,
+      &quot;bl&quot;: 15,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 61,
+      &quot;mae_us&quot;: 10.039999282605047,
+      &quot;rmse_us&quot;: 12.481685501996077,
+      &quot;maximum_abs_error_us&quot;: 20.056830901464515
+    },
+    {
+      &quot;wl&quot;: 3,
+      &quot;bl&quot;: 2,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 63,
+      &quot;mae_us&quot;: 13.267747516442691,
+      &quot;rmse_us&quot;: 19.590372216608046,
+      &quot;maximum_abs_error_us&quot;: 67.04633130241174
+    },
+    {
+      &quot;wl&quot;: 3,
+      &quot;bl&quot;: 3,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 71,
+      &quot;mae_us&quot;: 12.740394329775448,
+      &quot;rmse_us&quot;: 19.466276958801604,
+      &quot;maximum_abs_error_us&quot;: 69.44772174975158
+    },
+    {
+      &quot;wl&quot;: 3,
+      &quot;bl&quot;: 8,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 89,
+      &quot;mae_us&quot;: 203.9374044797768,
+      &quot;rmse_us&quot;: 204.05414405981355,
+      &quot;maximum_abs_error_us&quot;: 211.94228095928787
+    },
+    {
+      &quot;wl&quot;: 3,
+      &quot;bl&quot;: 10,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 81,
+      &quot;mae_us&quot;: 6.797368963321635,
+      &quot;rmse_us&quot;: 7.403270357806842,
+      &quot;maximum_abs_error_us&quot;: 12.691438044109656
+    },
+    {
+      &quot;wl&quot;: 3,
+      &quot;bl&quot;: 13,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 79,
+      &quot;mae_us&quot;: 6.997215480600422,
+      &quot;rmse_us&quot;: 7.71517240321437,
+      &quot;maximum_abs_error_us&quot;: 13.086524868320382
+    },
+    {
+      &quot;wl&quot;: 4,
+      &quot;bl&quot;: 1,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 60,
+      &quot;mae_us&quot;: 19.514663973099776,
+      &quot;rmse_us&quot;: 28.05411771568975,
+      &quot;maximum_abs_error_us&quot;: 79.82075956897172
+    },
+    {
+      &quot;wl&quot;: 4,
+      &quot;bl&quot;: 2,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 60,
+      &quot;mae_us&quot;: 10.775031998054091,
+      &quot;rmse_us&quot;: 14.067220638767854,
+      &quot;maximum_abs_error_us&quot;: 55.685060131881485
+    },
+    {
+      &quot;wl&quot;: 4,
+      &quot;bl&quot;: 3,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 7,
+      &quot;mae_us&quot;: 1.6306447565643631,
+      &quot;rmse_us&quot;: 2.882970943690193,
+      &quot;maximum_abs_error_us&quot;: 20.608096049615035
+    },
+    {
+      &quot;wl&quot;: 4,
+      &quot;bl&quot;: 10,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 73,
+      &quot;mae_us&quot;: 19.175735483726275,
+      &quot;rmse_us&quot;: 27.352894526172175,
+      &quot;maximum_abs_error_us&quot;: 77.96825984724501
+    },
+    {
+      &quot;wl&quot;: 4,
+      &quot;bl&quot;: 11,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 60,
+      &quot;mae_us&quot;: 10.587449100528184,
+      &quot;rmse_us&quot;: 13.780210759005193,
+      &quot;maximum_abs_error_us&quot;: 35.14920240385538
+    },
+    {
+      &quot;wl&quot;: 4,
+      &quot;bl&quot;: 13,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 80,
+      &quot;mae_us&quot;: 26.180308178767948,
+      &quot;rmse_us&quot;: 30.134697266501327,
+      &quot;maximum_abs_error_us&quot;: 76.5347177192458
+    },
+    {
+      &quot;wl&quot;: 4,
+      &quot;bl&quot;: 14,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 89,
+      &quot;mae_us&quot;: 11.725443757362976,
+      &quot;rmse_us&quot;: 13.837536837671733,
+      &quot;maximum_abs_error_us&quot;: 22.29449652595089
+    },
+    {
+      &quot;wl&quot;: 4,
+      &quot;bl&quot;: 15,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 68,
+      &quot;mae_us&quot;: 16.924742976611366,
+      &quot;rmse_us&quot;: 23.93320786796161,
+      &quot;maximum_abs_error_us&quot;: 70.28322883473487
+    },
+    {
+      &quot;wl&quot;: 5,
+      &quot;bl&quot;: 0,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 49,
+      &quot;mae_us&quot;: 7.777022179296795,
+      &quot;rmse_us&quot;: 10.02302834139868,
+      &quot;maximum_abs_error_us&quot;: 17.063846724137626
+    },
+    {
+      &quot;wl&quot;: 5,
+      &quot;bl&quot;: 1,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 53,
+      &quot;mae_us&quot;: 5.512534313428604,
+      &quot;rmse_us&quot;: 7.0212607407153245,
+      &quot;maximum_abs_error_us&quot;: 16.069855928931982
+    },
+    {
+      &quot;wl&quot;: 5,
+      &quot;bl&quot;: 3,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 52,
+      &quot;mae_us&quot;: 13.32857503731682,
+      &quot;rmse_us&quot;: 20.89581075121561,
+      &quot;maximum_abs_error_us&quot;: 109.42356994810517
+    },
+    {
+      &quot;wl&quot;: 5,
+      &quot;bl&quot;: 5,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 49,
+      &quot;mae_us&quot;: 11.345829241373792,
+      &quot;rmse_us&quot;: 18.234494412031086,
+      &quot;maximum_abs_error_us&quot;: 60.34925507781118
+    },
+    {
+      &quot;wl&quot;: 5,
+      &quot;bl&quot;: 7,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 57,
+      &quot;mae_us&quot;: 8.184291815316499,
+      &quot;rmse_us&quot;: 10.412868361212915,
+      &quot;maximum_abs_error_us&quot;: 34.25894027620592
+    },
+    {
+      &quot;wl&quot;: 5,
+      &quot;bl&quot;: 10,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 49,
+      &quot;mae_us&quot;: 7.188619390500272,
+      &quot;rmse_us&quot;: 9.108289586482273,
+      &quot;maximum_abs_error_us&quot;: 15.91899727510506
+    },
+    {
+      &quot;wl&quot;: 5,
+      &quot;bl&quot;: 14,
+      &quot;writes&quot;: 88,
+      &quot;misses&quot;: 44,
+      &quot;mae_us&quot;: 12.637619605610768,
+      &quot;rmse_us&quot;: 21.871207366727578,
+      &quot;maximum_abs_error_us&quot;: 78.54159809707922
+    },
+    {
+      &quot;wl&quot;: 5,
+      &quot;bl&quot;: 15,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 42,
+      &quot;mae_us&quot;: 6.710816563321254,
+      &quot;rmse_us&quot;: 8.874907516093366,
+      &quot;maximum_abs_error_us&quot;: 16.86435857608696
+    },
+    {
+      &quot;wl&quot;: 6,
+      &quot;bl&quot;: 3,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 87,
+      &quot;mae_us&quot;: 11.897822795376092,
+      &quot;rmse_us&quot;: 15.341003243511473,
+      &quot;maximum_abs_error_us&quot;: 73.75275946979293
+    },
+    {
+      &quot;wl&quot;: 6,
+      &quot;bl&quot;: 5,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 65,
+      &quot;mae_us&quot;: 11.702804098498722,
+      &quot;rmse_us&quot;: 15.329808969786393,
+      &quot;maximum_abs_error_us&quot;: 64.09579418049445
+    },
+    {
+      &quot;wl&quot;: 6,
+      &quot;bl&quot;: 10,
+      &quot;writes&quot;: 88,
+      &quot;misses&quot;: 56,
+      &quot;mae_us&quot;: 19.71574273484919,
+      &quot;rmse_us&quot;: 32.256468917115775,
+      &quot;maximum_abs_error_us&quot;: 120.710423382366
+    },
+    {
+      &quot;wl&quot;: 6,
+      &quot;bl&quot;: 13,
+      &quot;writes&quot;: 89,
+      &quot;misses&quot;: 57,
+      &quot;mae_us&quot;: 10.775287349593171,
+      &quot;rmse_us&quot;: 13.96790970005289,
+      &quot;maximum_abs_error_us&quot;: 42.42878566016179
+    },
+    {
+      &quot;wl&quot;: 6,
+      &quot;bl&quot;: 14,
+      &quot;writes&quot;: 88,
+      &quot;misses&quot;: 18,
+      &quot;mae_us&quot;: 3.1086804297228636,
+      &quot;rmse_us&quot;: 4.867034894943528,
+      &quot;maximum_abs_error_us&quot;: 15.07854652839734
+    },
+    {
+      &quot;wl&quot;: 7,
+      &quot;bl&quot;: 10,
+      &quot;writes&quot;: 88,
+      &quot;misses&quot;: 68,
+      &quot;mae_us&quot;: 8.681217155313607,
+      &quot;rmse_us&quot;: 14.489647476538142,
+      &quot;maximum_abs_error_us&quot;: 60.26886352086907
+    }
+  ],
+  &quot;sources&quot;: {
+    &quot;cb53be86-ae2b-485f-bf40-3b7d994e7a50&quot;: {
+      &quot;manifest_sha256&quot;: &quot;d7f54ec8c6216c90c465a9649465259a723893bbe48570c05fdd4540d1a4341f&quot;,
+      &quot;summary_sha256&quot;: &quot;ee6b68b5aed29df9ed570477705c8fa00462b3055d8969997ca96e965aaa1f36&quot;
+    },
+    &quot;0c7d20fc-045f-4f27-a031-cdcf1889500c&quot;: {
+      &quot;manifest_sha256&quot;: &quot;44da871533ce9c926dd9118c4172fa18cee90b75111c1e184aed68d8e6f89945&quot;,
+      &quot;summary_sha256&quot;: &quot;f2275ecb6b1449096e75c378e4a8b5bf20e107e50ed7153cd8d96a34e403d71a&quot;
+    },
+    &quot;0d2465d8-7095-43bd-a2b5-55a72b4c4042&quot;: {
+      &quot;manifest_sha256&quot;: &quot;8b65cc316d490772ebcf1f1dce7e42e0478520c49b8400ff487f589807426c14&quot;,
+      &quot;summary_sha256&quot;: &quot;75b50596d98ae7fff609afa4b6b89731a7053aabe3ef416df5ba0a3838db7e1b&quot;
+    },
+    &quot;0b909723-b4b3-4e4c-b704-a03fea42404c&quot;: {
+      &quot;manifest_sha256&quot;: &quot;fbbc2d637fd19032ac0f928e44a374d8447399407bb4e9b0e80f6a153c894997&quot;,
+      &quot;summary_sha256&quot;: &quot;937b4e52743770c9f084940e7dfd4e2530e88d50df9c0be85a5c7869508e75b5&quot;
+    }
+  }
+}</pre></details></html>

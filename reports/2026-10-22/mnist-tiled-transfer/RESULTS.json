@@ -1,0 +1,527 @@
+{
+  "acquisition_accuracy_superseded": "Use corrected inference results above, not earlier acquisition accuracy.",
+  "calibration": "Fixed source physical scale330ohm and native DAC; no fitted per-cell calibration matrix or readout adaptation.",
+  "hardware_acquisition": {
+    "accuracy": null,
+    "completed_loads": 89,
+    "elapsed_seconds": 4421.512625070998,
+    "error": null,
+    "impacts": 1634874,
+    "inference": "measured frozen partial MVM LUT + digital sum + CPU LIF + frozen CPU head",
+    "logical_coefficients": 1600,
+    "physical_cells": 36,
+    "pilot": false,
+    "planned_loads": 89,
+    "programmed_cell_loads": 3200,
+    "programming_errors_replaced_by_ideal_weights": false,
+    "pulses": 210354,
+    "scope": "acquisition_only_accuracy_pending",
+    "session_id": "cb53be86-ae2b-485f-bf40-3b7d994e7a50",
+    "source": "hardware",
+    "status": "completed",
+    "target_misses": 2295,
+    "target_tolerance_s": 2.560355420368765e-06
+  },
+  "live_hardware_per_image": false,
+  "new_readout": false,
+  "new_stdp": false,
+  "operator_diagnostics": {
+    "filters": 64,
+    "hardware": {
+      "absolute_current_quantiles_50_90_99_max": [
+        9.921286582946777,
+        106.9907455444336,
+        134.71810287475586,
+        234.67819213867188
+      ],
+      "negative_fraction": 0.030081371191135735,
+      "zero_fraction": 0.1996840373961219
+    },
+    "note": "Descriptive over unique masks, not weighted by image frequencies; no calibration fitted to test.",
+    "paired_predictions": {
+      "argmax_agreement": 0.5776,
+      "both_strict_correct": 4322,
+      "hardware_only_correct": 1185,
+      "neither_strict_correct": 3281,
+      "same_test_order": true,
+      "simulator_only_correct": 1212
+    },
+    "pearson_flat": 0.09941025441122851,
+    "simulator": {
+      "absolute_current_quantiles_50_90_99_max": [
+        0.29351985454559326,
+        1.0131168365478516,
+        1.7327139377593994,
+        2.5990710258483887
+      ],
+      "negative_fraction": 0.3570377423822715,
+      "zero_fraction": 0.08245325484764543
+    },
+    "unweighted_unique_binary_masks": 722
+  },
+  "original_source_strict_accuracy": 0.6636,
+  "physical_cell_programming": [
+    {
+      "bl": 8,
+      "mae_us": 345.3947531614041,
+      "maximum_abs_error_us": 388.85400609496673,
+      "misses": 89,
+      "rmse_us": 346.87797757185194,
+      "wl": 0,
+      "writes": 89
+    },
+    {
+      "bl": 11,
+      "mae_us": 12.250537957242015,
+      "maximum_abs_error_us": 55.31239266224048,
+      "misses": 74,
+      "rmse_us": 15.590117434017376,
+      "wl": 0,
+      "writes": 89
+    },
+    {
+      "bl": 13,
+      "mae_us": 10.82516039960749,
+      "maximum_abs_error_us": 105.10365923551977,
+      "misses": 70,
+      "rmse_us": 17.56148797295744,
+      "wl": 0,
+      "writes": 89
+    },
+    {
+      "bl": 7,
+      "mae_us": 18.700404752534762,
+      "maximum_abs_error_us": 74.43686471643672,
+      "misses": 64,
+      "rmse_us": 25.253177892216673,
+      "wl": 1,
+      "writes": 89
+    },
+    {
+      "bl": 10,
+      "mae_us": 16.593574002241958,
+      "maximum_abs_error_us": 72.40410811328732,
+      "misses": 63,
+      "rmse_us": 23.396336383050667,
+      "wl": 1,
+      "writes": 89
+    },
+    {
+      "bl": 14,
+      "mae_us": 16.53101128672034,
+      "maximum_abs_error_us": 87.42664506470835,
+      "misses": 80,
+      "rmse_us": 25.26747614230888,
+      "wl": 1,
+      "writes": 89
+    },
+    {
+      "bl": 15,
+      "mae_us": 224.6365947438549,
+      "maximum_abs_error_us": 248.73727720221095,
+      "misses": 89,
+      "rmse_us": 226.63191034376172,
+      "wl": 1,
+      "writes": 89
+    },
+    {
+      "bl": 0,
+      "mae_us": 19.074495360010463,
+      "maximum_abs_error_us": 83.45370887869602,
+      "misses": 79,
+      "rmse_us": 28.34709273985004,
+      "wl": 2,
+      "writes": 89
+    },
+    {
+      "bl": 15,
+      "mae_us": 10.039999282605047,
+      "maximum_abs_error_us": 20.056830901464515,
+      "misses": 61,
+      "rmse_us": 12.481685501996077,
+      "wl": 2,
+      "writes": 89
+    },
+    {
+      "bl": 2,
+      "mae_us": 13.267747516442691,
+      "maximum_abs_error_us": 67.04633130241174,
+      "misses": 63,
+      "rmse_us": 19.590372216608046,
+      "wl": 3,
+      "writes": 89
+    },
+    {
+      "bl": 3,
+      "mae_us": 12.740394329775448,
+      "maximum_abs_error_us": 69.44772174975158,
+      "misses": 71,
+      "rmse_us": 19.466276958801604,
+      "wl": 3,
+      "writes": 89
+    },
+    {
+      "bl": 8,
+      "mae_us": 203.9374044797768,
+      "maximum_abs_error_us": 211.94228095928787,
+      "misses": 89,
+      "rmse_us": 204.05414405981355,
+      "wl": 3,
+      "writes": 89
+    },
+    {
+      "bl": 10,
+      "mae_us": 6.797368963321635,
+      "maximum_abs_error_us": 12.691438044109656,
+      "misses": 81,
+      "rmse_us": 7.403270357806842,
+      "wl": 3,
+      "writes": 89
+    },
+    {
+      "bl": 13,
+      "mae_us": 6.997215480600422,
+      "maximum_abs_error_us": 13.086524868320382,
+      "misses": 79,
+      "rmse_us": 7.71517240321437,
+      "wl": 3,
+      "writes": 89
+    },
+    {
+      "bl": 1,
+      "mae_us": 19.514663973099776,
+      "maximum_abs_error_us": 79.82075956897172,
+      "misses": 60,
+      "rmse_us": 28.05411771568975,
+      "wl": 4,
+      "writes": 89
+    },
+    {
+      "bl": 2,
+      "mae_us": 10.775031998054091,
+      "maximum_abs_error_us": 55.685060131881485,
+      "misses": 60,
+      "rmse_us": 14.067220638767854,
+      "wl": 4,
+      "writes": 89
+    },
+    {
+      "bl": 3,
+      "mae_us": 1.6306447565643631,
+      "maximum_abs_error_us": 20.608096049615035,
+      "misses": 7,
+      "rmse_us": 2.882970943690193,
+      "wl": 4,
+      "writes": 89
+    },
+    {
+      "bl": 10,
+      "mae_us": 19.175735483726275,
+      "maximum_abs_error_us": 77.96825984724501,
+      "misses": 73,
+      "rmse_us": 27.352894526172175,
+      "wl": 4,
+      "writes": 89
+    },
+    {
+      "bl": 11,
+      "mae_us": 10.587449100528184,
+      "maximum_abs_error_us": 35.14920240385538,
+      "misses": 60,
+      "rmse_us": 13.780210759005193,
+      "wl": 4,
+      "writes": 89
+    },
+    {
+      "bl": 13,
+      "mae_us": 26.180308178767948,
+      "maximum_abs_error_us": 76.5347177192458,
+      "misses": 80,
+      "rmse_us": 30.134697266501327,
+      "wl": 4,
+      "writes": 89
+    },
+    {
+      "bl": 14,
+      "mae_us": 11.725443757362976,
+      "maximum_abs_error_us": 22.29449652595089,
+      "misses": 89,
+      "rmse_us": 13.837536837671733,
+      "wl": 4,
+      "writes": 89
+    },
+    {
+      "bl": 15,
+      "mae_us": 16.924742976611366,
+      "maximum_abs_error_us": 70.28322883473487,
+      "misses": 68,
+      "rmse_us": 23.93320786796161,
+      "wl": 4,
+      "writes": 89
+    },
+    {
+      "bl": 0,
+      "mae_us": 7.777022179296795,
+      "maximum_abs_error_us": 17.063846724137626,
+      "misses": 49,
+      "rmse_us": 10.02302834139868,
+      "wl": 5,
+      "writes": 89
+    },
+    {
+      "bl": 1,
+      "mae_us": 5.512534313428604,
+      "maximum_abs_error_us": 16.069855928931982,
+      "misses": 53,
+      "rmse_us": 7.0212607407153245,
+      "wl": 5,
+      "writes": 89
+    },
+    {
+      "bl": 3,
+      "mae_us": 13.32857503731682,
+      "maximum_abs_error_us": 109.42356994810517,
+      "misses": 52,
+      "rmse_us": 20.89581075121561,
+      "wl": 5,
+      "writes": 89
+    },
+    {
+      "bl": 5,
+      "mae_us": 11.345829241373792,
+      "maximum_abs_error_us": 60.34925507781118,
+      "misses": 49,
+      "rmse_us": 18.234494412031086,
+      "wl": 5,
+      "writes": 89
+    },
+    {
+      "bl": 7,
+      "mae_us": 8.184291815316499,
+      "maximum_abs_error_us": 34.25894027620592,
+      "misses": 57,
+      "rmse_us": 10.412868361212915,
+      "wl": 5,
+      "writes": 89
+    },
+    {
+      "bl": 10,
+      "mae_us": 7.188619390500272,
+      "maximum_abs_error_us": 15.91899727510506,
+      "misses": 49,
+      "rmse_us": 9.108289586482273,
+      "wl": 5,
+      "writes": 89
+    },
+    {
+      "bl": 14,
+      "mae_us": 12.637619605610768,
+      "maximum_abs_error_us": 78.54159809707922,
+      "misses": 44,
+      "rmse_us": 21.871207366727578,
+      "wl": 5,
+      "writes": 88
+    },
+    {
+      "bl": 15,
+      "mae_us": 6.710816563321254,
+      "maximum_abs_error_us": 16.86435857608696,
+      "misses": 42,
+      "rmse_us": 8.874907516093366,
+      "wl": 5,
+      "writes": 89
+    },
+    {
+      "bl": 3,
+      "mae_us": 11.897822795376092,
+      "maximum_abs_error_us": 73.75275946979293,
+      "misses": 87,
+      "rmse_us": 15.341003243511473,
+      "wl": 6,
+      "writes": 89
+    },
+    {
+      "bl": 5,
+      "mae_us": 11.702804098498722,
+      "maximum_abs_error_us": 64.09579418049445,
+      "misses": 65,
+      "rmse_us": 15.329808969786393,
+      "wl": 6,
+      "writes": 89
+    },
+    {
+      "bl": 10,
+      "mae_us": 19.71574273484919,
+      "maximum_abs_error_us": 120.710423382366,
+      "misses": 56,
+      "rmse_us": 32.256468917115775,
+      "wl": 6,
+      "writes": 88
+    },
+    {
+      "bl": 13,
+      "mae_us": 10.775287349593171,
+      "maximum_abs_error_us": 42.42878566016179,
+      "misses": 57,
+      "rmse_us": 13.96790970005289,
+      "wl": 6,
+      "writes": 89
+    },
+    {
+      "bl": 14,
+      "mae_us": 3.1086804297228636,
+      "maximum_abs_error_us": 15.07854652839734,
+      "misses": 18,
+      "rmse_us": 4.867034894943528,
+      "wl": 6,
+      "writes": 88
+    },
+    {
+      "bl": 10,
+      "mae_us": 8.681217155313607,
+      "maximum_abs_error_us": 60.26886352086907,
+      "misses": 68,
+      "rmse_us": 14.489647476538142,
+      "wl": 7,
+      "writes": 88
+    }
+  ],
+  "results": {
+    "hardware": {
+      "accuracy": {
+        "conditional_accuracy": 0.5508101620324065,
+        "conventional_argmax_accuracy": 0.5509,
+        "coverage": 0.9998,
+        "execution": "frozen measured partial MVM operators; CPU LIF and frozen CPU head",
+        "live_hardware_per_image": false,
+        "new_readout": false,
+        "original_6965_reproduction_claim": false,
+        "physical_hardware": true,
+        "silent": 2,
+        "strict_accuracy": 0.5507,
+        "strict_correct": 5507,
+        "test_feature_nonzero": 73720954,
+        "test_images": 10000,
+        "test_labels_used_for_selection": false,
+        "test_spikes": 105325440,
+        "tied": 0,
+        "wilson95_argmax": [
+          0.5411333981130507,
+          0.5606275108528144
+        ],
+        "wilson95_strict": [
+          0.5409330748077992,
+          0.5604279877574141
+        ]
+      },
+      "acquisition_session": "cb53be86-ae2b-485f-bf40-3b7d994e7a50",
+      "elapsed_seconds": 430.76600000006147,
+      "error": null,
+      "scope": "CPU inference from frozen acquired operators",
+      "session_id": "0d2465d8-7095-43bd-a2b5-55a72b4c4042",
+      "source": "hardware",
+      "status": "completed"
+    },
+    "simulator": {
+      "accuracy": {
+        "conditional_accuracy": 0.5535107021404281,
+        "conventional_argmax_accuracy": 0.5536,
+        "coverage": 0.9998,
+        "execution": "frozen measured partial MVM operators; CPU LIF and frozen CPU head",
+        "live_hardware_per_image": false,
+        "new_readout": false,
+        "original_6965_reproduction_claim": false,
+        "physical_hardware": false,
+        "silent": 2,
+        "strict_accuracy": 0.5534,
+        "strict_correct": 5534,
+        "test_feature_nonzero": 31811738,
+        "test_images": 10000,
+        "test_labels_used_for_selection": false,
+        "test_spikes": 37017534,
+        "tied": 0,
+        "wilson95_argmax": [
+          0.5438379186065062,
+          0.5633209167681573
+        ],
+        "wilson95_strict": [
+          0.5436375737959241,
+          0.5631214151780876
+        ]
+      },
+      "acquisition_session": "0c7d20fc-045f-4f27-a031-cdcf1889500c",
+      "elapsed_seconds": 387.43799999996554,
+      "error": null,
+      "scope": "CPU inference from frozen acquired operators",
+      "session_id": "0b909723-b4b3-4e4c-b704-a03fea42404c",
+      "source": "simulator",
+      "status": "completed"
+    }
+  },
+  "schema": "mnist12-transfer-comparison-v1",
+  "scope": "Frozen measured partial MVM operators; CPU sum before LIF; CPU LIF and frozen source head.",
+  "simulator_acquisition": {
+    "accuracy": {
+      "conditional_accuracy": 0.5531106221244249,
+      "conventional_argmax_accuracy": 0.5532,
+      "coverage": 0.9998,
+      "execution": "frozen measured partial MVM operators; CPU LIF and frozen CPU head",
+      "live_hardware_per_image": false,
+      "new_readout": false,
+      "original_6965_reproduction_claim": false,
+      "physical_hardware": false,
+      "silent": 2,
+      "strict_accuracy": 0.553,
+      "strict_correct": 5530,
+      "test_feature_nonzero": 31895024,
+      "test_images": 10000,
+      "test_labels_used_for_selection": false,
+      "test_spikes": 37114932,
+      "tied": 0,
+      "wilson95_argmax": [
+        0.5434372305795988,
+        0.5629219119937613
+      ],
+      "wilson95_strict": [
+        0.5432368889573236,
+        0.5627224072153847
+      ]
+    },
+    "completed_loads": 89,
+    "elapsed_seconds": 1048.2810000000754,
+    "error": null,
+    "impacts": 1118459,
+    "inference": "measured frozen partial MVM LUT + digital sum + CPU LIF + frozen CPU head",
+    "logical_coefficients": 1600,
+    "physical_cells": 36,
+    "pilot": false,
+    "planned_loads": 89,
+    "programmed_cell_loads": 3200,
+    "programming_errors_replaced_by_ideal_weights": false,
+    "pulses": 107071,
+    "scope": "acquisition_and_accuracy",
+    "session_id": "0c7d20fc-045f-4f27-a031-cdcf1889500c",
+    "source": "simulator",
+    "status": "completed",
+    "target_misses": 873,
+    "target_tolerance_s": 2.560355420368765e-06
+  },
+  "sources": {
+    "0b909723-b4b3-4e4c-b704-a03fea42404c": {
+      "manifest_sha256": "fbbc2d637fd19032ac0f928e44a374d8447399407bb4e9b0e80f6a153c894997",
+      "summary_sha256": "937b4e52743770c9f084940e7dfd4e2530e88d50df9c0be85a5c7869508e75b5"
+    },
+    "0c7d20fc-045f-4f27-a031-cdcf1889500c": {
+      "manifest_sha256": "44da871533ce9c926dd9118c4172fa18cee90b75111c1e184aed68d8e6f89945",
+      "summary_sha256": "f2275ecb6b1449096e75c378e4a8b5bf20e107e50ed7153cd8d96a34e403d71a"
+    },
+    "0d2465d8-7095-43bd-a2b5-55a72b4c4042": {
+      "manifest_sha256": "8b65cc316d490772ebcf1f1dce7e42e0478520c49b8400ff487f589807426c14",
+      "summary_sha256": "75b50596d98ae7fff609afa4b6b89731a7053aabe3ef416df5ba0a3838db7e1b"
+    },
+    "cb53be86-ae2b-485f-bf40-3b7d994e7a50": {
+      "manifest_sha256": "d7f54ec8c6216c90c465a9649465259a723893bbe48570c05fdd4540d1a4341f",
+      "summary_sha256": "ee6b68b5aed29df9ed570477705c8fa00462b3055d8969997ca96e965aaa1f36"
+    }
+  }
+}
