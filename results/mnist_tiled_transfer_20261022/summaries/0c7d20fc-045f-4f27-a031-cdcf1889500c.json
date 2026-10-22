@@ -1,0 +1,46 @@
+{
+  "accuracy": {
+    "conditional_accuracy": 0.5531106221244249,
+    "conventional_argmax_accuracy": 0.5532,
+    "coverage": 0.9998,
+    "execution": "frozen measured partial MVM operators; CPU LIF and frozen CPU head",
+    "live_hardware_per_image": false,
+    "new_readout": false,
+    "original_6965_reproduction_claim": false,
+    "physical_hardware": false,
+    "silent": 2,
+    "strict_accuracy": 0.553,
+    "strict_correct": 5530,
+    "test_feature_nonzero": 31895024,
+    "test_images": 10000,
+    "test_labels_used_for_selection": false,
+    "test_spikes": 37114932,
+    "tied": 0,
+    "wilson95_argmax": [
+      0.5434372305795988,
+      0.5629219119937613
+    ],
+    "wilson95_strict": [
+      0.5432368889573236,
+      0.5627224072153847
+    ]
+  },
+  "completed_loads": 89,
+  "elapsed_seconds": 1048.2810000000754,
+  "error": null,
+  "impacts": 1118459,
+  "inference": "measured frozen partial MVM LUT + digital sum + CPU LIF + frozen CPU head",
+  "logical_coefficients": 1600,
+  "physical_cells": 36,
+  "pilot": false,
+  "planned_loads": 89,
+  "programmed_cell_loads": 3200,
+  "programming_errors_replaced_by_ideal_weights": false,
+  "pulses": 107071,
+  "scope": "acquisition_and_accuracy",
+  "session_id": "0c7d20fc-045f-4f27-a031-cdcf1889500c",
+  "source": "simulator",
+  "status": "completed",
+  "target_misses": 873,
+  "target_tolerance_s": 2.560355420368765e-06
+}
