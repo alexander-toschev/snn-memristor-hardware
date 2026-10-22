@@ -1,0 +1,1618 @@
+{
+  "schema": "data-only-maximal-mvm-block-selection-v1",
+  "status": "provisional_candidates_fixed_mask_screen_failed",
+  "survey_session": "3ddb2d16-0a97-4092-a681-8b7cabb477a4",
+  "read_diagnostic_session": "76c2746a-8f00-4eac-bd24-77e026372bda",
+  "group_diagnostic_status": "completed; upper groups produce signal despite zero singletons; old singleton-grade selection is insufficient",
+  "source_sha256": {
+    "results/remaining_programming_validation_20261022/summaries/3ddb2d16-0a97-4092-a681-8b7cabb477a4.html": "ff720a194fb8d99443b776596d7b5a0494ebb7bda661b8bbb1e0ba2b07f44464",
+    "results/remaining_programming_validation_20261022/summaries/3ddb2d16-0a97-4092-a681-8b7cabb477a4.json": "52c518f2ec1c5fc7677a5c84ecbf6f8e4ef58733c71d038f2eb2787c06a0d8ac",
+    "results/mvm_address_diagnostic_20261022/summaries/76c2746a-8f00-4eac-bd24-77e026372bda.html": "8df2ca54c17a26a4f60950fa054e3afedc95d5edd4f6e2744691c26a016e888e",
+    "results/mvm_address_diagnostic_20261022/summaries/76c2746a-8f00-4eac-bd24-77e026372bda.json": "d86639b0f6df4d1ebf6e3038930d57cf9296eed1807d81b1a79f2ed49f1e33ae",
+    "experiment_common/stdp_collector.py": "d3fe6ba9cba3d35e46475e48c41efa8ece05b93ae80fdf9c895b08d5cdaa0dd7",
+    "experiments/EXP_FMNIST_STDP/core.py": "1e015b108b923e06edaa30e1daa4bda4dc9750b22e7cb53ae9c42e9b73426ccb",
+    "experiments/EXP_FMNIST_STDP/experiment.py": "d6ec575033fc521cdf82b4ef20335aa78a79b1e820979f1269185fec6d992fe9",
+    "results/mvm_group_diagnostic_20261022/summaries/49b04c58-cc58-4da0-a61f-87f755df6df2.json": "060e2df6baede5086316d59590a41f5aaea1aef965a298592d97acdeb1122ddc",
+    "results/mvm_fixed_mask_diagnostic_20261022/summaries/2c5a3847-7055-421c-836a-d7732d7b1cd4.json": "6de3560899dcfbb25e48615dd90ccb4cad083101466b3e667106ff4265d2aad9"
+  },
+  "canonical": {
+    "filters": 64,
+    "taps_per_filter": 25,
+    "filters_per_resident_stage": 4,
+    "stages": 16,
+    "legs_per_coefficient": 2,
+    "resident_cells": 200,
+    "nominal_weight_domain": [
+      0,
+      1
+    ],
+    "encoding": "plus=low+W*span; minus=low; differential baseline subtraction, even though nominal learned weights are nonnegative",
+    "wl_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    "bls": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "hardware_exact_lut_reuse_qualified": false,
+    "hardware_small_tile_forward_implemented": false
+  },
+  "strict": {
+    "cell_count": 7,
+    "cells": [
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        4,
+        15
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        7,
+        12
+      ],
+      [
+        7,
+        14
+      ]
+    ],
+    "fixed_four_disjoint_wl_pairs": {
+      "objective": "Enumerate105 partitions of8WL into4disjoint pairs; maximize total same-BL coefficient slots, then minimum nonempty block width, then number nonempty blocks, then lexicographic pairs.",
+      "coefficient_slots": 1,
+      "used_cells": 2,
+      "rectangular_pair_blocks": 1,
+      "blocks": [
+        {
+          "wl_pair": [
+            1,
+            6
+          ],
+          "bls": [
+            10
+          ]
+        }
+      ],
+      "unused_cells": [
+        [
+          1,
+          9
+        ],
+        [
+          4,
+          15
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          7,
+          14
+        ]
+      ],
+      "same_total_optima": 15,
+      "qualified": false
+    },
+    "per_input_independent_pairs": {
+      "objective": "For each BL, maximum matching in the complete graph of eligible WL; floor(nWL/2). Group identical WL pairs into one rectangle without artificially splitting blocks.",
+      "maximum_coefficient_slots": 1,
+      "used_cells": 2,
+      "blocks": [
+        {
+          "wl_pair": [
+            1,
+            6
+          ],
+          "bls": [
+            10
+          ]
+        }
+      ],
+      "wl_pairs_may_differ_across_inputs": true,
+      "qualified": false
+    },
+    "interpretation": "Maximum under historical SINGLETON-based grades only. Not a maximum usable-cell conclusion under a fixed-positive-mask readout."
+  },
+  "diagnostic_hard_including_strict": {
+    "cell_count": 75,
+    "cells": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        0,
+        11
+      ],
+      [
+        0,
+        12
+      ],
+      [
+        0,
+        13
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        1,
+        12
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        15
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        2,
+        15
+      ],
+      [
+        2,
+        31
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        3,
+        12
+      ],
+      [
+        3,
+        13
+      ],
+      [
+        3,
+        31
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        4,
+        13
+      ],
+      [
+        4,
+        14
+      ],
+      [
+        4,
+        15
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        5,
+        14
+      ],
+      [
+        5,
+        15
+      ],
+      [
+        5,
+        31
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        6,
+        13
+      ],
+      [
+        6,
+        14
+      ],
+      [
+        7,
+        3
+      ],
+      [
+        7,
+        5
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        7,
+        7
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        7,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        7,
+        12
+      ],
+      [
+        7,
+        13
+      ],
+      [
+        7,
+        14
+      ],
+      [
+        7,
+        15
+      ],
+      [
+        7,
+        31
+      ]
+    ],
+    "fixed_four_disjoint_wl_pairs": {
+      "objective": "Enumerate105 partitions of8WL into4disjoint pairs; maximize total same-BL coefficient slots, then minimum nonempty block width, then number nonempty blocks, then lexicographic pairs.",
+      "coefficient_slots": 26,
+      "used_cells": 52,
+      "rectangular_pair_blocks": 4,
+      "blocks": [
+        {
+          "wl_pair": [
+            0,
+            3
+          ],
+          "bls": [
+            2,
+            5,
+            6,
+            8,
+            9,
+            12,
+            13
+          ]
+        },
+        {
+          "wl_pair": [
+            1,
+            2
+          ],
+          "bls": [
+            5,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        {
+          "wl_pair": [
+            4,
+            6
+          ],
+          "bls": [
+            3,
+            10,
+            13,
+            14
+          ]
+        },
+        {
+          "wl_pair": [
+            5,
+            7
+          ],
+          "bls": [
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            14,
+            15,
+            31
+          ]
+        }
+      ],
+      "unused_cells": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          14
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          31
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          3,
+          31
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          4,
+          15
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          7,
+          13
+        ]
+      ],
+      "same_total_optima": 1,
+      "qualified": false
+    },
+    "per_input_independent_pairs": {
+      "objective": "For each BL, maximum matching in the complete graph of eligible WL; floor(nWL/2). Group identical WL pairs into one rectangle without artificially splitting blocks.",
+      "maximum_coefficient_slots": 33,
+      "used_cells": 66,
+      "blocks": [
+        {
+          "wl_pair": [
+            0,
+            1
+          ],
+          "bls": [
+            2,
+            4,
+            5,
+            6,
+            9,
+            12
+          ]
+        },
+        {
+          "wl_pair": [
+            0,
+            3
+          ],
+          "bls": [
+            8,
+            13
+          ]
+        },
+        {
+          "wl_pair": [
+            0,
+            4
+          ],
+          "bls": [
+            11
+          ]
+        },
+        {
+          "wl_pair": [
+            1,
+            2
+          ],
+          "bls": [
+            15
+          ]
+        },
+        {
+          "wl_pair": [
+            1,
+            3
+          ],
+          "bls": [
+            10
+          ]
+        },
+        {
+          "wl_pair": [
+            1,
+            4
+          ],
+          "bls": [
+            14
+          ]
+        },
+        {
+          "wl_pair": [
+            1,
+            5
+          ],
+          "bls": [
+            7
+          ]
+        },
+        {
+          "wl_pair": [
+            2,
+            3
+          ],
+          "bls": [
+            5,
+            6,
+            9,
+            12,
+            31
+          ]
+        },
+        {
+          "wl_pair": [
+            2,
+            5
+          ],
+          "bls": [
+            0
+          ]
+        },
+        {
+          "wl_pair": [
+            3,
+            4
+          ],
+          "bls": [
+            2,
+            3
+          ]
+        },
+        {
+          "wl_pair": [
+            4,
+            5
+          ],
+          "bls": [
+            1,
+            10,
+            15
+          ]
+        },
+        {
+          "wl_pair": [
+            4,
+            6
+          ],
+          "bls": [
+            13
+          ]
+        },
+        {
+          "wl_pair": [
+            5,
+            6
+          ],
+          "bls": [
+            3,
+            5,
+            14
+          ]
+        },
+        {
+          "wl_pair": [
+            5,
+            7
+          ],
+          "bls": [
+            6,
+            8,
+            9,
+            31
+          ]
+        },
+        {
+          "wl_pair": [
+            6,
+            7
+          ],
+          "bls": [
+            10
+          ]
+        }
+      ],
+      "wl_pairs_may_differ_across_inputs": true,
+      "qualified": false
+    },
+    "interpretation": "Historical singleton-graded candidate layouts; not final after observed mask dependence."
+  },
+  "nonzero_only_not_programmability": {
+    "count": 96,
+    "eligible_for_training": false
+  },
+  "counts": {
+    "strict_original": 7,
+    "hard_original": 75,
+    "hard_removed_by_current_zero": 0,
+    "strict_removed_by_current_zero": 0
+  },
+  "arbitrary_per_leg_remap": {
+    "maximum_upper_bound": 3,
+    "used_cells": 6,
+    "proposed_nonoverlapping_pairs": [
+      {
+        "plus": [
+          1,
+          10
+        ],
+        "minus": [
+          6,
+          10
+        ],
+        "same_bl": true
+      },
+      {
+        "plus": [
+          1,
+          9
+        ],
+        "minus": [
+          7,
+          11
+        ],
+        "same_bl": false
+      },
+      {
+        "plus": [
+          4,
+          15
+        ],
+        "minus": [
+          7,
+          12
+        ],
+        "same_bl": false
+      }
+    ],
+    "unused_cells": [
+      [
+        7,
+        14
+      ]
+    ],
+    "requires_different_input_vector_for_each_leg": true,
+    "forward_implemented": false,
+    "qualified": false,
+    "reason": "Independent physical reads can encode the same logical input at different BL addresses, then subtract outputs. Positive/negative orientation, offsets, drift and summation remain unqualified."
+  },
+  "limitations": [
+    "Group response overturns any inference that zero singleton means inactive/disconnected upper bank. Single-cell grades do not qualify a different group-mask topology.",
+    "Strict grades concern prior MVM-mediated spans, not a fresh guarantee of direct conductance programmability.",
+    "Three strict WL7 cells retain older16 programming history plus a read-only freshness check; ranges are not simultaneous.",
+    "A nonzero MVM alone does not grant stable programming, signed response, or useful arbitrary weights.",
+    "Diagnostic tier preserves failed quality grades and must not be presented as strict.",
+    "Reprogramming between tiles can disturb states; need bounded validation and measured contributions summed before ONE logical LIF step.",
+    "Existing SIM exact LUT cannot be reused as hardware measurements; no readG-to-CPU-W@x substitution.",
+    "A single-slot layout needs25placements/filter; three slots need at least9placements/filter. These are placement lower bounds, not runtime or accuracy promises.",
+    "Full online STDP with nonresident weights requires an explicit restore/ordering protocol; sequential placement alone does not preserve all resident-state learning semantics."
+  ],
+  "canonical_full_25tap_strict_blocks": 0,
+  "new_hardware_executed": false,
+  "group_evidence": {
+    "session_id": "49b04c58-cc58-4da0-a61f-87f755df6df2",
+    "source": "hardware",
+    "impacts": 648,
+    "pulses": 0,
+    "selected_measurements": [
+      {
+        "bls": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "centered_adc": [
+          565.0,
+          567.0,
+          566.0
+        ],
+        "count": 3,
+        "mask": "upper16_23",
+        "mean_adc": 566.0,
+        "sd_adc": 1.0,
+        "wl": 0
+      },
+      {
+        "bls": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "centered_adc": [
+          786.0,
+          789.0,
+          789.0
+        ],
+        "count": 3,
+        "mask": "upper24_31",
+        "mean_adc": 788.0,
+        "sd_adc": 1.7320508075688772,
+        "wl": 0
+      },
+      {
+        "bls": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "centered_adc": [
+          1023.0,
+          1023.0,
+          1020.0
+        ],
+        "count": 3,
+        "mask": "upper16_30",
+        "mean_adc": 1022.0,
+        "sd_adc": 1.7320508075688772,
+        "wl": 0
+      },
+      {
+        "bls": [
+          14
+        ],
+        "centered_adc": [
+          61.0,
+          63.0,
+          62.0
+        ],
+        "count": 3,
+        "mask": "BL14",
+        "mean_adc": 62.0,
+        "sd_adc": 1.0,
+        "wl": 0
+      },
+      {
+        "bls": [
+          14,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "centered_adc": [
+          1080.0,
+          1083.0,
+          1084.0
+        ],
+        "count": 3,
+        "mask": "BL14_plus_upper16_30",
+        "mean_adc": 1082.3333333333333,
+        "sd_adc": 2.0816659994661326,
+        "wl": 0
+      },
+      {
+        "centered_adc": [
+          1019.0,
+          1020.0,
+          1022.0
+        ],
+        "count": 3,
+        "interpretation": "Adjacent measured responses; not proof of additivity or isolated channel contribution.",
+        "mask": "measured_mixed_minus_BL14",
+        "mean_adc": 1020.3333333333334,
+        "wl": 0
+      },
+      {
+        "bls": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "centered_adc": [
+          1125.0,
+          1122.0,
+          1125.0
+        ],
+        "count": 3,
+        "mask": "upper16_23",
+        "mean_adc": 1124.0,
+        "sd_adc": 1.7320508075688772,
+        "wl": 7
+      },
+      {
+        "bls": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "centered_adc": [
+          596.0,
+          601.0,
+          594.0
+        ],
+        "count": 3,
+        "mask": "upper24_31",
+        "mean_adc": 597.0,
+        "sd_adc": 3.605551275463989,
+        "wl": 7
+      },
+      {
+        "bls": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "centered_adc": [
+          1332.0,
+          1331.0,
+          1331.0
+        ],
+        "count": 3,
+        "mask": "upper16_30",
+        "mean_adc": 1331.3333333333333,
+        "sd_adc": 0.5773502691896257,
+        "wl": 7
+      },
+      {
+        "bls": [
+          14
+        ],
+        "centered_adc": [
+          326.0,
+          331.0,
+          325.0
+        ],
+        "count": 3,
+        "mask": "BL14",
+        "mean_adc": 327.3333333333333,
+        "sd_adc": 3.2145502536643185,
+        "wl": 7
+      },
+      {
+        "bls": [
+          14,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "centered_adc": [
+          1401.0,
+          1403.0,
+          1403.0
+        ],
+        "count": 3,
+        "mask": "BL14_plus_upper16_30",
+        "mean_adc": 1402.3333333333333,
+        "sd_adc": 1.1547005383792515,
+        "wl": 7
+      },
+      {
+        "centered_adc": [
+          1075.0,
+          1072.0,
+          1078.0
+        ],
+        "count": 3,
+        "interpretation": "Adjacent measured responses; not proof of additivity or isolated channel contribution.",
+        "mask": "measured_mixed_minus_BL14",
+        "mean_adc": 1075.0,
+        "wl": 7
+      }
+    ]
+  },
+  "selection_not_final": true,
+  "prospective_fixed_mask_readout": {
+    "status": "proposal_only_not_implemented",
+    "bias_v": 0.025,
+    "deltas_v": [
+      0.025,
+      0.05
+    ],
+    "contexts": [
+      [
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
+    ],
+    "wls": [
+      0,
+      7
+    ],
+    "targets": [
+      14,
+      16,
+      20,
+      30,
+      31
+    ],
+    "heldout_masks": [
+      [
+        16,
+        20
+      ],
+      [
+        20,
+        30,
+        31
+      ],
+      [
+        14,
+        16,
+        20,
+        30,
+        31
+      ]
+    ],
+    "heldout_delta_v": 0.025,
+    "repeats": 3,
+    "maximum_calls": 4290,
+    "pulses": 0,
+    "sequence": "freshR all active → same-positive-mask baseline → perturbation → same-positive-mask baseline",
+    "interpretation": "Empirical finite differences and heldout residual; not a proved software fix or ideal conductance matmul.",
+    "execution_status": "completed; predeclared screening failed in all four context/WL combinations; no threshold relaxation"
+  },
+  "primary_candidate": {
+    "status": "historical_diagnostic_tier_only_fixed_mask_not_qualified",
+    "selection": "per_input_independent_pairs",
+    "rectangular_groups": 15,
+    "coefficient_slots": 33,
+    "used_cells": 66,
+    "blocks": [
+      {
+        "wl_pair": [
+          0,
+          1
+        ],
+        "bls": [
+          2,
+          4,
+          5,
+          6,
+          9,
+          12
+        ]
+      },
+      {
+        "wl_pair": [
+          0,
+          3
+        ],
+        "bls": [
+          8,
+          13
+        ]
+      },
+      {
+        "wl_pair": [
+          0,
+          4
+        ],
+        "bls": [
+          11
+        ]
+      },
+      {
+        "wl_pair": [
+          1,
+          2
+        ],
+        "bls": [
+          15
+        ]
+      },
+      {
+        "wl_pair": [
+          1,
+          3
+        ],
+        "bls": [
+          10
+        ]
+      },
+      {
+        "wl_pair": [
+          1,
+          4
+        ],
+        "bls": [
+          14
+        ]
+      },
+      {
+        "wl_pair": [
+          1,
+          5
+        ],
+        "bls": [
+          7
+        ]
+      },
+      {
+        "wl_pair": [
+          2,
+          3
+        ],
+        "bls": [
+          5,
+          6,
+          9,
+          12,
+          31
+        ]
+      },
+      {
+        "wl_pair": [
+          2,
+          5
+        ],
+        "bls": [
+          0
+        ]
+      },
+      {
+        "wl_pair": [
+          3,
+          4
+        ],
+        "bls": [
+          2,
+          3
+        ]
+      },
+      {
+        "wl_pair": [
+          4,
+          5
+        ],
+        "bls": [
+          1,
+          10,
+          15
+        ]
+      },
+      {
+        "wl_pair": [
+          4,
+          6
+        ],
+        "bls": [
+          13
+        ]
+      },
+      {
+        "wl_pair": [
+          5,
+          6
+        ],
+        "bls": [
+          3,
+          5,
+          14
+        ]
+      },
+      {
+        "wl_pair": [
+          5,
+          7
+        ],
+        "bls": [
+          6,
+          8,
+          9,
+          31
+        ]
+      },
+      {
+        "wl_pair": [
+          6,
+          7
+        ],
+        "bls": [
+          10
+        ]
+      }
+    ],
+    "cell_disjoint": true,
+    "lane_routing": "Group identical WL pairs; each group uses its listed BL coordinates. Switch WL pair and input permutation between measurements, then sum measured contributions before one logical LIF step. Shared WL across groups does not mean the same physical cell is reused.",
+    "qualified": false
+  },
+  "simpler_alternative": {
+    "selection": "fixed_four_disjoint_wl_pairs",
+    "rectangular_groups": 4,
+    "coefficient_slots": 26,
+    "used_cells": 52,
+    "qualified": false
+  },
+  "fixed_mask_evidence": {
+    "session_id": "2c5a3847-7055-421c-836a-d7732d7b1cd4",
+    "status": "completed",
+    "impacts": 4290,
+    "pulses": 0,
+    "elapsed_seconds_operator_report": 11.7869,
+    "summary_sha256": "6de3560899dcfbb25e48615dd90ccb4cad083101466b3e667106ff4265d2aad9",
+    "contexts": [
+      {
+        "context": "upper16_plus_BL14",
+        "wl": 0,
+        "singleton_positive_means": 10,
+        "singleton_screen_pass": 9,
+        "singleton_total": 10,
+        "scaled_delta_screen_pass": 3,
+        "scaled_delta_total": 5,
+        "maximum_baseline_drift_adc": 29.0,
+        "baseline_drift_screen_pass": false,
+        "heldout": [
+          {
+            "targets": [
+              16,
+              20
+            ],
+            "predicted_adc": 75.16666666666667,
+            "mean_residual_adc": 1.6666666666666619,
+            "mean_relative_residual": 0.02217294900221723,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 131.0,
+            "mean_residual_adc": 8.0,
+            "mean_relative_residual": 0.061068702290076333,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              14,
+              16,
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 192.33333333333334,
+            "mean_residual_adc": 8.333333333333323,
+            "mean_relative_residual": 0.04332755632582317,
+            "screen_pass": true
+          }
+        ],
+        "whole_context_screen_pass": false
+      },
+      {
+        "context": "upper16_plus_BL14",
+        "wl": 7,
+        "singleton_positive_means": 10,
+        "singleton_screen_pass": 9,
+        "singleton_total": 10,
+        "scaled_delta_screen_pass": 5,
+        "scaled_delta_total": 5,
+        "maximum_baseline_drift_adc": 10.0,
+        "baseline_drift_screen_pass": false,
+        "heldout": [
+          {
+            "targets": [
+              16,
+              20
+            ],
+            "predicted_adc": 121.33333333333333,
+            "mean_residual_adc": 0.1666666666666714,
+            "mean_relative_residual": 0.0013736263736264128,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 67.83333333333333,
+            "mean_residual_adc": 4.333333333333338,
+            "mean_relative_residual": 0.06388206388206397,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              14,
+              16,
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 239.33333333333334,
+            "mean_residual_adc": 2.4999999999999907,
+            "mean_relative_residual": 0.010445682451253442,
+            "screen_pass": true
+          }
+        ],
+        "whole_context_screen_pass": false
+      },
+      {
+        "context": "all32",
+        "wl": 0,
+        "singleton_positive_means": 10,
+        "singleton_screen_pass": 4,
+        "singleton_total": 10,
+        "scaled_delta_screen_pass": 4,
+        "scaled_delta_total": 5,
+        "maximum_baseline_drift_adc": 13.0,
+        "baseline_drift_screen_pass": false,
+        "heldout": [
+          {
+            "targets": [
+              16,
+              20
+            ],
+            "predicted_adc": 35.5,
+            "mean_residual_adc": 2.8333333333333335,
+            "mean_relative_residual": 0.07981220657276995,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 62.333333333333336,
+            "mean_residual_adc": -1.8333333333333357,
+            "mean_relative_residual": -0.02941176470588239,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              14,
+              16,
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 92.0,
+            "mean_residual_adc": -5.0,
+            "mean_relative_residual": -0.05434782608695652,
+            "screen_pass": true
+          }
+        ],
+        "whole_context_screen_pass": false
+      },
+      {
+        "context": "all32",
+        "wl": 7,
+        "singleton_positive_means": 10,
+        "singleton_screen_pass": 3,
+        "singleton_total": 10,
+        "scaled_delta_screen_pass": 5,
+        "scaled_delta_total": 5,
+        "maximum_baseline_drift_adc": 7.0,
+        "baseline_drift_screen_pass": false,
+        "heldout": [
+          {
+            "targets": [
+              16,
+              20
+            ],
+            "predicted_adc": 51.833333333333336,
+            "mean_residual_adc": 3.833333333333331,
+            "mean_relative_residual": 0.07395498392282954,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 23.5,
+            "mean_residual_adc": 7.333333333333333,
+            "mean_relative_residual": 0.3120567375886525,
+            "screen_pass": false
+          },
+          {
+            "targets": [
+              14,
+              16,
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 102.33333333333334,
+            "mean_residual_adc": 3.8333333333333237,
+            "mean_relative_residual": 0.037459283387622055,
+            "screen_pass": true
+          }
+        ],
+        "whole_context_screen_pass": false
+      }
+    ],
+    "interpretation": "Positive incremental response restored in both fixed masks, but every tested context fails the predeclared 5 ADC baseline drift screen. Exact physical/firmware cause remains unidentified."
+  },
+  "current_maximum_hardware_qualified_cells": null,
+  "current_maximum_hardware_qualified_blocks": null
+}

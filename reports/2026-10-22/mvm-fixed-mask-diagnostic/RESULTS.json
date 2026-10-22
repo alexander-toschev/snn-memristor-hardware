@@ -1,0 +1,400 @@
+{
+  "schema": "fixed-mask-hardware-results-v1",
+  "hardware": {
+    "session_id": "2c5a3847-7055-421c-836a-d7732d7b1cd4",
+    "status": "completed",
+    "impacts": 4290,
+    "pulses": 0,
+    "elapsed_seconds_operator_report": 11.7869,
+    "summary_sha256": "6de3560899dcfbb25e48615dd90ccb4cad083101466b3e667106ff4265d2aad9",
+    "contexts": [
+      {
+        "context": "upper16_plus_BL14",
+        "wl": 0,
+        "singleton_positive_means": 10,
+        "singleton_screen_pass": 9,
+        "singleton_total": 10,
+        "scaled_delta_screen_pass": 3,
+        "scaled_delta_total": 5,
+        "maximum_baseline_drift_adc": 29.0,
+        "baseline_drift_screen_pass": false,
+        "heldout": [
+          {
+            "targets": [
+              16,
+              20
+            ],
+            "predicted_adc": 75.16666666666667,
+            "mean_residual_adc": 1.6666666666666619,
+            "mean_relative_residual": 0.02217294900221723,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 131.0,
+            "mean_residual_adc": 8.0,
+            "mean_relative_residual": 0.061068702290076333,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              14,
+              16,
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 192.33333333333334,
+            "mean_residual_adc": 8.333333333333323,
+            "mean_relative_residual": 0.04332755632582317,
+            "screen_pass": true
+          }
+        ],
+        "whole_context_screen_pass": false
+      },
+      {
+        "context": "upper16_plus_BL14",
+        "wl": 7,
+        "singleton_positive_means": 10,
+        "singleton_screen_pass": 9,
+        "singleton_total": 10,
+        "scaled_delta_screen_pass": 5,
+        "scaled_delta_total": 5,
+        "maximum_baseline_drift_adc": 10.0,
+        "baseline_drift_screen_pass": false,
+        "heldout": [
+          {
+            "targets": [
+              16,
+              20
+            ],
+            "predicted_adc": 121.33333333333333,
+            "mean_residual_adc": 0.1666666666666714,
+            "mean_relative_residual": 0.0013736263736264128,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 67.83333333333333,
+            "mean_residual_adc": 4.333333333333338,
+            "mean_relative_residual": 0.06388206388206397,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              14,
+              16,
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 239.33333333333334,
+            "mean_residual_adc": 2.4999999999999907,
+            "mean_relative_residual": 0.010445682451253442,
+            "screen_pass": true
+          }
+        ],
+        "whole_context_screen_pass": false
+      },
+      {
+        "context": "all32",
+        "wl": 0,
+        "singleton_positive_means": 10,
+        "singleton_screen_pass": 4,
+        "singleton_total": 10,
+        "scaled_delta_screen_pass": 4,
+        "scaled_delta_total": 5,
+        "maximum_baseline_drift_adc": 13.0,
+        "baseline_drift_screen_pass": false,
+        "heldout": [
+          {
+            "targets": [
+              16,
+              20
+            ],
+            "predicted_adc": 35.5,
+            "mean_residual_adc": 2.8333333333333335,
+            "mean_relative_residual": 0.07981220657276995,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 62.333333333333336,
+            "mean_residual_adc": -1.8333333333333357,
+            "mean_relative_residual": -0.02941176470588239,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              14,
+              16,
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 92.0,
+            "mean_residual_adc": -5.0,
+            "mean_relative_residual": -0.05434782608695652,
+            "screen_pass": true
+          }
+        ],
+        "whole_context_screen_pass": false
+      },
+      {
+        "context": "all32",
+        "wl": 7,
+        "singleton_positive_means": 10,
+        "singleton_screen_pass": 3,
+        "singleton_total": 10,
+        "scaled_delta_screen_pass": 5,
+        "scaled_delta_total": 5,
+        "maximum_baseline_drift_adc": 7.0,
+        "baseline_drift_screen_pass": false,
+        "heldout": [
+          {
+            "targets": [
+              16,
+              20
+            ],
+            "predicted_adc": 51.833333333333336,
+            "mean_residual_adc": 3.833333333333331,
+            "mean_relative_residual": 0.07395498392282954,
+            "screen_pass": true
+          },
+          {
+            "targets": [
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 23.5,
+            "mean_residual_adc": 7.333333333333333,
+            "mean_relative_residual": 0.3120567375886525,
+            "screen_pass": false
+          },
+          {
+            "targets": [
+              14,
+              16,
+              20,
+              30,
+              31
+            ],
+            "predicted_adc": 102.33333333333334,
+            "mean_residual_adc": 3.8333333333333237,
+            "mean_relative_residual": 0.037459283387622055,
+            "screen_pass": true
+          }
+        ],
+        "whole_context_screen_pass": false
+      }
+    ],
+    "interpretation": "Positive incremental response restored in both fixed masks, but every tested context fails the predeclared 5 ADC baseline drift screen. Exact physical/firmware cause remains unidentified."
+  },
+  "original_summary_path": "results/mvm_fixed_mask_diagnostic_20261022/summaries/2c5a3847-7055-421c-836a-d7732d7b1cd4.json",
+  "original_summary_unchanged": true,
+  "screening_preserved": {
+    "singleton": "mean > max(5 ADC, 5 SD)",
+    "scaled_delta_and_mean_heldout": "abs(error) <= max(5 ADC, 0.1*abs(prediction))",
+    "baseline_drift": "max abs(after-before) <= 5 ADC"
+  },
+  "primary_historical_candidate": {
+    "status": "historical_diagnostic_tier_only_fixed_mask_not_qualified",
+    "selection": "per_input_independent_pairs",
+    "rectangular_groups": 15,
+    "coefficient_slots": 33,
+    "used_cells": 66,
+    "blocks": [
+      {
+        "wl_pair": [
+          0,
+          1
+        ],
+        "bls": [
+          2,
+          4,
+          5,
+          6,
+          9,
+          12
+        ]
+      },
+      {
+        "wl_pair": [
+          0,
+          3
+        ],
+        "bls": [
+          8,
+          13
+        ]
+      },
+      {
+        "wl_pair": [
+          0,
+          4
+        ],
+        "bls": [
+          11
+        ]
+      },
+      {
+        "wl_pair": [
+          1,
+          2
+        ],
+        "bls": [
+          15
+        ]
+      },
+      {
+        "wl_pair": [
+          1,
+          3
+        ],
+        "bls": [
+          10
+        ]
+      },
+      {
+        "wl_pair": [
+          1,
+          4
+        ],
+        "bls": [
+          14
+        ]
+      },
+      {
+        "wl_pair": [
+          1,
+          5
+        ],
+        "bls": [
+          7
+        ]
+      },
+      {
+        "wl_pair": [
+          2,
+          3
+        ],
+        "bls": [
+          5,
+          6,
+          9,
+          12,
+          31
+        ]
+      },
+      {
+        "wl_pair": [
+          2,
+          5
+        ],
+        "bls": [
+          0
+        ]
+      },
+      {
+        "wl_pair": [
+          3,
+          4
+        ],
+        "bls": [
+          2,
+          3
+        ]
+      },
+      {
+        "wl_pair": [
+          4,
+          5
+        ],
+        "bls": [
+          1,
+          10,
+          15
+        ]
+      },
+      {
+        "wl_pair": [
+          4,
+          6
+        ],
+        "bls": [
+          13
+        ]
+      },
+      {
+        "wl_pair": [
+          5,
+          6
+        ],
+        "bls": [
+          3,
+          5,
+          14
+        ]
+      },
+      {
+        "wl_pair": [
+          5,
+          7
+        ],
+        "bls": [
+          6,
+          8,
+          9,
+          31
+        ]
+      },
+      {
+        "wl_pair": [
+          6,
+          7
+        ],
+        "bls": [
+          10
+        ]
+      }
+    ],
+    "cell_disjoint": true,
+    "lane_routing": "Group identical WL pairs; each group uses its listed BL coordinates. Switch WL pair and input permutation between measurements, then sum measured contributions before one logical LIF step. Shared WL across groups does not mean the same physical cell is reused.",
+    "qualified": false
+  },
+  "simpler_alternative": {
+    "selection": "fixed_four_disjoint_wl_pairs",
+    "rectangular_groups": 4,
+    "coefficient_slots": 26,
+    "used_cells": 52,
+    "qualified": false
+  },
+  "current_maximum_hardware_qualified_blocks": null,
+  "current_maximum_hardware_qualified_cells": null,
+  "source_selection_sha256": "33d51240aba87d3368e5a64dc95d5bfcb242da0c769bf40e8583859e1133ed05",
+  "limitations": [
+    "Only WL0/7 and five target BL in two positive-mask contexts measured; not all256 or a qualification of the candidate66 cells.",
+    "Restored mean response is not equivalent to resolvability, proportionality, low drift or correct MNIST forward.",
+    "The candidate maximum33 is conditional on the historical75-cell singleton-based diagnostic tier, not a maximum of the physical board.",
+    "Two contexts differ in measured increments; a shared calibration cannot be assumed.",
+    "No SET/RESET, MNIST run, accuracy measurement or private-driver fix performed."
+  ],
+  "future_protocol_only": [
+    "Compare a predetermined settling/repeated-baseline schedule to distinguish switching transient from persistent drift, keeping public Connector and current limits.",
+    "Freeze the positive background context, actual DAC levels and subtraction order; qualify repeatability and heldout combinations before any all-cell extension.",
+    "After a settled protocol, measure all candidate addresses/desired layouts; do not infer200 usable cells from these ten addressed cells."
+  ]
+}
