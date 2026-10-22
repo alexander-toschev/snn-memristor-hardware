@@ -58,10 +58,36 @@ def candidates() -> tuple[tuple[int, int], ...]:
     return tuple(result)
 
 
-def run(source: Source, adaptive: bool, publish: bool) -> tuple[dict[str, object], int]:
+def run(source: Source, adaptive: bool, publish: bool, refine: bool = False) -> tuple[dict[str, object], int]:
     if source == 'hardware' and not adaptive:
         raise ValueError('Hardware authorization is adaptive37 only')
     cells = candidates()
+    target_plan: dict[tuple[int, int], list[float]] = {}
+    rechecks: list[dict[str, object]] = []
+    plan_path = Path(__file__).parent/'refined_targets.json'
+    if refine:
+        plan = object_dict(json.loads(plan_path.read_text(encoding='utf-8')))
+        selected = plan['targets']
+        existing = plan['verify_existing']
+        if not isinstance(selected, list) or not isinstance(existing, list):
+            raise ValueError('Refinement lists required')
+        for value in selected:
+            row = object_dict(value)
+            address = int(number(row['wl'])), int(number(row['bl']))
+            raw_goals = row['goals_g_s']
+            if address not in cells or not isinstance(raw_goals, list) or len(raw_goals) != 3:
+                raise ValueError('Refinement outside37 scope')
+            goals = [number(v) for v in raw_goals]
+            if not 0 < goals[0] < goals[1] < goals[2] or min(goals[1]-goals[0], goals[2]-goals[1]) <= 2*TOLERANCE:
+                raise ValueError('Targets must have disjoint tolerance intervals')
+            target_plan[address] = goals
+        for value in existing:
+            row = object_dict(value)
+            if (int(number(row['wl'])), int(number(row['bl']))) not in cells:
+                raise ValueError('Recheck outside37 scope')
+            rechecks.append(row)
+        if len(target_plan) != 16 or len(rechecks) != 15:
+            raise ValueError('Expected16 refined and15 prior qualified addresses')
     sid = str(uuid.uuid4())
     out = BASE/sid
     out.mkdir(parents=True)
@@ -74,7 +100,7 @@ def run(source: Source, adaptive: bool, publish: bool) -> tuple[dict[str, object
     locked = False
     started = time.monotonic()
     records: list[dict[str, object]] = []
-    protocol = dict(cells=cells, policy='adaptive' if adaptive else 'fixed',
+    protocol: dict[str, object] = dict(cells=cells, policy='adaptive' if adaptive else 'fixed',
         discovery='RESET staircase then SET staircase; original0.3..3.0V envelope',
         targets='20/50/80 percent of independently measured endpoint range; same targets in reverse cycle',
         cycles=2, attempts_per_target=64, pulse_decisions_max=16000, calls_max=180000,
@@ -83,7 +109,13 @@ def run(source: Source, adaptive: bool, publish: bool) -> tuple[dict[str, object
         source_specific_dynamics=True, physical_pulse_width_s=None, submitted_pulse_width_s=.00001,
         current_limits_a=dict(SET=.002, RESET=.04, MVM=.005),
         no_automatic_mnist=True, no_test_labels=True, singleton_readout_not_signed_block_qualification=True)
+    protocol['refinement'] = refine
+    if refine:
+        protocol['target_plan'] = plan
+        protocol['discovery'] = 'No new staircase; fixed goals from two independently successful prior-cycle levels'
     files = [Path(__file__), MAP, ROOT/INI, ROOT/SIM_INI, *(ROOT/'experiment_common').glob('*.py')]
+    if refine:
+        files.append(plan_path)
     manifest: dict[str, object] = dict(session_id=sid, source=source, status='failed', error=None,
         started_utc=now(), protocol=protocol, source_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in files})
     print(f'Session {sid}; {source}; policy={protocol["policy"]};37cells', flush=True)
@@ -116,40 +148,49 @@ def run(source: Source, adaptive: bool, publish: bool) -> tuple[dict[str, object
                 if not connector.open_port():
                     raise ValueError('Connector open_port failed')
             collector = Collector(connector, converters, writer, source, cells, adaptive)
-            for index, (wl, bl) in enumerate(cells):
+            selected_cells = tuple(target_plan) if refine else cells
+            for index, (wl, bl) in enumerate(selected_cells):
                 # Explore only authorized native amplitudes. No target is
                 # obtained by reading an internal simulator state.
                 discovery: list[dict[str, object]] = []
                 endpoints: list[float] = []
-                for sign in (0, 1):
-                    for voltage in LEVELS:
-                        g, admitted = collector.pulse(wl, bl, sign, voltage, phase='discovery')
-                        discovery.append(dict(sign=sign, voltage_v=voltage, g_s=g, admitted=admitted))
-                    time.sleep(.1)
-                    endpoints.append(collector.read_g(wl, bl, role='discovery_endpoint', sign=sign))
+                if refine:
+                    endpoints = [target_plan[wl, bl][0], target_plan[wl, bl][-1]]
+                else:
+                    for sign in (0, 1):
+                        for voltage in LEVELS:
+                            g, admitted = collector.pulse(wl, bl, sign, voltage, phase='discovery')
+                            discovery.append(dict(sign=sign, voltage_v=voltage, g_s=g, admitted=admitted))
+                        time.sleep(.1)
+                        endpoints.append(collector.read_g(wl, bl, role='discovery_endpoint', sign=sign))
                 low, high = endpoints
                 span = high-low
                 targets: list[dict[str, object]] = []
-                if span > 8*TOLERANCE:
-                    goals = [low+fraction*span for fraction in (.2, .5, .8)]
+                if refine or span > 8*TOLERANCE:
+                    goals = target_plan[wl, bl] if refine else [low+fraction*span for fraction in (.2, .5, .8)]
                     for cycle in range(2):
                         for level in ((0, 1, 2) if cycle == 0 else (2, 1, 0)):
                             result = collector.program(wl, bl, goals[level], cycle, level)
                             result['mvm'] = [collector.readout(wl, bl, bias) for bias in (0., .025)]
                             targets.append(result)
-                row: dict[str, object] = dict(wl=wl, bl=bl, discovery=discovery, endpoints_g_s=endpoints,
+                row = dict(wl=wl, bl=bl, discovery=discovery, endpoints_g_s=endpoints,
+                    endpoints_kind='prior_confirmed_target_interval' if refine else 'fresh_measured_discovery',
                     span_g_s=span, targets=targets, tracking_passed=len(targets)==6 and all(r['passed'] is True for r in targets),
                     final_target_g_s=number(targets[-1]['target_g_s']) if targets else None,
                     range_failure=None if targets else 'insufficient_or_wrong_direction_endpoint_span')
                 records.append(row)
                 atomic_json(out/f'cell_{wl}_{bl}.json', row)
                 writer.checkpoint(completed_cells=index+1, impacts=collector.calls, pulses=collector.pulses)
-                print(f'Cell {index+1}/37 WL{wl}/BL{bl}: targets={sum(r["passed"] is True for r in targets)}/6 span={span*1e6:.2f}uS pulses={collector.pulses}', flush=True)
+                print(f'Cell {index+1}/{len(selected_cells)} WL{wl}/BL{bl}: targets={sum(r["passed"] is True for r in targets)}/6 span={span*1e6:.2f}uS pulses={collector.pulses}', flush=True)
             for row in records:
                 g = collector.read_g(int(number(row['wl'])), int(number(row['bl'])), role='whole_array_readback')
                 row['whole_array_final_g_s'] = g
                 target = row['final_target_g_s']
                 row['qualified_programming'] = row['tracking_passed'] is True and target is not None and abs(g-number(target)) <= TOLERANCE
+            for row in rechecks:
+                g = collector.read_g(int(number(row['wl'])), int(number(row['bl'])), role='prior15_readonly_recheck')
+                row['current_g_s'] = g
+                row['passed'] = abs(g-number(row['target_g_s'])) <= TOLERANCE
             manifest['status'] = 'completed'
     except (Exception, KeyboardInterrupt) as exc:
         manifest.update(status='failed', error=type(exc).__name__+': '+str(exc))
@@ -173,11 +214,12 @@ def run(source: Source, adaptive: bool, publish: bool) -> tuple[dict[str, object
                 raise ValueError('Hardware lock owner changed')
             lock.unlink()
     summary: dict[str, object] = dict(session_id=sid, source=source, status=manifest['status'], error=manifest['error'],
-        policy=protocol['policy'], completed_cells=len(records),
+        policy=protocol['policy'], refinement=refine, completed_cells=len(records),
         qualified_programming=sum(r.get('qualified_programming') is True for r in records),
         impacts=collector.calls if collector else 0, pulses=collector.pulses if collector else 0,
         elapsed_seconds=time.monotonic()-started, accuracy=None, block_qualification_pending=True)
-    atomic_json(out/'observations.json', dict(cells=records))
+    summary['prior_rechecks_passed'] = sum(r.get('passed') is True for r in rechecks)
+    atomic_json(out/'observations.json', dict(cells=records, prior_rechecks=rechecks))
     atomic_json(out/'summary.json', summary)
     (out/'map.html').write_text('<!doctype html><meta charset="utf-8"><h1>Adaptive37 MemriBoard</h1><pre>'+html.escape(json.dumps(summary, indent=2))+'</pre>', encoding='utf-8')
     manifest.update(finished_utc=now(), impacts=summary['impacts'], pulses=summary['pulses'])
@@ -201,12 +243,13 @@ def main() -> int:
     mode.add_argument('--publish-session')
     parser.add_argument('--fixed', action='store_true', help='Matched SIM baseline only')
     parser.add_argument('--publish', action='store_true')
+    parser.add_argument('--refine', action='store_true', help='Pinned16 narrower intervals; prior15 read-only recheck')
     args = parser.parse_args()
     if args.publish_session:
         sid = str(uuid.UUID(args.publish_session))
         print(json.dumps(terminal_publication.publish(ROOT, BASE/sid, log=ROOT/'.tmp'/f'publish-adaptive37-{sid}.log')))
         return 0
-    result, code = run('hardware' if args.run_hardware else 'simulator', not args.fixed, args.publish)
+    result, code = run('hardware' if args.run_hardware else 'simulator', not args.fixed, args.publish, args.refine)
     print(json.dumps(result), flush=True)
     return code
 
