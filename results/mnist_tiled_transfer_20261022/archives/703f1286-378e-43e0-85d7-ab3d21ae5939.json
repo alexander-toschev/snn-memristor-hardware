@@ -1,0 +1,123 @@
+{
+  "session": "703f1286-378e-43e0-85d7-ab3d21ae5939",
+  "source": "simulator",
+  "acquisition_status": "completed",
+  "archive": "results/mnist_tiled_transfer_20261022/archives/703f1286-378e-43e0-85d7-ab3d21ae5939.tar.gz",
+  "archive_sha256": "cb9504120c181386b9137ee6a1fd0fdc67c42a3af49975c6a552f47aa8e47b03",
+  "archive_bytes": 572807,
+  "impacts": 13557,
+  "pulses": 1401,
+  "files": {
+    "array.cb": {
+      "bytes": 11222,
+      "sha256": "d98811ad8326bbdfcb4568007602c7f276f4780d9cbf4870c73bc9c4dd0574f4"
+    },
+    "array_initial.cb": {
+      "bytes": 11229,
+      "sha256": "e2dcdb7ae9ce2276d913fe33c844ce510d41a3481416d55ca8dc1b275d2054a2"
+    },
+    "board.ini": {
+      "bytes": 246,
+      "sha256": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c"
+    },
+    "lifecycle_output.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "load_000_frozen.json": {
+      "bytes": 581383,
+      "sha256": "61d87807251fe48dbd1196e29a2c1d93e231afca26b88814fea027cd669aa167"
+    },
+    "load_000_operators.json": {
+      "bytes": 9932,
+      "sha256": "fe8edd2bc2daf3b1414b24de75e8cda707a4e9b37f3b6ba5ef514938c2b0e8db"
+    },
+    "load_000_programming.json": {
+      "bytes": 10246,
+      "sha256": "b37546221e2873167b49fa96918fdfed1bd3d5d338fb8075f1ef21cda2d54f3c"
+    },
+    "manifest.json": {
+      "bytes": 200679,
+      "sha256": "a7a540ea4857a88fe4cff3f7ae8aacc2e41958e7ad797e957ca94a662de60b80"
+    },
+    "map.html": {
+      "bytes": 709,
+      "sha256": "b930676c8dc72fd8aa316c03cd3521b4e060715984b56e81869e88b1a294502e"
+    },
+    "partial_lut.npy": {
+      "bytes": 184960,
+      "sha256": "94c6a0f47cd9c706ef1f686f0c4cbb096cdf0e26d1d25df0c649860816c5fff6"
+    },
+    "progress.json": {
+      "bytes": 219,
+      "sha256": "984463d74d4662829377018abbdd9b8f4f03f82ec2a2f0bb5b3e1775a9e73247"
+    },
+    "protocol.json": {
+      "bytes": 172112,
+      "sha256": "0c34c4d4477eb8b91896fcf553292369ce8aa486af2039b3efc4784382357665"
+    },
+    "raw/index.json": {
+      "bytes": 955,
+      "sha256": "1f6f5860d4ca1d3bde83bf9ea42c0f14d013e727ef114181b7f2d6262eda15a0"
+    },
+    "raw/part-000000.jsonl.gz": {
+      "bytes": 465849,
+      "sha256": "5f4faa410fe4164fa6caefbbebe0c06e2c35b4fd0cf6b73c9c9428ecada3824e"
+    },
+    "raw/part-000001.jsonl.gz": {
+      "bytes": 51556,
+      "sha256": "f8dee4905e18b3940ffb8ada751d3804a79b5b3c311ca06345072bcdc527278d"
+    },
+    "simulator_settings.ini": {
+      "bytes": 216,
+      "sha256": "9ef3229595cbbba0ccc7d7450981d7a63266092792f4573d405beb2f364d3ddb"
+    },
+    "start_manifest.json": {
+      "bytes": 198917,
+      "sha256": "f9cde532936015fe89c36b98a410e5c8c882ec5ddfaac828d9180970fd85b8bc"
+    },
+    "summary.json": {
+      "bytes": 436,
+      "sha256": "2a3a939e32cb85d7cc8887902e3d051b96ff012e51871dc4d7de0e0207529110"
+    }
+  },
+  "decoded_gzip": {
+    "raw/part-000000.jsonl.gz": {
+      "decoded_bytes": 8388567,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    },
+    "raw/part-000001.jsonl.gz": {
+      "decoded_bytes": 1080982,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    }
+  },
+  "secret_scan": {
+    "raw": {
+      "payload_bytes": 1901290,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 1902343,
+      "scan_framing": "ascii-lf-v1"
+    },
+    "decoded_gzip": {
+      "payload_bytes": 9469611,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 9470664,
+      "scan_framing": "ascii-lf-v1"
+    }
+  },
+  "scanner_sha256": "17157e2ee8b76fc8b1d8bee607a250e34b8a8023c8bc81822d4b5ee4d78fcb7c",
+  "scan_helper_sha256": "7efd151d28dc7533648c02fda12e7f3d791ece4ba7b17520176fa5cbdb361bba",
+  "raw_bytes": 1900866,
+  "decoded_bytes": 9469549,
+  "byte_identical_archive_verified": true,
+  "original_files_removed": false,
+  "notes": "Preservation only; no semantic audit, hardware operation or accuracy claim."
+}
