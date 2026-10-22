@@ -16,7 +16,7 @@ from typing import TYPE_CHECKING
 
 import numpy as np
 from numpy.typing import NDArray
-from experiment_common.block_readout_validation import Block, Collector as ReadCollector, Pair, patterns, Phase, Mode
+from experiment_common.block_readout_validation import Block, Collector as ReadCollector, Pair, patterns, Phase, Mode, Leg
 from experiment_common.durable import Writer, atomic_json
 from experiment_common.native_memriboard import Converters
 from experiment_common.selective_metrology import Source, object_dict, number
@@ -40,6 +40,14 @@ class Assignment:
     slot: int
     filter: int
     tap: int
+
+
+def voltage_centered(leg: Leg, cv: Converters) -> float:
+    """Apply native rounding to each ADC sample before computing the bracket."""
+    before = statistics.mean(cv.convert_adc_to_volt(1, 14, 5, r['adc']) for r in leg.before)
+    signal = statistics.mean(cv.convert_adc_to_volt(1, 14, 5, r['adc']) for r in leg.signal)
+    after = statistics.mean(cv.convert_adc_to_volt(1, 14, 5, r['adc']) for r in leg.after)
+    return signal - (before + after) / 2
 
 
 def profiles(path: Path) -> tuple[Profile, ...]:
@@ -137,7 +145,6 @@ def acquire_load(reader: ReadCollector, selected: tuple[Profile, ...], out: Path
             atomic_json(out / f'load_{load:03d}_frozen.json', [asdict(r) for r in reader.pairs])
     operators: list[dict[str, object]] = []
     all_pass = True
-    adc_step = reader.cv.convert_adc_to_volt(1, 14, 5, 1) - reader.cv.convert_adc_to_volt(1, 14, 5, 0)
     for profile in selected:
         b = profile.block
         lut = [0.0] * (1 << len(b.bls))
@@ -153,7 +160,7 @@ def acquire_load(reader: ReadCollector, selected: tuple[Profile, ...], out: Path
             delta = leg.signal_decoded_v[bl] - leg.baseline_decoded_v[bl]
             # CPU unit conversion only. Span is applied later. This is not a
             # regression against target weights and does not hide write errors.
-            lut[mask] = signed * adc_step / (330. * delta)
+            lut[mask] = statistics.mean(voltage_centered(p.plus, reader.cv) - voltage_centered(p.minus, reader.cv) for p in basis) / (330. * delta)
             values = [p.plus.centered('mean4') - p.minus.centered('mean4') for p in validation]
             drift = max(abs(l.drift('mean4')) for p in basis + validation for l in (p.plus, p.minus))
             signed_drift = max(abs(p.plus.drift('mean4') - p.minus.drift('mean4')) for p in basis + validation)
@@ -182,3 +189,53 @@ def compose(keys: NDArray[np.uint32], assignments: tuple[Assignment, ...], opera
                 if a.filter == filt:
                     local |= ((keys >> np.uint32(a.tap)) & np.uint32(1)) << np.uint32(a.slot)
             target[:, filt] += lut[local].astype(np.float32)
+
+
+def measured_lut_from_evidence(folder: Path, keys: NDArray[np.uint32], selected: tuple[Profile, ...],
+                               span: float, cv: Converters) -> NDArray[np.float32]:
+    """Reconstruct frozen operators using the converter on EVERY native sample.
+
+    MemriBoard rounds convert_adc_to_volt to five decimal places. Therefore
+    adc*convert(1) is not equivalent to convert(adc). The raw acquisition and
+    ADC-domain validation remain unchanged; this fixes only unit conversion.
+    """
+    def centered(raw: object) -> float:
+        leg = object_dict(raw)
+        means: dict[str, float] = {}
+        for role in ('before', 'signal', 'after'):
+            samples = leg[role]
+            if not isinstance(samples, list) or len(samples) != 4:
+                raise ValueError('Expected four native samples')
+            means[role] = statistics.mean(cv.convert_adc_to_volt(1, 14, 5, int(number(object_dict(s)['adc']))) for s in samples)
+        return means['signal'] - (means['before'] + means['after']) / 2
+
+    manifest = object_dict(json.loads((folder/'manifest.json').read_text(encoding='utf-8')))
+    hashes = object_dict(manifest['result_sha256'])
+    from experiment_common.durable import sha
+    plan = schedule(selected)
+    target = np.zeros((len(keys), 64), dtype=np.float32)
+    for load in range(89):
+        name = f'load_{load:03d}_frozen.json'
+        check_name = f'load_{load:03d}_operators.json'
+        for relative in (name, check_name):
+            if sha(folder/relative) != hashes[relative]:
+                raise ValueError('Acquisition evidence checksum mismatch')
+        if object_dict(json.loads((folder/check_name).read_text(encoding='utf-8')))['passed'] is not True:
+            raise ValueError('Post-program validation missing')
+        decoded: object = json.loads((folder/name).read_text(encoding='utf-8'))
+        if not isinstance(decoded, list):
+            raise ValueError('Frozen sample records required')
+        rows = [object_dict(r) for r in decoded]
+        operators: list[dict[str, object]] = []
+        for p in selected:
+            values = [0.]
+            for targets in patterns(p.block):
+                found = [r for r in rows if r['block'] == p.block.name and r['targets'] == list(targets) and r['phase'] == 'basis']
+                if len(found) != 3:
+                    raise ValueError('Incomplete frozen operator')
+                baseline = .025 if p.biased else 0.
+                delta = cv.convert_dac_to_volt(12, 5, cv.convert_volt_to_dac(12, 5, round(baseline+p.delta, 3))) - cv.convert_dac_to_volt(12, 5, cv.convert_volt_to_dac(12, 5, baseline))
+                values.append(statistics.mean(centered(r['plus']) - centered(r['minus']) for r in found)/(330.*delta))
+            operators.append(dict(block=p.block.name, lut_difference_g_s=values))
+        compose(keys, tuple(a for a in plan if a.load == load), operators, span, target)
+    return target

@@ -5,6 +5,21 @@ from experiment_common.tiled_transfer import profiles, schedule, compose
 
 
 class TiledTransferTest(unittest.TestCase):
+    def test_native_voltage_rounding_is_per_sample(self) -> None:
+        from experiment_common.runtime import use_local_dependencies
+        use_local_dependencies(prefer_environment=True)
+        from manager.service import converters
+        from experiment_common.block_readout_validation import Leg
+        from experiment_common.tiled_transfer import voltage_centered
+        from experiment_common.selective_metrology import Reading
+        before = tuple(Reading(task_id=i, resistance_ohm=1000., adc=1001) for i in range(4))
+        signal = tuple(Reading(task_id=i, resistance_ohm=1000., adc=1103) for i in range(4))
+        leg = Leg(0, (), before, signal, before, (), (), (), (), 0.)
+        actual = voltage_centered(leg, converters)
+        expected = converters.convert_adc_to_volt(1, 14, 5, 1103) - converters.convert_adc_to_volt(1, 14, 5, 1001)
+        self.assertAlmostEqual(actual, expected)
+        self.assertGreater(abs(actual - 102 * converters.convert_adc_to_volt(1, 14, 5, 1)), .0001)
+
     def test_all_coefficients_once_and_physical_slots_unique(self) -> None:
         selected = profiles(Path('reports/2026-10-22/block-readout-validation/STABLE_BLOCKS.json'))
         plan = schedule(selected)

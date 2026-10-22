@@ -37,7 +37,7 @@ import numpy as np
 from experiment_common.durable import Writer, atomic_json, sha
 from experiment_common.block_readout_validation import Collector as ReadCollector
 from experiment_common.selective_metrology import Source, object_dict, number
-from experiment_common.tiled_transfer import Programmer, acquire_load, compose, profiles, schedule
+from experiment_common.tiled_transfer import Programmer, acquire_load, compose, profiles, schedule, measured_lut_from_evidence
 from experiment_common import terminal_publication
 if TYPE_CHECKING:
     from manager.board import Connector
@@ -187,7 +187,7 @@ def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False) 
                 compose(keys, assigned, operators, span, lut)
                 completed += 1
                 np.save(out / 'partial_lut.npy', lut)
-                atomic_json(out / 'progress.json', dict(completed_loads=completed, planned_loads=maximum_loads,
+                atomic_json(out / 'phase_progress.json', dict(completed_loads=completed, planned_loads=maximum_loads,
                     elapsed_s=time.monotonic()-started, impacts=programmer.calls+read_calls, pulses=programmer.pulses))
                 print(f'Load {completed}/{maximum_loads} measured and validated; elapsed={time.monotonic()-started:.1f}s', flush=True)
         manifest['status'] = 'completed'
@@ -266,7 +266,11 @@ def evaluate_session(sid: str, publish: bool) -> tuple[dict[str, object], int]:
     accuracy: dict[str, object] | None = None
     try:
         keys = np.load(ASSETS/'input_masks.npy', allow_pickle=False).astype(np.uint32)
-        lut = np.load(source_path/'partial_lut.npy', allow_pickle=False).astype(np.float32)
+        from manager.service import converters
+        payload = object_dict(json.loads((ASSETS/'learned_conductances.json').read_text(encoding='utf-8')))
+        lut = measured_lut_from_evidence(source_path, keys, profiles(MAP), number(payload['span_g_s']), converters)
+        np.save(out/'inference_lut.npy', lut)
+        manifest['conversion'] = 'native convert_adc_to_volt on each sample before averaging; not ADC multiplied by rounded single-count voltage'
         if lut.shape != (len(keys), 64) or not np.isfinite(lut).all():
             raise ValueError('Invalid acquired LUT')
         accuracy = classify(out, keys, lut, source)
