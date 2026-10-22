@@ -1,0 +1,123 @@
+{
+  "session": "0715544d-bce9-4641-ac5d-437997a1c43e",
+  "source": "hardware",
+  "acquisition_status": "completed",
+  "archive": "results/expanded_blocks_20261022/archives/0715544d-bce9-4641-ac5d-437997a1c43e.tar.gz",
+  "archive_sha256": "e715f9c03cd5a16c26158d24e6e07200e759723a75566eeb373997b4f908b59f",
+  "archive_bytes": 2015268,
+  "impacts": 20416,
+  "pulses": 0,
+  "files": {
+    "board.ini": {
+      "bytes": 246,
+      "sha256": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c"
+    },
+    "lifecycle_output.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "load_000_frozen.json": {
+      "bytes": 1406615,
+      "sha256": "0b1707b2dbaa36fab98539ed7835cce48293160f5b1e5dada1bec02ccaac915a"
+    },
+    "load_000_operators.json": {
+      "bytes": 19699,
+      "sha256": "59beeae910801e2ab561a121fa43c483ae728b050143b90b795d18d9f5b36712"
+    },
+    "manifest.json": {
+      "bytes": 21424,
+      "sha256": "ad6fb4bc706099e0eee5e12c05a43d0704adff595e60702622d6ab6292cc8f8d"
+    },
+    "map.html": {
+      "bytes": 36035,
+      "sha256": "bc2705f9cbafcbdecd90c0257d9ffd50e3b5a2c31dbdf98b835462d1ff590cc5"
+    },
+    "observations.json": {
+      "bytes": 4235917,
+      "sha256": "7c99481abd2e488934d20507a4233c027910aed0be5d66d1a14b5e93711289e6"
+    },
+    "progress.json": {
+      "bytes": 220,
+      "sha256": "949b5092f47f1feb616fa2fc82f4669474dd5e9c915d8f6e3aa22d1058651648"
+    },
+    "protocol.json": {
+      "bytes": 13845,
+      "sha256": "b7310fd1bc5a52d83014115a42f3ae000003ebb5682c2c06a777ef2dd83ed506"
+    },
+    "raw/index.json": {
+      "bytes": 1267,
+      "sha256": "5417346a1ba6376695d26fb531594c85b770056bcabb78d8d7ceb7adafebf5c7"
+    },
+    "raw/part-000000.jsonl.gz": {
+      "bytes": 723949,
+      "sha256": "75672ca7b51614f8bc2b17c409181f932c711dcef5bbf2d665e9cc8ab006d182"
+    },
+    "raw/part-000001.jsonl.gz": {
+      "bytes": 719106,
+      "sha256": "355d0c0473b8be0ee7904f27c1de41cd36629ed353c76a77ed4cc1ba0d5541aa"
+    },
+    "raw/part-000002.jsonl.gz": {
+      "bytes": 119008,
+      "sha256": "5729923a1fd95aa4ec2b0fb734344bffd7df3a5db28a77aab5d6e291d365419c"
+    },
+    "selected_map.json": {
+      "bytes": 26870,
+      "sha256": "84b1918b291002952556815118c5fe4d96f581f5cda65b9cf60dcd772e33c80a"
+    },
+    "start_manifest.json": {
+      "bytes": 19884,
+      "sha256": "4b73c59847c4a64722370b207eb144316e8182883c61fb25e932c67892413bb4"
+    },
+    "summary.json": {
+      "bytes": 27263,
+      "sha256": "e0f02e42898282b4079e0d6564045a21a792bd3f058856c293d7fb77ae24578e"
+    }
+  },
+  "decoded_gzip": {
+    "raw/part-000000.jsonl.gz": {
+      "decoded_bytes": 8388523,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    },
+    "raw/part-000001.jsonl.gz": {
+      "decoded_bytes": 8388522,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    },
+    "raw/part-000002.jsonl.gz": {
+      "decoded_bytes": 1253658,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    }
+  },
+  "secret_scan": {
+    "raw": {
+      "payload_bytes": 7371730,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 7372783,
+      "scan_framing": "ascii-lf-v1"
+    },
+    "decoded_gzip": {
+      "payload_bytes": 18030796,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 18031849,
+      "scan_framing": "ascii-lf-v1"
+    }
+  },
+  "scanner_sha256": "00e91bbe655bd7c47753e8cfe61cb76ea1a5d7e7702fe161ee40102b46b3823b",
+  "scan_helper_sha256": "7efd151d28dc7533648c02fda12e7f3d791ece4ba7b17520176fa5cbdb361bba",
+  "raw_bytes": 7371348,
+  "decoded_bytes": 18030703,
+  "byte_identical_archive_verified": true,
+  "original_files_removed": false,
+  "notes": "Preservation only; no semantic audit, hardware operation or accuracy claim."
+}
