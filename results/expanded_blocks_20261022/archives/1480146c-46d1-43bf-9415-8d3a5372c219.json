@@ -1,0 +1,123 @@
+{
+  "session": "1480146c-46d1-43bf-9415-8d3a5372c219",
+  "source": "simulator",
+  "acquisition_status": "completed",
+  "archive": "results/expanded_blocks_20261022/archives/1480146c-46d1-43bf-9415-8d3a5372c219.tar.gz",
+  "archive_sha256": "7bdd40f3756de9d32a0c3a8634b227b7f86064c4c67c32a1b3455bd0f157364a",
+  "archive_bytes": 685667,
+  "impacts": 12576,
+  "pulses": 0,
+  "files": {
+    "array.cb": {
+      "bytes": 11229,
+      "sha256": "e2dcdb7ae9ce2276d913fe33c844ce510d41a3481416d55ca8dc1b275d2054a2"
+    },
+    "array_initial.cb": {
+      "bytes": 11229,
+      "sha256": "e2dcdb7ae9ce2276d913fe33c844ce510d41a3481416d55ca8dc1b275d2054a2"
+    },
+    "board.ini": {
+      "bytes": 246,
+      "sha256": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c"
+    },
+    "lifecycle_output.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "load_000_frozen.json": {
+      "bytes": 1182637,
+      "sha256": "62b3dcefc1cb58feae0e78d5d777a1ce0d3272020ca1079488860d77009d7cfc"
+    },
+    "load_000_operators.json": {
+      "bytes": 22702,
+      "sha256": "dd1890586b2c06b6e79e5e4d6bcfc1bf36e6d0b03411633620b9ead000fedc23"
+    },
+    "manifest.json": {
+      "bytes": 24662,
+      "sha256": "dfe78777db8fdb40fcd8a54eccff783e00eda39a098ac82745c2144eec9f8035"
+    },
+    "map.html": {
+      "bytes": 40632,
+      "sha256": "7c6973d34c70aa580a0c7f0abb175b818c8d954bff1eb8408842eaa27b443257"
+    },
+    "observations.json": {
+      "bytes": 3604627,
+      "sha256": "ab3e0c6f05ebe66bf8a81dc9842e439e53c66a4ccc1e0776c0de22b6674614d2"
+    },
+    "progress.json": {
+      "bytes": 219,
+      "sha256": "7346ddafb22d2173ecceabe1a3317167c9ee19d43a0eb8c3e708c3ed86d36d68"
+    },
+    "protocol.json": {
+      "bytes": 16596,
+      "sha256": "2e7f0803a5c5f896cda7b9c9d7964b97a10bd486a065a5377f04c46a248ebf02"
+    },
+    "raw/index.json": {
+      "bytes": 955,
+      "sha256": "aff4465ef4aa92e666879c004a0df1e11148a7ca3544a88198cdf5609228c598"
+    },
+    "raw/part-000000.jsonl.gz": {
+      "bytes": 380029,
+      "sha256": "d11d8a629709b50639a4d8e7f1260f57311c218a0a4d8a745b981a9765fb951b"
+    },
+    "raw/part-000001.jsonl.gz": {
+      "bytes": 61571,
+      "sha256": "014062284cfc9dd32fd953ec1bbb5626d4bf1abe33604780a5892b65a7e1fd1f"
+    },
+    "selected_map.json": {
+      "bytes": 28914,
+      "sha256": "efe9a7257d8f95a15667501d4b16b639bc379b908625b8ca65617d6121bbe75b"
+    },
+    "simulator_settings.ini": {
+      "bytes": 216,
+      "sha256": "9ef3229595cbbba0ccc7d7450981d7a63266092792f4573d405beb2f364d3ddb"
+    },
+    "start_manifest.json": {
+      "bytes": 22949,
+      "sha256": "4504259adfa53f735f1665f1c01bc4e8ae18603e582a82add8b924b45fbfb446"
+    },
+    "summary.json": {
+      "bytes": 29308,
+      "sha256": "8d3079650a90bc08b3395408642e2912064d81105f9e8c62d92605105bcc66e9"
+    }
+  },
+  "decoded_gzip": {
+    "raw/part-000000.jsonl.gz": {
+      "decoded_bytes": 8388437,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    },
+    "raw/part-000001.jsonl.gz": {
+      "decoded_bytes": 1354684,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    }
+  },
+  "secret_scan": {
+    "raw": {
+      "payload_bytes": 5439139,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 5440192,
+      "scan_framing": "ascii-lf-v1"
+    },
+    "decoded_gzip": {
+      "payload_bytes": 9743183,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 9744236,
+      "scan_framing": "ascii-lf-v1"
+    }
+  },
+  "scanner_sha256": "17157e2ee8b76fc8b1d8bee607a250e34b8a8023c8bc81822d4b5ee4d78fcb7c",
+  "scan_helper_sha256": "7efd151d28dc7533648c02fda12e7f3d791ece4ba7b17520176fa5cbdb361bba",
+  "raw_bytes": 5438721,
+  "decoded_bytes": 9743121,
+  "byte_identical_archive_verified": true,
+  "original_files_removed": false,
+  "notes": "Preservation only; no semantic audit, hardware operation or accuracy claim."
+}
