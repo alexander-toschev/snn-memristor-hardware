@@ -1,0 +1,958 @@
+{
+  "schema": "mvm-address-results-v1",
+  "hardware_session": "76c2746a-8f00-4eac-bd24-77e026372bda",
+  "simulator_session": "73f1a132-98c6-4f87-9996-426985b7700d",
+  "hardware": {
+    "status": "completed",
+    "impacts": 3240,
+    "pulses": 0,
+    "complete_mode10_cells": 256,
+    "zero_mode10_cells": 160,
+    "bl16_30_zero_cells": 120,
+    "bl16_30_zero_measurements": 360,
+    "mode9_positive_cells": 14,
+    "mode9_positive_measurements": 42
+  },
+  "simulator": {
+    "status": "completed",
+    "impacts": 3240,
+    "pulses": 0,
+    "zero_mode10_cells": 31,
+    "matched_hardware_conductance": false,
+    "initialization": "Fresh randomly initialized native simulator array; no programming in diagnostic"
+  },
+  "selected14": [
+    {
+      "wl": 0,
+      "bl": 14,
+      "hardware_mode10": {
+        "centered_adc_mean": 59.666666666666664,
+        "centered_adc_sd": 1.1547005383792515,
+        "centered_adc_three_orders": [
+          59.0,
+          59.0,
+          61.0
+        ],
+        "mode7_g_mean_us": 74.86453792955123,
+        "mode7_g_three_reads_us": [
+          74.67941992013783,
+          74.91079996494176,
+          75.00339390357414
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 208.0,
+        "centered_adc_sd": 2.6457513110645907,
+        "centered_adc_three_orders": [
+          207.0,
+          211.0,
+          206.0
+        ],
+        "mode7_g_mean_us": 75.1578568720368,
+        "mode7_g_three_reads_us": [
+          75.096047845194,
+          75.18876138545819,
+          75.18876138545819
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 8.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          8.0,
+          8.0,
+          8.0
+        ],
+        "mode7_g_mean_us": 153.37282172249948,
+        "mode7_g_three_reads_us": [
+          153.37282172249948,
+          153.37282172249948,
+          153.37282172249948
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 567.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          567.0,
+          567.0,
+          567.0
+        ],
+        "mode7_g_mean_us": 153.37282172249948,
+        "mode7_g_three_reads_us": [
+          153.37282172249948,
+          153.37282172249948,
+          153.37282172249948
+        ]
+      }
+    },
+    {
+      "wl": 0,
+      "bl": 15,
+      "hardware_mode10": {
+        "centered_adc_mean": 11.333333333333334,
+        "centered_adc_sd": 1.1547005383792515,
+        "centered_adc_three_orders": [
+          12.0,
+          10.0,
+          12.0
+        ],
+        "mode7_g_mean_us": 58.8574590057798,
+        "mode7_g_three_reads_us": [
+          58.8574590057798,
+          58.8574590057798,
+          58.8574590057798
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 157.33333333333334,
+        "centered_adc_sd": 4.041451884327381,
+        "centered_adc_three_orders": [
+          158.0,
+          153.0,
+          161.0
+        ],
+        "mode7_g_mean_us": 58.8717072098545,
+        "mode7_g_three_reads_us": [
+          58.90020361800391,
+          58.8574590057798,
+          58.8574590057798
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 3.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          3.0,
+          3.0,
+          3.0
+        ],
+        "mode7_g_mean_us": 70.5447173304214,
+        "mode7_g_three_reads_us": [
+          70.42392385201963,
+          70.60511406962229,
+          70.60511406962229
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 311.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          311.0,
+          311.0,
+          311.0
+        ],
+        "mode7_g_mean_us": 70.60511406962229,
+        "mode7_g_three_reads_us": [
+          70.60511406962229,
+          70.60511406962229,
+          70.60511406962229
+        ]
+      }
+    },
+    {
+      "wl": 0,
+      "bl": 16,
+      "hardware_mode10": {
+        "centered_adc_mean": 0.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mode7_g_mean_us": 39.478242976061146,
+        "mode7_g_three_reads_us": [
+          39.49110186492779,
+          39.49110186492779,
+          39.45252519832785
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 70.0,
+        "centered_adc_sd": 3.5,
+        "centered_adc_three_orders": [
+          71.5,
+          72.5,
+          66.0
+        ],
+        "mode7_g_mean_us": 39.491150617215695,
+        "mode7_g_three_reads_us": [
+          39.64553718117059,
+          39.49110186492779,
+          39.336812805548696
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 9.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          9.0,
+          9.0,
+          9.0
+        ],
+        "mode7_g_mean_us": 169.99199337711192,
+        "mode7_g_three_reads_us": [
+          169.99199337711192,
+          169.99199337711192,
+          169.99199337711192
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 608.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          608.0,
+          608.0,
+          608.0
+        ],
+        "mode7_g_mean_us": 169.99199337711192,
+        "mode7_g_three_reads_us": [
+          169.99199337711192,
+          169.99199337711192,
+          169.99199337711192
+        ]
+      }
+    },
+    {
+      "wl": 0,
+      "bl": 17,
+      "hardware_mode10": {
+        "centered_adc_mean": 0.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mode7_g_mean_us": 87.6255808951215,
+        "mode7_g_three_reads_us": [
+          87.60917197943287,
+          87.60917197943287,
+          87.65839872649877
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 236.66666666666666,
+        "centered_adc_sd": 2.8431203515386634,
+        "centered_adc_three_orders": [
+          239.0,
+          233.5,
+          237.5
+        ],
+        "mode7_g_mean_us": 87.97054218695747,
+        "mode7_g_three_reads_us": [
+          87.75686434192882,
+          87.95407390077199,
+          88.20068831817163
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 9.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          9.0,
+          9.0,
+          9.0
+        ],
+        "mode7_g_mean_us": 169.99199337711192,
+        "mode7_g_three_reads_us": [
+          169.99199337711192,
+          169.99199337711192,
+          169.99199337711192
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 608.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          608.0,
+          608.0,
+          608.0
+        ],
+        "mode7_g_mean_us": 169.99199337711192,
+        "mode7_g_three_reads_us": [
+          169.99199337711192,
+          169.99199337711192,
+          169.99199337711192
+        ]
+      }
+    },
+    {
+      "wl": 0,
+      "bl": 20,
+      "hardware_mode10": {
+        "centered_adc_mean": 0.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mode7_g_mean_us": 125.5002411590162,
+        "mode7_g_three_reads_us": [
+          125.50027547310465,
+          125.55873637687709,
+          125.4417116270668
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 313.6666666666667,
+        "centered_adc_sd": 3.547299442298794,
+        "centered_adc_three_orders": [
+          313.0,
+          310.5,
+          317.5
+        ],
+        "mode7_g_mean_us": 125.63681149413954,
+        "mode7_g_three_reads_us": [
+          125.55873637687709,
+          125.73444633465228,
+          125.61725177088923
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 1.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "mode7_g_mean_us": 37.49528341273875,
+        "mode7_g_three_reads_us": [
+          37.26629375528716,
+          37.60977824146455,
+          37.60977824146455
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 177.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          177.0,
+          177.0,
+          177.0
+        ],
+        "mode7_g_mean_us": 37.60977824146455,
+        "mode7_g_three_reads_us": [
+          37.60977824146455,
+          37.60977824146455,
+          37.60977824146455
+        ]
+      }
+    },
+    {
+      "wl": 0,
+      "bl": 30,
+      "hardware_mode10": {
+        "centered_adc_mean": 0.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mode7_g_mean_us": 123.86769443821665,
+        "mode7_g_three_reads_us": [
+          123.86769443821665,
+          123.86769443821665,
+          123.86769443821665
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 310.6666666666667,
+        "centered_adc_sd": 0.5773502691896257,
+        "centered_adc_three_orders": [
+          311.0,
+          310.0,
+          311.0
+        ],
+        "mode7_g_mean_us": 123.88710868375895,
+        "mode7_g_three_reads_us": [
+          123.75150203385594,
+          123.92587250010533,
+          123.9839515173156
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 6.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          6.0,
+          6.0,
+          6.0
+        ],
+        "mode7_g_mean_us": 120.21764804217678,
+        "mode7_g_three_reads_us": [
+          120.1795963888435,
+          120.23667386884343,
+          120.23667386884343
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 476.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          476.0,
+          476.0,
+          476.0
+        ],
+        "mode7_g_mean_us": 120.23667386884343,
+        "mode7_g_three_reads_us": [
+          120.23667386884343,
+          120.23667386884343,
+          120.23667386884343
+        ]
+      }
+    },
+    {
+      "wl": 0,
+      "bl": 31,
+      "hardware_mode10": {
+        "centered_adc_mean": 0.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mode7_g_mean_us": 35.31930718521054,
+        "mode7_g_three_reads_us": [
+          35.29415916959902,
+          35.3318811930163,
+          35.3318811930163
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 62.666666666666664,
+        "centered_adc_sd": 8.005206639015219,
+        "centered_adc_three_orders": [
+          63.0,
+          70.5,
+          54.5
+        ],
+        "mode7_g_mean_us": 35.35704502930385,
+        "mode7_g_three_reads_us": [
+          35.369621385887875,
+          35.40735453242464,
+          35.29415916959902
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 9.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          9.0,
+          9.0,
+          9.0
+        ],
+        "mode7_g_mean_us": 169.99199337711192,
+        "mode7_g_three_reads_us": [
+          169.99199337711192,
+          169.99199337711192,
+          169.99199337711192
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 608.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          608.0,
+          608.0,
+          608.0
+        ],
+        "mode7_g_mean_us": 169.99199337711192,
+        "mode7_g_three_reads_us": [
+          169.99199337711192,
+          169.99199337711192,
+          169.99199337711192
+        ]
+      }
+    },
+    {
+      "wl": 7,
+      "bl": 14,
+      "hardware_mode10": {
+        "centered_adc_mean": 328.0,
+        "centered_adc_sd": 1.7320508075688772,
+        "centered_adc_three_orders": [
+          330.0,
+          327.0,
+          327.0
+        ],
+        "mode7_g_mean_us": 138.76646489736314,
+        "mode7_g_three_reads_us": [
+          138.6839448370741,
+          138.80772492750765,
+          138.80772492750765
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 374.6666666666667,
+        "centered_adc_sd": 0.5773502691896257,
+        "centered_adc_three_orders": [
+          375.0,
+          374.0,
+          375.0
+        ],
+        "mode7_g_mean_us": 138.72525063049025,
+        "mode7_g_three_reads_us": [
+          138.74590352719835,
+          138.6839448370741,
+          138.74590352719835
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 7.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          7.0,
+          7.0,
+          7.0
+        ],
+        "mode7_g_mean_us": 136.81269905578066,
+        "mode7_g_three_reads_us": [
+          136.77177577635078,
+          136.8331606954956,
+          136.8331606954956
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 523.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          523.0,
+          523.0,
+          523.0
+        ],
+        "mode7_g_mean_us": 136.8331606954956,
+        "mode7_g_three_reads_us": [
+          136.8331606954956,
+          136.8331606954956,
+          136.8331606954956
+        ]
+      }
+    },
+    {
+      "wl": 7,
+      "bl": 15,
+      "hardware_mode10": {
+        "centered_adc_mean": 57.333333333333336,
+        "centered_adc_sd": 2.0816659994661326,
+        "centered_adc_three_orders": [
+          55.0,
+          58.0,
+          59.0
+        ],
+        "mode7_g_mean_us": 56.70512178835227,
+        "mode7_g_three_reads_us": [
+          56.64881473684927,
+          56.73327531410378,
+          56.73327531410378
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 175.33333333333334,
+        "centered_adc_sd": 7.285830998131464,
+        "centered_adc_three_orders": [
+          173.0,
+          169.5,
+          183.5
+        ],
+        "mode7_g_mean_us": 56.789642909211196,
+        "mode7_g_three_reads_us": [
+          56.73327531410378,
+          56.817826706764905,
+          56.817826706764905
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 2.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          2.0,
+          2.0,
+          2.0
+        ],
+        "mode7_g_mean_us": 54.00615377036393,
+        "mode7_g_three_reads_us": [
+          53.83953986575649,
+          54.089460722667646,
+          54.089460722667646
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 247.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          247.0,
+          247.0,
+          247.0
+        ],
+        "mode7_g_mean_us": 54.089460722667646,
+        "mode7_g_three_reads_us": [
+          54.089460722667646,
+          54.089460722667646,
+          54.089460722667646
+        ]
+      }
+    },
+    {
+      "wl": 7,
+      "bl": 16,
+      "hardware_mode10": {
+        "centered_adc_mean": 0.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mode7_g_mean_us": 203.93361439621202,
+        "mode7_g_three_reads_us": [
+          203.98713249168242,
+          203.90685534847682,
+          203.90685534847682
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 456.5,
+        "centered_adc_sd": 4.58257569495584,
+        "centered_adc_three_orders": [
+          452.5,
+          455.5,
+          461.5
+        ],
+        "mode7_g_mean_us": 203.8532620127258,
+        "mode7_g_three_reads_us": [
+          203.90685534847682,
+          203.74607534122376,
+          203.90685534847682
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 7.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          7.0,
+          7.0,
+          7.0
+        ],
+        "mode7_g_mean_us": 136.81269905578066,
+        "mode7_g_three_reads_us": [
+          136.77177577635078,
+          136.8331606954956,
+          136.8331606954956
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 523.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          523.0,
+          523.0,
+          523.0
+        ],
+        "mode7_g_mean_us": 136.8331606954956,
+        "mode7_g_three_reads_us": [
+          136.8331606954956,
+          136.8331606954956,
+          136.8331606954956
+        ]
+      }
+    },
+    {
+      "wl": 7,
+      "bl": 17,
+      "hardware_mode10": {
+        "centered_adc_mean": 0.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mode7_g_mean_us": 89.48817299666527,
+        "mode7_g_three_reads_us": [
+          89.43847840105465,
+          89.48818129589625,
+          89.53785929304489
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 254.16666666666666,
+        "centered_adc_sd": 2.309401076758503,
+        "centered_adc_three_orders": [
+          255.5,
+          251.5,
+          255.5
+        ],
+        "mode7_g_mean_us": 89.53785929304489,
+        "mode7_g_three_reads_us": [
+          89.53785929304489,
+          89.53785929304489,
+          89.53785929304489
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 4.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          4.0,
+          4.0,
+          4.0
+        ],
+        "mode7_g_mean_us": 87.08475024149129,
+        "mode7_g_three_reads_us": [
+          87.01925126895824,
+          87.11749972775782,
+          87.11749972775782
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 370.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          370.0,
+          370.0,
+          370.0
+        ],
+        "mode7_g_mean_us": 87.11749972775782,
+        "mode7_g_three_reads_us": [
+          87.11749972775782,
+          87.11749972775782,
+          87.11749972775782
+        ]
+      }
+    },
+    {
+      "wl": 7,
+      "bl": 20,
+      "hardware_mode10": {
+        "centered_adc_mean": 0.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mode7_g_mean_us": 74.5715983427378,
+        "mode7_g_three_reads_us": [
+          74.40216004351038,
+          74.63321506456518,
+          74.67941992013783
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 224.5,
+        "centered_adc_sd": 6.082762530298219,
+        "centered_adc_three_orders": [
+          220.5,
+          221.5,
+          231.5
+        ],
+        "mode7_g_mean_us": 74.78736764253424,
+        "mode7_g_three_reads_us": [
+          74.7256820212998,
+          74.81821045315147,
+          74.81821045315147
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 8.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          8.0,
+          8.0,
+          8.0
+        ],
+        "mode7_g_mean_us": 153.37282172249948,
+        "mode7_g_three_reads_us": [
+          153.37282172249948,
+          153.37282172249948,
+          153.37282172249948
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 567.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          567.0,
+          567.0,
+          567.0
+        ],
+        "mode7_g_mean_us": 153.37282172249948,
+        "mode7_g_three_reads_us": [
+          153.37282172249948,
+          153.37282172249948,
+          153.37282172249948
+        ]
+      }
+    },
+    {
+      "wl": 7,
+      "bl": 30,
+      "hardware_mode10": {
+        "centered_adc_mean": 0.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mode7_g_mean_us": 43.535113922117915,
+        "mode7_g_three_reads_us": [
+          43.46939689254669,
+          43.58768490985631,
+          43.548259963950755
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 119.16666666666667,
+        "centered_adc_sd": 2.9297326385411577,
+        "centered_adc_three_orders": [
+          122.5,
+          117.0,
+          118.0
+        ],
+        "mode7_g_mean_us": 43.52197227348273,
+        "mode7_g_three_reads_us": [
+          43.548259963950755,
+          43.548259963950755,
+          43.46939689254669
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 1.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "mode7_g_mean_us": 37.49528341273875,
+        "mode7_g_three_reads_us": [
+          37.26629375528716,
+          37.60977824146455,
+          37.60977824146455
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 177.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          177.0,
+          177.0,
+          177.0
+        ],
+        "mode7_g_mean_us": 37.60977824146455,
+        "mode7_g_three_reads_us": [
+          37.60977824146455,
+          37.60977824146455,
+          37.60977824146455
+        ]
+      }
+    },
+    {
+      "wl": 7,
+      "bl": 31,
+      "hardware_mode10": {
+        "centered_adc_mean": 121.66666666666667,
+        "centered_adc_sd": 1.1547005383792515,
+        "centered_adc_three_orders": [
+          121.0,
+          123.0,
+          121.0
+        ],
+        "mode7_g_mean_us": 93.38138310043215,
+        "mode7_g_three_reads_us": [
+          93.34767153568122,
+          93.39823888280762,
+          93.39823888280762
+        ]
+      },
+      "hardware_mode9": {
+        "centered_adc_mean": 275.6666666666667,
+        "centered_adc_sd": 3.7859388972001824,
+        "centered_adc_three_orders": [
+          273.0,
+          274.0,
+          280.0
+        ],
+        "mode7_g_mean_us": 93.51635044205837,
+        "mode7_g_three_reads_us": [
+          93.44886104528157,
+          93.55009514044676,
+          93.55009514044676
+        ]
+      },
+      "simulator_mode10": {
+        "centered_adc_mean": 0.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mode7_g_mean_us": 9.969779604064161,
+        "mode7_g_three_reads_us": [
+          9.969779604064161,
+          9.969779604064161,
+          9.969779604064161
+        ]
+      },
+      "simulator_mode9": {
+        "centered_adc_mean": 52.0,
+        "centered_adc_sd": 0.0,
+        "centered_adc_three_orders": [
+          52.0,
+          52.0,
+          52.0
+        ],
+        "mode7_g_mean_us": 9.969779604064161,
+        "mode7_g_three_reads_us": [
+          9.969779604064161,
+          9.969779604064161,
+          9.969779604064161
+        ]
+      }
+    }
+  ],
+  "source_sha256": {
+    "results/mvm_address_diagnostic_20261022/summaries/76c2746a-8f00-4eac-bd24-77e026372bda.json": "d86639b0f6df4d1ebf6e3038930d57cf9296eed1807d81b1a79f2ed49f1e33ae",
+    "results/mvm_address_diagnostic_20261022/summaries/76c2746a-8f00-4eac-bd24-77e026372bda.html": "8df2ca54c17a26a4f60950fa054e3afedc95d5edd4f6e2744691c26a016e888e",
+    "results/mvm_address_diagnostic_20261022/73f1a132-98c6-4f87-9996-426985b7700d/observations.json": "7b1867a294cc5b23d3b4c47cbf5ae4315b56ad60692f4ce1d4f3bfdaaa47dc9f",
+    "results/mvm_address_diagnostic_20261022/73f1a132-98c6-4f87-9996-426985b7700d/manifest.json": "f85903c8e2aba5d09f59935cc3b12d73df646e2e5bce8224ee0026d3e299234d",
+    "reports/2026-10-22/mvm-address-diagnostic/PREVIOUS_SURVEY_EVIDENCE.json": "36cdf0dbdcd96ebb2e55d42ab3e0b15b0db88273d6f5607593febaa0d6e1d284"
+  },
+  "checks": {
+    "public_summary_matches_html": true,
+    "all256_complete": true,
+    "all_mode9_repeats_positive": true,
+    "full_raw_replay_performed": false
+  },
+  "conclusion": "Observed path-dependent response: BL16..30 mode10 is zero across all WL and three scan orders, while mode9 is nonzero at all14 sampled addresses. Exact driver/FPGA/analog root cause is not established.",
+  "limitations": [
+    "mode7, mode9 and mode10 have different transfer functions; do not compare amplitudes as equal or replace mode10 by computed weights.",
+    "Prior R/M/H map measures an MVM-mediated span, not direct conductance programmability. Zero span there cannot alone prove a cell cannot be programmed.",
+    "14 mode9 addresses do not establish mode9 behavior across all256 cells.",
+    "SIM and hardware conductances are not matched; their zero counts are descriptive, not a device-level accuracy test.",
+    "No 200-cell layout, signed MVM, or MNIST accuracy qualification is inferred."
+  ],
+  "reproduce_command": ".venv/bin/python -B experiments/mvm_address_diagnostic_20261022/experiment.py --run-hardware --publish",
+  "operator_observed_application_comparison": {
+    "source": "Root read-only observation in Pi console; not new instrument raw",
+    "application_root": "~/Documents/MemriBoard",
+    "experiment_source": "vendor/MemriBoard",
+    "byte_equal_via_sha256_digest_comparison": {
+      "manager/board.py": true,
+      "MemriCORE/rp5_fpga_python/rpi_FPGAed.py": true,
+      "MemriCORE/rp5_fpga_python/FPGA_SIM.py": true
+    },
+    "board_section_settings_ini_vs_experiment_ini_differences": [],
+    "board_type": "rp5_fpga_python",
+    "actual_digest_values_not_saved_here": true,
+    "old_manifest_private_status_unchanged": true
+  }
+}
