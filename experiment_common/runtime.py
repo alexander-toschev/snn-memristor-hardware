@@ -32,11 +32,20 @@ def repo_path(value: str | Path) -> Path:
     return resolved
 
 
-def use_local_dependencies() -> None:
+def use_local_dependencies(*, prefer_environment: bool = False) -> None:
+    """Добавить public vendor и необязательный локальный dependency fallback.
+
+    prefer_environment сохраняет приоритет пакетов активного интерпретатора:
+    например, Windows .deps с NumPy cp312 нельзя ставить перед venv cp311.
+    Старый default сохранён для уже существующих сценариев.
+    """
     for relative in ('.deps', 'vendor/MemriBoard'):
         directory = repo_path(relative)
         if directory.is_dir() and str(directory) not in sys.path:
-            sys.path.insert(0, str(directory))
+            if prefer_environment and relative == '.deps':
+                sys.path.append(str(directory))
+            else:
+                sys.path.insert(0, str(directory))
 
 
 def preflight(source: str) -> tuple[ConfigParser, dict[str, str]]:
