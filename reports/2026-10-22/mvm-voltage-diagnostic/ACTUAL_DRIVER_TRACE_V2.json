@@ -1,0 +1,7895 @@
+{
+  "schema": "actual-extracted-mode-mvm-offline-trace-v1",
+  "source_sha256": "bc717659fa5d4d36d2037eef978bf1cd8dcf0fe92f9bbfad51f1eb1d0d27df9c",
+  "module_imported": false,
+  "private_constructor_called": false,
+  "hardware_io": false,
+  "routing_stubbed": true,
+  "register_generator": "two binary strings 0b00000000; not a routing validation",
+  "mvm_css": [
+    13,
+    19,
+    26,
+    21
+  ],
+  "numpy_version": "2.2.4",
+  "cases": [
+    {
+      "case": "zero",
+      "input_dac": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [
+        {
+          "operation": "BLINK_ON",
+          "stubbed": true
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "BLINK_OFF",
+          "stubbed": true
+        }
+      ],
+      "result": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "BL14",
+      "input_dac": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        41,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [
+        {
+          "operation": "BLINK_ON",
+          "stubbed": true
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            64,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            41
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "BLINK_OFF",
+          "stubbed": true
+        }
+      ],
+      "result": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "BL15",
+      "input_dac": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        41,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [
+        {
+          "operation": "BLINK_ON",
+          "stubbed": true
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            128,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            41
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "BLINK_OFF",
+          "stubbed": true
+        }
+      ],
+      "result": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "BL16",
+      "input_dac": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        41,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [
+        {
+          "operation": "BLINK_ON",
+          "stubbed": true
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            41
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "BLINK_OFF",
+          "stubbed": true
+        }
+      ],
+      "result": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "BL17",
+      "input_dac": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        41,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [
+        {
+          "operation": "BLINK_ON",
+          "stubbed": true
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            2,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            41
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "BLINK_OFF",
+          "stubbed": true
+        }
+      ],
+      "result": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "BL20",
+      "input_dac": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        41,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "events": [
+        {
+          "operation": "BLINK_ON",
+          "stubbed": true
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            16,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            41
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "BLINK_OFF",
+          "stubbed": true
+        }
+      ],
+      "result": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "BL30",
+      "input_dac": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        41,
+        0
+      ],
+      "events": [
+        {
+          "operation": "BLINK_ON",
+          "stubbed": true
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            41
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "BLINK_OFF",
+          "stubbed": true
+        }
+      ],
+      "result": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "BL31",
+      "input_dac": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        41
+      ],
+      "events": [
+        {
+          "operation": "BLINK_ON",
+          "stubbed": true
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            128,
+            0,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            41
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "BLINK_OFF",
+          "stubbed": true
+        }
+      ],
+      "result": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "all32",
+      "input_dac": [
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41
+      ],
+      "events": [
+        {
+          "operation": "BLINK_ON",
+          "stubbed": true
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            41
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            41
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            41
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            41
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            41
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            41
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            41
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            41
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            41
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            41
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            41
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            41
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            41
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            41
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            41
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            41
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            41
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            41
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            41
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            41
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            41
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            41
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            41
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            41
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            41
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            41
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            41
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            41
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            41
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            41
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            41
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            41
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_read",
+          "arguments": [
+            1,
+            2
+          ],
+          "stub_result": [
+            0,
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "chip": 12,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 13,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 19,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 26,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            16,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            32,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            48,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            64,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            80,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            96,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            112,
+            0
+          ],
+          "chip": 21,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "ldac_mvm",
+          "arguments": []
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "chip": 6,
+          "other": [
+            1
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 8,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "spi_send",
+          "values": [
+            0
+          ],
+          "chip": 7,
+          "other": [
+            0
+          ]
+        },
+        {
+          "operation": "BLINK_OFF",
+          "stubbed": true
+        }
+      ],
+      "result": [
+        0,
+        0
+      ]
+    }
+  ],
+  "limitation": "Actual method DAC packing only; no claim that returned ADC or routing matches hardware.",
+  "status": "completed"
+}
