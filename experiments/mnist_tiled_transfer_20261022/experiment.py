@@ -81,13 +81,33 @@ def classify(out: Path, keys: np.ndarray[tuple[int, ...], np.dtype[np.uint32]],
 
 
 def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False,
-        expanded: bool = False) -> tuple[dict[str, object], int]:
+        expanded: bool = False, read_only_pilot: str | None = None,
+        settled_readout: bool = False) -> tuple[dict[str, object], int]:
     map_path = EXPANDED_MAP if expanded else MAP
     selected = profiles(map_path)
     physical_cells = 2*sum(len(p.block.bls) for p in selected)
     if physical_cells != (44 if expanded else 36):
         raise ValueError('Pinned physical map size changed')
     assignments = schedule(selected)
+    inherited_records: list[dict[str, object]] | None = None
+    if read_only_pilot is not None:
+        if source != 'hardware' or not pilot or not expanded:
+            raise ValueError('Read-only check requires hardware expanded pilot')
+        previous = BASE/str(uuid.UUID(read_only_pilot))
+        prior = object_dict(json.loads((previous/'summary.json').read_text(encoding='utf-8')))
+        prior_manifest = object_dict(json.loads((previous/'manifest.json').read_text(encoding='utf-8')))
+        if prior['source'] != 'hardware' or prior['pilot'] is not True or prior['physical_cells'] != 44 or not prior_manifest.get('finished_utc'):
+            raise ValueError('Expected terminal hardware44 pilot')
+        hashes = object_dict(prior_manifest['result_sha256'])
+        for name in ('physical_map.json', 'load_000_programming.json'):
+            if sha(previous/name) != hashes[name]:
+                raise ValueError('Prior evidence hash mismatch')
+        if sha(previous/'physical_map.json') != sha(map_path):
+            raise ValueError('Read-only map differs from written map')
+        raw_records: object = json.loads((previous/'load_000_programming.json').read_text(encoding='utf-8'))
+        if not isinstance(raw_records, list) or len(raw_records) != 44:
+            raise ValueError('Expected44 prior write records')
+        inherited_records = [object_dict(r) for r in raw_records]
     payload = object_dict(json.loads((ASSETS / 'learned_conductances.json').read_text(encoding='utf-8')))
     goals = np.asarray(payload['conductances_s'], dtype=np.float64)
     span = number(payload['span_g_s'])
@@ -110,6 +130,9 @@ def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False,
         operator='all binary patterns; three repeats frozen, five independent heldout repeats',
         repeatability='leg/signed drift <=5ADC; signed SD<=5ADC; heldout residual <=max(5ADC, .1*(abs(plus)+abs(minus)))',
         low_signal='reported, not rejected solely for a zero/small programmed weight',
+        read_only_parent=read_only_pilot, settled_readout=settled_readout,
+        readout_attempts=2 if settled_readout else 1,
+        retry_rule='If first complete readout fails: wait2s, take one fresh complete readout without any write; retain both attempts; thresholds unchanged',
         current_scale='native ADC voltage / (330 ohm * native DAC increment * source conductance span)',
         cache_scope='one programmed load; immutable response snapshot retained after physical reuse',
         physical_lif=False, live_hardware_per_image=False, head='frozen source SGD25 head and train-only scaler',
@@ -134,6 +157,7 @@ def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False,
     written_cells = 0
     missed_cells = 0
     unresolved_patterns = 0
+    retried_loads = 0
     started = time.monotonic()
     files = [Path(__file__), map_path, ROOT / INI, ROOT / SIM_INI, *ASSETS.iterdir(), *(ROOT / 'experiment_common').glob('*.py')]
     manifest: dict[str, object] = dict(session_id=sid, source=source, status='failed', error=None,
@@ -175,8 +199,8 @@ def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False,
                 if time.monotonic() - started > 8*3600:
                     raise TimeoutError('Eight-hour budget')
                 assigned = tuple(a for a in assignments if a.load == load)
-                records: list[dict[str, object]] = []
-                for p in selected:
+                records: list[dict[str, object]] = [] if inherited_records is None else inherited_records
+                for p in (() if inherited_records is not None else selected):
                     for a in (a for a in assigned if a.block == p.block.name):
                         for leg, wl in enumerate((p.block.plus_wl, p.block.minus_wl)):
                             # CPU encodes targets; MemriBoard alone changes G.
@@ -194,14 +218,31 @@ def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False,
                 for r in records:
                     actual = programmer.read_g(int(number(r['wl'])), int(number(r['bl'])), role='whole_load_readback', load=load)
                     r.update(final_g_s=actual, error_g_s=actual-number(r['target_g_s']), within_tolerance=abs(actual-number(r['target_g_s'])) <= .02*span)
-                written_cells += len(records)
+                written_cells += len(records) if inherited_records is None else 0
                 missed_cells += sum(r['within_tolerance'] is not True for r in records)
                 atomic_json(out / f'load_{load:03d}_programming.json', records)
                 reader.emit('load_started', load=load)
-                try:
-                    operators, passed = acquire_load(reader, selected, out, load)
-                finally:
-                    read_calls += reader.calls
+                passed = False
+                operators: list[dict[str, object]] = []
+                for read_attempt in range(2 if settled_readout else 1):
+                    evidence = out
+                    if settled_readout:
+                        time.sleep(2.)
+                        evidence = out/f'load_{load:03d}_attempt_{read_attempt}'
+                        evidence.mkdir()
+                    if read_attempt:
+                        retried_loads += 1
+                    try:
+                        operators, passed = acquire_load(reader, selected, evidence, load)
+                    finally:
+                        read_calls += reader.calls
+                    if passed:
+                        if settled_readout:
+                            for suffix in ('frozen', 'operators'):
+                                name = f'load_{load:03d}_{suffix}.json'
+                                shutil.copyfile(evidence/name, out/name)
+                            atomic_json(out/f'load_{load:03d}_accepted_attempt.json', dict(attempt=read_attempt, path=evidence.relative_to(out).as_posix()))
+                        break
                 if not passed:
                     raise ValueError(f'Post-program repeatability failed in load {load}; see operators.json; no accuracy claimed')
                 for operator in operators:
@@ -248,6 +289,7 @@ def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False,
         impacts=(programmer.calls if programmer else 0)+read_calls, pulses=programmer.pulses if programmer else 0,
         elapsed_seconds=time.monotonic()-started, physical_cells=physical_cells, logical_coefficients=1600,
         programmed_cell_loads=written_cells, target_misses=missed_cells,
+        read_only_parent=read_only_pilot, retried_loads=retried_loads,
         unresolved_binary_patterns=unresolved_patterns, unresolved_does_not_mean_informative=True,
         target_tolerance_s=.02*span, programming_errors_replaced_by_ideal_weights=False,
         inference='measured frozen partial MVM LUT + digital sum + CPU LIF + frozen CPU head')
@@ -328,19 +370,23 @@ def main(argv: list[str] | None = None) -> int:
     modes.add_argument('--run-hardware', action='store_true')
     modes.add_argument('--publish-session', metavar='UUID')
     modes.add_argument('--evaluate-session', metavar='UUID', help='CPU only from preserved full acquisition')
+    modes.add_argument('--read-only-pilot', metavar='UUID', help='Fresh44-cell readback/MVM of a terminal written pilot; no pulses')
     parser.add_argument('--pilot', action='store_true', help='One load only, no accuracy claim')
     parser.add_argument('--acquire-only', action='store_true', help='Save operators for local CPU inference')
     parser.add_argument('--publish', action='store_true')
     parser.add_argument('--expanded', action='store_true', help='Pinned 44-cell map and adaptive amplitude programming')
+    parser.add_argument('--settled-readout', action='store_true', help='Wait2s; if readout fails, one fresh read-only attempt with original thresholds')
     args = parser.parse_args(argv)
     if args.publish_session:
         sid = str(uuid.UUID(args.publish_session))
         print(json.dumps(terminal_publication.publish(ROOT, BASE/sid, log=ROOT/'.tmp'/('publish-mnist-transfer-'+sid+'.log'))))
         return 0
-    if args.evaluate_session:
+    if args.read_only_pilot:
+        result, code = run('hardware', True, args.publish, True, True, str(uuid.UUID(args.read_only_pilot)), args.settled_readout)
+    elif args.evaluate_session:
         result, code = evaluate_session(str(uuid.UUID(args.evaluate_session)), args.publish)
     else:
-        result, code = run('hardware' if args.run_hardware else 'simulator', args.pilot, args.publish, args.acquire_only, args.expanded)
+        result, code = run('hardware' if args.run_hardware else 'simulator', args.pilot, args.publish, args.acquire_only, args.expanded, settled_readout=args.settled_readout)
     print(json.dumps(result, ensure_ascii=False), flush=True)
     return code
 
