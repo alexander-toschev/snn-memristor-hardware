@@ -32,6 +32,9 @@ class Profile:
     biased: bool
     delta: float
     global_bias: bool = False
+    conductance_scale: float = 1.
+    conductance_offset: float = 0.
+    require_resolved_legs: bool = False
 
 
 @dataclass(frozen=True)
@@ -68,14 +71,19 @@ def profiles(path: Path) -> tuple[Profile, ...]:
             raise ValueError('Expected distinct differential legs and at most three inputs')
         for wl in (block.plus_wl, block.minus_wl):
             for bl in block.bls:
-                if not 0 <= wl < 8 or not 0 <= bl < 25 or (wl, bl) in used:
+                if not 0 <= wl < 8 or not 0 <= bl < 32 or (wl, bl) in used:
                     raise ValueError('Duplicate or unsupported physical cell')
                 used.add((wl, bl))
         if row['mode'] not in ('ordinary', 'fixed_positive') or number(row['delta_v']) not in (.025, .05):
             raise ValueError('Unexpected readout profile')
-        result.append(Profile(block, row['mode'] == 'fixed_positive', number(row['delta_v'])))
-    if len(result) != 12 or len(used) != 36:
-        raise ValueError('Expected the qualified twelve blocks / 36 cells')
+        scale = number(row.get('conductance_scale', 1.))
+        offset = number(row.get('conductance_offset', 0.))
+        if not math.isfinite(scale) or scale <= 0 or not math.isfinite(offset):
+            raise ValueError('Invalid fixed conductance encoding')
+        result.append(Profile(block, row['mode'] == 'fixed_positive', number(row['delta_v']),
+            row.get('global_bias') is True, scale, offset, row.get('require_resolved_legs') is True))
+    if not result:
+        raise ValueError('Empty physical map')
     return tuple(result)
 
 
@@ -114,6 +122,41 @@ class Programmer(WriteCollector):
             attempts += 1
         return dict(wl=wl, bl=bl, initial_g_s=initial, target_g_s=goal,
                     last_g_s=g, attempts=attempts)
+
+
+class AdaptiveProgrammer(Programmer):
+    """Measured SET/RESET feedback; no target substitution in the forward path."""
+    def program(self, wl: int, bl: int, goal: float, **metadata: object) -> dict[str, object]:
+        from experiment_common.adaptive_programming import Feedback
+        if not math.isfinite(goal) or goal <= 0:
+            raise ValueError('Invalid target')
+        tolerance = .02*self.span
+        feedback = Feedback()
+        g = self.read_g(wl, bl, role='initial', **metadata)
+        initial, attempts, blocked = g, 0, 0
+        status = 'attempt_limit'
+        for attempt in range(64):
+            if abs(g-goal) <= .5*tolerance:
+                time.sleep(.1)
+                confirm = [self.read_g(wl, bl, role='confirm', **metadata) for _ in range(2)]
+                g = confirm[-1]
+                if all(abs(v-goal) <= tolerance for v in confirm):
+                    status = 'confirmed'
+                    break
+            sign, voltage = feedback.command(g, goal)
+            previous, before_pulses = g, self.pulses
+            g = self.pulse(wl, bl, sign, voltage, .00001, target_g_s=goal, attempt=attempt, **metadata)
+            attempts += 1
+            blocked = blocked+1 if self.pulses == before_pulses else 0
+            feedback.observe(previous, g, goal, sign, tolerance)
+            if blocked >= 2 or feedback.ceiling_stalls >= 4:
+                status = 'current_guard' if blocked >= 2 else 'no_response_at_maximum'
+                break
+        time.sleep(.1)
+        final = [self.read_g(wl, bl, role='final_confirm', **metadata) for _ in range(2)]
+        return dict(wl=wl, bl=bl, initial_g_s=initial, target_g_s=goal, last_g_s=final[-1],
+            final_confirm_g_s=final, confirmed=all(abs(v-goal)<=tolerance for v in final),
+            attempts=attempts, stop=status, reversals=feedback.reversals)
 
 
 def acquire_load(reader: ReadCollector, selected: tuple[Profile, ...], out: Path, load: int) -> tuple[list[dict[str, object]], bool]:
@@ -161,7 +204,7 @@ def acquire_load(reader: ReadCollector, selected: tuple[Profile, ...], out: Path
             delta = leg.signal_decoded_v[bl] - leg.baseline_decoded_v[bl]
             # CPU unit conversion only. Span is applied later. This is not a
             # regression against target weights and does not hide write errors.
-            lut[mask] = statistics.mean(voltage_centered(p.plus, reader.cv) - voltage_centered(p.minus, reader.cv) for p in basis) / (330. * delta)
+            lut[mask] = statistics.mean(voltage_centered(p.plus, reader.cv) - voltage_centered(p.minus, reader.cv) for p in basis) / (330. * delta * profile.conductance_scale)
             values = [p.plus.centered('mean4') - p.minus.centered('mean4') for p in validation]
             drift = max(abs(l.drift('mean4')) for p in basis + validation for l in (p.plus, p.minus))
             signed_drift = max(abs(p.plus.drift('mean4') - p.minus.drift('mean4')) for p in basis + validation)
@@ -169,10 +212,15 @@ def acquire_load(reader: ReadCollector, selected: tuple[Profile, ...], out: Path
             residual = abs(statistics.mean(values) - signed)
             limit = max(5., .1 * (abs(pmean) + abs(mmean)))
             passed = drift <= 5 and signed_drift <= 5 and sd <= 5 and residual <= limit
+            resolved = True
+            for leg_values in ([p.plus.centered('mean4') for p in basis], [p.minus.centered('mean4') for p in basis]):
+                resolved &= abs(statistics.mean(leg_values)) > max(5., 5*statistics.stdev(leg_values))
+            if profile.require_resolved_legs:
+                passed &= resolved
             all_pass &= passed
             checks.append(dict(mask=mask, passed=passed, maximum_leg_drift_adc=drift,
                 signed_drift_adc=signed_drift, signed_sd_adc=sd, heldout_error_adc=residual,
-                heldout_limit_adc=limit, frozen_signed_adc=signed))
+                heldout_limit_adc=limit, frozen_signed_adc=signed, resolved_legs=resolved))
         operators.append(dict(block=b.name, lut_difference_g_s=lut, checks=checks))
     atomic_json(out / f'load_{load:03d}_operators.json', dict(operators=operators, passed=all_pass))
     return operators, all_pass
@@ -215,7 +263,7 @@ def measured_lut_from_evidence(folder: Path, keys: NDArray[np.uint32], selected:
     from experiment_common.durable import sha
     plan = schedule(selected)
     target = np.zeros((len(keys), 64), dtype=np.float32)
-    for load in range(89):
+    for load in range(max(a.load for a in plan)+1):
         name = f'load_{load:03d}_frozen.json'
         check_name = f'load_{load:03d}_operators.json'
         for relative in (name, check_name):
@@ -236,7 +284,7 @@ def measured_lut_from_evidence(folder: Path, keys: NDArray[np.uint32], selected:
                     raise ValueError('Incomplete frozen operator')
                 baseline = .025 if p.biased else 0.
                 delta = cv.convert_dac_to_volt(12, 5, cv.convert_volt_to_dac(12, 5, round(baseline+p.delta, 3))) - cv.convert_dac_to_volt(12, 5, cv.convert_volt_to_dac(12, 5, baseline))
-                values.append(statistics.mean(centered(r['plus']) - centered(r['minus']) for r in found)/(330.*delta))
+                values.append(statistics.mean(centered(r['plus']) - centered(r['minus']) for r in found)/(330.*delta*p.conductance_scale))
             operators.append(dict(block=p.block.name, lut_difference_g_s=values))
         compose(keys, tuple(a for a in plan if a.load == load), operators, span, target)
     return target

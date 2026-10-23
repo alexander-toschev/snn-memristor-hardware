@@ -1,6 +1,6 @@
-"""MNIST64: transfer frozen STDP conductances through twelve MemriBoard blocks.
+"""MNIST64: transfer frozen STDP conductances through MemriBoard blocks.
 
-1. CPU schedules 1,600 signed coefficients into 89 loads of 18 physical pairs.
+1. CPU schedules 1,600 coefficients: 89 loads/18 pairs, or --expanded 73/22.
 2. MemriBoard writes both conductances with bounded feedback and fresh guards.
 3. MemriBoard reads back all loaded weights, measures every binary block state,
    freezes a mean-of-three operator, and checks five independent repetitions.
@@ -37,7 +37,7 @@ import numpy as np
 from experiment_common.durable import Writer, atomic_json, sha
 from experiment_common.block_readout_validation import Collector as ReadCollector
 from experiment_common.selective_metrology import Source, object_dict, number
-from experiment_common.tiled_transfer import Programmer, acquire_load, compose, profiles, schedule, measured_lut_from_evidence
+from experiment_common.tiled_transfer import Programmer, AdaptiveProgrammer, acquire_load, compose, profiles, schedule, measured_lut_from_evidence
 from experiment_common import terminal_publication
 if TYPE_CHECKING:
     from manager.board import Connector
@@ -45,6 +45,7 @@ if TYPE_CHECKING:
 ASSETS = Path(__file__).parent / 'assets'
 BASE = ROOT / 'results/mnist_tiled_transfer_20261022'
 MAP = ROOT / 'reports/2026-10-22/block-readout-validation/STABLE_BLOCKS.json'
+EXPANDED_MAP = Path(__file__).parent / 'map44.json'
 
 
 def now() -> str:
@@ -79,8 +80,13 @@ def classify(out: Path, keys: np.ndarray[tuple[int, ...], np.dtype[np.uint32]],
     return accuracy
 
 
-def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False) -> tuple[dict[str, object], int]:
-    selected = profiles(MAP)
+def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False,
+        expanded: bool = False) -> tuple[dict[str, object], int]:
+    map_path = EXPANDED_MAP if expanded else MAP
+    selected = profiles(map_path)
+    physical_cells = 2*sum(len(p.block.bls) for p in selected)
+    if physical_cells != (44 if expanded else 36):
+        raise ValueError('Pinned physical map size changed')
     assignments = schedule(selected)
     payload = object_dict(json.loads((ASSETS / 'learned_conductances.json').read_text(encoding='utf-8')))
     goals = np.asarray(payload['conductances_s'], dtype=np.float64)
@@ -94,10 +100,12 @@ def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False) 
     config.read_string((ROOT / INI).read_text(encoding='utf-8-sig'))
     if config.get('board', 'board_type') != 'rp5_fpga_python':
         raise ValueError('Unexpected driver selection')
-    maximum_loads = 1 if pilot else 89
-    protocol: dict[str, object] = dict(schema='mnist64-frozen-twelve-block-transfer-v1', source_session=payload['source_session'],
+    maximum_loads = 1 if pilot else max(a.load for a in assignments)+1
+    protocol: dict[str, object] = dict(schema='mnist64-frozen-expanded-transfer-v2' if expanded else 'mnist64-frozen-twelve-block-transfer-v1', source_session=payload['source_session'],
         loads=maximum_loads, selected=[asdict(p) for p in selected], assignments=[asdict(a) for a in assignments],
-        programming='both original measured conductances, 96 feedback attempts maximum, tolerance .02*source_span',
+        programming=('adaptive amplitudes .3..3V, maximum64 attempts per leg; new blocks affine calibrated G range; no clipping'
+                     if expanded else 'both original measured conductances, 96 feedback attempts maximum, tolerance .02*source_span'),
+        map_file=map_path.relative_to(ROOT).as_posix(), map_sha256=sha(map_path),
         source_span_g_s=span, requested_pulse_width_s=.00001, hardware_pulse_duration='unknown; installed driver native pulse',
         operator='all binary patterns; three repeats frozen, five independent heldout repeats',
         repeatability='leg/signed drift <=5ADC; signed SD<=5ADC; heldout residual <=max(5ADC, .1*(abs(plus)+abs(minus)))',
@@ -125,8 +133,9 @@ def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False) 
     read_calls = 0
     written_cells = 0
     missed_cells = 0
+    unresolved_patterns = 0
     started = time.monotonic()
-    files = [Path(__file__), MAP, ROOT / INI, ROOT / SIM_INI, *ASSETS.iterdir(), *(ROOT / 'experiment_common').glob('*.py')]
+    files = [Path(__file__), map_path, ROOT / INI, ROOT / SIM_INI, *ASSETS.iterdir(), *(ROOT / 'experiment_common').glob('*.py')]
     manifest: dict[str, object] = dict(session_id=sid, source=source, status='failed', error=None,
         started_utc=now(), protocol=protocol, source_sha256={p.relative_to(ROOT).as_posix(): sha(p) for p in files if p.is_file()})
     accuracy: dict[str, object] | None = None
@@ -138,6 +147,7 @@ def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False) 
                 stream.write(sid + '\n')
             locked = True
         atomic_json(out / 'protocol.json', protocol)
+        shutil.copyfile(map_path, out / 'physical_map.json')
         atomic_json(out / 'start_manifest.json', manifest)
         shutil.copyfile(ROOT / INI, out / 'board.ini')
         writer = Writer(out / 'raw', maximum_expanded_bytes=4*1024**3, minimum_free_bytes=1024**3)
@@ -159,7 +169,7 @@ def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False) 
                     board_type=config.get('board', 'board_type'), task_format='SI', config=config, crossbar_serial=serial)
                 if not connector.open_port():
                     raise ValueError('Connector open_port failed')
-            programmer = Programmer(connector, converters, writer, source, span)
+            programmer = (AdaptiveProgrammer if expanded else Programmer)(connector, converters, writer, source, span)
             reader = ReadCollector(connector, converters, writer, source)
             for load in range(maximum_loads):
                 if time.monotonic() - started > 8*3600:
@@ -169,8 +179,15 @@ def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False) 
                 for p in selected:
                     for a in (a for a in assigned if a.block == p.block.name):
                         for leg, wl in enumerate((p.block.plus_wl, p.block.minus_wl)):
-                            records.append(programmer.program(wl, p.block.bls[a.slot], float(goals[a.filter, a.tap, leg]),
-                                load=load, block=a.block, filter=a.filter, tap=a.tap, leg=leg))
+                            # CPU encodes targets; MemriBoard alone changes G.
+                            # Both legs get the same affine transform. The offset
+                            # cancels in their difference; readout divides by the
+                            # predeclared scale, never by a fit to test labels.
+                            source_goal = float(goals[a.filter, a.tap, leg])
+                            goal = source_goal*p.conductance_scale+p.conductance_offset
+                            records.append(programmer.program(wl, p.block.bls[a.slot], goal,
+                                load=load, block=a.block, filter=a.filter, tap=a.tap, leg=leg,
+                                source_target_g_s=source_goal, conductance_scale=p.conductance_scale))
                     print(f'Load {load+1}/{maximum_loads} programmed {p.block.name}; pulses={programmer.pulses}', flush=True)
                 # Read all weights again after ALL writes, so later programming
                 # cannot silently invalidate the earlier per-cell readback.
@@ -187,6 +204,11 @@ def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False) 
                     read_calls += reader.calls
                 if not passed:
                     raise ValueError(f'Post-program repeatability failed in load {load}; see operators.json; no accuracy claimed')
+                for operator in operators:
+                    checks = operator['checks']
+                    if not isinstance(checks, list):
+                        raise ValueError('Missing operator diagnostics')
+                    unresolved_patterns += sum(object_dict(check)['resolved_legs'] is not True for check in checks)
                 compose(keys, assigned, operators, span, lut)
                 completed += 1
                 np.save(out / 'partial_lut.npy', lut)
@@ -224,8 +246,9 @@ def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False) 
         completed_loads=completed, planned_loads=maximum_loads, pilot=pilot, accuracy=accuracy,
         scope='pilot' if pilot else ('acquisition_only_accuracy_pending' if acquire_only else 'acquisition_and_accuracy'),
         impacts=(programmer.calls if programmer else 0)+read_calls, pulses=programmer.pulses if programmer else 0,
-        elapsed_seconds=time.monotonic()-started, physical_cells=36, logical_coefficients=1600,
+        elapsed_seconds=time.monotonic()-started, physical_cells=physical_cells, logical_coefficients=1600,
         programmed_cell_loads=written_cells, target_misses=missed_cells,
+        unresolved_binary_patterns=unresolved_patterns, unresolved_does_not_mean_informative=True,
         target_tolerance_s=.02*span, programming_errors_replaced_by_ideal_weights=False,
         inference='measured frozen partial MVM LUT + digital sum + CPU LIF + frozen CPU head')
     atomic_json(out / 'summary.json', summary)
@@ -248,9 +271,14 @@ def evaluate_session(sid: str, publish: bool) -> tuple[dict[str, object], int]:
     source_path = BASE / sid
     meta = object_dict(json.loads((source_path / 'manifest.json').read_text(encoding='utf-8')))
     summary = object_dict(json.loads((source_path / 'summary.json').read_text(encoding='utf-8')))
-    if meta['status'] != 'completed' or summary['completed_loads'] != 89 or summary['pilot'] is not False:
+    saved_map = source_path/'physical_map.json'
+    selected = profiles(saved_map if saved_map.is_file() else MAP)
+    planned_loads = max(a.load for a in schedule(selected))+1
+    if meta['status'] != 'completed' or summary['completed_loads'] != planned_loads or summary['pilot'] is not False:
         raise ValueError('Full completed acquisition required; no partial accuracy')
     hashes = object_dict(meta['result_sha256'])
+    if saved_map.is_file() and sha(saved_map) != hashes['physical_map.json']:
+        raise ValueError('Saved physical map checksum mismatch')
     if hashes['partial_lut.npy'] != sha(source_path / 'partial_lut.npy'):
         raise ValueError('Acquired LUT hash mismatch')
     code_hashes = object_dict(meta['source_sha256'])
@@ -272,7 +300,7 @@ def evaluate_session(sid: str, publish: bool) -> tuple[dict[str, object], int]:
         keys = np.load(ASSETS/'input_masks.npy', allow_pickle=False).astype(np.uint32)
         from manager.service import converters
         payload = object_dict(json.loads((ASSETS/'learned_conductances.json').read_text(encoding='utf-8')))
-        lut = measured_lut_from_evidence(source_path, keys, profiles(MAP), number(payload['span_g_s']), converters)
+        lut = measured_lut_from_evidence(source_path, keys, selected, number(payload['span_g_s']), converters)
         np.save(out/'inference_lut.npy', lut)
         manifest['conversion'] = 'native convert_adc_to_volt on each sample before averaging; not ADC multiplied by rounded single-count voltage'
         if lut.shape != (len(keys), 64) or not np.isfinite(lut).all():
@@ -303,6 +331,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument('--pilot', action='store_true', help='One load only, no accuracy claim')
     parser.add_argument('--acquire-only', action='store_true', help='Save operators for local CPU inference')
     parser.add_argument('--publish', action='store_true')
+    parser.add_argument('--expanded', action='store_true', help='Pinned 44-cell map and adaptive amplitude programming')
     args = parser.parse_args(argv)
     if args.publish_session:
         sid = str(uuid.UUID(args.publish_session))
@@ -311,7 +340,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.evaluate_session:
         result, code = evaluate_session(str(uuid.UUID(args.evaluate_session)), args.publish)
     else:
-        result, code = run('hardware' if args.run_hardware else 'simulator', args.pilot, args.publish, args.acquire_only)
+        result, code = run('hardware' if args.run_hardware else 'simulator', args.pilot, args.publish, args.acquire_only, args.expanded)
     print(json.dumps(result, ensure_ascii=False), flush=True)
     return code
 

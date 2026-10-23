@@ -5,6 +5,26 @@ from experiment_common.tiled_transfer import profiles, schedule, compose
 
 
 class TiledTransferTest(unittest.TestCase):
+    def test_expanded_encoding_preserves_signed_weights_without_clipping(self) -> None:
+        import json
+        selected = profiles(Path('experiments/mnist_tiled_transfer_20261022/map44.json'))
+        source = json.loads(Path('experiments/mnist_tiled_transfer_20261022/assets/learned_conductances.json').read_text())
+        goals = np.asarray(source['conductances_s'])
+        raw = json.loads(Path('experiments/mnist_tiled_transfer_20261022/map44.json').read_text())
+        self.assertEqual(sum(2*len(p.block.bls) for p in selected), 44)
+        plan = schedule(selected)
+        self.assertEqual(max(a.load for a in plan)+1, 73)
+        self.assertEqual(len({(a.filter,a.tap) for a in plan}), 1600)
+        for p, row in zip(selected, raw['selected_blocks']):
+            physical = goals*p.conductance_scale+p.conductance_offset
+            np.testing.assert_allclose((physical[:,:,0]-physical[:,:,1])/p.conductance_scale,
+                                      goals[:,:,0]-goals[:,:,1], atol=1e-18)
+            if row['new']:
+                self.assertTrue(p.global_bias)
+                self.assertFalse(p.require_resolved_legs)
+                self.assertGreaterEqual(float(physical.min()), row['calibrated_range'][0]-1e-18)
+                self.assertLessEqual(float(physical.max()), row['calibrated_range'][1]+1e-18)
+
     def test_native_voltage_rounding_is_per_sample(self) -> None:
         from experiment_common.runtime import use_local_dependencies
         use_local_dependencies(prefer_environment=True)
