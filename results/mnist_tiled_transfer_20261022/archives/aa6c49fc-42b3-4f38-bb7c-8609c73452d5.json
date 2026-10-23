@@ -1,0 +1,131 @@
+{
+  "session": "aa6c49fc-42b3-4f38-bb7c-8609c73452d5",
+  "source": "hardware",
+  "acquisition_status": "failed",
+  "archive": "results/mnist_tiled_transfer_20261022/archives/aa6c49fc-42b3-4f38-bb7c-8609c73452d5.tar.gz",
+  "archive_sha256": "384a642991343f88324d81cbacf16c0eb4acac7fe45837cab8b330d7bff95228",
+  "archive_bytes": 1616573,
+  "impacts": 18436,
+  "pulses": 0,
+  "files": {
+    "board.ini": {
+      "bytes": 246,
+      "sha256": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c"
+    },
+    "lifecycle_output.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "load_000_attempt_0/load_000_frozen.json": {
+      "bytes": 746928,
+      "sha256": "6ed87d49b1b176272bd814bfd93538fe3ce9dc3fa388a225f367e46c8f0d3a98"
+    },
+    "load_000_attempt_0/load_000_operators.json": {
+      "bytes": 13700,
+      "sha256": "1947f0288c229d2abc889bc2f8e548a2e2b6371108355379013eac4cba4f93d3"
+    },
+    "load_000_attempt_1/load_000_frozen.json": {
+      "bytes": 746924,
+      "sha256": "00eafda6b5b351982d684cb933335a22f44881e65ad39d36fe80a4823efdf31c"
+    },
+    "load_000_attempt_1/load_000_operators.json": {
+      "bytes": 13688,
+      "sha256": "cf26ce950ecc4d2c43ac713567fcfbcbf53b7daad6dc60d2a220a1f8fb80751b"
+    },
+    "load_000_programming.json": {
+      "bytes": 19829,
+      "sha256": "01ada13c77e303677776238b0c90297cdf9300901836c979274f507dec0161c1"
+    },
+    "manifest.json": {
+      "bytes": 204698,
+      "sha256": "071753830be479fb2698c447c36d294f1f10bf669e01957897ff853681567ff4"
+    },
+    "map.html": {
+      "bytes": 1243,
+      "sha256": "a09838a0c2c7d4acb0d69593ae3f680cf0fee8302e72b6ea858279a139626554"
+    },
+    "physical_map.json": {
+      "bytes": 9000,
+      "sha256": "b2de7079c4ef731be5ae07a318f1be791799aa51d2ebc00b309cb8ef236c61b0"
+    },
+    "progress.json": {
+      "bytes": 220,
+      "sha256": "bdfb5f25d22ab041613bafed64279cfc14ae46006eff8247ffbcd69471874276"
+    },
+    "protocol.json": {
+      "bytes": 175490,
+      "sha256": "a193caeb7b075ea8c9d7928e652f1c9a1048d7a3c340fa5dd491a5a67edf66a7"
+    },
+    "raw/index.json": {
+      "bytes": 1267,
+      "sha256": "a7dbbe2d1dcf005466c41379544eb2df35486678e285c75e9c15d78e3ed6a707"
+    },
+    "raw/part-000000.jsonl.gz": {
+      "bytes": 671644,
+      "sha256": "0e90de4e66897d0bb9824d9828a550e35c977746e191f01efe561e9369893af3"
+    },
+    "raw/part-000001.jsonl.gz": {
+      "bytes": 676988,
+      "sha256": "21fbcce62c2898fbeebac59be4188234e913523c660a51f8280f83807002c35f"
+    },
+    "raw/part-000002.jsonl.gz": {
+      "bytes": 104371,
+      "sha256": "85bc9239a13df963e428b218a807da089087ed5e92b6814110afc9728b319864"
+    },
+    "start_manifest.json": {
+      "bytes": 202750,
+      "sha256": "4e3b13674a22027f715bc7746a0638e1919ec65d9a57ba528bd9ead669dea402"
+    },
+    "summary.json": {
+      "bytes": 865,
+      "sha256": "a36e0783ecb32b638702fa1a26ff9f9951573b0e80226fbfb42350ec1c8bc630"
+    }
+  },
+  "decoded_gzip": {
+    "raw/part-000000.jsonl.gz": {
+      "decoded_bytes": 8388252,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    },
+    "raw/part-000001.jsonl.gz": {
+      "decoded_bytes": 8388191,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    },
+    "raw/part-000002.jsonl.gz": {
+      "decoded_bytes": 1329086,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    }
+  },
+  "secret_scan": {
+    "raw": {
+      "payload_bytes": 3590374,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 3591427,
+      "scan_framing": "ascii-lf-v1"
+    },
+    "decoded_gzip": {
+      "payload_bytes": 18105622,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 18106675,
+      "scan_framing": "ascii-lf-v1"
+    }
+  },
+  "scanner_sha256": "00e91bbe655bd7c47753e8cfe61cb76ea1a5d7e7702fe161ee40102b46b3823b",
+  "scan_helper_sha256": "7efd151d28dc7533648c02fda12e7f3d791ece4ba7b17520176fa5cbdb361bba",
+  "raw_bytes": 3589851,
+  "decoded_bytes": 18105529,
+  "byte_identical_archive_verified": true,
+  "original_files_removed": false,
+  "notes": "Preservation only; no semantic audit, hardware operation or accuracy claim."
+}
