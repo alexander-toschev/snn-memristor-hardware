@@ -1,0 +1,255 @@
+{
+  "evidence": [
+    {
+      "archive_sha256": "8df394a3651ac78faabcf194bcf8cc9e8473deabfcc549850eae013c9cc8cd60",
+      "session": "e39b8972-8199-4bbb-9a4c-7b95b21bd24d"
+    },
+    {
+      "archive_sha256": "384a642991343f88324d81cbacf16c0eb4acac7fe45837cab8b330d7bff95228",
+      "session": "aa6c49fc-42b3-4f38-bb7c-8609c73452d5"
+    }
+  ],
+  "excluded_blocks": [
+    "N01",
+    "N06",
+    "N08",
+    "N09"
+  ],
+  "excluded_cells": [
+    [
+      0,
+      8
+    ],
+    [
+      1,
+      15
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      5,
+      0
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      5,
+      14
+    ],
+    [
+      5,
+      15
+    ]
+  ],
+  "physical_cells": 24,
+  "rule": "Both legs within target tolerance in both retained readbacks; all complete MVM attempts pass; no test labels; subset masks revalidated before full run",
+  "selected_blocks": [
+    {
+      "block": "B02",
+      "bls": [
+        13
+      ],
+      "calibrated_range": null,
+      "coefficient_slots": 1,
+      "conductance_offset": 0.0,
+      "conductance_scale": 1.0,
+      "delta_v": 0.05,
+      "global_bias": false,
+      "mode": "ordinary",
+      "new": false,
+      "qualification": "candidate selected after written pilot; new subset-mask validation required",
+      "require_resolved_legs": false,
+      "wl_pair": [
+        0,
+        3
+      ]
+    },
+    {
+      "block": "B03",
+      "bls": [
+        11
+      ],
+      "calibrated_range": null,
+      "coefficient_slots": 1,
+      "conductance_offset": 0.0,
+      "conductance_scale": 1.0,
+      "delta_v": 0.05,
+      "global_bias": false,
+      "mode": "ordinary",
+      "new": false,
+      "qualification": "candidate selected after written pilot; new subset-mask validation required",
+      "require_resolved_legs": false,
+      "wl_pair": [
+        0,
+        4
+      ]
+    },
+    {
+      "block": "B05",
+      "bls": [
+        10
+      ],
+      "calibrated_range": null,
+      "coefficient_slots": 1,
+      "conductance_offset": 0.0,
+      "conductance_scale": 1.0,
+      "delta_v": 0.05,
+      "global_bias": false,
+      "mode": "ordinary",
+      "new": false,
+      "qualification": "candidate selected after written pilot; new subset-mask validation required",
+      "require_resolved_legs": false,
+      "wl_pair": [
+        1,
+        3
+      ]
+    },
+    {
+      "block": "B06",
+      "bls": [
+        14
+      ],
+      "calibrated_range": null,
+      "coefficient_slots": 1,
+      "conductance_offset": 0.0,
+      "conductance_scale": 1.0,
+      "delta_v": 0.05,
+      "global_bias": false,
+      "mode": "ordinary",
+      "new": false,
+      "qualification": "candidate selected after written pilot; new subset-mask validation required",
+      "require_resolved_legs": false,
+      "wl_pair": [
+        1,
+        4
+      ]
+    },
+    {
+      "block": "B07",
+      "bls": [
+        7
+      ],
+      "calibrated_range": null,
+      "coefficient_slots": 1,
+      "conductance_offset": 0.0,
+      "conductance_scale": 1.0,
+      "delta_v": 0.05,
+      "global_bias": false,
+      "mode": "ordinary",
+      "new": false,
+      "qualification": "candidate selected after written pilot; new subset-mask validation required",
+      "require_resolved_legs": false,
+      "wl_pair": [
+        1,
+        5
+      ]
+    },
+    {
+      "block": "B10",
+      "bls": [
+        2,
+        3
+      ],
+      "calibrated_range": null,
+      "coefficient_slots": 2,
+      "conductance_offset": 0.0,
+      "conductance_scale": 1.0,
+      "delta_v": 0.025,
+      "global_bias": false,
+      "mode": "fixed_positive",
+      "new": false,
+      "qualification": "candidate selected after written pilot; new subset-mask validation required",
+      "require_resolved_legs": false,
+      "wl_pair": [
+        3,
+        4
+      ]
+    },
+    {
+      "block": "B11",
+      "bls": [
+        10
+      ],
+      "calibrated_range": null,
+      "coefficient_slots": 1,
+      "conductance_offset": 0.0,
+      "conductance_scale": 1.0,
+      "delta_v": 0.025,
+      "global_bias": false,
+      "mode": "fixed_positive",
+      "new": false,
+      "qualification": "candidate selected after written pilot; new subset-mask validation required",
+      "require_resolved_legs": false,
+      "wl_pair": [
+        4,
+        5
+      ]
+    },
+    {
+      "block": "B12",
+      "bls": [
+        13
+      ],
+      "calibrated_range": null,
+      "coefficient_slots": 1,
+      "conductance_offset": 0.0,
+      "conductance_scale": 1.0,
+      "delta_v": 0.05,
+      "global_bias": false,
+      "mode": "ordinary",
+      "new": false,
+      "qualification": "candidate selected after written pilot; new subset-mask validation required",
+      "require_resolved_legs": false,
+      "wl_pair": [
+        4,
+        6
+      ]
+    },
+    {
+      "block": "B13",
+      "bls": [
+        3,
+        5
+      ],
+      "calibrated_range": null,
+      "coefficient_slots": 2,
+      "conductance_offset": 0.0,
+      "conductance_scale": 1.0,
+      "delta_v": 0.05,
+      "global_bias": false,
+      "mode": "fixed_positive",
+      "new": false,
+      "qualification": "candidate selected after written pilot; new subset-mask validation required",
+      "require_resolved_legs": false,
+      "wl_pair": [
+        5,
+        6
+      ]
+    },
+    {
+      "block": "B15",
+      "bls": [
+        10
+      ],
+      "calibrated_range": null,
+      "coefficient_slots": 1,
+      "conductance_offset": 0.0,
+      "conductance_scale": 1.0,
+      "delta_v": 0.05,
+      "global_bias": false,
+      "mode": "ordinary",
+      "new": false,
+      "qualification": "candidate selected after written pilot; new subset-mask validation required",
+      "require_resolved_legs": false,
+      "wl_pair": [
+        6,
+        7
+      ]
+    }
+  ],
+  "source_map_sha256": "b2de7079c4ef731be5ae07a318f1be791799aa51d2ebc00b309cb8ef236c61b0"
+}

@@ -5,6 +5,14 @@ from experiment_common.tiled_transfer import profiles, schedule, compose
 
 
 class TiledTransferTest(unittest.TestCase):
+    def test_retained_map_covers_all_coefficients_with_24_cells(self) -> None:
+        selected = profiles(Path('experiments/mnist_tiled_transfer_20261022/map_qualified.json'))
+        self.assertEqual(sum(2*len(p.block.bls) for p in selected), 24)
+        self.assertFalse(any(p.global_bias for p in selected))
+        plan = schedule(selected)
+        self.assertEqual(max(a.load for a in plan)+1, 134)
+        self.assertEqual(len({(a.filter,a.tap) for a in plan}), 1600)
+
     def test_expanded_encoding_preserves_signed_weights_without_clipping(self) -> None:
         import json
         selected = profiles(Path('experiments/mnist_tiled_transfer_20261022/map44.json'))

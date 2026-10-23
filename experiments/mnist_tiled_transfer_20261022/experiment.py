@@ -31,7 +31,7 @@ import uuid
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from experiment_common.runtime import INI, SIM_INI, use_local_dependencies
+from experiment_common.runtime import INI, SIM_INI, use_local_dependencies, repo_path
 use_local_dependencies(prefer_environment=True)
 import numpy as np
 from experiment_common.durable import Writer, atomic_json, sha
@@ -82,11 +82,12 @@ def classify(out: Path, keys: np.ndarray[tuple[int, ...], np.dtype[np.uint32]],
 
 def run(source: Source, pilot: bool, publish: bool, acquire_only: bool = False,
         expanded: bool = False, read_only_pilot: str | None = None,
-        settled_readout: bool = False) -> tuple[dict[str, object], int]:
-    map_path = EXPANDED_MAP if expanded else MAP
+        settled_readout: bool = False, map_override: Path | None = None) -> tuple[dict[str, object], int]:
+    map_path = map_override if map_override is not None else (EXPANDED_MAP if expanded else MAP)
     selected = profiles(map_path)
     physical_cells = 2*sum(len(p.block.bls) for p in selected)
-    if physical_cells != (44 if expanded else 36):
+    declared_map = object_dict(json.loads(map_path.read_text(encoding='utf-8')))
+    if physical_cells != number(declared_map.get('physical_cells', 44 if expanded else 36)):
         raise ValueError('Pinned physical map size changed')
     assignments = schedule(selected)
     inherited_records: list[dict[str, object]] | None = None
@@ -376,7 +377,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument('--publish', action='store_true')
     parser.add_argument('--expanded', action='store_true', help='Pinned 44-cell map and adaptive amplitude programming')
     parser.add_argument('--settled-readout', action='store_true', help='Wait2s; if readout fails, one fresh read-only attempt with original thresholds')
+    parser.add_argument('--map', help='Pinned repository-relative physical map; requires --expanded adaptive programming')
     args = parser.parse_args(argv)
+    if args.map and (not args.expanded or args.read_only_pilot):
+        parser.error('--map requires --expanded acquisition, not a read-only pilot')
     if args.publish_session:
         sid = str(uuid.UUID(args.publish_session))
         print(json.dumps(terminal_publication.publish(ROOT, BASE/sid, log=ROOT/'.tmp'/('publish-mnist-transfer-'+sid+'.log'))))
@@ -386,7 +390,7 @@ def main(argv: list[str] | None = None) -> int:
     elif args.evaluate_session:
         result, code = evaluate_session(str(uuid.UUID(args.evaluate_session)), args.publish)
     else:
-        result, code = run('hardware' if args.run_hardware else 'simulator', args.pilot, args.publish, args.acquire_only, args.expanded, settled_readout=args.settled_readout)
+        result, code = run('hardware' if args.run_hardware else 'simulator', args.pilot, args.publish, args.acquire_only, args.expanded, settled_readout=args.settled_readout, map_override=repo_path(args.map) if args.map else None)
     print(json.dumps(result, ensure_ascii=False), flush=True)
     return code
 
