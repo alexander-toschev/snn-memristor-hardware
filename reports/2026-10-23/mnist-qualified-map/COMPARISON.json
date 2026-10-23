@@ -1,0 +1,169 @@
+{
+  "date": "2026-10-23",
+  "status": "completed",
+  "dataset": "MNIST",
+  "physical_cells": 24,
+  "differential_pairs": 12,
+  "blocks": 10,
+  "logical_coefficients": 1600,
+  "loads": 134,
+  "test_images": 10000,
+  "strict_hardware_minus_simulator_percentage_points": -1.04,
+  "identical_protocol": true,
+  "identical_declared_source_hashes": true,
+  "map_sha256": "f814f5526be04f09bc89c66c4d0ab24b9bbd604f51a9dcbba4cd406bd7ab96c9",
+  "model_asset_sha256": {
+    "experiments/mnist_tiled_transfer_20261022/assets/input_masks.npy": "8b90c47889bd1b577ba766375dda3e1fd2a691614844440bda0cadd76531afb8",
+    "experiments/mnist_tiled_transfer_20261022/assets/learned_conductances.json": "0fd5729f33b833827ba6fc1522ea5c176739128ce8cbb50bc36b1032ea3a85a8",
+    "experiments/mnist_tiled_transfer_20261022/assets/readout.pt": "de314d03a5a1d47b9fc99e4533a143dd81683b911dfda38e89677c9731faca00",
+    "experiments/mnist_tiled_transfer_20261022/assets/scaler.pt": "7dff3c26cdcee948ff5b820e0505b27dfaa8ebb62299afdd34f289e756e3af07"
+  },
+  "training_source_session": "cdf8b7d9-c951-4f29-8871-da09ca05d8d5",
+  "new_stdp_training": false,
+  "live_hardware_per_image": false,
+  "physical_lif": false,
+  "execution": "Frozen measured partial MVM operators; digital sum, CPU LIF and frozen CPU head/scaler.",
+  "limitations": [
+    "One acquisition per backend; no estimate of between-run variability.",
+    "Identical recorded source hashes do not independently verify private runtime bytes.",
+    "Conductance target misses count cell-loads, not unique physical cells.",
+    "No claim that conductance errors alone caused the accuracy difference.",
+    "Unresolved binary patterns are diagnostic counts, not excluded weights or failed loads."
+  ],
+  "evidence": {
+    "hardware": {
+      "acquisition_session": "4d2dfee0-3106-40de-9ad8-3d8542bef989",
+      "evaluation_session": "d51aa091-91f8-4089-8767-1d91b82a9c14",
+      "acquisition_manifest_sha256": "885e36eb2dd7a1b48c55633efc7031fa72f131a3ec28b7d6e9c85f28e2d6e53d",
+      "acquisition_receipt": "results/mnist_tiled_transfer_20261022/archives/4d2dfee0-3106-40de-9ad8-3d8542bef989.json",
+      "evaluation_receipt": "results/mnist_tiled_transfer_20261022/archives/d51aa091-91f8-4089-8767-1d91b82a9c14.json",
+      "acquisition": {
+        "accuracy": null,
+        "completed_loads": 134,
+        "elapsed_seconds": 2600.719299102,
+        "error": null,
+        "impacts": 623498,
+        "inference": "measured frozen partial MVM LUT + digital sum + CPU LIF + frozen CPU head",
+        "logical_coefficients": 1600,
+        "physical_cells": 24,
+        "pilot": false,
+        "planned_loads": 134,
+        "programmed_cell_loads": 3200,
+        "programming_errors_replaced_by_ideal_weights": false,
+        "pulses": 33046,
+        "read_only_parent": null,
+        "retried_loads": 1,
+        "scope": "acquisition_only_accuracy_pending",
+        "session_id": "4d2dfee0-3106-40de-9ad8-3d8542bef989",
+        "source": "hardware",
+        "status": "completed",
+        "target_misses": 828,
+        "target_tolerance_s": 2.560355420368765e-06,
+        "unresolved_binary_patterns": 1775,
+        "unresolved_does_not_mean_informative": true
+      },
+      "evaluation": {
+        "accuracy": {
+          "conditional_accuracy": 0.6449289857971594,
+          "conventional_argmax_accuracy": 0.645,
+          "coverage": 0.9998,
+          "execution": "frozen measured partial MVM operators; CPU LIF and frozen CPU head",
+          "live_hardware_per_image": false,
+          "new_readout": false,
+          "original_6965_reproduction_claim": false,
+          "physical_hardware": true,
+          "silent": 2,
+          "strict_accuracy": 0.6448,
+          "strict_correct": 6448,
+          "test_feature_nonzero": 54713338,
+          "test_images": 10000,
+          "test_labels_used_for_selection": false,
+          "test_spikes": 71674101,
+          "tied": 0,
+          "wilson95_argmax": [
+            0.6355672670124634,
+            0.6543213734600405
+          ],
+          "wilson95_strict": [
+            0.6353661575870289,
+            0.6541226364848232
+          ]
+        },
+        "acquisition_session": "4d2dfee0-3106-40de-9ad8-3d8542bef989",
+        "elapsed_seconds": 394.01599999994505,
+        "error": null,
+        "scope": "CPU inference from frozen acquired operators",
+        "session_id": "d51aa091-91f8-4089-8767-1d91b82a9c14",
+        "source": "hardware",
+        "status": "completed"
+      }
+    },
+    "simulator": {
+      "acquisition_session": "673b05ce-6b5d-475f-b1b5-87f49f9f1e68",
+      "evaluation_session": "7c99d7c6-f345-4fea-a36f-e00eefd307b7",
+      "acquisition_manifest_sha256": "e3760383b2fe41a9065e034579be8fd3615afe9a825d81aed0e58a30191e87d7",
+      "acquisition_receipt": "results/mnist_tiled_transfer_20261022/archives/673b05ce-6b5d-475f-b1b5-87f49f9f1e68.json",
+      "evaluation_receipt": "results/mnist_tiled_transfer_20261022/archives/7c99d7c6-f345-4fea-a36f-e00eefd307b7.json",
+      "acquisition": {
+        "accuracy": null,
+        "completed_loads": 134,
+        "elapsed_seconds": 1291.8129999999655,
+        "error": null,
+        "impacts": 632327,
+        "inference": "measured frozen partial MVM LUT + digital sum + CPU LIF + frozen CPU head",
+        "logical_coefficients": 1600,
+        "physical_cells": 24,
+        "pilot": false,
+        "planned_loads": 134,
+        "programmed_cell_loads": 3200,
+        "programming_errors_replaced_by_ideal_weights": false,
+        "pulses": 34349,
+        "read_only_parent": null,
+        "retried_loads": 0,
+        "scope": "acquisition_only_accuracy_pending",
+        "session_id": "673b05ce-6b5d-475f-b1b5-87f49f9f1e68",
+        "source": "simulator",
+        "status": "completed",
+        "target_misses": 14,
+        "target_tolerance_s": 2.560355420368765e-06,
+        "unresolved_binary_patterns": 1875,
+        "unresolved_does_not_mean_informative": true
+      },
+      "evaluation": {
+        "accuracy": {
+          "conditional_accuracy": 0.6553310662132427,
+          "conventional_argmax_accuracy": 0.6554,
+          "coverage": 0.9998,
+          "execution": "frozen measured partial MVM operators; CPU LIF and frozen CPU head",
+          "live_hardware_per_image": false,
+          "new_readout": false,
+          "original_6965_reproduction_claim": false,
+          "physical_hardware": false,
+          "silent": 2,
+          "strict_accuracy": 0.6552,
+          "strict_correct": 6552,
+          "test_feature_nonzero": 40895279,
+          "test_images": 10000,
+          "test_labels_used_for_selection": false,
+          "test_spikes": 49434417,
+          "tied": 0,
+          "wilson95_argmax": [
+            0.6460274369038087,
+            0.664653216402585
+          ],
+          "wilson95_strict": [
+            0.6458262335863098,
+            0.6644545733194321
+          ]
+        },
+        "acquisition_session": "673b05ce-6b5d-475f-b1b5-87f49f9f1e68",
+        "elapsed_seconds": 479.5779999999795,
+        "error": null,
+        "scope": "CPU inference from frozen acquired operators",
+        "session_id": "7c99d7c6-f345-4fea-a36f-e00eefd307b7",
+        "source": "simulator",
+        "status": "completed"
+      }
+    }
+  }
+}
