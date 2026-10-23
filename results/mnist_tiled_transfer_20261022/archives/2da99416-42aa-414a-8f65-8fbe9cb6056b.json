@@ -1,0 +1,119 @@
+{
+  "session": "2da99416-42aa-414a-8f65-8fbe9cb6056b",
+  "source": "hardware",
+  "acquisition_status": "completed",
+  "archive": "results/mnist_tiled_transfer_20261022/archives/2da99416-42aa-414a-8f65-8fbe9cb6056b.tar.gz",
+  "archive_sha256": "4a62594f294b97f29037b0a0c6f1a49dcd245c2ceb9beefcb0c249d607f14463",
+  "archive_bytes": 432164,
+  "impacts": 4526,
+  "pulses": 222,
+  "files": {
+    "board.ini": {
+      "bytes": 246,
+      "sha256": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c"
+    },
+    "lifecycle_output.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "load_000_accepted_attempt.json": {
+      "bytes": 51,
+      "sha256": "bba3ccf0be066f2ed34ec4dd37e96cf83f73656b2146474861c2920311a028fc"
+    },
+    "load_000_attempt_0/load_000_frozen.json": {
+      "bytes": 283359,
+      "sha256": "055fad9f2acda28e78dd50e55b6ae6fd32a9f52ffc12432f66036ab0ae702101"
+    },
+    "load_000_attempt_0/load_000_operators.json": {
+      "bytes": 5962,
+      "sha256": "f62145be4d7f949310e0f954773dc3559096a443523e47d7cfb1657fd03c3c9d"
+    },
+    "load_000_frozen.json": {
+      "bytes": 283359,
+      "sha256": "055fad9f2acda28e78dd50e55b6ae6fd32a9f52ffc12432f66036ab0ae702101"
+    },
+    "load_000_operators.json": {
+      "bytes": 5962,
+      "sha256": "f62145be4d7f949310e0f954773dc3559096a443523e47d7cfb1657fd03c3c9d"
+    },
+    "load_000_programming.json": {
+      "bytes": 10830,
+      "sha256": "b87529f0d96cc0f90885e89f810ae12bcb23a8c70cf259f8c2e10d0cdfee7fde"
+    },
+    "manifest.json": {
+      "bytes": 202834,
+      "sha256": "277a96a41152bfd9eecdd34e05460f39da39f1f9aac6277040f330648a9297b9"
+    },
+    "map.html": {
+      "bytes": 1101,
+      "sha256": "b19f381e18f2c63598c00130c8a6b7202590a3ceb06691417a5107e3a63505a6"
+    },
+    "partial_lut.npy": {
+      "bytes": 184960,
+      "sha256": "7e5f8f761ab23f4d4ba32d948c436b0e172d4b6d310f33f719444c1e1d51d1b1"
+    },
+    "phase_progress.json": {
+      "bytes": 120,
+      "sha256": "48c591506e4f9a0363036913eeca3d68aeedc962d477bff8f7f45a04bee92428"
+    },
+    "physical_map.json": {
+      "bytes": 5820,
+      "sha256": "f814f5526be04f09bc89c66c4d0ab24b9bbd604f51a9dcbba4cd406bd7ab96c9"
+    },
+    "progress.json": {
+      "bytes": 219,
+      "sha256": "f899d33990d7ae3d40d6e5913423791962b451ef22d98e6cb7b1e8b93fedab52"
+    },
+    "protocol.json": {
+      "bytes": 173854,
+      "sha256": "37c6963cd1b607ad1114fe801677a5746ca98893392e1b79e5a735af25b0ab8a"
+    },
+    "raw/index.json": {
+      "bytes": 646,
+      "sha256": "a7c9a35f644357f92dc91ba1be5d27c8886d46b31ff67768742cb6c80f755f64"
+    },
+    "raw/part-000000.jsonl.gz": {
+      "bytes": 341288,
+      "sha256": "6946b688717628309b3d24dac81323278e9d439b347d7a0fd2e6d97e324a4259"
+    },
+    "start_manifest.json": {
+      "bytes": 200922,
+      "sha256": "e7451633fe6183b9b0f91794cedb55f7488810d4f7c67d9bd8de0b8eacdc8dff"
+    },
+    "summary.json": {
+      "bytes": 743,
+      "sha256": "32fafa6da905653a344ac671dc4c61d0fb06799b64eede4e02ef339a52358fdd"
+    }
+  },
+  "decoded_gzip": {
+    "raw/part-000000.jsonl.gz": {
+      "decoded_bytes": 4376770,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    }
+  },
+  "secret_scan": {
+    "raw": {
+      "payload_bytes": 1702784,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 1703837,
+      "scan_framing": "ascii-lf-v1"
+    },
+    "decoded_gzip": {
+      "payload_bytes": 4376801,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 4377854,
+      "scan_framing": "ascii-lf-v1"
+    }
+  },
+  "scanner_sha256": "00e91bbe655bd7c47753e8cfe61cb76ea1a5d7e7702fe161ee40102b46b3823b",
+  "scan_helper_sha256": "7efd151d28dc7533648c02fda12e7f3d791ece4ba7b17520176fa5cbdb361bba",
+  "raw_bytes": 1702276,
+  "decoded_bytes": 4376770,
+  "byte_identical_archive_verified": true,
+  "original_files_removed": false,
+  "notes": "Preservation only; no semantic audit, hardware operation or accuracy claim."
+}
