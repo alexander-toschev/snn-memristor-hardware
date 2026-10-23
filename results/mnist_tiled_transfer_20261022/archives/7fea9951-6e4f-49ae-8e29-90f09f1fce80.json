@@ -1,0 +1,131 @@
+{
+  "session": "7fea9951-6e4f-49ae-8e29-90f09f1fce80",
+  "source": "simulator",
+  "acquisition_status": "completed",
+  "archive": "results/mnist_tiled_transfer_20261022/archives/7fea9951-6e4f-49ae-8e29-90f09f1fce80.tar.gz",
+  "archive_sha256": "d08aa43689d98185e29386679388a17a057549c81db12ddf59747b53be59922d",
+  "archive_bytes": 626003,
+  "impacts": 13399,
+  "pulses": 691,
+  "files": {
+    "array.cb": {
+      "bytes": 11229,
+      "sha256": "740b16f2cd7c6dbb4537f0673dfec8e197fdcf53acd8a12abdb66ac4e23f3d36"
+    },
+    "array_initial.cb": {
+      "bytes": 11229,
+      "sha256": "e2dcdb7ae9ce2276d913fe33c844ce510d41a3481416d55ca8dc1b275d2054a2"
+    },
+    "board.ini": {
+      "bytes": 246,
+      "sha256": "01106c85f52b625b15d6fd08b68df07a133d5810c609a4f9cb9ab24abe01877c"
+    },
+    "lifecycle_output.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "load_000_frozen.json": {
+      "bytes": 746129,
+      "sha256": "cc845277f60784dcd9617dd0be1b041f84b594885d017c908b9aec0e6d8c59e6"
+    },
+    "load_000_operators.json": {
+      "bytes": 12692,
+      "sha256": "78d8413712e714e331555b4f974f90b664899c441abde2b3e2e214731f9fd720"
+    },
+    "load_000_programming.json": {
+      "bytes": 19536,
+      "sha256": "9561cd03e1a4b833d697eefe2771f34c654beb97de5f6146428e13aa94e7714c"
+    },
+    "manifest.json": {
+      "bytes": 204424,
+      "sha256": "2e85270cd757ae2bda892accefd8b47c2dbd7ed45643e015d1136ab5d18eed97"
+    },
+    "map.html": {
+      "bytes": 950,
+      "sha256": "39f001af4c7fc67e4e19a34b1a9f59ac68a71c254512b1b84c62cae4d82746ab"
+    },
+    "partial_lut.npy": {
+      "bytes": 184960,
+      "sha256": "c77e89485b1c85ec10fd801e7fa0bbef37f65bb976defa8ba6d105a9f04803eb"
+    },
+    "phase_progress.json": {
+      "bytes": 121,
+      "sha256": "5cc70b57e7e3b694e5554289b39dcad7d7c8844970ce2d9ad88ea43a380938fc"
+    },
+    "physical_map.json": {
+      "bytes": 9349,
+      "sha256": "d1898216a910f3d7aa35384217295c6a95aa6119f482d3d5cbe65d771fed3f38"
+    },
+    "progress.json": {
+      "bytes": 219,
+      "sha256": "a3e6d03d8048cd99fc686e3ea9542b706b19e416664323a7898e3659c88561a8"
+    },
+    "protocol.json": {
+      "bytes": 175222,
+      "sha256": "0dabfaafa1c65d8e03e2b755b8f140a6c4d479a9d83fa2103c72d56ad212f2c9"
+    },
+    "raw/index.json": {
+      "bytes": 955,
+      "sha256": "f75a9a5d39b88c3656dfa209e9f323e0973d645fa82baab5bcdcac126efe53c8"
+    },
+    "raw/part-000000.jsonl.gz": {
+      "bytes": 462636,
+      "sha256": "3cc4fd251f98314efbb5fe644c88c6795f7d95f72d99b84c0adf54e3f579755d"
+    },
+    "raw/part-000001.jsonl.gz": {
+      "bytes": 78124,
+      "sha256": "36300355983b49a38c854d7e88dbfe78145834e45bbe64c4210ba74edbd8f37e"
+    },
+    "simulator_settings.ini": {
+      "bytes": 216,
+      "sha256": "9ef3229595cbbba0ccc7d7450981d7a63266092792f4573d405beb2f364d3ddb"
+    },
+    "start_manifest.json": {
+      "bytes": 202475,
+      "sha256": "b716d5da8e69671a132dd5379772862f3f1b2bead26b6e5447f18c335af03e51"
+    },
+    "summary.json": {
+      "bytes": 612,
+      "sha256": "582525ae4de5cb121c67ecb4fec02fddccef45c1b6fefda70552fc0388cba86d"
+    }
+  },
+  "decoded_gzip": {
+    "raw/part-000000.jsonl.gz": {
+      "decoded_bytes": 8388340,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    },
+    "raw/part-000001.jsonl.gz": {
+      "decoded_bytes": 1563420,
+      "complete_gzip": true,
+      "gzip_members": 1,
+      "truncated_prefix": false,
+      "empty_file": false,
+      "raw_bytes_scanned_separately": true
+    }
+  },
+  "secret_scan": {
+    "raw": {
+      "payload_bytes": 2121798,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 2122851,
+      "scan_framing": "ascii-lf-v1"
+    },
+    "decoded_gzip": {
+      "payload_bytes": 9951822,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 9952875,
+      "scan_framing": "ascii-lf-v1"
+    }
+  },
+  "scanner_sha256": "17157e2ee8b76fc8b1d8bee607a250e34b8a8023c8bc81822d4b5ee4d78fcb7c",
+  "scan_helper_sha256": "7efd151d28dc7533648c02fda12e7f3d791ece4ba7b17520176fa5cbdb361bba",
+  "raw_bytes": 2121324,
+  "decoded_bytes": 9951760,
+  "byte_identical_archive_verified": true,
+  "original_files_removed": false,
+  "notes": "Preservation only; no semantic audit, hardware operation or accuracy claim."
+}
