@@ -7,6 +7,7 @@ import json
 import re
 from collections import Counter
 from pathlib import Path
+from typing import Literal
 
 ROOT = Path(__file__).resolve().parents[1]
 FOLDER = ROOT / 'reports/2026-10-26/cell-problems'
@@ -17,11 +18,15 @@ LABELS = {
     'partner': ('P', 'Не взяли: исключён партнёр'),
     'mvm': ('M', 'Не взяли: дрейф MVM пары'),
     'unqualified': ('—', 'Не проверяли в этом отборе'),
+    'range': ('Z', 'Не взяли: недостаточный воспроизводимый диапазон'),
+    'layout': ('—', 'Не вошла в выбранную раскладку'),
 }
 CSS = '''<style id="mnist-selection-style">
 .map td.selection-used{background:#c9efd5;box-shadow:inset 0 0 0 2px #238144}
 .map td.selection-conductance{background:#ffe0b2}.map td.selection-partner{background:#fff4cd}
 .map td.selection-mvm{background:#ffd5d9}.map td.selection-unqualified{background:#edf0f4}
+.map td.selection-range{background:#ffe0b2}.map td.selection-layout{background:#edf0f4}
+.mode-nav{display:flex;gap:12px;margin:14px 0}.mode-nav a{padding:9px 18px;border:1px solid #9eb3c7;border-radius:6px;text-decoration:none}.mode-nav a[aria-current=page]{background:#194b75;color:white}
 .selection-marker{display:block;font-size:14px;font-weight:800;margin:2px 0 4px}.selection-used .selection-marker{color:#12692f}
 .cell-tip{display:none;position:fixed;right:20px;bottom:20px;z-index:20;width:460px;max-width:calc(100vw - 70px);padding:18px;background:#fff;color:#172638;border:2px solid #4c627b;border-radius:10px;box-shadow:0 6px 30px #192c3b40;font:15px/1.5 system-ui,Arial;text-align:left;pointer-events:none}
 .map a:hover .cell-tip,.map a:focus .cell-tip{display:block}.tip-title{display:block;font-size:19px;font-weight:750}.tip-status{display:block;font-weight:700;margin:6px 0}.tip-context{display:block;color:#526577;font-size:12px;margin-top:10px}
@@ -37,18 +42,35 @@ INTRO = '''<h1>Какие ячейки взяли в MNIST и почему</h1>
 '''
 
 
-def annotate() -> None:
-    with SELECTION.open(encoding='utf-8-sig', newline='') as stream:
+def annotate(mode: Literal['mnist', 'cifar'] = 'mnist') -> None:
+    selection_path = SELECTION if mode == 'mnist' else FOLDER / 'CIFAR_SELECTION.csv'
+    with selection_path.open(encoding='utf-8-sig', newline='') as stream:
         rows = list(csv.DictReader(stream))
     selected = {(int(r['wl']), int(r['bl'])): r for r in rows}
-    expected = {'used': 24, 'conductance': 7, 'partner': 5, 'mvm': 8, 'unqualified': 212}
+    expected = ({'used': 24, 'conductance': 7, 'partner': 5, 'mvm': 8, 'unqualified': 212}
+                if mode == 'mnist' else {'used': 16, 'range': 186, 'layout': 54})
     if len(selected) != 256 or dict(Counter(r['category'] for r in rows)) != expected:
         raise ValueError('Selection evidence does not match the reviewed map')
-    path = FOLDER / 'MAP.html'
+    path = FOLDER / ('MAP.html' if mode == 'mnist' else 'CIFAR.html')
+    labels = dict(LABELS)
+    if mode == 'cifar':
+        labels['used'] = ('✓', 'Использовали в CIFAR compact')
+    nav = ('<nav class="mode-nav" aria-label="Эксперимент">'
+           f'<a href="MAP.html"{" aria-current=page" if mode == "mnist" else ""}>MNIST · 24 ячейки</a>'
+           f'<a href="CIFAR.html"{" aria-current=page" if mode == "cifar" else ""}>CIFAR compact · 16 ячеек</a></nav>')
+    intro = INTRO
+    if mode == 'cifar':
+        intro = '''<h1>Какие ячейки использовали в CIFAR compact и почему</h1>
+<p><b>Аппаратный сбор 20.10.2026: завершены 48 из 48 этапов.</b> Наведите указатель на адрес для решения и причины. Клик открывает подробности. Это отдельная раскладка CIFAR compact, не MNIST и не весь набор CIFAR-протоколов проекта.</p>
+<div class="selection-legend"><span class="selected-swatch">✓ Использовали — 16</span><span class="conductance-swatch">Z Недостаточный диапазон — 186</span><span class="unqualified-swatch">— Не вошли в раскладку — 54</span></div>
+<p class="notice"><b>Зелёный означает факт использования, не точность веса.</b> Строго подходящей раскладки не нашли; выбрали диагностический вариант WL0/WL7 × BL2,3,6,10,11,12,14,15. Его карта не прошла полную проверку качества. Остальные 54 ячейки прошли базовый критерий диапазона, но не вошли в выбранную общую раскладку; это не доказательство их неисправности.</p>
+<p>Правило выбора: до 8 общих BL для одной пары WL; сначала максимум коэффициентов, затем минимум худшей нормированной ошибки и лексикографический порядок. Связь с ячейками подтверждена сохранённым протоколом и завершёнными этапами. Сбор данных сам по себе не является оценкой точности классификации.</p>
+'''
     page = path.read_text(encoding='utf-8')
     page = re.sub(r'<style id="mnist-selection-style">.*?</style>', '', page, flags=re.S)
     page = page.replace('</head>', CSS + '</head>')
-    page = re.sub(r'<h1>.*?(?=<p><a href="REPORT.md">)', INTRO, page, count=1, flags=re.S)
+    page = re.sub(r'<h1>.*?(?=<p><a href="REPORT.md">)', intro + nav, page, count=1, flags=re.S)
+    page = page.replace('<title>256 ячеек — зафиксированные проблемы</title>', '<title>MemriBoard — отбор ячеек и проблемы</title>')
     page = page.replace('Нажмите адрес. Цветные метки перечисляют разные зафиксированные проблемы и не ранжируют тяжесть.',
                         'Коды ниже описывают наблюдавшиеся проблемы. Решение об использовании показывает фон ячейки; точная причина — в подсказке.')
 
@@ -56,14 +78,17 @@ def annotate() -> None:
         wl, bl = int(match[1]), int(match[2])
         row = selected[(wl, bl)]
         category = row['category']
-        marker, label = LABELS[category]
+        marker, label = labels[category]
         chips = ''.join(re.findall(r'<span class="chip [A-Z]">[A-Z]</span>', match[0]))
         context = f'Блок {row["block"]}; партнёр {row["partner"]}.' if row['partner'] else 'В отбор после записи не включалась.'
+        if mode == 'cifar' and not row['partner']:
+            context = 'Есть измерения исходной калибровки; в выбранной раскладке CIFAR не использовалась.'
+        context_date = 'MNIST: 23.10.2026' if mode == 'mnist' else 'CIFAR compact: 20.10.2026'
         tooltip = (f'<span class="cell-tip" id="tip-{wl}-{bl}" role="tooltip">'
                    f'<span class="tip-title">WL{wl} / BL{bl}</span>'
                    f'<span class="tip-status">{html.escape(label)}</span>'
                    f'<span>{html.escape(row["reason"])}</span>'
-                   f'<span class="tip-context">{html.escape(context)} Отбор MNIST: 23.10.2026.</span></span>')
+                   f'<span class="tip-context">{html.escape(context)} Отбор {context_date}.</span></span>')
         return (f'<td class="selection-{category}"><a href="#cell-{wl}-{bl}" '
                 f'aria-label="WL{wl} BL{bl}: {html.escape(label, quote=True)}" aria-describedby="tip-{wl}-{bl}">'
                 f'<b>{wl},{bl}</b><span class="selection-marker">{marker}</span>{chips}{tooltip}</a></td>')
@@ -73,11 +98,13 @@ def annotate() -> None:
         raise ValueError(f'Expected 256 map entries, found {count}')
     page = re.sub(r'<div class="selection-card selection-[a-z]+">.*?</div>', '', page, flags=re.S)
     for (wl, bl), row in selected.items():
-        label = LABELS[row['category']][1]
+        label = labels[row['category']][1]
+        evidence_url = ('../../../reports/2026-10-25/mnist-experiment-report/CELLS.csv'
+                        if mode == 'mnist' else 'CIFAR_SELECTION.json')
         card = (f'<div class="selection-card selection-{row["category"]}"><b>{html.escape(label)}</b>'
                 f'<p>{html.escape(row["reason"])}</p><small>Блок: {html.escape(row["block"] or "—")}; '
                 f'партнёр: {html.escape(row["partner"] or "—")}. '
-                '<a href="../../../reports/2026-10-25/mnist-experiment-report/CELLS.csv">Основание отбора</a></small></div>')
+                f'<a href="{evidence_url}">Основание отбора</a></small></div>')
         needle = f'<section class="cell" id="cell-{wl}-{bl}">'
         page = page.replace(needle, needle + card)
     path.write_text(page, encoding='utf-8')

@@ -17,14 +17,16 @@ def build(output: Path) -> None:
     if not re.fullmatch(r'[0-9a-f]{40}', revision):
         raise ValueError('Expected a full Git revision')
     output.mkdir(parents=True, exist_ok=True)
-    page = (SOURCE / 'MAP.html').read_text(encoding='utf-8')
-    page = page.replace('href="../../../', f'href="{REPO_URL}/blob/{revision}/')
-    if 'href="../../../' in page or '<script' in page.lower():
-        raise ValueError('Unexpected relative evidence path or executable script')
-    (output / 'index.html').write_text(page, encoding='utf-8')
+    for source_name, destination in [('MAP.html', 'index.html'), ('CIFAR.html', 'CIFAR.html')]:
+        page = (SOURCE / source_name).read_text(encoding='utf-8')
+        page = page.replace('href="../../../', f'href="{REPO_URL}/blob/{revision}/')
+        page = page.replace('href="MAP.html', 'href="index.html')
+        if 'href="../../../' in page or '<script' in page.lower():
+            raise ValueError('Unexpected relative evidence path or executable script')
+        (output / destination).write_text(page, encoding='utf-8')
     description = (SOURCE / 'REPORT.md').read_text(encoding='utf-8').replace('MAP.html', 'index.html')
     (output / 'REPORT.md').write_text(description, encoding='utf-8')
-    for name in ['CELLS.csv', 'PROBLEMS.json']:
+    for name in ['CELLS.csv', 'PROBLEMS.json', 'CIFAR_SELECTION.csv', 'CIFAR_SELECTION.json']:
         (output / name).write_bytes((SOURCE / name).read_bytes())
     (output / '.nojekyll').write_bytes(b'')
     (output / 'README.md').write_text(
