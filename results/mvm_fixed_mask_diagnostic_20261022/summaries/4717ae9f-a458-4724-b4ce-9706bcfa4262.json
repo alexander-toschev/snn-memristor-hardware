@@ -1,0 +1,1410 @@
+{
+  "cause_identified": false,
+  "complete_brackets": 156,
+  "error": null,
+  "fixed_mask_comparisons": [
+    {
+      "baseline_drift_screen_pass": true,
+      "context": "upper16_plus_BL14",
+      "heldout": [
+        {
+          "absolute_residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "count": 3,
+          "mean_relative_residual": 0.0,
+          "mean_residual_adc": 0.0,
+          "measured_delta_adc": [
+            6.0,
+            6.0,
+            6.0
+          ],
+          "predicted_sum_of_fit_singleton_deltas_adc": 6.0,
+          "relative_residual_denominator_adc": 6.0,
+          "residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "screen_pass": true,
+          "targets": [
+            16,
+            20
+          ]
+        },
+        {
+          "absolute_residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "count": 3,
+          "mean_relative_residual": 0.0,
+          "mean_residual_adc": 0.0,
+          "measured_delta_adc": [
+            9.0,
+            9.0,
+            9.0
+          ],
+          "predicted_sum_of_fit_singleton_deltas_adc": 9.0,
+          "relative_residual_denominator_adc": 9.0,
+          "residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "screen_pass": true,
+          "targets": [
+            20,
+            30,
+            31
+          ]
+        },
+        {
+          "absolute_residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "count": 3,
+          "mean_relative_residual": 0.0,
+          "mean_residual_adc": 0.0,
+          "measured_delta_adc": [
+            18.0,
+            18.0,
+            18.0
+          ],
+          "predicted_sum_of_fit_singleton_deltas_adc": 18.0,
+          "relative_residual_denominator_adc": 18.0,
+          "residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "screen_pass": true,
+          "targets": [
+            14,
+            16,
+            20,
+            30,
+            31
+          ]
+        }
+      ],
+      "heldout_used_for_fit": false,
+      "maximum_abs_baseline_drift_adc": 0.0,
+      "qualified": false,
+      "scaled_delta_comparison": [
+        {
+          "absolute_error_adc": 0.1904761904761907,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 14,
+          "error_adc": 0.1904761904761907,
+          "measured_delta_adc": 8.0,
+          "predicted_delta_adc": 7.809523809523809,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 0.761904761904761,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 16,
+          "error_adc": -0.761904761904761,
+          "measured_delta_adc": 9.0,
+          "predicted_delta_adc": 9.761904761904761,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 0.04761904761904767,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 20,
+          "error_adc": 0.04761904761904767,
+          "measured_delta_adc": 2.0,
+          "predicted_delta_adc": 1.9523809523809523,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 1.1428571428571432,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 30,
+          "error_adc": 1.1428571428571432,
+          "measured_delta_adc": 7.0,
+          "predicted_delta_adc": 5.857142857142857,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 0.761904761904761,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 31,
+          "error_adc": -0.761904761904761,
+          "measured_delta_adc": 9.0,
+          "predicted_delta_adc": 9.761904761904761,
+          "screen_pass": true
+        }
+      ],
+      "singleton": [
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 14,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 4.0,
+          "measured_delta_adc": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 14,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 8.0,
+          "measured_delta_adc": [
+            8.0,
+            8.0,
+            8.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 16,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 5.0,
+          "measured_delta_adc": [
+            5.0,
+            5.0,
+            5.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 16,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 9.0,
+          "measured_delta_adc": [
+            9.0,
+            9.0,
+            9.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 20,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 1.0,
+          "measured_delta_adc": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 20,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 2.0,
+          "measured_delta_adc": [
+            2.0,
+            2.0,
+            2.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 30,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 3.0,
+          "measured_delta_adc": [
+            3.0,
+            3.0,
+            3.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 30,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 7.0,
+          "measured_delta_adc": [
+            7.0,
+            7.0,
+            7.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 31,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 5.0,
+          "measured_delta_adc": [
+            5.0,
+            5.0,
+            5.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 31,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 9.0,
+          "measured_delta_adc": [
+            9.0,
+            9.0,
+            9.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        }
+      ],
+      "wl": 0
+    },
+    {
+      "baseline_drift_screen_pass": true,
+      "context": "upper16_plus_BL14",
+      "heldout": [
+        {
+          "absolute_residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "count": 3,
+          "mean_relative_residual": 0.0,
+          "mean_residual_adc": 0.0,
+          "measured_delta_adc": [
+            8.0,
+            8.0,
+            8.0
+          ],
+          "predicted_sum_of_fit_singleton_deltas_adc": 8.0,
+          "relative_residual_denominator_adc": 8.0,
+          "residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "screen_pass": true,
+          "targets": [
+            16,
+            20
+          ]
+        },
+        {
+          "absolute_residual_adc": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "count": 3,
+          "mean_relative_residual": 0.2,
+          "mean_residual_adc": 1.0,
+          "measured_delta_adc": [
+            6.0,
+            6.0,
+            6.0
+          ],
+          "predicted_sum_of_fit_singleton_deltas_adc": 5.0,
+          "relative_residual_denominator_adc": 5.0,
+          "residual_adc": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "screen_pass": true,
+          "targets": [
+            20,
+            30,
+            31
+          ]
+        },
+        {
+          "absolute_residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "count": 3,
+          "mean_relative_residual": 0.0,
+          "mean_residual_adc": 0.0,
+          "measured_delta_adc": [
+            13.0,
+            13.0,
+            13.0
+          ],
+          "predicted_sum_of_fit_singleton_deltas_adc": 13.0,
+          "relative_residual_denominator_adc": 13.0,
+          "residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "screen_pass": true,
+          "targets": [
+            14,
+            16,
+            20,
+            30,
+            31
+          ]
+        }
+      ],
+      "heldout_used_for_fit": false,
+      "maximum_abs_baseline_drift_adc": 0.0,
+      "qualified": false,
+      "scaled_delta_comparison": [
+        {
+          "absolute_error_adc": 0.1904761904761907,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 14,
+          "error_adc": 0.1904761904761907,
+          "measured_delta_adc": 8.0,
+          "predicted_delta_adc": 7.809523809523809,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 0.1904761904761907,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 16,
+          "error_adc": 0.1904761904761907,
+          "measured_delta_adc": 8.0,
+          "predicted_delta_adc": 7.809523809523809,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 0.1904761904761907,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 20,
+          "error_adc": 0.1904761904761907,
+          "measured_delta_adc": 8.0,
+          "predicted_delta_adc": 7.809523809523809,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 0.04761904761904767,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 30,
+          "error_adc": 0.04761904761904767,
+          "measured_delta_adc": 2.0,
+          "predicted_delta_adc": 1.9523809523809523,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 1.0,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 31,
+          "error_adc": 1.0,
+          "measured_delta_adc": 1.0,
+          "predicted_delta_adc": 0.0,
+          "screen_pass": true
+        }
+      ],
+      "singleton": [
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 14,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 4.0,
+          "measured_delta_adc": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 14,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 8.0,
+          "measured_delta_adc": [
+            8.0,
+            8.0,
+            8.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 16,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 4.0,
+          "measured_delta_adc": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 16,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 8.0,
+          "measured_delta_adc": [
+            8.0,
+            8.0,
+            8.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 20,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 4.0,
+          "measured_delta_adc": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 20,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 8.0,
+          "measured_delta_adc": [
+            8.0,
+            8.0,
+            8.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 30,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 1.0,
+          "measured_delta_adc": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 30,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 2.0,
+          "measured_delta_adc": [
+            2.0,
+            2.0,
+            2.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 31,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 0.0,
+          "measured_delta_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 31,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 1.0,
+          "measured_delta_adc": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        }
+      ],
+      "wl": 7
+    },
+    {
+      "baseline_drift_screen_pass": true,
+      "context": "all32",
+      "heldout": [
+        {
+          "absolute_residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "count": 3,
+          "mean_relative_residual": 0.0,
+          "mean_residual_adc": 0.0,
+          "measured_delta_adc": [
+            5.0,
+            5.0,
+            5.0
+          ],
+          "predicted_sum_of_fit_singleton_deltas_adc": 5.0,
+          "relative_residual_denominator_adc": 5.0,
+          "residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "screen_pass": true,
+          "targets": [
+            16,
+            20
+          ]
+        },
+        {
+          "absolute_residual_adc": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "count": 3,
+          "mean_relative_residual": 0.125,
+          "mean_residual_adc": 1.0,
+          "measured_delta_adc": [
+            9.0,
+            9.0,
+            9.0
+          ],
+          "predicted_sum_of_fit_singleton_deltas_adc": 8.0,
+          "relative_residual_denominator_adc": 8.0,
+          "residual_adc": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "screen_pass": true,
+          "targets": [
+            20,
+            30,
+            31
+          ]
+        },
+        {
+          "absolute_residual_adc": [
+            2.0,
+            2.0,
+            2.0
+          ],
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "count": 3,
+          "mean_relative_residual": 0.125,
+          "mean_residual_adc": 2.0,
+          "measured_delta_adc": [
+            18.0,
+            18.0,
+            18.0
+          ],
+          "predicted_sum_of_fit_singleton_deltas_adc": 16.0,
+          "relative_residual_denominator_adc": 16.0,
+          "residual_adc": [
+            2.0,
+            2.0,
+            2.0
+          ],
+          "screen_pass": true,
+          "targets": [
+            14,
+            16,
+            20,
+            30,
+            31
+          ]
+        }
+      ],
+      "heldout_used_for_fit": false,
+      "maximum_abs_baseline_drift_adc": 0.0,
+      "qualified": false,
+      "scaled_delta_comparison": [
+        {
+          "absolute_error_adc": 0.1904761904761907,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 14,
+          "error_adc": 0.1904761904761907,
+          "measured_delta_adc": 8.0,
+          "predicted_delta_adc": 7.809523809523809,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 1.1904761904761907,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 16,
+          "error_adc": 1.1904761904761907,
+          "measured_delta_adc": 9.0,
+          "predicted_delta_adc": 7.809523809523809,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 0.04761904761904767,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 20,
+          "error_adc": 0.04761904761904767,
+          "measured_delta_adc": 2.0,
+          "predicted_delta_adc": 1.9523809523809523,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 0.14285714285714324,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 30,
+          "error_adc": 0.14285714285714324,
+          "measured_delta_adc": 6.0,
+          "predicted_delta_adc": 5.857142857142857,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 1.1904761904761907,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 31,
+          "error_adc": 1.1904761904761907,
+          "measured_delta_adc": 9.0,
+          "predicted_delta_adc": 7.809523809523809,
+          "screen_pass": true
+        }
+      ],
+      "singleton": [
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 14,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 4.0,
+          "measured_delta_adc": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 14,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 8.0,
+          "measured_delta_adc": [
+            8.0,
+            8.0,
+            8.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 16,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 4.0,
+          "measured_delta_adc": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 16,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 9.0,
+          "measured_delta_adc": [
+            9.0,
+            9.0,
+            9.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 20,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 1.0,
+          "measured_delta_adc": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 20,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 2.0,
+          "measured_delta_adc": [
+            2.0,
+            2.0,
+            2.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 30,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 3.0,
+          "measured_delta_adc": [
+            3.0,
+            3.0,
+            3.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 30,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 6.0,
+          "measured_delta_adc": [
+            6.0,
+            6.0,
+            6.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 31,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 4.0,
+          "measured_delta_adc": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 31,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 9.0,
+          "measured_delta_adc": [
+            9.0,
+            9.0,
+            9.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        }
+      ],
+      "wl": 0
+    },
+    {
+      "baseline_drift_screen_pass": true,
+      "context": "all32",
+      "heldout": [
+        {
+          "absolute_residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "count": 3,
+          "mean_relative_residual": 0.0,
+          "mean_residual_adc": 0.0,
+          "measured_delta_adc": [
+            8.0,
+            8.0,
+            8.0
+          ],
+          "predicted_sum_of_fit_singleton_deltas_adc": 8.0,
+          "relative_residual_denominator_adc": 8.0,
+          "residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "screen_pass": true,
+          "targets": [
+            16,
+            20
+          ]
+        },
+        {
+          "absolute_residual_adc": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "count": 3,
+          "mean_relative_residual": 0.2,
+          "mean_residual_adc": 1.0,
+          "measured_delta_adc": [
+            6.0,
+            6.0,
+            6.0
+          ],
+          "predicted_sum_of_fit_singleton_deltas_adc": 5.0,
+          "relative_residual_denominator_adc": 5.0,
+          "residual_adc": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "screen_pass": true,
+          "targets": [
+            20,
+            30,
+            31
+          ]
+        },
+        {
+          "absolute_residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "count": 3,
+          "mean_relative_residual": 0.0,
+          "mean_residual_adc": 0.0,
+          "measured_delta_adc": [
+            13.0,
+            13.0,
+            13.0
+          ],
+          "predicted_sum_of_fit_singleton_deltas_adc": 13.0,
+          "relative_residual_denominator_adc": 13.0,
+          "residual_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "screen_pass": true,
+          "targets": [
+            14,
+            16,
+            20,
+            30,
+            31
+          ]
+        }
+      ],
+      "heldout_used_for_fit": false,
+      "maximum_abs_baseline_drift_adc": 0.0,
+      "qualified": false,
+      "scaled_delta_comparison": [
+        {
+          "absolute_error_adc": 0.8095238095238093,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 14,
+          "error_adc": -0.8095238095238093,
+          "measured_delta_adc": 7.0,
+          "predicted_delta_adc": 7.809523809523809,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 0.8095238095238093,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 16,
+          "error_adc": -0.8095238095238093,
+          "measured_delta_adc": 7.0,
+          "predicted_delta_adc": 7.809523809523809,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 0.1904761904761907,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 20,
+          "error_adc": 0.1904761904761907,
+          "measured_delta_adc": 8.0,
+          "predicted_delta_adc": 7.809523809523809,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 0.04761904761904767,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 30,
+          "error_adc": 0.04761904761904767,
+          "measured_delta_adc": 2.0,
+          "predicted_delta_adc": 1.9523809523809523,
+          "screen_pass": true
+        },
+        {
+          "absolute_error_adc": 1.0,
+          "actual_dac_increment_ratio": 1.9523809523809523,
+          "bl": 31,
+          "error_adc": 1.0,
+          "measured_delta_adc": 1.0,
+          "predicted_delta_adc": 0.0,
+          "screen_pass": true
+        }
+      ],
+      "singleton": [
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 14,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 4.0,
+          "measured_delta_adc": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 14,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 7.0,
+          "measured_delta_adc": [
+            7.0,
+            7.0,
+            7.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 16,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 4.0,
+          "measured_delta_adc": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 16,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 7.0,
+          "measured_delta_adc": [
+            7.0,
+            7.0,
+            7.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 20,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 4.0,
+          "measured_delta_adc": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 20,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 8.0,
+          "measured_delta_adc": [
+            8.0,
+            8.0,
+            8.0
+          ],
+          "resolvable_screen_pass": true,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 30,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 1.0,
+          "measured_delta_adc": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 30,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 2.0,
+          "measured_delta_adc": [
+            2.0,
+            2.0,
+            2.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 31,
+          "count": 3,
+          "delta_requested_v": 0.025,
+          "mean_delta_adc": 0.0,
+          "measured_delta_adc": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 21.0
+        },
+        {
+          "baseline_drift_adc": [
+            0,
+            0,
+            0
+          ],
+          "bl": 31,
+          "count": 3,
+          "delta_requested_v": 0.05,
+          "mean_delta_adc": 1.0,
+          "measured_delta_adc": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "resolvable_screen_pass": false,
+          "sd_delta_adc": 0.0,
+          "target_dac_increment": 41.0
+        }
+      ],
+      "wl": 7
+    }
+  ],
+  "impacts": 4290,
+  "note": "R and MVM have different analog routes; no resistance-derived replacement of measured MVM.",
+  "programmable_range_validated": false,
+  "pulses": 0,
+  "session_id": "4717ae9f-a458-4724-b4ce-9706bcfa4262",
+  "source": "simulator",
+  "status": "completed"
+}
