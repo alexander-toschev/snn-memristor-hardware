@@ -22,6 +22,21 @@ TOLERANCE = 2.5603554203687646e-6
 LEVELS = (.3, .6, .9, 1.2, 1.5, 2., 2.5, 3.)
 
 
+@dataclass(frozen=True)
+class AcquisitionBudget:
+    """Finite public-call budgets; defaults preserve the original 37-cell run."""
+
+    maximum_calls: int = 180000
+    maximum_decisions: int = 16000
+    maximum_seconds: float = 1800.
+
+    def __post_init__(self) -> None:
+        if (type(self.maximum_calls) is not int or self.maximum_calls <= 0
+                or type(self.maximum_decisions) is not int or self.maximum_decisions <= 0
+                or not math.isfinite(self.maximum_seconds) or self.maximum_seconds <= 0):
+            raise ValueError('Acquisition budgets must be positive and finite')
+
+
 @dataclass
 class Feedback:
     """Independent SET/RESET amplitudes; duration is not an adaptive parameter."""
@@ -59,23 +74,25 @@ class Feedback:
 
 class Collector(NativeCollector):
     def __init__(self, connector: Connector, cv: Converters, writer: Writer, source: Source,
-                 cells: tuple[tuple[int, int], ...], adaptive: bool) -> None:
-        super().__init__(connector, cv, writer, 180000, lambda msg: print(msg, flush=True))
+                 cells: tuple[tuple[int, int], ...], adaptive: bool,
+                 *, budget: AcquisitionBudget = AcquisitionBudget()) -> None:
+        super().__init__(connector, cv, writer, budget.maximum_calls, lambda msg: print(msg, flush=True))
+        self.budget = budget
         self.source, self.allowed, self.adaptive = source, frozenset(cells), adaptive
 
     def emit(self, event: str, **fields: object) -> None:
         self.writer.write(dict(event=event, source=self.source, monotonic_s=time.monotonic(), **fields))
 
     def call(self, command: dict[str, int | float | list[float]], **metadata: object) -> tuple[int, float, int]:
-        if time.monotonic()-self.started > 1800:
-            raise TimeoutError('Thirty-minute acquisition budget')
+        if time.monotonic()-self.started > self.budget.maximum_seconds:
+            raise TimeoutError('Acquisition wall-time budget exhausted')
         mode, wl, bl = command['mode_flag'], command['wl'], command.get('bl')
         if type(wl) is not int or mode not in (7, 10):
             raise ValueError('Only public mode7/mode10')
         if mode == 7:
             voltage = command['vol']
             if type(bl) is not int or (wl, bl) not in self.allowed or not isinstance(voltage, (int, float)):
-                raise ValueError('Outside fixed37 cell scope')
+                raise ValueError('Outside fixed cell scope')
             if not 0 <= float(voltage) <= 3. or command['sign'] not in (0, 1):
                 raise ValueError('Pulse voltage/polarity outside budget')
         else:
@@ -93,12 +110,12 @@ class Collector(NativeCollector):
     def read_r(self, wl: int, bl: int, **metadata: object) -> float:
         # All32 BL are supported by MemriBoard; this experiment includes BL31.
         if (wl, bl) not in self.allowed:
-            raise ValueError('Outside selected37 addresses')
+            raise ValueError('Outside selected addresses')
         return self.call(dict(mode_flag=7, wl=wl, bl=bl, vol=0., sign=0, pulse_width=0.), **metadata)[1]
 
     def pulse(self, wl: int, bl: int, sign: int, voltage: float, **metadata: object) -> tuple[float, bool]:
-        if self.decisions >= 16000:
-            raise ValueError('Finite16000 pulse-decision budget')
+        if self.decisions >= self.budget.maximum_decisions:
+            raise ValueError('Finite pulse-decision budget exhausted')
         r = self.read_r(wl, bl, role='pulse_guard', **metadata)
         self.decisions += 1
         admitted = voltage/r <= (.002 if sign else .04)
