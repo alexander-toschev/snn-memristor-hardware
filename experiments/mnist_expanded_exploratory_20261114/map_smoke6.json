@@ -1,0 +1,133 @@
+{
+  "selected_blocks": [
+    {
+      "block": "E001",
+      "wl_pair": [
+        0,
+        1
+      ],
+      "bls": [
+        0,
+        2
+      ],
+      "mode": "fixed_positive",
+      "delta_v": 0.05,
+      "global_bias": true,
+      "require_resolved_legs": false,
+      "conductance_scale": 0.0835532179379453,
+      "conductance_offset": 2.230130635521933e-05,
+      "measured_common_g_s": [
+        1.8861451135921464e-05,
+        4.022576307266905e-05
+      ],
+      "encoded_target_g_s": [
+        2.3134313523270983e-05,
+        3.595290068531954e-05
+      ],
+      "qualification": "exploratory; strict MVM flags retained, not prequalified for MNIST"
+    },
+    {
+      "block": "E043",
+      "wl_pair": [
+        6,
+        7
+      ],
+      "bls": [
+        30
+      ],
+      "mode": "fixed_positive",
+      "delta_v": 0.05,
+      "global_bias": true,
+      "require_resolved_legs": false,
+      "conductance_scale": 0.05019814615721776,
+      "conductance_offset": 1.1709693813828544e-05,
+      "measured_common_g_s": [
+        9.643054618839944e-06,
+        2.2478572862383256e-05
+      ],
+      "encoded_target_g_s": [
+        1.2210158267548606e-05,
+        1.9911469213674594e-05
+      ],
+      "qualification": "exploratory; strict MVM flags retained, not prequalified for MNIST"
+    }
+  ],
+  "physical_cells": 6,
+  "coefficient_slots": 3,
+  "source_session": "c7b995b7-776d-42e6-ac9c-802046fd21db",
+  "source_comparison_sha256": "a23799db4ef10623572d84446534c167b54e88a9ea54d63a6bd17b0139bee916",
+  "source_observations_sha256": "8c6d14431b8b91ff611ab876e5e9a681465ee4bab6be190918009fb268ce4597",
+  "source_assets_sha256": "0fd5729f33b833827ba6fc1522ea5c176739128ce8cbb50bc36b1032ea3a85a8",
+  "source_g_min_s": 9.969779604064162e-06,
+  "source_g_max_s": 0.00016338801385530358,
+  "unpaired_reserve": [
+    [
+      6,
+      0
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      7,
+      3
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      6,
+      5
+    ],
+    [
+      7,
+      7
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      7,
+      11
+    ],
+    [
+      7,
+      13
+    ],
+    [
+      7,
+      18
+    ],
+    [
+      6,
+      19
+    ],
+    [
+      7,
+      20
+    ],
+    [
+      7,
+      22
+    ],
+    [
+      7,
+      27
+    ],
+    [
+      7,
+      31
+    ]
+  ],
+  "theoretical_maximum_cells": 148,
+  "grouping": "lexicographic WL pairing within each BL; at most2BL perblock",
+  "nonempty_patterns": 4,
+  "read_calls_per_load": 2816,
+  "loads": 534,
+  "test_labels_used": false,
+  "mnist_qualified": false,
+  "smoke_only": true
+}
