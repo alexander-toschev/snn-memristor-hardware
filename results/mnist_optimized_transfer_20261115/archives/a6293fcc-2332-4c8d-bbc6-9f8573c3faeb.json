@@ -1,0 +1,78 @@
+{
+  "session": "a6293fcc-2332-4c8d-bbc6-9f8573c3faeb",
+  "source": "hardware",
+  "acquisition_status": "completed",
+  "archive": "results/mnist_optimized_transfer_20261115/archives/a6293fcc-2332-4c8d-bbc6-9f8573c3faeb.tar.gz",
+  "archive_sha256": "9248f3c2ee79a7ab6673bdbbd11ced00034f86d951cc3d5975a0afe2db827718",
+  "archive_bytes": 68418093,
+  "impacts": null,
+  "pulses": null,
+  "files": {
+    "accuracy.json": {
+      "bytes": 804,
+      "sha256": "161d3246f6108a7385cc63cffc8f7f0920759dc01589fdc8a9a3c5075062457a"
+    },
+    "inference_lut.npy": {
+      "bytes": 184960,
+      "sha256": "6157d55ee4e590a1ea0f34943043f84f819048a1678f202dfdf89bc5fe3db6bd"
+    },
+    "manifest.json": {
+      "bytes": 217521,
+      "sha256": "60b1a7ff4e459536ca7ee3472aa73b4c74200c4b43978a04a8de8b215e48adc2"
+    },
+    "map.html": {
+      "bytes": 1694,
+      "sha256": "09bffc883acc8c2e715680a61c3dc2370c42bd39c21639dbd4df18d00bd6ae43"
+    },
+    "phase_progress.json": {
+      "bytes": 126,
+      "sha256": "38bc017f515a8db5f3a4fb711d6895148178c992408aa757c08932f8a65bfbeb"
+    },
+    "predictions.npz": {
+      "bytes": 683066,
+      "sha256": "2bc71559b4c950a3d12c54911407dcd609167211e28c37e963f0638d98c358d8"
+    },
+    "readout.pt": {
+      "bytes": 1476312,
+      "sha256": "de314d03a5a1d47b9fc99e4533a143dd81683b911dfda38e89677c9731faca00"
+    },
+    "scaler.pt": {
+      "bytes": 296274,
+      "sha256": "7dff3c26cdcee948ff5b820e0505b27dfaa8ebb62299afdd34f289e756e3af07"
+    },
+    "start_manifest.json": {
+      "bytes": 216412,
+      "sha256": "8ddb196b1d55ef86f8936de323993df71159b57768380e15c2ac7571ff0d51a1"
+    },
+    "summary.json": {
+      "bytes": 1206,
+      "sha256": "84302240e290635426f3f8de6845f4452c69f4351520b3d662db3e8d02cbfa4a"
+    },
+    "test_counts.npy": {
+      "bytes": 368640128,
+      "sha256": "9229a6a6d96c599dd84361b64b4c7ff9a6648aa587710e371d52bd8bdc12d61a"
+    }
+  },
+  "decoded_gzip": {},
+  "secret_scan": {
+    "raw": {
+      "payload_bytes": 371718730,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 371719783,
+      "scan_framing": "ascii-lf-v1"
+    },
+    "decoded_gzip": {
+      "payload_bytes": 0,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 1053,
+      "scan_framing": "ascii-lf-v1"
+    }
+  },
+  "scanner_sha256": "17157e2ee8b76fc8b1d8bee607a250e34b8a8023c8bc81822d4b5ee4d78fcb7c",
+  "scan_helper_sha256": "7efd151d28dc7533648c02fda12e7f3d791ece4ba7b17520176fa5cbdb361bba",
+  "raw_bytes": 371718503,
+  "decoded_bytes": 0,
+  "byte_identical_archive_verified": true,
+  "original_files_removed": false,
+  "notes": "Preservation only; no semantic audit, hardware operation or accuracy claim."
+}
