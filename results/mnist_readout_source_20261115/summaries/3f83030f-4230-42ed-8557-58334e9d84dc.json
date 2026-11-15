@@ -1,0 +1,40 @@
+{
+  "accuracy": {
+    "conditional_accuracy": 0.6780356071214243,
+    "conventional_argmax_accuracy": 0.6781,
+    "coverage": 0.9998,
+    "new_readout": true,
+    "original_6965_reproduction_claim": false,
+    "physical_hardware": false,
+    "silent": 2,
+    "strict_accuracy": 0.6779,
+    "strict_correct": 6779,
+    "test_feature_nonzero": 49492857,
+    "test_images": 10000,
+    "test_spikes": 65450766,
+    "tied": 0,
+    "wilson95_argmax": [
+      0.6688760655962712,
+      0.6871871541840938
+    ],
+    "wilson95_strict": [
+      0.6686746499692254,
+      0.6869887234104878
+    ]
+  },
+  "baseline_argmax_accuracy": 0.5869,
+  "baseline_strict_accuracy": 0.5867,
+  "elapsed_seconds": 695.2339999999967,
+  "error": null,
+  "exploratory_previously_seen_test": true,
+  "hardware_calls": 0,
+  "live_hardware_per_image": false,
+  "new_stdp_training": false,
+  "scope": "readout adaptation over frozen measured simulator operators and CPU LIF",
+  "selected_epochs": 11,
+  "session_id": "3f83030f-4230-42ed-8557-58334e9d84dc",
+  "source": "simulator",
+  "status": "completed",
+  "strict_delta_percentage_points": 9.119999999999994,
+  "test_label_reads": 1
+}
