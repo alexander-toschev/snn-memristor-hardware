@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
+import html
 import importlib.metadata
 import json
 from pathlib import Path
@@ -183,6 +184,11 @@ def run() -> tuple[dict[str, object], int]:
         result.update(status='failed',error=type(exc).__name__+': '+str(exc))
     result['elapsed_seconds'] = time.monotonic()-started
     atomic_json(out/'summary.json',result)
+    (out/'map.html').write_text(
+        '<!doctype html><meta charset="utf-8"><title>MNIST readout adaptation</title>'
+        '<h1>MNIST readout adaptation</h1><pre>'
+        + html.escape(json.dumps(result,ensure_ascii=False,indent=2)) + '</pre>',
+        encoding='utf-8')
     manifest.update(status=result['status'],error=result['error'],finished_utc=now(),
         result_sha256={p.relative_to(out).as_posix():sha(p) for p in out.rglob('*') if p.is_file()})
     atomic_json(out/'manifest.json',manifest)
