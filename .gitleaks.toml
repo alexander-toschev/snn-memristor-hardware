@@ -27,3 +27,8 @@ regexes = ['''^a312224f59eab8a6e5f0857d54ea7b5b33c96547bb423b03cc10708dbbb799ce$
 description = "Exact independently verified SHA256 of generated test_access.json in matched SIM readout session 3f83030f-4230-42ed-8557-58334e9d84dc; 189-byte metadata checksum, not a credential"
 regexTarget = "secret"
 regexes = ['''^b675875dbcb7339d193d3e4fec486e83e0425c8b3f906bac79bad363f9ad6e7e$''']
+
+[[allowlists]]
+description = "Exact independently verified SHA256 of generated test_access.json in hardware readout session f1bf5e3d-d135-4138-8c21-a91f0dba0952; 189-byte metadata checksum, not a credential; explicitly approved by user"
+regexTarget = "secret"
+regexes = ['''^94bd533654ba6518398a810d10d6b1deaee1aef0a996c75cb2f1a8d19755938d$''']

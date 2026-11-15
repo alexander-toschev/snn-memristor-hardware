@@ -1,0 +1,330 @@
+{
+  "map_sha256": "c403d912315bf1a931bb5a4a6bec1b0add9ab1646ac01b10fd458ad6ba131bdb",
+  "test_images": 10000,
+  "physical_cells": 148,
+  "pairs": 74,
+  "blocks": 45,
+  "live_hardware_per_image": false,
+  "analog_lif": false,
+  "test_previously_observed": true,
+  "sources": {
+    "hardware": {
+      "acquisition": {
+        "session": "cac88c06-0fe6-4d37-a485-c9cafaa5121e",
+        "summary": {
+          "accuracy": null,
+          "completed_loads": 22,
+          "elapsed_seconds": 5655.490611649002,
+          "error": null,
+          "exploratory_measured_lut": true,
+          "impacts": 1910867,
+          "inference": "measured frozen partial MVM LUT + digital sum + CPU LIF + frozen CPU head",
+          "logical_coefficients": 1600,
+          "physical_cells": 148,
+          "pilot": false,
+          "planned_loads": 22,
+          "programmed_cell_loads": 3200,
+          "programming_errors_replaced_by_ideal_weights": false,
+          "pulses": 49897,
+          "read_only_parent": null,
+          "retried_loads": 0,
+          "scope": "acquisition_only_accuracy_pending",
+          "session_id": "cac88c06-0fe6-4d37-a485-c9cafaa5121e",
+          "source": "hardware",
+          "status": "completed",
+          "strict_failed_loads": 22,
+          "strict_qualified": false,
+          "target_misses": 758,
+          "target_tolerance": "per record: .02*source_span*profile.conductance_scale",
+          "unresolved_binary_patterns": 438,
+          "unresolved_does_not_mean_informative": true
+        },
+        "manifest_sha256": "820c8ced01507bb083e717b9cd757ecc9ad58fbdce9b4b782781541041414e6a",
+        "summary_sha256": "5b31de4ca34d08f943b56f74cc5dd02c5d4bc0b512027366a2afa4c530f46a43"
+      },
+      "baseline": {
+        "session": "a6293fcc-2332-4c8d-bbc6-9f8573c3faeb",
+        "summary": {
+          "accuracy": {
+            "baseline_method": "bracket_centered",
+            "conditional_accuracy": 0.47789557911582314,
+            "conventional_argmax_accuracy": 0.478,
+            "coverage": 0.9998,
+            "execution": "frozen measured partial MVM operators; CPU LIF and frozen CPU head",
+            "exploratory_measured_lut": true,
+            "live_hardware_per_image": false,
+            "new_readout": false,
+            "original_6965_reproduction_claim": false,
+            "physical_hardware": true,
+            "silent": 2,
+            "strict_accuracy": 0.4778,
+            "strict_correct": 4778,
+            "strict_failed_loads": 22,
+            "test_feature_nonzero": 97843297,
+            "test_images": 10000,
+            "test_labels_used_for_selection": false,
+            "test_spikes": 160380070,
+            "tied": 0,
+            "wilson95_argmax": [
+              0.4682199951330972,
+              0.48779690079521243
+            ],
+            "wilson95_strict": [
+              0.4680202452631331,
+              0.48759680426452484
+            ]
+          },
+          "acquisition_session": "cac88c06-0fe6-4d37-a485-c9cafaa5121e",
+          "baseline_method": "bracket_centered",
+          "elapsed_seconds": 1649.0,
+          "error": null,
+          "scope": "exploratory CPU inference from frozen measured operators",
+          "session_id": "a6293fcc-2332-4c8d-bbc6-9f8573c3faeb",
+          "source": "hardware",
+          "status": "completed"
+        },
+        "manifest_sha256": "60b1a7ff4e459536ca7ee3472aa73b4c74200c4b43978a04a8de8b215e48adc2",
+        "summary_sha256": "84302240e290635426f3f8de6845f4452c69f4351520b3d662db3e8d02cbfa4a"
+      },
+      "adaptation": {
+        "session": "f1bf5e3d-d135-4138-8c21-a91f0dba0952",
+        "summary": {
+          "accuracy": {
+            "conditional_accuracy": 0.6966393278655731,
+            "conventional_argmax_accuracy": 0.6967,
+            "coverage": 0.9998,
+            "new_readout": true,
+            "original_6965_reproduction_claim": false,
+            "physical_hardware": true,
+            "silent": 2,
+            "strict_accuracy": 0.6965,
+            "strict_correct": 6965,
+            "test_feature_nonzero": 97843297,
+            "test_images": 10000,
+            "test_spikes": 160380070,
+            "tied": 0,
+            "wilson95_argmax": [
+              0.6876162457700766,
+              0.7056326892708992
+            ],
+            "wilson95_strict": [
+              0.6874146472541235,
+              0.7054344413862007
+            ]
+          },
+          "baseline_argmax_accuracy": 0.478,
+          "baseline_strict_accuracy": 0.4778,
+          "elapsed_seconds": 853.3600000000442,
+          "error": null,
+          "exploratory_previously_seen_test": true,
+          "hardware_calls": 0,
+          "live_hardware_per_image": false,
+          "new_stdp_training": false,
+          "scope": "readout adaptation over frozen measured hardware operators and CPU LIF",
+          "selected_epochs": 24,
+          "session_id": "f1bf5e3d-d135-4138-8c21-a91f0dba0952",
+          "source": "hardware",
+          "status": "completed",
+          "strict_delta_percentage_points": 21.87,
+          "test_label_reads": 1
+        },
+        "manifest_sha256": "ad9987eec1d84e27fc0fef394d87c720f51835d57bd40f13f2d59db26d70ed33",
+        "summary_sha256": "701cdaa9ccca89bd711bca4a2cc58c85ba7c3246b7bc8bd39d5187baf611fe80"
+      },
+      "selection": {
+        "criterion": "highest validation STRICT; earliest tie",
+        "fit_images": 8000,
+        "seed": 42,
+        "selected_epoch": 24,
+        "test_used": false,
+        "validation_images": 2000
+      },
+      "evidence": {
+        "acquisition": "cac88c06-0fe6-4d37-a485-c9cafaa5121e",
+        "acquisition_manifest_sha256": "820c8ced01507bb083e717b9cd757ecc9ad58fbdce9b4b782781541041414e6a",
+        "baseline": "a6293fcc-2332-4c8d-bbc6-9f8573c3faeb",
+        "baseline_argmax_accuracy": 0.478,
+        "baseline_manifest_sha256": "60b1a7ff4e459536ca7ee3472aa73b4c74200c4b43978a04a8de8b215e48adc2",
+        "baseline_strict_accuracy": 0.4778,
+        "extended_key_count": 722,
+        "frozen_asset_sha256": {
+          "input_masks.npy": "8b90c47889bd1b577ba766375dda3e1fd2a691614844440bda0cadd76531afb8",
+          "learned_conductances.json": "0fd5729f33b833827ba6fc1522ea5c176739128ce8cbb50bc36b1032ea3a85a8",
+          "readout.pt": "de314d03a5a1d47b9fc99e4533a143dd81683b911dfda38e89677c9731faca00",
+          "scaler.pt": "7dff3c26cdcee948ff5b820e0505b27dfaa8ebb62299afdd34f289e756e3af07"
+        },
+        "labels_used_for_masks": false,
+        "map_sha256": "c403d912315bf1a931bb5a4a6bec1b0add9ab1646ac01b10fd458ad6ba131bdb",
+        "measurement_source": "hardware",
+        "old_test_lut_bit_identical": true,
+        "original_key_count": 722,
+        "original_lut_sha256": "6157d55ee4e590a1ea0f34943043f84f819048a1678f202dfdf89bc5fe3db6bd",
+        "test_counts_sha256": "9229a6a6d96c599dd84361b64b4c7ff9a6648aa587710e371d52bd8bdc12d61a",
+        "train_encoding_sha256": {
+          "train": "10f658b7ddffdf089fe0501cfe303548dfa090e8c336f7915e25334c49e2e4b0"
+        },
+        "train_key_count": 480
+      }
+    },
+    "simulator": {
+      "acquisition": {
+        "session": "d89929ba-f869-4992-bf95-bac27a392e59",
+        "summary": {
+          "accuracy": null,
+          "completed_loads": 22,
+          "elapsed_seconds": 1878.75,
+          "error": null,
+          "exploratory_measured_lut": true,
+          "impacts": 2028971,
+          "inference": "measured frozen partial MVM LUT + digital sum + CPU LIF + frozen CPU head",
+          "logical_coefficients": 1600,
+          "physical_cells": 148,
+          "pilot": false,
+          "planned_loads": 22,
+          "programmed_cell_loads": 3200,
+          "programming_errors_replaced_by_ideal_weights": false,
+          "pulses": 74515,
+          "read_only_parent": null,
+          "retried_loads": 0,
+          "scope": "acquisition_only_accuracy_pending",
+          "session_id": "d89929ba-f869-4992-bf95-bac27a392e59",
+          "source": "simulator",
+          "status": "completed",
+          "strict_failed_loads": 0,
+          "strict_qualified": false,
+          "target_misses": 331,
+          "target_tolerance": "per record: .02*source_span*profile.conductance_scale",
+          "unresolved_binary_patterns": 2245,
+          "unresolved_does_not_mean_informative": true
+        },
+        "manifest_sha256": "145bbc0b789cbb74f0830293435653d431e25486e6a40147481f0c19406441c8",
+        "summary_sha256": "7596c78c6d4265190e985cbe175e1ac7e55424e75a7e9daf579084243c2e16ae"
+      },
+      "baseline": {
+        "session": "7d200893-5501-4637-9733-b2a41ba57064",
+        "summary": {
+          "accuracy": {
+            "baseline_method": "bracket_centered",
+            "conditional_accuracy": 0.5868173634726945,
+            "conventional_argmax_accuracy": 0.5869,
+            "coverage": 0.9998,
+            "execution": "frozen measured partial MVM operators; CPU LIF and frozen CPU head",
+            "exploratory_measured_lut": true,
+            "live_hardware_per_image": false,
+            "new_readout": false,
+            "original_6965_reproduction_claim": false,
+            "physical_hardware": false,
+            "silent": 2,
+            "strict_accuracy": 0.5867,
+            "strict_correct": 5867,
+            "strict_failed_loads": 0,
+            "test_feature_nonzero": 49492857,
+            "test_images": 10000,
+            "test_labels_used_for_selection": false,
+            "test_spikes": 65450766,
+            "tied": 0,
+            "wilson95_argmax": [
+              0.5772177497643208,
+              0.5965155113188555
+            ],
+            "wilson95_strict": [
+              0.5770171359747343,
+              0.5963162787077905
+            ]
+          },
+          "acquisition_session": "d89929ba-f869-4992-bf95-bac27a392e59",
+          "baseline_method": "bracket_centered",
+          "elapsed_seconds": 1200.765000000014,
+          "error": null,
+          "scope": "exploratory CPU inference from frozen measured operators",
+          "session_id": "7d200893-5501-4637-9733-b2a41ba57064",
+          "source": "simulator",
+          "status": "completed"
+        },
+        "manifest_sha256": "5282954a290cb3a56c67fd2206cf97f3a35cf5eb81ea0d3548e8ac848a6c1e74",
+        "summary_sha256": "e8f12a9afd1ca5121ee78cc4b749591d6acd775eb004e346903f7d8e40202883"
+      },
+      "adaptation": {
+        "session": "3f83030f-4230-42ed-8557-58334e9d84dc",
+        "summary": {
+          "accuracy": {
+            "conditional_accuracy": 0.6780356071214243,
+            "conventional_argmax_accuracy": 0.6781,
+            "coverage": 0.9998,
+            "new_readout": true,
+            "original_6965_reproduction_claim": false,
+            "physical_hardware": false,
+            "silent": 2,
+            "strict_accuracy": 0.6779,
+            "strict_correct": 6779,
+            "test_feature_nonzero": 49492857,
+            "test_images": 10000,
+            "test_spikes": 65450766,
+            "tied": 0,
+            "wilson95_argmax": [
+              0.6688760655962712,
+              0.6871871541840938
+            ],
+            "wilson95_strict": [
+              0.6686746499692254,
+              0.6869887234104878
+            ]
+          },
+          "baseline_argmax_accuracy": 0.5869,
+          "baseline_strict_accuracy": 0.5867,
+          "elapsed_seconds": 695.2339999999967,
+          "error": null,
+          "exploratory_previously_seen_test": true,
+          "hardware_calls": 0,
+          "live_hardware_per_image": false,
+          "new_stdp_training": false,
+          "scope": "readout adaptation over frozen measured simulator operators and CPU LIF",
+          "selected_epochs": 11,
+          "session_id": "3f83030f-4230-42ed-8557-58334e9d84dc",
+          "source": "simulator",
+          "status": "completed",
+          "strict_delta_percentage_points": 9.119999999999994,
+          "test_label_reads": 1
+        },
+        "manifest_sha256": "d044fc2f5dd1e3228fd62603bebb580a2ac06fbae7a52aaa5e2259c1816ba46a",
+        "summary_sha256": "afe6536a67e882f14a5b276258468b85b8a0fecd0530510833c6d8aa0e3bceb3"
+      },
+      "selection": {
+        "criterion": "highest validation STRICT; earliest tie",
+        "fit_images": 8000,
+        "seed": 42,
+        "selected_epoch": 11,
+        "test_used": false,
+        "validation_images": 2000
+      },
+      "evidence": {
+        "acquisition": "d89929ba-f869-4992-bf95-bac27a392e59",
+        "acquisition_manifest_sha256": "145bbc0b789cbb74f0830293435653d431e25486e6a40147481f0c19406441c8",
+        "baseline": "7d200893-5501-4637-9733-b2a41ba57064",
+        "baseline_argmax_accuracy": 0.5869,
+        "baseline_manifest_sha256": "5282954a290cb3a56c67fd2206cf97f3a35cf5eb81ea0d3548e8ac848a6c1e74",
+        "baseline_strict_accuracy": 0.5867,
+        "extended_key_count": 722,
+        "frozen_asset_sha256": {
+          "input_masks.npy": "8b90c47889bd1b577ba766375dda3e1fd2a691614844440bda0cadd76531afb8",
+          "learned_conductances.json": "0fd5729f33b833827ba6fc1522ea5c176739128ce8cbb50bc36b1032ea3a85a8",
+          "readout.pt": "de314d03a5a1d47b9fc99e4533a143dd81683b911dfda38e89677c9731faca00",
+          "scaler.pt": "7dff3c26cdcee948ff5b820e0505b27dfaa8ebb62299afdd34f289e756e3af07"
+        },
+        "labels_used_for_masks": false,
+        "map_sha256": "c403d912315bf1a931bb5a4a6bec1b0add9ab1646ac01b10fd458ad6ba131bdb",
+        "measurement_source": "simulator",
+        "old_test_lut_bit_identical": true,
+        "original_key_count": 722,
+        "original_lut_sha256": "8d55963c4a84b1aa4a1a1bb0681960234664cc6265f84fa839097b580e81b638",
+        "test_counts_sha256": "6f2b192c611e81c60c5e8081781366d5ec546c7588d1fed83a1e33b12fccba2a",
+        "train_encoding_sha256": {
+          "train": "10f658b7ddffdf089fe0501cfe303548dfa090e8c336f7915e25334c49e2e4b0"
+        },
+        "train_key_count": 480
+      }
+    }
+  },
+  "strict_accuracy_hardware_minus_sim_pp": 1.86,
+  "conventional_argmax_accuracy_hardware_minus_sim_pp": 1.86
+}
