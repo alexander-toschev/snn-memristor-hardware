@@ -1,0 +1,140 @@
+{
+  "summary": {
+    "accuracy": {
+      "conditional_accuracy": 0.6654330866173235,
+      "conventional_argmax_accuracy": 0.6655,
+      "coverage": 0.9998,
+      "new_readout": true,
+      "original_6965_reproduction_claim": false,
+      "physical_hardware": false,
+      "silent": 2,
+      "strict_accuracy": 0.6653,
+      "strict_correct": 6653,
+      "test_feature_nonzero": 32446889,
+      "test_images": 10000,
+      "test_spikes": 41832680,
+      "tied": 0,
+      "wilson95_argmax": [
+        0.656190594057134,
+        0.674682302482172
+      ],
+      "wilson95_strict": [
+        0.6559892976093935,
+        0.6744837525292608
+      ]
+    },
+    "baseline_argmax_accuracy": 0.5382,
+    "baseline_strict_accuracy": 0.538,
+    "elapsed_seconds": 922.1410000000033,
+    "error": null,
+    "exploratory_previously_seen_test": true,
+    "hardware_calls": 0,
+    "new_stdp_training": false,
+    "scope": "readout adaptation over frozen measured SIM operators and CPU LIF",
+    "selected_epochs": 18,
+    "session_id": "5701faea-85f7-47a0-a4a1-869be3450af8",
+    "status": "completed",
+    "strict_delta_percentage_points": 12.729999999999997,
+    "test_label_reads": 1
+  },
+  "manifest_sha256": "b6645820975481aeed59e245a235327b7d6da492762ea24580839999462d6db7",
+  "native_log": {
+    "session": "5701faea-85f7-47a0-a4a1-869be3450af8",
+    "path": "results/foreground_logs/readout-adaptation-20261115-full-ec176fa.log",
+    "sha256": "d27133aba54f02df42d550c4f746742b891080985a27df736150c661e7bdfc47",
+    "bytes": 5153,
+    "secret_scan": {
+      "payload_bytes": 5153,
+      "framing_bytes": 1053,
+      "scanner_input_bytes": 6206,
+      "scan_framing": "ascii-lf-v1"
+    },
+    "scanner_sha256": "17157e2ee8b76fc8b1d8bee607a250e34b8a8023c8bc81822d4b5ee4d78fcb7c",
+    "separate_from_immutable_session": true,
+    "config_sha256": "1c0a2ee9a2c5325bc746c971a1aa0d7f7fd542701f65f2916e1499b79e85d1c5"
+  },
+  "evidence": {
+    "acquisition": "605c6b02-4865-44a3-8c85-14d7f22d03e4",
+    "acquisition_manifest_sha256": "0b224c830659970c07301f56b7490838ee8d37d1a36444dc6513b07c9c3b2934",
+    "baseline": "9fc7ac47-e0ed-413f-b3a9-4c55a99499d4",
+    "baseline_argmax_accuracy": 0.5382,
+    "baseline_manifest_sha256": "74946839da3eaed40ae4f264502d2ce9fef3af7af956062f08d5bc95ca13c6bc",
+    "baseline_strict_accuracy": 0.538,
+    "extended_key_count": 722,
+    "frozen_asset_sha256": {
+      "input_masks.npy": "8b90c47889bd1b577ba766375dda3e1fd2a691614844440bda0cadd76531afb8",
+      "learned_conductances.json": "0fd5729f33b833827ba6fc1522ea5c176739128ce8cbb50bc36b1032ea3a85a8",
+      "readout.pt": "de314d03a5a1d47b9fc99e4533a143dd81683b911dfda38e89677c9731faca00",
+      "scaler.pt": "7dff3c26cdcee948ff5b820e0505b27dfaa8ebb62299afdd34f289e756e3af07"
+    },
+    "labels_used_for_masks": false,
+    "map_sha256": "c4e15a16c89e30500d8ad9c03dcf3e54ee1dcb076fad6aff4fba8998d430cd4f",
+    "old_test_lut_bit_identical": true,
+    "original_key_count": 722,
+    "original_lut_sha256": "635856a1fcb268db743beb765c3dfd0d1c4b4ab6e7919e61420e3a446696cd06",
+    "test_counts_sha256": "4484427784f8f591492686277da6eacac71248a0f706f61ade4a6f8ae2ef074b",
+    "train_encoding_sha256": {
+      "train": "10f658b7ddffdf089fe0501cfe303548dfa090e8c336f7915e25334c49e2e4b0"
+    },
+    "train_key_count": 480
+  },
+  "selection": {
+    "criterion": "highest validation STRICT; earliest tie",
+    "fit_images": 8000,
+    "seed": 42,
+    "selected_epoch": 18,
+    "test_used": false,
+    "validation_images": 2000
+  },
+  "selected_validation": {
+    "epoch": 18,
+    "fit_loss": 0.8129860420227051,
+    "validation_argmax_accuracy": 0.6705,
+    "validation_strict_accuracy": 0.6705,
+    "validation_strict_correct": 1341
+  },
+  "checkpoint_before_test": {
+    "selected_epoch": 18,
+    "sha256": {
+      "readout.pt": "6d4e4b25b9ee3a1a1eea07c10c7b32c99b837e87cba4497cefb22a2b89f8965f",
+      "scaler.pt": "ad1872a559d0ac22ff0af4b7847a0cc9bf99d2c1a6d8555870bc19545cb77e74",
+      "selection.json": "d116f948d0bf5eb3f77df559f529e430905a2513f4bf723211ebf8b30aca4bfd",
+      "split.npz": "7da751f8c367651265051adaa16ecd1fc25fe046a03eb45d0b42e30e1fc06e98"
+    },
+    "test_labels_accessed": false
+  },
+  "test_access": {
+    "at_utc": "2026-11-15T05:31:43.254709+00:00",
+    "checkpoint_seal_sha256": "25d433a33754418f507e0b8b5a136baccbb4eda352ad23694d7ade62337bc492",
+    "count": 1,
+    "selection_frozen": true
+  },
+  "train_counts_shape": [
+    10000,
+    36864
+  ],
+  "split_disjoint": true,
+  "checkpoint_unchanged_after_test": true,
+  "old_test_lut_byte_identical_audited": true,
+  "result_sha256": {
+    "accuracy.json": "440154c2de070eebb559b2b591ffaf9f041edec1484a7d81caa6d258a3959856",
+    "checkpoint_before_test.json": "25d433a33754418f507e0b8b5a136baccbb4eda352ad23694d7ade62337bc492",
+    "evidence.json": "728663fb7a8972ce1f6b7e8e38dc8049c59a468e45951fc22c99296c78c67715",
+    "inference_lut.npy": "635856a1fcb268db743beb765c3dfd0d1c4b4ab6e7919e61420e3a446696cd06",
+    "input_masks.npy": "8b90c47889bd1b577ba766375dda3e1fd2a691614844440bda0cadd76531afb8",
+    "map.html": "04f9b69d6a3aa65e49a51aeafcf9159c9fdd34ed5e8649ea3381bcc985648cb4",
+    "predictions.npz": "79d4c928b0616a2c0d26242f6686b9ed3ed335d3773bb930a1f2c9642ee549f4",
+    "progress.json": "3641a65168c91ec5bb86ee6a6c1ee857613abb1fe4cbec95e2d11de7a3a79193",
+    "protocol.json": "386574ff82bb065c0948584ffe8774d162d69dc084db89aef433616925f50bfb",
+    "readout.pt": "6d4e4b25b9ee3a1a1eea07c10c7b32c99b837e87cba4497cefb22a2b89f8965f",
+    "scaler.pt": "ad1872a559d0ac22ff0af4b7847a0cc9bf99d2c1a6d8555870bc19545cb77e74",
+    "selection.json": "d116f948d0bf5eb3f77df559f529e430905a2513f4bf723211ebf8b30aca4bfd",
+    "selection_history.json": "a43ac180c282afd4f7e52be13d4275065a08e40c0299c2566571307c90e7c982",
+    "selection_scaler.pt": "dd0a4c53b1886b48ed28df3a21b517aee99fb7f0d6c149a90d90793614f8433f",
+    "split.npz": "7da751f8c367651265051adaa16ecd1fc25fe046a03eb45d0b42e30e1fc06e98",
+    "start_manifest.json": "7570521d8106321665f80676eec17b09f1855d57faef35fda2e2950c4754ebdb",
+    "summary.json": "f97f02e35a5e78cff031665e54a64234caacd31f9d779ec9153347e4b2eb73fb",
+    "test_access.json": "a312224f59eab8a6e5f0857d54ea7b5b33c96547bb423b03cc10708dbbb799ce",
+    "train_counts.npy": "888d451d1ea03a78f485c92e212315b40b312c2775671935bd5f2fac8b26af70"
+  }
+}
