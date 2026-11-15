@@ -1,0 +1,149 @@
+{
+  "measurement_source": "simulator",
+  "hardware_accuracy": null,
+  "acquisition": {
+    "accuracy": null,
+    "completed_loads": 22,
+    "elapsed_seconds": 1878.75,
+    "error": null,
+    "exploratory_measured_lut": true,
+    "impacts": 2028971,
+    "inference": "measured frozen partial MVM LUT + digital sum + CPU LIF + frozen CPU head",
+    "logical_coefficients": 1600,
+    "physical_cells": 148,
+    "pilot": false,
+    "planned_loads": 22,
+    "programmed_cell_loads": 3200,
+    "programming_errors_replaced_by_ideal_weights": false,
+    "pulses": 74515,
+    "read_only_parent": null,
+    "retried_loads": 0,
+    "scope": "acquisition_only_accuracy_pending",
+    "session_id": "d89929ba-f869-4992-bf95-bac27a392e59",
+    "source": "simulator",
+    "status": "completed",
+    "strict_failed_loads": 0,
+    "strict_qualified": false,
+    "target_misses": 331,
+    "target_tolerance": "per record: .02*source_span*profile.conductance_scale",
+    "unresolved_binary_patterns": 2245,
+    "unresolved_does_not_mean_informative": true
+  },
+  "baseline": {
+    "accuracy": {
+      "baseline_method": "bracket_centered",
+      "conditional_accuracy": 0.5868173634726945,
+      "conventional_argmax_accuracy": 0.5869,
+      "coverage": 0.9998,
+      "execution": "frozen measured partial MVM operators; CPU LIF and frozen CPU head",
+      "exploratory_measured_lut": true,
+      "live_hardware_per_image": false,
+      "new_readout": false,
+      "original_6965_reproduction_claim": false,
+      "physical_hardware": false,
+      "silent": 2,
+      "strict_accuracy": 0.5867,
+      "strict_correct": 5867,
+      "strict_failed_loads": 0,
+      "test_feature_nonzero": 49492857,
+      "test_images": 10000,
+      "test_labels_used_for_selection": false,
+      "test_spikes": 65450766,
+      "tied": 0,
+      "wilson95_argmax": [
+        0.5772177497643208,
+        0.5965155113188555
+      ],
+      "wilson95_strict": [
+        0.5770171359747343,
+        0.5963162787077905
+      ]
+    },
+    "acquisition_session": "d89929ba-f869-4992-bf95-bac27a392e59",
+    "baseline_method": "bracket_centered",
+    "elapsed_seconds": 1200.765000000014,
+    "error": null,
+    "scope": "exploratory CPU inference from frozen measured operators",
+    "session_id": "7d200893-5501-4637-9733-b2a41ba57064",
+    "source": "simulator",
+    "status": "completed"
+  },
+  "adaptation": {
+    "accuracy": {
+      "conditional_accuracy": 0.6780356071214243,
+      "conventional_argmax_accuracy": 0.6781,
+      "coverage": 0.9998,
+      "new_readout": true,
+      "original_6965_reproduction_claim": false,
+      "physical_hardware": false,
+      "silent": 2,
+      "strict_accuracy": 0.6779,
+      "strict_correct": 6779,
+      "test_feature_nonzero": 49492857,
+      "test_images": 10000,
+      "test_spikes": 65450766,
+      "tied": 0,
+      "wilson95_argmax": [
+        0.6688760655962712,
+        0.6871871541840938
+      ],
+      "wilson95_strict": [
+        0.6686746499692254,
+        0.6869887234104878
+      ]
+    },
+    "baseline_argmax_accuracy": 0.5869,
+    "baseline_strict_accuracy": 0.5867,
+    "elapsed_seconds": 695.2339999999967,
+    "error": null,
+    "exploratory_previously_seen_test": true,
+    "hardware_calls": 0,
+    "live_hardware_per_image": false,
+    "new_stdp_training": false,
+    "scope": "readout adaptation over frozen measured simulator operators and CPU LIF",
+    "selected_epochs": 11,
+    "session_id": "3f83030f-4230-42ed-8557-58334e9d84dc",
+    "source": "simulator",
+    "status": "completed",
+    "strict_delta_percentage_points": 9.119999999999994,
+    "test_label_reads": 1
+  },
+  "selected_validation": {
+    "epoch": 11,
+    "fit_loss": 0.8642494649887085,
+    "validation_argmax_accuracy": 0.678,
+    "validation_strict_accuracy": 0.678,
+    "validation_strict_correct": 1356
+  },
+  "provenance": {
+    "acquisition": "d89929ba-f869-4992-bf95-bac27a392e59",
+    "acquisition_manifest_sha256": "145bbc0b789cbb74f0830293435653d431e25486e6a40147481f0c19406441c8",
+    "baseline": "7d200893-5501-4637-9733-b2a41ba57064",
+    "baseline_argmax_accuracy": 0.5869,
+    "baseline_manifest_sha256": "5282954a290cb3a56c67fd2206cf97f3a35cf5eb81ea0d3548e8ac848a6c1e74",
+    "baseline_strict_accuracy": 0.5867,
+    "extended_key_count": 722,
+    "frozen_asset_sha256": {
+      "input_masks.npy": "8b90c47889bd1b577ba766375dda3e1fd2a691614844440bda0cadd76531afb8",
+      "learned_conductances.json": "0fd5729f33b833827ba6fc1522ea5c176739128ce8cbb50bc36b1032ea3a85a8",
+      "readout.pt": "de314d03a5a1d47b9fc99e4533a143dd81683b911dfda38e89677c9731faca00",
+      "scaler.pt": "7dff3c26cdcee948ff5b820e0505b27dfaa8ebb62299afdd34f289e756e3af07"
+    },
+    "labels_used_for_masks": false,
+    "map_sha256": "c403d912315bf1a931bb5a4a6bec1b0add9ab1646ac01b10fd458ad6ba131bdb",
+    "measurement_source": "simulator",
+    "old_test_lut_bit_identical": true,
+    "original_key_count": 722,
+    "original_lut_sha256": "8d55963c4a84b1aa4a1a1bb0681960234664cc6265f84fa839097b580e81b638",
+    "test_counts_sha256": "6f2b192c611e81c60c5e8081781366d5ec546c7588d1fed83a1e33b12fccba2a",
+    "train_encoding_sha256": {
+      "train": "10f658b7ddffdf089fe0501cfe303548dfa090e8c336f7915e25334c49e2e4b0"
+    },
+    "train_key_count": 480
+  },
+  "notes": [
+    "Exploratory: test previously observed",
+    "Frozen measured operators, CPU LIF and CPU classifier",
+    "Hardware run is separate; no hardware accuracy claimed here"
+  ]
+}
